@@ -1,28 +1,28 @@
 @import "./normalize.css";
 
-@import "./_css/base/main.css";
-@import "./_css/base/fonts.css";
-@import "./_css/base/colors.css";
-@import "./_css/base/borders.css";
+@import "./base/main.css";
+@import "./base/fonts.css";
+@import "./base/colors.css";
+@import "./base/borders.css";
 
-@import "./_css/ui/button.css";
-@import "./_css/ui/card.css";
-@import "./_css/ui/container.css";
-@import "./_css/ui/dialog-footer.css";
-@import "./_css/ui/dialog-header.css";
-@import "./_css/ui/dialog.css";
-@import "./_css/ui/drawer.css";
-@import "./_css/ui/flex-grid.css";
-@import "./_css/ui/group.css";
-@import "./_css/ui/icon-button.css";
-@import "./_css/ui/input.css";
-@import "./_css/ui/spinner.css";
-@import "./_css/ui/text.css";
-@import "./_css/ui/top-app-bar.css";
+@import "./ui/button.css";
+@import "./ui/card.css";
+@import "./ui/container.css";
+@import "./ui/dialog-footer.css";
+@import "./ui/dialog-header.css";
+@import "./ui/dialog.css";
+@import "./ui/drawer.css";
+@import "./ui/flex-grid.css";
+@import "./ui/group.css";
+@import "./ui/icon-button.css";
+@import "./ui/input.css";
+@import "./ui/spinner.css";
+@import "./ui/text.css";
+@import "./ui/top-app-bar.css";
 
-@import "./_css/utils/flex.css";
-@import "./_css/utils/has.css";
-@import "./_css/utils/is.css";
-@import "./_css/utils/no.css";
+@import "./utils/flex.css";
+@import "./utils/has.css";
+@import "./utils/is.css";
+@import "./utils/no.css";
 
 @import "./themes/zinc.css";

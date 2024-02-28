@@ -6,4 +6,5 @@ export * as FlexGrid from "./flex-grid";
 export * as Input from "./input";
 export * as Spinner from "./spinner";
 export * as Text from "./text";
+export * as Theme from "./theme";
 export * as TopAppBar from "./top-app-bar";
