@@ -29,11 +29,6 @@
 	export let value;
 	$: typeof value === "number" && !!thumb && valueChange();
 
-	/** @type {string} */
-	export let width = "100%";
-	/** @type {string} */
-	export let height = "1.25em";
-
 	/***********************
 	 * Variable Definitions
 	 ***********************/
