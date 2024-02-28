@@ -1,0 +1,41 @@
+.no-shadow {
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.no-user-select {
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: noen;
+    user-select: none;
+}
+
+.no-overflow {
+    overflow: hidden;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-touch {
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+.no-radius {
+    border-radius: 0;
+}

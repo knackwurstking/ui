@@ -1,0 +1,10 @@
+.ui-card {
+    background-color: hsl(var(--card-bg));
+    color: hsl(var(--card-fg));
+
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
+
+    padding: var(--spacing);
+    overflow: hidden;
+}

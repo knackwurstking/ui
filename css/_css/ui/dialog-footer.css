@@ -1,0 +1,19 @@
+.ui-dialog-footer {
+    padding: var(--spacing);
+    margin-top: var(--spacing);
+    border-bottom-right-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.ui-dialog-footer > * {
+    margin: auto calc(var(--spacing) / 2);
+}
+
+.ui-dialog-footer *:last-child {
+    margin-right: 0;
+}

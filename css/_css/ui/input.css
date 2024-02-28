@@ -1,0 +1,39 @@
+.ui-input.ui-input-text,
+.ui-input.ui-input-number {
+    width: 100%;
+
+    border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
+
+    transition: border-color .25s linear;
+}
+
+.ui-input.focus {
+    border-color: hsl(var(--primary));
+}
+
+.ui-input.invalid {
+    border-color: hsl(var(--destructive));
+}
+
+.ui-input-title {
+    font-size: 0.85em;
+    font-weight: 300;
+    font-style: italic;
+    padding-left: var(--spacing);
+    padding-right: var(--spacing);
+}
+
+.ui-input input {
+    width: 100%;
+
+    margin: 0;
+    padding-top: calc(var(--spacing) / 1.5);
+
+    border: none;
+    outline-offset: 0 !important;
+    outline: none !important;
+}
+
+.ui-input:has(input:focus) {
+    border-color: hsl(var(--primary));
+}

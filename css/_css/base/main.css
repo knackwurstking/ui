@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+article {
+    padding: var(--spacing);
+}
+
+section {
+    padding: var(--spacing) 0;
+}
+
+figure {
+    overflow: auto;
+}
+
+/**
+ * Text html tags
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+/**
+ * button
+ */
+
+button:focus {
+    outline: none;
+}
+
+/**
+ * code, pre, var, kbd, samp
+ */
+
+code,
+pre {
+    display: block;
+    padding: calc(var(--spacing) / 2);
+}
+
+code {
+    display: inline-block;
+}
+
+/**
+ * input, textarea, select
+ */
+
+select,
+input,
+textarea {
+    display: block;
+    transition: border-color .25s linear;
+}
+
+input {
+    padding: var(--spacing) calc(var(--spacing) * 1.5);
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    cursor: pointer;
+    transform: scale(1.4);
+}
+
+input[type="color"] {
+    height: calc(var(--spacing) * 2 + 2em);
+    padding: var(--spacing) var(--spacing);
+    cursor: pointer;
+}
+
+input:disabled {
+    opacity: 0.25;
+}
+
+select,
+textarea {
+    display: block;
+    padding: var(--spacing);
+    outline: none;
+}
+
+/**
+ * List tags: ul, li
+ */
+
+ul {
+    list-style: none;
+    padding: var(--spacing);
+    overflow: hidden;
+}
+
+ul > * {
+    padding: var(--spacing);
+}
+
+/**
+ * Table
+ */
+
+table {
+    width: 100%;
+
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: noen;
+    user-select: none;
+}
+
+th, td {
+    padding: var(--spacing);
+}
+
+td {
+    word-break: break-all;
+}

@@ -1,0 +1,62 @@
+.ui-icon-button {
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+
+    font-size: 1em;
+
+    padding: var(--spacing);
+
+    background-color: transparent;
+
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
+
+    outline: none;
+
+    overflow: hidden;
+    transition: background-color .2s ease;
+
+    box-shadow: none;
+
+    cursor: pointer;
+}
+
+.ui-icon-button > * {
+    width: 100%;
+    height: 100%;
+}
+
+.ui-icon-button.ghost {
+    border-color: transparent !important;
+}
+
+.ui-icon-button.foreground {
+    color: hsl(var(--fg));
+    border-color: hsl(var(--fg));
+}
+
+.ui-icon-button.primary {
+    color: hsl(var(--primary));
+    border-color: hsl(var(--primary));
+}
+
+.ui-icon-button.secondary {
+    color: hsl(var(--secondary));
+    border-color: hsl(var(--secondary));
+}
+
+.ui-icon-button.destructive {
+    color: hsl(var(--destructive));
+    border-color: hsl(var(--destructive));
+}
+
+/* :disabled */
+
+.ui-icon-button:disabled,
+.ui-icon-button:disabled:hover,
+.ui-icon-button:disabled:active {
+    background-color: transparent;
+    opacity: 0.25;
+    cursor: default;
+}

@@ -1,0 +1,41 @@
+.ui-text-primary {
+    font-size: 1.1em;
+    font-weight: normal;
+}
+
+.ui-text-secondary {
+    font-size: 0.9em;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.ui-text-label {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: calc(var(--spacing) / 4) calc(var(--spacing) / 2);
+}
+
+.ui-text-label:not(.row) {
+    flex-direction: column;
+}
+
+.ui-text-label > span:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ui-text-label.row > span:nth-child(1) {
+    margin-right: var(--spacing);
+    width: 100%;
+}
+
+.ui-text-label:not(.row) > span:nth-child(1) {
+    margin-left: calc(var(--spacing) / 2);
+}
+
+.ui-text-label > span:nth-child(2) {
+    display: flex;
+    align-items: center;
+}

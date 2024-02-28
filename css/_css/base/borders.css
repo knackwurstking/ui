@@ -1,0 +1,36 @@
+hr {
+    border: none;
+    height: var(--border-width);
+    margin: var(--spacing) 0;
+}
+
+code,
+pre {
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
+}
+
+select,
+input,
+textarea {
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
+}
+
+input:focus:not([type=checkbox]),
+textarea:focus {
+    border-color: hsl(var(--primary));
+}
+
+input[aria-invalid="true"] {
+    border-color: hsl(var(--destructive));
+    outline-color: hsl(var(--destructive));
+}
+
+table {
+    border-collapse: separate;
+}
+
+th, td {
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+}

@@ -1,0 +1,119 @@
+.ui-button {
+    padding: var(--spacing) calc(var(--spacing) * 1.5);
+    border: var(--border-width) var(--border-style) currentColor;
+    border-radius: var(--radius);
+    box-shadow: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color .2s ease;
+}
+
+.ui-button .background {
+    background-color: currentColor;
+    transition: background-color .25s ease;
+    opacity: 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* variant: full */
+
+.ui-button.full {
+    border: none;
+}
+
+.ui-button.full.active .background {
+    transition: opacity .25s ease .4s;
+    opacity: .2;
+}
+
+.ui-button.full.foreground:not(.outline, .none) {
+    background-color: hsl(var(--fg));
+    color: hsl(var(--bg));
+}
+
+.ui-button.full.primary:not(.outline, .none) {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-fg));
+}
+
+.ui-button.full.secondary:not(.outline, .none) {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-fg));
+}
+
+.ui-button.full.destructive:not(.outline, .none) {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-fg));
+}
+
+/* variant: outline */
+
+.ui-button.outline.active .background {
+    transition: opacity .25s ease .4s;
+    opacity: .2;
+}
+
+.ui-button.outline {
+    border-color: currentColor;
+    background-color: transparent;
+}
+
+.ui-button.outline.foreground {
+    color: hsl(var(--fg));
+}
+
+.ui-button.outline.primary {
+    color: hsl(var(--primary));
+}
+
+.ui-button.outline.secondary {
+    color: hsl(var(--secondary));
+}
+
+.ui-button.outline.destructive {
+    color: hsl(var(--destructive));
+}
+
+/* variant: ghost */
+
+.ui-button.ghost.active .background {
+    transition: opacity .25s ease .4s;
+    opacity: .2;
+}
+
+.ui-button.ghost {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.ui-button.ghost.foreground {
+    color: hsl(var(--fg));
+}
+
+.ui-button.ghost.primary {
+    color: hsl(var(--primary));
+}
+
+.ui-button.ghost.secondary {
+    color: hsl(var(--secondary));
+}
+
+.ui-button.ghost.destructive {
+    color: hsl(var(--destructive));
+}
+
+/* :disabled */
+
+.ui-button:disabled,
+.ui-button:disabled:hover,
+.ui-button:disabled:active {
+    background-color: transparent;
+    opacity: 0.25;
+    cursor: default;
+}
