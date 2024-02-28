@@ -1,7 +1,5 @@
 <script>
-	// TODO: move styles to css
-
-	import { onDestroy, createEventDispatcher } from 'svelte';
+	import { onDestroy, createEventDispatcher } from "svelte";
 
 	/***********
 	 * Bindings
@@ -29,12 +27,12 @@
 
 	/** @type {number} */
 	export let value;
-	$: typeof value === 'number' && !!thumb && valueChange();
+	$: typeof value === "number" && !!thumb && valueChange();
 
 	/** @type {string} */
-	export let width = '100%';
+	export let width = "100%";
 	/** @type {string} */
-	export let height = '1.25em';
+	export let height = "1.25em";
 
 	/***********************
 	 * Variable Definitions
@@ -58,7 +56,7 @@
 		 */
 		function moveThumb(width, range) {
 			value = Math.round(100 / (width / range)) + min;
-			if (initialized) dispatch('input', value);
+			if (initialized) dispatch("input", value);
 		}
 
 		/** @param {PointerEvent} ev */
@@ -67,12 +65,12 @@
 
 			const left = parentRangeRect.left;
 			const right = parentRangeRect.right;
-			const currentY = ev.clientX;
+			const currently = ev.clientX;
 
-			let _rangeWidth = currentY - left;
-			if (currentY > right) {
+			let _rangeWidth = currently - left;
+			if (currently > right) {
 				_rangeWidth = parentRangeRect.width;
-			} else if (currentY < left) {
+			} else if (currently < left) {
 				_rangeWidth = 0;
 			}
 
@@ -80,28 +78,28 @@
 		};
 
 		const end = async () => {
-			thumb.style.transform = 'scale(1)';
+			thumb.style.transform = "scale(1)";
 
-			window.removeEventListener('pointermove', move);
-			window.removeEventListener('pointerup', end);
-			window.removeEventListener('pointercancel', end);
+			window.removeEventListener("pointermove", move);
+			window.removeEventListener("pointerup", end);
+			window.removeEventListener("pointercancel", end);
 		};
 
 		/** @param {PointerEvent} ev */
 		const start = async (ev) => {
-			thumb.style.transform = 'scale(1.25)';
+			thumb.style.transform = "scale(1.25)";
 
-			window.addEventListener('pointermove', move);
-			window.addEventListener('pointerup', end);
-			window.addEventListener('pointercancel', end);
+			window.addEventListener("pointermove", move);
+			window.addEventListener("pointerup", end);
+			window.addEventListener("pointercancel", end);
 
 			move(ev);
 		};
 
-		slider.addEventListener('pointerdown', start);
+		slider.addEventListener("pointerdown", start);
 
 		cleanUp.push(() => {
-			slider.removeEventListener('pointerdown', start);
+			slider.removeEventListener("pointerdown", start);
 			end();
 		});
 
@@ -119,7 +117,7 @@
 		function moveThumb(width, range) {
 			rangeWidth = `${100 / (width / range)}%`;
 			thumbLeft = `calc(${100 / (width / range)}% - (${thumbWidth} / 2))`;
-			if (initialized) dispatch('change', value);
+			if (initialized) dispatch("change", value);
 		}
 
 		moveThumb(max - min, value - min);
@@ -135,49 +133,22 @@
 <div
 	{...$$restProps}
 	bind:this={slider}
-	class={'ui-input-slider ' + ($$restProps.class || '')}
-	style={`--slider-color: hsl(var(--primary));` + ($$restProps.style || '')}
-	style:position="relative"
-	style:width
-	style:height
-	style:cursor="pointer"
-	style:padding-left="1em"
-	style:padding-right="1em"
+	class={"ui-input-slider " + ($$restProps.class || "")}
+	style={`--slider-color: hsl(var(--primary));` + ($$restProps.style || "")}
 >
-	<span style:width="100%" style:display="flex" style:align-items="center">
-		<div
-			class="range-container"
-			style:width="100%"
-			style:height=".35em"
-			style:background-color="hsl(var(--secondary))"
-			style:border-radius="var(--radius)"
-		>
+	<span>
+		<div class="ui-slider-range-container">
 			<div
 				bind:this={range}
-				class="range"
-				style:width={rangeWidth || '0'}
-				style:height="100%"
-				style:background-color="var(--slider-color)"
-				style:border-radius="var(--radius)"
+				class="ui-slider-range"
+				style={`width: ${rangeWidth || "0"};`}
 			/>
 		</div>
 
 		<div
 			bind:this={thumb}
-			class="thumb"
-			style:position="absolute"
-			style:left={thumbLeft || '-.625em'}
-			style:width="1.25em"
-			style:height="1.25em"
-			style:border-radius="50%"
-			style:background-color="var(--slider-color)"
-			style:transition="transform .25s ease"
+			class="ui-slider-thumb"
+			style={`--thumb-left: ${thumbLeft || "-.625em"};`}
 		/>
 	</span>
 </div>
-
-<style>
-	* {
-		touch-action: none;
-	}
-</style>
