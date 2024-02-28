@@ -3,7 +3,7 @@
  * @param {HTMLElement} el
  * @param {import("./index.js").DraggableOptions} options
  */
-export function draggable(el, { ondragging = null, ondragend = null }) {
+export function draggable(el, { ondragstart = null, ondragging = null, ondragend = null }) {
     const children = [...el.parentNode.children]
     const index = children.indexOf(el)
 
@@ -17,6 +17,8 @@ export function draggable(el, { ondragging = null, ondragend = null }) {
             "text/plain",
             index.toString(),
         )
+
+        if (!!ondragstart) ondragstart(index)
     }
 
     el.ondragover = (ev) => {
