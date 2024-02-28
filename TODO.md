@@ -1,3 +1,3 @@
 # TODO
 
-- [ ] Move svelte theme files to /svelte from /css
+- [x] Move svelte theme files to /svelte from /css
