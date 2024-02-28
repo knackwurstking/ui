@@ -1,12 +1,22 @@
 {
   "name": "ui",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Just an ui lib for my projects.",
   "main": "index.js",
+  "style": "main.min.css",
+  "files": [
+    "LICENSE",
+    "css",
+    "js",
+    "svelte",
+    "index.js"
+  ],
+  "repository": "knackwurstking/ui",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:css": "cleancss -o main.min.css css/main.css"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3"
+  }
 }
