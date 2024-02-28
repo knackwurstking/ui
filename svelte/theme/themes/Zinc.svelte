@@ -1,10 +1,10 @@
 <script>
-	import { onMount } from 'svelte';
+    import { onMount } from "svelte";
 
-	onMount(() => {
-		const style = document.createElement('style');
-		style.classList.add('theme');
-		style.innerText = `
+    onMount(() => {
+        const style = document.createElement("style");
+        style.classList.add("theme");
+        style.innerText = `
             [data-theme=light] {
                 --bg: 240, 10%, 96.1%;
                 --fg: 0, 10%, 3.9%;
@@ -15,7 +15,7 @@
                 --primary: 240, 5.9%, 10%;
                 --primary-fg: 0, 0%, 98%;
 
-                --secondary: 240, 4.8%, 95.9%;
+                --secondary: 240, 4.8%, 85.9%;
                 --secondary-fg: 0, 5.9%, 10%;
 
                 --muted: 240, 4.8%, 95.9%;
@@ -89,8 +89,8 @@
                 color: hsl(var(--fg));
             }
         `;
-		const toRemove = document.head.querySelector('style.theme');
-		if (toRemove) document.head.removeChild(toRemove);
-		document.head.insertBefore(style, document.head.querySelector('style'));
-	});
+        const toRemove = document.head.querySelector("style.theme");
+        if (toRemove) document.head.removeChild(toRemove);
+        document.head.insertBefore(style, document.head.querySelector("style"));
+    });
 </script>
