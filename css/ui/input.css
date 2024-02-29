@@ -7,7 +7,8 @@
  */
 
 .ui-input-text,
-.ui-input-number {
+.ui-input-number,
+.ui-input-month {
     border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
 
     transition: border-color .25s linear;
