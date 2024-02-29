@@ -1,6 +1,4 @@
 <script>
-	// TODO: move styles to css
-
 	import { createEventDispatcher } from "svelte";
 
 	import TextSearch from "svelte-material-icons/TextSearch.svelte";
