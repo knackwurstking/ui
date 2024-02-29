@@ -127,6 +127,53 @@
 }
 
 /*
+ * input search component
+ */
+
+.ui-input-search {
+	position: relative;
+	width: 100%;
+
+	border: var(--border-width) var(--border-style) hsl(var(--border));
+	border-radius: var(--radius);
+
+	transition: border-color 0.25s linear;
+}
+
+.ui-input-search.focus {
+	border-color: hsl(var(--primary));
+}
+
+.ui-input-search.invalid {
+	border-color: hsl(var(--destructive));
+}
+
+.ui-input-search input {
+	width: 100%;
+
+	margin: 0;
+	padding-top: calc(var(--spacing) / 1.5);
+
+	border: none;
+	outline-offset: 0 !important;
+	outline: none !important;
+}
+
+.ui-input-search:not(.ui-input-search-no-submit) input {
+	padding-right: calc(2.5em + var(--spacing));
+}
+
+.ui-input-search .ui-input-search-submit {
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    padding: .25em;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*
  * misc input component stuff here
  */
 
