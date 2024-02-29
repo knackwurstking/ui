@@ -24,7 +24,7 @@
 
 <div
 	{...$$restProps}
-	class={"ui-input-month " + ($$restProps.class || "")}
+	class={"ui-input ui-input-month " + ($$restProps.class || "")}
 	class:focus
 	class:invalid
 >

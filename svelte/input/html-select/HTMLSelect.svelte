@@ -27,7 +27,7 @@
 
 <select
 	{...$$restProps}
-	class={"ui-input-html-select " + ($$restProps.class || "")}
+	class={"ui-input ui-input-html-select " + ($$restProps.class || "")}
 	value={selected?.value || undefined}
 	on:change={(ev) => {
 		selected =

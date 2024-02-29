@@ -35,7 +35,7 @@
 
 <div
 	{...$$restProps}
-	class={"ui-input-search " + ($$restProps.class || "")}
+	class={"ui-input ui-input-search " + ($$restProps.class || "")}
 	class:focus
 	class:invalid
 	class:ui-input-search-no-submit={disableSubmit}

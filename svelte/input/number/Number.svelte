@@ -19,7 +19,7 @@
 
 <div
 	{...$$restProps}
-	class={"ui-input-number " + ($$restProps.class || "")}
+	class={"ui-input ui-input-number " + ($$restProps.class || "")}
 	class:invalid
 >
 	{#if !!title}
