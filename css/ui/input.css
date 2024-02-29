@@ -2,12 +2,20 @@
     width: 100%;
 }
 
+/*
+ * input text and number component
+ */
+
 .ui-input-text,
 .ui-input-number {
     border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
 
     transition: border-color .25s linear;
 }
+
+/*
+ * input slider component
+ */
 
 .ui-input-slider {
     --slider-color: hsl(var(--primary));
@@ -55,6 +63,11 @@
     background-color: var(--slider-color);
     transition: transform .25s ease;
 }
+
+/*
+ * input select component
+ */
+
 
 .ui-input-select {
 	font-size: 0.95em;
@@ -113,6 +126,9 @@
 	background-color: hsl(var(--fg), 0.1);
 }
 
+/*
+ * misc input component stuff here
+ */
 
 .ui-input.focus {
     border-color: hsl(var(--primary));
