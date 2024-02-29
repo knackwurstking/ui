@@ -56,6 +56,64 @@
     transition: transform .25s ease;
 }
 
+.ui-input-select {
+	font-size: 0.95em;
+	border: var(--border-width) var(--border-style) hsl(var(--border));
+	border-radius: var(--radius);
+	overflow: hidden;
+	transition: height 0.25s ease;
+}
+
+.ui-input-select .ui-input-select-options {
+	cursor: pointer;
+    display: none
+}
+
+.ui-input-select.open .ui-input-select-options {
+    display: block;
+}
+
+.ui-input-select:not(.open) .ui-input-select-options:has(> .selected) {
+    display: block;
+}
+
+.ui-input-select .ui-input-select-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 2.5em;
+	color: hsl(var(--primary));
+}
+
+.ui-input-select.open .ui-input-select-icon {
+	display: none;
+}
+
+.ui-input-select:not(.open) .ui-input-select-option:not(.selected) {
+	display: none;
+}
+
+.ui-input-select .ui-input-select-option {
+	height: 100%;
+	padding: var(--spacing);
+	padding-right: 2.5em;
+	transition: background-color 0.25s linear;
+}
+
+.ui-input-select.open .ui-input-select-option.selected {
+	background-color: hsl(var(--primary));
+	color: hsl(var(--primary-fg));
+}
+
+.ui-input-select.open .ui-input-select-option:not(.selected):hover {
+	background-color: hsl(var(--fg), 0.1);
+}
+
+
 .ui-input.focus {
     border-color: hsl(var(--primary));
 }

@@ -128,7 +128,7 @@
 <div
 	{...$$restProps}
 	bind:this={slider}
-	class={"ui-input-slider " + ($$restProps.class || "")}
+	class={"ui-input ui-input-slider " + ($$restProps.class || "")}
 	style={`--slider-color: hsl(var(--primary));` + ($$restProps.style || "")}
 >
 	<span>
