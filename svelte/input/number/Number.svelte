@@ -3,8 +3,8 @@
 	 * Variable Export Definitions
 	 ******************************/
 
-	export let title = '';
-	export let placeholder = '';
+	export let title = "";
+	export let placeholder = "";
 
 	/** @type {number} */
 	export let min = undefined;
@@ -17,9 +17,21 @@
 	export let invalid = false;
 </script>
 
-<div {...$$restProps} class={'ui-input-number ' + ($$restProps.class || '')} class:invalid>
+<div
+	{...$$restProps}
+	class={"ui-input-number " + ($$restProps.class || "")}
+	class:invalid
+>
 	{#if !!title}
-		<span class="title">{title}</span>
+		<span class="ui-input-title">{title}</span>
 	{/if}
-	<input type="number" {placeholder} {min} {max} bind:value on:change on:input />
+	<input
+		type="number"
+		{placeholder}
+		{min}
+		{max}
+		bind:value
+		on:change
+		on:input
+	/>
 </div>
