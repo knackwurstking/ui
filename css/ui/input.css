@@ -164,6 +164,17 @@
 }
 
 /*
+ * input html-select component
+ */
+
+.ui-input-html-select {
+	border: none;
+	border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
+	border-radius: 0;
+	cursor: pointer;
+}
+
+/*
  * misc input component stuff here
  */
 

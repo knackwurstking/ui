@@ -1,7 +1,7 @@
 <script>
 	// TODO: move styles to css
 
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher } from "svelte";
 
 	/**
 	 * @typedef SelectItem
@@ -27,23 +27,15 @@
 
 <select
 	{...$$restProps}
-	class={'ui-input-html-select ' + ($$restProps.class || '')}
+	class={"ui-input-html-select " + ($$restProps.class || "")}
 	value={selected?.value || undefined}
 	on:change={(ev) => {
-		selected = items.find((i) => i.value === ev.currentTarget.value) || null;
-		dispatch('change', selected);
+		selected =
+			items.find((i) => i.value === ev.currentTarget.value) || null;
+		dispatch("change", selected);
 	}}
 >
 	{#each items as item}
 		<option value={item.value}>{item.label}</option>
 	{/each}
 </select>
-
-<style>
-	select {
-		border: none;
-		border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
-		border-radius: 0;
-		cursor: pointer;
-	}
-</style>
