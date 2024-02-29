@@ -148,17 +148,6 @@
 	border-color: hsl(var(--destructive));
 }
 
-.ui-input-search input {
-	width: 100%;
-
-	margin: 0;
-	padding-top: calc(var(--spacing) / 1.5);
-
-	border: none;
-	outline-offset: 0 !important;
-	outline: none !important;
-}
-
 .ui-input-search:not(.ui-input-search-no-submit) input {
 	padding-right: calc(2.5em + var(--spacing));
 }
