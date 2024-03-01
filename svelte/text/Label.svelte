@@ -6,14 +6,18 @@
 	export let primary = "";
 	export let secondary = "";
 	export let useLabel = false;
+
 	export let useRipple = false;
+	$: (!!useRipple && (ripple = Ripple.Root)) || (ripple = () => null);
+
+	let ripple;
 </script>
 
 {#if useLabel}
 	<label
 		{...$$restProps}
 		class={"ui-text-label " + ($$restProps.class || "")}
-		use:Ripple.Root
+		use:ripple
 	>
 		<span class="no-user-select">
 			{#if !!primary}
