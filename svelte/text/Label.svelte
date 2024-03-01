@@ -41,7 +41,7 @@
 	<span
 		{...$$restProps}
 		class={"ui-text-label " + ($$restProps.class || "")}
-		use:Ripple.Root
+		use:ripple
 	>
 		<span class="no-user-select">
 			{#if !!primary}
