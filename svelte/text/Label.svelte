@@ -7,14 +7,12 @@
 	export let secondary = "";
 	export let useLabel = false;
 	export let useRipple = false;
-	export let row = false;
 </script>
 
 {#if useLabel}
 	<label
 		{...$$restProps}
 		class={"ui-text-label " + ($$restProps.class || "")}
-		class:row
 		use:Ripple.Root
 	>
 		<span class="no-user-select">
@@ -39,7 +37,6 @@
 	<span
 		{...$$restProps}
 		class={"ui-text-label " + ($$restProps.class || "")}
-		class:row
 		use:Ripple.Root
 	>
 		<span class="no-user-select">

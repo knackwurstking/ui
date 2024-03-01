@@ -21,23 +21,12 @@
     border-radius: var(--radius);
 }
 
-.ui-text-label:not(.row) {
-    flex-direction: column;
-}
-
 .ui-text-label > span:nth-child(1) {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.ui-text-label.row > span:nth-child(1) {
     margin-right: var(--spacing);
     width: 100%;
-}
-
-.ui-text-label:not(.row) > span:nth-child(1) {
-    margin-left: calc(var(--spacing) / 2);
 }
 
 .ui-text-label > span:nth-child(2) {
