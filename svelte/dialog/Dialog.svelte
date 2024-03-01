@@ -19,7 +19,7 @@
 
 <dialog
 	{...$$restProps}
-	class={'ui-dialog ' + ($$restProps.class || '')}
+	class={"ui-dialog " + ($$restProps.class || "")}
 	bind:this={dialog}
 	class:fullscreen
 >
