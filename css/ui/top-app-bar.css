@@ -12,6 +12,8 @@
 
     background-color: hsla(var(--bg), .2);
     backdrop-filter: blur(5px);
+
+    overflow: hidden;
 }
 
 .ui-app-bar.ui-app-bar-top > .ui-app-bar-main {
