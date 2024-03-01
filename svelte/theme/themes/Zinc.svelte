@@ -15,8 +15,8 @@
                 --primary: 240, 5.9%, 10%;
                 --primary-fg: 0, 0%, 98%;
 
-                --secondary: 240, 3.7%, 65%;
-                --secondary-fg: 0, 3.7%, 10%;
+                --secondary: 240, 5.9%, 75%;
+                --secondary-fg: 0, 5.9%, 10%;
 
                 --muted: 240, 4.8%, 95.9%;
                 --muted-fg: 0, 3.8%, 46.1%; 
@@ -24,7 +24,7 @@
                 --destructive: 0, 72.22%, 50.59%;
                 --destructive-fg: 0, 0%, 98%;
 
-                --border: 240, 5.9%, 90%;
+                --border: 240, 5.9%, 82%;
                 --border-width: 1px;
                 --border-style: solid;
 
@@ -52,8 +52,8 @@
                 --primary: 240, 5.9%, 98%;
                 --primary-fg: 0, 0%, 10%;
 
-                --secondary: 240, 3.7%, 35%;
-                --secondary-fg: 0, 0%, 98%;
+                --secondary: 240, 5.9%, 25%;
+                --secondary-fg: 0, 5.9%, 98%;
 
                 --muted: 240, 3.7%, 15.9%;
                 --muted-fg: 0, 5%, 64.9%;
@@ -61,7 +61,7 @@
                 --destructive: 0, 62.8%, 30.6%;
                 --destructive-fg: 0, 0%, 98%;
 
-                --border: 240, 3.7%, 15.9%;
+                --border: 240, 5.9%, 18%;
                 --border-width: 1px;
                 --border-style: solid;
 
