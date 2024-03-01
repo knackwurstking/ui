@@ -1,1 +1,1 @@
-<div {...$$restProps} class={'ui-spinner' + ($$restProps.class || '')} />
+<div {...$$restProps} class={"ui-spinner" + ($$restProps.class || "")} />
