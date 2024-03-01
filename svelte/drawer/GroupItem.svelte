@@ -1,3 +1,6 @@
-<li {...$$restProps} class={'ui-drawer-group-item ' + ($$restProps.class || '')}>
+<li
+	{...$$restProps}
+	class={"ui-drawer-group-item " + ($$restProps.class || "")}
+>
 	<slot />
 </li>
