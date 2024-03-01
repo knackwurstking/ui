@@ -8,7 +8,7 @@
 
 	/** @type {"light" | "dark" | undefined | null} */
 	export let mode = undefined;
-	$: (mode === "light" || mode === "dark") && setDataTheme(mode);
+	$: setDataTheme(mode);
 
 	/** @type {"zinc"} */
 	export let variant = "zinc"; // NOTE: "zinc" is the default theme (always loaded)
@@ -35,7 +35,9 @@
 	 * @param {"dark" | "light"} mode
 	 */
 	async function setDataTheme(mode) {
-		document.body.setAttribute("data-theme", mode);
+		if (mode === "dark" || mode === "light") {
+			document.body.setAttribute("data-theme", mode);
+		}
 	}
 
 	/**
@@ -46,6 +48,7 @@
 			if (window.matchMedia && media) {
 				media.removeEventListener("change", onDarkChange);
 			}
+
 			return;
 		}
 
