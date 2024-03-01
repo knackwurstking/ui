@@ -1,5 +1,5 @@
 .ui-card {
-    background-color: hsl(var(--card-bg));
+    background-color: hsl(var(--card));
     color: hsl(var(--card-fg));
 
     border: var(--border-width) var(--border-style) hsl(var(--border));
