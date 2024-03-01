@@ -8,7 +8,7 @@
 <div
 	{...$$restProps}
 	class={"ui-grid-row " + ($$restProps.class || "")}
-	style={(!!gap ? `--gap: ${gap};` : "") + ($$restProps.style || "")}
+	style={(!!gap ? `--row-gap: ${gap};` : "") + ($$restProps.style || "")}
 >
 	<slot />
 </div>
