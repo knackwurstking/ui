@@ -7,6 +7,8 @@
     position: relative;
     overflow: hidden;
     transition: background-color .2s ease;
+
+    font-weight: bold;
 }
 
 .ui-button .background {
@@ -30,11 +32,6 @@
 .ui-button.full.active .background {
     transition: opacity .25s ease .4s;
     opacity: .2;
-}
-
-.ui-button.full.foreground:not(.outline, .none) {
-    background-color: hsl(var(--fg));
-    color: hsl(var(--bg));
 }
 
 .ui-button.full.primary:not(.outline, .none) {
@@ -64,10 +61,6 @@
     background-color: transparent;
 }
 
-.ui-button.outline.foreground {
-    color: hsl(var(--fg));
-}
-
 .ui-button.outline.primary {
     color: hsl(var(--primary));
 }
@@ -90,10 +83,6 @@
 .ui-button.ghost {
     border-color: transparent;
     background-color: transparent;
-}
-
-.ui-button.ghost.foreground {
-    color: hsl(var(--fg));
 }
 
 .ui-button.ghost.primary {

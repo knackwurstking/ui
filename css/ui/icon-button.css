@@ -31,11 +31,6 @@
     border-color: transparent !important;
 }
 
-.ui-icon-button.foreground {
-    color: hsl(var(--fg));
-    border-color: hsl(var(--fg));
-}
-
 .ui-icon-button.primary {
     color: hsl(var(--primary));
     border-color: hsl(var(--primary));

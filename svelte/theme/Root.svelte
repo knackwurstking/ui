@@ -1,6 +1,6 @@
 <script>
 	import "../../css/normalize.css";
-	import "../../css/main.css";
+	import "../../css/svelte-main.css";
 
 	import { onDestroy } from "svelte";
 

@@ -6,7 +6,7 @@
 	 */
 	let button;
 
-	/** @type {"foreground" | "primary" | "secondary" | "destructive"} */
+	/** @type {"primary" | "secondary" | "destructive"} */
 	export let color = "primary";
 
 	export let ghost = false;

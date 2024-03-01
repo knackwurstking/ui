@@ -15,8 +15,8 @@
                 --primary: 240, 5.9%, 10%;
                 --primary-fg: 0, 0%, 98%;
 
-                --secondary: 240, 4.8%, 85.9%;
-                --secondary-fg: 0, 5.9%, 10%;
+                --secondary: 240, 3.7%, 65%;
+                --secondary-fg: 0, 3.7%, 10%;
 
                 --muted: 240, 4.8%, 95.9%;
                 --muted-fg: 0, 3.8%, 46.1%; 
@@ -38,11 +38,6 @@
                 --radius: 0.25rem;
                 --spacing: .5em;
 
-                --debug: ;   /* TODO: yellow hsl */
-                --info: ;    /* TODO: yellow hsl */
-                --warning: ; /* TODO: yellow hsl */
-                --error: ;   /* TODO: yellow hsl */
-
                 background: hsl(var(--bg));
                 color: hsl(var(--fg));
             }
@@ -57,7 +52,7 @@
                 --primary: 240, 5.9%, 98%;
                 --primary-fg: 0, 0%, 10%;
 
-                --secondary: 240, 3.7%, 15.9%;
+                --secondary: 240, 3.7%, 35%;
                 --secondary-fg: 0, 0%, 98%;
 
                 --muted: 240, 3.7%, 15.9%;
@@ -79,11 +74,6 @@
 
                 --radius: 0.25rem;
                 --spacing: .5em;
-
-                --debug: ;   /* TODO: yellow hsl */
-                --info: ;    /* TODO: yellow hsl */
-                --warning: ; /* TODO: yellow hsl */
-                --error: ;   /* TODO: yellow hsl */
 
                 background: hsl(var(--bg));
                 color: hsl(var(--fg));
