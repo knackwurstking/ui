@@ -28,7 +28,7 @@ textarea {
 }
 
 input[type="checkbox"] {
-    accent-color: hsl(var(--primary-fg));
+    accent-color: hsl(var(--primary));
 }
 
 thead th {
