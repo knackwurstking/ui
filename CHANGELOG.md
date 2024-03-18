@@ -2,4 +2,5 @@
 
 ## v0.1.1 ureleased
 
-- Added top/bottom padding for ios mobile
+- Added "has" utils: ".has-save-area"
+- Changed dialog paddings (top/bottom) for `env(save-area-inset-*)`
