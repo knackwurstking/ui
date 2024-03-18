@@ -8,6 +8,15 @@ body {
     color: hsl(var(--fg));
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-shadow: .1em .1em .1em hsla(var(--primary), .2);
+}
+
 hr {
     background-color: hsl(var(--border));
 }
