@@ -20,6 +20,9 @@
     scrollbar-width: none;
 
     z-index: 999;
+
+    padding-top: calc(env(safe-area-inset-top, 0) + var(--spacing));
+    padding-bottom: calc(env(safe-area-inset-bottom, 0) + var(--spacing));
 }
 
 .ui-dialog::-webkit-scrollbar {
