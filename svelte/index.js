@@ -2,6 +2,7 @@ export * as Button from "./button";
 export * as Card from "./card";
 export * as Dialog from "./dialog";
 export * as Drawer from "./drawer";
+export * as EdgeDrawer from "./edge-drawer";
 export * as FlexGrid from "./flex-grid";
 export * as Input from "./input";
 export * as Spinner from "./spinner";
