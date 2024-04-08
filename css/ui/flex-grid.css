@@ -5,15 +5,15 @@
     flex-flow: column nowrap;
 }
 
-.ui-grid > * {
+.ui-grid>* {
     margin: var(--gap, 0) 0;
 }
 
-.ui-grid > *:first-child {
+.ui-grid>*:first-child {
     margin-top: 0;
 }
 
-.ui-grid > *:last-child {
+.ui-grid>*:last-child {
     margin-bottom: 0;
 }
 
@@ -25,19 +25,20 @@
     flex-flow: row nowrap;
 }
 
-.ui-grid-row > * {
+.ui-grid-row>* {
     margin: 0 var(--row-gap);
 }
 
-.ui-grid-row > *:first-child {
+.ui-grid-row>*:first-child {
     margin-left: 0;
 }
 
-.ui-grid-row > *:last-child {
+.ui-grid-row>*:last-child {
     margin-right: 0;
 }
 
 .ui-grid-col {
     padding: 0;
     flex: 1;
+    flex-flow: column nowrap;
 }
