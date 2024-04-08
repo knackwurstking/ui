@@ -23,6 +23,7 @@
 .ui-icon-button>* {
     width: 100%;
     height: 100%;
+    fill: currentColor;
 }
 
 .ui-icon-button.ghost {
