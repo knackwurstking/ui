@@ -18,5 +18,5 @@
     "license": "MIT",
     "devDependencies": {
         "clean-css-cli": "^5.6.3"
-    },
+    }
 }

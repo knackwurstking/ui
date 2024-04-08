@@ -9,7 +9,6 @@ export class ThemeHandler {
         /** @type {MediaQueryList | null} */
         this._media = null;
         this._mediaChangeHandler = (ev) => {
-            console.log("update data theme", ev.matches)
             if (ev.matches) {
                 document.body.setAttribute("data-theme", "dark");
             } else {
