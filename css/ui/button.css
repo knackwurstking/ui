@@ -2,7 +2,6 @@
     padding: var(--spacing) calc(var(--spacing) * 1.5);
     border: var(--border-width) var(--border-style) currentColor;
     border-radius: var(--radius);
-    box-shadow: none;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -74,6 +73,10 @@
 }
 
 /* variant: ghost */
+
+.ui-button.ghost {
+    box-shadow: none;
+}
 
 .ui-button.ghost.active .background {
     transition: opacity .25s ease .4s;

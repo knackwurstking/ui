@@ -50,8 +50,10 @@
     left: 0;
 }
 
+/*
 .ui-drawer-group-title {
 }
+*/
 
 .ui-drawer-group-item {
     padding: var(--spacing) calc(var(--spacing) * 1.5);

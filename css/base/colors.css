@@ -43,3 +43,5 @@ input[type="checkbox"] {
 thead th {
     background-color: hsl(var(--border));
 }
+
+/* TODO: create box shadows for buttons, ... */
