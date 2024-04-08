@@ -1,3 +1,5 @@
+export * as theme from "./theme"
+
 /**
  * @returns {boolean}
  */

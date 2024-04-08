@@ -1,3 +1,3 @@
-export * as Draggable from "./draggable"
-export * as Ripple from "./ripple"
-export * as Utils from "./utils"
+export * as draggable from "./draggable"
+export * as ripple from "./ripple"
+export * as utils from "./utils"
