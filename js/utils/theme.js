@@ -19,6 +19,8 @@ export class ThemeHandler {
 
     addTheme(name, href) {
         this.themes[name] = href
+
+        return this
     }
 
     loadTheme(name) {
@@ -58,6 +60,8 @@ export class ThemeHandler {
         this._media = window.matchMedia('(prefers-color-scheme: dark)')
         this._mediaChangeHandler(this._media)
         this._media.addEventListener("change", this._mediaChangeHandler)
+
+        return this
     }
 
     stop() {
@@ -65,5 +69,7 @@ export class ThemeHandler {
             this._media.removeEventListener("change", this._mediaChangeHandler)
             this._media = null
         }
+
+        return this
     }
 }

@@ -1,7 +1,7 @@
-export { rippleStart as Start } from "./start";
-export { rippleStop as Stop } from "./stop";
+export { ripple as create } from "./ripple";
 
-export { ripple as Root } from "./ripple";
+export { rippleStart as start } from "./start";
+export { rippleStop as stop } from "./stop";
 
 /**
  * @typedef RippleOptions
