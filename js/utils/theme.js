@@ -1,3 +1,5 @@
+// TODO: on macos the browser theme customisation will be ignored? need to change in system settings
+
 /**
  * @typedef Modes
  * @type {"system" | "dark" | "light"}
