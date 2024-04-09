@@ -2,7 +2,7 @@
 
 /**
  * @typedef Modes
- * @type {"system" | "dark" | "light"}
+ * @type {"dark" | "light"}
  */
 
 export class ThemeHandler {
@@ -16,13 +16,6 @@ export class ThemeHandler {
     /** @type {MediaQueryList | null} */
     this._media = null;
     this._mediaChangeHandler = (ev) => {
-      if (document.body.getAttribute("data-theme") === "system") {
-        console.warn(
-          `data-theme is set to "system", need to manually remove this for auto handling`,
-        );
-        return;
-      }
-
       if (ev.matches) {
         document.body.setAttribute("data-theme", "dark");
       } else {
@@ -72,9 +65,6 @@ export class ThemeHandler {
    */
   setMode(mode, element = document.body) {
     switch (mode) {
-      case "system":
-        element.setAttribute("data-theme", mode);
-        break;
       case "dark":
         element.setAttribute("data-theme", mode);
         break;
