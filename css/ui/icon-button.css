@@ -15,15 +15,19 @@
     outline: none;
 
     overflow: hidden;
-    transition: background-color .2s ease;
+    transition: background-color 0.2s ease;
 
     cursor: pointer;
 }
 
-.ui-icon-button>* {
+.ui-icon-button > * {
     width: 100%;
     height: 100%;
-    fill: currentColor;
+}
+
+.ui-icon-button * {
+    color: inherit;
+    background-color: inherit;
 }
 
 .ui-icon-button.ghost {
