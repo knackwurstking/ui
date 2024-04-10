@@ -41,10 +41,9 @@ export default class Events {
   /**
    * @param {string} key
    * @param {((data: any) => void|Promise<void>)} listener
-   * @returns {((data: any) => void|Promise<void>) | null}
    */
   removeListener(key, listener) {
-    if (!this.listeners[key]) return
+    if (!this.listeners[key]) return this
 
     let index = 0
     for (const l of this.listeners[key]) {
@@ -54,6 +53,6 @@ export default class Events {
       index++
     }
 
-    return listener
+    return this
   }
 }
