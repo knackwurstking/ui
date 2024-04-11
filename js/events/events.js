@@ -13,7 +13,6 @@ export default class Events {
   dispatchWithData(key, data) {
     if (!!this.listeners[key]) {
       for (const listener of this.listeners[key]) {
-        console.log(`storage: "${key}":`, data)
         listener(data)
       }
     }
