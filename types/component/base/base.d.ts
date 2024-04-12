@@ -1,9 +1,22 @@
+/**
+ * @typedef BaseOptions
+ * @type {{
+ *  id?: string;
+ *  className?: string;
+ *  elementCreationOptions?: ElementCreationOptions | null | undefined;
+ *  attributes?: { [key: string]: string };
+ * }}
+ */
+/**
+ *@type {BaseOptions}
+ */
+export const defaultOptions: BaseOptions;
 export default class Base {
     /**
-    * @param {any} tagName
-    * @param {ElementCreationOptions} options
-    */
-    constructor(tagName: any, options?: ElementCreationOptions);
+     * @param {any} tagName
+     * @param {BaseOptions | null} options
+     */
+    constructor(tagName: any, options?: BaseOptions | null);
     get element(): HTMLElement;
     set innerHTML(value: string);
     get innerHTML(): string;
@@ -11,3 +24,11 @@ export default class Base {
     get innerText(): string;
     #private;
 }
+export type BaseOptions = {
+    id?: string;
+    className?: string;
+    elementCreationOptions?: ElementCreationOptions | null | undefined;
+    attributes?: {
+        [key: string]: string;
+    };
+};

@@ -1,22 +1,24 @@
-export default class Button extends Base {
+/**
+ * @typedef ButtonOptions
+ * @type {{
+ *  text?: string;
+ *  html?: string;
+ *  variant?: "full" | "outline" | "ghost";
+ *  color?: "primary" | "secondary" | "destructive";
+ * }}
+ */
+export default class Button extends base.Base {
     /**
-     * @param {Object} option
-     * @param {"full" | "outline" | "ghost"} option.variant
-     * @param {"primary" | "secondary" | "destructive"} option.color
-     * @param {ElementCreationOptions | null | undefined} option.elementCreationOptions
-     * @param {string} option.className
-     * @param {{ [key: string]: string }} option.attributes
+     * @param {import("../base").BaseOptions & ButtonOptions} options
      */
-    constructor({ variant, color, elementCreationOptions, className, attributes }: {
-        variant: "full" | "outline" | "ghost";
-        color: "primary" | "secondary" | "destructive";
-        elementCreationOptions: ElementCreationOptions | null | undefined;
-        className: string;
-        attributes: {
-            [key: string]: string;
-        };
-    });
+    constructor(options?: import("../base").BaseOptions & ButtonOptions);
     /** @returns {HTMLButtonElement} */
     get element(): HTMLButtonElement;
 }
-import { Base } from "../base";
+export type ButtonOptions = {
+    text?: string;
+    html?: string;
+    variant?: "full" | "outline" | "ghost";
+    color?: "primary" | "secondary" | "destructive";
+};
+import * as base from "../base";

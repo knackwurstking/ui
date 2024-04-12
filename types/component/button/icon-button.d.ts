@@ -1,24 +1,22 @@
-export default class IconButton extends Base {
+/**
+ * @typedef IconButtonOptions
+ * @type {{
+ *  icon?: string;
+ *  ghost?: boolean;
+ *  color?: "primary" | "secondary" | "destructive";
+ * }}
+ */
+export default class IconButton extends base.Base {
     /**
-     * @param {Object} option
-     * @param {string} option.icon - will be added to the innerHTML
-     * @param {"primary" | "secondary" | "destructive"} option.color
-     * @param {boolean} option.ghost
-     * @param {ElementCreationOptions | null | undefined} option.elementCreationOptions
-     * @param {string} option.className
-     * @param {{ [key: string]: string }} option.attributes
+     * @param {Object & import("../base").BaseOptions & IconButtonOptions} options
      */
-    constructor({ icon, color, ghost, elementCreationOptions, className, attributes }: {
-        icon: string;
-        color: "primary" | "secondary" | "destructive";
-        ghost: boolean;
-        elementCreationOptions: ElementCreationOptions | null | undefined;
-        className: string;
-        attributes: {
-            [key: string]: string;
-        };
-    });
+    constructor(options?: any & import("../base").BaseOptions & IconButtonOptions);
     /** @returns {HTMLButtonElement} */
     get element(): HTMLButtonElement;
 }
-import { Base } from "../base";
+export type IconButtonOptions = {
+    icon?: string;
+    ghost?: boolean;
+    color?: "primary" | "secondary" | "destructive";
+};
+import * as base from "../base";

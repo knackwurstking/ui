@@ -1,30 +1,35 @@
-import { Base } from "../base"
+import * as base from "../base";
 
-export default class Button extends Base {
+/**
+ * @typedef ButtonOptions
+ * @type {{
+ *  text?: string;
+ *  html?: string;
+ *  variant?: "full" | "outline" | "ghost";
+ *  color?: "primary" | "secondary" | "destructive";
+ * }}
+ */
+
+// TODO: Add ripple
+export default class Button extends base.Base {
   /**
-   * @param {Object} option
-   * @param {"full" | "outline" | "ghost"} option.variant
-   * @param {"primary" | "secondary" | "destructive"} option.color
-   * @param {ElementCreationOptions | null | undefined} option.elementCreationOptions
-   * @param {string} option.className
-   * @param {{ [key: string]: string }} option.attributes
+   * @param {import("../base").BaseOptions & ButtonOptions} options
    */
-  constructor({ variant = "full", color = "primary", elementCreationOptions = null, className = "", attributes = {} }) {
-    super("button", elementCreationOptions)
+  constructor(options = base.defaultOptions) {
+    options = { ...base.defaultOptions, ...(options || {}) };
+    super("button", options);
 
-    this.element.className = className || ""
-    this.element.classList.add("ui-button")
-    this.element.classList.add(variant)
-    this.element.classList.add(color)
+    this.element.classList.add("ui-button");
+    this.element.classList.add(options.variant || "full");
+    this.element.classList.add(options.color || "primary");
 
-    for (const [k, v] of Object.entries(attributes)) {
-      this.element.setAttribute(k, v)
-    }
+    if (!!options.text) this.element.innerHTML = options.text;
+    if (!!options.html) this.element.innerHTML = options.html;
   }
 
   /** @returns {HTMLButtonElement} */
   get element() {
     // @ts-ignore
-    return super.element
+    return super.element;
   }
 }
