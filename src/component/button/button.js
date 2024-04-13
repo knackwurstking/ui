@@ -1,3 +1,4 @@
+import * as ripple from "../../ripple";
 import * as base from "../base";
 
 /**
@@ -7,11 +8,14 @@ import * as base from "../base";
  *  html?: string;
  *  variant?: "full" | "outline" | "ghost";
  *  color?: "primary" | "secondary" | "destructive";
+ *  ripple?: import("../../ripple").RippleOptions | false | null;
  * }}
  */
 
-// TODO: Add ripple
 export default class Button extends base.Base {
+  /** @type {ripple.RippleOptions} */
+  #ripple;
+
   /**
    * @param {import("../base").BaseOptions & ButtonOptions} options
    */
@@ -25,6 +29,24 @@ export default class Button extends base.Base {
 
     if (!!options.text) this.element.innerHTML = options.text;
     if (!!options.html) this.element.innerHTML = options.html;
+
+    this.#ripple = !options.ripple
+      ? options.ripple === undefined
+        ? {}
+        : null
+      : options.ripple;
+    ripple.create(this.element, this.#ripple);
+  }
+
+  get ripple() {
+    return this.#ripple;
+  }
+
+  /**
+   * @param {ripple.RippleOptions | false | null} ripple
+   */
+  set ripple(ripple) {
+    this.#ripple = !ripple ? null : ripple;
   }
 
   /** @returns {HTMLButtonElement} */
