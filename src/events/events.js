@@ -3,7 +3,7 @@ export default class Events {
   listeners;
 
   constructor() {
-    this.listeners = {}
+    this.listeners = {};
   }
 
   /**
@@ -13,11 +13,11 @@ export default class Events {
   dispatchWithData(key, data) {
     if (!!this.listeners[key]) {
       for (const listener of this.listeners[key]) {
-        listener(data)
+        listener(data);
       }
     }
 
-    return this
+    return this;
   }
 
   /**
@@ -27,14 +27,14 @@ export default class Events {
    */
   addListener(key, listener) {
     if (!this.listeners[key]) {
-      this.listeners[key] = []
+      this.listeners[key] = [];
     }
 
     this.listeners[key].push(listener);
 
-    return (() => {
-      this.removeListener(key, listener)
-    })
+    return () => {
+      this.removeListener(key, listener);
+    };
   }
 
   /**
@@ -42,16 +42,16 @@ export default class Events {
    * @param {((data: any) => void|Promise<void>)} listener
    */
   removeListener(key, listener) {
-    if (!this.listeners[key]) return this
+    if (!this.listeners[key]) return this;
 
-    let index = 0
+    let index = 0;
     for (const l of this.listeners[key]) {
       if (l === listener) {
-        this.listeners[key].splice(index, 1)
+        this.listeners[key].splice(index, 1);
       }
-      index++
+      index++;
     }
 
-    return this
+    return this;
   }
 }
