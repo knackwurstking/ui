@@ -5,12 +5,7 @@
   "main": "src/index.js",
   "types": "types/index.d.ts",
   "style": "main.min.css",
-  "files": [
-    "LICENSE",
-    "css",
-    "src",
-    "index.js"
-  ],
+  "files": ["LICENSE", "css", "src", "index.js", "svelte"],
   "repository": "knackwurstking/ui",
   "scripts": {
     "build:css": "cleancss -o main.min.css css/main.css",
