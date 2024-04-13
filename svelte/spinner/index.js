@@ -1,1 +1,1 @@
-export { default as Root } from "./Spinner.svelte";
+export { default as Root } from "./Root.svelte";

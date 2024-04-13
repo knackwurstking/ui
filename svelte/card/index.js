@@ -1,1 +1,1 @@
-export { default as Root } from "./Card.svelte";
+export { default as Root } from "./Root.svelte";
