@@ -4,7 +4,7 @@
  *  icon?: string;
  *  ghost?: boolean;
  *  color?: "primary" | "secondary" | "destructive";
- *  ripple?: import("../../ripple").RippleOptions | false | null;
+ *  ripple?: import("../../ripple").RippleOptions | boolean | null;
  * }}
  */
 export default class IconButton extends base.Base {
@@ -25,7 +25,7 @@ export type IconButtonOptions = {
     icon?: string;
     ghost?: boolean;
     color?: "primary" | "secondary" | "destructive";
-    ripple?: import("../../ripple").RippleOptions | false | null;
+    ripple?: import("../../ripple").RippleOptions | boolean | null;
 };
 import * as base from "../base";
 import * as ripple from "../../ripple";

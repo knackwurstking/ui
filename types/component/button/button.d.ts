@@ -5,7 +5,7 @@
  *  html?: string;
  *  variant?: "full" | "outline" | "ghost";
  *  color?: "primary" | "secondary" | "destructive";
- *  ripple?: import("../../ripple").RippleOptions | false | null;
+ *  ripple?: import("../../ripple").RippleOptions | boolean | null;
  * }}
  */
 export default class Button extends base.Base {
@@ -27,7 +27,7 @@ export type ButtonOptions = {
     html?: string;
     variant?: "full" | "outline" | "ghost";
     color?: "primary" | "secondary" | "destructive";
-    ripple?: import("../../ripple").RippleOptions | false | null;
+    ripple?: import("../../ripple").RippleOptions | boolean | null;
 };
 import * as base from "../base";
 import * as ripple from "../../ripple";

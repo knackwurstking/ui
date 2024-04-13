@@ -8,7 +8,7 @@ import * as base from "../base";
  *  html?: string;
  *  variant?: "full" | "outline" | "ghost";
  *  color?: "primary" | "secondary" | "destructive";
- *  ripple?: import("../../ripple").RippleOptions | false | null;
+ *  ripple?: import("../../ripple").RippleOptions | boolean | null;
  * }}
  */
 
@@ -32,9 +32,11 @@ export default class Button extends base.Base {
 
     this.#ripple = !options.ripple
       ? options.ripple === undefined
-        ? {}
+        ? {} // Using default settings (if undefined)
         : null
-      : options.ripple;
+      : options.ripple === true
+        ? {} // Using default settings (if true)
+        : options.ripple;
     ripple.create(this.element, this.#ripple);
   }
 

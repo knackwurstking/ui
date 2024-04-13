@@ -7,7 +7,7 @@ import * as base from "../base";
  *  icon?: string;
  *  ghost?: boolean;
  *  color?: "primary" | "secondary" | "destructive";
- *  ripple?: import("../../ripple").RippleOptions | false | null;
+ *  ripple?: import("../../ripple").RippleOptions | boolean | null;
  * }}
  */
 
@@ -30,9 +30,11 @@ export default class IconButton extends base.Base {
 
     this.#ripple = !options.ripple
       ? options.ripple === undefined
-        ? { centered: true }
+        ? { centered: true } // Using default settings (if undefined)
         : null
-      : options.ripple;
+      : options.ripple === true
+        ? { centered: true } /// Using default settings (if true)
+        : options.ripple;
     ripple.create(this.element, this.#ripple);
   }
 
