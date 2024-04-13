@@ -8,9 +8,9 @@
  */
 export default class IconButton extends base.Base {
     /**
-     * @param {Object & import("../base").BaseOptions & IconButtonOptions} options
+     * @param {import("../base").BaseOptions & IconButtonOptions} options
      */
-    constructor(options?: any & import("../base").BaseOptions & IconButtonOptions);
+    constructor(options?: import("../base").BaseOptions & IconButtonOptions);
     /** @returns {HTMLButtonElement} */
     get element(): HTMLButtonElement;
 }

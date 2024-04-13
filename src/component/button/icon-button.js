@@ -12,7 +12,7 @@ import * as base from "../base";
 // TODO: Add ripple
 export default class IconButton extends base.Base {
   /**
-   * @param {Object & import("../base").BaseOptions & IconButtonOptions} options
+   * @param {import("../base").BaseOptions & IconButtonOptions} options
    */
   constructor(options = {}) {
     options = { ...base.defaultOptions, ...(options || {}) };
