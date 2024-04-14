@@ -19,7 +19,7 @@ export default class Button extends base.Base {
   /**
    * @param {import("../base").BaseOptions & ButtonOptions} options
    */
-  constructor(options = base.defaultOptions) {
+  constructor(options = null) {
     options = { ...base.defaultOptions, ...(options || {}) };
     super("button", options);
 

@@ -18,7 +18,7 @@ export default class IconButton extends base.Base {
   /**
    * @param {import("../base").BaseOptions & IconButtonOptions} options
    */
-  constructor(options = {}) {
+  constructor(options = null) {
     options = { ...base.defaultOptions, ...(options || {}) };
     super("button", options);
 

@@ -29,6 +29,7 @@ export default class Base {
    * @param {BaseOptions | null} options
    */
   constructor(tagName, options = null) {
+    options = { ...defaultOptions, ...(options || {}) };
     this.#root = document.createElement(
       tagName,
       options.elementCreationOptions,
