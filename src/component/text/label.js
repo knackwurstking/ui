@@ -1,3 +1,4 @@
+import * as ripple from "../../ripple";
 import * as base from "../base";
 import Primary from "./primary";
 import Secondary from "./secondary";
@@ -8,6 +9,7 @@ import Secondary from "./secondary";
  *  input?: base.Base;
  *  primary?: string;
  *  secondary?: string;
+ *  ripple?: import("../../ripple").RippleOptions | boolean | null;
  * }}
  */
 
@@ -15,6 +17,9 @@ export default class Label extends base.Base {
   #primary;
   #secondary;
   #input;
+
+  /** @type {ripple.RippleOptions} */
+  #ripple;
 
   /**
    * @param {import("../base").BaseOptions & LabelOptions} options
@@ -41,6 +46,15 @@ export default class Label extends base.Base {
       this.#input = options.input;
       this.element.appendChild(this.#input.element);
     }
+
+    this.#ripple = !options.ripple
+      ? options.ripple === undefined
+        ? {} // Using default settings (if undefined)
+        : null
+      : options.ripple === true
+        ? {} // Using default settings (if true)
+        : options.ripple;
+    ripple.create(this.element, this.#ripple);
   }
 
   getPrimary() {
