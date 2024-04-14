@@ -11,9 +11,10 @@ export default class Label extends base.Base {
      * @param {import("../base").BaseOptions & LabelOptions} options
      */
     constructor(options?: import("../base").BaseOptions & LabelOptions);
-    primary: Primary;
-    secondary: Secondary;
-    input: base.Base;
+    getPrimary(): Primary;
+    getSecondary(): Secondary;
+    getInput(): base.Base;
+    #private;
 }
 export type LabelOptions = {
     input?: base.Base;

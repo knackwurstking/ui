@@ -12,6 +12,10 @@ import Secondary from "./secondary";
  */
 
 export default class Label extends base.Base {
+  #primary;
+  #secondary;
+  #input;
+
   /**
    * @param {import("../base").BaseOptions & LabelOptions} options
    */
@@ -21,18 +25,33 @@ export default class Label extends base.Base {
 
     this.element.classList.add("ui-text-label");
 
-    this.primary = null;
-    this.secondary = null;
+    this.#primary = null;
+    this.#secondary = null;
     if (options.primary) {
-      this.primary = new Primary({ text: options.primary });
+      this.#primary = new Primary({ text: options.primary });
+      this.element.appendChild(this.#primary.element);
     }
     if (options.secondary) {
-      this.secondary = new Secondary({ text: options.primary });
+      this.#secondary = new Secondary({ text: options.primary });
+      this.element.appendChild(this.#secondary.element);
     }
 
-    this.input = null;
+    this.#input = null;
     if (options.input) {
-      this.input = options.input;
+      this.#input = options.input;
+      this.element.appendChild(this.#input.element);
     }
+  }
+
+  getPrimary() {
+    return this.#primary;
+  }
+
+  getSecondary() {
+    return this.#secondary;
+  }
+
+  getInput() {
+    return this.#input;
   }
 }
