@@ -3,6 +3,7 @@
  * @type {{
  *  id?: string;
  *  className?: string;
+ *  style?: { [key: string]: string };
  *  elementCreationOptions?: ElementCreationOptions | null | undefined;
  *  attributes?: { [key: string]: string };
  * }}
@@ -27,6 +28,9 @@ export default class Base {
 export type BaseOptions = {
     id?: string;
     className?: string;
+    style?: {
+        [key: string]: string;
+    };
     elementCreationOptions?: ElementCreationOptions | null | undefined;
     attributes?: {
         [key: string]: string;

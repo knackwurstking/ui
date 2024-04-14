@@ -3,6 +3,7 @@
  * @type {{
  *  id?: string;
  *  className?: string;
+ *  style?: { [key: string]: string };
  *  elementCreationOptions?: ElementCreationOptions | null | undefined;
  *  attributes?: { [key: string]: string };
  * }}
@@ -14,6 +15,7 @@
 export const defaultOptions = {
   id: "",
   className: "",
+  style: {},
   elementCreationOptions: null,
   attributes: {},
 };
@@ -35,9 +37,12 @@ export default class Base {
     this.#root.className = options.className;
     this.#root.id = options.id;
 
-    for (const [k, v] of Object.entries(options.attributes)) {
-      this.element.setAttribute(k, v);
-    }
+    Object.entries(options.style).forEach(
+      ([k, v]) => (this.element.style[k] = v),
+    );
+    Object.entries(options.attributes).forEach(([k, v]) =>
+      this.element.setAttribute(k, v),
+    );
   }
 
   get element() {
