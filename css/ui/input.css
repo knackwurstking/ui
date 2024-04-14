@@ -12,7 +12,7 @@
 .ui-input-date {
     border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
 
-    transition: border-color .25s linear;
+    transition: border-color 0.25s linear;
 }
 
 /*
@@ -44,7 +44,7 @@
 
 .ui-input-slider > * > .ui-slider-range-container {
     width: 100%;
-    height: .35em;
+    height: 0.35em;
     background-color: hsl(var(--secondary));
     border-radius: var(--radius);
 }
@@ -63,29 +63,32 @@
     height: 1.25em;
     border-radius: 50%;
     background-color: var(--slider-color);
-    transition: transform .25s ease;
+    transition: transform 0.25s ease;
 }
 
 /*
  * input select component
  */
 
-
 .ui-input-select {
-	font-size: 0.95em;
-	border: var(--border-width) var(--border-style) hsl(var(--border));
-	border-radius: var(--radius);
-	overflow: hidden;
-	transition: height 0.25s ease;
+    font-size: 0.95em;
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: height 0.25s ease;
+    height: calc(1em * var(--line-height) + var(--spacing) * 2);
 }
 
 .ui-input-select .ui-input-select-options {
-	cursor: pointer;
-    display: none
+    cursor: pointer;
+    display: none;
 }
 
 .ui-input-select.open .ui-input-select-options {
     display: block;
+    height: calc(
+        (1em * var(--line-height) + var(--spacing) * 2) * var(--items-length)
+    );
 }
 
 .ui-input-select:not(.open) .ui-input-select-options:has(> .selected) {
@@ -93,39 +96,39 @@
 }
 
 .ui-input-select .ui-input-select-icon {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 2.5em;
-	color: hsl(var(--primary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2.5em;
+    color: hsl(var(--primary));
 }
 
 .ui-input-select.open .ui-input-select-icon {
-	display: none;
+    display: none;
 }
 
 .ui-input-select:not(.open) .ui-input-select-option:not(.selected) {
-	display: none;
+    display: none;
 }
 
 .ui-input-select .ui-input-select-option {
-	height: 100%;
-	padding: var(--spacing);
-	padding-right: 2.5em;
-	transition: background-color 0.25s linear;
+    height: 100%;
+    padding: var(--spacing);
+    padding-right: 2.5em;
+    transition: background-color 0.25s linear;
 }
 
 .ui-input-select.open .ui-input-select-option.selected {
-	background-color: hsl(var(--primary));
-	color: hsl(var(--primary-fg));
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-fg));
 }
 
 .ui-input-select.open .ui-input-select-option:not(.selected):hover {
-	background-color: hsl(var(--fg), 0.1);
+    background-color: hsl(var(--fg), 0.1);
 }
 
 /*
@@ -133,25 +136,25 @@
  */
 
 .ui-input-search {
-	position: relative;
-	width: 100%;
+    position: relative;
+    width: 100%;
 
-	border: var(--border-width) var(--border-style) hsl(var(--border));
-	border-radius: var(--radius);
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
 
-	transition: border-color 0.25s linear;
+    transition: border-color 0.25s linear;
 }
 
 .ui-input-search.focus {
-	border-color: hsl(var(--primary));
+    border-color: hsl(var(--primary));
 }
 
 .ui-input-search.invalid {
-	border-color: hsl(var(--destructive));
+    border-color: hsl(var(--destructive));
 }
 
 .ui-input-search:not(.ui-input-search-no-submit) input {
-	padding-right: calc(2.5em + var(--spacing));
+    padding-right: calc(2.5em + var(--spacing));
 }
 
 .ui-input-search .ui-input-search-submit {
@@ -159,7 +162,7 @@
     height: 100%;
     bottom: 0;
     right: 0;
-    padding: .25em;
+    padding: 0.25em;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -169,10 +172,10 @@
  */
 
 .ui-input-html-select {
-	border: none;
-	border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
-	border-radius: 0;
-	cursor: pointer;
+    border: none;
+    border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: 0;
+    cursor: pointer;
 }
 
 /*
