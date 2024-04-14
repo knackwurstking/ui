@@ -4,6 +4,7 @@
  *  input?: base.Base;
  *  primary?: string;
  *  secondary?: string;
+ *  ripple?: import("../../ripple").RippleOptions | boolean | null;
  * }}
  */
 export default class Label extends base.Base {
@@ -20,6 +21,7 @@ export type LabelOptions = {
     input?: base.Base;
     primary?: string;
     secondary?: string;
+    ripple?: import("../../ripple").RippleOptions | boolean | null;
 };
 import * as base from "../base";
 import Primary from "./primary";
