@@ -2,26 +2,33 @@ import * as base from "../base";
 import innerHTML from "./select-html.js";
 
 /**
- * @typedef CheckboxOptions
+ * @typedef SelectItem
  * @type {{
- *  items?: { value: string, label: string }[];
+ *  value: string,
+ *  label: string,
+ *  selected?: boolean
+ * }}
+ *
+ * @typedef SelectOptions
+ * @type {{
+ *  items?: SelectItem[];
  * }}
  */
 
 export default class Select extends base.Base {
-  /** @type {{ value: string, label: string }[]} */
+  /** @type {SelectItem[]} */
   #items;
 
   /**
-   * @param {import("../base").BaseOptions & CheckboxOptions} options
+   * @param {import("../base").BaseOptions & SelectOptions} options
    */
   constructor(options = null) {
+    // TODO: add always open option
     options = { ...base.defaultOptions, ...(options || {}) };
     super("div", options);
 
     this.element.classList.add("ui-input");
     this.element.classList.add("ui-input-select");
-    // TODO: handle class "open" - just add open/close methods
     this.innerHTML = innerHTML;
 
     // NOTE: need to always set/update the items length (--items-length)
@@ -33,7 +40,7 @@ export default class Select extends base.Base {
   }
 
   /**
-   * @param {{ value: string, label: string }[]} items
+   * @param {SelectItem[]} items
    */
   setItems(items) {
     this.#items = items;
@@ -43,26 +50,27 @@ export default class Select extends base.Base {
 
   async #renderItems() {
     // Append itemss to ".ui-input-select-options" (always passing the class ".ui-input-select-option" to all items)
-    this.#items.forEach((i) => {
+    this.#items.forEach((item, i) => {
       const el = document.createElement("div");
 
       el.className = "ui-input-select-option no-user-select";
-      el.innerHTML = `<span>${i.label}</span>`;
+      if (!!item.selected) el.classList.add("selected");
+      else el.classList.remove("selected");
+      el.innerHTML = `<span>${item.label}</span>`;
 
+      this.element.querySelector(".ui-input-select-options").appendChild(el);
       el.onclick = ({ currentTarget }) => {
         // @ts-ignore
         [...currentTarget.parentElement.children].forEach(
-          (/** @type {Element} */ child, i) => {
-            if (i === 0) return; // the first item is the icon (chevron down)
+          (/** @type {Element} */ child, i2) => {
+            if (i2 === 0 || i2 === i) return; // the first item is the icon (chevron down)
             child.classList.remove("selected");
           },
         );
 
         // @ts-ignore
-        currentTarget.classList.add("slected");
+        currentTarget.classList.add("selected");
       };
-
-      this.element.querySelector(".ui-input-select-options").appendChild(el);
     });
 
     return this;

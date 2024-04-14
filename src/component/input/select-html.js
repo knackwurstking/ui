@@ -1,7 +1,7 @@
 export default `
 <div
   class="ui-input-select-options"
-  onclick='event.currentTarget.classList.toggle(".open")'
+  onclick='event.currentTarget.parentElement.classList.toggle("open")'
 >
    	<div class="ui-input-select-icon">
     		<!-- TODO: Put some chevron down icon in here - ChevronDown height="100%" width="100%" /-->
