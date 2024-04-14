@@ -1,9 +1,11 @@
 import * as base from "../base";
+import Primary from "./primary";
+import Secondary from "./secondary";
 
 /**
  * @typedef LabelOptions
  * @type {{
- *  input?: Element;
+ *  input?: base.Base;
  *  primary?: string;
  *  secondary?: string;
  * }}
@@ -19,15 +21,18 @@ export default class Label extends base.Base {
 
     this.element.classList.add("ui-text-label");
 
+    this.primary = null;
+    this.secondary = null;
     if (options.primary) {
-      // ...
+      this.primary = new Primary({ text: options.primary });
     }
     if (options.secondary) {
-      // ...
+      this.secondary = new Secondary({ text: options.primary });
     }
 
+    this.input = null;
     if (options.input) {
-      // ...
+      this.input = options.input;
     }
   }
 }
