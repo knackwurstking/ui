@@ -14,7 +14,7 @@ export default class Primary extends base.Base {
    */
   constructor(options = null) {
     options = { ...base.defaultOptions, ...(options || {}) };
-    super("label", options);
+    super("span", options);
 
     this.element.classList.add("ui-text-primary");
 
