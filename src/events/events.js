@@ -45,15 +45,21 @@ export default class Events {
      * @param {((data: any) => void|Promise<void>)} listener
      */
     removeListener(key, listener) {
-        if (!this.listeners[key]) return this;
+        if (!this.listeners[key])
+            throw `no listeners found for ${key}, there is nothing to delete`;
 
+        let match = false;
         let index = 0;
         for (const l of this.listeners[key]) {
             if (l === listener) {
                 this.listeners[key].splice(index, 1);
+                match = true;
             }
             index++;
         }
+
+        if (!match)
+            throw `listener not found for ${key}, there is nothing to delete`;
 
         return this;
     }
