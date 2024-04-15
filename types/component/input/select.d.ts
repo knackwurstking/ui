@@ -9,6 +9,7 @@
  * @typedef SelectOptions
  * @type {{
  *  items?: SelectItem[];
+ *  onchange?: ((ev: Event) => void|Promise<void>) | null
  * }}
  */
 export default class Select extends base.Base {
@@ -30,5 +31,6 @@ export type SelectItem = {
 };
 export type SelectOptions = {
     items?: SelectItem[];
+    onchange?: ((ev: Event) => void | Promise<void>) | null;
 };
 import * as base from "../base";
