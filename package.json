@@ -4,13 +4,24 @@
   "description": "Just an ui lib for my projects.",
   "main": "src/index.js",
   "style": "main.min.css",
-  "files": ["LICENSE", "css", "src", "index.js", "svelte"],
+  "files": [
+    "LICENSE",
+    "css",
+    "src",
+    "index.js",
+    "svelte"
+  ],
   "repository": "knackwurstking/ui",
   "scripts": {
-    "build:css": "cleancss -o main.min.css css/main.css"
+    "build": "npm run build:wc && npm run build:css",
+    "build:wc": "vite build --minify",
+    "build:css": "cleancss -o dist/main.min.css css/main.css"
   },
   "license": "MIT",
   "devDependencies": {
     "clean-css-cli": "^5.6.3"
+  },
+  "dependencies": {
+    "vite": "^5.2.9"
   }
 }
