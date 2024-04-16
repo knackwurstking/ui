@@ -3,13 +3,11 @@
   "version": "0.2.0",
   "description": "Just an ui lib for my projects.",
   "main": "src/index.js",
-  "types": "types/index.d.ts",
   "style": "main.min.css",
   "files": ["LICENSE", "css", "src", "index.js", "svelte"],
   "repository": "knackwurstking/ui",
   "scripts": {
-    "build:css": "cleancss -o main.min.css css/main.css",
-    "build:types": "npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types"
+    "build:css": "cleancss -o main.min.css css/main.css"
   },
   "license": "MIT",
   "devDependencies": {
