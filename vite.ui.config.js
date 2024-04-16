@@ -9,10 +9,10 @@ export default defineConfig({
             input: "src/ui.js",
             output: [
                 {
-                    dir: "dist-ui",
-                    entryFileNames: "ui.min.js",
-                }
+                    dir: "dist/ui",
+                    entryFileNames: "main.min.js",
+                },
             ],
         },
-    }
+    },
 });

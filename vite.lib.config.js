@@ -4,15 +4,11 @@ export default defineConfig({
     plugins: [],
     clearScreen: false,
     build: {
-        rollupOptions: {
-            // overwrite default .html entry
-            input: "src/index.js",
-            output: [
-                {
-                    dir: "dist-lib",
-                    entryFileNames: "lib.min.js",
-                }
-            ],
+        outDir: "dist/lib",
+        lib: {
+            entry: "src/index.js",
+            fileName: "main",
+            formats: ["cjs", "es"],
         },
-    }
+    },
 });
