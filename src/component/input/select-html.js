@@ -1,14 +1,14 @@
-import { svg } from "../..";
+import * as svg from "../../svg";
 
-export default `
+const innerHTML = `
 <div
     class="ui-input-select-options"
     onclick='event.currentTarget.parentElement.classList.toggle("open")'
 >
-   	<div class="ui-input-select-icon">
-        <!-- TODO: Put some "chevron down" svg icon in here - ChevronDown height="100%" width="100%" /-->
-   	</div>
+   	<div class="ui-input-select-icon">${svg.ChevronDown}</div>
 
     <!-- append option items in here, always use class ".ui-input-select-option" for that
 </div>
 `;
+
+export default innerHTML;
