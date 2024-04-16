@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Just an ui lib for my projects.",
   "main": "src/index.js",
-  "style": "dist-lib/main.min.css",
+  "style": "dist/ui/main.min.css",
   "files": ["LICENSE", "src", "dist-lib", "dist-ui"],
   "repository": "knackwurstking/ui",
   "scripts": {

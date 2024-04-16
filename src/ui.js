@@ -1,3 +1,9 @@
-import * as wc from "./wc";
+import * as js from "./js";
+import * as wc from "./ui";
 
-console.log("Unimplemented");
+// TODO: ...
+
+export const ui = {
+    ...js,
+    wc: wc,
+};

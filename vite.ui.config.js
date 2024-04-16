@@ -4,15 +4,11 @@ export default defineConfig({
     plugins: [],
     clearScreen: false,
     build: {
-        rollupOptions: {
-            // overwrite default .html entry
-            input: "src/ui.js",
-            output: [
-                {
-                    dir: "dist/ui",
-                    entryFileNames: "main.min.js",
-                },
-            ],
+        outDir: "dist/ui",
+        lib: {
+            entry: "src/ui.js",
+            fileName: "main",
+            formats: ["cjs", "es"],
         },
     },
 });
