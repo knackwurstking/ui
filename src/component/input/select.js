@@ -12,7 +12,7 @@ import innerHTML from "./select-html.js";
  * @typedef SelectOptions
  * @type {{
  *  items?: SelectItem[];
- *  onchange?: ((ev: Event) => void|Promise<void>) | null
+ *  onchange?: ((item: SelectItem) => void|Promise<void>) | null
  * }}
  */
 
@@ -34,7 +34,7 @@ export default class Select extends base.Base {
 
         // Need to always set/update the items length (--items-length)
         this.setItems(options.items || []);
-        this.element.onchange = options.onchange || null;
+        this.onchange = options.onchange || null;
     }
 
     getItems() {
@@ -51,27 +51,37 @@ export default class Select extends base.Base {
     }
 
     async #renderItems() {
-        // Append itemss to ".ui-input-select-options" (always passing the class ".ui-input-select-option" to all items)
-        this.#items.forEach((item, i) => {
-            const el = document.createElement("div");
+        // Append items to ".ui-input-select-options" (always passing the class ".ui-input-select-option" to all items)
+        const container = this.element.querySelector(
+            ".ui-input-select-options",
+        );
 
+        while (container.children.length > 1)
+            container.removeChild(container.lastChild);
+
+        this.#items.forEach((item) => {
+            const el = document.createElement("div");
             el.className = "ui-input-select-option no-user-select";
             if (!!item.selected) el.classList.add("selected");
             else el.classList.remove("selected");
             el.innerHTML = `<span>${item.label}</span>`;
 
-            this.element
-                .querySelector(".ui-input-select-options")
-                .appendChild(el);
-            el.onclick = ({ currentTarget }) => {
-                // @ts-ignore
-                [...currentTarget.parentElement.children].forEach(
-                    (/** @type {Element} */ child, i2) => {
-                        if (i2 === 0 || i2 === i) return; // the first item is the icon (chevron down)
-                        child.classList.remove("selected");
-                    },
-                );
+            container.appendChild(el);
 
+            el.onclick = ({ currentTarget }) => {
+                this.#items.forEach((_item) => {
+                    if (_item.value === item.value) {
+                        _item.selected = true;
+                        if (!!this.onchange) this.onchange(_item);
+                    } else {
+                        _item.selected = false;
+                    }
+                });
+
+                // @ts-ignore
+                [...currentTarget.parentElement.children].forEach((child) => {
+                    child.classList.remove("selected");
+                });
                 // @ts-ignore
                 currentTarget.classList.add("selected");
             };
