@@ -1,15 +1,15 @@
 const template = document.createElement("template");
 template.innerHTML = `
-    <style>
-        :host {
-            --row-gap: var(--gap, 0);
-            display: flex;
-            flex-flow: row nowrap;
-            width: 100%;
-        }
-    </style>
+<style>
+    :host {
+        --row-gap: var(--gap, 0);
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+    }
+</style>
 
-    <slot></slot>
+<slot></slot>
 `;
 
 export class FlexGridRow extends HTMLElement {

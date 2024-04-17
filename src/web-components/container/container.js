@@ -1,16 +1,16 @@
 const template = document.createElement("template");
 template.innerHTML = `
-    <style>
-        :host {
-            display: block;
-            width: 100%;
-            max-width: 65em;
-            margin: 0 auto;
-            padding: var(--spacing);
-        }
-    </style>
+<style>
+    :host {
+        display: block;
+        width: 100%;
+        max-width: 65em;
+        margin: 0 auto;
+        padding: var(--spacing);
+    }
+</style>
 
-    <slot></slot>
+<slot></slot>
 `;
 
 export class Container extends HTMLElement {
