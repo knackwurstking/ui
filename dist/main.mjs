@@ -379,5 +379,5 @@ const O = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   wc: O
 };
 export {
-  H as ui
+  H as default
 };

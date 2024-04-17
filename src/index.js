@@ -1,9 +1,7 @@
 import * as js from "./js";
-import * as wc from "./ui";
+import * as wc from "./web-components";
 
-// TODO: ...
-
-export const ui = {
+export default {
     ...js,
     wc: wc,
 };
