@@ -16,13 +16,16 @@ async function define() {
     customElements.define("ui-flex-grid-item", wc.FlexGridItem);
     customElements.define("ui-flex-grid-row", wc.FlexGridRow);
 
+    // Input components
+    customElements.define("ui-select", wc.Select);
+
     // Text components
     customElements.define("ui-label", wc.Label);
     customElements.define("ui-primary", wc.Primary);
     customElements.define("ui-secondary", wc.Secondary);
 
-    // Input components
-    customElements.define("ui-select", wc.Select);
+    // ThemeHandler components
+    customElements.define("ui-theme-handler", wc.ThemeHandler);
 }
 
 export default {

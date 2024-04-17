@@ -18,7 +18,9 @@ export class ThemeHandler extends HTMLElement {
     connectedCallback() {
         this._media = window.matchMedia("(prefers-color-scheme: dark)");
         this.mediaChangeHandler(this._media);
-        this._media.addEventListener("change", this.mediaChangeHandler);
+        if (this.hasAttribute("auto")) {
+            this._media.addEventListener("change", this.mediaChangeHandler);
+        }
     }
 
     /**
@@ -85,7 +87,7 @@ export class ThemeHandler extends HTMLElement {
     }
 
     /**
-     * @param {MediaQueryListEvent} ev
+     * @param {MediaQueryListEvent | MediaQueryList} ev
      */
     mediaChangeHandler(ev) {
         if (ev.matches) {
