@@ -8,6 +8,7 @@ template.innerHTML = `
         background-color: hsla(var(--bg), .2);
         backdrop-filter: blur(5px);
         overflow: hidden;
+        user-select: none;
     }
 
     :host([position="top"]) {
