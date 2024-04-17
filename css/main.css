@@ -1,4 +1,4 @@
-@import "./normalize.css";
+@import "./reset.css";
 
 @import "./base/main.css";
 @import "./base/fonts.css";
