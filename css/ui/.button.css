@@ -5,14 +5,14 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: background-color .2s ease;
+    transition: background-color 0.2s ease;
 
     font-weight: bold;
 }
 
 .ui-button .background {
     background-color: currentColor;
-    transition: background-color .25s ease;
+    transition: background-color 0.25s ease;
     opacity: 0;
 
     position: absolute;
@@ -29,8 +29,8 @@
 }
 
 .ui-button.full.active .background {
-    transition: opacity .25s ease .4s;
-    opacity: .2;
+    transition: opacity 0.25s ease 0.4s;
+    opacity: 0.2;
 }
 
 .ui-button.full.primary:not(.outline, .none) {
@@ -51,8 +51,8 @@
 /* variant: outline */
 
 .ui-button.outline.active .background {
-    transition: opacity .25s ease .4s;
-    opacity: .2;
+    transition: opacity 0.25s ease 0.4s;
+    opacity: 0.2;
 }
 
 .ui-button.outline {
@@ -79,8 +79,8 @@
 }
 
 .ui-button.ghost.active .background {
-    transition: opacity .25s ease .4s;
-    opacity: .2;
+    transition: opacity 0.25s ease 0.4s;
+    opacity: 0.2;
 }
 
 .ui-button.ghost {
