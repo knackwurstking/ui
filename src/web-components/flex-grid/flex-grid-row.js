@@ -4,21 +4,8 @@ template.innerHTML = `
         :host {
             --row-gap: var(--gap, 0);
             display: flex;
-            justify-content: flex-start;
             flex-flow: row nowrap;
             width: 100%;
-        }
-
-        :host > * {
-            margin: 0 var(--row-gap);
-        }
-
-        :host > *:first-child {
-            margin-left: 0;
-        }
-
-        :host > *:last-child {
-            margin-right: 0;
         }
     </style>
 

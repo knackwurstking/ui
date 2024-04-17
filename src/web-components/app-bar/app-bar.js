@@ -22,8 +22,11 @@ template.innerHTML = `
             width: 100%;
             height: 100%;
             align-items: center;
-            justify-content: flex-start;
-            padding: 0 var(--spacing);
+            justify-content: space-between;
+        }
+
+        :host > ui-flex-grid-row > * {
+            height: 100%;
         }
 
         :host > ui-flex-grid-row > *:nth-child(1),
@@ -31,22 +34,32 @@ template.innerHTML = `
             width: fit-content;
         }
 
-        :host > ui-flex-grid-row > *:nth-child(1) {
+        :host > ui-flex-grid-row > [slot="left"] {
             margin-left: 0;
         }
 
-        :host > ui-flex-grid-row > *:nth-child(3) {
+        :host > ui-flex-grid-row > [slot="center"] {
+            width: 100%;
+        }
+
+        :host > ui-flex-grid-row > [slot="right"] {
             margin-right: 0;
             justify-content: flex-end;
         }
     </style>
 
-    <ui-flex-grid-row gap="0.1em">
-        <slot name="left"></slot>
+    <ui-flex-grid-row gap="0.25em">
+        <ui-flex-grid-row gap="0.25em">
+            <slot name="left"></slot>
+        </ui-flex-grid-row>
 
-        <slot name="center"></slot>
+        <ui-flex-grid-row gap="0.25em">
+            <slot name="center"></slot>
+        </ui-flex-grid-row>
 
-        <slot name="right"></slot>
+        <ui-flex-grid-row gap="0.25em">
+            <slot name="right"></slot>
+        </ui-flex-grid-row>
     </ui-flex-grid-row>
 `;
 

@@ -1,5 +1,11 @@
 const template = document.createElement("template");
 template.innerHTML = `
+    <style>
+        :host {
+            margin: 0 var(--row-gap);
+        }
+    </style>
+
     <slot></slot>
 `;
 
