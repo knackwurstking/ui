@@ -17,6 +17,7 @@
     margin-bottom: 0;
 }
 
+/*
 .ui-grid-row {
     --row-gap: var(--gap, 0);
     width: 100%;
@@ -36,6 +37,7 @@
 .ui-grid-row > *:last-child {
     margin-right: 0;
 }
+*/
 
 .ui-grid-column {
     padding: 0;
