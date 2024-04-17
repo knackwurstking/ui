@@ -3,9 +3,6 @@
 *::after {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    position: relative;
-    margin: 0;
-    padding: 0;
 }
 
 article {
@@ -63,7 +60,7 @@ select,
 input,
 textarea {
     display: block;
-    transition: border-color .25s linear;
+    transition: border-color 0.25s linear;
 }
 
 input {
@@ -131,7 +128,8 @@ table {
     user-select: none;
 }
 
-th, td {
+th,
+td {
     padding: var(--spacing);
 }
 
