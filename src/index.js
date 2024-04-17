@@ -20,13 +20,16 @@ async function define() {
     customElements.define("ui-select", wc.Select);
 
     // Svg Icons
-    customElements.define("ui-back-arrow-navigation", wc.BackArrowNavigation);
-    customElements.define("ui-chevron-down", wc.ChevonDown);
-    customElements.define("ui-delete-recycle-bin", wc.DeleteRecycleBin);
-    customElements.define("ui-edit2", wc.Edit2);
-    customElements.define("ui-pdf-document", wc.PDFDocument);
-    customElements.define("ui-settings", wc.Settings);
-    customElements.define("ui-today-outline", wc.TodayOutline);
+    customElements.define(
+        "ui-back-arrow-navigation",
+        wc.svg.BackArrowNavigation,
+    );
+    customElements.define("ui-chevron-down", wc.svg.ChevonDown);
+    customElements.define("ui-delete-recycle-bin", wc.svg.DeleteRecycleBin);
+    customElements.define("ui-edit2", wc.svg.Edit2);
+    customElements.define("ui-pdf-document", wc.svg.PDFDocument);
+    customElements.define("ui-settings", wc.svg.Settings);
+    customElements.define("ui-today-outline", wc.svg.TodayOutline);
 
     // Text components
     customElements.define("ui-label", wc.Label);
