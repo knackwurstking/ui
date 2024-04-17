@@ -1,7 +1,8 @@
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
-        div {
+        :host {
+            display: block;
             width: 100%;
             max-width: 65em;
             margin: 0 auto;
@@ -9,9 +10,7 @@ template.innerHTML = `
         }
     </style>
 
-    <div>
-        <slot></slot>
-    </div>
+    <slot></slot>
 `;
 
 export class Container extends HTMLElement {
