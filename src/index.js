@@ -1,2 +1,9 @@
-export * from "./js";
-export * as wc from "./ui";
+import * as js from "./js";
+import * as wc from "./ui";
+
+// TODO: ...
+
+export const ui = {
+    ...js,
+    wc: wc,
+};

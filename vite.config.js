@@ -4,11 +4,11 @@ export default defineConfig({
     plugins: [],
     clearScreen: false,
     build: {
-        outDir: "dist/lib",
+        outDir: "dist",
         lib: {
             entry: "src/index.js",
             fileName: "main",
-            formats: ["cjs", "es"],
+            formats: ["es"],
         },
     },
 });

@@ -3,14 +3,13 @@
   "version": "0.2.0",
   "description": "Just an ui lib for my projects.",
   "main": "src/index.js",
-  "style": "dist/ui/main.min.css",
-  "files": ["LICENSE", "src", "dist-lib", "dist-ui"],
+  "style": "dist/main.min.css",
+  "files": ["LICENSE", "src", "dist"],
   "repository": "knackwurstking/ui",
   "scripts": {
-    "build": "npm run build:lib && npm run build:ui && npm run build:css",
-    "build:lib": "vite build --minify -c vite.lib.config.js",
-    "build:ui": "vite build --minify -c vite.ui.config.js",
-    "build:css": "cleancss -o dist/ui/main.min.css css/main.css"
+    "build": "npm run build:lib && npm run build:css",
+    "build:lib": "vite build --minify -c vite.config.js",
+    "build:css": "cleancss -o dist/main.min.css css/main.css"
   },
   "license": "MIT",
   "devDependencies": {
