@@ -1,4 +1,4 @@
-[data-theme=light] {
+[data-theme="light"] {
     --bg: 240, 10%, 96.1%;
     --fg: 0, 10%, 3.9%;
 
@@ -12,7 +12,7 @@
     --secondary-fg: 0, 5.9%, 10%;
 
     --muted: 240, 4.8%, 95.9%;
-    --muted-fg: 0, 3.8%, 46.1%; 
+    --muted-fg: 0, 3.8%, 46.1%;
 
     --destructive: 0, 72.22%, 50.59%;
     --destructive-fg: 0, 0%, 98%;
@@ -29,13 +29,15 @@
     --line-height: 1.15;
 
     --radius: 0.25rem;
-    --spacing: .5em;
+    --spacing: 0.5em;
+
+    --app-bar-height: 3em;
 
     background: hsl(var(--bg));
     color: hsl(var(--fg));
 }
 
-[data-theme=dark] {
+[data-theme="dark"] {
     --bg: 240, 10%, 3.9%;
     --fg: 0, 0%, 98%;
 
@@ -66,7 +68,9 @@
     --line-height: 1.15;
 
     --radius: 0.25rem;
-    --spacing: .5em;
+    --spacing: 0.5em;
+
+    --app-bar-height: 3em;
 
     background: hsl(var(--bg));
     color: hsl(var(--fg));
