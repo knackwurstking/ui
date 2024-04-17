@@ -1,4 +1,4 @@
-export class IconButton extends HTMLElement {
+export class IconButton extends HTMLButtonElement {
     constructor() {
         super();
     }

@@ -1,4 +1,4 @@
-export class Label extends HTMLElement {
+export class Label extends HTMLLabelElement {
     constructor() {
         super();
     }

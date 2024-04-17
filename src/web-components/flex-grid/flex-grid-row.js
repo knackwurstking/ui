@@ -1,4 +1,4 @@
-export class Primary extends HTMLSpanElement {
+export class FlexGridRow extends HTMLElement {
     constructor() {
         super();
     }

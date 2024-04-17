@@ -1,4 +1,4 @@
-export class Primary extends HTMLSpanElement {
+export class AppBar extends HTMLElement {
     constructor() {
         super();
     }

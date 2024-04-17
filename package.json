@@ -4,7 +4,7 @@
   "description": "Just an ui lib for my projects.",
   "main": "src/index.js",
   "style": "dist/main.min.css",
-  "files": ["LICENSE", "src", "dist"],
+  "files": ["LICENSE", "src", "dist", "svg"],
   "repository": "knackwurstking/ui",
   "scripts": {
     "build": "npm run build:lib && npm run build:css",

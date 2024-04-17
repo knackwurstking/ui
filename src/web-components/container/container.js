@@ -1,4 +1,4 @@
-export class Primary extends HTMLSpanElement {
+export class Container extends HTMLElement {
     constructor() {
         super();
     }
