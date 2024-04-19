@@ -49,16 +49,16 @@ template.innerHTML = `
     }
 </style>
 
-<ui-flex-grid-row gap="0.25em">
-    <ui-flex-grid-row gap="0.25em">
+<ui-flex-grid-row gap="0.25rem">
+    <ui-flex-grid-row gap="0.25rem">
         <slot name="left"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row gap="0.25em">
+    <ui-flex-grid-row gap="0.25rem">
         <slot name="center"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row gap="0.25em">
+    <ui-flex-grid-row gap="0.25rem">
         <slot name="right"></slot>
     </ui-flex-grid-row>
 </ui-flex-grid-row>
