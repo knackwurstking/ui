@@ -29,7 +29,7 @@ async function define() {
         "ui-back-arrow-navigation",
         wc.svg.BackArrowNavigation,
     );
-    customElements.define("ui-chevron-down", wc.svg.ChevonDown);
+    customElements.define("ui-chevron-down", wc.svg.ChevronDown);
     customElements.define("ui-delete-recycle-bin", wc.svg.DeleteRecycleBin);
     customElements.define("ui-edit2", wc.svg.Edit2);
     customElements.define("ui-pdf-document", wc.svg.PDFDocument);
