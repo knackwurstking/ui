@@ -1,21 +1,28 @@
 {
-  "name": "ui",
-  "version": "0.2.0",
-  "description": "Just an ui lib for my projects.",
-  "main": "src/index.js",
-  "style": "dist/main.min.css",
-  "files": ["LICENSE", "src", "dist", "svg"],
-  "repository": "knackwurstking/ui",
-  "scripts": {
-    "build": "npm run build:lib && npm run build:css",
-    "build:lib": "vite build --minify -c vite.config.js",
-    "build:css": "cleancss -o dist/main.min.css css/main.css"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "clean-css-cli": "^5.6.3"
-  },
-  "dependencies": {
-    "vite": "^5.2.9"
-  }
+    "name": "ui",
+    "version": "0.2.0",
+    "description": "Just an ui lib for my projects.",
+    "main": "src/index.js",
+    "types": "types/index.d.ts",
+    "style": "dist/main.min.css",
+    "files": [
+        "LICENSE",
+        "src",
+        "dist",
+        "svg"
+    ],
+    "repository": "knackwurstking/ui",
+    "scripts": {
+        "build": "npm run build:lib && npm run build:css && npm run build:types",
+        "build:lib": "vite build --minify -c vite.config.js",
+        "build:css": "cleancss -o dist/main.min.css css/main.css",
+        "build:types": "npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "clean-css-cli": "^5.6.3"
+    },
+    "dependencies": {
+        "vite": "^5.2.9"
+    }
 }
