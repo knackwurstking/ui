@@ -28,6 +28,8 @@ template.innerHTML = `
             }
         }
     </style>
+
+    <slot></slot>
 `;
 
 export class StackLayoutPage extends HTMLElement {
