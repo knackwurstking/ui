@@ -2,7 +2,9 @@ export default class Events {
     /** @type {{[key: string]: ((data: any) => void|Promise<void>)[]}} */
     listeners;
 
-    constructor() {
+    constructor(debug = false) {
+        /** @type {boolean} */
+        this.debug = !!debug
         this.listeners = {};
     }
 
@@ -11,6 +13,9 @@ export default class Events {
      * @param {any} data
      */
     dispatchWithData(key, data) {
+        if (this.debug) console.log(`[events] dispatchWithData: key=${key}, data=${data}`);
+        if (data === undefined) throw `data is undefined!`;
+
         if (!!this.listeners[key]) {
             for (const listener of this.listeners[key]) {
                 listener(data);
@@ -26,6 +31,8 @@ export default class Events {
      * @returns {() => void} clean up function
      */
     addListener(key, listener) {
+        if (this.debug) console.log(`[events] addListener: key=${key}, listener=${listener}`);
+
         if (typeof listener !== "function")
             throw `invalid event listener passed for "${key}" event!`;
 
@@ -45,6 +52,8 @@ export default class Events {
      * @param {((data: any) => void|Promise<void>)} listener
      */
     removeListener(key, listener) {
+        if (this.debug) console.log(`[events] removeListener: key=${key}, listener=${listener}`);
+
         if (!this.listeners[key])
             throw `no listeners found for ${key}, there is nothing to delete`;
 
