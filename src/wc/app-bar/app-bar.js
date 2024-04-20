@@ -54,7 +54,7 @@ template.innerHTML = `
         <slot name="left"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row gap="0.25rem">
+    <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;">
         <slot name="center"></slot>
     </ui-flex-grid-row>
 
