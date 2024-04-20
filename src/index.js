@@ -19,6 +19,10 @@ async function define() {
     // Input components
     customElements.define("ui-select", wc.Select);
 
+    // StackLayout components
+    customElements.define("ui-stack-layout", wc.StackLayout);
+    customElements.define("ui-stack-layout-page", wc.StackLayoutPage);
+
     // Svg Icons
     customElements.define(
         "ui-back-arrow-navigation",
