@@ -1,5 +1,5 @@
 import * as js from "./js";
-import * as wc from "./web-components";
+import * as wc from "./wc";
 
 async function define() {
     // AppBar components
