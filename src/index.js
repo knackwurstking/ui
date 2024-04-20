@@ -15,6 +15,7 @@ async function define() {
     // FlexGrid components
     customElements.define("ui-flex-grid-item", wc.FlexGridItem);
     customElements.define("ui-flex-grid-row", wc.FlexGridRow);
+    customElements.define("ui-flex-grid", wc.FlexGrid);
 
     // Input components
     customElements.define("ui-select", wc.Select);
