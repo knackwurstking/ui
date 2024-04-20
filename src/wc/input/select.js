@@ -51,25 +51,6 @@ template.innerHTML = `
     :host(:not(.open)) .options:has(> .selected) {
         display: block
     }
-
-    :host .options ::slotted(.option) {
-        padding: var(--spacing);
-        padding-right: 2.5em;
-        transition: background-color 0.25s linear;
-    }
-
-    :host .options ::slotted(.option.selected) {
-        background-color: hsl(var(--primary));
-        color: hsl(var(--primary-fg));
-    }
-
-    :host(.open) .options ::slotted(.option:not(.selected):hover) {
-        background-color: hsl(var(--fg), 0.1);
-    }
-
-    :host(:not(.open)) .options ::slotted(.option:not(.selected)) {
-        display: none;
-    }
 </style>
 
 <div
@@ -100,7 +81,5 @@ export class Select extends HTMLElement {
     /**
      * Runs when the element is removed from the DOM
      */
-    disconnectedCallback() {
-        // ...
-    }
+    disconnectedCallback() { }
 }
