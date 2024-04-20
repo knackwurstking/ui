@@ -24,6 +24,9 @@ template.innerHTML = `
 export class FlexGridRow extends HTMLElement {
     constructor() {
         super();
+
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
     /**
@@ -31,9 +34,6 @@ export class FlexGridRow extends HTMLElement {
      */
     connectedCallback() {
         this.style.setProperty("--row-gap", this.getAttribute("gap") || "0");
-
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
     /**

@@ -67,14 +67,16 @@ template.innerHTML = `
 export class AppBar extends HTMLElement {
     constructor() {
         super();
+
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
     /**
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        // ...
     }
 
     /**

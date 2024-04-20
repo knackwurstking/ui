@@ -12,6 +12,9 @@ template.innerHTML = `
 export class FlexGridItem extends HTMLElement {
     constructor() {
         super();
+
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
     /**
@@ -19,9 +22,6 @@ export class FlexGridItem extends HTMLElement {
      */
     connectedCallback() {
         this.style.setProperty("flex", this.getAttribute("flex") || "1");
-
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
     /**

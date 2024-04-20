@@ -55,14 +55,15 @@ template.innerHTML = `
 export class IconButton extends HTMLElement {
     constructor() {
         super();
+
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
     /**
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
         if (!this.hasAttribute("no-ripple"))
             ripple.create(this, { centered: true });
     }
