@@ -3,7 +3,6 @@
     "version": "0.2.0",
     "description": "Just an ui lib for my projects.",
     "main": "src/index.js",
-    "types": "types/index.d.ts",
     "style": "dist/main.min.css",
     "files": [
         "LICENSE",
@@ -13,10 +12,9 @@
     ],
     "repository": "knackwurstking/ui",
     "scripts": {
-        "build": "npm run build:lib && npm run build:css && npm run build:types",
+        "build": "npm run build:lib && npm run build:css",
         "build:lib": "vite build --minify -c vite.config.js",
-        "build:css": "cleancss -o dist/main.min.css css/main.css",
-        "build:types": "npx -p typescript tsc src/**/*.js --declaration --allowJs --emitDeclarationOnly --outDir types"
+        "build:css": "cleancss -o dist/main.min.css css/main.css"
     },
     "license": "MIT",
     "devDependencies": {
