@@ -13,7 +13,7 @@ export default class Events {
      * @param {any} data
      */
     dispatchWithData(key, data) {
-        if (this.debug) console.log(`[events] dispatchWithData: key=${key}, data=${data}`);
+        if (this.debug) console.log(`[events] dispatchWithData: key=${key}`, data);
         if (data === undefined) throw `data is undefined!`;
 
         if (!!this.listeners[key]) {
