@@ -14,7 +14,7 @@ h3,
 h4,
 h5,
 h6 {
-    text-shadow: 0em 0em .1em hsla(var(--fg), .75);
+    text-shadow: 0em 0em .1em hsla(var(--fg), .65);
 }
 
 hr {

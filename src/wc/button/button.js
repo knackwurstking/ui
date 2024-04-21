@@ -48,19 +48,19 @@ template.innerHTML = `
     :host([variant="outline"][color="primary"]) {
         color: hsl(var(--primary));
         box-shadow: inset 0 0 .25rem .05rem hsla(var(--primary), .35);
-        text-shadow: 0em 0em .1em hsla(var(--primary), .75);
+        text-shadow: 0em 0em .1em hsla(var(--primary), .65);
     }
 
     :host([variant="outline"][color="secondary"]) {
         color: hsl(var(--secondary));
         box-shadow: inset 0 0 .25rem .05rem hsla(var(--secondary), .35);
-        text-shadow: 0em 0em .1em hsla(var(--secondary), .75);
+        text-shadow: 0em 0em .1em hsla(var(--secondary), .65);
     }
 
     :host([variant="outline"][color="destructive"]) {
         color: hsl(var(--destructive));
         box-shadow: inset 0 0 .25rem .05rem hsla(var(--destructive), .35);
-        text-shadow: 0em 0em .1em hsla(var(--destructive), .75);
+        text-shadow: 0em 0em .1em hsla(var(--destructive), .65);
     }
 
     :host([variant="ghost"]) {
