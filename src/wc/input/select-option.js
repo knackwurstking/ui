@@ -1,5 +1,3 @@
-import svg from "../svg"
-
 const template = document.createElement("template")
 
 template.innerHTML = `

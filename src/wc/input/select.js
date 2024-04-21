@@ -1,4 +1,3 @@
-import svg from "../svg"
 import { SelectOption } from "./select-option"
 
 const template = document.createElement("template")
@@ -75,7 +74,7 @@ template.innerHTML = `
 </style>
 
 <div class="options">
-    <div slot="icon"></div>
+    <div class="icon"><ui-chevron-down></ui-chevron-down></div>
 
     <slot></slot>
 </div>
@@ -114,10 +113,6 @@ export class Select extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-        const icon = new svg.ChevronDown();
-        icon.setAttribute("slot", "icon");
-        this.appendChild(icon);
     }
 
     /**
@@ -133,8 +128,7 @@ export class Select extends HTMLElement {
 
         this.style.setProperty(
             "--items-length",
-            this.querySelectorAll("ui-select-option")
-                .length.toString()
+            this.querySelectorAll("ui-select-option").length.toString()
         );
     }
 
