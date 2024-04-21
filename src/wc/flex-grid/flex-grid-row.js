@@ -2,19 +2,22 @@ const template = document.createElement("template");
 template.innerHTML = `
 <style>
     :host {
-        --row-gap: var(--gap, 0);
-        margin: var(--gap, 0) 0;
         display: flex;
         flex-flow: row nowrap;
+        position: relative;
         width: 100%;
     }
 
-    :host(:first-child) {
-        margin-top: 0;
+    :host ::slotted(ui-flex-grid-item) {
+        margin: 0 var(--row-gap);
     }
 
-    :host(:last-child) {
-        margin-bottom: 0;
+    :host ::slotted(ui-flex-grid-item:first-child) {
+        margin-left: 0;
+    }
+
+    :host ::slotted(ui-flex-grid-item:last-child) {
+        margin-right: 0;
     }
 </style>
 
@@ -33,7 +36,9 @@ export class FlexGridRow extends HTMLElement {
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        this.style.setProperty("--row-gap", this.getAttribute("gap") || "0");
+        if (this.hasAttribute("gap")) {
+            this.style.setProperty("--row-gap", this.getAttribute("gap"));
+        }
     }
 
     /**
