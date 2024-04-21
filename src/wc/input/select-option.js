@@ -25,6 +25,10 @@ export class SelectOption extends HTMLElement {
         this.type = "ui-select-option"
     }
 
+    get value() {
+        return this.getAttribute("value") || "";
+    }
+
     /**
      * Runs each time the element is appended to or moved in the DOM
      */
