@@ -74,7 +74,7 @@ template.innerHTML = `
 </style>
 
 <div class="options">
-    <div class="icon"><ui-chevron-down></ui-chevron-down></div>
+    <div class="icon"><ui-icon-chevron-down></ui-icon-chevron-down></div>
 
     <slot></slot>
 </div>
