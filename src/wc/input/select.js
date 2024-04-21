@@ -104,7 +104,7 @@ export class Select extends HTMLElement {
                     c.removeAttribute("selected")
                 );
 
-                child.setAttribute("selected", "true");
+                child.setAttribute("selected", "");
                 this.dispatchEvent(new CustomEvent("change", { detail: child }));
             }
         });
