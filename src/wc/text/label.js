@@ -44,6 +44,7 @@ template.innerHTML = `
 `
 
 export class Label extends HTMLElement {
+    #running = false;
     #onClick = async () =>
         !!this.input && (this.input.checked = !this.input.checked);
 
@@ -81,12 +82,16 @@ export class Label extends HTMLElement {
     }
 
     #startInputHandling() {
+        if (this.#running) return;
+
         this.addEventListener("click", this.#onClick)
 
         this.input = this.querySelector("input")
         if (!!this.input) {
             this.input.addEventListener("click", this.#onInputClick)
         }
+
+        this.#running = true;
     }
 
     #stopInputHandling() {
@@ -95,5 +100,7 @@ export class Label extends HTMLElement {
         if (!!this.input) {
             this.input.removeEventListener("click", this.#onInputClick)
         }
+
+        this.#running = false;
     }
 }

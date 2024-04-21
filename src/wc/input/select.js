@@ -1,4 +1,5 @@
 import svg from "../svg"
+import { SelectOption } from "./select-option"
 
 const template = document.createElement("template")
 
@@ -17,13 +18,7 @@ template.innerHTML = `
         transition: height 0.25s ease;
     }
 
-    :host(.open) {
-        height: calc(
-            (1em * var(--line-height) + var(--spacing) * 2) * var(--items-length)
-        );
-    }
-
-    :host .options {
+    .options {
         cursor: pointer;
         display: none;
         display: flex;
@@ -31,7 +26,7 @@ template.innerHTML = `
         min-height: 100%;
     }
 
-    :host .icon {
+    .icon {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -43,43 +38,112 @@ template.innerHTML = `
         color: hsl(var(--primary));
     }
 
+    ::slotted(ui-select-option) {
+        display: block;
+    }
+
+    :host(.open) {
+        height: calc(
+            (1em * var(--line-height) + var(--spacing) * 2) * var(--items-length)
+        );
+    }
+
+    :host(.open) .options {
+        display: block;
+    }
+
     :host(.open) .icon {
         display: none;
     }
 
-    :host(.open) .options,
-    :host(:not(.open)) .options:has(> .selected) {
-        display: block
+    :host(.open) ::slotted(ui-select-option[selected]) {
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-fg));
+    }
+
+    :host(.open) ::slotted(ui-select-option:not([selected]):hover) {
+        background-color: hsl(var(--fg), 0.1);
+    }
+
+    :host(:not(.open)) .options:has(> ::slotted(ui-select-option[selected])) {
+        display: block;
+    }
+
+    :host(:not(.open)) ::slotted(ui-select-option:not([selected])) {
+        display: none;
     }
 </style>
 
-<div
-    class="options"
-    onclick='event.currentTarget.parentElement.classList.toggle("open")'
->
-    <div class="icon">${svg.ChevronDown}</div>
+<div class="options">
+    <div slot="icon"></div>
 
     <slot></slot>
 </div>
 `
 
 export class Select extends HTMLElement {
+    #running = false;
+
+    /** @param {Event} ev */
+    #onOptionsClick = (ev) => {
+        if (this.classList.toggle("open")) {
+            ev.stopPropagation()
+            this.addEventListener("click", this.#onClick)
+        } else {
+            setTimeout(() =>
+                this.removeEventListener("click", this.#onClick)
+            )
+        }
+    };
+
+    /** @param {MouseEvent | PointerEvent} ev */
+    #onClick = (ev) => {
+        (ev.composedPath() || []).forEach(child => {
+            if (child instanceof SelectOption) {
+                [...this.querySelectorAll("ui-select-option")].forEach(c =>
+                    c.removeAttribute("selected")
+                );
+
+                child.setAttribute("selected", "true");
+                this.dispatchEvent(new CustomEvent("change", { detail: child }));
+            }
+        });
+    };
+
     constructor() {
         super();
-        this.attachShadow({ mode: "open" })
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        const icon = new svg.ChevronDown();
+        icon.setAttribute("slot", "icon");
+        this.appendChild(icon);
     }
 
     /**
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        // TODO: How to do select handling for all children
-        console.warn(this.children)
+        if (!this.#running) {
+            this.shadowRoot.querySelector(".options")
+                ?.addEventListener("click", this.#onOptionsClick);
+
+            this.#running = true;
+        }
+
+        this.style.setProperty(
+            "--items-length",
+            this.querySelectorAll("ui-select-option")
+                .length.toString()
+        );
     }
 
     /**
      * Runs when the element is removed from the DOM
      */
-    disconnectedCallback() { }
+    disconnectedCallback() {
+        this.removeEventListener("click", this.#onClick);
+        this.shadowRoot.querySelector(".options")?.addEventListener("click", this.#onOptionsClick);
+        this.#running = false;
+    }
 }

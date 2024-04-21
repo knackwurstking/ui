@@ -5,22 +5,10 @@ const template = document.createElement("template")
 template.innerHTML = `
 <style>
     :host {
+        display: none;
         padding: var(--spacing);
         padding-right: 2.5em;
         transition: background-color 0.25s linear;
-    }
-
-    :host(.selected) {
-        background-color: hsl(var(--primary));
-        color: hsl(var(--primary-fg));
-    }
-
-    :host(:not(.selected):hover) {
-        background-color: hsl(var(--fg), 0.1);
-    }
-
-    :host(:not(.selected)) {
-        display: none;
     }
 </style>
 
@@ -30,15 +18,17 @@ template.innerHTML = `
 export class SelectOption extends HTMLElement {
     constructor() {
         super();
+
         this.attachShadow({ mode: "open" })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+        this.type = "ui-select-option"
     }
 
     /**
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        // TODO: Read attributes "value" and "selected"
     }
 
     /**
