@@ -31,7 +31,7 @@
     --radius: 0.25rem;
     --spacing: 0.5em;
 
-    --app-bar-height: 3em;
+    --app-bar-height: 3rem;
 
     background: hsl(var(--bg));
     color: hsl(var(--fg));
@@ -70,7 +70,7 @@
     --radius: 0.25rem;
     --spacing: 0.5em;
 
-    --app-bar-height: 3em;
+    --app-bar-height: 3rem;
 
     background: hsl(var(--bg));
     color: hsl(var(--fg));
