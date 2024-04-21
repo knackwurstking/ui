@@ -45,10 +45,15 @@ template.innerHTML = `
 
 export class Label extends HTMLElement {
     #running = false;
-    #onClick = async () =>
-        !!this.input && (this.input.checked = !this.input.checked);
+    #onClick = async () => {
+        if (!!this.input) {
+            this.input.click();
+        }
+    };
 
-    #onInputClick = async (/** @type {Event} */ev) => ev.stopPropagation();
+    #onInputClick = async (/** @type {Event} */ev) => {
+        ev.stopPropagation();
+    };
 
     constructor() {
         super();
@@ -84,10 +89,9 @@ export class Label extends HTMLElement {
     #startInputHandling() {
         if (this.#running) return;
 
-        this.addEventListener("click", this.#onClick)
-
         this.input = this.querySelector("input")
         if (!!this.input) {
+            this.addEventListener("click", this.#onClick)
             this.input.addEventListener("click", this.#onInputClick)
         }
 
@@ -95,9 +99,8 @@ export class Label extends HTMLElement {
     }
 
     #stopInputHandling() {
-        this.removeEventListener("click", this.#onClick)
-
         if (!!this.input) {
+            this.removeEventListener("click", this.#onClick)
             this.input.removeEventListener("click", this.#onInputClick)
         }
 
