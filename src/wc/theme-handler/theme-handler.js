@@ -1,4 +1,7 @@
 export class ThemeHandler extends HTMLElement {
+    /** @type {MediaQueryList | null} */
+    #media = null;
+
     constructor() {
         super();
 
@@ -7,19 +10,28 @@ export class ThemeHandler extends HTMLElement {
 
         /** @type {{ [key: string]: string }} */
         this.themes = {};
-
-        /** @type {MediaQueryList | null} */
-        this._media = null;
     }
 
     /**
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        this._media = window.matchMedia("(prefers-color-scheme: dark)");
-        this.mediaChangeHandler(this._media);
         if (this.hasAttribute("auto")) {
-            this._media.addEventListener("change", this.mediaChangeHandler);
+            this.#media = window.matchMedia("(prefers-color-scheme: dark)");
+            this.removeMode()
+            this.mediaChangeHandler(this.#media);
+            this.#media.addEventListener("change", this.mediaChangeHandler);
+        } else {
+            if (!!this.#media) {
+                this.#media.removeEventListener("change", this.mediaChangeHandler);
+                this.#media = null;
+            }
+
+            const mode = this.getAttribute("mode");
+            if (["dark", "light"].includes(mode)) {
+                // @ts-ignore
+                this.setMode(mode);
+            }
         }
     }
 
@@ -27,9 +39,9 @@ export class ThemeHandler extends HTMLElement {
      * Runs when the element is removed from the DOM
      */
     disconnectedCallback() {
-        if (!!this._media && !!this.mediaChangeHandler) {
-            this._media.removeEventListener("change", this.mediaChangeHandler);
-            this._media = null;
+        if (!!this.#media) {
+            this.#media.removeEventListener("change", this.mediaChangeHandler);
+            this.#media = null;
         }
     }
 
@@ -69,6 +81,13 @@ export class ThemeHandler extends HTMLElement {
 
         document.head.appendChild(link);
         this.currentTheme = { name, href: this.themes[name] };
+    }
+
+    /**
+     * @param {HTMLElement} element
+     */
+    removeMode(element = document.body) {
+        element.removeAttribute("data-theme");
     }
 
     /**
