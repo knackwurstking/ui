@@ -1,6 +1,9 @@
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
+    :host {
+        flex: 1;
+    }
 </style>
 
 <slot></slot>
@@ -18,7 +21,9 @@ export class FlexGridItem extends HTMLElement {
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        this.style.setProperty("flex", this.getAttribute("flex") || "1");
+        if (this.hasAttribute("flex")) {
+            this.style.setProperty("flex", this.getAttribute("flex"));
+        }
     }
 
     /**
