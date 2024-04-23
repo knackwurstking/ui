@@ -1,41 +1,24 @@
 import { Events } from "../../js/events";
 
-export class Store extends HTMLElement {
+class Data {
     #events;
+    #store;
 
-    constructor() {
-        super();
+    /** @param {Store} store */
+    constructor(store) {
+        this.#store = store;
 
         this.#events = new Events();
-        /** @type {{ [key: string]: any }} */
-        this.stores = {};
+
         this.localStoragePrefix = "";
         this.enableLocalStorage = false;
     }
 
     /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
-    connectedCallback() {
-        if (this.hasAttribute("enable-local-storage")) {
-            this.enableLocalStorage = true;
-        }
-
-        if (this.hasAttribute("local-storage-prefix")) {
-            this.localStoragePrefix = this.getAttribute("local-storage-prefix");
-        }
-    }
-
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {}
-
-    /**
      * @param {string} key
      */
     get(key) {
-        return this.stores[key];
+        return this.#store.stores[key];
     }
 
     /**
@@ -46,20 +29,20 @@ export class Store extends HTMLElement {
     set(key, data, useDataAsFallback = false) {
         if (useDataAsFallback) {
             // TODO: get data from the localStorage, always using json
-            this.stores[key] =
+            this.#store.stores[key] =
                 JSON.parse(
                     localStorage.getItem(this.localStoragePrefix + key) ||
                         "null",
                 ) || data;
         } else {
-            this.stores[key] = data;
+            this.#store.stores[key] = data;
         }
 
         if (this.enableLocalStorage) {
-            localStorage.setItem(key, JSON.stringify(this.stores[key]));
+            localStorage.setItem(key, JSON.stringify(this.#store.stores[key]));
         }
 
-        this.#events.dispatchWithData(key, this.stores[key]);
+        this.#events.dispatchWithData(key, this.#store.stores[key]);
     }
 
     /**
@@ -71,7 +54,7 @@ export class Store extends HTMLElement {
             throw `callback is not a function`;
         }
 
-        this.set(key, callback(this.stores[key]));
+        this.set(key, callback(this.#store.stores[key]));
     }
 
     /**
@@ -91,4 +74,35 @@ export class Store extends HTMLElement {
 
         return this.#events.addListener(key, callback);
     }
+}
+
+export class Store extends HTMLElement {
+    constructor() {
+        super();
+
+        this.data = new Data(this);
+
+        /** @type {{ [key: string]: any }} */
+        this.stores = {};
+    }
+
+    /**
+     * Runs each time the element is appended to or moved in the DOM
+     */
+    connectedCallback() {
+        if (this.hasAttribute("enable-local-storage")) {
+            this.data.enableLocalStorage = true;
+        }
+
+        if (this.hasAttribute("local-storage-prefix")) {
+            this.data.localStoragePrefix = this.getAttribute(
+                "local-storage-prefix",
+            );
+        }
+    }
+
+    /**
+     * Runs when the element is removed from the DOM
+     */
+    disconnectedCallback() {}
 }
