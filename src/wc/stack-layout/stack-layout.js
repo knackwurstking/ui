@@ -1,5 +1,5 @@
 import { StackLayoutPage } from "./stack-layout-page";
-import { events } from "../../js"
+import { events } from "../../js";
 
 /**
  * @typedef Pages
@@ -28,9 +28,9 @@ export class StackLayout extends HTMLElement {
      */
     #pages = {};
 
-    constructor(debug = false) {
+    constructor() {
         super();
-        this.events = new events.Events(debug)
+        this.events = new events.Events();
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -43,44 +43,30 @@ export class StackLayout extends HTMLElement {
         this.stack = [];
     }
 
-    get debug() {
-        return this.events.debug
-    }
+    connectedCallback() {}
 
-    set debug(debug) {
-        this.events.debug = debug
-    }
-
-    connectedCallback() {
-        if (this.debug)
-            console.log(`[StackLayout] connectedCallback: this.children=${this.children} (${this.children.length})`);
-    }
-
-    disconnectedCallback() {
-        if (this.debug)
-            console.log(`[StackLayout] disconnectedCallback: this.children=${this.children} (${this.children.length})`);
-    }
+    disconnectedCallback() {}
 
     /**
      * @param {string} name
      * @param {() => StackLayoutPage} cb
      */
     registerPage(name, cb) {
-        this.#pages[name] = cb
+        this.#pages[name] = cb;
     }
 
     /**
      * @param {string} name
      */
     unregisterPage(name) {
-        delete this.#pages[name]
+        delete this.#pages[name];
     }
 
     goBack() {
         if (!this.stack.length) return;
-        const page = this.stack.pop()
-        this.removeChild(page.element)
-        this.#dispatchChangeEvent()
+        const page = this.stack.pop();
+        this.removeChild(page.element);
+        this.#dispatchChangeEvent();
     }
 
     /**
@@ -92,10 +78,13 @@ export class StackLayout extends HTMLElement {
             element: this.appendChild(this.#pages[name]().children[0]),
         });
 
-        this.#dispatchChangeEvent()
+        this.#dispatchChangeEvent();
     }
 
     async #dispatchChangeEvent() {
-        this.events.dispatchWithData("change", this.stack[this.stack.length - 1]?.element || null)
+        this.events.dispatchWithData(
+            "change",
+            this.stack[this.stack.length - 1]?.element || null,
+        );
     }
 }
