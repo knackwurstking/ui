@@ -26,4 +26,16 @@ export class SelectOption extends HTMLElement {
     get value() {
         return this.getAttribute("value") || "";
     }
+
+    get selected() {
+        return this.hasAttribute("selected");
+    }
+
+    set selected(state) {
+        if (state) {
+            this.setAttribute("selected", "");
+        } else {
+            this.removeAttribute("selected");
+        }
+    }
 }
