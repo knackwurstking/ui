@@ -54,8 +54,6 @@ export class ThemeHandler extends HTMLElement {
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        console.warn("[ui-theme-handler] connected callback running...")
-
         if (this.auto) {
             this.auto = this.auto
         } else {
