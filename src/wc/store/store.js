@@ -29,18 +29,14 @@ class Data {
      */
     set(key, data, useDataAsFallback = false) {
         if (useDataAsFallback && this.enableLocalStorage) {
-            // TODO: get data from the localStorage, always using json
-            this.#store.stores[key] =
-                JSON.parse(
-                    localStorage.getItem(this.localStoragePrefix + key) ||
-                    "null",
-                ) || data;
+            const sData = JSON.parse(localStorage.getItem(this.localStoragePrefix + key) || "null");
+            this.#store.stores[key] = (sData === null || sData === undefined) ? data : sData
         } else {
             this.#store.stores[key] = data;
         }
 
         if (this.enableLocalStorage) {
-            localStorage.setItem(key, JSON.stringify(this.#store.stores[key]));
+            localStorage.setItem(this.localStoragePrefix + key, JSON.stringify(this.#store.stores[key]));
         }
 
         this.#events.dispatchWithData(key, this.#store.stores[key]);
