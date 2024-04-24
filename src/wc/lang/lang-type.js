@@ -3,12 +3,31 @@ export class LangType extends HTMLElement {
         super();
     }
 
-    connectedCallback() {
+    set name(name) {
+        this.setAttribute("name", name);
     }
 
-    disconnectedCallback() {
+    get name() {
+        return this.getAttribute("name");
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
+    set href(href) {
+        this.setAttribute("href", href);
+    }
+
+    get href() {
+        return this.getAttribute("href");
+    }
+
+    set fallback(state) {
+        if (state) {
+            this.setAttribute("fallback", "");
+        } else {
+            this.removeAttribute("fallback");
+        }
+    }
+
+    get fallback() {
+        return this.hasAttribute("fallback");
     }
 }
