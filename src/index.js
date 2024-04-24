@@ -6,28 +6,28 @@ async function define() {
     customElements.define("ui-app-bar", wc.AppBar);
 
     // Button components
-    customElements.define("ui-button", wc.Button);
     customElements.define("ui-icon-button", wc.IconButton);
+    customElements.define("ui-button", wc.Button);
 
     // Container components
     customElements.define("ui-container", wc.Container);
 
     // FlexGrid components
-    customElements.define("ui-flex-grid-item", wc.FlexGridItem);
-    customElements.define("ui-flex-grid-row", wc.FlexGridRow);
     customElements.define("ui-flex-grid", wc.FlexGrid);
+    customElements.define("ui-flex-grid-row", wc.FlexGridRow);
+    customElements.define("ui-flex-grid-item", wc.FlexGridItem);
 
     // Input components
-    customElements.define("ui-select", wc.Select);
     customElements.define("ui-select-option", wc.SelectOption);
+    customElements.define("ui-select", wc.Select);
 
     // Lang components
-    customElements.define("ui-lang", wc.Lang)
     customElements.define("ui-lang-type", wc.LangType)
+    customElements.define("ui-lang", wc.Lang)
 
     // StackLayout components
-    customElements.define("ui-stack-layout", wc.StackLayout);
     customElements.define("ui-stack-layout-page", wc.StackLayoutPage);
+    customElements.define("ui-stack-layout", wc.StackLayout);
 
     // Store components
     customElements.define("ui-store", wc.Store);
@@ -48,9 +48,9 @@ async function define() {
     customElements.define("ui-icon-today-outline", wc.svg.TodayOutline);
 
     // Text components
-    customElements.define("ui-label", wc.Label);
-    customElements.define("ui-primary", wc.Primary);
     customElements.define("ui-secondary", wc.Secondary);
+    customElements.define("ui-primary", wc.Primary);
+    customElements.define("ui-label", wc.Label);
 
     // ThemeHandler components
     customElements.define("ui-theme-handler", wc.ThemeHandler);
