@@ -24,10 +24,11 @@ class Data {
     /**
      * @param {string} key
      * @param {any} data
-     * @param {boolean} [useDataAsFallback]
+     * @param {boolean} [useDataAsFallback] Use data as fallback, if nothing found in the browsers `localStorage`
+     * `this.enableLocalStorage` flag needs to be set to `true` for this to work
      */
     set(key, data, useDataAsFallback = false) {
-        if (useDataAsFallback) {
+        if (useDataAsFallback && this.enableLocalStorage) {
             // TODO: get data from the localStorage, always using json
             this.#store.stores[key] =
                 JSON.parse(
