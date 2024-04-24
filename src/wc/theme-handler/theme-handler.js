@@ -24,6 +24,7 @@ export class ThemeHandler extends HTMLElement {
             this.#removeMode()
 
             if (!!this.#media) {
+                this.mediaChangeHandler(this.#media)
                 return
             }
 
