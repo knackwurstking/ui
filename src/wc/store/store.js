@@ -32,7 +32,7 @@ class Data {
             this.#store.stores[key] =
                 JSON.parse(
                     localStorage.getItem(this.localStoragePrefix + key) ||
-                        "null",
+                    "null",
                 ) || data;
         } else {
             this.#store.stores[key] = data;
@@ -100,9 +100,4 @@ export class Store extends HTMLElement {
             );
         }
     }
-
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {}
 }

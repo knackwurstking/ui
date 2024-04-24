@@ -21,6 +21,10 @@ async function define() {
     customElements.define("ui-select", wc.Select);
     customElements.define("ui-select-option", wc.SelectOption);
 
+    // Lang components
+    customElements.define("ui-lang", wc.Lang)
+    customElements.define("ui-lang-type", wc.LangType)
+
     // StackLayout components
     customElements.define("ui-stack-layout", wc.StackLayout);
     customElements.define("ui-stack-layout-page", wc.StackLayoutPage);

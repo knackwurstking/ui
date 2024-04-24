@@ -48,18 +48,4 @@ export class StackLayoutPage extends HTMLElement {
     get title() {
         return this.getAttribute("title") || ""
     }
-
-    connectedCallback() {
-        if (this.parentElement instanceof StackLayout) {
-            if (this.parentElement.debug)
-                console.log(`[StackLayoutPage] connectedCallback: name=${this.name} title=${this.title}`);
-        }
-    }
-
-    disconnectedCallback() {
-        if (this.parentElement instanceof StackLayout) {
-            if (this.parentElement.debug)
-                console.log(`[StackLayoutPage] disconnectedCallback: title=${this.getAttribute("title")}`);
-        }
-    }
 }

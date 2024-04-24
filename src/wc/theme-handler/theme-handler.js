@@ -1,3 +1,8 @@
+/**
+ * @typedef Mode
+ * @type {"dark" | "light"}
+ */
+
 export class ThemeHandler extends HTMLElement {
     /** @type {MediaQueryList | null} */
     #media = null;
@@ -12,26 +17,50 @@ export class ThemeHandler extends HTMLElement {
         this.themes = {};
     }
 
+    /** @type {boolean} state */
+    set auto(state) {
+        if (state) {
+            this.setAttribute("auto", "");
+            this.#removeMode()
+
+            if (!!this.#media) {
+                return
+            }
+
+            this.#media = window.matchMedia("(prefers-color-scheme: dark)");
+            this.#media.addEventListener("change", this.mediaChangeHandler);
+            this.mediaChangeHandler(this.#media);
+        } else {
+            this.removeAttribute("auto");
+            this.#removeMedia()
+        }
+    }
+
+    get auto() {
+        return this.hasAttribute("auto");
+    }
+
+    /** @param {string} mode */
+    set mode(mode) {
+        this.setAttribute("mode", mode)
+        this.#setMode(mode);
+    }
+
+    get mode() {
+        return this.getAttribute("mode");
+    }
+
     /**
      * Runs each time the element is appended to or moved in the DOM
      */
     connectedCallback() {
-        if (this.hasAttribute("auto")) {
-            this.#media = window.matchMedia("(prefers-color-scheme: dark)");
-            this.removeMode()
-            this.mediaChangeHandler(this.#media);
-            this.#media.addEventListener("change", this.mediaChangeHandler);
-        } else {
-            if (!!this.#media) {
-                this.#media.removeEventListener("change", this.mediaChangeHandler);
-                this.#media = null;
-            }
+        console.warn("[ui-theme-handler] connected callback running...")
 
-            const mode = this.getAttribute("mode");
-            if (["dark", "light"].includes(mode)) {
-                // @ts-ignore
-                this.setMode(mode);
-            }
+        if (this.auto) {
+            this.auto = this.auto
+        } else {
+            this.#removeMedia()
+            this.mode = this.mode
         }
     }
 
@@ -39,10 +68,7 @@ export class ThemeHandler extends HTMLElement {
      * Runs when the element is removed from the DOM
      */
     disconnectedCallback() {
-        if (!!this.#media) {
-            this.#media.removeEventListener("change", this.mediaChangeHandler);
-            this.#media = null;
-        }
+        this.#removeMedia()
     }
 
     /**
@@ -84,17 +110,28 @@ export class ThemeHandler extends HTMLElement {
     }
 
     /**
+     * @param {MediaQueryListEvent | MediaQueryList} ev
+     */
+    mediaChangeHandler(ev) {
+        if (ev.matches) {
+            document.body.setAttribute("data-theme", "dark");
+        } else {
+            document.body.setAttribute("data-theme", "light");
+        }
+    }
+
+    /**
      * @param {HTMLElement} element
      */
-    removeMode(element = document.body) {
+    #removeMode(element = document.body) {
         element.removeAttribute("data-theme");
     }
 
     /**
-     * @param {"dark" | "light"} mode
+     * @param {string} mode
      * @param {HTMLElement} element
      */
-    setMode(mode, element = document.body) {
+    #setMode(mode, element = document.body) {
         switch (mode) {
             case "dark":
                 element.setAttribute("data-theme", mode);
@@ -105,14 +142,10 @@ export class ThemeHandler extends HTMLElement {
         }
     }
 
-    /**
-     * @param {MediaQueryListEvent | MediaQueryList} ev
-     */
-    mediaChangeHandler(ev) {
-        if (ev.matches) {
-            document.body.setAttribute("data-theme", "dark");
-        } else {
-            document.body.setAttribute("data-theme", "light");
+    #removeMedia() {
+        if (!!this.#media) {
+            this.#media.removeEventListener("change", this.mediaChangeHandler);
+            this.#media = null;
         }
     }
 }

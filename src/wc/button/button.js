@@ -101,17 +101,7 @@ export class Button extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
     connectedCallback() {
         if (!this.hasAttribute("no-ripple")) ripple.create(this);
-    }
-
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {
-        // ...
     }
 }

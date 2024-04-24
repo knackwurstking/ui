@@ -26,10 +26,4 @@ export class FlexGridItem extends HTMLElement {
         }
     }
 
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {
-        // ...
-    }
 }

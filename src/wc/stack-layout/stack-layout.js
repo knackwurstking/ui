@@ -43,10 +43,6 @@ export class StackLayout extends HTMLElement {
         this.stack = [];
     }
 
-    connectedCallback() {}
-
-    disconnectedCallback() {}
-
     /**
      * @param {string} name
      * @param {() => StackLayoutPage} cb

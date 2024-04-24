@@ -40,11 +40,4 @@ export class FlexGridRow extends HTMLElement {
             this.style.setProperty("--row-gap", this.getAttribute("gap"));
         }
     }
-
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {
-        // ...
-    }
 }

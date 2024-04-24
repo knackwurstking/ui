@@ -42,11 +42,4 @@ export class FlexGrid extends HTMLElement {
             this.style.setProperty("--gap", this.getAttribute("gap"));
         }
     }
-
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {
-        // ...
-    }
 }

@@ -3,6 +3,7 @@ export * from "./button";
 export * from "./container";
 export * from "./flex-grid";
 export * from "./input";
+export * from "./lang";
 export * from "./stack-layout";
 export * from "./store";
 export { default as svg } from "./svg";
