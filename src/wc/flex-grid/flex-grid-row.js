@@ -1,30 +1,16 @@
 const template = document.createElement("template");
 template.innerHTML = `
-<style>
-    :host {
-        display: flex;
-        flex-flow: row nowrap;
-        position: relative;
-        width: 100%;
-    }
-
-    :host ::slotted(ui-flex-grid-item) {
-        margin: 0 var(--row-gap);
-    }
-
-    :host ::slotted(ui-flex-grid-item:first-child) {
-        margin-left: 0;
-    }
-
-    :host ::slotted(ui-flex-grid-item:last-child) {
-        margin-right: 0;
-    }
-</style>
-
+<style></style>
 <slot></slot>
 `;
 
 export class FlexGridRow extends HTMLElement {
+    /** @type {string | null} */
+    #gap = null
+
+    static register = () => customElements.define("ui-flex-grid-row", FlexGridRow)
+    static observedAttributes = ["gap"]
+
     constructor() {
         super();
 
@@ -32,12 +18,48 @@ export class FlexGridRow extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
     connectedCallback() {
-        if (this.hasAttribute("gap")) {
-            this.style.setProperty("--row-gap", this.getAttribute("gap"));
+        this.#updateStyle()
+    }
+
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "gap":
+                this.gap = newValue
+                break
         }
+    }
+
+    get gap() {
+        return this.#gap || "0"
+    }
+
+    set gap(value) {
+        this.#gap = value
+        this.#updateStyle()
+    }
+
+    #updateStyle() {
+        this.shadowRoot.querySelector("style").textContent = `
+            :host {
+                --row-gap: ${this.gap};
+                display: flex;
+                flex-flow: row nowrap;
+                position: relative;
+                width: 100%;
+            }
+
+            :host ::slotted(ui-flex-grid-item) {
+                margin: 0 var(--row-gap);
+            }
+
+            :host ::slotted(ui-flex-grid-item:first-child) {
+                margin-left: 0;
+            }
+
+            :host ::slotted(ui-flex-grid-item:last-child) {
+                margin-right: 0;
+            }
+        `
     }
 }

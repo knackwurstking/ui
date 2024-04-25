@@ -1,3 +1,10 @@
 export class IconButton extends HTMLElement {
-    connectedCallback(): void;
+    static register: () => void;
+    static observedAttributes: string[];
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+    set noRipple(value: boolean);
+    get noRipple(): boolean;
+    enableRipple(): void;
+    disableRipple(): void;
+    #private;
 }

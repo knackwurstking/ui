@@ -54,6 +54,11 @@ template.innerHTML = `
 `;
 
 export class IconButton extends HTMLElement {
+    #noRipple = false
+
+    static register = () => customElements.define("ui-icon-button", IconButton)
+    static observedAttributes = ["no-ripple"]
+
     constructor() {
         super();
 
@@ -61,8 +66,27 @@ export class IconButton extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    connectedCallback() {
-        if (!this.hasAttribute("no-ripple"))
-            ripple.create(this, { centered: true });
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "no-ripple":
+                this.noRipple = newValue
+                break
+        }
+    }
+
+    get noRipple() {
+        return this.#noRipple
+    }
+
+    set noRipple(value) {
+        this.#noRipple = !!value
+    }
+
+    enableRipple() {
+        ripple.create(this, { centered: true });
+    }
+
+    disableRipple() {
+        this.noRipple = true
     }
 }

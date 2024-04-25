@@ -1,6 +1,9 @@
 export class FlexGrid extends HTMLElement {
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
+    static register: () => void;
+    static observedAttributes: string[];
     connectedCallback(): void;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+    set gap(value: string);
+    get gap(): string;
+    #private;
 }

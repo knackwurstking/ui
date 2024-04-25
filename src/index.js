@@ -3,23 +3,23 @@ import * as wc from "./wc";
 
 async function define() {
     // AppBar components
-    customElements.define("ui-app-bar", wc.AppBar);
+    wc.AppBar.register()
 
     // Button components
-    customElements.define("ui-icon-button", wc.IconButton);
-    customElements.define("ui-button", wc.Button);
+    wc.IconButton.register()
+    wc.Button.register()
 
     // Container components
-    customElements.define("ui-container", wc.Container);
+    wc.Container.register()
 
     // FlexGrid components
-    customElements.define("ui-flex-grid", wc.FlexGrid);
-    customElements.define("ui-flex-grid-row", wc.FlexGridRow);
-    customElements.define("ui-flex-grid-item", wc.FlexGridItem);
+    wc.FlexGridItem.register()
+    wc.FlexGridRow.register()
+    wc.FlexGrid.register()
 
     // Input components
-    customElements.define("ui-select-option", wc.SelectOption);
-    customElements.define("ui-select", wc.Select);
+    wc.SelectOption.register()
+    wc.Select.register()
 
     // Lang components
     wc.LangType.register()

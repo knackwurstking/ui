@@ -1,11 +1,6 @@
 export class Select extends HTMLElement {
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
+    static register: () => void;
     connectedCallback(): void;
-    /**
-     * Runs when the element is removed from the DOM
-     */
     disconnectedCallback(): void;
     #private;
 }

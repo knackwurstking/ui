@@ -18,6 +18,10 @@ template.innerHTML = `
 `
 
 export class SelectOption extends HTMLElement {
+
+    static register = () => customElements.define("ui-select-option", SelectOption);
+    static observedAttributes = ["value", "selected"]
+
     constructor() {
         super();
 
@@ -25,21 +29,20 @@ export class SelectOption extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
         this.type = "ui-select-option"
+
+        /** @type {any | null} */
+        this.value = null
+        this.selected = false;
     }
 
-    get value() {
-        return this.getAttribute("value") || "";
-    }
-
-    get selected() {
-        return this.hasAttribute("selected");
-    }
-
-    set selected(state) {
-        if (state) {
-            this.setAttribute("selected", "");
-        } else {
-            this.removeAttribute("selected");
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "value":
+                this.value = newValue
+                break
+            case "selected":
+                this.selected = newValue !== null
+                break
         }
     }
 }

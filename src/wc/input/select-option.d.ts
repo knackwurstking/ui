@@ -1,6 +1,9 @@
 export class SelectOption extends HTMLElement {
+    static register: () => void;
+    static observedAttributes: string[];
     type: string;
-    get value(): string;
-    set selected(state: boolean);
-    get selected(): boolean;
+    /** @type {any | null} */
+    value: any | null;
+    selected: boolean;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
 }

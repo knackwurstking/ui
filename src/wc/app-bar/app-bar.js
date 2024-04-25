@@ -50,25 +50,43 @@ template.innerHTML = `
 </style>
 
 <ui-flex-grid-row gap="0.25rem">
-    <ui-flex-grid-row gap="0.25rem">
+    <ui-flex-grid-row id="leftSlot" gap="0.25rem">
         <slot name="left"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;">
+    <ui-flex-grid-row id="centerSlot" gap="0.25rem" style="overflow: hidden;">
         <slot name="center"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row gap="0.25rem">
+    <ui-flex-grid-row id="rightSlot" gap="0.25rem">
         <slot name="right"></slot>
     </ui-flex-grid-row>
 </ui-flex-grid-row>
 `;
 
 export class AppBar extends HTMLElement {
+    #leftSlot = this.shadowRoot.querySelector("#leftSlot");
+    #centerSlot = this.shadowRoot.querySelector("#centerSlot");
+    #rightSlot = this.shadowRoot.querySelector("#rightSlot");
+
+    static register = () => customElements.define("ui-app-bar", AppBar)
+
     constructor() {
         super();
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+
+    get leftSlot() {
+        return this.#leftSlot
+    }
+
+    get centerSlot() {
+        return this.#centerSlot
+    }
+
+    get rightSlot() {
+        return this.#rightSlot
     }
 }

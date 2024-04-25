@@ -83,8 +83,6 @@ template.innerHTML = `
 `
 
 export class Select extends HTMLElement {
-    #running = false;
-
     /** @param {Event} ev */
     #onOptionsClick = (ev) => {
         if (this.classList.toggle("open")) {
@@ -111,22 +109,17 @@ export class Select extends HTMLElement {
         });
     };
 
+    static register = () => customElements.define("ui-select", Select)
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
     connectedCallback() {
-        if (!this.#running) {
-            this.shadowRoot.querySelector(".options")
-                ?.addEventListener("click", this.#onOptionsClick);
-
-            this.#running = true;
-        }
+        this.shadowRoot.querySelector(".options")
+            ?.addEventListener("click", this.#onOptionsClick);
 
         this.style.setProperty(
             "--items-length",
@@ -134,12 +127,10 @@ export class Select extends HTMLElement {
         );
     }
 
-    /**
-     * Runs when the element is removed from the DOM
-     */
     disconnectedCallback() {
         this.removeEventListener("click", this.#onClick);
-        this.shadowRoot.querySelector(".options")?.addEventListener("click", this.#onOptionsClick);
-        this.#running = false;
+
+        this.shadowRoot.querySelector(".options")
+            ?.addEventListener("click", this.#onOptionsClick);
     }
 }

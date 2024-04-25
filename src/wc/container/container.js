@@ -14,6 +14,9 @@ template.innerHTML = `
 `;
 
 export class Container extends HTMLElement {
+
+    static register = () => customElements.define("ui-container", Container)
+
     constructor() {
         super();
 

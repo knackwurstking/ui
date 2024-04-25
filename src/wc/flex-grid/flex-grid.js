@@ -1,32 +1,17 @@
 const template = document.createElement("template");
 
 template.innerHTML = `
-<style>
-    :host {
-        display: flex;
-        flex-flow: column nowrap;
-        position: relative;
-        width: 100%;
-        height: fit-content;
-    }
-
-    :host ::slotted(ui-flex-grid-row) {
-        margin: var(--gap, 0) 0;
-    }
-
-    :host ::slotted(ui-flex-grid-row:first-child) {
-        margin-top: 0;
-    }
-
-    :host ::slotted(ui-flex-grid-row:last-child) {
-        margin-bottom: 0;
-    }
-</style>
-
+<style></style>
 <slot></slot>
 `;
 
 export class FlexGrid extends HTMLElement {
+    /** @type {string | null} */
+    #gap = null
+
+    static register = () => customElements.define("ui-flex-grid", FlexGrid);
+    static observedAttributes = ["gap"]
+
     constructor() {
         super();
 
@@ -34,12 +19,49 @@ export class FlexGrid extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
     connectedCallback() {
-        if (this.hasAttribute("gap")) {
-            this.style.setProperty("--gap", this.getAttribute("gap"));
+        this.#updateStyle()
+    }
+
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "gap":
+                this.gap = newValue
+                break
         }
+    }
+
+    get gap() {
+        return this.#gap || "0"
+    }
+
+    set gap(value) {
+        this.#gap = value
+        this.#updateStyle()
+    }
+
+    #updateStyle() {
+        this.shadowRoot.querySelector("style").textContent = `
+            :host {
+                --gap: ${this.gap};
+                display: flex;
+                flex-flow: column nowrap;
+                position: relative;
+                width: 100%;
+                height: fit-content;
+            }
+
+            :host ::slotted(ui-flex-grid-row) {
+                margin: var(--gap) 0;
+            }
+
+            :host ::slotted(ui-flex-grid-row:first-child) {
+                margin-top: 0;
+            }
+
+            :host ::slotted(ui-flex-grid-row:last-child) {
+                margin-bottom: 0;
+            }
+        `
     }
 }
