@@ -1,13 +1,12 @@
 export class Store extends HTMLElement {
+    static register: () => void;
+    static observedAttributes: string[];
     data: Data;
     /** @type {{ [key: string]: any }} */
     stores: {
         [key: string]: any;
     };
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
-    connectedCallback(): void;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
 }
 declare class Data {
     /** @param {Store} store */

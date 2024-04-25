@@ -25,7 +25,10 @@ template.innerHTML = `
 </svg>
 `;
 
-export default class extends HTMLElement {
+export class DeleteRecycleBin extends HTMLElement {
+
+    static register = () => customElements.define("ui-svg-delete-recycle-bin", DeleteRecycleBin);
+
     constructor() {
         super();
 

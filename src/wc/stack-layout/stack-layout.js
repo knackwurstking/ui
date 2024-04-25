@@ -4,7 +4,7 @@ import { StackLayoutPage } from "./stack-layout-page";
 /**
  * @typedef Pages
  * @type {{
- *  [key: string]: () => StackLayoutPage;
+ *  [key: string]: () => (StackLayoutPage | DocumentFragment);
  * }}
  */
 
@@ -28,6 +28,8 @@ export class StackLayout extends HTMLElement {
      */
     #pages = {};
 
+    static register = () => customElements.define("ui-stack-layout", StackLayout);
+
     constructor() {
         super();
         this.events = new events.Events();
@@ -38,14 +40,14 @@ export class StackLayout extends HTMLElement {
         /**
          * All rendered pages
          *
-         * @type {{ element: import("./stack-layout-page").StackLayoutPage, name: string }[]}
+         * @type {import("./stack-layout-page").StackLayoutPage[]}
          */
         this.stack = [];
     }
 
     /**
      * @param {string} name
-     * @param {() => StackLayoutPage} cb
+     * @param {() => (StackLayoutPage | DocumentFragment)} cb
      */
     registerPage(name, cb) {
         this.#pages[name] = cb;
@@ -62,13 +64,13 @@ export class StackLayout extends HTMLElement {
         if (!this.stack.length) return;
 
         const page = this.stack.pop();
-        page.element.ontransitionend = () => {
-            page.element.ontransitionend = null
-            this.removeChild(page.element);
+        page.ontransitionend = () => {
+            page.ontransitionend = null
+            this.removeChild(page);
         }
 
         if (!!this.stack.length) {
-            this.appendChild(this.stack[this.stack.length - 1].element)
+            this.appendChild(this.stack[this.stack.length - 1])
         }
 
         this.#dispatchChangeEvent();
@@ -78,14 +80,13 @@ export class StackLayout extends HTMLElement {
      * @param {string} name
      */
     setPage(name) {
-        this.stack.push({
-            name: name,
+        this.stack.push(
             // @ts-expect-error
-            element: this.appendChild(this.#pages[name]().children[0]),
-        });
+            this.appendChild(this.#pages[name]().children[0]),
+        );
 
         if (this.stack.length > 1) {
-            const pageToRemove = this.stack[this.stack.length - 2].element
+            const pageToRemove = this.stack[this.stack.length - 2]
             pageToRemove.ontransitionend = () => {
                 pageToRemove.ontransitionend = null;
                 pageToRemove.parentElement.removeChild(pageToRemove)
@@ -99,8 +100,8 @@ export class StackLayout extends HTMLElement {
         this.events.dispatchWithData(
             "change",
             {
-                newPage: this.stack[this.stack.length - 1]?.element || null,
-                oldPage: this.stack[this.stack.length - 2]?.element || null,
+                newPage: this.stack[this.stack.length - 1] || null,
+                oldPage: this.stack[this.stack.length - 2] || null,
             },
         );
     }

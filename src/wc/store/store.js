@@ -74,6 +74,10 @@ class Data {
 }
 
 export class Store extends HTMLElement {
+
+    static register = () => customElements.define("ui-store", Store);
+    static observedAttributes = ["local-storage-prefix", "enable-local-storage"];
+
     constructor() {
         super();
 
@@ -83,18 +87,14 @@ export class Store extends HTMLElement {
         this.stores = {};
     }
 
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
-    connectedCallback() {
-        if (this.hasAttribute("enable-local-storage")) {
-            this.data.enableLocalStorage = true;
-        }
-
-        if (this.hasAttribute("local-storage-prefix")) {
-            this.data.localStoragePrefix = this.getAttribute(
-                "local-storage-prefix",
-            );
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "local-storage-prefix":
+                this.data.localStoragePrefix = newValue !== null ? newValue : "";
+                break
+            case "enable-local-storage":
+                this.data.enableLocalStorage = newValue !== null
+                break
         }
     }
 }

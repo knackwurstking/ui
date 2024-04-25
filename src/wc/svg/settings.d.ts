@@ -1,2 +1,3 @@
-export default class _default extends HTMLElement {
+export class Settings extends HTMLElement {
+    static register: () => void;
 }

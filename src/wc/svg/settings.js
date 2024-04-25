@@ -28,7 +28,10 @@ template.innerHTML = `
 </svg>
 `;
 
-export default class extends HTMLElement {
+export class Settings extends HTMLElement {
+
+    static register = () => customElements.define("ui-svg-settings", Settings);
+
     constructor() {
         super();
 

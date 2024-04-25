@@ -31,22 +31,24 @@ template.innerHTML = `
 `;
 
 export class StackLayoutPage extends HTMLElement {
+
+    static register = () => customElements.define("ui-stack-layout-page", StackLayoutPage);
+    static observedAttributes = ["name"]
+
     constructor() {
         super();
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.name = ""
     }
 
-    get name() {
-        return this.getAttribute("name") || ""
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "name":
+                this.name = newValue !== null ? name : ""
+                break
+        }
     }
-
-    get title() {
-        return this.getAttribute("title") || ""
-    }
-
-    connectedCallback() { }
-
-    disconnectedCallback() { }
 }

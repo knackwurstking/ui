@@ -73,7 +73,10 @@ template.innerHTML = `
 </svg>
 `;
 
-export default class extends HTMLElement {
+export class TodayOutline extends HTMLElement {
+
+    static register = () => customElements.define("ui-svg-today-outline", TodayOutline);
+
     constructor() {
         super();
 

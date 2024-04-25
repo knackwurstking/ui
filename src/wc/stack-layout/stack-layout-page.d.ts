@@ -1,6 +1,6 @@
 export class StackLayoutPage extends HTMLElement {
-    get name(): string;
-    get title(): string;
-    connectedCallback(): void;
-    disconnectedCallback(): void;
+    static register: () => void;
+    static observedAttributes: string[];
+    name: string;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
 }

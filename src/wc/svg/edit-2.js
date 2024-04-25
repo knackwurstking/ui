@@ -32,7 +32,10 @@ template.innerHTML = `
 >;
 `;
 
-export default class extends HTMLElement {
+export class Edit2 extends HTMLElement {
+
+    static register = () => customElements.define("ui-svg-edit2", Edit2);
+
     constructor() {
         super();
 

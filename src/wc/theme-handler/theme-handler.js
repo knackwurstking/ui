@@ -20,10 +20,6 @@ export class ThemeHandler extends HTMLElement {
         this.themes = {};
     }
 
-    connectedCallback() { }
-
-    disconnectedCallback() { }
-
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "auto":

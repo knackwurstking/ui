@@ -1,10 +1,10 @@
 export class Lang extends HTMLElement {
+    static register: () => void;
+    static observedAttributes: string[];
     data: Data;
-    set current(name: string);
-    get current(): string;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
     /** @returns {import("./lang-type").LangType} */
-    get fallback(): import("./lang-type").LangType;
-    connectedCallback(): void;
+    getFallbackElement(): import("./lang-type").LangType;
     #private;
 }
 declare class Data {

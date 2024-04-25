@@ -25,7 +25,10 @@ template.innerHTML = `
 </svg>
 `;
 
-export default class extends HTMLElement {
+export class ChevronDown extends HTMLElement {
+
+    static register = () => customElements.define("ui-svg-chevron-down", ChevronDown);
+
     constructor() {
         super();
 

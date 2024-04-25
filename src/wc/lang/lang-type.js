@@ -1,33 +1,27 @@
 export class LangType extends HTMLElement {
+
+    static register = () => customElements.define("ui-lang-type", LangType);
+    static observedAttributes = ["name", "href", "fallback"]
+
     constructor() {
         super();
+
+        this.name = ""
+        this.href = ""
+        this.fallback = false
     }
 
-    set name(name) {
-        this.setAttribute("name", name);
-    }
-
-    get name() {
-        return this.getAttribute("name");
-    }
-
-    set href(href) {
-        this.setAttribute("href", href);
-    }
-
-    get href() {
-        return this.getAttribute("href");
-    }
-
-    set fallback(state) {
-        if (state) {
-            this.setAttribute("fallback", "");
-        } else {
-            this.removeAttribute("fallback");
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "name":
+                this.name = newValue != null ? newValue : ""
+                break
+            case "href":
+                this.href = newValue != null ? newValue : ""
+                break
+            case "fallback":
+                this.fallback = newValue != null
+                break
         }
-    }
-
-    get fallback() {
-        return this.hasAttribute("fallback");
     }
 }

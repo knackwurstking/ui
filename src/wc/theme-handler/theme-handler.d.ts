@@ -14,8 +14,6 @@ export class ThemeHandler extends HTMLElement {
     themes: {
         [key: string]: string;
     };
-    connectedCallback(): void;
-    disconnectedCallback(): void;
     attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
     enableAutoMode(): void;
     disableAutoMode(): void;

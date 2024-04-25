@@ -21,7 +21,10 @@ template.innerHTML = `
 </svg>
 `;
 
-export default class extends HTMLElement {
+export class BackArrowNavigation extends HTMLElement {
+
+    static register = () => customElements.define("ui-svg-back-arrow-navigation", BackArrowNavigation);
+
     constructor() {
         super();
 

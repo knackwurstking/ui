@@ -22,24 +22,15 @@ async function define() {
     customElements.define("ui-select", wc.Select);
 
     // Lang components
-    customElements.define("ui-lang-type", wc.LangType)
-    customElements.define("ui-lang", wc.Lang)
+    wc.LangType.register()
+    wc.Lang.register()
 
     // StackLayout components
-    customElements.define("ui-stack-layout-page", wc.StackLayoutPage);
-    customElements.define("ui-stack-layout", wc.StackLayout);
+    wc.StackLayoutPage.register()
+    wc.StackLayout.register()
 
     // Store components
-    customElements.define("ui-store", wc.Store);
-
-    // Svg Icons
-    customElements.define("ui-icon-back-arrow-navigation", wc.svg.BackArrowNavigation);
-    customElements.define("ui-icon-chevron-down", wc.svg.ChevronDown);
-    customElements.define("ui-icon-delete-recycle-bin", wc.svg.DeleteRecycleBin);
-    customElements.define("ui-icon-edit2", wc.svg.Edit2);
-    customElements.define("ui-icon-pdf-document", wc.svg.PDFDocument);
-    customElements.define("ui-icon-settings", wc.svg.Settings);
-    customElements.define("ui-icon-today-outline", wc.svg.TodayOutline);
+    wc.Store.register()
 
     // Text components
     wc.Secondary.register()
@@ -50,8 +41,19 @@ async function define() {
     wc.ThemeHandler.register()
 }
 
+async function defineSVG() {
+    wc.svg.BackArrowNavigation.register()
+    wc.svg.ChevronDown.register()
+    wc.svg.DeleteRecycleBin.register()
+    wc.svg.Edit2.register()
+    wc.svg.PDFDocument.register()
+    wc.svg.Settings.register()
+    wc.svg.TodayOutline.register()
+}
+
 export default {
     ...js,
     wc: wc,
     define: define,
+    defineSVG: defineSVG,
 };

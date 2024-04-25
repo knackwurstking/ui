@@ -1,19 +1,17 @@
 export class StackLayout extends HTMLElement {
+    static register: () => void;
     events: events.Events;
     /**
      * All rendered pages
      *
-     * @type {{ element: import("./stack-layout-page").StackLayoutPage, name: string }[]}
+     * @type {import("./stack-layout-page").StackLayoutPage[]}
      */
-    stack: {
-        element: import("./stack-layout-page").StackLayoutPage;
-        name: string;
-    }[];
+    stack: import("./stack-layout-page").StackLayoutPage[];
     /**
      * @param {string} name
-     * @param {() => StackLayoutPage} cb
+     * @param {() => (StackLayoutPage | DocumentFragment)} cb
      */
-    registerPage(name: string, cb: () => StackLayoutPage): void;
+    registerPage(name: string, cb: () => (StackLayoutPage | DocumentFragment)): void;
     /**
      * @param {string} name
      */
@@ -26,7 +24,7 @@ export class StackLayout extends HTMLElement {
     #private;
 }
 export type Pages = {
-    [key: string]: () => StackLayoutPage;
+    [key: string]: () => (StackLayoutPage | DocumentFragment);
 };
 import { events } from "../../js";
 import { StackLayoutPage } from "./stack-layout-page";

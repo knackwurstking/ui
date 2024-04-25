@@ -60,28 +60,27 @@ class Data {
 }
 
 export class Lang extends HTMLElement {
+
+    static register = () => customElements.define("ui-lang", Lang);
+    static observedAttributes = ["current"]
+
     constructor() {
         super();
 
         this.data = new Data()
     }
 
-    set current(name) {
-        this.setAttribute("current", name)
-        this.#loadLanguage(name)
-    }
-
-    get current() {
-        return this.getAttribute("current")
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "current":
+                if (newValue !== null) this.#loadLanguage(newValue)
+                break
+        }
     }
 
     /** @returns {import("./lang-type").LangType} */
-    get fallback() {
+    getFallbackElement() {
         return this.querySelector("ui-lang-type[fallback]")
-    }
-
-    connectedCallback() {
-        this.current = this.current
     }
 
     /** @param {string} name */
@@ -89,7 +88,7 @@ export class Lang extends HTMLElement {
         /** @type {import("./lang-type").LangType} */
         const next =
             this.querySelector(`ui-lang-type[name="${name}"]`) ||
-            this.fallback;
+            this.getFallbackElement();
 
         if (!next) return;
         if (!next.href) throw `Missing href attribute!`;
