@@ -4,7 +4,7 @@ var D = (o, e, t) => (At(o, typeof e != "symbol" ? e + "" : e, t), t), j = (o, e
   if (!e.has(o))
     throw TypeError("Cannot " + t);
 };
-var i = (o, e, t) => (j(o, e, "read from private field"), t ? t.call(o) : e.get(o)), r = (o, e, t) => {
+var n = (o, e, t) => (j(o, e, "read from private field"), t ? t.call(o) : e.get(o)), r = (o, e, t) => {
   if (e.has(o))
     throw TypeError("Cannot add the same private member more than once");
   e instanceof WeakSet ? e.add(o) : e.set(o, t);
@@ -47,9 +47,9 @@ class $ {
   removeListener(e, t) {
     if (this.debug && console.log(`[events] removeListener: key=${e}, listener=${t}`), !this.listeners[e])
       throw `no listeners found for ${e}, there is nothing to delete`;
-    let s = !1, n = 0;
+    let s = !1, i = 0;
     for (const u of this.listeners[e])
-      u === t && (this.listeners[e].splice(n, 1), s = !0), n++;
+      u === t && (this.listeners[e].splice(i, 1), s = !0), i++;
     if (!s)
       throw `listener not found for ${e}, there is nothing to delete`;
     return this;
@@ -73,8 +73,8 @@ function B(o, e) {
   t.classList.add("ripple"), t.style.position = "absolute", t.style.color = "inherit", t.style.borderRadius = "50%", t.style.pointerEvents = "none", t.style.width = "100px", t.style.height = "100px", t.style.marginTop = "-50px", t.style.marginLeft = "-50px", t.style.opacity = `${e.opacity}`, t.style.backgroundColor = e.color, t.style.transform = "scale(0) translate(0, 0)", t.style.transition = `transform ${e.spreadDuration} ${e.spreadTiming} 0s,opacity ${e.clearDuration} ${e.clearTiming} 0s`, o.currentTarget.appendChild(t);
   const s = o.currentTarget.getBoundingClientRect();
   e.centered ? (t.style.top = `${s.height / 2}px`, t.style.left = `${s.width / 2}px`) : (t.style.top = `${o.clientY - s.top}px`, t.style.left = `${o.clientX - s.left}px`);
-  const n = Math.max(s.width, s.height) * 0.02;
-  return t.style.transform = `scale(${n}) translate(0, 0)`, t;
+  const i = Math.max(s.width, s.height) * 0.02;
+  return t.style.transform = `scale(${i}) translate(0, 0)`, t;
 }
 function O(o) {
   o && (o.addEventListener("transitionend", (e) => {
@@ -85,11 +85,11 @@ function R(o, e = {}) {
   let t;
   const s = (u) => {
     t = B(u, e);
-  }, n = () => {
+  }, i = () => {
     O(t);
   };
-  return o.classList.add("ripple-container"), o.style.overflow = "hidden", o.addEventListener("pointerdown", s), o.addEventListener("pointerup", n), o.addEventListener("pointerleave", n), () => {
-    o.classList.remove("ripple-container"), o.removeEventListener("pointerdown", s), o.removeEventListener("pointerup", n), o.removeEventListener("pointerleave", n);
+  return o.classList.add("ripple-container"), o.style.overflow = "hidden", o.addEventListener("pointerdown", s), o.addEventListener("pointerup", i), o.addEventListener("pointerleave", i), () => {
+    o.classList.remove("ripple-container"), o.removeEventListener("pointerdown", s), o.removeEventListener("pointerup", i), o.removeEventListener("pointerleave", i);
   };
 }
 const jt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -191,7 +191,9 @@ I.innerHTML = `
         border: var(--border-width) var(--border-style) currentColor;
         border-radius: var(--radius);
         overflow: hidden;
+        font-family: var(--font-family);
         font-weight: bold;
+        text-transform: capitalize;
         cursor: pointer;
         outline: none;
         user-select: none;
@@ -204,19 +206,16 @@ I.innerHTML = `
     :host([variant="full"][color="primary"]) {
         background-color: hsl(var(--primary));
         color: hsl(var(--primary-fg));
-        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="secondary"]) {
         background-color: hsl(var(--secondary));
         color: hsl(var(--secondary-fg));
-        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="destructive"]) {
         background-color: hsl(var(--destructive));
         color: hsl(var(--destructive-fg));
-        box-shadow: var(--box-shadow);
     }
 
     :host([variant="outline"]) {
@@ -226,24 +225,17 @@ I.innerHTML = `
 
     :host([variant="outline"][color="primary"]) {
         color: hsl(var(--primary));
-        box-shadow: var(--box-shadow);
-        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="secondary"]) {
         color: hsl(var(--secondary));
-        box-shadow: var(--box-shadow);
-        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="destructive"]) {
         color: hsl(var(--destructive));
-        box-shadow: var(--box-shadow);
-        text-shadow: var(--text-shadow);
     }
 
     :host([variant="ghost"]) {
-        box-shadow: none;
         border-color: transparent;
         background-color: transparent;
     }
@@ -294,6 +286,7 @@ W.innerHTML = `
         border-radius: var(--radius);
         outline: none;
         overflow: hidden;
+        font-family: var(--font-family);
         cursor: pointer;
         user-select: none;
     }
@@ -458,6 +451,7 @@ et.innerHTML = `
         display: none;
         padding: var(--spacing);
         padding-right: 2.5em;
+        font-family: var(--font-family);
         transition: background-color 0.25s linear;
     }
 </style>
@@ -490,8 +484,10 @@ ot.innerHTML = `
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
         font-size: 0.95em;
-        overflow: hidden;
         transition: height 0.25s ease;
+        line-height: 1.15;
+        box-sizing: content-box !important;
+        overflow: hidden;
     }
 
     .options {
@@ -520,7 +516,7 @@ ot.innerHTML = `
 
     :host(.open) {
         height: calc(
-            (1em * var(--line-height) + var(--spacing) * 2) * var(--items-length)
+            (var(--spacing) * 2 + (1em * 1.15)) * var(--items-length)
         );
     }
 
@@ -563,15 +559,15 @@ class st extends HTMLElement {
     r(this, p, !1);
     /** @param {Event} ev */
     r(this, b, (t) => {
-      this.classList.toggle("open") ? (t.stopPropagation(), this.addEventListener("click", i(this, m))) : setTimeout(
-        () => this.removeEventListener("click", i(this, m))
+      this.classList.toggle("open") ? (t.stopPropagation(), this.addEventListener("click", n(this, m))) : setTimeout(
+        () => this.removeEventListener("click", n(this, m))
       );
     });
     /** @param {MouseEvent | PointerEvent} ev */
     r(this, m, (t) => {
       (t.composedPath() || []).forEach((s) => {
         s instanceof _ && ([...this.querySelectorAll("ui-select-option")].forEach(
-          (n) => n.removeAttribute("selected")
+          (i) => i.removeAttribute("selected")
         ), s.setAttribute("selected", ""), this.dispatchEvent(new CustomEvent("change", { detail: s })));
       });
     });
@@ -582,7 +578,7 @@ class st extends HTMLElement {
    */
   connectedCallback() {
     var t;
-    i(this, p) || ((t = this.shadowRoot.querySelector(".options")) == null || t.addEventListener("click", i(this, b)), a(this, p, !0)), this.style.setProperty(
+    n(this, p) || ((t = this.shadowRoot.querySelector(".options")) == null || t.addEventListener("click", n(this, b)), a(this, p, !0)), this.style.setProperty(
       "--items-length",
       this.querySelectorAll("ui-select-option").length.toString()
     );
@@ -592,11 +588,11 @@ class st extends HTMLElement {
    */
   disconnectedCallback() {
     var t;
-    this.removeEventListener("click", i(this, m)), (t = this.shadowRoot.querySelector(".options")) == null || t.addEventListener("click", i(this, b)), a(this, p, !1);
+    this.removeEventListener("click", n(this, m)), (t = this.shadowRoot.querySelector(".options")) == null || t.addEventListener("click", n(this, b)), a(this, p, !1);
   }
 }
 p = new WeakMap(), b = new WeakMap(), m = new WeakMap();
-var g, x, z;
+var g, L, z;
 let Dt = (z = class {
   constructor() {
     r(this, g, void 0);
@@ -607,7 +603,7 @@ let Dt = (z = class {
      *  };
      * }}
      */
-    r(this, x, void 0);
+    r(this, L, void 0);
     a(this, g, new $()), this.langType = null;
   }
   /**
@@ -619,7 +615,7 @@ let Dt = (z = class {
    * }} data
    */
   new(e, t) {
-    this.langType = e, a(this, x, t), i(this, g).dispatchWithData("change", this.langType);
+    this.langType = e, a(this, L, t), n(this, g).dispatchWithData("change", this.langType);
   }
   /**
    * @param {string} group
@@ -627,7 +623,7 @@ let Dt = (z = class {
    */
   get(e, t) {
     var s;
-    return (s = i(this, x)) == null ? void 0 : s[e][t];
+    return (s = n(this, L)) == null ? void 0 : s[e][t];
   }
   /**
    * @param {"change"} key
@@ -638,11 +634,11 @@ let Dt = (z = class {
   on(e, t, s = !1) {
     if (typeof t != "function")
       throw "callback is not a function";
-    return s && t(this.langType), i(this, g).addListener(e, t);
+    return s && t(this.langType), n(this, g).addListener(e, t);
   }
-}, g = new WeakMap(), x = new WeakMap(), z);
-var T, nt;
-class it extends HTMLElement {
+}, g = new WeakMap(), L = new WeakMap(), z);
+var T, it;
+class nt extends HTMLElement {
   constructor() {
     super();
     /** @param {string} name */
@@ -650,7 +646,7 @@ class it extends HTMLElement {
     this.data = new Dt();
   }
   set current(t) {
-    this.setAttribute("current", t), l(this, T, nt).call(this, t);
+    this.setAttribute("current", t), l(this, T, it).call(this, t);
   }
   get current() {
     return this.getAttribute("current");
@@ -663,14 +659,14 @@ class it extends HTMLElement {
     this.current = this.current;
   }
 }
-T = new WeakSet(), nt = async function(t) {
+T = new WeakSet(), it = async function(t) {
   const s = this.querySelector(`ui-lang-type[name="${t}"]`) || this.fallback;
   if (!s)
     return;
   if (!s.href)
     throw "Missing href attribute!";
-  const n = await fetch(s.href);
-  this.data.new(s, await n.json());
+  const i = await fetch(s.href);
+  this.data.new(s, await i.json());
 };
 class rt extends HTMLElement {
   constructor() {
@@ -736,9 +732,13 @@ class at extends HTMLElement {
   get title() {
     return this.getAttribute("title") || "";
   }
+  connectedCallback() {
+  }
+  disconnectedCallback() {
+  }
 }
-const ht = document.createElement("template");
-ht.innerHTML = `
+const ct = document.createElement("template");
+ct.innerHTML = `
     <style>
         :host {
             display: block;
@@ -750,66 +750,78 @@ ht.innerHTML = `
 
     <slot></slot>
 `;
-var f, L, N;
-class ct extends HTMLElement {
+var f, x, N;
+class ht extends HTMLElement {
   constructor() {
     super();
-    r(this, L);
+    r(this, x);
     /**
      * @type {Pages}
      */
     r(this, f, {});
-    this.events = new $(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(ht.content.cloneNode(!0)), this.stack = [];
+    this.events = new $(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(ct.content.cloneNode(!0)), this.stack = [];
   }
   /**
    * @param {string} name
    * @param {() => StackLayoutPage} cb
    */
   registerPage(t, s) {
-    i(this, f)[t] = s;
+    n(this, f)[t] = s;
   }
   /**
    * @param {string} name
    */
   unregisterPage(t) {
-    delete i(this, f)[t];
+    delete n(this, f)[t];
   }
   goBack() {
     if (!this.stack.length)
       return;
     const t = this.stack.pop();
-    this.removeChild(t.element), l(this, L, N).call(this);
+    t.element.ontransitionend = () => {
+      t.element.ontransitionend = null, this.removeChild(t.element);
+    }, this.stack.length && this.appendChild(this.stack[this.stack.length - 1].element), l(this, x, N).call(this);
   }
   /**
    * @param {string} name
    */
   setPage(t) {
-    this.stack.push({
+    if (this.stack.push({
       name: t,
-      element: this.appendChild(i(this, f)[t]().children[0])
-    }), l(this, L, N).call(this);
+      // @ts-expect-error
+      element: this.appendChild(n(this, f)[t]().children[0])
+    }), this.stack.length > 1) {
+      const s = this.stack[this.stack.length - 2].element;
+      s.ontransitionend = () => {
+        s.ontransitionend = null, s.parentElement.removeChild(s);
+      };
+    }
+    l(this, x, N).call(this);
   }
 }
-f = new WeakMap(), L = new WeakSet(), N = async function() {
-  var t;
+f = new WeakMap(), x = new WeakSet(), N = async function() {
+  var t, s;
   this.events.dispatchWithData(
     "change",
-    ((t = this.stack[this.stack.length - 1]) == null ? void 0 : t.element) || null
+    {
+      newPage: ((t = this.stack[this.stack.length - 1]) == null ? void 0 : t.element) || null,
+      oldPage: ((s = this.stack[this.stack.length - 2]) == null ? void 0 : s.element) || null
+    }
   );
 };
-var w, c;
+var v, h;
 class zt {
   /** @param {Store} store */
   constructor(e) {
-    r(this, w, void 0);
-    r(this, c, void 0);
-    a(this, c, e), a(this, w, new $()), this.localStoragePrefix = "", this.enableLocalStorage = !1;
+    r(this, v, void 0);
+    r(this, h, void 0);
+    a(this, h, e), a(this, v, new $()), this.localStoragePrefix = "", this.enableLocalStorage = !1;
   }
   /**
    * @param {string} key
    */
   get(e) {
-    return i(this, c).stores[e];
+    return n(this, h).stores[e];
   }
   /**
    * @param {string} key
@@ -819,11 +831,11 @@ class zt {
    */
   set(e, t, s = !1) {
     if (s && this.enableLocalStorage) {
-      const n = JSON.parse(localStorage.getItem(this.localStoragePrefix + e) || "null");
-      i(this, c).stores[e] = n ?? t;
+      const i = JSON.parse(localStorage.getItem(this.localStoragePrefix + e) || "null");
+      n(this, h).stores[e] = i ?? t;
     } else
-      i(this, c).stores[e] = t;
-    this.enableLocalStorage && localStorage.setItem(this.localStoragePrefix + e, JSON.stringify(i(this, c).stores[e])), i(this, w).dispatchWithData(e, i(this, c).stores[e]);
+      n(this, h).stores[e] = t;
+    this.enableLocalStorage && localStorage.setItem(this.localStoragePrefix + e, JSON.stringify(n(this, h).stores[e])), n(this, v).dispatchWithData(e, n(this, h).stores[e]);
   }
   /**
    * @param {string} key
@@ -832,7 +844,7 @@ class zt {
   update(e, t) {
     if (typeof t != "function")
       throw "callback is not a function";
-    this.set(e, t(i(this, c).stores[e]));
+    this.set(e, t(n(this, h).stores[e]));
   }
   /**
    * @param {string} key
@@ -843,10 +855,10 @@ class zt {
   on(e, t, s = !1) {
     if (typeof t != "function")
       throw "callback is not a function";
-    return s && t(this.get(e)), i(this, w).addListener(e, t);
+    return s && t(this.get(e)), n(this, v).addListener(e, t);
   }
 }
-w = new WeakMap(), c = new WeakMap();
+v = new WeakMap(), h = new WeakMap();
 class dt extends HTMLElement {
   constructor() {
     super(), this.data = new zt(this), this.stores = {};
@@ -1018,8 +1030,8 @@ class It extends HTMLElement {
     super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(ft.content.cloneNode(!0));
   }
 }
-const wt = document.createElement("template");
-wt.innerHTML = `
+const vt = document.createElement("template");
+vt.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -1049,11 +1061,11 @@ wt.innerHTML = `
 `;
 class Ft extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(wt.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(vt.content.cloneNode(!0));
   }
 }
-const vt = document.createElement("template");
-vt.innerHTML = `
+const wt = document.createElement("template");
+wt.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -1128,7 +1140,7 @@ vt.innerHTML = `
 `;
 class Wt extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(vt.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(wt.content.cloneNode(!0));
   }
 }
 const d = {
@@ -1180,17 +1192,17 @@ yt.innerHTML = `
 
 <slot></slot>
 `;
-var v, C, E, S, xt, k, P;
+var w, k, C, S, Lt, E, P;
 class bt extends HTMLElement {
   constructor() {
     super();
     r(this, S);
-    r(this, k);
-    r(this, v, !1);
-    r(this, C, async () => {
+    r(this, E);
+    r(this, w, !1);
+    r(this, k, async () => {
       this.input && this.input.click();
     });
-    r(this, E, async (t) => {
+    r(this, C, async (t) => {
       t.stopPropagation();
     });
     this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(yt.content.cloneNode(!0)), this.input = null;
@@ -1199,22 +1211,22 @@ class bt extends HTMLElement {
    * Runs each time the element is appended to or moved in the DOM
    */
   connectedCallback() {
-    this.hasAttribute("ripple") ? (R(this), this.style.cursor = "pointer", l(this, S, xt).call(this)) : l(this, k, P).call(this);
+    this.hasAttribute("ripple") ? (R(this), this.style.cursor = "pointer", l(this, S, Lt).call(this)) : l(this, E, P).call(this);
   }
   /**
    * Runs when the element is removed from the DOM
    */
   disconnectedCallback() {
-    l(this, k, P).call(this);
+    l(this, E, P).call(this);
   }
 }
-v = new WeakMap(), C = new WeakMap(), E = new WeakMap(), S = new WeakSet(), xt = function() {
-  i(this, v) || (this.input = this.querySelector("input"), this.input && (this.addEventListener("click", i(this, C)), this.input.addEventListener("click", i(this, E))), a(this, v, !0));
-}, k = new WeakSet(), P = function() {
-  this.input && (this.removeEventListener("click", i(this, C)), this.input.removeEventListener("click", i(this, E))), a(this, v, !1);
+w = new WeakMap(), k = new WeakMap(), C = new WeakMap(), S = new WeakSet(), Lt = function() {
+  n(this, w) || (this.input = this.querySelector("input"), this.input && (this.addEventListener("click", n(this, k)), this.input.addEventListener("click", n(this, C))), a(this, w, !0));
+}, E = new WeakSet(), P = function() {
+  this.input && (this.removeEventListener("click", n(this, k)), this.input.removeEventListener("click", n(this, C))), a(this, w, !1);
 };
-const Lt = document.createElement("template");
-Lt.innerHTML = `
+const xt = document.createElement("template");
+xt.innerHTML = `
 <style>
     :host {
         font-size: 1.1em;
@@ -1224,13 +1236,13 @@ Lt.innerHTML = `
 
 <slot></slot>
 `;
-class Ct extends HTMLElement {
+class kt extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(Lt.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(xt.content.cloneNode(!0));
   }
 }
-const Et = document.createElement("template");
-Et.innerHTML = `
+const Ct = document.createElement("template");
+Ct.innerHTML = `
 <style>
     :host {
         font-size: 0.9em;
@@ -1241,12 +1253,12 @@ Et.innerHTML = `
 
 <slot></slot>
 `;
-class kt extends HTMLElement {
+class Et extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(Et.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(Ct.content.cloneNode(!0));
   }
 }
-var h, H, Tt, A, St, y, M;
+var c, H, Tt, A, St, y, M;
 class Mt extends HTMLElement {
   constructor() {
     super();
@@ -1261,17 +1273,17 @@ class Mt extends HTMLElement {
     r(this, A);
     r(this, y);
     /** @type {MediaQueryList | null} */
-    r(this, h, null);
+    r(this, c, null);
     this.currentTheme = null, this.themes = {};
   }
   /** @type {boolean} state */
   set auto(t) {
     if (t) {
-      if (this.setAttribute("auto", ""), l(this, H, Tt).call(this), i(this, h)) {
-        this.mediaChangeHandler(i(this, h));
+      if (this.setAttribute("auto", ""), l(this, H, Tt).call(this), n(this, c)) {
+        this.mediaChangeHandler(n(this, c));
         return;
       }
-      a(this, h, window.matchMedia("(prefers-color-scheme: dark)")), i(this, h).addEventListener("change", this.mediaChangeHandler), this.mediaChangeHandler(i(this, h));
+      a(this, c, window.matchMedia("(prefers-color-scheme: dark)")), n(this, c).addEventListener("change", this.mediaChangeHandler), this.mediaChangeHandler(n(this, c));
     } else
       this.removeAttribute("auto"), l(this, y, M).call(this);
   }
@@ -1308,14 +1320,14 @@ class Mt extends HTMLElement {
    * @param {string} name
    */
   loadTheme(t) {
-    var n;
+    var i;
     if (!this.themes[t])
       throw `theme "${t}" is missing in this.themes`;
-    if (((n = this.currentTheme) == null ? void 0 : n.name) == t)
+    if (((i = this.currentTheme) == null ? void 0 : i.name) == t)
       return;
     {
       const u = document.getElementById("theme");
-      u && (document.removeChild(u), this.currentTheme = null);
+      u && (document.head.removeChild(u), this.currentTheme = null);
     }
     const s = document.createElement("link");
     s.id = "theme", s.rel = "stylesheet", s.href = this.themes[t], document.head.appendChild(s), this.currentTheme = { name: t, href: this.themes[t] };
@@ -1327,7 +1339,7 @@ class Mt extends HTMLElement {
     t.matches ? document.body.setAttribute("data-theme", "dark") : document.body.setAttribute("data-theme", "light");
   }
 }
-h = new WeakMap(), H = new WeakSet(), Tt = function(t = document.body) {
+c = new WeakMap(), H = new WeakSet(), Tt = function(t = document.body) {
   t.removeAttribute("data-theme");
 }, A = new WeakSet(), St = function(t, s = document.body) {
   switch (t) {
@@ -1339,7 +1351,7 @@ h = new WeakMap(), H = new WeakSet(), Tt = function(t = document.body) {
       break;
   }
 }, y = new WeakSet(), M = function() {
-  i(this, h) && (i(this, h).removeEventListener("change", this.mediaChangeHandler), a(this, h, null));
+  n(this, c) && (n(this, c).removeEventListener("change", this.mediaChangeHandler), a(this, c, null));
 };
 const Vt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -1351,26 +1363,26 @@ const Vt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   FlexGridRow: Q,
   IconButton: V,
   Label: bt,
-  Lang: it,
+  Lang: nt,
   LangType: rt,
-  Primary: Ct,
-  Secondary: kt,
+  Primary: kt,
+  Secondary: Et,
   Select: st,
   SelectOption: _,
-  StackLayout: ct,
+  StackLayout: ht,
   StackLayoutPage: at,
   Store: dt,
   ThemeHandler: Mt,
   svg: d
 }, Symbol.toStringTag, { value: "Module" }));
 async function Gt() {
-  customElements.define("ui-app-bar", q), customElements.define("ui-icon-button", V), customElements.define("ui-button", F), customElements.define("ui-container", J), customElements.define("ui-flex-grid", tt), customElements.define("ui-flex-grid-row", Q), customElements.define("ui-flex-grid-item", Y), customElements.define("ui-select-option", _), customElements.define("ui-select", st), customElements.define("ui-lang-type", rt), customElements.define("ui-lang", it), customElements.define("ui-stack-layout-page", at), customElements.define("ui-stack-layout", ct), customElements.define("ui-store", dt), customElements.define(
+  customElements.define("ui-app-bar", q), customElements.define("ui-icon-button", V), customElements.define("ui-button", F), customElements.define("ui-container", J), customElements.define("ui-flex-grid", tt), customElements.define("ui-flex-grid-row", Q), customElements.define("ui-flex-grid-item", Y), customElements.define("ui-select-option", _), customElements.define("ui-select", st), customElements.define("ui-lang-type", rt), customElements.define("ui-lang", nt), customElements.define("ui-stack-layout-page", at), customElements.define("ui-stack-layout", ht), customElements.define("ui-store", dt), customElements.define(
     "ui-icon-back-arrow-navigation",
     d.BackArrowNavigation
   ), customElements.define("ui-icon-chevron-down", d.ChevronDown), customElements.define(
     "ui-icon-delete-recycle-bin",
     d.DeleteRecycleBin
-  ), customElements.define("ui-icon-edit2", d.Edit2), customElements.define("ui-icon-pdf-document", d.PDFDocument), customElements.define("ui-icon-settings", d.Settings), customElements.define("ui-icon-today-outline", d.TodayOutline), customElements.define("ui-secondary", kt), customElements.define("ui-primary", Ct), customElements.define("ui-label", bt), customElements.define("ui-theme-handler", Mt);
+  ), customElements.define("ui-icon-edit2", d.Edit2), customElements.define("ui-icon-pdf-document", d.PDFDocument), customElements.define("ui-icon-settings", d.Settings), customElements.define("ui-icon-today-outline", d.TodayOutline), customElements.define("ui-secondary", Et), customElements.define("ui-primary", kt), customElements.define("ui-label", bt), customElements.define("ui-theme-handler", Mt);
 }
 const Yt = {
   ..._t,

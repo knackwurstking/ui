@@ -3,10 +3,10 @@ export class StackLayout extends HTMLElement {
     /**
      * All rendered pages
      *
-     * @type {{ element: Element, name: string }[]}
+     * @type {{ element: import("./stack-layout-page").StackLayoutPage, name: string }[]}
      */
     stack: {
-        element: Element;
+        element: import("./stack-layout-page").StackLayoutPage;
         name: string;
     }[];
     /**
