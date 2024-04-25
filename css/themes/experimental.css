@@ -1,11 +1,11 @@
 [data-theme="light"] {
-    --bg: 240, 0%, 96%;
+    --bg: 240, 4%, 92%;
     --fg: 0, 0%, 10%;
 
-    --card: 240, 10%, 92%;
+    --card: 240, 10%, 90%;
     --card-fg: 0, 0%, 4%;
 
-    --primary: 240, 6%, 4%;
+    --primary: 240, 8%, 5%;
     --primary-fg: 0, 0%, 98%;
 
     --secondary: 240, 6%, 75%;
@@ -18,8 +18,8 @@
     --destructive-fg: 0, 0%, 98%;
 
     --border: 240, 0%, 82%;
-    --border-width: 0.5px;
-    --border-style: solid;
+    --border-width: 3px;
+    --border-style: outset;
 
     --font-size: calc(15px + 0.390625vw);
 
@@ -39,13 +39,13 @@
 }
 
 [data-theme="dark"] {
-    --bg: 240, 0%, 0%;
+    --bg: 240, 4%, 8%;
     --fg: 0, 0%, 90%;
 
-    --card: 240, 10%, 8%;
+    --card: 240, 10%, 10%;
     --card-fg: 0, 0%, 98%;
 
-    --primary: 240, 6%, 98%;
+    --primary: 240, 8%, 95%;
     --primary-fg: 0, 0%, 10%;
 
     --secondary: 240, 6%, 25%;
@@ -58,7 +58,7 @@
     --destructive-fg: 0, 0%, 98%;
 
     --border: 240, 0%, 18%;
-    --border-width: 2.5px;
+    --border-width: 3px;
     --border-style: outset;
 
     --font-size: calc(15px + 0.390625vw);
@@ -76,4 +76,8 @@
 
     background: hsl(var(--bg));
     color: hsl(var(--fg));
+}
+
+ui-button[variant="full"] {
+    border: var(--border-width) var(--border-style) hsl(var(--border));
 }
