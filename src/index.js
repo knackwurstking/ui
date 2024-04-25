@@ -53,7 +53,7 @@ async function define() {
     customElements.define("ui-label", wc.Label);
 
     // ThemeHandler components
-    customElements.define("ui-theme-handler", wc.ThemeHandler);
+    wc.ThemeHandler.register()
 }
 
 export default {

@@ -7,6 +7,8 @@ export class ThemeHandler extends HTMLElement {
     /** @type {MediaQueryList | null} */
     #media = null;
 
+    static observedAttributes = ["auto", "mode"]
+
     constructor() {
         super();
 
@@ -17,56 +19,37 @@ export class ThemeHandler extends HTMLElement {
         this.themes = {};
     }
 
-    /** @type {boolean} state */
-    set auto(state) {
-        if (state) {
-            this.setAttribute("auto", "");
-            this.#removeMode()
+    connectedCallback() { }
 
-            if (!!this.#media) {
-                this.mediaChangeHandler(this.#media)
-                return
-            }
+    disconnectedCallback() { }
 
-            this.#media = window.matchMedia("(prefers-color-scheme: dark)");
-            this.#media.addEventListener("change", this.mediaChangeHandler);
-            this.mediaChangeHandler(this.#media);
-        } else {
-            this.removeAttribute("auto");
-            this.#removeMedia()
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "auto":
+                if (newValue !== null) this.enableAutoMode();
+                else this.disableAutoMode();
+                break;
+            case "mode":
+                if (newValue !== null) this.setMode(newValue);
+                else this.removeMode()
+                break;
         }
     }
 
-    get auto() {
-        return this.hasAttribute("auto");
-    }
+    enableAutoMode() {
+        this.removeMode()
 
-    /** @param {string} mode */
-    set mode(mode) {
-        this.setAttribute("mode", mode)
-        this.#setMode(mode);
-    }
-
-    get mode() {
-        return this.getAttribute("mode");
-    }
-
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
-    connectedCallback() {
-        if (this.auto) {
-            this.auto = this.auto
-        } else {
-            this.#removeMedia()
-            this.mode = this.mode
+        if (!!this.#media) {
+            this.mediaChangeHandler(this.#media)
+            return
         }
+
+        this.#media = window.matchMedia("(prefers-color-scheme: dark)");
+        this.#media.addEventListener("change", this.mediaChangeHandler);
+        this.mediaChangeHandler(this.#media);
     }
 
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {
+    disableAutoMode() {
         this.#removeMedia()
     }
 
@@ -122,7 +105,7 @@ export class ThemeHandler extends HTMLElement {
     /**
      * @param {HTMLElement} element
      */
-    #removeMode(element = document.body) {
+    removeMode(element = document.body) {
         element.removeAttribute("data-theme");
     }
 
@@ -130,7 +113,7 @@ export class ThemeHandler extends HTMLElement {
      * @param {string} mode
      * @param {HTMLElement} element
      */
-    #setMode(mode, element = document.body) {
+    setMode(mode, element = document.body) {
         switch (mode) {
             case "dark":
                 element.setAttribute("data-theme", mode);
@@ -147,4 +130,6 @@ export class ThemeHandler extends HTMLElement {
             this.#media = null;
         }
     }
+
+    static register = () => customElements.define("ui-theme-handler", ThemeHandler)
 }

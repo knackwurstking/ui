@@ -3,6 +3,8 @@
  * @type {"dark" | "light"}
  */
 export class ThemeHandler extends HTMLElement {
+    static observedAttributes: string[];
+    static register: () => void;
     /** @type {{ name: string; href: string } | null} */
     currentTheme: {
         name: string;
@@ -12,20 +14,11 @@ export class ThemeHandler extends HTMLElement {
     themes: {
         [key: string]: string;
     };
-    /** @type {boolean} state */
-    set auto(state: boolean);
-    get auto(): boolean;
-    /** @param {string} mode */
-    set mode(mode: string);
-    get mode(): string;
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
     connectedCallback(): void;
-    /**
-     * Runs when the element is removed from the DOM
-     */
     disconnectedCallback(): void;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+    enableAutoMode(): void;
+    disableAutoMode(): void;
     /**
      * @param {string} name
      * @param {string} href
@@ -39,6 +32,15 @@ export class ThemeHandler extends HTMLElement {
      * @param {MediaQueryListEvent | MediaQueryList} ev
      */
     mediaChangeHandler(ev: MediaQueryListEvent | MediaQueryList): void;
+    /**
+     * @param {HTMLElement} element
+     */
+    removeMode(element?: HTMLElement): void;
+    /**
+     * @param {string} mode
+     * @param {HTMLElement} element
+     */
+    setMode(mode: string, element?: HTMLElement): void;
     #private;
 }
 export type Mode = "dark" | "light";
