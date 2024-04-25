@@ -6,6 +6,7 @@ template.innerHTML = `
         display: none;
         padding: var(--spacing);
         padding-right: 2.5em;
+        font-family: var(--font-family);
         transition: background-color 0.25s linear;
     }
 </style>

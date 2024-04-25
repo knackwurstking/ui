@@ -15,6 +15,7 @@ template.innerHTML = `
         border-radius: var(--radius);
         outline: none;
         overflow: hidden;
+        font-family: var(--font-family);
         cursor: pointer;
         user-select: none;
     }

@@ -8,5 +8,5 @@
     padding: var(--spacing);
     overflow: hidden;
 
-    box-shadow: var(--box-shadow);
+    box-shadow: none;
 }

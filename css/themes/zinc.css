@@ -21,14 +21,10 @@
     --border-width: 1px;
     --border-style: solid;
 
-    --text-shadow:
-        .05rem .05rem .05rem hsla(0, 0%, 0%, .35);
-    --box-shadow:
-        0.05rem 0.05rem .1rem .1rem hsla(0, 0%, 0%, .35);
-
     --font-size: calc(15px + 0.390625vw);
 
     --font-family: "Times New Roman", serif;
+    --font-family-sans: "Georgia", sans-serif;
     --font-family-mono: "Courier New", monospace;
 
     --line-height: 1.15;
@@ -65,14 +61,10 @@
     --border-width: 1px;
     --border-style: solid;
 
-    --text-shadow:
-        .05rem .05rem .05rem hsla(0, 0%, 100%, .25);
-    --box-shadow:
-        0.05rem 0.05rem .1rem .1rem hsla(0, 0%, 0%, .25);
-
     --font-size: calc(15px + 0.390625vw);
 
     --font-family: "Times New Roman", serif;
+    --font-family-sans: "Georgia", sans-serif;
     --font-family-mono: "Courier New", monospace;
 
     --line-height: 1.15;

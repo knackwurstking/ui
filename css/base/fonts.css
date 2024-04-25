@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-family-sans);
     font-size: 1rem;
 }
 
@@ -16,7 +16,7 @@ h5,
 h6 {
     font-family: var(--font-family);
     font-style: italic;
-    font-weight: bolder;
+    font-weight: 600;
 }
 
 h1 {

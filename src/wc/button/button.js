@@ -12,7 +12,9 @@ template.innerHTML = `
         border: var(--border-width) var(--border-style) currentColor;
         border-radius: var(--radius);
         overflow: hidden;
+        font-family: var(--font-family);
         font-weight: bold;
+        text-transform: capitalize;
         cursor: pointer;
         outline: none;
         user-select: none;
@@ -25,19 +27,16 @@ template.innerHTML = `
     :host([variant="full"][color="primary"]) {
         background-color: hsl(var(--primary));
         color: hsl(var(--primary-fg));
-        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="secondary"]) {
         background-color: hsl(var(--secondary));
         color: hsl(var(--secondary-fg));
-        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="destructive"]) {
         background-color: hsl(var(--destructive));
         color: hsl(var(--destructive-fg));
-        box-shadow: var(--box-shadow);
     }
 
     :host([variant="outline"]) {
@@ -47,24 +46,17 @@ template.innerHTML = `
 
     :host([variant="outline"][color="primary"]) {
         color: hsl(var(--primary));
-        box-shadow: var(--box-shadow);
-        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="secondary"]) {
         color: hsl(var(--secondary));
-        box-shadow: var(--box-shadow);
-        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="destructive"]) {
         color: hsl(var(--destructive));
-        box-shadow: var(--box-shadow);
-        text-shadow: var(--text-shadow);
     }
 
     :host([variant="ghost"]) {
-        box-shadow: none;
         border-color: transparent;
         background-color: transparent;
     }
