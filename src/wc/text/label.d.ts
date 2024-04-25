@@ -1,13 +1,8 @@
 export class Label extends HTMLElement {
-    /** @type {HTMLInputElement} */
-    input: HTMLInputElement;
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
-    connectedCallback(): void;
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback(): void;
+    static register: () => void;
+    static observedAttributes: string[];
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+    enableRipple(): void;
+    disableRipple(): void;
     #private;
 }

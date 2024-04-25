@@ -3,8 +3,8 @@
  * @type {"dark" | "light"}
  */
 export class ThemeHandler extends HTMLElement {
-    static observedAttributes: string[];
     static register: () => void;
+    static observedAttributes: string[];
     /** @type {{ name: string; href: string } | null} */
     currentTheme: {
         name: string;

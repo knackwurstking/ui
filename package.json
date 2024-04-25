@@ -16,7 +16,8 @@
         "build": "npm run build:lib && npm run build:css",
         "build:lib": "vite build --minify -c vite.config.js",
         "build:css": "cleancss -o dist/main.min.css css/main.css",
-        "build:types": "rm src/**/*.d.ts && npx -p typescript tsc src/*.js src/**/*.js  --emitDeclarationOnly --declaration --allowJs"
+        "build:types": "npx -p typescript tsc src/*.js src/**/*.js  --emitDeclarationOnly --declaration --allowJs",
+        "build:types:rm": "rm src/**/*.d.ts"
     },
     "license": "MIT",
     "devDependencies": {
