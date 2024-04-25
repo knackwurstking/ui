@@ -29,8 +29,10 @@ input[aria-invalid="true"] {
 
 table {
     border-collapse: separate;
+    border: none;
 }
 
 th, td {
     border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-style: outset;
 }

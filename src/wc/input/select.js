@@ -15,6 +15,8 @@ template.innerHTML = `
         font-size: 0.95em;
         overflow: hidden;
         transition: height 0.25s ease;
+        line-height: 1.15;
+        box-sizing: none !important;
     }
 
     .options {
@@ -43,7 +45,7 @@ template.innerHTML = `
 
     :host(.open) {
         height: calc(
-            (1em * var(--line-height) + var(--spacing) * 2) * var(--items-length)
+            (var(--spacing) * 2 + (1em * 1.15)) * var(--items-length)
         );
     }
 
