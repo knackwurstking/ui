@@ -33,15 +33,9 @@ async function define() {
     customElements.define("ui-store", wc.Store);
 
     // Svg Icons
-    customElements.define(
-        "ui-icon-back-arrow-navigation",
-        wc.svg.BackArrowNavigation,
-    );
+    customElements.define("ui-icon-back-arrow-navigation", wc.svg.BackArrowNavigation);
     customElements.define("ui-icon-chevron-down", wc.svg.ChevronDown);
-    customElements.define(
-        "ui-icon-delete-recycle-bin",
-        wc.svg.DeleteRecycleBin,
-    );
+    customElements.define("ui-icon-delete-recycle-bin", wc.svg.DeleteRecycleBin);
     customElements.define("ui-icon-edit2", wc.svg.Edit2);
     customElements.define("ui-icon-pdf-document", wc.svg.PDFDocument);
     customElements.define("ui-icon-settings", wc.svg.Settings);
