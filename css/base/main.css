@@ -13,8 +13,10 @@ section {
     padding: var(--spacing) 0;
 }
 
-figure {
-    overflow: auto;
+hr {
+    border: none;
+    height: var(--border-width);
+    margin: var(--spacing) 0;
 }
 
 /**
@@ -44,12 +46,17 @@ button:focus {
 
 code,
 pre {
-    display: block;
     padding: calc(var(--spacing) / 2);
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
 }
 
 code {
     display: inline-block;
+}
+
+pre {
+    display: block;
 }
 
 /**
@@ -60,7 +67,15 @@ select,
 input,
 textarea {
     display: block;
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-radius: var(--radius);
     transition: border-color 0.25s linear;
+    outline: none;
+}
+
+select,
+textarea {
+    padding: var(--spacing);
 }
 
 input {
@@ -90,15 +105,18 @@ input[type="color"] {
     cursor: pointer;
 }
 
-input:disabled {
-    opacity: 0.25;
+input[aria-invalid="true"] {
+    border-color: hsl(var(--destructive));
+    outline-color: hsl(var(--destructive));
 }
 
-select,
-textarea {
-    display: block;
-    padding: var(--spacing);
-    outline: none;
+input:focus:not([type=checkbox]),
+textarea:focus {
+    border-color: hsl(var(--primary));
+}
+
+input:disabled {
+    opacity: 0.25;
 }
 
 /**
@@ -126,13 +144,18 @@ table {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+
+    border-collapse: separate;
+    border: none;
 }
 
 th,
 td {
     padding: var(--spacing);
+    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border-style: outset;
 }
 
 td {
-    word-break: break-all;
 }
+    word-break: break-all;

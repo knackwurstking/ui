@@ -8,18 +8,6 @@ body {
     color: hsl(var(--fg));
 }
 
-/*
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-shadow:
-        0 0 1.5px currentColor;
-}
-*/
-
 hr {
     background-color: hsl(var(--border));
 }
@@ -36,7 +24,6 @@ textarea {
     background-color: transparent;
     color: hsl(var(--fg));
     box-shadow: none;
-    outline: none !important;
 }
 
 input[type="checkbox"] {
