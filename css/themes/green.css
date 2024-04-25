@@ -1,23 +1,27 @@
+:root {
+    --hue: 105;
+}
+
 [data-theme="light"] {
-    --bg: 240, 4%, 95%;
-    --fg: 0, 0%, 10%;
+    --bg: var(--hue), 10%, 96.1%;
+    --fg: 0, 10%, 10%;
 
-    --card: 240, 6%, 91%;
-    --card-fg: 0, 0%, 4%;
+    --card: var(--hue), 10%, 92.1%;
+    --card-fg: 0, 10%, 3.9%;
 
-    --primary: 240, 8%, 5%;
+    --primary: var(--hue), 5.9%, 3.9%;
     --primary-fg: 0, 0%, 98%;
 
-    --secondary: 240, 6%, 75%;
-    --secondary-fg: 0, 0%, 10%;
+    --secondary: var(--hue), 5.9%, 75%;
+    --secondary-fg: 0, 5.9%, 10%;
 
-    --muted: 240, 4%, 96%;
-    --muted-fg: 0, 0%, 46.1%;
+    --muted: var(--hue), 4.8%, 95.9%;
+    --muted-fg: 0, 3.8%, 46.1%;
 
-    --destructive: 0, 72%, 51%;
+    --destructive: 0, 72.22%, 50.59%;
     --destructive-fg: 0, 0%, 98%;
 
-    --border: 240, 0%, 82%;
+    --border: var(--hue), 5.9%, 82%;
     --border-width: 1px;
     --border-style: solid;
 
@@ -39,25 +43,25 @@
 }
 
 [data-theme="dark"] {
-    --bg: 240, 4%, 5%;
+    --bg: var(--hue), 10%, 3.9%;
     --fg: 0, 0%, 90%;
 
-    --card: 240, 6%, 9%;
+    --card: var(--hue), 10%, 7.9%;
     --card-fg: 0, 0%, 98%;
 
-    --primary: 240, 8%, 95%;
+    --primary: var(--hue), 5.9%, 98%;
     --primary-fg: 0, 0%, 10%;
 
-    --secondary: 240, 6%, 25%;
-    --secondary-fg: 0, 0%, 98%;
+    --secondary: var(--hue), 5.9%, 25%;
+    --secondary-fg: 0, 5.9%, 98%;
 
-    --muted: 240, 4%, 16%;
-    --muted-fg: 0, 0%, 65%;
+    --muted: var(--hue), 3.7%, 15.9%;
+    --muted-fg: 0, 5%, 64.9%;
 
-    --destructive: 0, 63%, 31%;
+    --destructive: 0, 62.8%, 30.6%;
     --destructive-fg: 0, 0%, 98%;
 
-    --border: 240, 0%, 18%;
+    --border: var(--hue), 5.9%, 18%;
     --border-width: 1px;
     --border-style: solid;
 
@@ -76,14 +80,4 @@
 
     background: hsl(var(--bg));
     color: hsl(var(--fg));
-}
-
-.ui-card {
-    border: none;
-}
-
-ui-button:not([variant="ghost"]),
-ui-icon-button:not([ghost]),
-.ui-card {
-    box-shadow: inset 0 0 .1rem currentColor;
 }
