@@ -8,7 +8,7 @@ template.innerHTML = `
         align-items: center;
         justify-content: center;
         position: relative;
-        padding: var(--spacing) calc(var(--spacing) * 1.5);
+        padding: var(--spacing) calc(var(--spacing) * 2.5);
         border: var(--border-width) var(--border-style) currentColor;
         border-radius: var(--radius);
         overflow: hidden;
