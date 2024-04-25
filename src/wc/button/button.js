@@ -25,19 +25,19 @@ template.innerHTML = `
     :host([variant="full"][color="primary"]) {
         background-color: hsl(var(--primary));
         color: hsl(var(--primary-fg));
-        box-shadow: inset 0 0 .25rem .05rem hsla(var(--primary-fg), .35);
+        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="secondary"]) {
         background-color: hsl(var(--secondary));
         color: hsl(var(--secondary-fg));
-        box-shadow: inset 0 0 .25rem .05rem hsla(var(--secondary-fg), .35);
+        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="destructive"]) {
         background-color: hsl(var(--destructive));
         color: hsl(var(--destructive-fg));
-        box-shadow: inset 0 0 .25rem .05rem hsla(var(--destructive-fg), .35);
+        box-shadow: var(--box-shadow);
     }
 
     :host([variant="outline"]) {
@@ -47,20 +47,20 @@ template.innerHTML = `
 
     :host([variant="outline"][color="primary"]) {
         color: hsl(var(--primary));
-        box-shadow: inset 0 0 .25rem .05rem hsla(var(--primary), .35);
-        text-shadow: 0em 0em .1em hsla(var(--primary), .65);
+        box-shadow: var(--box-shadow);
+        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="secondary"]) {
         color: hsl(var(--secondary));
-        box-shadow: inset 0 0 .25rem .05rem hsla(var(--secondary), .35);
-        text-shadow: 0em 0em .1em hsla(var(--secondary), .65);
+        box-shadow: var(--box-shadow);
+        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="destructive"]) {
         color: hsl(var(--destructive));
-        box-shadow: inset 0 0 .25rem .05rem hsla(var(--destructive), .35);
-        text-shadow: 0em 0em .1em hsla(var(--destructive), .65);
+        box-shadow: var(--box-shadow);
+        text-shadow: var(--text-shadow);
     }
 
     :host([variant="ghost"]) {

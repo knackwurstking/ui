@@ -1,10 +1,19 @@
-var D = Object.defineProperty;
-var O = (o, e, t) => e in o ? D(o, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : o[e] = t;
-var h = (o, e, t) => (O(o, typeof e != "symbol" ? e + "" : e, t), t);
-class P {
+var Ht = Object.defineProperty;
+var At = (o, e, t) => e in o ? Ht(o, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : o[e] = t;
+var D = (o, e, t) => (At(o, typeof e != "symbol" ? e + "" : e, t), t), j = (o, e, t) => {
+  if (!e.has(o))
+    throw TypeError("Cannot " + t);
+};
+var i = (o, e, t) => (j(o, e, "read from private field"), t ? t.call(o) : e.get(o)), r = (o, e, t) => {
+  if (e.has(o))
+    throw TypeError("Cannot add the same private member more than once");
+  e instanceof WeakSet ? e.add(o) : e.set(o, t);
+}, a = (o, e, t, s) => (j(o, e, "write to private field"), s ? s.call(o, t) : e.set(o, t), t);
+var l = (o, e, t) => (j(o, e, "access private method"), t);
+class $ {
   constructor(e = !1) {
     /** @type {{[key: string]: ((data: any) => void|Promise<void>)[]}} */
-    h(this, "listeners");
+    D(this, "listeners");
     this.debug = !!e, this.listeners = {};
   }
   /**
@@ -12,11 +21,11 @@ class P {
    * @param {any} data
    */
   dispatchWithData(e, t) {
-    if (this.debug && console.log(`[events] dispatchWithData: key=${e}, data=${t}`), t === void 0)
+    if (this.debug && console.log(`[events] dispatchWithData: key=${e}`, t), t === void 0)
       throw "data is undefined!";
     if (this.listeners[e])
-      for (const n of this.listeners[e])
-        n(t);
+      for (const s of this.listeners[e])
+        s(t);
     return this;
   }
   /**
@@ -38,18 +47,18 @@ class P {
   removeListener(e, t) {
     if (this.debug && console.log(`[events] removeListener: key=${e}, listener=${t}`), !this.listeners[e])
       throw `no listeners found for ${e}, there is nothing to delete`;
-    let n = !1, r = 0;
-    for (const l of this.listeners[e])
-      l === t && (this.listeners[e].splice(r, 1), n = !0), r++;
-    if (!n)
+    let s = !1, n = 0;
+    for (const u of this.listeners[e])
+      u === t && (this.listeners[e].splice(n, 1), s = !0), n++;
+    if (!s)
       throw `listener not found for ${e}, there is nothing to delete`;
     return this;
   }
 }
-const Z = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const $t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  Events: P
-}, Symbol.toStringTag, { value: "Module" })), F = {
+  Events: $
+}, Symbol.toStringTag, { value: "Module" })), Rt = {
   color: "currentColor",
   opacity: 0.2,
   centered: !1,
@@ -58,60 +67,50 @@ const Z = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   clearDuration: "1s",
   clearTiming: "ease-in-out"
 };
-function u(o, e) {
-  e = { ...F, ...e };
+function B(o, e) {
+  e = { ...Rt, ...e };
   const t = document.createElement("div");
   t.classList.add("ripple"), t.style.position = "absolute", t.style.color = "inherit", t.style.borderRadius = "50%", t.style.pointerEvents = "none", t.style.width = "100px", t.style.height = "100px", t.style.marginTop = "-50px", t.style.marginLeft = "-50px", t.style.opacity = `${e.opacity}`, t.style.backgroundColor = e.color, t.style.transform = "scale(0) translate(0, 0)", t.style.transition = `transform ${e.spreadDuration} ${e.spreadTiming} 0s,opacity ${e.clearDuration} ${e.clearTiming} 0s`, o.currentTarget.appendChild(t);
-  const n = o.currentTarget.getBoundingClientRect();
-  e.centered ? (t.style.top = `${n.height / 2}px`, t.style.left = `${n.width / 2}px`) : (t.style.top = `${o.clientY - n.top}px`, t.style.left = `${o.clientX - n.left}px`);
-  const r = Math.max(n.width, n.height) * 0.02;
-  return t.style.transform = `scale(${r}) translate(0, 0)`, t;
+  const s = o.currentTarget.getBoundingClientRect();
+  e.centered ? (t.style.top = `${s.height / 2}px`, t.style.left = `${s.width / 2}px`) : (t.style.top = `${o.clientY - s.top}px`, t.style.left = `${o.clientX - s.left}px`);
+  const n = Math.max(s.width, s.height) * 0.02;
+  return t.style.transform = `scale(${n}) translate(0, 0)`, t;
 }
-function p(o) {
+function O(o) {
   o && (o.addEventListener("transitionend", (e) => {
     e.propertyName === "opacity" && o.remove();
   }), o.style.opacity = "0");
 }
-function a(o, e = {}) {
-  let t, n = !1;
-  const r = (i) => {
-    t = u(i, { ...e });
-  }, l = () => {
-    p(t);
-  }, c = () => {
-    o.classList.add("ripple-container"), o.addEventListener("pointerdown", r), o.addEventListener("pointerup", l), o.addEventListener("pointerleave", l), n = !1;
-  }, d = () => {
-    o.classList.remove("ripple-container"), o.removeEventListener("pointerdown", r), o.removeEventListener("pointerup", l), o.removeEventListener("pointerleave", l), n = !0;
+function R(o, e = {}) {
+  let t;
+  const s = (u) => {
+    t = B(u, e);
+  }, n = () => {
+    O(t);
   };
-  return e && c(), {
-    /**
-     * @param {import(".").RippleOptions} _options
-     */
-    update(i) {
-      e = i, e && n ? c() : e || n || d();
-    },
-    destroy: d
+  return o.classList.add("ripple-container"), o.style.overflow = "hidden", o.addEventListener("pointerdown", s), o.addEventListener("pointerup", n), o.addEventListener("pointerleave", n), () => {
+    o.classList.remove("ripple-container"), o.removeEventListener("pointerdown", s), o.removeEventListener("pointerup", n), o.removeEventListener("pointerleave", n);
   };
 }
-const V = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const jt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  create: a,
-  start: u,
-  stop: p
+  create: R,
+  start: B,
+  stop: O
 }, Symbol.toStringTag, { value: "Module" }));
-function I() {
+function Nt() {
   return /(android)/i.test(navigator.userAgent);
 }
-const G = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const Pt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  isAndroid: I
-}, Symbol.toStringTag, { value: "Module" })), W = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  isAndroid: Nt
+}, Symbol.toStringTag, { value: "Module" })), _t = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  events: Z,
-  ripple: V,
-  utils: G
-}, Symbol.toStringTag, { value: "Module" })), m = document.createElement("template");
-m.innerHTML = `
+  events: $t,
+  ripple: jt,
+  utils: Pt
+}, Symbol.toStringTag, { value: "Module" })), Z = document.createElement("template");
+Z.innerHTML = `
 <style>
     :host {
         display: flex;
@@ -166,7 +165,7 @@ m.innerHTML = `
         <slot name="left"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row gap="0.25rem">
+    <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;">
         <slot name="center"></slot>
     </ui-flex-grid-row>
 
@@ -175,23 +174,13 @@ m.innerHTML = `
     </ui-flex-grid-row>
 </ui-flex-grid-row>
 `;
-class g extends HTMLElement {
+class q extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(m.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(Z.content.cloneNode(!0));
   }
 }
-const f = document.createElement("template");
-f.innerHTML = `
+const I = document.createElement("template");
+I.innerHTML = `
 <style>
     :host {
         display: flex;
@@ -215,16 +204,19 @@ f.innerHTML = `
     :host([variant="full"][color="primary"]) {
         background-color: hsl(var(--primary));
         color: hsl(var(--primary-fg));
+        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="secondary"]) {
         background-color: hsl(var(--secondary));
         color: hsl(var(--secondary-fg));
+        box-shadow: var(--box-shadow);
     }
 
     :host([variant="full"][color="destructive"]) {
         background-color: hsl(var(--destructive));
         color: hsl(var(--destructive-fg));
+        box-shadow: var(--box-shadow);
     }
 
     :host([variant="outline"]) {
@@ -234,14 +226,20 @@ f.innerHTML = `
 
     :host([variant="outline"][color="primary"]) {
         color: hsl(var(--primary));
+        box-shadow: var(--box-shadow);
+        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="secondary"]) {
         color: hsl(var(--secondary));
+        box-shadow: var(--box-shadow);
+        text-shadow: var(--text-shadow);
     }
 
     :host([variant="outline"][color="destructive"]) {
         color: hsl(var(--destructive));
+        box-shadow: var(--box-shadow);
+        text-shadow: var(--text-shadow);
     }
 
     :host([variant="ghost"]) {
@@ -273,24 +271,16 @@ f.innerHTML = `
 
 <slot></slot>
 `;
-class w extends HTMLElement {
+class F extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(f.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(I.content.cloneNode(!0));
   }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
   connectedCallback() {
-    this.hasAttribute("no-ripple") || a(this);
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    this.hasAttribute("no-ripple") || R(this);
   }
 }
-const v = document.createElement("template");
-v.innerHTML = `
+const W = document.createElement("template");
+W.innerHTML = `
 <style>
     :host {
         display: flex;
@@ -340,24 +330,16 @@ v.innerHTML = `
 
 <slot></slot>
 `;
-class b extends HTMLElement {
+class V extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(v.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(W.content.cloneNode(!0));
   }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
   connectedCallback() {
-    this.hasAttribute("no-ripple") || a(this, { centered: !0 });
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    this.hasAttribute("no-ripple") || R(this, { centered: !0 });
   }
 }
-const y = document.createElement("template");
-y.innerHTML = `
+const G = document.createElement("template");
+G.innerHTML = `
 <style>
     :host {
         display: block;
@@ -370,102 +352,516 @@ y.innerHTML = `
 
 <slot></slot>
 `;
-class C extends HTMLElement {
+class J extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(y.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(G.content.cloneNode(!0));
   }
 }
-const L = document.createElement("template");
-L.innerHTML = `
+const X = document.createElement("template");
+X.innerHTML = `
 <style>
     :host {
-        margin: 0 var(--row-gap);
+        flex: 1;
     }
 </style>
 
 <slot></slot>
 `;
-class x extends HTMLElement {
+class Y extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(L.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(X.content.cloneNode(!0));
   }
   /**
    * Runs each time the element is appended to or moved in the DOM
    */
   connectedCallback() {
-    this.style.setProperty("flex", this.getAttribute("flex") || "1");
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    this.hasAttribute("flex") && this.style.setProperty("flex", this.getAttribute("flex"));
   }
 }
-const k = document.createElement("template");
-k.innerHTML = `
+const K = document.createElement("template");
+K.innerHTML = `
 <style>
     :host {
-        --row-gap: var(--gap, 0);
-        margin: var(--gap, 0) 0;
         display: flex;
         flex-flow: row nowrap;
+        position: relative;
         width: 100%;
     }
 
-    :host(:first-child) {
+    :host ::slotted(ui-flex-grid-item) {
+        margin: 0 var(--row-gap);
+    }
+
+    :host ::slotted(ui-flex-grid-item:first-child) {
+        margin-left: 0;
+    }
+
+    :host ::slotted(ui-flex-grid-item:last-child) {
+        margin-right: 0;
+    }
+</style>
+
+<slot></slot>
+`;
+class Q extends HTMLElement {
+  constructor() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(K.content.cloneNode(!0));
+  }
+  /**
+   * Runs each time the element is appended to or moved in the DOM
+   */
+  connectedCallback() {
+    this.hasAttribute("gap") && this.style.setProperty("--row-gap", this.getAttribute("gap"));
+  }
+}
+const U = document.createElement("template");
+U.innerHTML = `
+<style>
+    :host {
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+        width: 100%;
+        height: fit-content;
+    }
+
+    :host ::slotted(ui-flex-grid-row) {
+        margin: var(--gap, 0) 0;
+    }
+
+    :host ::slotted(ui-flex-grid-row:first-child) {
         margin-top: 0;
     }
 
-    :host(:last-child) {
+    :host ::slotted(ui-flex-grid-row:last-child) {
         margin-bottom: 0;
     }
 </style>
 
 <slot></slot>
 `;
-class E extends HTMLElement {
+class tt extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(k.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(U.content.cloneNode(!0));
   }
   /**
    * Runs each time the element is appended to or moved in the DOM
    */
   connectedCallback() {
-    this.style.setProperty("--row-gap", this.getAttribute("gap") || "0");
+    this.hasAttribute("gap") && this.style.setProperty("--gap", this.getAttribute("gap"));
+  }
+}
+const et = document.createElement("template");
+et.innerHTML = `
+<style>
+    :host {
+        display: none;
+        padding: var(--spacing);
+        padding-right: 2.5em;
+        transition: background-color 0.25s linear;
+    }
+</style>
+
+<slot></slot>
+`;
+class _ extends HTMLElement {
+  constructor() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(et.content.cloneNode(!0)), this.type = "ui-select-option";
+  }
+  get value() {
+    return this.getAttribute("value") || "";
+  }
+  get selected() {
+    return this.hasAttribute("selected");
+  }
+  set selected(e) {
+    e ? this.setAttribute("selected", "") : this.removeAttribute("selected");
+  }
+}
+const ot = document.createElement("template");
+ot.innerHTML = `
+<style>
+    :host {
+        --items-length: 0;
+        position: relative; 
+        display: block;
+        width: 100%;
+        height: calc(1em * var(--line-height) + var(--spacing) * 2);
+        border: var(--border-width) var(--border-style) hsl(var(--border));
+        border-radius: var(--radius);
+        font-size: 0.95em;
+        overflow: hidden;
+        transition: height 0.25s ease;
+    }
+
+    .options {
+        cursor: pointer;
+        display: none;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2.5em;
+        height: 100%;
+        color: hsl(var(--primary));
+    }
+
+    ::slotted(ui-select-option) {
+        display: block;
+    }
+
+    :host(.open) {
+        height: calc(
+            (1em * var(--line-height) + var(--spacing) * 2) * var(--items-length)
+        );
+    }
+
+    :host(.open) .options {
+        display: block;
+    }
+
+    :host(.open) .icon {
+        display: none;
+    }
+
+    :host(.open) ::slotted(ui-select-option[selected]) {
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-fg));
+    }
+
+    :host(.open) ::slotted(ui-select-option:not([selected]):hover) {
+        background-color: hsl(var(--fg), 0.1);
+    }
+
+    :host(:not(.open)) .options:has(> ::slotted(ui-select-option[selected])) {
+        display: block;
+    }
+
+    :host(:not(.open)) ::slotted(ui-select-option:not([selected])) {
+        display: none;
+    }
+</style>
+
+<div class="options">
+    <div class="icon"><ui-icon-chevron-down></ui-icon-chevron-down></div>
+
+    <slot></slot>
+</div>
+`;
+var p, b, m;
+class st extends HTMLElement {
+  constructor() {
+    super();
+    r(this, p, !1);
+    /** @param {Event} ev */
+    r(this, b, (t) => {
+      this.classList.toggle("open") ? (t.stopPropagation(), this.addEventListener("click", i(this, m))) : setTimeout(
+        () => this.removeEventListener("click", i(this, m))
+      );
+    });
+    /** @param {MouseEvent | PointerEvent} ev */
+    r(this, m, (t) => {
+      (t.composedPath() || []).forEach((s) => {
+        s instanceof _ && ([...this.querySelectorAll("ui-select-option")].forEach(
+          (n) => n.removeAttribute("selected")
+        ), s.setAttribute("selected", ""), this.dispatchEvent(new CustomEvent("change", { detail: s })));
+      });
+    });
+    this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(ot.content.cloneNode(!0));
+  }
+  /**
+   * Runs each time the element is appended to or moved in the DOM
+   */
+  connectedCallback() {
+    var t;
+    i(this, p) || ((t = this.shadowRoot.querySelector(".options")) == null || t.addEventListener("click", i(this, b)), a(this, p, !0)), this.style.setProperty(
+      "--items-length",
+      this.querySelectorAll("ui-select-option").length.toString()
+    );
   }
   /**
    * Runs when the element is removed from the DOM
    */
   disconnectedCallback() {
+    var t;
+    this.removeEventListener("click", i(this, m)), (t = this.shadowRoot.querySelector(".options")) == null || t.addEventListener("click", i(this, b)), a(this, p, !1);
   }
 }
-class M extends HTMLElement {
+p = new WeakMap(), b = new WeakMap(), m = new WeakMap();
+var g, x, z;
+let Dt = (z = class {
+  constructor() {
+    r(this, g, void 0);
+    /**
+     * @type {{
+     *  [key: string]: {
+     *      [key: string]: string;
+     *  };
+     * }}
+     */
+    r(this, x, void 0);
+    a(this, g, new $()), this.langType = null;
+  }
+  /**
+   * @param {import("./lang-type").LangType} langType
+   * @param {{
+   *  [key: string]: {
+   *      [key: string]: string;
+   *  };
+   * }} data
+   */
+  new(e, t) {
+    this.langType = e, a(this, x, t), i(this, g).dispatchWithData("change", this.langType);
+  }
+  /**
+   * @param {string} group
+   * @param {string} key
+   */
+  get(e, t) {
+    var s;
+    return (s = i(this, x)) == null ? void 0 : s[e][t];
+  }
+  /**
+   * @param {"change"} key
+   * @param {(langType: import("./lang-type").LangType | null) => void|Promise<void>} callback
+   * @param {boolean} [trigger] - this will run the callback first
+   * @returns {() => void} clean up function
+   */
+  on(e, t, s = !1) {
+    if (typeof t != "function")
+      throw "callback is not a function";
+    return s && t(this.langType), i(this, g).addListener(e, t);
+  }
+}, g = new WeakMap(), x = new WeakMap(), z);
+var T, nt;
+class it extends HTMLElement {
+  constructor() {
+    super();
+    /** @param {string} name */
+    r(this, T);
+    this.data = new Dt();
+  }
+  set current(t) {
+    this.setAttribute("current", t), l(this, T, nt).call(this, t);
+  }
+  get current() {
+    return this.getAttribute("current");
+  }
+  /** @returns {import("./lang-type").LangType} */
+  get fallback() {
+    return this.querySelector("ui-lang-type[fallback]");
+  }
+  connectedCallback() {
+    this.current = this.current;
+  }
+}
+T = new WeakSet(), nt = async function(t) {
+  const s = this.querySelector(`ui-lang-type[name="${t}"]`) || this.fallback;
+  if (!s)
+    return;
+  if (!s.href)
+    throw "Missing href attribute!";
+  const n = await fetch(s.href);
+  this.data.new(s, await n.json());
+};
+class rt extends HTMLElement {
   constructor() {
     super();
   }
+  set name(e) {
+    this.setAttribute("name", e);
+  }
+  get name() {
+    return this.getAttribute("name");
+  }
+  set href(e) {
+    this.setAttribute("href", e);
+  }
+  get href() {
+    return this.getAttribute("href");
+  }
+  set fallback(e) {
+    e ? this.setAttribute("fallback", "") : this.removeAttribute("fallback");
+  }
+  get fallback() {
+    return this.hasAttribute("fallback");
+  }
+}
+const lt = document.createElement("template");
+lt.innerHTML = `
+    <style>
+        :host {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            animation: fade-in 0.5s;
+            transition: opacity 0.5s ease;
+        }
+
+        :host(:last-child) {
+            opacity: 1;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <slot></slot>
+`;
+class at extends HTMLElement {
+  constructor() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(lt.content.cloneNode(!0));
+  }
+  get name() {
+    return this.getAttribute("name") || "";
+  }
+  get title() {
+    return this.getAttribute("title") || "";
+  }
+}
+const ht = document.createElement("template");
+ht.innerHTML = `
+    <style>
+        :host {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <slot></slot>
+`;
+var f, L, N;
+class ct extends HTMLElement {
+  constructor() {
+    super();
+    r(this, L);
+    /**
+     * @type {Pages}
+     */
+    r(this, f, {});
+    this.events = new $(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(ht.content.cloneNode(!0)), this.stack = [];
+  }
+  /**
+   * @param {string} name
+   * @param {() => StackLayoutPage} cb
+   */
+  registerPage(t, s) {
+    i(this, f)[t] = s;
+  }
+  /**
+   * @param {string} name
+   */
+  unregisterPage(t) {
+    delete i(this, f)[t];
+  }
+  goBack() {
+    if (!this.stack.length)
+      return;
+    const t = this.stack.pop();
+    this.removeChild(t.element), l(this, L, N).call(this);
+  }
+  /**
+   * @param {string} name
+   */
+  setPage(t) {
+    this.stack.push({
+      name: t,
+      element: this.appendChild(i(this, f)[t]().children[0])
+    }), l(this, L, N).call(this);
+  }
+}
+f = new WeakMap(), L = new WeakSet(), N = async function() {
+  var t;
+  this.events.dispatchWithData(
+    "change",
+    ((t = this.stack[this.stack.length - 1]) == null ? void 0 : t.element) || null
+  );
+};
+var w, c;
+class zt {
+  /** @param {Store} store */
+  constructor(e) {
+    r(this, w, void 0);
+    r(this, c, void 0);
+    a(this, c, e), a(this, w, new $()), this.localStoragePrefix = "", this.enableLocalStorage = !1;
+  }
+  /**
+   * @param {string} key
+   */
+  get(e) {
+    return i(this, c).stores[e];
+  }
+  /**
+   * @param {string} key
+   * @param {any} data
+   * @param {boolean} [useDataAsFallback] Use data as fallback, if nothing found in the browsers `localStorage`
+   * `this.enableLocalStorage` flag needs to be set to `true` for this to work
+   */
+  set(e, t, s = !1) {
+    if (s && this.enableLocalStorage) {
+      const n = JSON.parse(localStorage.getItem(this.localStoragePrefix + e) || "null");
+      i(this, c).stores[e] = n ?? t;
+    } else
+      i(this, c).stores[e] = t;
+    this.enableLocalStorage && localStorage.setItem(this.localStoragePrefix + e, JSON.stringify(i(this, c).stores[e])), i(this, w).dispatchWithData(e, i(this, c).stores[e]);
+  }
+  /**
+   * @param {string} key
+   * @param {(data: any) => any} callback
+   */
+  update(e, t) {
+    if (typeof t != "function")
+      throw "callback is not a function";
+    this.set(e, t(i(this, c).stores[e]));
+  }
+  /**
+   * @param {string} key
+   * @param {(data: any) => void|Promise<void>} callback
+   * @param {boolean} [trigger] - this will run the callback first
+   * @returns {() => void} clean up function
+   */
+  on(e, t, s = !1) {
+    if (typeof t != "function")
+      throw "callback is not a function";
+    return s && t(this.get(e)), i(this, w).addListener(e, t);
+  }
+}
+w = new WeakMap(), c = new WeakMap();
+class dt extends HTMLElement {
+  constructor() {
+    super(), this.data = new zt(this), this.stores = {};
+  }
   /**
    * Runs each time the element is appended to or moved in the DOM
    */
   connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    this.hasAttribute("enable-local-storage") && (this.data.enableLocalStorage = !0), this.hasAttribute("local-storage-prefix") && (this.data.localStoragePrefix = this.getAttribute(
+      "local-storage-prefix"
+    ));
   }
 }
-const T = document.createElement("template");
-T.innerHTML = `
+const ut = document.createElement("template");
+ut.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -486,23 +882,13 @@ T.innerHTML = `
     />
 </svg>
 `;
-class X extends HTMLElement {
+class Bt extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(T.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(ut.content.cloneNode(!0));
   }
 }
-const H = document.createElement("template");
-H.innerHTML = `
+const pt = document.createElement("template");
+pt.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -527,23 +913,13 @@ H.innerHTML = `
     />
 </svg>
 `;
-class Y extends HTMLElement {
+class Ot extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(H.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(pt.content.cloneNode(!0));
   }
 }
-const $ = document.createElement("template");
-$.innerHTML = `
+const mt = document.createElement("template");
+mt.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -568,23 +944,13 @@ $.innerHTML = `
     />
 </svg>
 `;
-class q extends HTMLElement {
+class Zt extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild($.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(mt.content.cloneNode(!0));
   }
 }
-const S = document.createElement("template");
-S.innerHTML = `
+const gt = document.createElement("template");
+gt.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -616,23 +982,13 @@ S.innerHTML = `
     /></svg
 >;
 `;
-class J extends HTMLElement {
+class qt extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(S.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(gt.content.cloneNode(!0));
   }
 }
-const _ = document.createElement("template");
-_.innerHTML = `
+const ft = document.createElement("template");
+ft.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -657,23 +1013,13 @@ _.innerHTML = `
     </g></svg
 >
 `;
-class K extends HTMLElement {
+class It extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(_.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(ft.content.cloneNode(!0));
   }
 }
-const j = document.createElement("template");
-j.innerHTML = `
+const wt = document.createElement("template");
+wt.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -701,23 +1047,13 @@ j.innerHTML = `
     </g>
 </svg>
 `;
-class Q extends HTMLElement {
+class Ft extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(j.content.cloneNode(!0));
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(wt.content.cloneNode(!0));
   }
 }
-const R = document.createElement("template");
-R.innerHTML = `
+const vt = document.createElement("template");
+vt.innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -790,161 +1126,257 @@ R.innerHTML = `
     />
 </svg>
 `;
-class U extends HTMLElement {
+class Wt extends HTMLElement {
   constructor() {
-    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(R.content.cloneNode(!0));
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(vt.content.cloneNode(!0));
+  }
+}
+const d = {
+  BackArrowNavigation: Bt,
+  ChevronDown: Ot,
+  DeleteRecycleBin: Zt,
+  Edit2: qt,
+  PDFDocument: It,
+  Settings: Ft,
+  TodayOutline: Wt
+}, yt = document.createElement("template");
+yt.innerHTML = `
+<style>
+    :host {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: calc(var(--spacing) / 4) calc(var(--spacing) / 2);
+        border-radius: var(--radius);
+    }
+
+    :host > .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: fit-content;
+        width: 100%;
+        margin-right: var(--spacing);
+    }
+
+    :host > .input {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        min-width: fit-content;
+        width: 100%;
+    }
+</style>
+
+<span class="text">
+    <slot name="primary"></slot>
+    <slot name="secondary"></slot>
+</span>
+
+<span class="input">
+    <slot name="input"></slot>
+</span>
+
+<slot></slot>
+`;
+var v, C, E, S, xt, k, P;
+class bt extends HTMLElement {
+  constructor() {
+    super();
+    r(this, S);
+    r(this, k);
+    r(this, v, !1);
+    r(this, C, async () => {
+      this.input && this.input.click();
+    });
+    r(this, E, async (t) => {
+      t.stopPropagation();
+    });
+    this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(yt.content.cloneNode(!0)), this.input = null;
   }
   /**
    * Runs each time the element is appended to or moved in the DOM
    */
   connectedCallback() {
+    this.hasAttribute("ripple") ? (R(this), this.style.cursor = "pointer", l(this, S, xt).call(this)) : l(this, k, P).call(this);
   }
   /**
    * Runs when the element is removed from the DOM
    */
   disconnectedCallback() {
+    l(this, k, P).call(this);
   }
 }
-const s = {
-  BackArrowNavigation: X,
-  ChevonDown: Y,
-  DeleteRecycleBin: q,
-  Edit2: J,
-  PDFDocument: K,
-  Settings: Q,
-  TodayOutline: U
+v = new WeakMap(), C = new WeakMap(), E = new WeakMap(), S = new WeakSet(), xt = function() {
+  i(this, v) || (this.input = this.querySelector("input"), this.input && (this.addEventListener("click", i(this, C)), this.input.addEventListener("click", i(this, E))), a(this, v, !0));
+}, k = new WeakSet(), P = function() {
+  this.input && (this.removeEventListener("click", i(this, C)), this.input.removeEventListener("click", i(this, E))), a(this, v, !1);
 };
-class A extends HTMLLabelElement {
+const Lt = document.createElement("template");
+Lt.innerHTML = `
+<style>
+    :host {
+        font-size: 1.1em;
+        font-weight: normal;
+    }
+</style>
+
+<slot></slot>
+`;
+class Ct extends HTMLElement {
   constructor() {
-    super();
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(Lt.content.cloneNode(!0));
   }
 }
-class B extends HTMLSpanElement {
+const Et = document.createElement("template");
+Et.innerHTML = `
+<style>
+    :host {
+        font-size: 0.9em;
+        font-weight: 300;
+        font-style: italic;
+    }
+</style>
+
+<slot></slot>
+`;
+class kt extends HTMLElement {
   constructor() {
-    super();
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
+    super(), this.attachShadow({ mode: "open" }), this.shadowRoot.appendChild(Et.content.cloneNode(!0));
   }
 }
-class N extends HTMLSpanElement {
+var h, H, Tt, A, St, y, M;
+class Mt extends HTMLElement {
   constructor() {
     super();
+    /**
+     * @param {HTMLElement} element
+     */
+    r(this, H);
+    /**
+     * @param {string} mode
+     * @param {HTMLElement} element
+     */
+    r(this, A);
+    r(this, y);
+    /** @type {MediaQueryList | null} */
+    r(this, h, null);
+    this.currentTheme = null, this.themes = {};
+  }
+  /** @type {boolean} state */
+  set auto(t) {
+    if (t) {
+      if (this.setAttribute("auto", ""), l(this, H, Tt).call(this), i(this, h)) {
+        this.mediaChangeHandler(i(this, h));
+        return;
+      }
+      a(this, h, window.matchMedia("(prefers-color-scheme: dark)")), i(this, h).addEventListener("change", this.mediaChangeHandler), this.mediaChangeHandler(i(this, h));
+    } else
+      this.removeAttribute("auto"), l(this, y, M).call(this);
+  }
+  get auto() {
+    return this.hasAttribute("auto");
+  }
+  /** @param {string} mode */
+  set mode(t) {
+    this.setAttribute("mode", t), l(this, A, St).call(this, t);
+  }
+  get mode() {
+    return this.getAttribute("mode");
   }
   /**
    * Runs each time the element is appended to or moved in the DOM
    */
   connectedCallback() {
+    this.auto ? this.auto = this.auto : (l(this, y, M).call(this), this.mode = this.mode);
   }
   /**
    * Runs when the element is removed from the DOM
    */
   disconnectedCallback() {
-  }
-}
-class z extends HTMLElement {
-  constructor() {
-    super(), this.currentTheme = null, this.themes = {}, this._media = null;
-  }
-  /**
-   * Runs each time the element is appended to or moved in the DOM
-   */
-  connectedCallback() {
-    this._media = window.matchMedia("(prefers-color-scheme: dark)"), this.mediaChangeHandler(this._media), this.hasAttribute("auto") && this._media.addEventListener("change", this.mediaChangeHandler);
-  }
-  /**
-   * Runs when the element is removed from the DOM
-   */
-  disconnectedCallback() {
-    this._media && this.mediaChangeHandler && (this._media.removeEventListener("change", this.mediaChangeHandler), this._media = null);
+    l(this, y, M).call(this);
   }
   /**
    * @param {string} name
    * @param {string} href
    */
-  addTheme(e, t) {
-    this.themes[e] = t;
+  addTheme(t, s) {
+    this.themes[t] = s;
   }
   /**
    * @param {string} name
    */
-  loadTheme(e) {
+  loadTheme(t) {
     var n;
-    if (!this.themes[e])
-      throw `theme "${e}" is missing in this.themes`;
-    if (((n = this.currentTheme) == null ? void 0 : n.name) == e)
+    if (!this.themes[t])
+      throw `theme "${t}" is missing in this.themes`;
+    if (((n = this.currentTheme) == null ? void 0 : n.name) == t)
       return;
     {
-      const r = document.getElementById("theme");
-      r && (document.removeChild(r), this.currentTheme = null);
+      const u = document.getElementById("theme");
+      u && (document.removeChild(u), this.currentTheme = null);
     }
-    const t = document.createElement("link");
-    t.id = "theme", t.rel = "stylesheet", t.href = this.themes[e], document.head.appendChild(t), this.currentTheme = { name: e, href: this.themes[e] };
-  }
-  /**
-   * @param {"dark" | "light"} mode
-   * @param {HTMLElement} element
-   */
-  setMode(e, t = document.body) {
-    switch (e) {
-      case "dark":
-        t.setAttribute("data-theme", e);
-        break;
-      case "light":
-        t.setAttribute("data-theme", e);
-        break;
-    }
+    const s = document.createElement("link");
+    s.id = "theme", s.rel = "stylesheet", s.href = this.themes[t], document.head.appendChild(s), this.currentTheme = { name: t, href: this.themes[t] };
   }
   /**
    * @param {MediaQueryListEvent | MediaQueryList} ev
    */
-  mediaChangeHandler(e) {
-    e.matches ? document.body.setAttribute("data-theme", "dark") : document.body.setAttribute("data-theme", "light");
+  mediaChangeHandler(t) {
+    t.matches ? document.body.setAttribute("data-theme", "dark") : document.body.setAttribute("data-theme", "light");
   }
 }
-const ee = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+h = new WeakMap(), H = new WeakSet(), Tt = function(t = document.body) {
+  t.removeAttribute("data-theme");
+}, A = new WeakSet(), St = function(t, s = document.body) {
+  switch (t) {
+    case "dark":
+      s.setAttribute("data-theme", t);
+      break;
+    case "light":
+      s.setAttribute("data-theme", t);
+      break;
+  }
+}, y = new WeakSet(), M = function() {
+  i(this, h) && (i(this, h).removeEventListener("change", this.mediaChangeHandler), a(this, h, null));
+};
+const Vt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  AppBar: g,
-  Button: w,
-  Container: C,
-  FlexGridItem: x,
-  FlexGridRow: E,
-  IconButton: b,
-  Label: A,
-  Primary: B,
-  Secondary: N,
-  Select: M,
-  ThemeHandler: z,
-  svg: s
+  AppBar: q,
+  Button: F,
+  Container: J,
+  FlexGrid: tt,
+  FlexGridItem: Y,
+  FlexGridRow: Q,
+  IconButton: V,
+  Label: bt,
+  Lang: it,
+  LangType: rt,
+  Primary: Ct,
+  Secondary: kt,
+  Select: st,
+  SelectOption: _,
+  StackLayout: ct,
+  StackLayoutPage: at,
+  Store: dt,
+  ThemeHandler: Mt,
+  svg: d
 }, Symbol.toStringTag, { value: "Module" }));
-async function te() {
-  customElements.define("ui-app-bar", g), customElements.define("ui-button", w), customElements.define("ui-icon-button", b), customElements.define("ui-container", C), customElements.define("ui-flex-grid-item", x), customElements.define("ui-flex-grid-row", E), customElements.define("ui-select", M), customElements.define(
-    "ui-back-arrow-navigation",
-    s.BackArrowNavigation
-  ), customElements.define("ui-chevron-down", s.ChevonDown), customElements.define("ui-delete-recycle-bin", s.DeleteRecycleBin), customElements.define("ui-edit2", s.Edit2), customElements.define("ui-pdf-document", s.PDFDocument), customElements.define("ui-settings", s.Settings), customElements.define("ui-today-outline", s.TodayOutline), customElements.define("ui-label", A), customElements.define("ui-primary", B), customElements.define("ui-secondary", N), customElements.define("ui-theme-handler", z);
+async function Gt() {
+  customElements.define("ui-app-bar", q), customElements.define("ui-icon-button", V), customElements.define("ui-button", F), customElements.define("ui-container", J), customElements.define("ui-flex-grid", tt), customElements.define("ui-flex-grid-row", Q), customElements.define("ui-flex-grid-item", Y), customElements.define("ui-select-option", _), customElements.define("ui-select", st), customElements.define("ui-lang-type", rt), customElements.define("ui-lang", it), customElements.define("ui-stack-layout-page", at), customElements.define("ui-stack-layout", ct), customElements.define("ui-store", dt), customElements.define(
+    "ui-icon-back-arrow-navigation",
+    d.BackArrowNavigation
+  ), customElements.define("ui-icon-chevron-down", d.ChevronDown), customElements.define(
+    "ui-icon-delete-recycle-bin",
+    d.DeleteRecycleBin
+  ), customElements.define("ui-icon-edit2", d.Edit2), customElements.define("ui-icon-pdf-document", d.PDFDocument), customElements.define("ui-icon-settings", d.Settings), customElements.define("ui-icon-today-outline", d.TodayOutline), customElements.define("ui-secondary", kt), customElements.define("ui-primary", Ct), customElements.define("ui-label", bt), customElements.define("ui-theme-handler", Mt);
 }
-const ne = {
-  ...W,
-  wc: ee,
-  define: te
+const Yt = {
+  ..._t,
+  wc: Vt,
+  define: Gt
 };
 export {
-  ne as default
+  Yt as default
 };
