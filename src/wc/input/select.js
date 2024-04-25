@@ -13,10 +13,10 @@ template.innerHTML = `
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
         font-size: 0.95em;
-        overflow: hidden;
         transition: height 0.25s ease;
         line-height: 1.15;
-        box-sizing: none !important;
+        box-sizing: content-box !important;
+        overflow: hidden;
     }
 
     .options {
