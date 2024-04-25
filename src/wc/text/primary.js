@@ -12,6 +12,9 @@ template.innerHTML = `
 `
 
 export class Primary extends HTMLElement {
+
+    static register = () => customElements.define("ui-primary", Primary)
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" })

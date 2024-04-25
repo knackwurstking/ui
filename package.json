@@ -2,8 +2,9 @@
     "name": "ui",
     "version": "0.2.0",
     "description": "Just an ui lib for my projects.",
+    "type": "module",
     "main": "src/index.js",
-    "style": "dist/main.min.css",
+    "style": "css/main.css",
     "files": [
         "LICENSE",
         "src",

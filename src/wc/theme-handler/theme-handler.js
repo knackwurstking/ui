@@ -7,6 +7,7 @@ export class ThemeHandler extends HTMLElement {
     /** @type {MediaQueryList | null} */
     #media = null;
 
+    static register = () => customElements.define("ui-theme-handler", ThemeHandler)
     static observedAttributes = ["auto", "mode"]
 
     constructor() {
@@ -130,6 +131,4 @@ export class ThemeHandler extends HTMLElement {
             this.#media = null;
         }
     }
-
-    static register = () => customElements.define("ui-theme-handler", ThemeHandler)
 }

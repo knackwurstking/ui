@@ -48,9 +48,9 @@ async function define() {
     customElements.define("ui-icon-today-outline", wc.svg.TodayOutline);
 
     // Text components
-    customElements.define("ui-secondary", wc.Secondary);
-    customElements.define("ui-primary", wc.Primary);
-    customElements.define("ui-label", wc.Label);
+    wc.Secondary.register()
+    wc.Primary.register()
+    wc.Label.register()
 
     // ThemeHandler components
     wc.ThemeHandler.register()

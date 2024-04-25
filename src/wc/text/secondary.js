@@ -13,6 +13,9 @@ template.innerHTML = `
 `
 
 export class Secondary extends HTMLElement {
+
+    static register = () => customElements.define("ui-secondary", Secondary)
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" })

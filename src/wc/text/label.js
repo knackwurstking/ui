@@ -44,64 +44,57 @@ template.innerHTML = `
 `
 
 export class Label extends HTMLElement {
+    /** @type {HTMLElement | null} */
+    #input = null;
     #running = false;
-    #onClick = async () => {
-        if (!!this.input) {
-            this.input.click();
-        }
-    };
+    #onClick = async () => (!!this.#input) && this.#input.click();
+    #onInputClick = async (ev) => ev.stopPropagation();
 
-    #onInputClick = async (/** @type {Event} */ev) => {
-        ev.stopPropagation();
-    };
+    static register = () => customElements.define("ui-label", Label);
+    static observedAttributes = ["ripple"];
 
     constructor() {
         super();
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-        /** @type {HTMLInputElement} */
-        this.input = null
     }
 
-    /**
-     * Runs each time the element is appended to or moved in the DOM
-     */
-    connectedCallback() {
-        // Enable / Disable ripple
-        if (this.hasAttribute("ripple")) {
-            ripple.create(this);
-            this.style.cursor = "pointer";
-            this.#startInputHandling()
-        } else {
-            this.#stopInputHandling()
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "ripple":
+                if (newValue !== null) this.enableRipple()
+                else this.disableRipple()
+                break
         }
     }
 
-    /**
-     * Runs when the element is removed from the DOM
-     */
-    disconnectedCallback() {
+    enableRipple() {
+        ripple.create(this);
+        this.style.cursor = "pointer";
+        this.#startInputHandling()
+    }
+
+    disableRipple() {
         this.#stopInputHandling()
     }
 
     #startInputHandling() {
         if (this.#running) return;
 
-        this.input = this.querySelector("input")
-        if (!!this.input) {
+        this.#input = this.querySelector("input")
+        if (!!this.#input) {
             this.addEventListener("click", this.#onClick)
-            this.input.addEventListener("click", this.#onInputClick)
+            this.#input.addEventListener("click", this.#onInputClick)
         }
 
         this.#running = true;
     }
 
     #stopInputHandling() {
-        if (!!this.input) {
+        if (!!this.#input) {
             this.removeEventListener("click", this.#onClick)
-            this.input.removeEventListener("click", this.#onInputClick)
+            this.#input.removeEventListener("click", this.#onInputClick)
         }
 
         this.#running = false;
