@@ -145,15 +145,14 @@ table {
     -webkit-user-select: none;
     user-select: none;
 
-    border-collapse: separate;
-    border: none;
+    border-collapse: collapse;
+    border: var(--border-width) var(--border-style) hsl(var(--border));
 }
 
 th,
 td {
     padding: var(--spacing);
     border: var(--border-width) var(--border-style) hsl(var(--border));
-    border-style: outset;
 }
 
 td {
