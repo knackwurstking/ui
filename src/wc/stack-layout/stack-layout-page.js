@@ -1,5 +1,3 @@
-import { StackLayout } from "./stack-layout";
-
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
@@ -47,4 +45,8 @@ export class StackLayoutPage extends HTMLElement {
     get title() {
         return this.getAttribute("title") || ""
     }
+
+    connectedCallback() { }
+
+    disconnectedCallback() { }
 }
