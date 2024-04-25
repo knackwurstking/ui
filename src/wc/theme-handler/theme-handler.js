@@ -93,7 +93,7 @@ export class ThemeHandler extends HTMLElement {
         {
             const link = document.getElementById("theme");
             if (!!link) {
-                document.removeChild(link);
+                document.head.removeChild(link);
                 this.currentTheme = null;
             }
         }
