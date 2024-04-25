@@ -13,7 +13,7 @@
     ],
     "repository": "knackwurstking/ui",
     "scripts": {
-        "build": "npm run build:lib && npm run build:css",
+        "build": "npm run build:types && npm run build:lib && npm run build:css",
         "build:lib": "vite build --minify -c vite.config.js",
         "build:css": "cleancss -o dist/main.min.css css/main.css",
         "build:types": "npm run _build:types:rm && npx -p typescript tsc src/*.js src/**/*.js  --emitDeclarationOnly --declaration --allowJs",
