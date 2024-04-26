@@ -1,15 +1,17 @@
 export class Lang extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    data: Data;
+    ui: UI;
     attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
-    /** @returns {import("./lang-type").LangType} */
-    getFallbackElement(): import("./lang-type").LangType;
     #private;
 }
-declare class Data {
+declare class UI {
+    /** @param {Lang} root */
+    constructor(root: Lang);
     /** @type {import("./lang-type").LangType | null} */
     langType: import("./lang-type").LangType | null;
+    /** @returns {import("./lang-type").LangType} */
+    getFallbackElement(): import("./lang-type").LangType;
     /**
      * @param {import("./lang-type").LangType} langType
      * @param {{

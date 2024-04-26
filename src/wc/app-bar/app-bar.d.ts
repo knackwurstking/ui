@@ -1,7 +1,17 @@
 export class AppBar extends HTMLElement {
     static register: () => void;
-    get leftSlotChildren(): any[];
-    get centerSlotChildren(): any[];
-    get rightSlotChildren(): any[];
+    ui: UI;
 }
 export type FlexGridRow = import("..").FlexGridRow;
+/**
+ * @typedef {import("..").FlexGridRow} FlexGridRow
+ */
+declare class UI {
+    /** @param {AppBar} root */
+    constructor(root: AppBar);
+    getLeftSlot(): any[];
+    getCenterSlot(): any[];
+    getRightSlot(): any[];
+    #private;
+}
+export {};

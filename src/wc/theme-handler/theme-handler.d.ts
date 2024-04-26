@@ -1,10 +1,15 @@
+export class ThemeHandler extends HTMLElement {
+    static register: () => void;
+    static observedAttributes: string[];
+    ui: UI;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+}
+export type Mode = "dark" | "light";
 /**
  * @typedef Mode
  * @type {"dark" | "light"}
  */
-export class ThemeHandler extends HTMLElement {
-    static register: () => void;
-    static observedAttributes: string[];
+declare class UI {
     /** @type {{ name: string; href: string } | null} */
     currentTheme: {
         name: string;
@@ -14,7 +19,6 @@ export class ThemeHandler extends HTMLElement {
     themes: {
         [key: string]: string;
     };
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
     enableAutoMode(): void;
     disableAutoMode(): void;
     /**
@@ -41,4 +45,4 @@ export class ThemeHandler extends HTMLElement {
     setMode(mode: string, element?: HTMLElement): void;
     #private;
 }
-export type Mode = "dark" | "light";
+export {};

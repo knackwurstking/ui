@@ -1,18 +1,16 @@
 export class Store extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    data: Data;
+    ui: UI;
+    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+}
+declare class UI {
+    localStoragePrefix: string;
+    enableLocalStorage: boolean;
     /** @type {{ [key: string]: any }} */
     stores: {
         [key: string]: any;
     };
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
-}
-declare class Data {
-    /** @param {Store} store */
-    constructor(store: Store);
-    localStoragePrefix: string;
-    enableLocalStorage: boolean;
     /**
      * @param {string} key
      */
