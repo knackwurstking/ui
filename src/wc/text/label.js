@@ -49,6 +49,8 @@ export class Label extends HTMLElement {
     #running = false;
     #onClick = async () => (!!this.#input) && this.#input.click();
     #onInputClick = async (ev) => ev.stopPropagation();
+    /** @type {() => void} */
+    #removeRipple;
 
     static register = () => customElements.define("ui-label", Label);
     static observedAttributes = ["ripple"];
@@ -70,12 +72,14 @@ export class Label extends HTMLElement {
     }
 
     enableRipple() {
-        ripple.create(this);
+        if (!!this.#removeRipple) return;
+        this.removeRipple = ripple.create(this);
         this.style.cursor = "pointer";
         this.#startInputHandling()
     }
 
     disableRipple() {
+        if (!!this.#removeRipple) this.#removeRipple()
         this.#stopInputHandling()
     }
 

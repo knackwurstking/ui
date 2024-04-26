@@ -86,7 +86,8 @@ template.innerHTML = `
 `;
 
 export class Button extends HTMLElement {
-    #noRipple = false
+    /** @type {() => void} */
+    #removeRipple;
 
     static register = () => customElements.define("ui-button", Button)
     static observedAttributes = ["no-ripple"]
@@ -98,27 +99,27 @@ export class Button extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
+    connectedCallback() {
+        if (!this.hasAttribute("no-ripple") && !this.#removeRipple) {
+            this.enableRipple()
+        }
+    }
+
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "no-ripple":
-                this.noRipple = newValue
+                if (newValue !== null) this.disableRipple()
+                else this.enableRipple()
                 break
         }
     }
 
-    get noRipple() {
-        return this.#noRipple
-    }
-
-    set noRipple(value) {
-        this.#noRipple = !!value
-    }
-
     enableRipple() {
-        ripple.create(this, { centered: true });
+        if (!!this.#removeRipple) return;
+        this.#removeRipple = ripple.create(this, { centered: true });
     }
 
     disableRipple() {
-        this.noRipple = true
+        if (!!this.#removeRipple) this.#removeRipple()
     }
 }
