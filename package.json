@@ -5,6 +5,7 @@
     "type": "module",
     "main": "src/index.js",
     "style": "css/main.css",
+    "types": "src/index.d.ts",
     "files": [
         "LICENSE",
         "src",

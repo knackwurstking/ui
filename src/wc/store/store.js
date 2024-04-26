@@ -1,61 +1,73 @@
-import { Events } from "../../js/events";
+import { events } from "../../js";
 
+/**
+ *
+ * @typedef {import("../../js/events/events")._Events} _Events
+ */
+
+/**
+ * @template {_Events} T
+ */
 class UI {
-    #events;
+    /** @type {any} */
+    #stores = {};
 
     constructor() {
-        this.#events = new Events();
+        /**
+         * @type {events.Events<T>}
+         */
+        this.events = new events.Events();
 
         this.localStoragePrefix = "";
         this.enableLocalStorage = false;
-
-        /** @type {{ [key: string]: any }} */
-        this.stores = {};
     }
 
     /**
-     * @param {string} key
+     * @param {keyof T} key
      */
     get(key) {
-        return this.stores[key];
+        return this.#stores[key];
     }
 
     /**
-     * @param {string} key
-     * @param {any} data
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {T[K]} data
      * @param {boolean} [useDataAsFallback] Use data as fallback, if nothing found in the browsers `localStorage`
      * `this.enableLocalStorage` flag needs to be set to `true` for this to work
      */
     set(key, data, useDataAsFallback = false) {
         if (useDataAsFallback && this.enableLocalStorage) {
-            const sData = JSON.parse(localStorage.getItem(this.localStoragePrefix + key) || "null");
-            this.stores[key] = (sData === null || sData === undefined) ? data : sData
+            const sData = JSON.parse(localStorage.getItem(this.localStoragePrefix + key.toString()) || "null");
+            this.#stores[key] = (sData === null || sData === undefined) ? data : sData
         } else {
-            this.stores[key] = data;
+            this.#stores[key] = data;
         }
 
         if (this.enableLocalStorage) {
-            localStorage.setItem(this.localStoragePrefix + key, JSON.stringify(this.stores[key]));
+            localStorage.setItem(this.localStoragePrefix + key.toString(), JSON.stringify(this.#stores[key]));
         }
 
-        this.#events.dispatchWithData(key, this.stores[key]);
+        this.events.dispatchWithData(key, this.#stores[key]);
     }
 
     /**
-     * @param {string} key
-     * @param {(data: any) => any} callback
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {(data: T[K]) => any} callback
      */
     update(key, callback) {
         if (typeof callback !== "function") {
             throw `callback is not a function`;
         }
 
-        this.set(key, callback(this.stores[key]));
+        this.set(key, callback(this.#stores[key]));
     }
 
     /**
-     * @param {string} key
-     * @param {(data: any) => void|Promise<void>} callback
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {(data: T[K]) => void|Promise<void>} callback
      * @param {boolean} [trigger] - this will run the callback first
      * @returns {() => void} clean up function
      */
@@ -68,10 +80,14 @@ class UI {
             callback(this.get(key));
         }
 
-        return this.#events.addListener(key, callback);
+        return this.events.addListener(key, callback);
     }
 }
 
+/**
+ * @template {_Events} T
+ * @extends {HTMLElement}
+ */
 export class Store extends HTMLElement {
 
     static register = () => customElements.define("ui-store", Store);
@@ -80,6 +96,7 @@ export class Store extends HTMLElement {
     constructor() {
         super();
 
+        /** @type {UI<T>} */
         this.ui = new UI();
     }
 

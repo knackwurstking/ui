@@ -4,6 +4,9 @@ class UI {
     /** @type {Lang} */
     #root
 
+    /**
+     * @type {Events<{ "change": import("./lang-type").LangType}>}
+     */
     #events
 
     /**
@@ -98,9 +101,9 @@ export class Lang extends HTMLElement {
             this.ui.getFallbackElement();
 
         if (!next) return;
-        if (!next.href) throw `Missing href attribute!`;
+        if (!next.ui.href) throw `Missing href attribute!`;
 
-        const request = await fetch(next.href)
+        const request = await fetch(next.ui.href)
         this.ui.new(next, await request.json())
     }
 }

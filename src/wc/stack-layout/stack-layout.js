@@ -35,7 +35,7 @@ class UI {
     constructor(root) {
         this.#root = root
 
-        /** @type {events.Events<"change", { oldPage: StackLayoutPage | null, newPage: StackLayoutPage | null }>} */
+        /** @type {events.Events<{ "change": { oldPage: StackLayoutPage | null, newPage: StackLayoutPage | null } }>} */
         this.events = new events.Events();
 
         /**

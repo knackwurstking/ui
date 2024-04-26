@@ -8,10 +8,12 @@ export type Pages = {
 declare class UI {
     /** @param {StackLayout} root */
     constructor(root: StackLayout);
-    /** @type {events.Events<"change", { oldPage: StackLayoutPage | null, newPage: StackLayoutPage | null }>} */
-    events: events.Events<"change", {
-        oldPage: StackLayoutPage | null;
-        newPage: StackLayoutPage | null;
+    /** @type {events.Events<{ "change": { oldPage: StackLayoutPage | null, newPage: StackLayoutPage | null } }>} */
+    events: events.Events<{
+        "change": {
+            oldPage: StackLayoutPage | null;
+            newPage: StackLayoutPage | null;
+        };
     }>;
     /**
      * All rendered pages

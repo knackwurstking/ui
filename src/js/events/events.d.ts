@@ -1,23 +1,34 @@
 /**
- * @template Key=string
- * @template Data=any
+ * @typedef _Events
+ * @type {{
+ *  [key: string]: any;
+ * }}
  */
-export default class Events<Key, Data> {
+/**
+ * @template {_Events} T
+ */
+export default class Events<T extends _Events> {
     /**
-     * @param {Key} key
-     * @param {Data} data
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {T[K]} data
      */
-    dispatchWithData(key: Key, data: Data): this;
+    dispatchWithData<K extends keyof T>(key: K, data: T[K]): this;
     /**
-     * @param {Key} key
-     * @param {((data: Data) => void|Promise<void>) | null} listener
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {((data: T[K]) => void|Promise<void>) | null} listener
      * @returns {() => void} clean up function
      */
-    addListener(key: Key, listener: ((data: Data) => void | Promise<void>) | null): () => void;
+    addListener<K_1 extends keyof T>(key: K_1, listener: (data: T[K_1]) => void | Promise<void>): () => void;
     /**
-     * @param {Key} key
-     * @param {((data: Data) => void|Promise<void>)} listener
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {((data: T[K]) => void|Promise<void>)} listener
      */
-    removeListener(key: Key, listener: ((data: Data) => void | Promise<void>)): this;
+    removeListener<K_2 extends keyof T>(key: K_2, listener: (data: T[K_2]) => void | Promise<void>): this;
     #private;
 }
+export type _Events = {
+    [key: string]: any;
+};

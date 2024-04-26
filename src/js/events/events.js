@@ -1,7 +1,12 @@
+/**
+ * @typedef _Events
+ * @type {{
+ *  [key: string]: any;
+ * }}
+ */
 
 /**
- * @template Key=string
- * @template Data=any
+ * @template {_Events} T
  */
 export default class Events {
     /**
@@ -10,8 +15,9 @@ export default class Events {
     #listeners = {};
 
     /**
-     * @param {Key} key
-     * @param {Data} data
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {T[K]} data
      */
     dispatchWithData(key, data) {
         if (data === undefined) throw `data is undefined!`;
@@ -26,13 +32,14 @@ export default class Events {
     }
 
     /**
-     * @param {Key} key
-     * @param {((data: Data) => void|Promise<void>) | null} listener
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {((data: T[K]) => void|Promise<void>) | null} listener
      * @returns {() => void} clean up function
      */
     addListener(key, listener) {
         if (typeof listener !== "function")
-            throw `invalid event listener passed for "${key}" event!`;
+            throw `invalid event listener passed for "${key.toString()}" event!`;
 
         if (!this.#listeners[key]) {
             this.#listeners[key] = [];
@@ -46,12 +53,13 @@ export default class Events {
     }
 
     /**
-     * @param {Key} key
-     * @param {((data: Data) => void|Promise<void>)} listener
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {((data: T[K]) => void|Promise<void>)} listener
      */
     removeListener(key, listener) {
         if (!this.#listeners[key])
-            throw `no listeners found for ${key}, there is nothing to delete`;
+            throw `no listeners found for ${key.toString()}, there is nothing to delete`;
 
         let match = false;
         let index = 0;
@@ -64,7 +72,7 @@ export default class Events {
         }
 
         if (!match)
-            throw `listener not found for ${key}, there is nothing to delete`;
+            throw `listener not found for ${key.toString()}, there is nothing to delete`;
 
         return this;
     }
