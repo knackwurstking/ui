@@ -22,20 +22,20 @@ template.innerHTML = `
     <slot></slot>
 `;
 
-export class StackLayout extends HTMLElement {
+class UI {
+    /** @type {StackLayout} */
+    #root
+
     /**
      * @type {Pages}
      */
     #pages = {};
 
-    static register = () => customElements.define("ui-stack-layout", StackLayout);
+    /** @param {StackLayout} root */
+    constructor(root) {
+        this.#root = root
 
-    constructor() {
-        super();
         this.events = new events.Events();
-
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
 
         /**
          * All rendered pages
@@ -66,14 +66,14 @@ export class StackLayout extends HTMLElement {
         const page = this.stack.pop();
         page.ontransitionend = () => {
             page.ontransitionend = null
-            this.removeChild(page);
+            this.#root.removeChild(page);
         }
 
         if (!!this.stack.length) {
-            this.appendChild(this.stack[this.stack.length - 1])
+            this.#root.appendChild(this.stack[this.stack.length - 1])
         }
 
-        this.#dispatchChangeEvent();
+        this.dispatchChangeEvent();
     }
 
     /**
@@ -93,10 +93,10 @@ export class StackLayout extends HTMLElement {
             }
         }
 
-        this.#dispatchChangeEvent();
+        this.dispatchChangeEvent();
     }
 
-    async #dispatchChangeEvent() {
+    async dispatchChangeEvent() {
         this.events.dispatchWithData(
             "change",
             {
@@ -104,5 +104,17 @@ export class StackLayout extends HTMLElement {
                 oldPage: this.stack[this.stack.length - 2] || null,
             },
         );
+    }
+}
+
+export class StackLayout extends HTMLElement {
+
+    static register = () => customElements.define("ui-stack-layout", StackLayout);
+
+    constructor() {
+        super();
+
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 }

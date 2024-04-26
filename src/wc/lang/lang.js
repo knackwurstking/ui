@@ -1,7 +1,11 @@
 import { Events } from "../../js/events";
 
-class Data {
+class UI {
+    /** @type {Lang} */
+    #root
+
     #events
+
     /**
      * @type {{
      *  [key: string]: {
@@ -11,11 +15,18 @@ class Data {
      */
     #data
 
-    constructor() {
+    /** @param {Lang} root */
+    constructor(root) {
+        this.#root = root
         this.#events = new Events()
 
         /** @type {import("./lang-type").LangType | null} */
         this.langType = null;
+    }
+
+    /** @returns {import("./lang-type").LangType} */
+    getFallbackElement() {
+        return this.#root.querySelector("ui-lang-type[fallback]")
     }
 
     /**
@@ -59,6 +70,7 @@ class Data {
     }
 }
 
+
 export class Lang extends HTMLElement {
 
     static register = () => customElements.define("ui-lang", Lang);
@@ -67,7 +79,7 @@ export class Lang extends HTMLElement {
     constructor() {
         super();
 
-        this.data = new Data()
+        this.ui = new UI(this)
     }
 
     attributeChangedCallback(name, _oldValue, newValue) {
@@ -78,22 +90,17 @@ export class Lang extends HTMLElement {
         }
     }
 
-    /** @returns {import("./lang-type").LangType} */
-    getFallbackElement() {
-        return this.querySelector("ui-lang-type[fallback]")
-    }
-
     /** @param {string} name */
     async #loadLanguage(name) {
         /** @type {import("./lang-type").LangType} */
         const next =
             this.querySelector(`ui-lang-type[name="${name}"]`) ||
-            this.getFallbackElement();
+            this.ui.getFallbackElement();
 
         if (!next) return;
         if (!next.href) throw `Missing href attribute!`;
 
         const request = await fetch(next.href)
-        this.data.new(next, await request.json())
+        this.ui.new(next, await request.json())
     }
 }

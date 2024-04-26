@@ -43,38 +43,28 @@ template.innerHTML = `
 <slot></slot>
 `
 
-export class Label extends HTMLElement {
+class UI {
+    /** @type {Label} */
+    #root;
+
     /** @type {HTMLElement | null} */
     #input = null;
+
     #running = false;
     #onClick = async () => (!!this.#input) && this.#input.click();
     #onInputClick = async (ev) => ev.stopPropagation();
     /** @type {() => void} */
     #removeRipple;
 
-    static register = () => customElements.define("ui-label", Label);
-    static observedAttributes = ["ripple"];
-
-    constructor() {
-        super();
-
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
-
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "ripple":
-                if (newValue !== null) this.enableRipple()
-                else this.disableRipple()
-                break
-        }
+    /** @param {Label} root */
+    constructor(root) {
+        this.#root = root
     }
 
     enableRipple() {
         if (!!this.#removeRipple) return;
-        this.removeRipple = ripple.create(this);
-        this.style.cursor = "pointer";
+        this.removeRipple = ripple.create(this.#root);
+        this.#root.style.cursor = "pointer";
         this.#startInputHandling()
     }
 
@@ -86,9 +76,9 @@ export class Label extends HTMLElement {
     #startInputHandling() {
         if (this.#running) return;
 
-        this.#input = this.querySelector("input")
+        this.#input = this.#root.querySelector("input")
         if (!!this.#input) {
-            this.addEventListener("click", this.#onClick)
+            this.#root.addEventListener("click", this.#onClick)
             this.#input.addEventListener("click", this.#onInputClick)
         }
 
@@ -97,10 +87,34 @@ export class Label extends HTMLElement {
 
     #stopInputHandling() {
         if (!!this.#input) {
-            this.removeEventListener("click", this.#onClick)
+            this.#root.removeEventListener("click", this.#onClick)
             this.#input.removeEventListener("click", this.#onInputClick)
         }
 
         this.#running = false;
+    }
+}
+
+export class Label extends HTMLElement {
+
+    static register = () => customElements.define("ui-label", Label);
+    static observedAttributes = ["ripple"];
+
+    constructor() {
+        super();
+
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.ui = new UI(this)
+    }
+
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "ripple":
+                if (newValue !== null) this.ui.enableRipple()
+                else this.ui.disableRipple()
+                break
+        }
     }
 }

@@ -30,6 +30,12 @@ template.innerHTML = `
     <slot></slot>
 `;
 
+class UI {
+    constructor() {
+        this.name = ""
+    }
+}
+
 export class StackLayoutPage extends HTMLElement {
 
     static register = () => customElements.define("ui-stack-layout-page", StackLayoutPage);
@@ -41,13 +47,13 @@ export class StackLayoutPage extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        this.name = ""
+        this.ui = new UI()
     }
 
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "name":
-                this.name = newValue !== null ? newValue : ""
+                this.ui.name = newValue !== null ? newValue : ""
                 break
         }
     }

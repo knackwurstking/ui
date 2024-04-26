@@ -6,7 +6,7 @@ template.innerHTML = `
 
 export class FlexGridItem extends HTMLElement {
     /** @type {string | null} */
-    #flex = null
+    #flex = "1"
 
     static register = () => customElements.define("ui-flex-grid-item", FlexGridItem)
     static observedAttributes = ["flex"]
@@ -25,24 +25,16 @@ export class FlexGridItem extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "flex":
-                this.flex = newValue
+                this.#flex = newValue !== null ? newValue : "1"
+                this.#updateStyle()
                 break
         }
-    }
-
-    get flex() {
-        return this.#flex || "1"
-    }
-
-    set flex(value) {
-        this.#flex = value
-        this.#updateStyle()
     }
 
     #updateStyle() {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
-                flex: ${this.flex};
+                flex: ${this.#flex};
             }
         `
     }

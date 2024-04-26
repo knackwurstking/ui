@@ -3,34 +3,16 @@
  * @type {"dark" | "light"}
  */
 
-export class ThemeHandler extends HTMLElement {
+class UI {
     /** @type {MediaQueryList | null} */
     #media = null;
 
-    static register = () => customElements.define("ui-theme-handler", ThemeHandler)
-    static observedAttributes = ["auto", "mode"]
-
     constructor() {
-        super();
-
         /** @type {{ name: string; href: string } | null} */
         this.currentTheme = null;
 
         /** @type {{ [key: string]: string }} */
         this.themes = {};
-    }
-
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "auto":
-                if (newValue !== null) this.enableAutoMode();
-                else this.disableAutoMode();
-                break;
-            case "mode":
-                if (newValue !== null) this.setMode(newValue);
-                else this.removeMode()
-                break;
-        }
     }
 
     enableAutoMode() {
@@ -125,6 +107,31 @@ export class ThemeHandler extends HTMLElement {
         if (!!this.#media) {
             this.#media.removeEventListener("change", this.mediaChangeHandler);
             this.#media = null;
+        }
+    }
+}
+
+export class ThemeHandler extends HTMLElement {
+
+    static register = () => customElements.define("ui-theme-handler", ThemeHandler)
+    static observedAttributes = ["auto", "mode"]
+
+    constructor() {
+        super();
+
+        this.ui = new UI()
+    }
+
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "auto":
+                if (newValue !== null) this.ui.enableAutoMode();
+                else this.ui.disableAutoMode();
+                break;
+            case "mode":
+                if (newValue !== null) this.ui.setMode(newValue);
+                else this.ui.removeMode()
+                break;
         }
     }
 }

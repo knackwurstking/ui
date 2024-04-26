@@ -6,7 +6,7 @@ template.innerHTML = `
 
 export class FlexGridRow extends HTMLElement {
     /** @type {string | null} */
-    #gap = null
+    #gap = "0"
 
     static register = () => customElements.define("ui-flex-grid-row", FlexGridRow)
     static observedAttributes = ["gap"]
@@ -25,24 +25,16 @@ export class FlexGridRow extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "gap":
-                this.gap = newValue
+                this.#gap = newValue !== null ? newValue : "0"
+                this.#updateStyle()
                 break
         }
-    }
-
-    get gap() {
-        return this.#gap || "0"
-    }
-
-    set gap(value) {
-        this.#gap = value
-        this.#updateStyle()
     }
 
     #updateStyle() {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
-                --row-gap: ${this.gap};
+                --row-gap: ${this.#gap};
                 display: flex;
                 flex-flow: row nowrap;
                 position: relative;

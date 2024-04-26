@@ -17,8 +17,15 @@ template.innerHTML = `
 <slot></slot>
 `
 
-export class SelectOption extends HTMLElement {
+class UI {
+    constructor() {
+        /** @type {any | null} */
+        this.value = null
+        this.selected = false;
+    }
+}
 
+export class SelectOption extends HTMLElement {
     static register = () => customElements.define("ui-select-option", SelectOption);
     static observedAttributes = ["value", "selected"]
 
@@ -28,20 +35,16 @@ export class SelectOption extends HTMLElement {
         this.attachShadow({ mode: "open" })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-        this.type = "ui-select-option"
-
-        /** @type {any | null} */
-        this.value = null
-        this.selected = false;
+        this.ui = new UI()
     }
 
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "value":
-                this.value = newValue
+                this.ui.value = newValue
                 break
             case "selected":
-                this.selected = newValue !== null
+                this.ui.selected = newValue !== null
                 break
         }
     }

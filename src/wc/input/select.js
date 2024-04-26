@@ -1,5 +1,7 @@
 import { SelectOption } from "./select-option"
 
+// {{{ Content Template
+
 const template = document.createElement("template")
 
 template.innerHTML = `
@@ -81,6 +83,8 @@ template.innerHTML = `
     <slot></slot>
 </div>
 `
+
+// }}}
 
 export class Select extends HTMLElement {
     /** @param {Event} ev */

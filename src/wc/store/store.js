@@ -1,24 +1,23 @@
 import { Events } from "../../js/events";
 
-class Data {
+class UI {
     #events;
-    #store;
 
-    /** @param {Store} store */
-    constructor(store) {
-        this.#store = store;
-
+    constructor() {
         this.#events = new Events();
 
         this.localStoragePrefix = "";
         this.enableLocalStorage = false;
+
+        /** @type {{ [key: string]: any }} */
+        this.stores = {};
     }
 
     /**
      * @param {string} key
      */
     get(key) {
-        return this.#store.stores[key];
+        return this.stores[key];
     }
 
     /**
@@ -30,16 +29,16 @@ class Data {
     set(key, data, useDataAsFallback = false) {
         if (useDataAsFallback && this.enableLocalStorage) {
             const sData = JSON.parse(localStorage.getItem(this.localStoragePrefix + key) || "null");
-            this.#store.stores[key] = (sData === null || sData === undefined) ? data : sData
+            this.stores[key] = (sData === null || sData === undefined) ? data : sData
         } else {
-            this.#store.stores[key] = data;
+            this.stores[key] = data;
         }
 
         if (this.enableLocalStorage) {
-            localStorage.setItem(this.localStoragePrefix + key, JSON.stringify(this.#store.stores[key]));
+            localStorage.setItem(this.localStoragePrefix + key, JSON.stringify(this.stores[key]));
         }
 
-        this.#events.dispatchWithData(key, this.#store.stores[key]);
+        this.#events.dispatchWithData(key, this.stores[key]);
     }
 
     /**
@@ -51,7 +50,7 @@ class Data {
             throw `callback is not a function`;
         }
 
-        this.set(key, callback(this.#store.stores[key]));
+        this.set(key, callback(this.stores[key]));
     }
 
     /**
@@ -81,19 +80,16 @@ export class Store extends HTMLElement {
     constructor() {
         super();
 
-        this.data = new Data(this);
-
-        /** @type {{ [key: string]: any }} */
-        this.stores = {};
+        this.ui = new UI();
     }
 
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "local-storage-prefix":
-                this.data.localStoragePrefix = newValue !== null ? newValue : "";
+                this.ui.localStoragePrefix = newValue !== null ? newValue : "";
                 break
             case "enable-local-storage":
-                this.data.enableLocalStorage = newValue !== null
+                this.ui.enableLocalStorage = newValue !== null
                 break
         }
     }

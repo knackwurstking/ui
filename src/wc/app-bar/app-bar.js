@@ -2,6 +2,28 @@
  * @typedef {import("..").FlexGridRow} FlexGridRow
  */
 
+class UI {
+    /** @type {AppBar} */
+    #root
+
+    /** @param {AppBar} root */
+    constructor(root) {
+        this.#root = root
+    }
+
+    getLeftSlot() {
+        return [...this.#root.querySelectorAll(`[slot="left"]`)]
+    }
+
+    getCenterSlot() {
+        return [...this.#root.querySelectorAll(`[slot="center"]`)]
+    }
+
+    getRightSlot() {
+        return [...this.#root.querySelectorAll(`[slot="right"]`)]
+    }
+}
+
 // {{{ Content Template
 
 const template = document.createElement("template");
@@ -81,17 +103,7 @@ export class AppBar extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
 
-    get leftSlotChildren() {
-        return [...this.querySelectorAll(`[slot="left"]`)]
-    }
-
-    get centerSlotChildren() {
-        return [...this.querySelectorAll(`[slot="center"]`)]
-    }
-
-    get rightSlotChildren() {
-        return [...this.querySelectorAll(`[slot="right"]`)]
+        this.ui = new UI(this);
     }
 }

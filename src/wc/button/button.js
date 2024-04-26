@@ -1,5 +1,7 @@
 import { ripple } from "../../js";
 
+// {{{ Content Template
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
@@ -85,9 +87,32 @@ template.innerHTML = `
 <slot></slot>
 `;
 
+// }}}
+
+class UI {
+    /** @type {Button} */
+    #root
+
+    /** @param {Button} root */
+    constructor(root) {
+        this.#root = root
+
+        /** @type {(() => void) | null} */
+        this.removeRipple = null;
+    }
+
+    enableRipple() {
+        if (!!this.removeRipple) return;
+        this.removeRipple = ripple.create(this.#root, { centered: true });
+    }
+
+    disableRipple() {
+        if (!!this.removeRipple) this.removeRipple()
+        this.removeRipple = null
+    }
+}
+
 export class Button extends HTMLElement {
-    /** @type {() => void} */
-    #removeRipple;
 
     static register = () => customElements.define("ui-button", Button)
     static observedAttributes = ["no-ripple"]
@@ -97,29 +122,22 @@ export class Button extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.ui = new UI(this)
     }
 
     connectedCallback() {
-        if (!this.hasAttribute("no-ripple") && !this.#removeRipple) {
-            this.enableRipple()
+        if (!this.hasAttribute("no-ripple") && !this.ui.removeRipple) {
+            this.ui.enableRipple()
         }
     }
 
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "no-ripple":
-                if (newValue !== null) this.disableRipple()
-                else this.enableRipple()
+                if (newValue !== null) this.ui.disableRipple()
+                else this.ui.enableRipple()
                 break
         }
-    }
-
-    enableRipple() {
-        if (!!this.#removeRipple) return;
-        this.#removeRipple = ripple.create(this, { centered: true });
-    }
-
-    disableRipple() {
-        if (!!this.#removeRipple) this.#removeRipple()
     }
 }

@@ -1,3 +1,11 @@
+class UI {
+    constructor() {
+        this.name = ""
+        this.href = ""
+        this.fallback = false
+    }
+}
+
 export class LangType extends HTMLElement {
 
     static register = () => customElements.define("ui-lang-type", LangType);
@@ -6,21 +14,19 @@ export class LangType extends HTMLElement {
     constructor() {
         super();
 
-        this.name = ""
-        this.href = ""
-        this.fallback = false
+        this.ui = new UI()
     }
 
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "name":
-                this.name = newValue != null ? newValue : ""
+                this.ui.name = newValue != null ? newValue : ""
                 break
             case "href":
-                this.href = newValue != null ? newValue : ""
+                this.ui.href = newValue != null ? newValue : ""
                 break
             case "fallback":
-                this.fallback = newValue != null
+                this.ui.fallback = newValue != null
                 break
         }
     }
