@@ -1,3 +1,9 @@
+/**
+ * @typedef {import("..").FlexGridRow} FlexGridRow
+ */
+
+// {{{ Content Template
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
@@ -50,24 +56,23 @@ template.innerHTML = `
 </style>
 
 <ui-flex-grid-row gap="0.25rem">
-    <ui-flex-grid-row id="leftSlot" gap="0.25rem">
+    <ui-flex-grid-row gap="0.25rem">
         <slot name="left"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row id="centerSlot" gap="0.25rem" style="overflow: hidden;">
+    <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;">
         <slot name="center"></slot>
     </ui-flex-grid-row>
 
-    <ui-flex-grid-row id="rightSlot" gap="0.25rem">
+    <ui-flex-grid-row gap="0.25rem">
         <slot name="right"></slot>
     </ui-flex-grid-row>
 </ui-flex-grid-row>
 `;
 
+// }}}
+
 export class AppBar extends HTMLElement {
-    #leftSlot = this.shadowRoot.querySelector("#leftSlot");
-    #centerSlot = this.shadowRoot.querySelector("#centerSlot");
-    #rightSlot = this.shadowRoot.querySelector("#rightSlot");
 
     static register = () => customElements.define("ui-app-bar", AppBar)
 
@@ -78,15 +83,15 @@ export class AppBar extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    get leftSlot() {
-        return this.#leftSlot
+    get leftSlotChildren() {
+        return [...this.querySelectorAll(`[slot="left"]`)]
     }
 
-    get centerSlot() {
-        return this.#centerSlot
+    get centerSlotChildren() {
+        return [...this.querySelectorAll(`[slot="center"]`)]
     }
 
-    get rightSlot() {
-        return this.#rightSlot
+    get rightSlotChildren() {
+        return [...this.querySelectorAll(`[slot="right"]`)]
     }
 }
