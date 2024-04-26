@@ -1,7 +1,7 @@
 export class AppBar extends HTMLElement {
     static register: () => void;
-    get leftSlot(): Element;
-    get centerSlot(): Element;
-    get rightSlot(): Element;
-    #private;
+    get leftSlotChildren(): any[];
+    get centerSlotChildren(): any[];
+    get rightSlotChildren(): any[];
 }
+export type FlexGridRow = import("..").FlexGridRow;

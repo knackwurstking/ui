@@ -3,6 +3,7 @@ export class Label extends HTMLElement {
     static observedAttributes: string[];
     attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
     enableRipple(): void;
+    removeRipple: () => void;
     disableRipple(): void;
     #private;
 }
