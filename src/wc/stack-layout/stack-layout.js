@@ -35,6 +35,7 @@ class UI {
     constructor(root) {
         this.#root = root
 
+        /** @type {events.Events<"change", { oldPage: StackLayoutPage | null, newPage: StackLayoutPage | null }>} */
         this.events = new events.Events();
 
         /**
@@ -116,5 +117,7 @@ export class StackLayout extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.ui = new UI(this)
     }
 }

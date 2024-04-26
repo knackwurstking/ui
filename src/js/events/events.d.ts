@@ -1,25 +1,23 @@
-export default class Events {
-    constructor(debug?: boolean);
-    /** @type {{[key: string]: ((data: any) => void|Promise<void>)[]}} */
-    listeners: {
-        [key: string]: ((data: any) => void | Promise<void>)[];
-    };
-    /** @type {boolean} */
-    debug: boolean;
+/**
+ * @template Key=string
+ * @template Data=any
+ */
+export default class Events<Key, Data> {
     /**
-     * @param {string} key
-     * @param {any} data
+     * @param {Key} key
+     * @param {Data} data
      */
-    dispatchWithData(key: string, data: any): this;
+    dispatchWithData(key: Key, data: Data): this;
     /**
-     * @param {string} key
-     * @param {((data: any) => void|Promise<void>) | null} listener
+     * @param {Key} key
+     * @param {((data: Data) => void|Promise<void>) | null} listener
      * @returns {() => void} clean up function
      */
-    addListener(key: string, listener: ((data: any) => void | Promise<void>) | null): () => void;
+    addListener(key: Key, listener: ((data: Data) => void | Promise<void>) | null): () => void;
     /**
-     * @param {string} key
-     * @param {((data: any) => void|Promise<void>)} listener
+     * @param {Key} key
+     * @param {((data: Data) => void|Promise<void>)} listener
      */
-    removeListener(key: string, listener: ((data: any) => void | Promise<void>)): this;
+    removeListener(key: Key, listener: ((data: Data) => void | Promise<void>)): this;
+    #private;
 }
