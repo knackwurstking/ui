@@ -1,7 +1,3 @@
-/**
- * @typedef {import("..").FlexGridRow} FlexGridRow
- */
-
 class UI {
     /** @type {AppBar} */
     #root
