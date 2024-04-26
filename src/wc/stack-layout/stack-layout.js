@@ -83,7 +83,7 @@ class UI {
     setPage(name) {
         this.stack.push(
             // @ts-expect-error
-            this.appendChild(this.#pages[name]().children[0]),
+            this.#root.appendChild(this.#pages[name]().children[0]),
         );
 
         if (this.stack.length > 1) {
