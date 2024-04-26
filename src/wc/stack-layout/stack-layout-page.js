@@ -47,7 +47,7 @@ export class StackLayoutPage extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "name":
-                this.name = newValue !== null ? name : ""
+                this.name = newValue !== null ? newValue : ""
                 break
         }
     }
