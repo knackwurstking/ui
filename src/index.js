@@ -39,11 +39,15 @@ async function define() {
 
     // ThemeHandler components
     wc.ThemeHandler.register()
+
+    // Dialog components
+    wc.Dialog.register()
 }
 
 async function defineSVG() {
     wc.svg.BackArrowNavigation.register()
     wc.svg.ChevronDown.register()
+    wc.svg.Close.register()
     wc.svg.DeleteRecycleBin.register()
     wc.svg.Edit2.register()
     wc.svg.PDFDocument.register()
