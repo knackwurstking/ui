@@ -1,6 +1,7 @@
 declare namespace _default {
     export { BackArrowNavigation };
     export { ChevronDown };
+    export { Close };
     export { DeleteRecycleBin };
     export { Edit2 };
     export { PDFDocument };
@@ -10,6 +11,7 @@ declare namespace _default {
 export default _default;
 import { BackArrowNavigation } from "./back-arrow-navigation";
 import { ChevronDown } from "./chevron-down";
+import { Close } from "./close";
 import { DeleteRecycleBin } from "./delete-recycle-bin";
 import { Edit2 } from "./edit-2";
 import { PDFDocument } from "./pdf-document";
