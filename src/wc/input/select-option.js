@@ -18,16 +18,37 @@ template.innerHTML = `
 `
 
 class UI {
-    constructor() {
-        /** @type {any | null} */
-        this.value = null
-        this.selected = false;
+    /** @type {SelectOption} */
+    #root
+
+    /** @param {SelectOption} root */
+    constructor(root) {
+        this.#root = root
+    }
+
+    get value() {
+        return this.#root.getAttribute("value")
+    }
+
+    set value(value) {
+        this.#root.setAttribute("value", value)
+    }
+
+    get selected() {
+        return this.#root.hasAttribute("selected")
+    }
+
+    set selected(state) {
+        if (!state) {
+            this.#root.removeAttribute("selected")
+        } else {
+            this.#root.setAttribute("selected", "")
+        }
     }
 }
 
 export class SelectOption extends HTMLElement {
     static register = () => customElements.define("ui-select-option", SelectOption);
-    static observedAttributes = ["value", "selected"]
 
     constructor() {
         super();
@@ -35,17 +56,6 @@ export class SelectOption extends HTMLElement {
         this.attachShadow({ mode: "open" })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-        this.ui = new UI()
-    }
-
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "value":
-                this.ui.value = newValue
-                break
-            case "selected":
-                this.ui.selected = newValue !== null
-                break
-        }
+        this.ui = new UI(this)
     }
 }

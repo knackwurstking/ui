@@ -1,12 +1,14 @@
 export class SelectOption extends HTMLElement {
     static register: () => void;
-    static observedAttributes: string[];
     ui: UI;
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
 }
 declare class UI {
-    /** @type {any | null} */
-    value: any | null;
-    selected: boolean;
+    /** @param {SelectOption} root */
+    constructor(root: SelectOption);
+    set value(value: string);
+    get value(): string;
+    set selected(state: boolean);
+    get selected(): boolean;
+    #private;
 }
 export {};
