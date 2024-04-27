@@ -6,10 +6,10 @@
     --bg: var(--hue), 10%, 96.1%;
     --fg: 0, 10%, 10%;
 
-    --card: var(--hue), 10%, 92.1%;
+    --card: var(--hue), 15%, 92.1%;
     --card-fg: 0, 10%, 3.9%;
 
-    --primary: var(--hue), 5.9%, 3.9%;
+    --primary: var(--hue), 6%, 35%;
     --primary-fg: 0, 0%, 98%;
 
     --secondary: var(--hue), 5.9%, 75%;
@@ -46,10 +46,10 @@
     --bg: var(--hue), 10%, 3.9%;
     --fg: 0, 0%, 90%;
 
-    --card: var(--hue), 10%, 7.9%;
+    --card: var(--hue), 15%, 7.9%;
     --card-fg: 0, 0%, 98%;
 
-    --primary: var(--hue), 5.9%, 98%;
+    --primary: var(--hue), 6%, 65%;
     --primary-fg: 0, 0%, 10%;
 
     --secondary: var(--hue), 5.9%, 25%;
