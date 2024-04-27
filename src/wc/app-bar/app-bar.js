@@ -1,25 +1,3 @@
-class UI {
-    /** @type {AppBar} */
-    #root
-
-    /** @param {AppBar} root */
-    constructor(root) {
-        this.#root = root
-    }
-
-    getLeftSlot() {
-        return [...this.#root.querySelectorAll(`[slot="left"]`)]
-    }
-
-    getCenterSlot() {
-        return [...this.#root.querySelectorAll(`[slot="center"]`)]
-    }
-
-    getRightSlot() {
-        return [...this.#root.querySelectorAll(`[slot="right"]`)]
-    }
-}
-
 // {{{ Content Template
 
 const template = document.createElement("template");
@@ -90,6 +68,34 @@ template.innerHTML = `
 
 // }}}
 
+class UI {
+    /** @type {AppBar} */
+    #root
+
+    /** @param {AppBar} root */
+    constructor(root) {
+        this.#root = root
+    }
+
+    getLeftSlot() {
+        return [...this.#root.querySelectorAll(`[slot="left"]`)]
+    }
+
+    getCenterSlot() {
+        return [...this.#root.querySelectorAll(`[slot="center"]`)]
+    }
+
+    getRightSlot() {
+        return [...this.#root.querySelectorAll(`[slot="right"]`)]
+    }
+}
+
+/**
+ * Special slots to use (no unnamed slots)
+ *  - **left**: childrens inside a "ui-flex-grid-row"
+ *  - **center**: childrens inside a "ui-flex-grid-row"
+ *  - **right**: childrens inside a "ui-flex-grid-row"
+ */
 export class AppBar extends HTMLElement {
 
     static register = () => customElements.define("ui-app-bar", AppBar)
