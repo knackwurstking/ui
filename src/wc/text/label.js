@@ -39,8 +39,6 @@ template.innerHTML = `
 <span class="input">
     <slot name="input"></slot>
 </span>
-
-<slot></slot>
 `
 
 class UI {
@@ -95,6 +93,12 @@ class UI {
     }
 }
 
+/**
+ * Special slots in use (no unnamed slots)
+ *  - **primary**
+ *  - **secondary**
+ *  - **input**
+ */
 export class Label extends HTMLElement {
 
     static register = () => customElements.define("ui-label", Label);
