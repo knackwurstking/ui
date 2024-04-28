@@ -208,7 +208,6 @@
 `;const we=class we extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(dt.content.cloneNode(!0))}};r(we,"register",()=>customElements.define("ui-container",we));let se=we;const ut=document.createElement("template");ut.innerHTML=`
 <style>
     :host dialog * {
-        border: 1px solid red;
         box-sizing: border-box;
     }
 
@@ -229,7 +228,7 @@
         padding: 0;
 
         border: none;
-        border-radius: var(--radius);
+        outline: none;
 
         background-color: transparent;
 

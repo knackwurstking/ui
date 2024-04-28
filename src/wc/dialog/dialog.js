@@ -33,6 +33,7 @@ t.innerHTML = `
         padding: 0;
 
         border: none;
+        outline: none;
 
         background-color: transparent;
 
