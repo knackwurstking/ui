@@ -1,9 +1,9 @@
 /**
  * Special slots to use:
- *  - title: all childrens go into "header > h4"
- *  - actions: all childrens go into "footer > ui-flex-grid-row" (shadowRoot)
+ *  - title: all childrens go into "dialog header > h4"
+ *  - actions: all childrens go into "dialog footer > ui-flex-grid-row"
  */
-export class Dialog extends HTMLDialogElement {
+export class Dialog extends HTMLElement {
     static register: () => void;
     ui: UI;
     connectedCallback(): void;

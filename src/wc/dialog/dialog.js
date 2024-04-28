@@ -12,12 +12,12 @@ const t = document.createElement("template")
 
 t.innerHTML = `
 <style>
-    /* TODO: Debugging here, remove later */
-    * {
+    :host dialog * {
         border: 1px solid red;
+        box-sizing: border-box;
     }
 
-    :host {
+    dialog {
         --header-height: 3rem;
         --footer-height: 3rem;
 
@@ -31,11 +31,7 @@ t.innerHTML = `
         max-height: 100%;
 
         margin: 0;
-        padding: var(--spacing);
-
-        /* Padding for ios devices */
-        padding-top: calc(env(safe-area-inset-top, 0) + var(--spacing));
-        padding-bottom: calc(env(safe-area-inset-bottom, 0) + var(--spacing));
+        padding: 0;
 
         border: none;
         border-radius: var(--radius);
@@ -48,20 +44,20 @@ t.innerHTML = `
         z-index: 999;
     }
 
-    :host(::-webkit-scrollbar) {
+    dialog::-webkit-scrollbar {
         display: none;
     }
 
-    :host(::backdrop) {
+    dialog::backdrop {
         background-color: hsl(0, 0%, 0%, 0.4);
         backdrop-filter: blur(5px);
     }
 
-    :host > article {
+    dialog > article {
         background-color: hsl(var(--bg));
         color: hsl(var(--fg));
 
-        border: var(--border-width, .1em) var(--border-style) hsl(var(--border));
+        border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
 
         padding: 0;
@@ -73,10 +69,18 @@ t.innerHTML = `
         position: relative;
     }
 
-    :host([fullscreen]),
-    :host([fullscreen]) > article {
+    :host([fullscreen]) dialog {
         width: 100%;
         height: 100%;
+    }
+
+    :host([fullscreen]) dialog > article {
+        width: calc(100% - var(--spacing) * 2);
+        height: calc(100% - (env(safe-area-inset-top, 0) + env(safe-area-inset-bottom, 0) + (var(--spacing) * 2)));
+
+        margin: var(--spacing);
+        margin-top: calc(env(safe-area-inset-top, 0) + var(--spacing));
+        margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--spacing));
     }
 
     /*
@@ -98,8 +102,11 @@ t.innerHTML = `
         height: var(--header-height);
     }
 
-    :host([fullscreen]) article header {
+    :host([fullscreen]) header {
+        z-index: 15;
         position: absolute;
+        top: 0;
+        left: 0;
     }
 
     /*
@@ -112,7 +119,8 @@ t.innerHTML = `
         height: fit-content;
     }
 
-    :host([fullscreen]) article .content {
+    :host([fullscreen]) .content {
+        z-index: 10;
         position: relative;
         width: 100%;
         height: 100%;
@@ -134,8 +142,11 @@ t.innerHTML = `
         height: var(--footer-height);
     }
 
-    :host([fullscreen]) article footer {
+    :host([fullscreen]) footer {
+        z-index: 15;
         position: absolute;
+        bottom: 0;
+        left: 0;
     }
 
     footer ui-flex-grid-row {
@@ -146,7 +157,7 @@ t.innerHTML = `
     }
 </style>
 
-<dialog class="ui-dialog">
+<dialog>
 	<article>
         <header>
             <h4><slot name="title"></slot></h4>
@@ -217,15 +228,14 @@ class UI {
 
 /**
  * Special slots to use:
- *  - title: all childrens go into "header > h4"
- *  - actions: all childrens go into "footer > ui-flex-grid-row" (shadowRoot)
+ *  - title: all childrens go into "dialog header > h4"
+ *  - actions: all childrens go into "dialog footer > ui-flex-grid-row"
  */
-export class Dialog extends HTMLDialogElement {
+export class Dialog extends HTMLElement {
     #dispatchCloseHandler = () => this.ui.events.dispatchWithData("close", null)
     #closeHandler = () => this.ui.close()
 
-    static register = () => customElements.define("ui-dialog", Dialog, { extends: "dialog" })
-    //static observedAttributes = [];
+    static register = () => customElements.define("ui-dialog", Dialog)
 
     constructor() {
         super()
@@ -237,20 +247,13 @@ export class Dialog extends HTMLDialogElement {
 
     connectedCallback() {
         const button = this.shadowRoot.querySelector("header ui-icon-button")
-        button.addEventListener("close", this.#dispatchCloseHandler)
-        button.addEventListener("close", this.#closeHandler)
+        button.addEventListener("click", this.#closeHandler)
+        button.addEventListener("click", this.#dispatchCloseHandler)
     }
 
     disconnectedCallback() {
         const button = this.shadowRoot.querySelector("header ui-icon-button")
-        button.removeEventListener("close", this.#dispatchCloseHandler)
-        button.removeEventListener("close", this.#closeHandler)
+        button.removeEventListener("click", this.#closeHandler)
+        button.removeEventListener("click", this.#dispatchCloseHandler)
     }
-
-    /*
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-        }
-    }
-    */
 }

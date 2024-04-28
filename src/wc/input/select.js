@@ -6,6 +6,10 @@ const template = document.createElement("template")
 
 template.innerHTML = `
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     :host {
         --items-length: 0;
         position: relative; 
@@ -17,7 +21,6 @@ template.innerHTML = `
         font-size: 0.95em;
         transition: height 0.25s ease;
         line-height: 1.15;
-        box-sizing: content-box !important;
         overflow: hidden;
     }
 
