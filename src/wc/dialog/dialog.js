@@ -33,7 +33,6 @@ t.innerHTML = `
         padding: 0;
 
         border: none;
-        border-radius: var(--radius);
 
         background-color: transparent;
 
