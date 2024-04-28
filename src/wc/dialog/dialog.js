@@ -245,7 +245,7 @@ class UI {
 
 /**
  * Special slots to use:
- *  - title: all childrens go into "dialog header > h4"
+ *  - title: all childrens go into "dialog header > h4", just use the `Dialog.ui.title` setter/getter
  *  - actions: all childrens go into "dialog footer > ui-flex-grid-row"
  */
 export class Dialog extends HTMLElement {
