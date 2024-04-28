@@ -3,6 +3,7 @@
 @import "./base/main.css";
 @import "./base/fonts.css";
 @import "./base/colors.css";
+@import "./base/shadow.css";
 
 @import "./ui/card.css";
 @import "./ui/container.css";

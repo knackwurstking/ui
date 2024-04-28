@@ -1,0 +1,41 @@
+h1, h2, h3, h4, h5, h6,
+ui-button {
+    --text-shadow-color: var(--fg);
+    --text-shadow-contrast-color: var(--bg);
+    --text-shadow-pre-color: 0 0 2.5px;
+    --text-shadow-color-alpha: 1;
+
+    text-shadow: 
+        0 0 1px hsla(var(--text-shadow-contrast-color), var(--text-shadow-color-alpha)),
+        var(--text-shadow-pre-color) hsla(var(--text-shadow-color), var(--text-shadow-color-alpha));
+}
+
+ui-button[color="primary"] {
+    --text-shadow-contrast-color: var(--primary);
+    --text-shadow-color: var(--primary-fg);
+}
+
+ui-button[color="primary"][variant="outline"] {
+    --text-shadow-contrast-color: var(--primary-fg);
+    --text-shadow-color: var(--primary);
+}
+
+ui-button[color="secondary"] {
+    --text-shadow-contrast-color: var(--secondary);
+    --text-shadow-color: var(--secondary-fg);
+}
+
+ui-button[color="secondary"][variant="outline"] {
+    --text-shadow-contrast-color: var(--secondary-fg);
+    --text-shadow-color: var(--secondary);
+}
+
+ui-button[color="destructive"] {
+    --text-shadow-contrast-color: var(--destructive);
+    --text-shadow-color: var(--destructive-fg);
+}
+
+ui-button[color="destructive"][variant="outline"] {
+    --text-shadow-contrast-color: var(--destructive-fg);
+    --text-shadow-color: var(--destructive);
+}
