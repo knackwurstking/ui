@@ -3,14 +3,14 @@
 }
 
 [data-theme="light"] {
-    --bg: var(--hue), 10%, 96.1%;
+    --bg: var(--hue), 10%, 96%;
     --fg: 0, 10%, 10%;
 
-    --card: var(--hue), 15%, 92.1%;
+    --card: var(--hue), 15%, 92%;
     --card-fg: 0, 10%, 3.9%;
 
-    --primary: var(--hue), 6%, 35%;
-    --primary-fg: 0, 0%, 98%;
+    --primary: var(--hue), 10%, 10%;
+    --primary-fg: 0, 10%, 96%;
 
     --secondary: var(--hue), 5.9%, 75%;
     --secondary-fg: 0, 5.9%, 10%;
@@ -43,14 +43,14 @@
 }
 
 [data-theme="dark"] {
-    --bg: var(--hue), 10%, 3.9%;
-    --fg: 0, 0%, 90%;
+    --bg: var(--hue), 10%, 4%;
+    --fg: 0, 10%, 90%;
 
-    --card: var(--hue), 15%, 7.9%;
-    --card-fg: 0, 0%, 98%;
+    --card: var(--hue), 15%, 8%;
+    --card-fg: 0, 10%, 98%;
 
-    --primary: var(--hue), 6%, 65%;
-    --primary-fg: 0, 0%, 10%;
+    --primary: var(--hue), 10%, 90%;
+    --primary-fg: 0, 10%, 4%;
 
     --secondary: var(--hue), 5.9%, 25%;
     --secondary-fg: 0, 5.9%, 98%;
