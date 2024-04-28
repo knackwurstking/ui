@@ -101,6 +101,10 @@ t.innerHTML = `
         height: var(--header-height);
     }
 
+    header h4 {
+        margin: auto 0;
+    }
+
     :host([fullscreen]) header {
         z-index: 15;
         position: absolute;
@@ -159,7 +163,7 @@ t.innerHTML = `
 <dialog>
 	<article>
         <header>
-            <h4><slot name="title"></slot></h4>
+            <span><slot name="title"></slot></span>
 
             <ui-icon-button ghost>
                 <ui-svg-close></ui-svg-close>
@@ -222,6 +226,17 @@ class UI {
     set fullscreen(state) {
         if (!!state) this.#root.setAttribute("fullscreen", "")
         else this.#root.removeAttribute("fullscreen")
+    }
+
+    get title() {
+        return this.#root.querySelector(`[slot="title"]`)?.innerHTML || ""
+    }
+
+    set title(value) {
+        const h4 = document.createElement("h4")
+        h4.innerText = value
+        h4.slot = "title"
+        this.#root.appendChild(h4)
     }
 }
 

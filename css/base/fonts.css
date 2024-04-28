@@ -16,7 +16,7 @@ h5,
 h6 {
     font-family: var(--font-family);
     font-style: italic;
-    font-weight: 600;
+    font-weight: bolder;
 }
 
 h1 {

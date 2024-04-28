@@ -26,6 +26,8 @@ declare class UI {
     close(): void;
     set fullscreen(state: boolean);
     get fullscreen(): boolean;
+    set title(value: string);
+    get title(): string;
     #private;
 }
 import { events } from "../../js";
