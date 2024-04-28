@@ -190,6 +190,8 @@ class UI {
     #root
     /** @type {HTMLDialogElement} */
     #dialog
+    /** @type {HTMLElement} */
+    #h4
 
     /**
      * @param {Dialog} root
@@ -201,6 +203,10 @@ class UI {
 
         /** @type {events.Events<_Events>} */
         this.events = new events.Events()
+
+        this.#h4 = document.createElement("h4")
+        this.#h4.slot = "title"
+        this.#root.appendChild(this.#h4)
     }
 
     get dialog() {
@@ -229,14 +235,11 @@ class UI {
     }
 
     get title() {
-        return this.#root.querySelector(`[slot="title"]`)?.innerHTML || ""
+        return this.#h4.innerText
     }
 
     set title(value) {
-        const h4 = document.createElement("h4")
-        h4.innerText = value
-        h4.slot = "title"
-        this.#root.appendChild(h4)
+        this.#h4.innerText = value
     }
 }
 
