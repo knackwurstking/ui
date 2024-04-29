@@ -694,8 +694,8 @@
         stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
-    /></svg
->;
+    />
+</svg>;
 `;const Re=class Re extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Tt.content.cloneNode(!0))}};r(Re,"register",()=>customElements.define("ui-svg-edit2",Re));let Ye=Re;const St=document.createElement("template");St.innerHTML=`
 <style>
     :host {
