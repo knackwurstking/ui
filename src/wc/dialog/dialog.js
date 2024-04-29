@@ -127,8 +127,8 @@ t.innerHTML = `
         position: relative;
         width: 100%;
         height: 100%;
-        padding-top: calc(--header-height + var(--spacing));
-        padding-bottom: calc(--footer-height + var(--spacing));
+        padding-top: calc(var(--header-height) + var(--spacing));
+        padding-bottom: calc(var(--footer-height) + var(--spacing));
     }
 
     /*
