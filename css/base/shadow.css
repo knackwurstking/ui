@@ -1,12 +1,8 @@
-h1, h2, h3, h4, h5, h6,
-ui-button {
+h1, h2, h3, h4, h5, h6 {
     --text-shadow-color: var(--fg);
     --text-shadow-color-alpha: .6;
 
-    text-shadow:
-        3px 0px 7px hsla(var(--text-shadow-color), var(--text-shadow-color-alpha)),
-        -3px 0px 7px hsla(var(--text-shadow-color), var(--text-shadow-color-alpha)),
-        0px 4px 7px hsla(var(--text-shadow-color), var(--text-shadow-color-alpha));
+    text-shadow: 3px 4px 7px hsla(var(--text-shadow-color), var(--text-shadow-color-alpha));
 }
 
 ui-button[color="primary"] {
