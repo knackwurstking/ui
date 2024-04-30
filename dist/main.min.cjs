@@ -150,9 +150,9 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        width: 2.5em;
-        height: 2.5em;
-        padding: var(--spacing);
+        width: 2em;
+        height: 2em;
+        padding: calc(var(--spacing) / 2);
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
         outline: none;
