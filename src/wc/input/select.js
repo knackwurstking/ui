@@ -15,10 +15,10 @@ template.innerHTML = `
         position: relative; 
         display: block;
         width: 100%;
-        height: calc(1em * var(--line-height) + var(--spacing) * 2);
+        height: calc(1em * var(--line-height, 1) + var(--spacing) * 2);
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
-        font-size: 0.95em;
+        font-size: 95%;
         transition: height 0.25s ease;
         line-height: 1.15;
         overflow: hidden;

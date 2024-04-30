@@ -25,13 +25,10 @@
     --border-width: 1px;
     --border-style: solid;
 
-    --font-size: calc(15px + 0.390625vw);
+    --font-size: 100%;
 
-    --font-family: "Times New Roman", serif;
-    --font-family-sans: "Georgia", sans-serif;
-    --font-family-mono: "Courier New", monospace;
-
-    --line-height: 1.15;
+    --font-family: system-ui, "Times New Roman", "Georgia", serif;
+    --font-family-mono: ui-monospace, "Courier New", monospace;
 
     --radius: 0.25rem;
     --spacing: 0.5em;
@@ -65,13 +62,10 @@
     --border-width: 1px;
     --border-style: solid;
 
-    --font-size: calc(15px + 0.390625vw);
+    --font-size: 100%;
 
-    --font-family: "Times New Roman", serif;
-    --font-family-sans: "Georgia", sans-serif;
-    --font-family-mono: "Courier New", monospace;
-
-    --line-height: 1.15;
+    --font-family: system-ui, "Times New Roman", "Georgia", serif;
+    --font-family-mono: ui-monospace, "Courier New", monospace;
 
     --radius: 0.25rem;
     --spacing: 0.5em;

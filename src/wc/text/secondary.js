@@ -3,8 +3,7 @@ const template = document.createElement("template")
 template.innerHTML = `
 <style>
     :host {
-        font-size: 0.9em;
-        font-weight: 300;
+        font-size: 85%;
         font-style: italic;
     }
 </style>

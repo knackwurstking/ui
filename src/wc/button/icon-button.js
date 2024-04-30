@@ -17,7 +17,8 @@ template.innerHTML = `
         border-radius: var(--radius);
         outline: none;
         overflow: hidden;
-        font-family: var(--font-family);
+        font-weight: bold;
+        font-size: 115%;
         cursor: pointer;
         user-select: none;
     }
