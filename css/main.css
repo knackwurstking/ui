@@ -1,8 +1,7 @@
 @import "./reset.css";
 
+@import "./base/recursive.css";
 @import "./base/main.css";
-@import "./base/fonts.css";
-@import "./base/colors.css";
 
 @import "./ui/card.css";
 @import "./ui/container.css";
