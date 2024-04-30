@@ -90,15 +90,6 @@ h6 {
 
 /* }}} */
 
-/* {{{ Button
-*/
-
-button:focus {
-    outline: none;
-}
-
-/* }}} */
-
 /* {{{ Code, Pre
 */
 
@@ -135,11 +126,7 @@ textarea {
     color: hsl(var(--fg));
     box-shadow: none;
     outline: none;
-}
-
-select,
-textarea,
-input {
+    font-size: 95%;
     padding: var(--spacing) calc(var(--spacing) * 1.5);
 }
 
@@ -225,6 +212,7 @@ td {
 
 td {
     word-break: break-all;
+    font-size: 95%;
 }
 
 /* }}} */
