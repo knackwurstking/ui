@@ -6,12 +6,7 @@
     font-family: "RecVar";
 }
 
-.is-mono {
-    font-family: "RecVar";
-    font-variation-settings:"MONO" 1;
-}
-
- /* The bare minimum English subset, plus copyright & arrows (← ↑ → ↓) & quotes (“ ” ‘ ’) & bullet (•) */
+/* The bare minimum English subset, plus copyright & arrows (← ↑ → ↓) & quotes (“ ” ‘ ’) & bullet (•) */
 @font-face {
   font-family: 'RecVar';
   font-style: oblique 0deg 15deg;
