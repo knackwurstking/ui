@@ -128,8 +128,11 @@
 .ui-input-title {
     font-size: 0.85rem;
     font-weight: 300;
-    font-style: italic;
     padding-left: var(--spacing);
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 1,
+        "slnt" 0;
     padding-right: var(--spacing);
 }
 

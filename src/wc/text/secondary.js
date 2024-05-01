@@ -3,8 +3,12 @@ const template = document.createElement("template")
 template.innerHTML = `
 <style>
     :host {
-        font-size: 85%;
-        font-style: italic;
+        font-size: 0.9rem;
+        font-family: var(--font-family);
+        font-variation-settings:
+            "CASL" 1,
+            "MONO" 0,
+            "slnt" -15;
     }
 </style>
 

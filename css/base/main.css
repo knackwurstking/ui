@@ -25,7 +25,10 @@ html {
 
 body {
     font-family: var(--font-family);
-    font-variation-settings: var(--font-variation-normal);
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 0,
+        "slnt" 0;
     font-size: 100%;
 }
 
@@ -66,32 +69,36 @@ h4,
 h5,
 h6 {
     margin: 0;
-    font-style: italic;
+    font-family: "RecVar";
     font-weight: bolder;
+    font-variation-settings:
+        "CASL" 0,
+        "MONO" 0,
+        "slnt" -15;
 }
 
 h1 {
-    font-size: 200%;
+    font-size: 2rem;
 }
 
 h2 {
-    font-size: 175%;
+    font-size: 1.75rem;
 }
 
 h3 {
-    font-size: 150%;
+    font-size: 1.50rem;
 }
 
 h4 {
-    font-size: 125%;
+    font-size: 1.25rem;
 }
 
 h5 {
-    font-size: 100%;
+    font-size: 1.00rem;
 }
 
 h6 {
-    font-size: 750%;
+    font-size: 7.50rem;
 }
 
 /* }}} */
@@ -118,8 +125,31 @@ pre {
 
 /* }}} */
 
-/* {{{ Select, Input, textarea
+/* {{{ (UI-)Button
 */
+
+button,
+ui-icon-button,
+ui-button {
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 0,
+        "slnt" -5;
+}
+
+/* }}} */
+
+/* {{{ (UI-)Select, Input, Textarea
+*/
+
+ui-select {
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 1,
+        "slnt" 0;
+}
 
 select,
 input,
@@ -132,7 +162,12 @@ textarea {
     color: hsl(var(--fg));
     box-shadow: none;
     outline: none;
-    font-size: 95%;
+    font-size: 0.95rem;
+    font-family: var(--font-family);
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 1,
+        "slnt" 0;
     padding: var(--spacing) calc(var(--spacing) * 1.5);
 }
 
@@ -218,7 +253,7 @@ td {
 
 td {
     word-break: break-all;
-    font-size: 95%;
+    font-size: 0.95rem;
 }
 
 /* }}} */

@@ -1,17 +1,7 @@
+/* Link to fonts: https://www.recursive.design/ */
+
 :root {
     --font-family: "RecVar";
-    --font-variation-normal: "CASL" 1, "MONO" 0, "WGHT" 400, "SLNT" 0;
-    --font-variation-mono: "CASL" 1, "MONO" 1, "WGHT" 400, "SLNT" 0;
-}
-
-.font-rec-normal {
-    font-family: "RecVar";
-    font-variation-settings: var(--font-variation-normal);
-}
-
-.font-rec-mono {
-    font-family: "RecVar";
-    font-variation-settings: var(--font-variation-mono);
 }
 
  /* The bare minimum English subset, plus copyright & arrows (← ↑ → ↓) & quotes (“ ” ‘ ’) & bullet (•) */
