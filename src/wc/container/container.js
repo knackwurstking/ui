@@ -4,7 +4,7 @@ template.innerHTML = `
     :host {
         display: block;
         width: 100%;
-        max-width: 65em;
+        max-width: 65rem;
         margin: 0 auto;
         padding: var(--spacing);
     }

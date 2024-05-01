@@ -10,7 +10,6 @@ template.innerHTML = `
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 0.95rem;
         height: calc(1em + var(--spacing) * 2)
     }
 </style>

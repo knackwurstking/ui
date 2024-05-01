@@ -34,7 +34,7 @@
 }
 
 .is-outline-text {
-    -webkit-text-stroke-width: 0.05em;
+    -webkit-text-stroke-width: 0.05rem;
     -webkit-text-stroke-color: hsl(var(--fg));
     color: transparent;
 }

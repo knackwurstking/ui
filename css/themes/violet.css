@@ -30,8 +30,6 @@
     --radius: 0.25rem;
     --spacing: 5px;
 
-    --app-bar-height: 3rem;
-
     background: hsl(var(--bg));
     color: hsl(var(--fg));
     color-scheme: light;
@@ -64,8 +62,6 @@
 
     --radius: 0.25rem;
     --spacing: 5px;
-
-    --app-bar-height: 3rem;
 
     background: hsl(var(--bg));
     color: hsl(var(--fg));
