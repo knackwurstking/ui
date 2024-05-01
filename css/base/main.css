@@ -70,7 +70,7 @@ h5,
 h6 {
     margin: 0;
     font-family: "RecVar";
-    font-weight: bolder;
+    font-weight: 600;
     font-variation-settings:
         "CASL" 0,
         "MONO" 0,
@@ -132,6 +132,7 @@ button,
 ui-icon-button,
 ui-button {
     font-size: 1.1rem;
+    font-weight: 450;
     font-family: var(--font-family);
     font-variation-settings:
         "CASL" 1,
