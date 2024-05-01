@@ -15,7 +15,7 @@ template.innerHTML = `
         border-radius: var(--radius);
         overflow: hidden;
         font-weight: bold;
-        font-size: 115%;
+        font-size: 1.1rem;
         text-transform: capitalize;
         cursor: pointer;
         outline: none;

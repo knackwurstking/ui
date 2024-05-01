@@ -15,10 +15,10 @@ template.innerHTML = `
         position: relative; 
         display: block;
         width: 100%;
-        height: calc(1em * var(--line-height, 1) + var(--spacing) * 2);
+        height: calc(0.95rem + var(--spacing) * 2);
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
-        font-size: 95%;
+        font-size: 0.95rem;
         transition: height 0.25s ease;
         line-height: 1.15;
         overflow: hidden;
@@ -39,7 +39,7 @@ template.innerHTML = `
         position: absolute;
         top: 0;
         right: 0;
-        width: 2.5em;
+        width: 2.5rem;
         height: 100%;
         color: hsl(var(--primary));
     }
@@ -49,9 +49,7 @@ template.innerHTML = `
     }
 
     :host(.open) {
-        height: calc(
-            (var(--spacing) * 2 + (1em * 1.15)) * var(--items-length)
-        );
+        height: calc((1em + var(--spacing) * 2) * var(--items-length));
     }
 
     :host(.open) .options {

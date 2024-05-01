@@ -20,7 +20,9 @@ html {
 }
 
 body {
-    font-family: "RecVar";
+    font-family: var(--font-family);
+    font-variation-settings: var(--font-variation-normal);
+    font-size: 100%;
 }
 
 /* }}} */

@@ -10,15 +10,15 @@ template.innerHTML = `
         align-items: center;
         justify-content: center;
         position: relative;
-        width: 2em;
-        height: 2em;
+        width: 2rem;
+        height: 2rem;
         padding: calc(var(--spacing) / 2);
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
         outline: none;
         overflow: hidden;
         font-weight: bold;
-        font-size: 115%;
+        font-size: 1.1rem;
         cursor: pointer;
         user-select: none;
     }

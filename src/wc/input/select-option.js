@@ -5,11 +5,13 @@ template.innerHTML = `
     :host {
         display: none;
         padding: var(--spacing);
-        padding-right: 2.5em;
+        padding-right: 2rem;
         transition: background-color 0.25s linear;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        font-size: 0.95rem;
+        height: calc(1em + var(--spacing) * 2)
     }
 </style>
 
