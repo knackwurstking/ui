@@ -72,7 +72,6 @@
         border: var(--border-width) var(--border-style) currentColor;
         border-radius: var(--radius);
         overflow: hidden;
-        font-weight: bold;
         font-size: 1.1rem;
         text-transform: capitalize;
         cursor: pointer;
