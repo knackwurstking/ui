@@ -1,10 +1,14 @@
 export class StackLayoutPage extends HTMLElement {
     static register: () => void;
-    static observedAttributes: string[];
     ui: UI;
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
 }
 declare class UI {
-    name: string;
+    /**
+    * @param {StackLayoutPage} root
+    */
+    constructor(root: StackLayoutPage);
+    set name(value: string);
+    get name(): string;
+    #private;
 }
 export {};

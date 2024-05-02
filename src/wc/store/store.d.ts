@@ -4,11 +4,9 @@
  */
 export class Store<T extends import("../../js/events/events")._Events> extends HTMLElement {
     static register: () => void;
-    static observedAttributes: string[];
     constructor();
     /** @type {UI<T>} */
     ui: UI<T>;
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
 }
 export type _Events = import("../../js/events/events")._Events;
 /**
@@ -20,11 +18,17 @@ export type _Events = import("../../js/events/events")._Events;
  */
 declare class UI<T extends import("../../js/events/events")._Events> {
     /**
+     * @param {Store} root
+     */
+    constructor(root: Store<any>);
+    /**
      * @type {events.Events<T>}
      */
     events: events.Events<T>;
-    localStoragePrefix: string;
-    enableLocalStorage: boolean;
+    set localStoragePrefix(prefix: string);
+    get localStoragePrefix(): string;
+    set enableLocalStorage(state: boolean);
+    get enableLocalStorage(): boolean;
     /**
      * @param {keyof T} key
      */

@@ -37,6 +37,7 @@ template.innerHTML = `
 </span>
 
 <span class="input">
+    <slot name="input"></slot>
     <slot></slot>
 </span>
 `
@@ -47,8 +48,14 @@ class UI {
 
     #running = false;
 
-    #onClick = async (ev) => ev.currentTarget.click();
-    #onInputClick = async (ev) => ev.stopPropagation();
+    #onClick = async () => {
+        // @ts-expect-error
+        [...this.#root.querySelectorAll(`[slot="input"]`)].forEach(child => child.click());
+    };
+
+    #onInputClick = async (/** @type{MouseEvent & { currentTarget: Element }} */ ev) => {
+        ev.stopPropagation();
+    };
 
     /** @type {() => void} */
     #removeRipple;
@@ -74,6 +81,10 @@ class UI {
         this.#root.setAttribute("secondary", value)
     }
 
+    getInputSlot() {
+        return [...this.#root.querySelectorAll(`[slot="input"]`)]
+    }
+
     enableRipple() {
         if (!!this.#removeRipple) return;
         this.removeRipple = ripple.create(this.#root);
@@ -89,30 +100,28 @@ class UI {
     #startInputHandling() {
         if (this.#running) return;
 
-        const input = [...this.#root.querySelectorAll(`.input`) || []]
-        input.forEach(el => {
-            el.addEventListener("click", this.#onClick)
+        this.#root.addEventListener("click", this.#onClick);
+
+        this.getInputSlot().forEach(el => {
             el.addEventListener("click", this.#onInputClick)
-        })
+        });
 
         this.#running = true;
     }
 
     #stopInputHandling() {
-        const input = [...this.#root.querySelectorAll(`.input`) || []]
-        input.forEach(el => {
-            el.removeEventListener("click", this.#onClick)
+        this.#root.removeEventListener("click", this.#onClick);
+
+        [...this.#root.querySelectorAll(`[slot="input"]`)].forEach(el => {
             el.removeEventListener("click", this.#onInputClick)
-        })
+        });
 
         this.#running = false;
     }
 }
 
 /**
- * Special slots in use (no unnamed slots)
- *  - **primary**
- *  - **secondary**
+ * Special slots in use
  *  - **input**
  */
 export class Label extends HTMLElement {

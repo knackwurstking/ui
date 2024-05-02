@@ -1,4 +1,4 @@
-"use strict";var Ut=Object.defineProperty;var qt=(o,e,t)=>e in o?Ut(o,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[e]=t;var r=(o,e,t)=>(qt(o,typeof e!="symbol"?e+"":e,t),t),Ze=(o,e,t)=>{if(!e.has(o))throw TypeError("Cannot "+t)};var s=(o,e,t)=>(Ze(o,e,"read from private field"),t?t.call(o):e.get(o)),n=(o,e,t)=>{if(e.has(o))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(o):e.set(o,t)},a=(o,e,t,i)=>(Ze(o,e,"write to private field"),i?i.call(o,t):e.set(o,t),t);var d=(o,e,t)=>(Ze(o,e,"access private method"),t);var c;class _{constructor(){n(this,c,{})}dispatchWithData(e,t){if(t===void 0)throw"data is undefined!";if(s(this,c)[e])for(const i of s(this,c)[e])i(t);return this}addListener(e,t){if(typeof t!="function")throw`invalid event listener passed for "${e.toString()}" event!`;return s(this,c)[e]||(s(this,c)[e]=[]),s(this,c)[e].push(t),()=>{this.removeListener(e,t)}}removeListener(e,t){if(!s(this,c)[e])throw`no listeners found for ${e.toString()}, there is nothing to delete`;let i=!1,l=0;for(const Pe of s(this,c)[e])Pe===t&&(s(this,c)[e].splice(l,1),i=!0),l++;if(!i)throw`listener not found for ${e.toString()}, there is nothing to delete`;return this}}c=new WeakMap;const Ot=Object.freeze(Object.defineProperty({__proto__:null,Events:_},Symbol.toStringTag,{value:"Module"})),Pt={color:"currentColor",opacity:.2,centered:!1,spreadDuration:".4s",spreadTiming:"linear",clearDuration:"1s",clearTiming:"ease-in-out"};function lt(o,e){e={...Pt,...e};const t=document.createElement("div");t.classList.add("ripple"),t.style.position="absolute",t.style.color="inherit",t.style.borderRadius="50%",t.style.pointerEvents="none",t.style.width="100px",t.style.height="100px",t.style.marginTop="-50px",t.style.marginLeft="-50px",t.style.opacity=`${e.opacity}`,t.style.backgroundColor=e.color,t.style.transform="scale(0) translate(0, 0)",t.style.transition=`transform ${e.spreadDuration} ${e.spreadTiming} 0s,opacity ${e.clearDuration} ${e.clearTiming} 0s`,o.currentTarget.appendChild(t);const i=o.currentTarget.getBoundingClientRect();e.centered?(t.style.top=`${i.height/2}px`,t.style.left=`${i.width/2}px`):(t.style.top=`${o.clientY-i.top}px`,t.style.left=`${o.clientX-i.left}px`);const l=Math.max(i.width,i.height)*.02;return t.style.transform=`scale(${l}) translate(0, 0)`,t}function at(o){o&&(o.addEventListener("transitionend",e=>{e.propertyName==="opacity"&&o.remove()}),o.style.opacity="0")}function Oe(o,e={}){let t;const i=Pe=>{t=lt(Pe,e)},l=()=>{at(t)};return o.classList.add("ripple-container"),o.style.overflow="hidden",o.addEventListener("pointerdown",i),o.addEventListener("pointerup",l),o.addEventListener("pointerleave",l),()=>{o.classList.remove("ripple-container"),o.removeEventListener("pointerdown",i),o.removeEventListener("pointerup",l),o.removeEventListener("pointerleave",l)}}const Zt=Object.freeze(Object.defineProperty({__proto__:null,create:Oe,start:lt,stop:at},Symbol.toStringTag,{value:"Module"}));function Wt(){return/(android)/i.test(navigator.userAgent)}const Dt=Object.freeze(Object.defineProperty({__proto__:null,isAndroid:Wt},Symbol.toStringTag,{value:"Module"})),Vt=Object.freeze(Object.defineProperty({__proto__:null,events:Ot,ripple:Zt,utils:Dt},Symbol.toStringTag,{value:"Module"})),ct=document.createElement("template");ct.innerHTML=`
+"use strict";var Ve=Object.defineProperty;var Ze=(i,t,e)=>t in i?Ve(i,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):i[t]=e;var r=(i,t,e)=>(Ze(i,typeof t!="symbol"?t+"":t,e),e),Pt=(i,t,e)=>{if(!t.has(i))throw TypeError("Cannot "+e)};var s=(i,t,e)=>(Pt(i,t,"read from private field"),e?e.call(i):t.get(i)),n=(i,t,e)=>{if(t.has(i))throw TypeError("Cannot add the same private member more than once");t instanceof WeakSet?t.add(i):t.set(i,e)},a=(i,t,e,o)=>(Pt(i,t,"write to private field"),o?o.call(i,e):t.set(i,e),e);var h=(i,t,e)=>(Pt(i,t,"access private method"),e);var d;class Q{constructor(){n(this,d,{})}dispatchWithData(t,e){if(e===void 0)throw"data is undefined!";if(s(this,d)[t])for(const o of s(this,d)[t])o(e);return this}addListener(t,e){if(typeof e!="function")throw`invalid event listener passed for "${t.toString()}" event!`;return s(this,d)[t]||(s(this,d)[t]=[]),s(this,d)[t].push(e),()=>{this.removeListener(t,e)}}removeListener(t,e){if(!s(this,d)[t])throw`no listeners found for ${t.toString()}, there is nothing to delete`;let o=!1,l=0;for(const Ot of s(this,d)[t])Ot===e&&(s(this,d)[t].splice(l,1),o=!0),l++;if(!o)throw`listener not found for ${t.toString()}, there is nothing to delete`;return this}}d=new WeakMap;const We=Object.freeze(Object.defineProperty({__proto__:null,Events:Q},Symbol.toStringTag,{value:"Module"})),De={color:"currentColor",opacity:.2,centered:!1,spreadDuration:".4s",spreadTiming:"linear",clearDuration:"1s",clearTiming:"ease-in-out"};function ue(i,t){t={...De,...t};const e=document.createElement("div");e.classList.add("ripple"),e.style.position="absolute",e.style.color="inherit",e.style.borderRadius="50%",e.style.pointerEvents="none",e.style.width="100px",e.style.height="100px",e.style.marginTop="-50px",e.style.marginLeft="-50px",e.style.opacity=`${t.opacity}`,e.style.backgroundColor=t.color,e.style.transform="scale(0) translate(0, 0)",e.style.transition=`transform ${t.spreadDuration} ${t.spreadTiming} 0s,opacity ${t.clearDuration} ${t.clearTiming} 0s`,i.currentTarget.appendChild(e);const o=i.currentTarget.getBoundingClientRect();t.centered?(e.style.top=`${o.height/2}px`,e.style.left=`${o.width/2}px`):(e.style.top=`${i.clientY-o.top}px`,e.style.left=`${i.clientX-o.left}px`);const l=Math.max(o.width,o.height)*.02;return e.style.transform=`scale(${l}) translate(0, 0)`,e}function pe(i){i&&(i.addEventListener("transitionend",t=>{t.propertyName==="opacity"&&i.remove()}),i.style.opacity="0")}function qt(i,t={}){let e;const o=Ot=>{e=ue(Ot,t)},l=()=>{pe(e)};return i.classList.add("ripple-container"),i.style.overflow="hidden",i.addEventListener("pointerdown",o),i.addEventListener("pointerup",l),i.addEventListener("pointerleave",l),()=>{i.classList.remove("ripple-container"),i.removeEventListener("pointerdown",o),i.removeEventListener("pointerup",l),i.removeEventListener("pointerleave",l)}}const Je=Object.freeze(Object.defineProperty({__proto__:null,create:qt,start:ue,stop:pe},Symbol.toStringTag,{value:"Module"}));function Be(){return/(android)/i.test(navigator.userAgent)}const Xe=Object.freeze(Object.defineProperty({__proto__:null,isAndroid:Be},Symbol.toStringTag,{value:"Module"})),Ye=Object.freeze(Object.defineProperty({__proto__:null,events:We,ripple:Je,utils:Xe},Symbol.toStringTag,{value:"Module"})),ge=document.createElement("template");ge.innerHTML=`
 <style>
     :host {
         display: flex;
@@ -35,7 +35,7 @@
     }
 
     :host > ui-flex-grid-row > [slot="left"] {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
     :host > ui-flex-grid-row > [slot="center"] {
@@ -43,7 +43,7 @@
     }
 
     :host > ui-flex-grid-row > [slot="right"] {
-        margin-right: 0;
+        margin-right: 0 !important;
         justify-content: flex-end;
     }
 </style>
@@ -61,7 +61,7 @@
         <slot name="right"></slot>
     </ui-flex-grid-row>
 </ui-flex-grid-row>
-`;var y,Ge;let Jt=(Ge=class{constructor(e){n(this,y,void 0);a(this,y,e)}getLeftSlot(){return[...s(this,y).querySelectorAll('[slot="left"]')]}getCenterSlot(){return[...s(this,y).querySelectorAll('[slot="center"]')]}getRightSlot(){return[...s(this,y).querySelectorAll('[slot="right"]')]}},y=new WeakMap,Ge);const we=class we extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ct.content.cloneNode(!0)),this.ui=new Jt(this)}};r(we,"register",()=>customElements.define("ui-app-bar",we));let ee=we;const ht=document.createElement("template");ht.innerHTML=`
+`;var x,ee;let Ke=(ee=class{constructor(t){n(this,x,void 0);a(this,x,t)}getLeftSlot(){return[...s(this,x).querySelectorAll('[slot="left"]')]}getCenterSlot(){return[...s(this,x).querySelectorAll('[slot="center"]')]}getRightSlot(){return[...s(this,x).querySelectorAll('[slot="right"]')]}},x=new WeakMap,ee);const mt=class mt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ge.content.cloneNode(!0)),this.ui=new Ke(this)}};r(mt,"register",()=>customElements.define("ui-app-bar",mt));let G=mt;const me=document.createElement("template");me.innerHTML=`
 <style>
     :host {
         display: flex;
@@ -142,7 +142,7 @@
 </style>
 
 <slot></slot>
-`;var O,_e;let Bt=(_e=class{constructor(e){n(this,O,void 0);a(this,O,e),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=Oe(s(this,O),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},O=new WeakMap,_e);const S=class S extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ht.content.cloneNode(!0)),this.ui=new Bt(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(e,t,i){switch(e){case"no-ripple":i!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(S,"register",()=>customElements.define("ui-button",S)),r(S,"observedAttributes",["no-ripple"]);let te=S;const dt=document.createElement("template");dt.innerHTML=`
+`;var q,se;let Qe=(se=class{constructor(t){n(this,q,void 0);a(this,q,t),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=qt(s(this,q),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},q=new WeakMap,se);const H=class H extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(me.content.cloneNode(!0)),this.ui=new Qe(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(t,e,o){switch(t){case"no-ripple":o!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(H,"register",()=>customElements.define("ui-button",H)),r(H,"observedAttributes",["no-ripple"]);let F=H;const fe=document.createElement("template");fe.innerHTML=`
 <style>
     :host {
         display: flex;
@@ -192,19 +192,19 @@
 </style>
 
 <slot></slot>
-`;var P,et;let Xt=(et=class{constructor(e){n(this,P,void 0);a(this,P,e),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=Oe(s(this,P),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},P=new WeakMap,et);const T=class T extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(dt.content.cloneNode(!0)),this.ui=new Xt(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(e,t,i){switch(e){case"no-ripple":i!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(T,"register",()=>customElements.define("ui-icon-button",T)),r(T,"observedAttributes",["no-ripple"]);let se=T;const ut=document.createElement("template");ut.innerHTML=`
+`;var O,ie;let Ge=(ie=class{constructor(t){n(this,O,void 0);a(this,O,t),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=qt(s(this,O),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},O=new WeakMap,ie);const R=class R extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(fe.content.cloneNode(!0)),this.ui=new Ge(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(t,e,o){switch(t){case"no-ripple":o!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(R,"register",()=>customElements.define("ui-icon-button",R)),r(R,"observedAttributes",["no-ripple"]);let _=R;const ve=document.createElement("template");ve.innerHTML=`
 <style>
     :host {
         display: block;
         width: 100%;
         max-width: 65rem;
-        margin: 0 auto;
+        margin: 0 auto !important;
         padding: var(--spacing);
     }
 </style>
 
 <slot></slot>
-`;const be=class be extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ut.content.cloneNode(!0))}};r(be,"register",()=>customElements.define("ui-container",be));let ie=be;const pt=document.createElement("template");pt.innerHTML=`
+`;const ft=class ft extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ve.content.cloneNode(!0))}};r(ft,"register",()=>customElements.define("ui-container",ft));let tt=ft;const we=document.createElement("template");we.innerHTML=`
 <style>
     :host dialog * {
         box-sizing: border-box;
@@ -223,7 +223,7 @@
         max-width: 100%;
         max-height: 100%;
 
-        margin: 0;
+        margin: 0 !important;
         padding: 0;
 
         border: none;
@@ -271,9 +271,9 @@
         width: calc(100% - var(--spacing) * 2);
         height: calc(100% - (env(safe-area-inset-top, 0) + env(safe-area-inset-bottom, 0) + (var(--spacing) * 2)));
 
-        margin: var(--spacing);
-        margin-top: calc(env(safe-area-inset-top, 0) + var(--spacing));
-        margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--spacing));
+        margin: var(--spacing) !important;
+        margin-top: calc(env(safe-area-inset-top, 0) + var(--spacing)) !important;
+        margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--spacing)) !important;
     }
 
     /*
@@ -296,7 +296,7 @@
     }
 
     header h4 {
-        margin: auto 0;
+        margin: auto 0 !important;
     }
 
     :host([fullscreen]) header {
@@ -331,7 +331,7 @@
 
     footer {
         padding: var(--spacing);
-        margin-top: var(--spacing);
+        margin-top: var(--spacing) !important;
         border-bottom-right-radius: var(--radius);
         border-bottom-left-radius: var(--radius);
 
@@ -375,19 +375,18 @@
         </footer>
 	</article>
 </dialog>
-`;var v,w,b,tt;let Yt=(tt=class{constructor(e,t){n(this,v,void 0);n(this,w,void 0);n(this,b,void 0);a(this,v,e),a(this,w,t),this.events=new _,a(this,b,document.createElement("h4")),s(this,b).slot="title",s(this,v).appendChild(s(this,b))}get dialog(){return s(this,w)}open(e=!1){e?s(this,w).showModal():s(this,w).show()}close(){s(this,w).close()}get fullscreen(){return s(this,v).hasAttribute("fullscreen")}set fullscreen(e){e?s(this,v).setAttribute("fullscreen",""):s(this,v).removeAttribute("fullscreen")}get title(){return s(this,b).innerText}set title(e){s(this,b).innerText=e}},v=new WeakMap,w=new WeakMap,b=new WeakMap,tt);var Z,W;const ye=class ye extends HTMLElement{constructor(){super();n(this,Z,()=>this.ui.events.dispatchWithData("close",null));n(this,W,()=>this.ui.close());this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(pt.content.cloneNode(!0)),this.ui=new Yt(this,this.shadowRoot.querySelector("dialog"))}connectedCallback(){const t=this.shadowRoot.querySelector("header ui-icon-button");t.addEventListener("click",s(this,W)),t.addEventListener("click",s(this,Z))}disconnectedCallback(){const t=this.shadowRoot.querySelector("header ui-icon-button");t.removeEventListener("click",s(this,W)),t.removeEventListener("click",s(this,Z))}};Z=new WeakMap,W=new WeakMap,r(ye,"register",()=>customElements.define("ui-dialog",ye));let oe=ye;const gt=document.createElement("template");gt.innerHTML=`
+`;var w,b,y,oe;let Fe=(oe=class{constructor(t,e){n(this,w,void 0);n(this,b,void 0);n(this,y,void 0);a(this,w,t),a(this,b,e),this.events=new Q,a(this,y,document.createElement("h4")),s(this,y).slot="title",s(this,w).appendChild(s(this,y))}get dialog(){return s(this,b)}open(t=!1){t?s(this,b).showModal():s(this,b).show()}close(){s(this,b).close()}get fullscreen(){return s(this,w).hasAttribute("fullscreen")}set fullscreen(t){t?s(this,w).setAttribute("fullscreen",""):s(this,w).removeAttribute("fullscreen")}get title(){return s(this,y).innerText}set title(t){s(this,y).innerText=t}},w=new WeakMap,b=new WeakMap,y=new WeakMap,oe);var P,V;const vt=class vt extends HTMLElement{constructor(){super();n(this,P,()=>this.ui.events.dispatchWithData("close",null));n(this,V,()=>this.ui.close());this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(we.content.cloneNode(!0)),this.ui=new Fe(this,this.shadowRoot.querySelector("dialog"))}connectedCallback(){const e=this.shadowRoot.querySelector("header ui-icon-button");e.addEventListener("click",s(this,V)),e.addEventListener("click",s(this,P))}disconnectedCallback(){const e=this.shadowRoot.querySelector("header ui-icon-button");e.removeEventListener("click",s(this,V)),e.removeEventListener("click",s(this,P))}};P=new WeakMap,V=new WeakMap,r(vt,"register",()=>customElements.define("ui-dialog",vt));let et=vt;const Ft="1",be=document.createElement("template");be.innerHTML=`
 <style></style>
 <slot></slot>
-`;var D,V,We;const H=class H extends HTMLElement{constructor(){super();n(this,V);n(this,D,"1");this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(gt.content.cloneNode(!0))}connectedCallback(){d(this,V,We).call(this)}attributeChangedCallback(t,i,l){switch(t){case"flex":a(this,D,l!==null?l:"1"),d(this,V,We).call(this);break}}};D=new WeakMap,V=new WeakSet,We=function(){this.shadowRoot.querySelector("style").textContent=`
+`;var Z,Vt;const A=class A extends HTMLElement{constructor(){super();n(this,Z);this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(be.content.cloneNode(!0)),h(this,Z,Vt).call(this)}attributeChangedCallback(e,o,l){switch(e){case"flex":h(this,Z,Vt).call(this,{flex:l||Ft});break}}};Z=new WeakSet,Vt=function({flex:e=Ft}={}){this.shadowRoot.querySelector("style").textContent=`
             :host {
-                flex: ${s(this,D)};
+                flex: ${e};
             }
-        `},r(H,"register",()=>customElements.define("ui-flex-grid-item",H)),r(H,"observedAttributes",["flex"]);let re=H;const mt=document.createElement("template");mt.innerHTML=`
+        `},r(A,"register",()=>customElements.define("ui-flex-grid-item",A)),r(A,"observedAttributes",["flex"]);let st=A;const _t="0",ye=document.createElement("template");ye.innerHTML=`
 <style></style>
 <slot></slot>
-`;var J,B,De;const R=class R extends HTMLElement{constructor(){super();n(this,B);n(this,J,"0");this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(mt.content.cloneNode(!0))}connectedCallback(){d(this,B,De).call(this)}attributeChangedCallback(t,i,l){switch(t){case"gap":a(this,J,l!==null?l:"0"),d(this,B,De).call(this);break}}};J=new WeakMap,B=new WeakSet,De=function(){this.shadowRoot.querySelector("style").textContent=`
+`;var W,Zt;const $=class $ extends HTMLElement{constructor(){super();n(this,W);this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ye.content.cloneNode(!0)),h(this,W,Zt).call(this)}attributeChangedCallback(e,o,l){switch(e){case"gap":h(this,W,Zt).call(this,{gap:l||_t});break}}};W=new WeakSet,Zt=function({gap:e=_t}={}){this.shadowRoot.querySelector("style").textContent=`
             :host {
-                --row-gap: ${s(this,J)};
                 display: flex;
                 flex-flow: row nowrap;
                 position: relative;
@@ -395,22 +394,21 @@
             }
 
             :host ::slotted(ui-flex-grid-item) {
-                margin: 0 var(--row-gap);
+                margin: 0 ${e} !important;
             }
 
             :host ::slotted(ui-flex-grid-item:first-child) {
-                margin-left: 0;
+                margin-left: 0 !important;
             }
 
             :host ::slotted(ui-flex-grid-item:last-child) {
-                margin-right: 0;
+                margin-right: 0 !important;
             }
-        `},r(R,"register",()=>customElements.define("ui-flex-grid-row",R)),r(R,"observedAttributes",["gap"]);let ne=R;const ft=document.createElement("template");ft.innerHTML=`
+        `},r($,"register",()=>customElements.define("ui-flex-grid-row",$)),r($,"observedAttributes",["gap"]);let it=$;const te="0",xe=document.createElement("template");xe.innerHTML=`
 <style></style>
 <slot></slot>
-`;var X,xe,vt;const $=class $ extends HTMLElement{constructor(){super();n(this,xe);n(this,X,"0");this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ft.content.cloneNode(!0))}connectedCallback(){d(this,xe,vt).call(this)}attributeChangedCallback(t,i,l){switch(t){case"gap":a(this,X,l!==null?l:"0");break}}};X=new WeakMap,xe=new WeakSet,vt=function(){this.shadowRoot.querySelector("style").textContent=`
+`;var D,Wt;const j=class j extends HTMLElement{constructor(){super();n(this,D);this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(xe.content.cloneNode(!0)),h(this,D,Wt).call(this)}attributeChangedCallback(e,o,l){switch(e){case"gap":h(this,D,Wt).call(this,{gap:l||te});break}}};D=new WeakSet,Wt=function({gap:e=te}={}){this.shadowRoot.querySelector("style").textContent=`
             :host {
-                --gap: ${s(this,X)};
                 display: flex;
                 flex-flow: column nowrap;
                 position: relative;
@@ -419,17 +417,17 @@
             }
 
             :host ::slotted(ui-flex-grid-row) {
-                margin: var(--gap) 0;
+                margin: ${e} 0 !important;
             }
 
             :host ::slotted(ui-flex-grid-row:first-child) {
-                margin-top: 0;
+                margin-top: 0 !important;
             }
 
             :host ::slotted(ui-flex-grid-row:last-child) {
-                margin-bottom: 0;
+                margin-bottom: 0 !important;
             }
-        `},r($,"register",()=>customElements.define("ui-flex-grid",$)),r($,"observedAttributes",["gap"]);let le=$;const wt=document.createElement("template");wt.innerHTML=`
+        `},r(j,"register",()=>customElements.define("ui-flex-grid",j)),r(j,"observedAttributes",["gap"]);let ot=j;const Le=document.createElement("template");Le.innerHTML=`
 <style>
     :host {
         display: none;
@@ -439,12 +437,12 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        height: calc(1em + var(--spacing) * 2)
+        height: calc(1em * var(--line-height) + var(--spacing) * 2)
     }
 </style>
 
 <slot></slot>
-`;var g,st;let Kt=(st=class{constructor(e){n(this,g,void 0);a(this,g,e)}get value(){return s(this,g).getAttribute("value")}set value(e){s(this,g).setAttribute("value",e)}get selected(){return s(this,g).hasAttribute("selected")}set selected(e){e?s(this,g).setAttribute("selected",""):s(this,g).removeAttribute("selected")}},g=new WeakMap,st);const Le=class Le extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(wt.content.cloneNode(!0)),this.ui=new Kt(this)}};r(Le,"register",()=>customElements.define("ui-select-option",Le));let q=Le;const bt=document.createElement("template");bt.innerHTML=`
+`;var m,re;let _e=(re=class{constructor(t){n(this,m,void 0);a(this,m,t)}get value(){return s(this,m).getAttribute("value")}set value(t){s(this,m).setAttribute("value",t)}get selected(){return s(this,m).hasAttribute("selected")}set selected(t){t?s(this,m).setAttribute("selected",""):s(this,m).removeAttribute("selected")}},m=new WeakMap,re);const wt=class wt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Le.content.cloneNode(!0)),this.ui=new _e(this)}};r(wt,"register",()=>customElements.define("ui-select-option",wt));let U=wt;const ke=document.createElement("template");ke.innerHTML=`
 <style>
     * {
         box-sizing: border-box;
@@ -455,7 +453,7 @@
         position: relative; 
         display: block;
         width: 100%;
-        height: calc(0.95rem + var(--spacing) * 2);
+        height: calc(1em * var(--line-height) + var(--spacing) * 2);
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
         font-size: 0.95rem;
@@ -489,7 +487,7 @@
     }
 
     :host(.open) {
-        height: calc((1em + var(--spacing) * 2) * var(--items-length));
+        height: calc((1em * var(--line-height) + var(--spacing) * 2) * var(--items-length));
     }
 
     :host(.open) .options {
@@ -523,7 +521,7 @@
 
     <slot></slot>
 </div>
-`;var Y,L;const ke=class ke extends HTMLElement{constructor(){super();n(this,Y,t=>{this.classList.toggle("open")?(t.stopPropagation(),this.addEventListener("click",s(this,L))):setTimeout(()=>this.removeEventListener("click",s(this,L)))});n(this,L,t=>{(t.composedPath()||[]).forEach(i=>{i instanceof q&&([...this.querySelectorAll("ui-select-option")].forEach(l=>l.removeAttribute("selected")),i.setAttribute("selected",""),this.dispatchEvent(new CustomEvent("change",{detail:i})))})});this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(bt.content.cloneNode(!0))}connectedCallback(){var t;(t=this.shadowRoot.querySelector(".options"))==null||t.addEventListener("click",s(this,Y)),this.style.setProperty("--items-length",this.querySelectorAll("ui-select-option").length.toString())}disconnectedCallback(){var t;this.removeEventListener("click",s(this,L)),(t=this.shadowRoot.querySelector(".options"))==null||t.addEventListener("click",s(this,Y))}};Y=new WeakMap,L=new WeakMap,r(ke,"register",()=>customElements.define("ui-select",ke));let ae=ke;var K,k,Q,it;let Qt=(it=class{constructor(e){n(this,K,void 0);n(this,k,void 0);n(this,Q,void 0);a(this,K,e),a(this,k,new _),this.langType=null}getFallbackElement(){return s(this,K).querySelector("ui-lang-type[fallback]")}new(e,t){this.langType=e,a(this,Q,t),s(this,k).dispatchWithData("change",this.langType)}get(e,t){var i;return(i=s(this,Q))==null?void 0:i[e][t]}on(e,t,i=!1){if(typeof t!="function")throw"callback is not a function";return i&&t(this.langType),s(this,k).addListener(e,t)}},K=new WeakMap,k=new WeakMap,Q=new WeakMap,it);var Ce,yt;const A=class A extends HTMLElement{constructor(){super();n(this,Ce);this.ui=new Qt(this)}attributeChangedCallback(t,i,l){switch(t){case"current":l!==null&&d(this,Ce,yt).call(this,l);break}}};Ce=new WeakSet,yt=async function(t){const i=this.querySelector(`ui-lang-type[name="${t}"]`)||this.ui.getFallbackElement();if(!i)return;if(!i.ui.href)throw"Missing href attribute!";const l=await fetch(i.ui.href);this.ui.new(i,await l.json())},r(A,"register",()=>customElements.define("ui-lang",A)),r(A,"observedAttributes",["current"]);let ce=A,Ft=class{constructor(){this.name="",this.href="",this.fallback=!1}};const j=class j extends HTMLElement{constructor(){super(),this.ui=new Ft}attributeChangedCallback(e,t,i){switch(e){case"name":this.ui.name=i??"";break;case"href":this.ui.href=i??"";break;case"fallback":this.ui.fallback=i!=null;break}}};r(j,"register",()=>customElements.define("ui-lang-type",j)),r(j,"observedAttributes",["name","href","fallback"]);let he=j;const xt=document.createElement("template");xt.innerHTML=`
+`;var J,k;const bt=class bt extends HTMLElement{constructor(){super();n(this,J,e=>{this.classList.toggle("open")?(e.stopPropagation(),this.addEventListener("click",s(this,k))):setTimeout(()=>this.removeEventListener("click",s(this,k)))});n(this,k,e=>{(e.composedPath()||[]).forEach(o=>{o instanceof U&&([...this.querySelectorAll("ui-select-option")].forEach(l=>l.removeAttribute("selected")),o.setAttribute("selected",""),this.dispatchEvent(new CustomEvent("change",{detail:o})))})});this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ke.content.cloneNode(!0))}connectedCallback(){var e;(e=this.shadowRoot.querySelector(".options"))==null||e.addEventListener("click",s(this,J)),this.style.setProperty("--items-length",this.querySelectorAll("ui-select-option").length.toString())}disconnectedCallback(){var e;this.removeEventListener("click",s(this,k)),(e=this.shadowRoot.querySelector(".options"))==null||e.addEventListener("click",s(this,J))}};J=new WeakMap,k=new WeakMap,r(bt,"register",()=>customElements.define("ui-select",bt));let rt=bt;var B,C,X,ne;let ts=(ne=class{constructor(t){n(this,B,void 0);n(this,C,void 0);n(this,X,void 0);a(this,B,t),a(this,C,new Q),this.langType=null}getFallbackElement(){return s(this,B).querySelector("ui-lang-type[fallback]")}new(t,e){this.langType=t,a(this,X,e),s(this,C).dispatchWithData("change",this.langType)}get(t,e){var o;return(o=s(this,X))==null?void 0:o[t][e]}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.langType),s(this,C).addListener(t,e)}},B=new WeakMap,C=new WeakMap,X=new WeakMap,ne);var yt,Ce;const N=class N extends HTMLElement{constructor(){super();n(this,yt);this.ui=new ts(this)}attributeChangedCallback(e,o,l){switch(e){case"current":l!==null&&h(this,yt,Ce).call(this,l);break}}};yt=new WeakSet,Ce=async function(e){const o=this.querySelector(`ui-lang-type[name="${e}"]`)||this.ui.getFallbackElement();if(!o)return;if(!o.ui.href)throw"Missing href attribute!";const l=await fetch(o.ui.href);this.ui.new(o,await l.json())},r(N,"register",()=>customElements.define("ui-lang",N)),r(N,"observedAttributes",["current"]);let nt=N;var u,le;let es=(le=class{constructor(t){n(this,u,void 0);a(this,u,t)}get name(){return s(this,u).getAttribute("name")}set name(t){s(this,u).setAttribute("name",t)}get href(){return s(this,u).getAttribute("href")}set href(t){s(this,u).setAttribute("href",t)}get fallback(){return s(this,u).hasAttribute("fallback")}set fallback(t){t?s(this,u).setAttribute("fallback",""):s(this,u).removeAttribute("fallback")}},u=new WeakMap,le);const xt=class xt extends HTMLElement{constructor(){super(),this.ui=new es(this)}};r(xt,"register",()=>customElements.define("ui-lang-type",xt));let lt=xt;const Ee=document.createElement("template");Ee.innerHTML=`
     <style>
         :host {
             display: block;
@@ -552,7 +550,7 @@
     </style>
 
     <slot></slot>
-`;let Gt=class{constructor(){this.name=""}};const N=class N extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(xt.content.cloneNode(!0)),this.ui=new Gt}attributeChangedCallback(e,t,i){switch(e){case"name":this.ui.name=i!==null?i:"";break}}};r(N,"register",()=>customElements.define("ui-stack-layout-page",N)),r(N,"observedAttributes",["name"]);let de=N;const Lt=document.createElement("template");Lt.innerHTML=`
+`;var E,ae;let ss=(ae=class{constructor(t){n(this,E,void 0);a(this,E,t)}get name(){return s(this,E).getAttribute("name")}set name(t){s(this,E).setAttribute("name",t)}},E=new WeakMap,ae);const Lt=class Lt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ee.content.cloneNode(!0)),this.ui=new ss(this)}};r(Lt,"register",()=>customElements.define("ui-stack-layout-page",Lt));let at=Lt;const Me=document.createElement("template");Me.innerHTML=`
     <style>
         :host {
             display: block;
@@ -563,7 +561,7 @@
     </style>
 
     <slot></slot>
-`;var x,C,ot;let _t=(ot=class{constructor(e){n(this,x,void 0);n(this,C,{});a(this,x,e),this.events=new _,this.stack=[]}registerPage(e,t){s(this,C)[e]=t}unregisterPage(e){delete s(this,C)[e]}goBack(){if(!this.stack.length)return;const e=this.stack.pop();e.ontransitionend=()=>{e.ontransitionend=null,s(this,x).removeChild(e)},this.stack.length&&s(this,x).appendChild(this.stack[this.stack.length-1]),this.dispatchChangeEvent()}setPage(e){if(this.stack.push(s(this,x).appendChild(s(this,C)[e]().children[0])),this.stack.length>1){const t=this.stack[this.stack.length-2];t.ontransitionend=()=>{t.ontransitionend=null,t.parentElement.removeChild(t)}}this.dispatchChangeEvent()}async dispatchChangeEvent(){this.events.dispatchWithData("change",{newPage:this.stack[this.stack.length-1]||null,oldPage:this.stack[this.stack.length-2]||null})}},x=new WeakMap,C=new WeakMap,ot);const Ee=class Ee extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Lt.content.cloneNode(!0)),this.ui=new _t(this)}};r(Ee,"register",()=>customElements.define("ui-stack-layout",Ee));let ue=Ee;var m,rt;let es=(rt=class{constructor(){n(this,m,{});this.events=new _,this.localStoragePrefix="",this.enableLocalStorage=!1}get(e){return s(this,m)[e]}set(e,t,i=!1){if(i&&this.enableLocalStorage){const l=JSON.parse(localStorage.getItem(this.localStoragePrefix+e.toString())||"null");s(this,m)[e]=l??t}else s(this,m)[e]=t;this.enableLocalStorage&&localStorage.setItem(this.localStoragePrefix+e.toString(),JSON.stringify(s(this,m)[e])),this.events.dispatchWithData(e,s(this,m)[e])}update(e,t){if(typeof t!="function")throw"callback is not a function";this.set(e,t(s(this,m)[e]))}on(e,t,i=!1){if(typeof t!="function")throw"callback is not a function";return i&&t(this.get(e)),this.events.addListener(e,t)}},m=new WeakMap,rt);const z=class z extends HTMLElement{constructor(){super(),this.ui=new es}attributeChangedCallback(e,t,i){switch(e){case"local-storage-prefix":this.ui.localStoragePrefix=i!==null?i:"";break;case"enable-local-storage":this.ui.enableLocalStorage=i!==null;break}}};r(z,"register",()=>customElements.define("ui-store",z)),r(z,"observedAttributes",["local-storage-prefix","enable-local-storage"]);let pe=z;const kt=document.createElement("template");kt.innerHTML=`
+`;var L,M,ce;let is=(ce=class{constructor(t){n(this,L,void 0);n(this,M,{});a(this,L,t),this.events=new Q,this.stack=[]}registerPage(t,e){s(this,M)[t]=e}unregisterPage(t){delete s(this,M)[t]}goBack(){if(!this.stack.length)return;const t=this.stack.pop();t.ontransitionend=()=>{t.ontransitionend=null,s(this,L).removeChild(t)},this.stack.length&&s(this,L).appendChild(this.stack[this.stack.length-1]),this.dispatchChangeEvent()}setPage(t){if(this.stack.push(s(this,L).appendChild(s(this,M)[t]().children[0])),this.stack.length>1){const e=this.stack[this.stack.length-2];e.ontransitionend=()=>{e.ontransitionend=null,e.parentElement.removeChild(e)}}this.dispatchChangeEvent()}async dispatchChangeEvent(){this.events.dispatchWithData("change",{newPage:this.stack[this.stack.length-1]||null,oldPage:this.stack[this.stack.length-2]||null})}},L=new WeakMap,M=new WeakMap,ce);const kt=class kt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Me.content.cloneNode(!0)),this.ui=new is(this)}};r(kt,"register",()=>customElements.define("ui-stack-layout",kt));let ct=kt;var f,v,he;let os=(he=class{constructor(t){n(this,f,void 0);n(this,v,{});a(this,f,t),this.events=new Q}get localStoragePrefix(){return s(this,f).getAttribute("local-storage-prefix")}set localStoragePrefix(t){s(this,f).setAttribute("local-storage-prefix",t)}get enableLocalStorage(){return s(this,f).hasAttribute("enable-local-storage")}set enableLocalStorage(t){t?s(this,f).setAttribute("enable-local-storage",""):s(this,f).removeAttribute("enable-local-storage")}get(t){return s(this,v)[t]}set(t,e,o=!1){if(o&&this.enableLocalStorage){const l=JSON.parse(localStorage.getItem(this.localStoragePrefix+t.toString())||"null");s(this,v)[t]=l??e}else s(this,v)[t]=e;this.enableLocalStorage&&localStorage.setItem(this.localStoragePrefix+t.toString(),JSON.stringify(s(this,v)[t])),this.events.dispatchWithData(t,s(this,v)[t])}update(t,e){if(typeof e!="function")throw"callback is not a function";this.set(t,e(s(this,v)[t]))}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.get(t)),this.events.addListener(t,e)}},f=new WeakMap,v=new WeakMap,he);const Ct=class Ct extends HTMLElement{constructor(){super(),this.ui=new os(this)}};r(Ct,"register",()=>customElements.define("ui-store",Ct));let ht=Ct;const Se=document.createElement("template");Se.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -583,7 +581,7 @@
         d="M50,24H6.83L27.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0l-24,24a1.79,1.79,0,0,0-.25.31A1.19,1.19,0,0,0,.25,25c0,.07-.07.13-.1.2l-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2c0,.07.07.13.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31l24,24a2,2,0,1,0,2.82-2.82L6.83,28H50a2,2,0,0,0,0-4Z"
     />
 </svg>
-`;const Me=class Me extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(kt.content.cloneNode(!0))}};r(Me,"register",()=>customElements.define("ui-svg-back-arrow-navigation",Me));let Ve=Me;const Ct=document.createElement("template");Ct.innerHTML=`
+`;const Et=class Et extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Se.content.cloneNode(!0))}};r(Et,"register",()=>customElements.define("ui-svg-back-arrow-navigation",Et));let Dt=Et;const Te=document.createElement("template");Te.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -607,7 +605,7 @@
         stroke-linejoin="round"
     />
 </svg>
-`;const Se=class Se extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ct.content.cloneNode(!0))}};r(Se,"register",()=>customElements.define("ui-svg-chevron-down",Se));let Je=Se;const Et=document.createElement("template");Et.innerHTML=`
+`;const Mt=class Mt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Te.content.cloneNode(!0))}};r(Mt,"register",()=>customElements.define("ui-svg-chevron-down",Mt));let Jt=Mt;const He=document.createElement("template");He.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -638,7 +636,7 @@
         </clipPath>
     </defs>
 </svg>
-`;const Te=class Te extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Et.content.cloneNode(!0))}};r(Te,"register",()=>customElements.define("ui-svg-close",Te));let Be=Te;const Mt=document.createElement("template");Mt.innerHTML=`
+`;const St=class St extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(He.content.cloneNode(!0))}};r(St,"register",()=>customElements.define("ui-svg-close",St));let Bt=St;const Re=document.createElement("template");Re.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -662,7 +660,7 @@
         fill="currentColor"
     />
 </svg>
-`;const He=class He extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Mt.content.cloneNode(!0))}};r(He,"register",()=>customElements.define("ui-svg-delete-recycle-bin",He));let Xe=He;const St=document.createElement("template");St.innerHTML=`
+`;const Tt=class Tt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Re.content.cloneNode(!0))}};r(Tt,"register",()=>customElements.define("ui-svg-delete-recycle-bin",Tt));let Xt=Tt;const Ae=document.createElement("template");Ae.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -693,7 +691,7 @@
         stroke-linejoin="round"
     />
 </svg>;
-`;const Re=class Re extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(St.content.cloneNode(!0))}};r(Re,"register",()=>customElements.define("ui-svg-edit2",Re));let Ye=Re;const Tt=document.createElement("template");Tt.innerHTML=`
+`;const Ht=class Ht extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ae.content.cloneNode(!0))}};r(Ht,"register",()=>customElements.define("ui-svg-edit2",Ht));let Yt=Ht;const $e=document.createElement("template");$e.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -717,7 +715,7 @@
         </g>
     </g></svg
 >
-`;const $e=class $e extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Tt.content.cloneNode(!0))}};r($e,"register",()=>customElements.define("ui-svg-pdf-document",$e));let Ke=$e;const Ht=document.createElement("template");Ht.innerHTML=`
+`;const Rt=class Rt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild($e.content.cloneNode(!0))}};r(Rt,"register",()=>customElements.define("ui-svg-pdf-document",Rt));let Kt=Rt;const je=document.createElement("template");je.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -744,7 +742,7 @@
         </g>
     </g>
 </svg>
-`;const Ae=class Ae extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ht.content.cloneNode(!0))}};r(Ae,"register",()=>customElements.define("ui-svg-settings",Ae));let Qe=Ae;const Rt=document.createElement("template");Rt.innerHTML=`
+`;const At=class At extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(je.content.cloneNode(!0))}};r(At,"register",()=>customElements.define("ui-svg-settings",At));let Qt=At;const Ne=document.createElement("template");Ne.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -816,7 +814,7 @@
         y2="160"
     />
 </svg>
-`;const je=class je extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Rt.content.cloneNode(!0))}};r(je,"register",()=>customElements.define("ui-svg-today-outline",je));let Fe=je;const p={BackArrowNavigation:Ve,ChevronDown:Je,Close:Be,DeleteRecycleBin:Xe,Edit2:Ye,PDFDocument:Ke,Settings:Qe,TodayOutline:Fe},$t=document.createElement("template");$t.innerHTML=`
+`;const $t=class $t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ne.content.cloneNode(!0))}};r($t,"register",()=>customElements.define("ui-svg-today-outline",$t));let Gt=$t;const g={BackArrowNavigation:Dt,ChevronDown:Jt,Close:Bt,DeleteRecycleBin:Xt,Edit2:Yt,PDFDocument:Kt,Settings:Qt,TodayOutline:Gt},ze=document.createElement("template");ze.innerHTML=`
 <style>
     :host {
         position: relative;
@@ -846,14 +844,15 @@
 </style>
 
 <span class="text">
-    <slot name="primary"></slot>
-    <slot name="secondary"></slot>
+    <ui-primary></ui-primary>
+    <ui-secondary></ui-secondary>
 </span>
 
 <span class="input">
     <slot name="input"></slot>
+    <slot></slot>
 </span>
-`;var f,u,E,F,G,M,Ne,At,ze,jt,nt;let ts=(nt=class{constructor(e){n(this,Ne);n(this,ze);n(this,f,void 0);n(this,u,null);n(this,E,!1);n(this,F,async()=>!!s(this,u)&&s(this,u).click());n(this,G,async e=>e.stopPropagation());n(this,M,void 0);a(this,f,e)}enableRipple(){s(this,M)||(this.removeRipple=Oe(s(this,f)),s(this,f).style.cursor="pointer",d(this,Ne,At).call(this))}disableRipple(){s(this,M)&&s(this,M).call(this),d(this,ze,jt).call(this)}},f=new WeakMap,u=new WeakMap,E=new WeakMap,F=new WeakMap,G=new WeakMap,M=new WeakMap,Ne=new WeakSet,At=function(){s(this,E)||(a(this,u,s(this,f).querySelector("input")),s(this,u)&&(s(this,f).addEventListener("click",s(this,F)),s(this,u).addEventListener("click",s(this,G))),a(this,E,!0))},ze=new WeakSet,jt=function(){s(this,u)&&(s(this,f).removeEventListener("click",s(this,F)),s(this,u).removeEventListener("click",s(this,G))),a(this,E,!1)},nt);const I=class I extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild($t.content.cloneNode(!0)),this.ui=new ts(this)}attributeChangedCallback(e,t,i){switch(e){case"ripple":i!==null?this.ui.enableRipple():this.ui.disableRipple();break}}};r(I,"register",()=>customElements.define("ui-label",I)),r(I,"observedAttributes",["ripple"]);let ge=I;const Nt=document.createElement("template");Nt.innerHTML=`
+`;var c,S,Y,K,T,jt,Ie,Nt,Ue,de;let rs=(de=class{constructor(t){n(this,jt);n(this,Nt);n(this,c,void 0);n(this,S,!1);n(this,Y,async()=>{[...s(this,c).querySelectorAll('[slot="input"]')].forEach(t=>t.click())});n(this,K,async t=>{t.stopPropagation()});n(this,T,void 0);a(this,c,t)}get primary(){return s(this,c).getAttribute("primary")}set primary(t){s(this,c).setAttribute("primary",t)}get secondary(){return s(this,c).getAttribute("secondary")}set secondary(t){s(this,c).setAttribute("secondary",t)}getInputSlot(){return[...s(this,c).querySelectorAll('[slot="input"]')]}enableRipple(){s(this,T)||(this.removeRipple=qt(s(this,c)),s(this,c).style.cursor="pointer",h(this,jt,Ie).call(this))}disableRipple(){s(this,T)&&s(this,T).call(this),h(this,Nt,Ue).call(this)}},c=new WeakMap,S=new WeakMap,Y=new WeakMap,K=new WeakMap,T=new WeakMap,jt=new WeakSet,Ie=function(){s(this,S)||(s(this,c).addEventListener("click",s(this,Y)),this.getInputSlot().forEach(t=>{t.addEventListener("click",s(this,K))}),a(this,S,!0))},Nt=new WeakSet,Ue=function(){s(this,c).removeEventListener("click",s(this,Y)),[...s(this,c).querySelectorAll('[slot="input"]')].forEach(t=>{t.removeEventListener("click",s(this,K))}),a(this,S,!1)},de);const z=class z extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ze.content.cloneNode(!0)),this.ui=new rs(this)}attributeChangedCallback(t,e,o){switch(t){case"ripple":o!==null?this.ui.enableRipple():this.ui.disableRipple();break;case"primary":this.shadowRoot.querySelector("ui-primary").innerHTML=o||"";break;case"secondary":this.shadowRoot.querySelector("ui-secondary").innerHTML=o||"";break}}};r(z,"register",()=>customElements.define("ui-label",z)),r(z,"observedAttributes",["ripple","secondary","primary"]);let dt=z;const qe=document.createElement("template");qe.innerHTML=`
 <style>
     :host {
         font-size: 1.10rem;
@@ -866,7 +865,7 @@
 </style>
 
 <slot></slot>
-`;const Ie=class Ie extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Nt.content.cloneNode(!0))}};r(Ie,"register",()=>customElements.define("ui-primary",Ie));let me=Ie;const zt=document.createElement("template");zt.innerHTML=`
+`;const zt=class zt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(qe.content.cloneNode(!0))}};r(zt,"register",()=>customElements.define("ui-primary",zt));let ut=zt;const Oe=document.createElement("template");Oe.innerHTML=`
 <style>
     :host {
         font-size: 0.9rem;
@@ -879,4 +878,4 @@
 </style>
 
 <slot></slot>
-`;const Ue=class Ue extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(zt.content.cloneNode(!0))}};r(Ue,"register",()=>customElements.define("ui-secondary",Ue));let fe=Ue;var h,qe,It;class ss{constructor(){n(this,qe);n(this,h,null);this.currentTheme=null,this.themes={}}enableAutoMode(){if(this.removeMode(),s(this,h)){this.mediaChangeHandler(s(this,h));return}a(this,h,window.matchMedia("(prefers-color-scheme: dark)")),s(this,h).addEventListener("change",this.mediaChangeHandler),this.mediaChangeHandler(s(this,h))}disableAutoMode(){d(this,qe,It).call(this)}addTheme(e,t){this.themes[e]=t}loadTheme(e){var i;if(!this.themes[e])throw`theme "${e}" is missing in this.themes`;if(((i=this.currentTheme)==null?void 0:i.name)==e)return;{const l=document.getElementById("theme");l&&(document.head.removeChild(l),this.currentTheme=null)}const t=document.createElement("link");t.id="theme",t.rel="stylesheet",t.href=this.themes[e],document.head.appendChild(t),this.currentTheme={name:e,href:this.themes[e]}}mediaChangeHandler(e){e.matches?document.body.setAttribute("data-theme","dark"):document.body.setAttribute("data-theme","light")}removeMode(e=document.body){e.removeAttribute("data-theme")}setMode(e,t=document.body){switch(e){case"dark":t.setAttribute("data-theme",e);break;case"light":t.setAttribute("data-theme",e);break}}}h=new WeakMap,qe=new WeakSet,It=function(){s(this,h)&&(s(this,h).removeEventListener("change",this.mediaChangeHandler),a(this,h,null))};const U=class U extends HTMLElement{constructor(){super(),this.ui=new ss}attributeChangedCallback(e,t,i){switch(e){case"auto":i!==null?this.ui.enableAutoMode():this.ui.disableAutoMode();break;case"mode":i!==null?this.ui.setMode(i):this.ui.removeMode();break}}};r(U,"register",()=>customElements.define("ui-theme-handler",U)),r(U,"observedAttributes",["auto","mode"]);let ve=U;const is=Object.freeze(Object.defineProperty({__proto__:null,AppBar:ee,Button:te,Container:ie,Dialog:oe,FlexGrid:le,FlexGridItem:re,FlexGridRow:ne,IconButton:se,Label:ge,Lang:ce,LangType:he,Primary:me,Secondary:fe,Select:ae,SelectOption:q,StackLayout:ue,StackLayoutPage:de,Store:pe,ThemeHandler:ve,svg:p},Symbol.toStringTag,{value:"Module"}));async function os(){ee.register(),se.register(),te.register(),ie.register(),re.register(),ne.register(),le.register(),q.register(),ae.register(),he.register(),ce.register(),de.register(),ue.register(),pe.register(),fe.register(),me.register(),ge.register(),ve.register(),oe.register()}async function rs(){p.BackArrowNavigation.register(),p.ChevronDown.register(),p.Close.register(),p.DeleteRecycleBin.register(),p.Edit2.register(),p.PDFDocument.register(),p.Settings.register(),p.TodayOutline.register()}const ns={...Vt,wc:is,define:os,defineSVG:rs};module.exports=ns;
+`;const It=class It extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Oe.content.cloneNode(!0))}};r(It,"register",()=>customElements.define("ui-secondary",It));let pt=It;var p,Ut,Pe;class ns{constructor(){n(this,Ut);n(this,p,null);this.currentTheme=null,this.themes={}}enableAutoMode(){if(this.removeMode(),s(this,p)){this.mediaChangeHandler(s(this,p));return}a(this,p,window.matchMedia("(prefers-color-scheme: dark)")),s(this,p).addEventListener("change",this.mediaChangeHandler),this.mediaChangeHandler(s(this,p))}disableAutoMode(){h(this,Ut,Pe).call(this)}addTheme(t,e){this.themes[t]=e}loadTheme(t){var o;if(!this.themes[t])throw`theme "${t}" is missing in this.themes`;if(((o=this.currentTheme)==null?void 0:o.name)==t)return;{const l=document.getElementById("theme");l&&(document.head.removeChild(l),this.currentTheme=null)}const e=document.createElement("link");e.id="theme",e.rel="stylesheet",e.href=this.themes[t],document.head.appendChild(e),this.currentTheme={name:t,href:this.themes[t]}}mediaChangeHandler(t){t.matches?document.body.setAttribute("data-theme","dark"):document.body.setAttribute("data-theme","light")}removeMode(t=document.body){t.removeAttribute("data-theme")}setMode(t,e=document.body){switch(t){case"dark":e.setAttribute("data-theme",t);break;case"light":e.setAttribute("data-theme",t);break}}}p=new WeakMap,Ut=new WeakSet,Pe=function(){s(this,p)&&(s(this,p).removeEventListener("change",this.mediaChangeHandler),a(this,p,null))};const I=class I extends HTMLElement{constructor(){super(),this.ui=new ns}attributeChangedCallback(t,e,o){switch(t){case"auto":o!==null?this.ui.enableAutoMode():this.ui.disableAutoMode();break;case"mode":o!==null?this.ui.setMode(o):this.ui.removeMode();break}}};r(I,"register",()=>customElements.define("ui-theme-handler",I)),r(I,"observedAttributes",["auto","mode"]);let gt=I;const ls=Object.freeze(Object.defineProperty({__proto__:null,AppBar:G,Button:F,Container:tt,Dialog:et,FlexGrid:ot,FlexGridItem:st,FlexGridRow:it,IconButton:_,Label:dt,Lang:nt,LangType:lt,Primary:ut,Secondary:pt,Select:rt,SelectOption:U,StackLayout:ct,StackLayoutPage:at,Store:ht,ThemeHandler:gt,svg:g},Symbol.toStringTag,{value:"Module"}));async function as(){G.register(),_.register(),F.register(),tt.register(),st.register(),it.register(),ot.register(),U.register(),rt.register(),lt.register(),nt.register(),at.register(),ct.register(),ht.register(),pt.register(),ut.register(),dt.register(),gt.register(),et.register()}async function cs(){g.BackArrowNavigation.register(),g.ChevronDown.register(),g.Close.register(),g.DeleteRecycleBin.register(),g.Edit2.register(),g.PDFDocument.register(),g.Settings.register(),g.TodayOutline.register()}const hs={...Ye,wc:ls,define:as,defineSVG:cs};module.exports=hs;

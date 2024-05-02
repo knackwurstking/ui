@@ -1,7 +1,11 @@
 export class FlexGridItem extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    connectedCallback(): void;
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
     #private;
 }
