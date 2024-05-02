@@ -1,9 +1,5 @@
 /* Link to fonts: https://www.recursive.design/ */
 
-:root {
-    --font-family: "RecVar";
-}
-
  /* The bare minimum English subset, plus copyright & arrows (← ↑ → ↓) & quotes (“ ” ‘ ’) & bullet (•) */
 @font-face {
   font-family: 'RecVar';

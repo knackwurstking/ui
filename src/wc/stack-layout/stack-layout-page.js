@@ -31,15 +31,28 @@ template.innerHTML = `
 `;
 
 class UI {
-    constructor() {
-        this.name = ""
+    /** @type {StackLayoutPage} */
+    #root
+
+    /**
+    * @param {StackLayoutPage} root
+    */
+    constructor(root) {
+        this.#root = root
+    }
+
+    get name() {
+        return this.#root.getAttribute("name")
+    }
+
+    set name(value) {
+        this.#root.setAttribute("name", value)
     }
 }
 
 export class StackLayoutPage extends HTMLElement {
 
     static register = () => customElements.define("ui-stack-layout-page", StackLayoutPage);
-    static observedAttributes = ["name"]
 
     constructor() {
         super();
@@ -47,14 +60,6 @@ export class StackLayoutPage extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        this.ui = new UI()
-    }
-
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "name":
-                this.ui.name = newValue !== null ? newValue : ""
-                break
-        }
+        this.ui = new UI(this)
     }
 }

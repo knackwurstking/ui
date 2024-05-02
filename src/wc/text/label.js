@@ -59,6 +59,22 @@ class UI {
         this.#root = root
     }
 
+    get primary() {
+        return this.#root.getAttribute("primary")
+    }
+
+    set primary(value) {
+        this.#root.setAttribute("primary", value)
+    }
+
+    get secondary() {
+        return this.#root.getAttribute("secondary")
+    }
+
+    set secondary(value) {
+        this.#root.setAttribute("secondary", value)
+    }
+
     enableRipple() {
         if (!!this.#removeRipple) return;
         this.removeRipple = ripple.create(this.#root);
@@ -102,7 +118,7 @@ class UI {
 export class Label extends HTMLElement {
 
     static register = () => customElements.define("ui-label", Label);
-    static observedAttributes = ["ripple"];
+    static observedAttributes = ["ripple", "secondary", "primary"];
 
     constructor() {
         super();
@@ -113,12 +129,46 @@ export class Label extends HTMLElement {
         this.ui = new UI(this)
     }
 
+    /**
+    * @param {string} name
+    * @param {string | null} _oldValue
+    * @param {string | null} newValue
+    */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "ripple":
                 if (newValue !== null) this.ui.enableRipple()
                 else this.ui.disableRipple()
                 break
+            case "primary":
+                if (newValue === null) {
+                    this.removeChild(this.querySelector(`[slot="primary"]`))
+                } else {
+                    this.#createPrimary(newValue)
+                }
+            case "secondary":
+                if (newValue === null) {
+                    this.removeChild(this.querySelector(`[slot="secondary"]`))
+                } else {
+                    this.#createSecondary(newValue)
+                }
+                break
         }
+    }
+
+    /** @param {string} value */
+    #createPrimary(value) {
+        const el = document.createElement("ui-primary")
+        el.slot = "primary"
+        el.innerText = value
+        this.appendChild(el)
+    }
+
+    /** @param {string} value */
+    #createSecondary(value) {
+        const el = document.createElement("ui-secondary")
+        el.slot = "secondary"
+        el.innerText = value
+        this.appendChild(el)
     }
 }

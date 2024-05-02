@@ -9,17 +9,40 @@ import { events } from "../../js";
  * @template {_Events} T
  */
 class UI {
+    /** @type {Store} */
+    #root
     /** @type {any} */
     #stores = {};
 
-    constructor() {
+    /**
+     * @param {Store} root
+     */
+    constructor(root) {
+        this.#root = root
         /**
          * @type {events.Events<T>}
          */
         this.events = new events.Events();
+    }
 
-        this.localStoragePrefix = "";
-        this.enableLocalStorage = false;
+    get localStoragePrefix() {
+        return this.#root.getAttribute("local-storage-prefix")
+    }
+
+    set localStoragePrefix(prefix) {
+        this.#root.setAttribute("local-storage-prefix", prefix)
+    }
+
+    get enableLocalStorage() {
+        return this.#root.hasAttribute("enable-local-storage")
+    }
+
+    set enableLocalStorage(state) {
+        if (!!state) {
+            this.#root.setAttribute("enable-local-storage", "")
+        } else {
+            this.#root.removeAttribute("enable-local-storage")
+        }
     }
 
     /**
@@ -91,15 +114,15 @@ class UI {
 export class Store extends HTMLElement {
 
     static register = () => customElements.define("ui-store", Store);
-    static observedAttributes = ["local-storage-prefix", "enable-local-storage"];
 
     constructor() {
         super();
 
         /** @type {UI<T>} */
-        this.ui = new UI();
+        this.ui = new UI(this);
     }
 
+    /*
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "local-storage-prefix":
@@ -110,4 +133,5 @@ export class Store extends HTMLElement {
                 break
         }
     }
+    */
 }

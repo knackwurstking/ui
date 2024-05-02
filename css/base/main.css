@@ -169,7 +169,12 @@ textarea {
         "CASL" 1,
         "MONO" 1,
         "slnt" 0;
-    padding: var(--spacing) calc(var(--spacing) * 1.5);
+    padding: var(--spacing) calc(var(--spacing) * 2);
+}
+
+input {
+    border: none;
+    border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
 }
 
 input[type="number"] {

@@ -38,7 +38,7 @@ template.innerHTML = `
     }
 
     :host > ui-flex-grid-row > [slot="left"] {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
     :host > ui-flex-grid-row > [slot="center"] {
@@ -46,7 +46,7 @@ template.innerHTML = `
     }
 
     :host > ui-flex-grid-row > [slot="right"] {
-        margin-right: 0;
+        margin-right: 0 !important;
         justify-content: flex-end;
     }
 </style>

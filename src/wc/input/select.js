@@ -15,7 +15,7 @@ template.innerHTML = `
         position: relative; 
         display: block;
         width: 100%;
-        height: calc(0.95rem + var(--spacing) * 2);
+        height: calc(1em * var(--line-height) + var(--spacing) * 2);
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
         font-size: 0.95rem;
@@ -49,7 +49,7 @@ template.innerHTML = `
     }
 
     :host(.open) {
-        height: calc((1em + var(--spacing) * 2) * var(--items-length));
+        height: calc((1em * var(--line-height) + var(--spacing) * 2) * var(--items-length));
     }
 
     :host(.open) .options {

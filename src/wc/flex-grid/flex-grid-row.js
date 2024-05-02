@@ -1,3 +1,5 @@
+const defaultGap = "0"
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
@@ -5,9 +7,6 @@ template.innerHTML = `
 `;
 
 export class FlexGridRow extends HTMLElement {
-    /** @type {string | null} */
-    #gap = "0"
-
     static register = () => customElements.define("ui-flex-grid-row", FlexGridRow)
     static observedAttributes = ["gap"]
 
@@ -16,25 +15,29 @@ export class FlexGridRow extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
-
-    connectedCallback() {
         this.#updateStyle()
     }
 
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "gap":
-                this.#gap = newValue !== null ? newValue : "0"
-                this.#updateStyle()
+                this.#updateStyle({ gap: newValue || defaultGap })
                 break
         }
     }
 
-    #updateStyle() {
+    /**
+     * @param {Object} attributes
+     * @param {string} [attributes.gap]
+     */
+    #updateStyle({ gap = defaultGap } = {}) {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
-                --row-gap: ${this.#gap};
                 display: flex;
                 flex-flow: row nowrap;
                 position: relative;
@@ -42,15 +45,15 @@ export class FlexGridRow extends HTMLElement {
             }
 
             :host ::slotted(ui-flex-grid-item) {
-                margin: 0 var(--row-gap);
+                margin: 0 ${gap} !important;
             }
 
             :host ::slotted(ui-flex-grid-item:first-child) {
-                margin-left: 0;
+                margin-left: 0 !important;
             }
 
             :host ::slotted(ui-flex-grid-item:last-child) {
-                margin-right: 0;
+                margin-right: 0 !important;
             }
         `
     }

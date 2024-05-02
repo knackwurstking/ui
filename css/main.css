@@ -1,5 +1,5 @@
-@import "./reset.css";
-
+@import "./base/root.css";
+@import "./base/reset.css";
 @import "./base/recursive.css";
 @import "./base/main.css";
 

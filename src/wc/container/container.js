@@ -5,7 +5,7 @@ template.innerHTML = `
         display: block;
         width: 100%;
         max-width: 65rem;
-        margin: 0 auto;
+        margin: 0 auto !important;
         padding: var(--spacing);
     }
 </style>

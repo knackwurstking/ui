@@ -1,3 +1,5 @@
+const defaultFlex = "1"
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style></style>
@@ -5,9 +7,6 @@ template.innerHTML = `
 `;
 
 export class FlexGridItem extends HTMLElement {
-    /** @type {string | null} */
-    #flex = "1"
-
     static register = () => customElements.define("ui-flex-grid-item", FlexGridItem)
     static observedAttributes = ["flex"]
 
@@ -16,25 +15,30 @@ export class FlexGridItem extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-    }
-
-    connectedCallback() {
         this.#updateStyle()
     }
 
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "flex":
-                this.#flex = newValue !== null ? newValue : "1"
-                this.#updateStyle()
+                this.#updateStyle({ flex: newValue || defaultFlex })
                 break
         }
     }
 
-    #updateStyle() {
+    /**
+     * @param {Object} attributes
+     * @param {string} [attributes.flex]
+     */
+    #updateStyle({ flex = defaultFlex } = {}) {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
-                flex: ${this.#flex};
+                flex: ${flex};
             }
         `
     }
