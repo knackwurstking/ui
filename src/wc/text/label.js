@@ -32,12 +32,12 @@ template.innerHTML = `
 </style>
 
 <span class="text">
-    <slot name="primary"></slot>
-    <slot name="secondary"></slot>
+    <ui-primary></ui-primary>
+    <ui-secondary></ui-secondary>
 </span>
 
 <span class="input">
-    <slot name="input"></slot>
+    <slot></slot>
 </span>
 `
 
@@ -45,12 +45,11 @@ class UI {
     /** @type {Label} */
     #root;
 
-    /** @type {HTMLElement | null} */
-    #input = null;
-
     #running = false;
-    #onClick = async () => (!!this.#input) && this.#input.click();
+
+    #onClick = async (ev) => ev.currentTarget.click();
     #onInputClick = async (ev) => ev.stopPropagation();
+
     /** @type {() => void} */
     #removeRipple;
 
@@ -90,20 +89,21 @@ class UI {
     #startInputHandling() {
         if (this.#running) return;
 
-        this.#input = this.#root.querySelector("input")
-        if (!!this.#input) {
-            this.#root.addEventListener("click", this.#onClick)
-            this.#input.addEventListener("click", this.#onInputClick)
-        }
+        const input = [...this.#root.querySelectorAll(`.input`) || []]
+        input.forEach(el => {
+            el.addEventListener("click", this.#onClick)
+            el.addEventListener("click", this.#onInputClick)
+        })
 
         this.#running = true;
     }
 
     #stopInputHandling() {
-        if (!!this.#input) {
-            this.#root.removeEventListener("click", this.#onClick)
-            this.#input.removeEventListener("click", this.#onInputClick)
-        }
+        const input = [...this.#root.querySelectorAll(`.input`) || []]
+        input.forEach(el => {
+            el.removeEventListener("click", this.#onClick)
+            el.removeEventListener("click", this.#onInputClick)
+        })
 
         this.#running = false;
     }
@@ -141,34 +141,11 @@ export class Label extends HTMLElement {
                 else this.ui.disableRipple()
                 break
             case "primary":
-                if (newValue === null) {
-                    this.removeChild(this.querySelector(`[slot="primary"]`))
-                } else {
-                    this.#createPrimary(newValue)
-                }
+                this.shadowRoot.querySelector("ui-primary").innerHTML = newValue || ""
+                break
             case "secondary":
-                if (newValue === null) {
-                    this.removeChild(this.querySelector(`[slot="secondary"]`))
-                } else {
-                    this.#createSecondary(newValue)
-                }
+                this.shadowRoot.querySelector("ui-secondary").innerHTML = newValue || ""
                 break
         }
-    }
-
-    /** @param {string} value */
-    #createPrimary(value) {
-        const el = document.createElement("ui-primary")
-        el.slot = "primary"
-        el.innerText = value
-        this.appendChild(el)
-    }
-
-    /** @param {string} value */
-    #createSecondary(value) {
-        const el = document.createElement("ui-secondary")
-        el.slot = "secondary"
-        el.innerText = value
-        this.appendChild(el)
     }
 }
