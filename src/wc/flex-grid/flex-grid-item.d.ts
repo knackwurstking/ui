@@ -7,5 +7,11 @@ export class FlexGridItem extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    #private;
+    /**
+     * @param {Object} attributes
+     * @param {string} [attributes.flex]
+     */
+    _updateStyle({ flex }?: {
+        flex?: string;
+    }): void;
 }

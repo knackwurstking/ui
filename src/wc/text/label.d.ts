@@ -24,6 +24,8 @@ declare class UI {
     enableRipple(): void;
     removeRipple: () => void;
     disableRipple(): void;
+    _startInputHandling(): void;
+    _stopInputHandling(): void;
     #private;
 }
 export {};

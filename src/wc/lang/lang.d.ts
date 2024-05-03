@@ -2,8 +2,14 @@ export class Lang extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     ui: UI;
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
-    #private;
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    /** @param {string} name */
+    _loadLanguage(name: string): Promise<void>;
 }
 declare class UI {
     /** @param {Lang} root */

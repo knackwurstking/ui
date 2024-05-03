@@ -2,6 +2,7 @@ declare const _default: {
     wc: typeof wc;
     define: typeof define;
     defineSVG: typeof defineSVG;
+    draggable: typeof js.draggable;
     events: typeof js.events;
     ripple: typeof js.ripple;
     utils: typeof js.utils;

@@ -2,7 +2,12 @@ export class ThemeHandler extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     ui: UI;
-    attributeChangedCallback(name: any, _oldValue: any, newValue: any): void;
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
 export type Mode = "dark" | "light";
 /**
@@ -43,6 +48,7 @@ declare class UI {
      * @param {HTMLElement} element
      */
     setMode(mode: string, element?: HTMLElement): void;
+    _removeMedia(): void;
     #private;
 }
 export {};

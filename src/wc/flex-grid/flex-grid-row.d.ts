@@ -7,5 +7,11 @@ export class FlexGridRow extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    #private;
+    /**
+     * @param {Object} attributes
+     * @param {string} [attributes.gap]
+     */
+    _updateStyle({ gap }?: {
+        gap?: string;
+    }): void;
 }
