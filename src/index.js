@@ -56,7 +56,7 @@ async function defineSVG() {
 }
 
 export default {
-    ...js,
+    js: js,
     wc: wc,
     define: define,
     defineSVG: defineSVG,
