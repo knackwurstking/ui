@@ -1,5 +1,4 @@
-/* {{{ Global
-*/
+/* {{{ Global */
 
 :root {
     --app-bar-height: 3rem;
@@ -34,8 +33,7 @@ body {
 
 /* }}} */
 
-/* {{{  Article, Section
-*/
+/* {{{  Article, Section */
 
 article {
     padding: var(--spacing);
@@ -47,8 +45,7 @@ section {
 
 /* }}} */
 
-/* {{{ Hr
-*/
+/* {{{ Hr */
 
 hr {
     border: none;
@@ -59,8 +56,7 @@ hr {
 
 /* }}} */
 
-/*  {{{ H1-6
-*/
+/*  {{{ H1-6 */
 
 h1,
 h2,
@@ -103,8 +99,7 @@ h6 {
 
 /* }}} */
 
-/* {{{ Code, Pre
-*/
+/* {{{ Code, Pre */
 
 code,
 pre {
@@ -129,8 +124,7 @@ pre {
 
 /* }}} */
 
-/* {{{ (UI-)Button
-*/
+/* {{{ (UI-)Button */
 
 button,
 ui-icon-button,
@@ -146,8 +140,7 @@ ui-button {
 
 /* }}} */
 
-/* {{{ (UI-)Select, Input, Textarea
-*/
+/* {{{ (UI-)Select, Input, Textarea */
 
 select,
 input,
@@ -222,8 +215,7 @@ input:disabled {
 
 /* }}} */
 
-/* {{{ UL
-*/
+/* {{{ UL */
 
 ul {
     list-style: none;
@@ -237,8 +229,7 @@ ul > * {
 
 /* }}} */
 
-/* {{{ Table, Th, Td
-*/
+/* {{{ Table, Th, Td */
 
 table {
     width: 100%;
@@ -285,8 +276,7 @@ td {
 
 /* }}} */
 
-/* {{{ Blockquote
-*/
+/* {{{ Blockquote */
 
 
 /*
