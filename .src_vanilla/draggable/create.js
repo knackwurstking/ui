@@ -1,44 +1,88 @@
 /**
- * @param {HTMLElement} el
- * @param {import(".").DraggableOptions} options
+ * @typedef {import(".").DraggableOptions} DraggableOptions
  */
-export default function create(el, { ondragstart = null, ondragging = null, ondragend = null }) {
-  const children = [...el.parentNode.children]
-  const index = children.indexOf(el)
 
-  el.draggable = true
+/** @type {DraggableOptions} */
+const defaultOptions = {
+    ondragstart: null,
+    ondragging: null,
+    ondragend: null,
+}
 
-  el.ondragstart = (ev) => {
-    ev.dataTransfer.effectAllowed = "move"
-    ev.dataTransfer.dropEffect = "move"
+/**
+ * @param {HTMLElement} el
+ * @param {DraggableOptions} options
+ */
+export default function create(el, options = {}) {
+    options = {
+        ...defaultOptions,
+        ...options,
+    }
 
-    ev.dataTransfer.setData(
-      "text/plain",
-      index.toString(),
-    )
+    const setup = () => { // {{{
+        const children = [...el.parentNode.children]
+        const index = children.indexOf(el)
 
-    if (!!ondragstart) ondragstart(index)
-  }
+        el.draggable = true
 
-  el.ondragover = (ev) => {
-    ev.preventDefault()
-    return false
-  }
+        el.ondragstart = (ev) => { // {{{
+            ev.dataTransfer.effectAllowed = "move"
+            ev.dataTransfer.dropEffect = "move"
 
-  el.ondragenter = (ev) => {
-    ev.preventDefault()
-    if (!!ondragging) ondragging(index)
-  }
+            ev.dataTransfer.setData(
+                "text/plain",
+                index.toString(),
+            )
 
-  el.ondrop = (ev) => {
-    ev.preventDefault()
-    ev.dataTransfer.dropEffect = "move";
+            if (!!ondragstart) ondragstart(index)
+        } // }}}
 
-    const startIndex = parseInt(
-      ev.dataTransfer.getData("text/plain"),
-      10,
-    )
+        el.ondragover = (ev) => { // {{{
+            ev.preventDefault()
+            return false
+        } // }}}
 
-    if (!!ondragend) ondragend(startIndex, index)
-  }
+        el.ondragenter = (ev) => { // {{{
+            ev.preventDefault()
+            if (!!ondragging) ondragging(index)
+        } // }}}
+
+        el.ondrop = (ev) => { // {{{
+            ev.preventDefault()
+            ev.dataTransfer.dropEffect = "move";
+
+            const startIndex = parseInt(
+                ev.dataTransfer.getData("text/plain"),
+                10,
+            )
+
+            if (!!ondragend) ondragend(startIndex, index)
+        } // }}}
+    } // }}}
+
+    const destroy = () => { // {{{
+        el.draggable = false
+
+        el.ondragstart = null
+        el.ondragover = null
+        el.ondragenter = null
+        el.ondrop = null
+    } // }}}
+
+    setup()
+
+    return {
+        /**
+         * @param {DraggableOptions} _options
+         */
+        update(_options) {
+            options = {
+                ...defaultOptions,
+                ..._options,
+            };
+            destroy()
+            setup()
+        },
+        destroy,
+    }
 }
