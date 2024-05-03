@@ -72,9 +72,9 @@ h6 {
     font-family: "RecVar";
     font-weight: 600;
     font-variation-settings:
-        "CASL" 0,
+        "CASL" 1,
         "MONO" 0,
-        "slnt" -15;
+        "slnt" -9;
 }
 
 h1 {
@@ -113,6 +113,10 @@ pre {
     border-radius: var(--radius);
     background-color: hsl(var(--muted));
     color: hsl(var(--muted-fg));
+    font-variation-settings:
+        "CASL" 0,
+        "MONO" 1,
+        "slnt" 0;
 }
 
 code {
@@ -137,20 +141,13 @@ ui-button {
     font-variation-settings:
         "CASL" 1,
         "MONO" 0,
-        "slnt" -5;
+        "slnt" -6;
 }
 
 /* }}} */
 
 /* {{{ (UI-)Select, Input, Textarea
 */
-
-ui-select {
-    font-variation-settings:
-        "CASL" 1,
-        "MONO" 1,
-        "slnt" 0;
-}
 
 select,
 input,
@@ -170,6 +167,14 @@ textarea {
         "MONO" 1,
         "slnt" 0;
     padding: var(--spacing) calc(var(--spacing) * 2);
+}
+
+select,
+ui-select {
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 1,
+        "slnt" 0;
 }
 
 input {
@@ -245,6 +250,22 @@ table {
 
     border-collapse: collapse;
     border: var(--border-width) var(--border-style) hsl(var(--border));
+}
+
+thead {
+    font-weight: 450;
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 0,
+        "slnt" 0;
+}
+
+tbody {
+    font-weight: 350;
+    font-variation-settings:
+        "CASL" 1,
+        "MONO" 0,
+        "slnt" -3;
 }
 
 th {
