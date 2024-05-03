@@ -15,7 +15,7 @@ export class FlexGridItem extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-        this.#updateStyle()
+        this._updateStyle()
     }
 
     /**
@@ -26,7 +26,7 @@ export class FlexGridItem extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "flex":
-                this.#updateStyle({ flex: newValue || defaultFlex })
+                this._updateStyle({ flex: newValue || defaultFlex })
                 break
         }
     }
@@ -35,7 +35,7 @@ export class FlexGridItem extends HTMLElement {
      * @param {Object} attributes
      * @param {string} [attributes.flex]
      */
-    #updateStyle({ flex = defaultFlex } = {}) {
+    _updateStyle({ flex = defaultFlex } = {}) {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
                 flex: ${flex};

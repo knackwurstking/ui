@@ -89,15 +89,15 @@ class UI {
         if (!!this.#removeRipple) return;
         this.removeRipple = ripple.create(this.#root);
         this.#root.style.cursor = "pointer";
-        this.#startInputHandling()
+        this._startInputHandling()
     }
 
     disableRipple() {
         if (!!this.#removeRipple) this.#removeRipple()
-        this.#stopInputHandling()
+        this._stopInputHandling()
     }
 
-    #startInputHandling() {
+    _startInputHandling() {
         if (this.#running) return;
 
         this.#root.addEventListener("click", this.#onClick);
@@ -109,7 +109,7 @@ class UI {
         this.#running = true;
     }
 
-    #stopInputHandling() {
+    _stopInputHandling() {
         this.#root.removeEventListener("click", this.#onClick);
 
         [...this.#root.querySelectorAll(`[slot="input"]`)].forEach(el => {

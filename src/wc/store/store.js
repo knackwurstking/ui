@@ -121,17 +121,4 @@ export class Store extends HTMLElement {
         /** @type {UI<T>} */
         this.ui = new UI(this);
     }
-
-    /*
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "local-storage-prefix":
-                this.ui.localStoragePrefix = newValue !== null ? newValue : "";
-                break
-            case "enable-local-storage":
-                this.ui.enableLocalStorage = newValue !== null
-                break
-        }
-    }
-    */
 }

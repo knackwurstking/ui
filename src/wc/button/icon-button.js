@@ -99,6 +99,11 @@ export class IconButton extends HTMLElement {
         }
     }
 
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "no-ripple":

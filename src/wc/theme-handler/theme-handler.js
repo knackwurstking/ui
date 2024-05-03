@@ -29,7 +29,7 @@ class UI {
     }
 
     disableAutoMode() {
-        this.#removeMedia()
+        this._removeMedia()
     }
 
     /**
@@ -103,7 +103,7 @@ class UI {
         }
     }
 
-    #removeMedia() {
+    _removeMedia() {
         if (!!this.#media) {
             this.#media.removeEventListener("change", this.mediaChangeHandler);
             this.#media = null;
@@ -122,6 +122,11 @@ export class ThemeHandler extends HTMLElement {
         this.ui = new UI()
     }
 
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue 
+     * @param {string | null} newValue
+     */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "auto":

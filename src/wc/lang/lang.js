@@ -85,16 +85,21 @@ export class Lang extends HTMLElement {
         this.ui = new UI(this)
     }
 
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "current":
-                if (newValue !== null) this.#loadLanguage(newValue)
+                if (newValue !== null) this._loadLanguage(newValue)
                 break
         }
     }
 
     /** @param {string} name */
-    async #loadLanguage(name) {
+    async _loadLanguage(name) {
         /** @type {import("./lang-type").LangType} */
         const next =
             this.querySelector(`ui-lang-type[name="${name}"]`) ||
