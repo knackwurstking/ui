@@ -9,7 +9,8 @@
   2. Remove default margin
 */
 * {
-  margin: 0;
+    margin: 0;
+    vertical-align: middle;
 }
 
 /*
@@ -18,8 +19,8 @@
   4. Improve text rendering
 */
 body {
-  line-height: var(--line-height);
-  -webkit-font-smoothing: antialiased;
+    line-height: var(--line-height);
+    -webkit-font-smoothing: antialiased;
 }
 
 /*

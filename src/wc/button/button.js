@@ -14,7 +14,6 @@ template.innerHTML = `
         border: var(--border-width) var(--border-style) currentColor;
         border-radius: var(--radius);
         overflow: hidden;
-        font-size: 1.1rem;
         text-transform: capitalize;
         cursor: pointer;
         outline: none;

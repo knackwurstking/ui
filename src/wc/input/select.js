@@ -18,7 +18,6 @@ template.innerHTML = `
         height: calc(1em * var(--line-height) + var(--spacing) * 2);
         border: var(--border-width) var(--border-style) hsl(var(--border));
         border-radius: var(--radius);
-        font-size: 0.95rem;
         transition: height 0.25s ease;
         line-height: 1.15;
         overflow: hidden;
@@ -45,7 +44,7 @@ template.innerHTML = `
     }
 
     ::slotted(ui-select-option) {
-        display: block;
+        display: flex;
     }
 
     :host(.open) {

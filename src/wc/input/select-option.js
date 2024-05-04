@@ -10,7 +10,8 @@ template.innerHTML = `
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        height: calc(1em * var(--line-height) + var(--spacing) * 2)
+        height: calc(1em * var(--line-height) + var(--spacing) * 2);
+        align-items: center;
     }
 </style>
 
