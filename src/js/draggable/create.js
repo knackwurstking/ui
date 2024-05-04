@@ -4,9 +4,9 @@
 
 /** @type {DraggableOptions} */
 const defaultOptions = {
-    ondragstart: null,
-    ondragging: null,
-    ondragend: null,
+    onDragStart: null,
+    onDragging: null,
+    onDragEnd: null,
 }
 
 /**
@@ -34,7 +34,7 @@ export default function create(el, options = {}) {
                 index.toString(),
             )
 
-            if (!!options.ondragstart) options.ondragstart(index)
+            if (!!options.onDragStart) options.onDragStart(index)
         } // }}}
 
         el.ondragover = (ev) => { // {{{
@@ -44,7 +44,7 @@ export default function create(el, options = {}) {
 
         el.ondragenter = (ev) => { // {{{
             ev.preventDefault()
-            if (!!options.ondragging) options.ondragging(index)
+            if (!!options.onDragging) options.onDragging(index)
         } // }}}
 
         el.ondrop = (ev) => { // {{{
@@ -56,7 +56,7 @@ export default function create(el, options = {}) {
                 10,
             )
 
-            if (!!options.ondragend) options.ondragend(startIndex, index)
+            if (!!options.onDragEnd) options.onDragEnd(startIndex, index)
         } // }}}
     } // }}}
 
