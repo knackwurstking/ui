@@ -17,27 +17,10 @@ export default class Events {
     /**
      * @template {keyof T} K
      * @param {K} key
-     * @param {T[K]} data
-     */
-    dispatchWithData(key, data) {
-        if (data === undefined) throw `data is undefined!`;
-
-        if (!!this.#listeners[key]) {
-            for (const listener of this.#listeners[key]) {
-                listener(data);
-            }
-        }
-
-        return this;
-    }
-
-    /**
-     * @template {keyof T} K
-     * @param {K} key
      * @param {((data: T[K]) => void|Promise<void>) | null} listener
      * @returns {() => void} clean up function
      */
-    addListener(key, listener) {
+    on(key, listener) { // {{{
         if (typeof listener !== "function")
             throw `invalid event listener passed for "${key.toString()}" event!`;
 
@@ -48,16 +31,16 @@ export default class Events {
         this.#listeners[key].push(listener);
 
         return () => {
-            this.removeListener(key, listener);
+            this.off(key, listener);
         };
-    }
+    } // }}}
 
     /**
      * @template {keyof T} K
      * @param {K} key
      * @param {((data: T[K]) => void|Promise<void>)} listener
      */
-    removeListener(key, listener) {
+    off(key, listener) { // {{{
         if (!this.#listeners[key])
             throw `no listeners found for ${key.toString()}, there is nothing to delete`;
 
@@ -75,5 +58,22 @@ export default class Events {
             throw `listener not found for ${key.toString()}, there is nothing to delete`;
 
         return this;
-    }
+    } // }}}
+
+    /**
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {T[K]} data
+     */
+    dispatch(key, data) { // {{{
+        if (data === undefined) throw `data is undefined!`;
+
+        if (!!this.#listeners[key]) {
+            for (const listener of this.#listeners[key]) {
+                listener(data);
+            }
+        }
+
+        return this;
+    } // }}}
 }
