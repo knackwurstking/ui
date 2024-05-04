@@ -1,4 +1,11 @@
 import { SelectOption } from "./select-option"
+import { Events } from "../../js/events";
+
+/**
+ * @typedef {{
+ *  "change": SelectOption;
+ * }} SelectEvents
+ */
 
 // {{{ Content Template
 
@@ -86,6 +93,13 @@ template.innerHTML = `
 
 // }}}
 
+class UI {
+    constructor() {
+        /** @type {Events<SelectEvents>} */
+        this.events = new Events();
+    }
+}
+
 export class Select extends HTMLElement {
     /** @param {Event} ev */
     #onOptionsClick = (ev) => {
@@ -108,7 +122,7 @@ export class Select extends HTMLElement {
                 );
 
                 child.setAttribute("selected", "");
-                this.dispatchEvent(new CustomEvent("change", { detail: child }));
+                this.ui.events.dispatchWithData("change", child)
             }
         });
     };
@@ -119,6 +133,9 @@ export class Select extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        /** @type {UI} */
+        this.ui = new UI();
     }
 
     connectedCallback() {
@@ -135,6 +152,6 @@ export class Select extends HTMLElement {
         this.removeEventListener("click", this.#onClick);
 
         this.shadowRoot.querySelector(".options")
-            ?.addEventListener("click", this.#onOptionsClick);
+            ?.removeEventListener("click", this.#onOptionsClick);
     }
 }
