@@ -4,7 +4,16 @@ export class Select extends HTMLElement {
     ui: UI;
     connectedCallback(): void;
     disconnectedCallback(): void;
-    #private;
+    /**
+     * @private
+     * @param {Event} ev
+     */
+    private onClickOptions;
+    /**
+     * @private
+     * @param {MouseEvent | PointerEvent} ev
+     */
+    private onClick;
 }
 export type SelectEvents = {
     "change": SelectOption;
