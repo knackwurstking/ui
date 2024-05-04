@@ -46,6 +46,7 @@ export class FlexGrid extends HTMLElement {
                 height: fit-content;
             }
 
+            :host ::slotted(ui-flex-grid-item),
             :host ::slotted(ui-flex-grid-row) {
                 margin: ${gap} 0 !important;
             }
