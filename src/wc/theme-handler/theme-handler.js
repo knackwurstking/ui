@@ -29,7 +29,7 @@ class UI {
     }
 
     disableAutoMode() {
-        this._removeMedia()
+        this.removeMedia()
     }
 
     /**
@@ -103,7 +103,10 @@ class UI {
         }
     }
 
-    _removeMedia() {
+    /**
+     * @private
+     */
+    removeMedia() {
         if (!!this.#media) {
             this.#media.removeEventListener("change", this.mediaChangeHandler);
             this.#media = null;
