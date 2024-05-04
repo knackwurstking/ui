@@ -17,7 +17,7 @@ t.innerHTML = `
     }
 
     dialog {
-        --header-height: 3rem;
+        --header-height: 2.5rem;
         --footer-height: 3rem;
 
         position: fixed;
