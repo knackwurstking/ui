@@ -48,7 +48,10 @@ declare class UI {
      * @param {HTMLElement} element
      */
     setMode(mode: string, element?: HTMLElement): void;
-    _removeMedia(): void;
+    /**
+     * @private
+     */
+    private removeMedia;
     #private;
 }
 export {};
