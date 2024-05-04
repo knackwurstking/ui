@@ -43,7 +43,7 @@ class UI {
     new(langType, data) {
         this.langType = langType
         this.#data = data;
-        this.#events.dispatchWithData("change", this.langType)
+        this.#events.dispatch("change", this.langType)
     }
 
     /**
@@ -69,7 +69,7 @@ class UI {
             callback(this.langType);
         }
 
-        return this.#events.addListener(key, callback);
+        return this.#events.on(key, callback);
     }
 }
 

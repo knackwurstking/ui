@@ -249,7 +249,7 @@ class UI {
  *  - actions: all childrens go into "dialog footer > ui-flex-grid-row"
  */
 export class Dialog extends HTMLElement {
-    #dispatchCloseHandler = () => this.ui.events.dispatchWithData("close", null)
+    #dispatchCloseHandler = () => this.ui.events.dispatch("close", null)
     #closeHandler = () => this.ui.close()
 
     static register = () => customElements.define("ui-dialog", Dialog)

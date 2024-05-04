@@ -157,7 +157,7 @@ export class Select extends HTMLElement {
                 );
 
                 child.setAttribute("selected", "");
-                this.ui.events.dispatchWithData("change", child)
+                this.ui.events.dispatch("change", child)
             }
         });
     } // }}}

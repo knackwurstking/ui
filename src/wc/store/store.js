@@ -73,7 +73,7 @@ class UI {
             localStorage.setItem(this.localStoragePrefix + key.toString(), JSON.stringify(this.#stores[key]));
         }
 
-        this.events.dispatchWithData(key, this.#stores[key]);
+        this.events.dispatch(key, this.#stores[key]);
     }
 
     /**
@@ -105,7 +105,7 @@ class UI {
             callback(this.get(key));
         }
 
-        return this.events.addListener(key, callback);
+        return this.events.on(key, callback);
     }
 }
 

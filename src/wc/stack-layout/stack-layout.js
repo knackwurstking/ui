@@ -98,13 +98,10 @@ class UI {
     }
 
     async dispatchChangeEvent() {
-        this.events.dispatchWithData(
-            "change",
-            {
-                newPage: this.stack[this.stack.length - 1] || null,
-                oldPage: this.stack[this.stack.length - 2] || null,
-            },
-        );
+        this.events.dispatch("change", {
+            newPage: this.stack[this.stack.length - 1] || null,
+            oldPage: this.stack[this.stack.length - 2] || null,
+        });
     }
 }
 

@@ -11,22 +11,22 @@ export default class Events<T extends _Events> {
     /**
      * @template {keyof T} K
      * @param {K} key
-     * @param {T[K]} data
-     */
-    dispatchWithData<K extends keyof T>(key: K, data: T[K]): this;
-    /**
-     * @template {keyof T} K
-     * @param {K} key
      * @param {((data: T[K]) => void|Promise<void>) | null} listener
      * @returns {() => void} clean up function
      */
-    addListener<K_1 extends keyof T>(key: K_1, listener: (data: T[K_1]) => void | Promise<void>): () => void;
+    on<K extends keyof T>(key: K, listener: (data: T[K]) => void | Promise<void>): () => void;
     /**
      * @template {keyof T} K
      * @param {K} key
      * @param {((data: T[K]) => void|Promise<void>)} listener
      */
-    removeListener<K_2 extends keyof T>(key: K_2, listener: (data: T[K_2]) => void | Promise<void>): this;
+    off<K_1 extends keyof T>(key: K_1, listener: (data: T[K_1]) => void | Promise<void>): this;
+    /**
+     * @template {keyof T} K
+     * @param {K} key
+     * @param {T[K]} data
+     */
+    dispatch<K_2 extends keyof T>(key: K_2, data: T[K_2]): this;
     #private;
 }
 export type _Events = {
