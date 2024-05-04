@@ -101,20 +101,55 @@ class UI {
 }
 
 export class Select extends HTMLElement {
-    /** @param {Event} ev */
-    #onOptionsClick = (ev) => {
+
+    static register = () => customElements.define("ui-select", Select)
+
+    constructor() { // {{{
+        super();
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        /** @type {UI} */
+        this.ui = new UI();
+    } // }}}
+
+    connectedCallback() { // {{{
+        this.shadowRoot.querySelector(".options")
+            ?.addEventListener("click", this.onClickOptions);
+
+        this.style.setProperty(
+            "--items-length",
+            this.querySelectorAll("ui-select-option").length.toString()
+        );
+    } // }}}
+
+    disconnectedCallback() { // {{{
+        this.removeEventListener("click", this.onClick);
+
+        this.shadowRoot.querySelector(".options")
+            ?.removeEventListener("click", this.onClickOptions);
+    } // }}}
+
+    /**
+     * @private
+     * @param {Event} ev
+     */
+    async onClickOptions(ev) { // {{{
         if (this.classList.toggle("open")) {
             ev.stopPropagation()
-            this.addEventListener("click", this.#onClick)
+            this.addEventListener("click", this.onClick)
         } else {
             setTimeout(() =>
-                this.removeEventListener("click", this.#onClick)
+                this.removeEventListener("click", this.onClick)
             )
         }
-    };
+    } // }}}
 
-    /** @param {MouseEvent | PointerEvent} ev */
-    #onClick = (ev) => {
+    /**
+     * @private
+     * @param {MouseEvent | PointerEvent} ev
+     */
+    async onClick(ev) { // {{{
         (ev.composedPath() || []).forEach(child => {
             if (child instanceof SelectOption) {
                 [...this.querySelectorAll("ui-select-option")].forEach(c =>
@@ -125,33 +160,5 @@ export class Select extends HTMLElement {
                 this.ui.events.dispatchWithData("change", child)
             }
         });
-    };
-
-    static register = () => customElements.define("ui-select", Select)
-
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-        /** @type {UI} */
-        this.ui = new UI();
-    }
-
-    connectedCallback() {
-        this.shadowRoot.querySelector(".options")
-            ?.addEventListener("click", this.#onOptionsClick);
-
-        this.style.setProperty(
-            "--items-length",
-            this.querySelectorAll("ui-select-option").length.toString()
-        );
-    }
-
-    disconnectedCallback() {
-        this.removeEventListener("click", this.#onClick);
-
-        this.shadowRoot.querySelector(".options")
-            ?.removeEventListener("click", this.#onOptionsClick);
-    }
+    } // }}}
 }
