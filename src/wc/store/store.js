@@ -46,7 +46,9 @@ class UI {
     }
 
     /**
-     * @param {keyof T} key
+     * @template {keyof T} K
+     * @param {K} key
+     * @returns {T[K]}
      */
     get(key) {
         return this.#stores[key];

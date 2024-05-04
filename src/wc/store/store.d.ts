@@ -30,9 +30,11 @@ declare class UI<T extends import("../../js/events/events")._Events> {
     set enableLocalStorage(state: boolean);
     get enableLocalStorage(): boolean;
     /**
-     * @param {keyof T} key
+     * @template {keyof T} K
+     * @param {K} key
+     * @returns {T[K]}
      */
-    get(key: keyof T): any;
+    get<K extends keyof T>(key: K): T[K];
     /**
      * @template {keyof T} K
      * @param {K} key
@@ -40,13 +42,13 @@ declare class UI<T extends import("../../js/events/events")._Events> {
      * @param {boolean} [useDataAsFallback] Use data as fallback, if nothing found in the browsers `localStorage`
      * `this.enableLocalStorage` flag needs to be set to `true` for this to work
      */
-    set<K extends keyof T>(key: K, data: T[K], useDataAsFallback?: boolean): void;
+    set<K_1 extends keyof T>(key: K_1, data: T[K_1], useDataAsFallback?: boolean): void;
     /**
      * @template {keyof T} K
      * @param {K} key
      * @param {(data: T[K]) => any} callback
      */
-    update<K_1 extends keyof T>(key: K_1, callback: (data: T[K_1]) => any): void;
+    update<K_2 extends keyof T>(key: K_2, callback: (data: T[K_2]) => any): void;
     /**
      * @template {keyof T} K
      * @param {K} key
@@ -54,7 +56,7 @@ declare class UI<T extends import("../../js/events/events")._Events> {
      * @param {boolean} [trigger] - this will run the callback first
      * @returns {() => void} clean up function
      */
-    on<K_2 extends keyof T>(key: K_2, callback: (data: T[K_2]) => void | Promise<void>, trigger?: boolean): () => void;
+    on<K_3 extends keyof T>(key: K_3, callback: (data: T[K_3]) => void | Promise<void>, trigger?: boolean): () => void;
     #private;
 }
 import { events } from "../../js";
