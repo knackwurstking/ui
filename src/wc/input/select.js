@@ -101,55 +101,8 @@ class UI {
 }
 
 export class Select extends HTMLElement {
-
-    static register = () => customElements.define("ui-select", Select)
-
-    constructor() { // {{{
-        super();
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-        /** @type {UI} */
-        this.ui = new UI();
-    } // }}}
-
-    connectedCallback() { // {{{
-        this.shadowRoot.querySelector(".options")
-            ?.addEventListener("click", this.onClickOptions);
-
-        this.style.setProperty(
-            "--items-length",
-            this.querySelectorAll("ui-select-option").length.toString()
-        );
-    } // }}}
-
-    disconnectedCallback() { // {{{
-        this.removeEventListener("click", this.onClick);
-
-        this.shadowRoot.querySelector(".options")
-            ?.removeEventListener("click", this.onClickOptions);
-    } // }}}
-
-    /**
-     * @private
-     * @param {Event} ev
-     */
-    async onClickOptions(ev) { // {{{
-        if (this.classList.toggle("open")) {
-            ev.stopPropagation()
-            this.addEventListener("click", this.onClick)
-        } else {
-            setTimeout(() =>
-                this.removeEventListener("click", this.onClick)
-            )
-        }
-    } // }}}
-
-    /**
-     * @private
-     * @param {MouseEvent | PointerEvent} ev
-     */
-    async onClick(ev) { // {{{
+    /** @param {MouseEvent | PointerEvent} ev */
+    #onClick = async (ev) => { // {{{
         (ev.composedPath() || []).forEach(child => {
             if (child instanceof SelectOption) {
                 [...this.querySelectorAll("ui-select-option")].forEach(c =>
@@ -161,4 +114,52 @@ export class Select extends HTMLElement {
             }
         });
     } // }}}
+
+    static register = () => customElements.define("ui-select", Select)
+
+    constructor() { // {{{
+        super();
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.cleanup = []
+
+        /** @type {UI} */
+        this.ui = new UI();
+    } // }}}
+
+    connectedCallback() { // {{{
+        const options = this.shadowRoot.querySelector(".options");
+        const cb = this.onClickOptions.bind(this);
+        options.addEventListener("click", cb);
+        this.cleanup.push(() => {
+            this.removeEventListener("click", cb);
+            options.removeEventListener("click", this.onClickOptions);
+        });
+
+
+        this.style.setProperty("--items-length",
+            this.querySelectorAll("ui-select-option").length.toString());
+    } // }}}
+
+    disconnectedCallback() { // {{{
+        this.cleanup.forEach(fn => fn());
+        this.cleanup = [];
+    } // }}}
+
+    /**
+     * @private
+     * @param {Event} ev
+     */
+    async onClickOptions(ev) { // {{{
+        if (this.classList.toggle("open")) {
+            ev.stopPropagation()
+            this.addEventListener("click", this.#onClick)
+        } else {
+            setTimeout(() =>
+                this.removeEventListener("click", this.#onClick)
+            )
+        }
+    } // }}}
+
 }
