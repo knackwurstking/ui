@@ -47,7 +47,7 @@ hr {
     border: none;
     height: 1px;
     margin: var(--ui-spacing) 0;
-    background-color: var(--ui-border-color);
+    background-color: var(--ui-borderColor);
 }
 
 /* }}} */
@@ -101,13 +101,11 @@ code,
 pre {
     background-color: var(--ui-muted-bgColor);
     color: var(--ui-muted-color);
-    border: 1px solid var(--ui-border-color);
-    border-radius: var(--ui-radius);
+    border: 1px solid var(--ui-muted-borderColor);
+    border-radius: var(--ui-muted-radius);
     padding: var(--ui-spacing);
-    font-variation-settings:
-        "CASL" 0,
-        "MONO" 1,
-        "slnt" 0;
+    font-family: var(--ui-muted-fontFamily);
+    font-variation-settings: var(--ui-muted-fontVariation);
 }
 
 code {
@@ -127,11 +125,8 @@ ui-icon-button,
 ui-button {
     font-size: 1.1rem;
     font-weight: 450;
-    font-family: var(--ui-font-family);
-    font-variation-settings:
-        "CASL" 1,
-        "MONO" 0,
-        "slnt" -6;
+    font-family: var(--ui-button-fontFamily);
+    font-variation-settings: var(--ui-button-fontVariation);
 }
 
 /* }}} */
@@ -161,6 +156,13 @@ textarea {
     accent-color: var(--ui-input-accentColor);
 }
 
+ui-select,
+select {
+    font-size: 0.9rem;
+    font-family: var(--ui-select-fontFamily);
+    font-variation-settings: var(--ui-select-fontVariation);
+}
+
 select {
     display: block;
 
@@ -175,10 +177,6 @@ select {
 
     box-shadow: none;
     outline: none;
-
-    font-size: 0.9rem;
-    font-family: var(--ui-select-fontFamily);
-    font-variation-settings: var(--ui-select-fontVariation);
 }
 
 input {

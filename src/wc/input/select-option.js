@@ -14,10 +14,6 @@ const innerHTML = `
 
         transition: background-color 0.25s linear, color 0.25s linear;
 
-        font-size: 0.9rem;
-        font-family: var(--ui-select-fontFamily);
-        font-variation-settings: var(--ui-select-fontVariation);
-
         overflow: hidden;
     }
 </style>
