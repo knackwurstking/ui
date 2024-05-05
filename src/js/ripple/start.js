@@ -1,4 +1,8 @@
-/** @type {import(".").RippleOptions} */
+/**
+ * @typedef {import(".").RippleOptions} RippleOptions
+ */
+
+/** @type {RippleOptions} */
 export const defaultOptions = {
     color: "var(--ui-ripple-color, currentColor)",
     opacity: "var(--ui-ripple-opacity, 0.2)",
@@ -11,7 +15,7 @@ export const defaultOptions = {
 
 /**
  * @param {PointerEvent & { currentTarget: HTMLElement }} ev
- * @param {import(".").RippleOptions} options 
+ * @param {RippleOptions} options 
  * @returns {HTMLElement}
  */
 export default function rippleStart(
