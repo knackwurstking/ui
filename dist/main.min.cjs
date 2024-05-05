@@ -210,7 +210,7 @@
 </style>
 
 <slot></slot>
-`,ft=class ft extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Me}};r(ft,"register",()=>customElements.define("ui-container",ft));let G=ft;const Ce=html`
+`,ft=class ft extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Me}};r(ft,"register",()=>customElements.define("ui-container",ft));let G=ft;const Ce=`
 <style>
     :host dialog * {
         box-sizing: border-box;

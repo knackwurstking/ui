@@ -8,7 +8,7 @@ import { events } from "../../js"
 
 // {{{ innerHTML
 
-const innerHTML = html`
+const innerHTML = `
 <style>
     :host dialog * {
         box-sizing: border-box;
