@@ -7,7 +7,7 @@ const innerHTML = `
         display: flex;
         flex-direction: row;
         width: 100%;
-        padding: calc(var(--ui-spacing) / 4) calc(var(--ui-spacing) / 2);
+        padding: var(--ui-spacing);
         border-radius: var(--ui-radius);
     }
 
