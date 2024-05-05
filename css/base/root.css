@@ -12,8 +12,10 @@
     --ui-fontSize: 16px;
     --ui-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
 
-    --ui-bgColor: hsla(240, 10%, 96.1%, 1);
-    --ui-color: hsla(240, 10%, 10%, 1);
+    --ui-bgColor-hsl: 240, 10%, 96.1%;
+    --ui-bgColor: hsla(var(--ui-bgColor-hsl), 1);
+    --ui-color-hsl: 240, 10%, 10%;
+    --ui-color: hsla(var(--ui-color-hsl), 1);
 
     --ui-primary-bgColor: hsla(240, 5.9%, 3.9%, 1);
     --ui-primary-color: hsla(240, 0%, 98%, 1);
@@ -60,7 +62,7 @@
         ui-app-bar component
     */
 
-    --ui-app-bar-bgColor: hsla(240, 10%, 96.1%, .2);
+    --ui-app-bar-bgColor: hsla(var(--ui-bgColor-hsl), .2);
     --ui-app-bar-backdropFilter: blur(5px);
     --ui-app-bar-borderColor: var(--ui-borderColor);
     --ui-app-bar-height: 3rem;
@@ -96,7 +98,7 @@
     --ui-dialog-color: var(--ui-color);
     --ui-dialog-borderColor: var(--ui-borderColor);
     --ui-dialog-radius: var(--ui-radius);
-    --ui-dialog-outside-bgColor: hsla(240, 10%, 96.1%, .2);
+    --ui-dialog-outside-bgColor: hsla(var(--ui-bgColor-hsl), .2);
     --ui-dialog-outside-backdropFilter: blur(5px);
     --ui-dialog-header-height: 2.5rem;
     --ui-dialog-footer-height: 3rem;
@@ -106,7 +108,7 @@
     */
 
     --ui-select-bgColor: transparent;
-    --ui-select-bgColor--hover: hsla(240, 10%, 10%, 0.1); /* --ui-color & 0.1 alpha */
+    --ui-select-bgColor--hover: hsla(var(--ui-color-hsl), 0.1);
     --ui-select-color: var(--ui-color);
     --ui-select-borderColor: var(--ui-borderColor);
     --ui-select-radius: var(--ui-radius);
@@ -127,5 +129,5 @@
     --ui-input-borderColor--invalid: var(--ui-destructive-bgColor);
     --ui-input-radius: var(--ui-radius);
     --ui-input-fontFamily: var(--ui-fontFamily);
-    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
+    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0 /* --ui-color & 0.1 alpha */;
 }
