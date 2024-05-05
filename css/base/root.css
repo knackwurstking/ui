@@ -96,4 +96,6 @@
     --ui-input-radius: var(--ui-radius);
     --ui-input-fontFamily: var(--ui-fontFamily);
     --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
+
+    color-scheme: light;
 }
