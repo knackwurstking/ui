@@ -9,5 +9,4 @@ export * from "./stack-layout";
 export * from "./store";
 export * from "./text";
 export * from "./theme-handler";
-export { Card } from "./card";
 export { default as svg } from "./svg";
