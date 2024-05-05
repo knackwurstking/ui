@@ -9,6 +9,9 @@ async function define() {
     wc.IconButton.register()
     wc.Button.register()
 
+    // Card components
+    wc.Card.register()
+
     // Container components
     wc.Container.register()
 

@@ -1,14 +1,13 @@
-// {{{ Content Template
+// {{{ innerHTML
 
-const template = document.createElement("template");
-template.innerHTML = `
+const innerHTML = `
 <style>
     :host {
         display: flex;
         position: absolute;
         z-index: 100;
-        background-color: hsla(var(--bg), .2);
-        backdrop-filter: blur(5px);
+        background-color: var(--ui-app-bar-bgColor);
+        backdrop-filter: var(--ui-app-bar-backdropFilter);
         overflow: hidden;
         user-select: none;
     }
@@ -17,8 +16,8 @@ template.innerHTML = `
         top: 0;
         left: 0;
         width: 100%;
-        height: var(--app-bar-height);
-        border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
+        height: var(--ui-app-bar-height);
+        border-bottom: 1px solid var(--ui-app-bar-border-color);
     }
 
     :host > ui-flex-grid-row {
@@ -102,9 +101,8 @@ export class AppBar extends HTMLElement {
 
     constructor() {
         super();
-
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = innerHTML;
 
         this.ui = new UI(this);
     }

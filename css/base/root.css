@@ -1,31 +1,99 @@
 :root {
-    --bg: 240, 10%, 96.1%;
-    --fg: 240, 10%, 10%;
+    /*
+        basics
+    */
 
-    --card: 240, 10%, 92.1%;
-    --card-fg: 240, 10%, 3.9%;
+    --ui-lineHeight: 1.5;
 
-    --primary: 240, 5.9%, 3.9%;
-    --primary-fg: 240, 0%, 98%;
+    --ui-radius: 0.25rem;
+    --ui-spacing: 5px;
 
-    --secondary: 240, 5.9%, 75%;
-    --secondary-fg: 240, 5.9%, 10%;
+    --ui-fontFamily: "RecVar";
+    --ui-fontSize: 16px;
 
-    --muted: 240, 4.8%, 95.9%;
-    --muted-fg: 240, 3.8%, 46.1%;
+    --ui-bgColor: hsla(240, 10%, 96.1%, 1);
+    --ui-color: hsla(240, 10%, 10%, 1);
 
-    --destructive: 0, 72.22%, 50.59%;
-    --destructive-fg: 0, 0%, 98%;
+    /* NOTE: Used for code blocks */
+    --ui-muted-bgColor: hsla(240, 4.8%, 95.9%, 1);
+    --ui-muted-color: hsla(240, 3.8%, 46.1%, 1);
 
-    --border: 240, 5.9%, 82%;
-    --border-width: 1px;
-    --border-style: solid;
+    --ui-primary-bgColor: hsla(240, 5.9%, 3.9%, 1);
+    --ui-primary-color: hsla(240, 0%, 98%, 1);
 
-    --font-family: "RecVar";
-    --font-size: 16px;
+    --ui-secondary-bgColor: hsla(240, 5.9%, 75%, 1);
+    --ui-secondary-color: hsla(240, 5.9%, 10%, 1);
 
-    --line-height: 1.5;
+    --ui-destructive-bgColor: hsla(0, 72.22%, 50.59%, 1);
+    --ui-destructive-color: hsla(0, 0%, 98%, 1);
 
-    --radius: 0.25rem;
-    --spacing: 5px;
+    --ui-borderColor: hsla(240, 5.9%, 82%, 1);
+
+    --ui-ripple-color: currentColor;
+    --ui-ripple-opacity: 0.2;
+
+    /*
+        TODO: ui-app-bar component
+    */
+
+    --ui-app-bar-bgColor: hsla(var(--ui-bgColor), .2);
+    --ui-app-bar-backdropFilter: blur(5px);
+    --ui-app-bar-borderColor: var(--ui-border-color);
+    --ui-app-bar-height: 3rem;
+
+    /*
+        TODO: ui-button component
+    */
+
+    /*
+        TODO: ui-icon-button component
+    */
+
+    /*
+        TODO: ui-card component
+    */
+
+    --ui-card-bgColor: hsla(240, 10%, 92.1%, 1);
+    --ui-card-color: hsla(240, 10%, 3.9%, 1);
+    --ui-card-borderColor: var(--ui-border-color);
+    --ui-card-radius: var(--ui-radius);
+    --ui-card-spacing: var(--ui-spacing);
+
+    /*
+        TODO: ui-dialog component
+    */
+
+    --ui-dialog-bgColor: ;
+    --ui-dialog-color: ;
+    --ui-dialog-backdropFilter: ;
+    --ui-dialog-outside-bgColor: ;
+    --ui-dialog-outside-backdropFilter: ;
+
+    /*
+        ui-select component
+    */
+
+    --ui-select-bgColor: transparent;
+    --ui-select-bgColor--hover: hsla(240, 10%, 10%, 0.1); /* --ui-color & 0.1 alpha */
+    --ui-select-color: var(--ui-color);
+    --ui-select-borderColor: var(--ui-borderColor);
+    --ui-select-radius: var(--ui-radius);
+    --ui-select-selected-bgColor: var(--ui-primary-bgColor);
+    --ui-select-selected-color: var(--ui-primary-color);
+    --ui-select-fontFamily: var(--ui-fontFamily);
+    --ui-select-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
+
+    /*
+        ui-input component
+        TODO: missing `accent-color` for `input[type="checkbox"]`
+    */
+
+    --ui-input-bgColor: transparent;
+    --ui-input-color: var(--ui-color);
+    --ui-input-borderColor: var(--ui-borderColor);
+    --ui-input-borderColor--focus: var(--ui-primary-bgColor);
+    --ui-input-borderColor--invalid: var(--ui-destructive-bgColor);
+    --ui-input-radius: var(--ui-radius);
+    --ui-input-fontFamily: var(--ui-fontFamily);
+    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
 }

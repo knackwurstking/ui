@@ -1,11 +1,11 @@
-"use strict";var Se=Object.defineProperty;var Te=(i,t,e)=>t in i?Se(i,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):i[t]=e;var r=(i,t,e)=>(Te(i,typeof t!="symbol"?t+"":t,e),e),Ot=(i,t,e)=>{if(!t.has(i))throw TypeError("Cannot "+e)};var s=(i,t,e)=>(Ot(i,t,"read from private field"),e?e.call(i):t.get(i)),n=(i,t,e)=>{if(t.has(i))throw TypeError("Cannot add the same private member more than once");t instanceof WeakSet?t.add(i):t.set(i,e)},l=(i,t,e,o)=>(Ot(i,t,"write to private field"),o?o.call(i,e):t.set(i,e),e);const Pt={onDragStart:null,onDragging:null,onDragEnd:null};function He(i,t={}){t={...Pt,...t};const e=()=>{const w=[...i.parentNode.children].indexOf(i);i.draggable=!0,i.ondragstart=h=>{h.dataTransfer.effectAllowed="move",h.dataTransfer.dropEffect="move",h.dataTransfer.setData("text/plain",w.toString()),t.onDragStart&&t.onDragStart(w)},i.ondragover=h=>(h.preventDefault(),!1),i.ondragenter=h=>{h.preventDefault(),t.onDragging&&t.onDragging(w)},i.ondrop=h=>{h.preventDefault(),h.dataTransfer.dropEffect="move";const Me=parseInt(h.dataTransfer.getData("text/plain"),10);t.onDragEnd&&t.onDragEnd(Me,w)}},o=()=>{i.draggable=!1,i.ondragstart=null,i.ondragover=null,i.ondragenter=null,i.ondrop=null};return e(),{update(a){t={...Pt,...a},o(),e()},destroy:o}}const Re=Object.freeze(Object.defineProperty({__proto__:null,create:He},Symbol.toStringTag,{value:"Module"}));var d;class H{constructor(){n(this,d,{})}on(t,e){if(typeof e!="function")throw`invalid event listener passed for "${t.toString()}" event!`;return s(this,d)[t]||(s(this,d)[t]=[]),s(this,d)[t].push(e),()=>{this.off(t,e)}}off(t,e){if(!s(this,d)[t])throw`no listeners found for ${t.toString()}, there is nothing to delete`;let o=!1,a=0;for(const w of s(this,d)[t])w===e&&(s(this,d)[t].splice(a,1),o=!0),a++;if(!o)throw`listener not found for ${t.toString()}, there is nothing to delete`;return this}dispatch(t,e){if(e===void 0)throw"data is undefined!";if(s(this,d)[t])for(const o of s(this,d)[t])o(e);return this}}d=new WeakMap;const Ae=Object.freeze(Object.defineProperty({__proto__:null,Events:H},Symbol.toStringTag,{value:"Module"})),$e={color:"currentColor",opacity:.2,centered:!1,spreadDuration:".4s",spreadTiming:"linear",clearDuration:"1s",clearTiming:"ease-in-out"};function ee(i,t){t={...$e,...t};const e=document.createElement("div");e.classList.add("ripple"),e.style.position="absolute",e.style.color="inherit",e.style.borderRadius="50%",e.style.pointerEvents="none",e.style.width="100px",e.style.height="100px",e.style.marginTop="-50px",e.style.marginLeft="-50px",e.style.opacity=`${t.opacity}`,e.style.backgroundColor=t.color,e.style.transform="scale(0) translate(0, 0)",e.style.transition=`transform ${t.spreadDuration} ${t.spreadTiming} 0s,opacity ${t.clearDuration} ${t.clearTiming} 0s`,i.currentTarget.appendChild(e);const o=i.currentTarget.getBoundingClientRect();t.centered?(e.style.top=`${o.height/2}px`,e.style.left=`${o.width/2}px`):(e.style.top=`${i.clientY-o.top}px`,e.style.left=`${i.clientX-o.left}px`);const a=Math.max(o.width,o.height)*.02;return e.style.transform=`scale(${a}) translate(0, 0)`,e}function se(i){i&&(i.addEventListener("transitionend",t=>{t.propertyName==="opacity"&&i.remove()}),i.style.opacity="0")}function Rt(i,t={}){let e;const o=w=>{e=ee(w,t)},a=()=>{se(e)};return i.classList.add("ripple-container"),i.style.overflow="hidden",i.addEventListener("pointerdown",o),i.addEventListener("pointerup",a),i.addEventListener("pointerleave",a),()=>{i.classList.remove("ripple-container"),i.removeEventListener("pointerdown",o),i.removeEventListener("pointerup",a),i.removeEventListener("pointerleave",a)}}const je=Object.freeze(Object.defineProperty({__proto__:null,create:Rt,start:ee,stop:se},Symbol.toStringTag,{value:"Module"}));function Ie(){return/(android)/i.test(navigator.userAgent)}const Ne=Object.freeze(Object.defineProperty({__proto__:null,isAndroid:Ie},Symbol.toStringTag,{value:"Module"})),Ue=Object.freeze(Object.defineProperty({__proto__:null,draggable:Re,events:Ae,ripple:je,utils:Ne},Symbol.toStringTag,{value:"Module"})),ie=document.createElement("template");ie.innerHTML=`
+"use strict";var Te=Object.defineProperty;var He=(i,t,e)=>t in i?Te(i,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):i[t]=e;var r=(i,t,e)=>(He(i,typeof t!="symbol"?t+"":t,e),e),Vt=(i,t,e)=>{if(!t.has(i))throw TypeError("Cannot "+e)};var s=(i,t,e)=>(Vt(i,t,"read from private field"),e?e.call(i):t.get(i)),n=(i,t,e)=>{if(t.has(i))throw TypeError("Cannot add the same private member more than once");t instanceof WeakSet?t.add(i):t.set(i,e)},l=(i,t,e,o)=>(Vt(i,t,"write to private field"),o?o.call(i,e):t.set(i,e),e);const Zt={onDragStart:null,onDragging:null,onDragEnd:null};function Re(i,t={}){t={...Zt,...t};const e=()=>{const b=[...i.parentNode.children].indexOf(i);i.draggable=!0,i.ondragstart=h=>{h.dataTransfer.effectAllowed="move",h.dataTransfer.dropEffect="move",h.dataTransfer.setData("text/plain",b.toString()),t.onDragStart&&t.onDragStart(b)},i.ondragover=h=>(h.preventDefault(),!1),i.ondragenter=h=>{h.preventDefault(),t.onDragging&&t.onDragging(b)},i.ondrop=h=>{h.preventDefault(),h.dataTransfer.dropEffect="move";const Se=parseInt(h.dataTransfer.getData("text/plain"),10);t.onDragEnd&&t.onDragEnd(Se,b)}},o=()=>{i.draggable=!1,i.ondragstart=null,i.ondragover=null,i.ondragenter=null,i.ondrop=null};return e(),{update(a){t={...Zt,...a},o(),e()},destroy:o}}const Ae=Object.freeze(Object.defineProperty({__proto__:null,create:Re},Symbol.toStringTag,{value:"Module"}));var d;class H{constructor(){n(this,d,{})}on(t,e){if(typeof e!="function")throw`invalid event listener passed for "${t.toString()}" event!`;return s(this,d)[t]||(s(this,d)[t]=[]),s(this,d)[t].push(e),()=>{this.off(t,e)}}off(t,e){if(!s(this,d)[t])throw`no listeners found for ${t.toString()}, there is nothing to delete`;let o=!1,a=0;for(const b of s(this,d)[t])b===e&&(s(this,d)[t].splice(a,1),o=!0),a++;if(!o)throw`listener not found for ${t.toString()}, there is nothing to delete`;return this}dispatch(t,e){if(e===void 0)throw"data is undefined!";if(s(this,d)[t])for(const o of s(this,d)[t])o(e);return this}}d=new WeakMap;const $e=Object.freeze(Object.defineProperty({__proto__:null,Events:H},Symbol.toStringTag,{value:"Module"})),je={color:"var(--ui-ripple-color, currentColor)",opacity:"var(--ui-ripple-opacity, 0.2)",centered:!1,spreadDuration:".4s",spreadTiming:"linear",clearDuration:"1s",clearTiming:"ease-in-out"};function oe(i,t){t={...je,...t};const e=document.createElement("div");e.classList.add("ripple"),e.style.position="absolute",e.style.color="inherit",e.style.borderRadius="50%",e.style.pointerEvents="none",e.style.width="100px",e.style.height="100px",e.style.marginTop="-50px",e.style.marginLeft="-50px",e.style.opacity=`${t.opacity}`,e.style.backgroundColor=t.color,e.style.transform="scale(0) translate(0, 0)",e.style.transition=`transform ${t.spreadDuration} ${t.spreadTiming} 0s,opacity ${t.clearDuration} ${t.clearTiming} 0s`,i.currentTarget.appendChild(e);const o=i.currentTarget.getBoundingClientRect();t.centered?(e.style.top=`${o.height/2}px`,e.style.left=`${o.width/2}px`):(e.style.top=`${i.clientY-o.top}px`,e.style.left=`${i.clientX-o.left}px`);const a=Math.max(o.width,o.height)*.02;return e.style.transform=`scale(${a}) translate(0, 0)`,e}function re(i){i&&(i.addEventListener("transitionend",t=>{t.propertyName==="opacity"&&i.remove()}),i.style.opacity="0")}function jt(i,t={}){let e;const o=b=>{e=oe(b,t)},a=()=>{re(e)};return i.classList.add("ripple-container"),i.style.overflow="hidden",i.addEventListener("pointerdown",o),i.addEventListener("pointerup",a),i.addEventListener("pointerleave",a),()=>{i.classList.remove("ripple-container"),i.removeEventListener("pointerdown",o),i.removeEventListener("pointerup",a),i.removeEventListener("pointerleave",a)}}const Ie=Object.freeze(Object.defineProperty({__proto__:null,create:jt,start:oe,stop:re},Symbol.toStringTag,{value:"Module"}));function Ne(){return/(android)/i.test(navigator.userAgent)}const ze=Object.freeze(Object.defineProperty({__proto__:null,isAndroid:Ne},Symbol.toStringTag,{value:"Module"})),Ue=Object.freeze(Object.defineProperty({__proto__:null,draggable:Ae,events:$e,ripple:Ie,utils:ze},Symbol.toStringTag,{value:"Module"})),Oe=`
 <style>
     :host {
         display: flex;
         position: absolute;
         z-index: 100;
-        background-color: hsla(var(--bg), .2);
-        backdrop-filter: blur(5px);
+        background-color: var(--ui-app-bar-bgColor);
+        backdrop-filter: var(--ui-app-bar-backdropFilter);
         overflow: hidden;
         user-select: none;
     }
@@ -14,8 +14,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: var(--app-bar-height);
-        border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
+        height: var(--ui-app-bar-height);
+        border-bottom: 1px solid var(--ui-app-bar-border-color);
     }
 
     :host > ui-flex-grid-row {
@@ -61,7 +61,7 @@
         <slot name="right"></slot>
     </ui-flex-grid-row>
 </ui-flex-grid-row>
-`;var L,Jt;let ze=(Jt=class{constructor(t){n(this,L,void 0);l(this,L,t)}getLeftSlot(){return[...s(this,L).querySelectorAll('[slot="left"]')]}getCenterSlot(){return[...s(this,L).querySelectorAll('[slot="center"]')]}getRightSlot(){return[...s(this,L).querySelectorAll('[slot="right"]')]}},L=new WeakMap,Jt);const dt=class dt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ie.content.cloneNode(!0)),this.ui=new ze(this)}};r(dt,"register",()=>customElements.define("ui-app-bar",dt));let Y=dt;const oe=document.createElement("template");oe.innerHTML=`
+`;var L,Yt;let qe=(Yt=class{constructor(t){n(this,L,void 0);l(this,L,t)}getLeftSlot(){return[...s(this,L).querySelectorAll('[slot="left"]')]}getCenterSlot(){return[...s(this,L).querySelectorAll('[slot="center"]')]}getRightSlot(){return[...s(this,L).querySelectorAll('[slot="right"]')]}},L=new WeakMap,Yt);const pt=class pt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Oe,this.ui=new qe(this)}};r(pt,"register",()=>customElements.define("ui-app-bar",pt));let K=pt;const ne=document.createElement("template");ne.innerHTML=`
 <style>
     :host {
         display: flex;
@@ -141,7 +141,7 @@
 </style>
 
 <slot></slot>
-`;var O,Bt;let qe=(Bt=class{constructor(t){n(this,O,void 0);l(this,O,t),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=Rt(s(this,O),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},O=new WeakMap,Bt);const R=class R extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(oe.content.cloneNode(!0)),this.ui=new qe(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(t,e,o){switch(t){case"no-ripple":o!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(R,"register",()=>customElements.define("ui-button",R)),r(R,"observedAttributes",["no-ripple"]);let K=R;const re=document.createElement("template");re.innerHTML=`
+`;var q,Kt;let Pe=(Kt=class{constructor(t){n(this,q,void 0);l(this,q,t),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=jt(s(this,q),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},q=new WeakMap,Kt);const R=class R extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ne.content.cloneNode(!0)),this.ui=new Pe(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(t,e,o){switch(t){case"no-ripple":o!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(R,"register",()=>customElements.define("ui-button",R)),r(R,"observedAttributes",["no-ripple"]);let Q=R;const ae=document.createElement("template");ae.innerHTML=`
 <style>
     :host {
         display: flex;
@@ -190,7 +190,15 @@
 </style>
 
 <slot></slot>
-`;var P,Xt;let Oe=(Xt=class{constructor(t){n(this,P,void 0);l(this,P,t),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=Rt(s(this,P),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},P=new WeakMap,Xt);const A=class A extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(re.content.cloneNode(!0)),this.ui=new Oe(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(t,e,o){switch(t){case"no-ripple":o!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(A,"register",()=>customElements.define("ui-icon-button",A)),r(A,"observedAttributes",["no-ripple"]);let Q=A;const ne=document.createElement("template");ne.innerHTML=`
+`;var P,Qt;let De=(Qt=class{constructor(t){n(this,P,void 0);l(this,P,t),this.removeRipple=null}enableRipple(){this.removeRipple||(this.removeRipple=jt(s(this,P),{centered:!0}))}disableRipple(){this.removeRipple&&this.removeRipple(),this.removeRipple=null}},P=new WeakMap,Qt);const A=class A extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ae.content.cloneNode(!0)),this.ui=new De(this)}connectedCallback(){!this.hasAttribute("no-ripple")&&!this.ui.removeRipple&&this.ui.enableRipple()}attributeChangedCallback(t,e,o){switch(t){case"no-ripple":o!==null?this.ui.disableRipple():this.ui.enableRipple();break}}};r(A,"register",()=>customElements.define("ui-icon-button",A)),r(A,"observedAttributes",["no-ripple"]);let W=A;const Ve=`
+<style>
+    background-color: var(--ui-card-bgColor);
+    color: var(--ui-card-color);
+    border: 1px solid var(--ui-card-border-color);
+    border-radius: var(--ui-card-radius);
+    padding: var(--ui-card-spacing);
+</style>
+`,gt=class gt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ve}};r(gt,"register",()=>customElements.define("ui-card",gt));let F=gt;const le=document.createElement("template");le.innerHTML=`
 <style>
     :host {
         display: block;
@@ -202,7 +210,7 @@
 </style>
 
 <slot></slot>
-`;const ut=class ut extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ne.content.cloneNode(!0))}};r(ut,"register",()=>customElements.define("ui-container",ut));let W=ut;const le=document.createElement("template");le.innerHTML=`
+`;const mt=class mt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(le.content.cloneNode(!0))}};r(mt,"register",()=>customElements.define("ui-container",mt));let G=mt;const ce=document.createElement("template");ce.innerHTML=`
 <style>
     :host dialog * {
         box-sizing: border-box;
@@ -373,17 +381,17 @@
         </footer>
 	</article>
 </dialog>
-`;var b,y,x,Yt;let Pe=(Yt=class{constructor(t,e){n(this,b,void 0);n(this,y,void 0);n(this,x,void 0);l(this,b,t),l(this,y,e),this.events=new H,l(this,x,document.createElement("h4")),s(this,x).slot="title",s(this,b).appendChild(s(this,x))}get dialog(){return s(this,y)}open(t=!1){t?s(this,y).showModal():s(this,y).show()}close(){s(this,y).close()}get fullscreen(){return s(this,b).hasAttribute("fullscreen")}set fullscreen(t){t?s(this,b).setAttribute("fullscreen",""):s(this,b).removeAttribute("fullscreen")}get title(){return s(this,x).innerText}set title(t){s(this,x).innerText=t}},b=new WeakMap,y=new WeakMap,x=new WeakMap,Yt);var D,V;const pt=class pt extends HTMLElement{constructor(){super();n(this,D,()=>this.ui.events.dispatch("close",null));n(this,V,()=>this.ui.close());this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(le.content.cloneNode(!0)),this.ui=new Pe(this,this.shadowRoot.querySelector("dialog"))}connectedCallback(){const e=this.shadowRoot.querySelector("header ui-icon-button");e.addEventListener("click",s(this,V)),e.addEventListener("click",s(this,D))}disconnectedCallback(){const e=this.shadowRoot.querySelector("header ui-icon-button");e.removeEventListener("click",s(this,V)),e.removeEventListener("click",s(this,D))}};D=new WeakMap,V=new WeakMap,r(pt,"register",()=>customElements.define("ui-dialog",pt));let G=pt;const Dt="1",ae=document.createElement("template");ae.innerHTML=`
+`;var w,y,x,Wt;let Ze=(Wt=class{constructor(t,e){n(this,w,void 0);n(this,y,void 0);n(this,x,void 0);l(this,w,t),l(this,y,e),this.events=new H,l(this,x,document.createElement("h4")),s(this,x).slot="title",s(this,w).appendChild(s(this,x))}get dialog(){return s(this,y)}open(t=!1){t?s(this,y).showModal():s(this,y).show()}close(){s(this,y).close()}get fullscreen(){return s(this,w).hasAttribute("fullscreen")}set fullscreen(t){t?s(this,w).setAttribute("fullscreen",""):s(this,w).removeAttribute("fullscreen")}get title(){return s(this,x).innerText}set title(t){s(this,x).innerText=t}},w=new WeakMap,y=new WeakMap,x=new WeakMap,Wt);var D,V;const ft=class ft extends HTMLElement{constructor(){super();n(this,D,()=>this.ui.events.dispatch("close",null));n(this,V,()=>this.ui.close());this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ce.content.cloneNode(!0)),this.ui=new Ze(this,this.shadowRoot.querySelector("dialog"))}connectedCallback(){const e=this.shadowRoot.querySelector("header ui-icon-button");e.addEventListener("click",s(this,V)),e.addEventListener("click",s(this,D))}disconnectedCallback(){const e=this.shadowRoot.querySelector("header ui-icon-button");e.removeEventListener("click",s(this,V)),e.removeEventListener("click",s(this,D))}};D=new WeakMap,V=new WeakMap,r(ft,"register",()=>customElements.define("ui-dialog",ft));let _=ft;const Jt="1",he=document.createElement("template");he.innerHTML=`
 <style></style>
 <slot></slot>
-`;const $=class $ extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ae.content.cloneNode(!0)),this._updateStyle()}attributeChangedCallback(t,e,o){switch(t){case"flex":this._updateStyle({flex:o||Dt});break}}_updateStyle({flex:t=Dt}={}){this.shadowRoot.querySelector("style").textContent=`
+`;const $=class $ extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(he.content.cloneNode(!0)),this._updateStyle()}attributeChangedCallback(t,e,o){switch(t){case"flex":this._updateStyle({flex:o||Jt});break}}_updateStyle({flex:t=Jt}={}){this.shadowRoot.querySelector("style").textContent=`
             :host {
                 flex: ${t};
             }
-        `}};r($,"register",()=>customElements.define("ui-flex-grid-item",$)),r($,"observedAttributes",["flex"]);let F=$;const Vt="0",ce=document.createElement("template");ce.innerHTML=`
+        `}};r($,"register",()=>customElements.define("ui-flex-grid-item",$)),r($,"observedAttributes",["flex"]);let tt=$;const Bt="0",de=document.createElement("template");de.innerHTML=`
 <style></style>
 <slot></slot>
-`;const j=class j extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ce.content.cloneNode(!0)),this._updateStyle()}attributeChangedCallback(t,e,o){switch(t){case"gap":this._updateStyle({gap:o||Vt});break}}_updateStyle({gap:t=Vt}={}){this.shadowRoot.querySelector("style").textContent=`
+`;const j=class j extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(de.content.cloneNode(!0)),this._updateStyle()}attributeChangedCallback(t,e,o){switch(t){case"gap":this._updateStyle({gap:o||Bt});break}}_updateStyle({gap:t=Bt}={}){this.shadowRoot.querySelector("style").textContent=`
             :host {
                 display: flex;
                 flex-flow: row nowrap;
@@ -402,10 +410,10 @@
             :host ::slotted(ui-flex-grid-item:last-child) {
                 margin-right: 0 !important;
             }
-        `}};r(j,"register",()=>customElements.define("ui-flex-grid-row",j)),r(j,"observedAttributes",["gap"]);let _=j;const Zt="0",he=document.createElement("template");he.innerHTML=`
+        `}};r(j,"register",()=>customElements.define("ui-flex-grid-row",j)),r(j,"observedAttributes",["gap"]);let et=j;const Xt="0",ue=document.createElement("template");ue.innerHTML=`
 <style></style>
 <slot></slot>
-`;const I=class I extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(he.content.cloneNode(!0)),this._updateStyle()}attributeChangedCallback(t,e,o){switch(t){case"gap":this._updateStyle({gap:o||Zt});break}}_updateStyle({gap:t=Zt}={}){this.shadowRoot.querySelector("style").textContent=`
+`;const I=class I extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ue.content.cloneNode(!0)),this._updateStyle()}attributeChangedCallback(t,e,o){switch(t){case"gap":this._updateStyle({gap:o||Xt});break}}_updateStyle({gap:t=Xt}={}){this.shadowRoot.querySelector("style").textContent=`
             :host {
                 display: flex;
                 flex-flow: column nowrap;
@@ -426,23 +434,32 @@
             :host ::slotted(ui-flex-grid-row:last-child) {
                 margin-bottom: 0 !important;
             }
-        `}};r(I,"register",()=>customElements.define("ui-flex-grid",I)),r(I,"observedAttributes",["gap"]);let tt=I;const de=document.createElement("template");de.innerHTML=`
+        `}};r(I,"register",()=>customElements.define("ui-flex-grid",I)),r(I,"observedAttributes",["gap"]);let st=I;const pe=document.createElement("template");pe.innerHTML=`
 <style>
     :host {
         display: none;
-        padding: var(--spacing);
-        padding-right: 2rem;
-        transition: background-color 0.25s linear;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: calc(1em * var(--line-height) + var(--spacing) * 2);
         align-items: center;
+
+        padding: var(--ui-spacing);
+        padding-right: 2rem;
+
+        height: calc(1em * var(--ui-line-height) + var(--ui-spacing) * 2);
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        transition: background-color 0.25s linear, color 0.25s linear;
+
+        font-size: 0.9rem;
+        font-family: var(--ui-select-fontFamily);
+        font-variation-settings: var(--ui-select-fontVariation);
+
+        overflow: hidden;
     }
 </style>
 
 <slot></slot>
-`;var m,Kt;let De=(Kt=class{constructor(t){n(this,m,void 0);l(this,m,t)}get value(){return s(this,m).getAttribute("value")}set value(t){s(this,m).setAttribute("value",t)}get selected(){return s(this,m).hasAttribute("selected")}set selected(t){t?s(this,m).setAttribute("selected",""):s(this,m).removeAttribute("selected")}},m=new WeakMap,Kt);const gt=class gt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(de.content.cloneNode(!0)),this.ui=new De(this)}};r(gt,"register",()=>customElements.define("ui-select-option",gt));let q=gt;const ue=document.createElement("template");ue.innerHTML=`
+`;var m,Ft;let Je=(Ft=class{constructor(t){n(this,m,void 0);l(this,m,t)}get value(){return s(this,m).getAttribute("value")}set value(t){s(this,m).setAttribute("value",t)}get selected(){return s(this,m).hasAttribute("selected")}set selected(t){t?s(this,m).setAttribute("selected",""):s(this,m).removeAttribute("selected")}},m=new WeakMap,Ft);const vt=class vt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(pe.content.cloneNode(!0)),this.ui=new Je(this)}};r(vt,"register",()=>customElements.define("ui-select-option",vt));let O=vt;const Be=`
 <style>
     * {
         box-sizing: border-box;
@@ -452,12 +469,19 @@
         --items-length: 0;
         position: relative; 
         display: block;
+
         width: 100%;
-        height: calc(1em * var(--line-height) + var(--spacing) * 2);
-        border: var(--border-width) var(--border-style) hsl(var(--border));
-        border-radius: var(--radius);
+        height: calc(1em * var(--ui-line-height) + var(--ui-spacing) * 2);
         transition: height 0.25s ease;
+
+        background-color: var(--ui-select-bgColor);
+        color: var(--ui-select-color);
+
+        border: 1px solid var(--ui-select-borderColor);
+        border-radius: var(--ui-select-radius);
+
         line-height: 1.15;
+
         overflow: hidden;
     }
 
@@ -478,7 +502,7 @@
         right: 0;
         width: 2.5rem;
         height: 100%;
-        color: hsl(var(--primary));
+        color: var(--ui-primary-bgColor);
     }
 
     ::slotted(ui-select-option) {
@@ -486,7 +510,7 @@
     }
 
     :host(.open) {
-        height: calc((1em * var(--line-height) + var(--spacing) * 2) * var(--items-length));
+        height: calc((1em * var(--ui-line-height) + var(--ui-spacing) * 2) * var(--items-length));
     }
 
     :host(.open) .options {
@@ -498,12 +522,12 @@
     }
 
     :host(.open) ::slotted(ui-select-option[selected]) {
-        background-color: hsl(var(--primary));
-        color: hsl(var(--primary-fg));
+        background-color: var(--ui-select-selected-bgColor);
+        color: var(--ui-select-selected-color);
     }
 
     :host(.open) ::slotted(ui-select-option:not([selected]):hover) {
-        background-color: hsl(var(--fg), 0.1);
+        background-color: var(--ui-select-bgColor--hover);
     }
 
     :host(:not(.open)) .options:has(> ::slotted(ui-select-option[selected])) {
@@ -520,7 +544,7 @@
 
     <slot></slot>
 </div>
-`;let Ve=class{constructor(){this.events=new H}};const mt=class mt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ue.content.cloneNode(!0)),this.ui=new Ve}connectedCallback(){var t;(t=this.shadowRoot.querySelector(".options"))==null||t.addEventListener("click",this.onClickOptions),this.style.setProperty("--items-length",this.querySelectorAll("ui-select-option").length.toString())}disconnectedCallback(){var t;this.removeEventListener("click",this.onClick),(t=this.shadowRoot.querySelector(".options"))==null||t.removeEventListener("click",this.onClickOptions)}async onClickOptions(t){this.classList.toggle("open")?(t.stopPropagation(),this.addEventListener("click",this.onClick)):setTimeout(()=>this.removeEventListener("click",this.onClick))}async onClick(t){(t.composedPath()||[]).forEach(e=>{e instanceof q&&([...this.querySelectorAll("ui-select-option")].forEach(o=>o.removeAttribute("selected")),e.setAttribute("selected",""),this.ui.events.dispatch("change",e))})}};r(mt,"register",()=>customElements.define("ui-select",mt));let et=mt;var Z,C,J,Qt;let Ze=(Qt=class{constructor(t){n(this,Z,void 0);n(this,C,void 0);n(this,J,void 0);l(this,Z,t),l(this,C,new H),this.langType=null}getFallbackElement(){return s(this,Z).querySelector("ui-lang-type[fallback]")}new(t,e){this.langType=t,l(this,J,e),s(this,C).dispatch("change",this.langType)}get(t,e){var o;return(o=s(this,J))==null?void 0:o[t][e]}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.langType),s(this,C).on(t,e)}},Z=new WeakMap,C=new WeakMap,J=new WeakMap,Qt);const N=class N extends HTMLElement{constructor(){super(),this.ui=new Ze(this)}attributeChangedCallback(t,e,o){switch(t){case"current":o!==null&&this._loadLanguage(o);break}}async _loadLanguage(t){const e=this.querySelector(`ui-lang-type[name="${t}"]`)||this.ui.getFallbackElement();if(!e)return;if(!e.ui.href)throw"Missing href attribute!";const o=await fetch(e.ui.href);this.ui.new(e,await o.json())}};r(N,"register",()=>customElements.define("ui-lang",N)),r(N,"observedAttributes",["current"]);let st=N;var u,Wt;let Je=(Wt=class{constructor(t){n(this,u,void 0);l(this,u,t)}get name(){return s(this,u).getAttribute("name")}set name(t){s(this,u).setAttribute("name",t)}get href(){return s(this,u).getAttribute("href")}set href(t){s(this,u).setAttribute("href",t)}get fallback(){return s(this,u).hasAttribute("fallback")}set fallback(t){t?s(this,u).setAttribute("fallback",""):s(this,u).removeAttribute("fallback")}},u=new WeakMap,Wt);const ft=class ft extends HTMLElement{constructor(){super(),this.ui=new Je(this)}};r(ft,"register",()=>customElements.define("ui-lang-type",ft));let it=ft;const pe=document.createElement("template");pe.innerHTML=`
+`;let Xe=class{constructor(){this.events=new H}};var Z;const bt=class bt extends HTMLElement{constructor(){super();n(this,Z,async e=>{(e.composedPath()||[]).forEach(o=>{o instanceof O&&([...this.querySelectorAll("ui-select-option")].forEach(a=>a.removeAttribute("selected")),o.setAttribute("selected",""),this.ui.events.dispatch("change",o))})});this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Be,this.cleanup=[],this.ui=new Xe}connectedCallback(){const e=this.shadowRoot.querySelector(".options"),o=this.onClickOptions.bind(this);e.addEventListener("click",o),this.cleanup.push(()=>{this.removeEventListener("click",o),e.removeEventListener("click",this.onClickOptions)}),this.style.setProperty("--items-length",this.querySelectorAll("ui-select-option").length.toString())}disconnectedCallback(){this.cleanup.forEach(e=>e()),this.cleanup=[]}async onClickOptions(e){this.classList.toggle("open")?(e.stopPropagation(),this.addEventListener("click",s(this,Z))):setTimeout(()=>this.removeEventListener("click",s(this,Z)))}};Z=new WeakMap,r(bt,"register",()=>customElements.define("ui-select",bt));let it=bt;var J,C,B,Gt;let Ye=(Gt=class{constructor(t){n(this,J,void 0);n(this,C,void 0);n(this,B,void 0);l(this,J,t),l(this,C,new H),this.langType=null}getFallbackElement(){return s(this,J).querySelector("ui-lang-type[fallback]")}new(t,e){this.langType=t,l(this,B,e),s(this,C).dispatch("change",this.langType)}get(t,e){var o;return(o=s(this,B))==null?void 0:o[t][e]}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.langType),s(this,C).on(t,e)}},J=new WeakMap,C=new WeakMap,B=new WeakMap,Gt);const N=class N extends HTMLElement{constructor(){super(),this.ui=new Ye(this)}attributeChangedCallback(t,e,o){switch(t){case"current":o!==null&&this._loadLanguage(o);break}}async _loadLanguage(t){const e=this.querySelector(`ui-lang-type[name="${t}"]`)||this.ui.getFallbackElement();if(!e)return;if(!e.ui.href)throw"Missing href attribute!";const o=await fetch(e.ui.href);this.ui.new(e,await o.json())}};r(N,"register",()=>customElements.define("ui-lang",N)),r(N,"observedAttributes",["current"]);let ot=N;var u,_t;let Ke=(_t=class{constructor(t){n(this,u,void 0);l(this,u,t)}get name(){return s(this,u).getAttribute("name")}set name(t){s(this,u).setAttribute("name",t)}get href(){return s(this,u).getAttribute("href")}set href(t){s(this,u).setAttribute("href",t)}get fallback(){return s(this,u).hasAttribute("fallback")}set fallback(t){t?s(this,u).setAttribute("fallback",""):s(this,u).removeAttribute("fallback")}},u=new WeakMap,_t);const wt=class wt extends HTMLElement{constructor(){super(),this.ui=new Ke(this)}};r(wt,"register",()=>customElements.define("ui-lang-type",wt));let rt=wt;const ge=document.createElement("template");ge.innerHTML=`
     <style>
         :host {
             display: block;
@@ -549,7 +573,7 @@
     </style>
 
     <slot></slot>
-`;var E,Gt;let Be=(Gt=class{constructor(t){n(this,E,void 0);l(this,E,t)}get name(){return s(this,E).getAttribute("name")}set name(t){s(this,E).setAttribute("name",t)}},E=new WeakMap,Gt);const vt=class vt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(pe.content.cloneNode(!0)),this.ui=new Be(this)}};r(vt,"register",()=>customElements.define("ui-stack-layout-page",vt));let ot=vt;const ge=document.createElement("template");ge.innerHTML=`
+`;var E,te;let Qe=(te=class{constructor(t){n(this,E,void 0);l(this,E,t)}get name(){return s(this,E).getAttribute("name")}set name(t){s(this,E).setAttribute("name",t)}},E=new WeakMap,te);const yt=class yt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ge.content.cloneNode(!0)),this.ui=new Qe(this)}};r(yt,"register",()=>customElements.define("ui-stack-layout-page",yt));let nt=yt;const me=document.createElement("template");me.innerHTML=`
     <style>
         :host {
             display: block;
@@ -560,7 +584,7 @@
     </style>
 
     <slot></slot>
-`;var k,M,Ft;let Xe=(Ft=class{constructor(t){n(this,k,void 0);n(this,M,{});l(this,k,t),this.events=new H,this.stack=[]}registerPage(t,e){s(this,M)[t]=e}unregisterPage(t){delete s(this,M)[t]}goBack(){if(!this.stack.length)return;const t=this.stack.pop();t.ontransitionend=()=>{t.ontransitionend=null,s(this,k).removeChild(t)},this.stack.length&&s(this,k).appendChild(this.stack[this.stack.length-1]),this.dispatchChangeEvent()}setPage(t){if(this.stack.push(s(this,k).appendChild(s(this,M)[t]().children[0])),this.stack.length>1){const e=this.stack[this.stack.length-2];e.ontransitionend=()=>{e.ontransitionend=null,e.parentElement.removeChild(e)}}this.dispatchChangeEvent()}async dispatchChangeEvent(){this.events.dispatch("change",{newPage:this.stack[this.stack.length-1]||null,oldPage:this.stack[this.stack.length-2]||null})}},k=new WeakMap,M=new WeakMap,Ft);const wt=class wt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ge.content.cloneNode(!0)),this.ui=new Xe(this)}};r(wt,"register",()=>customElements.define("ui-stack-layout",wt));let rt=wt;var f,v,_t;let Ye=(_t=class{constructor(t){n(this,f,void 0);n(this,v,{});l(this,f,t),this.events=new H}get localStoragePrefix(){return s(this,f).getAttribute("local-storage-prefix")}set localStoragePrefix(t){s(this,f).setAttribute("local-storage-prefix",t)}get enableLocalStorage(){return s(this,f).hasAttribute("enable-local-storage")}set enableLocalStorage(t){t?s(this,f).setAttribute("enable-local-storage",""):s(this,f).removeAttribute("enable-local-storage")}get(t){return s(this,v)[t]}set(t,e,o=!1){if(o&&this.enableLocalStorage){const a=JSON.parse(localStorage.getItem(this.localStoragePrefix+t.toString())||"null");s(this,v)[t]=a??e}else s(this,v)[t]=e;this.enableLocalStorage&&localStorage.setItem(this.localStoragePrefix+t.toString(),JSON.stringify(s(this,v)[t])),this.events.dispatch(t,s(this,v)[t])}update(t,e){if(typeof e!="function")throw"callback is not a function";this.set(t,e(s(this,v)[t]))}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.get(t)),this.events.on(t,e)}},f=new WeakMap,v=new WeakMap,_t);const bt=class bt extends HTMLElement{constructor(){super(),this.ui=new Ye(this)}};r(bt,"register",()=>customElements.define("ui-store",bt));let nt=bt;const me=document.createElement("template");me.innerHTML=`
+`;var k,M,ee;let We=(ee=class{constructor(t){n(this,k,void 0);n(this,M,{});l(this,k,t),this.events=new H,this.stack=[]}registerPage(t,e){s(this,M)[t]=e}unregisterPage(t){delete s(this,M)[t]}goBack(){if(!this.stack.length)return;const t=this.stack.pop();t.ontransitionend=()=>{t.ontransitionend=null,s(this,k).removeChild(t)},this.stack.length&&s(this,k).appendChild(this.stack[this.stack.length-1]),this.dispatchChangeEvent()}setPage(t){if(this.stack.push(s(this,k).appendChild(s(this,M)[t]().children[0])),this.stack.length>1){const e=this.stack[this.stack.length-2];e.ontransitionend=()=>{e.ontransitionend=null,e.parentElement.removeChild(e)}}this.dispatchChangeEvent()}async dispatchChangeEvent(){this.events.dispatch("change",{newPage:this.stack[this.stack.length-1]||null,oldPage:this.stack[this.stack.length-2]||null})}},k=new WeakMap,M=new WeakMap,ee);const xt=class xt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(me.content.cloneNode(!0)),this.ui=new We(this)}};r(xt,"register",()=>customElements.define("ui-stack-layout",xt));let at=xt;var f,v,se;let Fe=(se=class{constructor(t){n(this,f,void 0);n(this,v,{});l(this,f,t),this.events=new H}get localStoragePrefix(){return s(this,f).getAttribute("local-storage-prefix")}set localStoragePrefix(t){s(this,f).setAttribute("local-storage-prefix",t)}get enableLocalStorage(){return s(this,f).hasAttribute("enable-local-storage")}set enableLocalStorage(t){t?s(this,f).setAttribute("enable-local-storage",""):s(this,f).removeAttribute("enable-local-storage")}get(t){return s(this,v)[t]}set(t,e,o=!1){if(o&&this.enableLocalStorage){const a=JSON.parse(localStorage.getItem(this.localStoragePrefix+t.toString())||"null");s(this,v)[t]=a??e}else s(this,v)[t]=e;this.enableLocalStorage&&localStorage.setItem(this.localStoragePrefix+t.toString(),JSON.stringify(s(this,v)[t])),this.events.dispatch(t,s(this,v)[t])}update(t,e){if(typeof e!="function")throw"callback is not a function";this.set(t,e(s(this,v)[t]))}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.get(t)),this.events.on(t,e)}},f=new WeakMap,v=new WeakMap,se);const Lt=class Lt extends HTMLElement{constructor(){super(),this.ui=new Fe(this)}};r(Lt,"register",()=>customElements.define("ui-store",Lt));let lt=Lt;const fe=document.createElement("template");fe.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -580,7 +604,7 @@
         d="M50,24H6.83L27.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0l-24,24a1.79,1.79,0,0,0-.25.31A1.19,1.19,0,0,0,.25,25c0,.07-.07.13-.1.2l-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2c0,.07.07.13.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31l24,24a2,2,0,1,0,2.82-2.82L6.83,28H50a2,2,0,0,0,0-4Z"
     />
 </svg>
-`;const yt=class yt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(me.content.cloneNode(!0))}};r(yt,"register",()=>customElements.define("ui-svg-back-arrow-navigation",yt));let At=yt;const fe=document.createElement("template");fe.innerHTML=`
+`;const kt=class kt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(fe.content.cloneNode(!0))}};r(kt,"register",()=>customElements.define("ui-svg-back-arrow-navigation",kt));let It=kt;const ve=document.createElement("template");ve.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -604,7 +628,7 @@
         stroke-linejoin="round"
     />
 </svg>
-`;const xt=class xt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(fe.content.cloneNode(!0))}};r(xt,"register",()=>customElements.define("ui-svg-chevron-down",xt));let $t=xt;const ve=document.createElement("template");ve.innerHTML=`
+`;const Ct=class Ct extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ve.content.cloneNode(!0))}};r(Ct,"register",()=>customElements.define("ui-svg-chevron-down",Ct));let Nt=Ct;const be=document.createElement("template");be.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -635,7 +659,7 @@
         </clipPath>
     </defs>
 </svg>
-`;const Lt=class Lt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ve.content.cloneNode(!0))}};r(Lt,"register",()=>customElements.define("ui-svg-close",Lt));let jt=Lt;const we=document.createElement("template");we.innerHTML=`
+`;const Et=class Et extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(be.content.cloneNode(!0))}};r(Et,"register",()=>customElements.define("ui-svg-close",Et));let zt=Et;const we=document.createElement("template");we.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -659,7 +683,7 @@
         fill="currentColor"
     />
 </svg>
-`;const kt=class kt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(we.content.cloneNode(!0))}};r(kt,"register",()=>customElements.define("ui-svg-delete-recycle-bin",kt));let It=kt;const be=document.createElement("template");be.innerHTML=`
+`;const Mt=class Mt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(we.content.cloneNode(!0))}};r(Mt,"register",()=>customElements.define("ui-svg-delete-recycle-bin",Mt));let Ut=Mt;const ye=document.createElement("template");ye.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -690,7 +714,7 @@
         stroke-linejoin="round"
     />
 </svg>;
-`;const Ct=class Ct extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(be.content.cloneNode(!0))}};r(Ct,"register",()=>customElements.define("ui-svg-edit2",Ct));let Nt=Ct;const ye=document.createElement("template");ye.innerHTML=`
+`;const St=class St extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ye.content.cloneNode(!0))}};r(St,"register",()=>customElements.define("ui-svg-edit2",St));let Ot=St;const xe=document.createElement("template");xe.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -714,7 +738,7 @@
         </g>
     </g></svg
 >
-`;const Et=class Et extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ye.content.cloneNode(!0))}};r(Et,"register",()=>customElements.define("ui-svg-pdf-document",Et));let Ut=Et;const xe=document.createElement("template");xe.innerHTML=`
+`;const Tt=class Tt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(xe.content.cloneNode(!0))}};r(Tt,"register",()=>customElements.define("ui-svg-pdf-document",Tt));let qt=Tt;const Le=document.createElement("template");Le.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -741,7 +765,7 @@
         </g>
     </g>
 </svg>
-`;const Mt=class Mt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(xe.content.cloneNode(!0))}};r(Mt,"register",()=>customElements.define("ui-svg-settings",Mt));let zt=Mt;const Le=document.createElement("template");Le.innerHTML=`
+`;const Ht=class Ht extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Le.content.cloneNode(!0))}};r(Ht,"register",()=>customElements.define("ui-svg-settings",Ht));let Pt=Ht;const ke=document.createElement("template");ke.innerHTML=`
 <style>
     :host {
         width: 100%;
@@ -813,7 +837,7 @@
         y2="160"
     />
 </svg>
-`;const St=class St extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Le.content.cloneNode(!0))}};r(St,"register",()=>customElements.define("ui-svg-today-outline",St));let qt=St;const g={BackArrowNavigation:At,ChevronDown:$t,Close:jt,DeleteRecycleBin:It,Edit2:Nt,PDFDocument:Ut,Settings:zt,TodayOutline:qt},ke=document.createElement("template");ke.innerHTML=`
+`;const Rt=class Rt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ke.content.cloneNode(!0))}};r(Rt,"register",()=>customElements.define("ui-svg-today-outline",Rt));let Dt=Rt;const g={BackArrowNavigation:It,ChevronDown:Nt,Close:zt,DeleteRecycleBin:Ut,Edit2:Ot,PDFDocument:qt,Settings:Pt,TodayOutline:Dt},Ce=document.createElement("template");Ce.innerHTML=`
 <style>
     :host {
         position: relative;
@@ -851,7 +875,7 @@
     <slot name="input"></slot>
     <slot></slot>
 </span>
-`;var c,S,B,X,T,te;let Ke=(te=class{constructor(t){n(this,c,void 0);n(this,S,!1);n(this,B,async()=>{[...s(this,c).querySelectorAll('[slot="input"]')].forEach(t=>t.click())});n(this,X,async t=>{t.stopPropagation()});n(this,T,void 0);l(this,c,t)}get primary(){return s(this,c).getAttribute("primary")}set primary(t){s(this,c).setAttribute("primary",t)}get secondary(){return s(this,c).getAttribute("secondary")}set secondary(t){s(this,c).setAttribute("secondary",t)}getInputSlot(){return[...s(this,c).querySelectorAll('[slot="input"]')]}enableRipple(){s(this,T)||(this.removeRipple=Rt(s(this,c)),s(this,c).style.cursor="pointer",this._startInputHandling())}disableRipple(){s(this,T)&&s(this,T).call(this),this._stopInputHandling()}_startInputHandling(){s(this,S)||(s(this,c).addEventListener("click",s(this,B)),this.getInputSlot().forEach(t=>{t.addEventListener("click",s(this,X))}),l(this,S,!0))}_stopInputHandling(){s(this,c).removeEventListener("click",s(this,B)),[...s(this,c).querySelectorAll('[slot="input"]')].forEach(t=>{t.removeEventListener("click",s(this,X))}),l(this,S,!1)}},c=new WeakMap,S=new WeakMap,B=new WeakMap,X=new WeakMap,T=new WeakMap,te);const U=class U extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(ke.content.cloneNode(!0)),this.ui=new Ke(this)}attributeChangedCallback(t,e,o){switch(t){case"ripple":o!==null?this.ui.enableRipple():this.ui.disableRipple();break;case"primary":this.shadowRoot.querySelector("ui-primary").innerHTML=o||"";break;case"secondary":this.shadowRoot.querySelector("ui-secondary").innerHTML=o||"";break}}};r(U,"register",()=>customElements.define("ui-label",U)),r(U,"observedAttributes",["ripple","secondary","primary"]);let lt=U;const Ce=document.createElement("template");Ce.innerHTML=`
+`;var c,S,X,Y,T,ie;let Ge=(ie=class{constructor(t){n(this,c,void 0);n(this,S,!1);n(this,X,async()=>{[...s(this,c).querySelectorAll('[slot="input"]')].forEach(t=>t.click())});n(this,Y,async t=>{t.stopPropagation()});n(this,T,void 0);l(this,c,t)}get primary(){return s(this,c).getAttribute("primary")}set primary(t){s(this,c).setAttribute("primary",t)}get secondary(){return s(this,c).getAttribute("secondary")}set secondary(t){s(this,c).setAttribute("secondary",t)}getInputSlot(){return[...s(this,c).querySelectorAll('[slot="input"]')]}enableRipple(){s(this,T)||(this.removeRipple=jt(s(this,c)),s(this,c).style.cursor="pointer",this._startInputHandling())}disableRipple(){s(this,T)&&s(this,T).call(this),this._stopInputHandling()}_startInputHandling(){s(this,S)||(s(this,c).addEventListener("click",s(this,X)),this.getInputSlot().forEach(t=>{t.addEventListener("click",s(this,Y))}),l(this,S,!0))}_stopInputHandling(){s(this,c).removeEventListener("click",s(this,X)),[...s(this,c).querySelectorAll('[slot="input"]')].forEach(t=>{t.removeEventListener("click",s(this,Y))}),l(this,S,!1)}},c=new WeakMap,S=new WeakMap,X=new WeakMap,Y=new WeakMap,T=new WeakMap,ie);const z=class z extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ce.content.cloneNode(!0)),this.ui=new Ge(this)}attributeChangedCallback(t,e,o){switch(t){case"ripple":o!==null?this.ui.enableRipple():this.ui.disableRipple();break;case"primary":this.shadowRoot.querySelector("ui-primary").innerHTML=o||"";break;case"secondary":this.shadowRoot.querySelector("ui-secondary").innerHTML=o||"";break}}};r(z,"register",()=>customElements.define("ui-label",z)),r(z,"observedAttributes",["ripple","secondary","primary"]);let ct=z;const Ee=document.createElement("template");Ee.innerHTML=`
 <style>
     :host {
         font-size: 1.10rem;
@@ -864,7 +888,7 @@
 </style>
 
 <slot></slot>
-`;const Tt=class Tt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ce.content.cloneNode(!0))}};r(Tt,"register",()=>customElements.define("ui-primary",Tt));let at=Tt;const Ee=document.createElement("template");Ee.innerHTML=`
+`;const At=class At extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ee.content.cloneNode(!0))}};r(At,"register",()=>customElements.define("ui-primary",At));let ht=At;const Me=document.createElement("template");Me.innerHTML=`
 <style>
     :host {
         font-size: 0.9rem;
@@ -877,4 +901,4 @@
 </style>
 
 <slot></slot>
-`;const Ht=class Ht extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Ee.content.cloneNode(!0))}};r(Ht,"register",()=>customElements.define("ui-secondary",Ht));let ct=Ht;var p;class Qe{constructor(){n(this,p,null);this.currentTheme=null,this.themes={}}enableAutoMode(){if(this.removeMode(),s(this,p)){this.mediaChangeHandler(s(this,p));return}l(this,p,window.matchMedia("(prefers-color-scheme: dark)")),s(this,p).addEventListener("change",this.mediaChangeHandler),this.mediaChangeHandler(s(this,p))}disableAutoMode(){this.removeMedia()}addTheme(t,e){this.themes[t]=e}loadTheme(t){var o;if(!this.themes[t])throw`theme "${t}" is missing in this.themes`;if(((o=this.currentTheme)==null?void 0:o.name)==t)return;{const a=document.getElementById("theme");a&&(document.head.removeChild(a),this.currentTheme=null)}const e=document.createElement("link");e.id="theme",e.rel="stylesheet",e.href=this.themes[t],document.head.appendChild(e),this.currentTheme={name:t,href:this.themes[t]}}mediaChangeHandler(t){t.matches?document.body.setAttribute("data-theme","dark"):document.body.setAttribute("data-theme","light")}removeMode(t=document.body){t.removeAttribute("data-theme")}setMode(t,e=document.body){switch(t){case"dark":e.setAttribute("data-theme",t);break;case"light":e.setAttribute("data-theme",t);break}}removeMedia(){s(this,p)&&(s(this,p).removeEventListener("change",this.mediaChangeHandler),l(this,p,null))}}p=new WeakMap;const z=class z extends HTMLElement{constructor(){super(),this.ui=new Qe}attributeChangedCallback(t,e,o){switch(t){case"auto":o!==null?this.ui.enableAutoMode():this.ui.disableAutoMode();break;case"mode":o!==null?this.ui.setMode(o):this.ui.removeMode();break}}};r(z,"register",()=>customElements.define("ui-theme-handler",z)),r(z,"observedAttributes",["auto","mode"]);let ht=z;const We=Object.freeze(Object.defineProperty({__proto__:null,AppBar:Y,Button:K,Container:W,Dialog:G,FlexGrid:tt,FlexGridItem:F,FlexGridRow:_,IconButton:Q,Label:lt,Lang:st,LangType:it,Primary:at,Secondary:ct,Select:et,SelectOption:q,StackLayout:rt,StackLayoutPage:ot,Store:nt,ThemeHandler:ht,svg:g},Symbol.toStringTag,{value:"Module"}));async function Ge(){Y.register(),Q.register(),K.register(),W.register(),F.register(),_.register(),tt.register(),q.register(),et.register(),it.register(),st.register(),ot.register(),rt.register(),nt.register(),ct.register(),at.register(),lt.register(),ht.register(),G.register()}async function Fe(){g.BackArrowNavigation.register(),g.ChevronDown.register(),g.Close.register(),g.DeleteRecycleBin.register(),g.Edit2.register(),g.PDFDocument.register(),g.Settings.register(),g.TodayOutline.register()}const _e={js:Ue,wc:We,define:Ge,defineSVG:Fe};module.exports=_e;
+`;const $t=class $t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Me.content.cloneNode(!0))}};r($t,"register",()=>customElements.define("ui-secondary",$t));let dt=$t;var p;class _e{constructor(){n(this,p,null);this.currentTheme=null,this.themes={}}enableAutoMode(){if(this.removeMode(),s(this,p)){this.mediaChangeHandler(s(this,p));return}l(this,p,window.matchMedia("(prefers-color-scheme: dark)")),s(this,p).addEventListener("change",this.mediaChangeHandler),this.mediaChangeHandler(s(this,p))}disableAutoMode(){this.removeMedia()}addTheme(t,e){this.themes[t]=e}loadTheme(t){var o;if(!this.themes[t])throw`theme "${t}" is missing in this.themes`;if(((o=this.currentTheme)==null?void 0:o.name)==t)return;{const a=document.getElementById("theme");a&&(document.head.removeChild(a),this.currentTheme=null)}const e=document.createElement("link");e.id="theme",e.rel="stylesheet",e.href=this.themes[t],document.head.appendChild(e),this.currentTheme={name:t,href:this.themes[t]}}mediaChangeHandler(t){t.matches?document.body.setAttribute("data-theme","dark"):document.body.setAttribute("data-theme","light")}removeMode(t=document.body){t.removeAttribute("data-theme")}setMode(t,e=document.body){switch(t){case"dark":e.setAttribute("data-theme",t);break;case"light":e.setAttribute("data-theme",t);break}}removeMedia(){s(this,p)&&(s(this,p).removeEventListener("change",this.mediaChangeHandler),l(this,p,null))}}p=new WeakMap;const U=class U extends HTMLElement{constructor(){super(),this.ui=new _e}attributeChangedCallback(t,e,o){switch(t){case"auto":o!==null?this.ui.enableAutoMode():this.ui.disableAutoMode();break;case"mode":o!==null?this.ui.setMode(o):this.ui.removeMode();break}}};r(U,"register",()=>customElements.define("ui-theme-handler",U)),r(U,"observedAttributes",["auto","mode"]);let ut=U;const ts=Object.freeze(Object.defineProperty({__proto__:null,AppBar:K,Button:Q,Card:F,Container:G,Dialog:_,FlexGrid:st,FlexGridItem:tt,FlexGridRow:et,IconButton:W,Label:ct,Lang:ot,LangType:rt,Primary:ht,Secondary:dt,Select:it,SelectOption:O,StackLayout:at,StackLayoutPage:nt,Store:lt,ThemeHandler:ut,svg:g},Symbol.toStringTag,{value:"Module"}));async function es(){K.register(),W.register(),Q.register(),F.register(),G.register(),tt.register(),et.register(),st.register(),O.register(),it.register(),rt.register(),ot.register(),nt.register(),at.register(),lt.register(),dt.register(),ht.register(),ct.register(),ut.register(),_.register()}async function ss(){g.BackArrowNavigation.register(),g.ChevronDown.register(),g.Close.register(),g.DeleteRecycleBin.register(),g.Edit2.register(),g.PDFDocument.register(),g.Settings.register(),g.TodayOutline.register()}const is={js:Ue,wc:ts,define:es,defineSVG:ss};module.exports=is;

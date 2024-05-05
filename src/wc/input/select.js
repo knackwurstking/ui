@@ -7,11 +7,9 @@ import { Events } from "../../js/events";
  * }} SelectEvents
  */
 
-// {{{ Content Template
+// {{{ innerHTML
 
-const template = document.createElement("template")
-
-template.innerHTML = `
+const innerHTML = `
 <style>
     * {
         box-sizing: border-box;
@@ -21,12 +19,19 @@ template.innerHTML = `
         --items-length: 0;
         position: relative; 
         display: block;
+
         width: 100%;
-        height: calc(1em * var(--line-height) + var(--spacing) * 2);
-        border: var(--border-width) var(--border-style) hsl(var(--border));
-        border-radius: var(--radius);
+        height: calc(1em * var(--ui-line-height) + var(--ui-spacing) * 2);
         transition: height 0.25s ease;
+
+        background-color: var(--ui-select-bgColor);
+        color: var(--ui-select-color);
+
+        border: 1px solid var(--ui-select-borderColor);
+        border-radius: var(--ui-select-radius);
+
         line-height: 1.15;
+
         overflow: hidden;
     }
 
@@ -47,7 +52,7 @@ template.innerHTML = `
         right: 0;
         width: 2.5rem;
         height: 100%;
-        color: hsl(var(--primary));
+        color: var(--ui-primary-bgColor);
     }
 
     ::slotted(ui-select-option) {
@@ -55,7 +60,7 @@ template.innerHTML = `
     }
 
     :host(.open) {
-        height: calc((1em * var(--line-height) + var(--spacing) * 2) * var(--items-length));
+        height: calc((1em * var(--ui-line-height) + var(--ui-spacing) * 2) * var(--items-length));
     }
 
     :host(.open) .options {
@@ -67,12 +72,12 @@ template.innerHTML = `
     }
 
     :host(.open) ::slotted(ui-select-option[selected]) {
-        background-color: hsl(var(--primary));
-        color: hsl(var(--primary-fg));
+        background-color: var(--ui-select-selected-bgColor);
+        color: var(--ui-select-selected-color);
     }
 
     :host(.open) ::slotted(ui-select-option:not([selected]):hover) {
-        background-color: hsl(var(--fg), 0.1);
+        background-color: var(--ui-select-bgColor--hover);
     }
 
     :host(:not(.open)) .options:has(> ::slotted(ui-select-option[selected])) {
@@ -119,8 +124,8 @@ export class Select extends HTMLElement {
 
     constructor() { // {{{
         super();
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.attachShadow({ mode: "open" })
+        this.shadowRoot.innerHTML = innerHTML;
 
         this.cleanup = []
 

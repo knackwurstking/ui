@@ -8,7 +8,7 @@ export default function rippleStart(ev: PointerEvent & {
 }, options: import(".").RippleOptions): HTMLElement;
 export namespace defaultOptions {
     let color: string;
-    let opacity: number;
+    let opacity: string;
     let centered: boolean;
     let spreadDuration: string;
     let spreadTiming: string;

@@ -1,9 +1,5 @@
 /* {{{ Global */
 
-:root {
-    --app-bar-height: 3rem;
-}
-
 *,
 *::before,
 *::after {
@@ -12,18 +8,18 @@
 }
 
 ::selection {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-fg));
+    background-color: var(--ui-primary-bgColor);
+    color: var(--ui-primary-color);
 }
 
 html {
-    font-size: var(--font-size);
-    background-color: hsl(var(--bg));
-    color: hsl(var(--fg));
+    font-size: var(--ui-font-size);
+    background-color: var(--ui-bgColor);
+    color: var(--ui-color);
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--ui-font-family);
     font-variation-settings:
         "CASL" 1,
         "MONO" 0,
@@ -36,11 +32,11 @@ body {
 /* {{{  Article, Section */
 
 article {
-    padding: var(--spacing);
+    padding: var(--ui-spacing);
 }
 
 section {
-    padding: var(--spacing) 0;
+    padding: var(--ui-spacing) 0;
 }
 
 /* }}} */
@@ -49,9 +45,9 @@ section {
 
 hr {
     border: none;
-    height: var(--border-width);
-    margin: var(--spacing) 0;
-    background-color: hsl(var(--border));
+    height: 1px;
+    margin: var(--ui-spacing) 0;
+    background-color: var(--ui-border-color);
 }
 
 /* }}} */
@@ -103,11 +99,11 @@ h6 {
 
 code,
 pre {
-    padding: calc(var(--spacing) / 2);
-    border: var(--border-width) var(--border-style) hsl(var(--border));
-    border-radius: var(--radius);
-    background-color: hsl(var(--muted));
-    color: hsl(var(--muted-fg));
+    background-color: var(--ui-muted-bgColor);
+    color: var(--ui-muted-color);
+    border: 1px solid var(--ui-border-color);
+    border-radius: var(--ui-radius);
+    padding: var(--ui-spacing);
     font-variation-settings:
         "CASL" 0,
         "MONO" 1,
@@ -131,7 +127,7 @@ ui-icon-button,
 ui-button {
     font-size: 1.1rem;
     font-weight: 450;
-    font-family: var(--font-family);
+    font-family: var(--ui-font-family);
     font-variation-settings:
         "CASL" 1,
         "MONO" 0,
@@ -142,38 +138,50 @@ ui-button {
 
 /* {{{ (UI-)Select, Input, Textarea */
 
-select,
 input,
 textarea {
     display: block;
-    border: var(--border-width) var(--border-style) hsl(var(--border));
-    border-radius: var(--radius);
+
+    border: 1px solid var(--ui-input-borderColor);
+    border-radius: var(--ui-input-radius);
     transition: border-color 0.25s linear;
-    background-color: transparent;
-    color: hsl(var(--fg));
+
+    background-color: var(--ui-input-bgColor);
+    color: var(--ui-input-color);
+
     box-shadow: none;
     outline: none;
+
     font-size: 0.9rem;
-    font-family: var(--font-family);
-    font-variation-settings:
-        "CASL" 1,
-        "MONO" 1,
-        "slnt" 0;
-    padding: var(--spacing) calc(var(--spacing) * 2);
+    font-family: var(--ui-input-fontFamily);
+    font-variation-settings: var(--ui-input-fontVariation);
+
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 }
 
-select,
-ui-select {
+select {
+    display: block;
+
+    border: 1px solid var(--ui-select-borderColor);
+    border-radius: var(--ui-select-radius);
+    transition: border-color 0.25s linear;
+
+    background-color: var(--ui-select-bgColor);
+    color: var(--ui-select-color);
+
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
+    box-shadow: none;
+    outline: none;
+
     font-size: 0.9rem;
-    font-variation-settings:
-        "CASL" 1,
-        "MONO" 1,
-        "slnt" 0;
+    font-family: var(--ui-select-fontFamily);
+    font-variation-settings: var(--ui-select-fontVariation);
 }
 
 input {
     border: none;
-    border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
+    border-bottom: 1px solid var(--ui-input-borderColor);
 }
 
 input[type="number"] {
@@ -191,23 +199,22 @@ input[type="checkbox"] {
     cursor: pointer;
     height: 1.5rem;
     width: 1.5rem;
-    accent-color: hsl(var(--secondary));
+    /*accent-color: var(--ui-secondary-bgColor);*/
 }
 
 input[type="color"] {
-    height: calc(var(--spacing) * 2 + 2rem);
-    padding: var(--spacing) var(--spacing);
+    height: calc(var(--ui-spacing) * 2 + 2rem);
+    padding: var(--ui-spacing);
     cursor: pointer;
 }
 
 input[aria-invalid="true"] {
-    border-color: hsl(var(--destructive));
-    outline-color: hsl(var(--destructive));
+    border-color: var(--ui-input-borderColor--invalid);
 }
 
 input:focus:not([type=checkbox]),
 textarea:focus {
-    border-color: hsl(var(--primary));
+    border-color: var(--ui-input-borderColor--focus);
 }
 
 input:disabled {
@@ -220,12 +227,12 @@ input:disabled {
 
 ul {
     list-style: none;
-    padding: var(--spacing);
+    padding: var(--ui-spacing);
     overflow: hidden;
 }
 
 ul > * {
-    padding: var(--spacing);
+    padding: var(--ui-spacing);
 }
 
 /* }}} */
@@ -241,7 +248,7 @@ table {
     user-select: none;
 
     border-collapse: collapse;
-    border: var(--border-width) var(--border-style) hsl(var(--border));
+    border: 1px solid var(--ui-border-color);
 }
 
 thead {
@@ -261,13 +268,13 @@ tbody {
 }
 
 th {
-    background-color: hsl(var(--border));
+    background-color: var(--ui-border-color);
 }
 
 th,
 td {
-    padding: var(--spacing);
-    border: var(--border-width) var(--border-style) hsl(var(--border));
+    padding: var(--ui-spacing);
+    border: 1px solid var(--ui-border-color);
 }
 
 td {

@@ -1,5 +1,6 @@
 export class Select extends HTMLElement {
     static register: () => void;
+    cleanup: any[];
     /** @type {UI} */
     ui: UI;
     connectedCallback(): void;
@@ -9,11 +10,7 @@ export class Select extends HTMLElement {
      * @param {Event} ev
      */
     private onClickOptions;
-    /**
-     * @private
-     * @param {MouseEvent | PointerEvent} ev
-     */
-    private onClick;
+    #private;
 }
 export type SelectEvents = {
     "change": SelectOption;

@@ -1,5 +1,6 @@
-export * from "./app-bar";
+export { AppBar } from "./app-bar";
 export * from "./button";
+export { Card } from "./card";
 export * from "./container";
 export * from "./dialog";
 export * from "./flex-grid";

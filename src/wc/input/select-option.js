@@ -4,14 +4,23 @@ template.innerHTML = `
 <style>
     :host {
         display: none;
-        padding: var(--spacing);
-        padding-right: 2rem;
-        transition: background-color 0.25s linear;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: calc(1em * var(--line-height) + var(--spacing) * 2);
         align-items: center;
+
+        padding: var(--ui-spacing);
+        padding-right: 2rem;
+
+        height: calc(1em * var(--ui-line-height) + var(--ui-spacing) * 2);
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        transition: background-color 0.25s linear, color 0.25s linear;
+
+        font-size: 0.9rem;
+        font-family: var(--ui-select-fontFamily);
+        font-variation-settings: var(--ui-select-fontVariation);
+
+        overflow: hidden;
     }
 </style>
 
