@@ -1,6 +1,4 @@
-const template = document.createElement("template")
-
-template.innerHTML = `
+const innerHTML = `
 <style>
     :host {
         display: none;
@@ -62,10 +60,9 @@ export class SelectOption extends HTMLElement {
 
     constructor() {
         super();
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.innerHTML = innerHTML;
 
-        this.attachShadow({ mode: "open" })
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
-
-        this.ui = new UI(this)
+        this.ui = new UI(this);
     }
 }
