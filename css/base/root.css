@@ -32,8 +32,10 @@
     --ui-ripple-color: currentColor;
     --ui-ripple-opacity: 0.2;
 
+    color-scheme: light;
+
     /*
-        TODO: ui-app-bar component
+        ui-app-bar component
     */
 
     --ui-app-bar-bgColor: hsla(var(--ui-bgColor), .2);
@@ -50,14 +52,13 @@
     */
 
     /*
-        TODO: ui-card component
+        ui-card component
     */
 
     --ui-card-bgColor: hsla(240, 10%, 92.1%, 1);
     --ui-card-color: hsla(240, 10%, 3.9%, 1);
     --ui-card-borderColor: var(--ui-border-color);
     --ui-card-radius: var(--ui-radius);
-    --ui-card-spacing: var(--ui-spacing);
 
     /*
         TODO: ui-dialog component
@@ -96,6 +97,4 @@
     --ui-input-radius: var(--ui-radius);
     --ui-input-fontFamily: var(--ui-fontFamily);
     --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
-
-    color-scheme: light;
 }

@@ -17,7 +17,7 @@ const innerHTML = `
         left: 0;
         width: 100%;
         height: var(--ui-app-bar-height);
-        border-bottom: 1px solid var(--ui-app-bar-border-color);
+        border-bottom: 1px solid var(--ui-app-bar-borderColor);
     }
 
     :host > ui-flex-grid-row {

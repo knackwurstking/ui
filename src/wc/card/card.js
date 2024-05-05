@@ -2,9 +2,9 @@ const innerHTML = `
 <style>
     background-color: var(--ui-card-bgColor);
     color: var(--ui-card-color);
-    border: 1px solid var(--ui-card-border-color);
+    border: 1px solid var(--ui-card-borderColor);
     border-radius: var(--ui-card-radius);
-    padding: var(--ui-card-spacing);
+    padding: var(--ui-spacing);
 </style>
 `;
 
