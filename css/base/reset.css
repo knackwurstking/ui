@@ -19,7 +19,7 @@
   4. Improve text rendering
 */
 body {
-    line-height: var(--ui-line-height);
+    line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
 

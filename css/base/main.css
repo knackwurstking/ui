@@ -19,9 +19,10 @@ html {
 }
 
 body {
-    font-family: var(--ui-font-family);
+    font-family: var(--ui-fontFamily);
     font-variation-settings: var(--ui-fontVariation);
     font-size: 100%;
+    line-height: var(--ui-lineHeight);
 }
 
 /* }}} */
