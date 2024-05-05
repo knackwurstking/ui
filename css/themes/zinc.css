@@ -1,67 +1,47 @@
-/*
 [data-theme="light"] {
-    --bg: 240, 10%, 96.1%;
-    --fg: 240, 10%, 10%;
+    --ui-bgColor-hsl: 240, 10%, 96.1%;
+    --ui-color-hsl: 240, 10%, 10%;
 
-    --card: 240, 10%, 92.1%;
-    --card-fg: 240, 10%, 3.9%;
+    --ui-primary-bgColor: hsla(240, 10%, 3.9%, 1);
+    --ui-primary-color: hsla(240, 10%, 98%, 1);
 
-    --primary: 240, 5.9%, 3.9%;
-    --primary-fg: 240, 0%, 98%;
+    --ui-secondary-bgColor: hsla(240, 10%, 75%, 1);
+    --ui-secondary-color: hsla(240, 10%, 10%, 1);
 
-    --secondary: 240, 5.9%, 75%;
-    --secondary-fg: 240, 5.9%, 10%;
+    --ui-destructive-bgColor: hsla(0, 72.22%, 50.59%, 1);
+    --ui-destructive-color: hsla(0, 0%, 98%, 1);
 
-    --muted: 240, 4.8%, 95.9%;
-    --muted-fg: 240, 3.8%, 46.1%;
+    --ui-borderColor: hsla(240, 10%, 82%, 1);
 
-    --destructive: 0, 72.22%, 50.59%;
-    --destructive-fg: 0, 0%, 98%;
+    --ui-muted-bgColor: hsla(240, 10%, 95.9%, 1);
+    --ui-muted-color: hsla(240, 10%, 46.1%, 1);
 
-    --border: 240, 5.9%, 82%;
-    --border-width: 1px;
-    --border-style: solid;
+    --ui-card-bgColor: hsla(240, 10%, 92.1%, 1);
+    --ui-card-color: hsla(240, 10%, 3.9%, 1);
 
-    --font-size: 16px;
-
-    --radius: 0.25rem;
-    --spacing: 5px;
-
-    background: hsl(var(--bg));
-    color: hsl(var(--fg));
     color-scheme: light;
 }
 
 [data-theme="dark"] {
-    --bg: 240, 10%, 3.9%;
-    --fg: 240, 10%, 90%;
+    --ui-bgColor-hsl: 240, 10%, 3.9%;
+    --ui-color-hsl: 240, 10%, 90%;
 
-    --card: 240, 10%, 7.9%;
-    --card-fg: 240, 0%, 98%;
+    --ui-primary-bgColor: hsla(240, 10%, 98%, 1);
+    --ui-primary-color: hsla(240, 10%, 10%, 1);
 
-    --primary: 240, 5.9%, 98%;
-    --primary-fg: 240, 0%, 10%;
+    --ui-secondary-bgColor: hsla(240, 10%, 25%, 1);
+    --ui-secondary-color: hsla(240, 10%, 98%, 1);
 
-    --secondary: 240, 5.9%, 25%;
-    --secondary-fg: 240, 5.9%, 98%;
+    --ui-destructive-bgColor: hsla(0, 62.8%, 30.6%, 1);
+    --ui-destructive-color: hsla(0, 0%, 98%, 1);
 
-    --muted: 240, 3.7%, 15.9%;
-    --muted-fg: 240, 5%, 64.9%;
+    --ui-borderColor: hsla(240, 10%, 18%, 1);
 
-    --destructive: 0, 62.8%, 30.6%;
-    --destructive-fg: 0, 0%, 98%;
+    --ui-muted-bgColor: hsla(240, 10%, 15.9%, 1);
+    --ui-muted-color: hsla(240, 10%, 64.9%, 1);
 
-    --border: 240, 5.9%, 18%;
-    --border-width: 1px;
-    --border-style: solid;
+    --ui-card-bgColor: hsla(240, 10%, 7.9%, 1);
+    --ui-card-color: hsla(240, 10%, 98%, 1);
 
-    --font-size: 16px;
-
-    --radius: 0.25rem;
-    --spacing: 5px;
-
-    background: hsl(var(--bg));
-    color: hsl(var(--fg));
     color-scheme: dark;
 }
-*/

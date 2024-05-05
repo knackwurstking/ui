@@ -129,5 +129,5 @@
     --ui-input-borderColor--invalid: var(--ui-destructive-bgColor);
     --ui-input-radius: var(--ui-radius);
     --ui-input-fontFamily: var(--ui-fontFamily);
-    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0 /* --ui-color & 0.1 alpha */;
+    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
 }
