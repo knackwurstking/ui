@@ -244,7 +244,7 @@ table {
     user-select: none;
 
     border-collapse: collapse;
-    border: 1px solid var(--ui-border-color);
+    border: 1px solid var(--ui-borderColor);
 }
 
 thead {
@@ -264,13 +264,13 @@ tbody {
 }
 
 th {
-    background-color: var(--ui-border-color);
+    background-color: var(--ui-borderColor);
 }
 
 th,
 td {
     padding: var(--ui-spacing);
-    border: 1px solid var(--ui-border-color);
+    border: 1px solid var(--ui-borderColor);
 }
 
 td {
