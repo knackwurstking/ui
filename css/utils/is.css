@@ -33,6 +33,14 @@
     color: hsl(var(--destructive));
 }
 
+.is-card {
+    background-color: var(--ui-card-bgColor);
+    color: var(--ui-card-color);
+    border: 1px solid var(--ui-card-borderColor);
+    border-radius: var(--ui-card-radius);
+    padding: var(--ui-spacing);
+}
+
 .is-outline-text {
     -webkit-text-stroke-width: 0.05rem;
     -webkit-text-stroke-color: hsl(var(--fg));
