@@ -44,12 +44,16 @@
     --ui-app-bar-height: 3rem;
 
     /*
-        TODO: ui-button component
+        ui-button component
     */
 
+    --ui-button-radius: var(--ui-radius);
+
     /*
-        TODO: ui-icon-button component
+        ui-icon-button component
     */
+
+    --ui-icon-button-radius: var(--ui-radius);
 
     /*
         ui-card component

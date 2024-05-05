@@ -1,18 +1,17 @@
 import { ripple } from "../../js";
 
-// {{{ Content Template
+// {{{ innerHTML
 
-const template = document.createElement("template");
-template.innerHTML = `
+const innerHTML = `
 <style>
     :host {
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        padding: var(--spacing) calc(var(--spacing) * 2.5);
-        border: var(--border-width) var(--border-style) currentColor;
-        border-radius: var(--radius);
+        padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
+        border: 1px solid currentColor;
+        border-radius: var(--ui-button-radius);
         overflow: hidden;
         text-transform: capitalize;
         cursor: pointer;
@@ -25,18 +24,18 @@ template.innerHTML = `
     }
 
     :host([variant="full"][color="primary"]) {
-        background-color: hsl(var(--primary));
-        color: hsl(var(--primary-fg));
+        background-color: hsl(var(--ui-primary-bgColor));
+        color: hsl(var(--ui-primary-color));
     }
 
     :host([variant="full"][color="secondary"]) {
-        background-color: hsl(var(--secondary));
-        color: hsl(var(--secondary-fg));
+        background-color: hsl(var(--ui-secondary-bgColor));
+        color: hsl(var(--ui-secondary-color));
     }
 
     :host([variant="full"][color="destructive"]) {
-        background-color: hsl(var(--destructive));
-        color: hsl(var(--destructive-fg));
+        background-color: hsl(var(--ui-destructive-bgColor));
+        color: hsl(var(--ui-destructive-color));
     }
 
     :host([variant="outline"]) {
@@ -45,15 +44,15 @@ template.innerHTML = `
     }
 
     :host([variant="outline"][color="primary"]) {
-        color: hsl(var(--primary));
+        color: hsl(var(--ui-primary-bgColor));
     }
 
     :host([variant="outline"][color="secondary"]) {
-        color: hsl(var(--secondary));
+        color: hsl(var(--ui-secondary-bgColor));
     }
 
     :host([variant="outline"][color="destructive"]) {
-        color: hsl(var(--destructive));
+        color: hsl(var(--ui-destructive-bgColor));
     }
 
     :host([variant="ghost"]) {
@@ -62,15 +61,15 @@ template.innerHTML = `
     }
 
     :host([variant="ghost"][color="primary"]) {
-        color: hsl(var(--primary));
+        color: hsl(var(--ui-primary-bgColor));
     }
 
     :host([variant="ghost"][color="secondary"]) {
-        color: hsl(var(--secondary));
+        color: hsl(var(--ui-secondary-bgColor));
     }
 
     :host([variant="ghost"][color="destructive"]) {
-        color: hsl(var(--destructive));
+        color: hsl(var(--ui-destructive-bgColor));
     }
 
     :host(:disabled),
@@ -117,9 +116,8 @@ export class Button extends HTMLElement {
 
     constructor() {
         super();
-
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = innerHTML;
 
         this.ui = new UI(this)
     }

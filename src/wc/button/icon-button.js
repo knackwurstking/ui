@@ -1,9 +1,8 @@
 import { ripple } from "../../js";
 
-// {{{ Content Template
+// {{{ innerHTML
 
-const template = document.createElement("template");
-template.innerHTML = `
+const innerHTML = `
 <style>
     :host {
         display: flex;
@@ -12,9 +11,9 @@ template.innerHTML = `
         position: relative;
         width: 2rem;
         height: 2rem;
-        padding: calc(var(--spacing) / 2);
-        border: var(--border-width) var(--border-style) hsl(var(--border));
-        border-radius: var(--radius);
+        padding: calc(var(--ui-spacing) / 2);
+        border: 1px solid currentColor;
+        border-radius: var(--ui-icon-button-radius);
         outline: none;
         overflow: hidden;
         cursor: pointer;
@@ -27,18 +26,18 @@ template.innerHTML = `
     }
 
     :host([color="primary"]) {
-        color: hsl(var(--primary));
-        border-color: hsl(var(--primary));
+        color: var(--ui-primary-bgColor);
+        border-color: var(--ui-primary-bgColor);
     }
 
     :host([color="secondary"]) {
-        color: hsl(var(--secondary));
-        border-color: hsl(var(--secondary));
+        color: var(--ui-secondary-bgColor);
+        border-color: var(--ui-secondary-bgColor);
     }
 
     :host([color="destructive"]) {
-        color: hsl(var(--destructive));
-        border-color: hsl(var(--destructive));
+        color: var(--ui-destructive-bgColor);
+        border-color: var(--ui-destructive-bgColor);
     }
 
     /* :disabled */
@@ -85,9 +84,8 @@ export class IconButton extends HTMLElement {
 
     constructor() {
         super();
-
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = innerHTML;
 
         this.ui = new UI(this)
     }
