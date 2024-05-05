@@ -10,6 +10,7 @@
 
     --ui-fontFamily: "RecVar";
     --ui-fontSize: 16px;
+    --ui-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
 
     --ui-bgColor: hsla(240, 10%, 96.1%, 1);
     --ui-color: hsla(240, 10%, 10%, 1);
@@ -40,6 +41,21 @@
     --ui-muted-radius: var(--ui-radius);
     --ui-muted-fontFamily: var(--ui-fontFamily);
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
+
+    /*
+        ui-primary component
+    */
+
+    --ui-primary-fontFamily: var(--ui-fontFamily);
+    --ui-primary-fontVariation: var(--ui-fontVariation);
+
+    /*
+        ui-secondary component
+    */
+
+    --ui-secondary-fontFamily: var(--ui-fontFamily);
+    --ui-secondary-fontVariation: "CASL" 1, "MONO" 0, "slnt" -15;
+
     /*
         ui-app-bar component
     */

@@ -1,12 +1,9 @@
 const innerHTML = `
 <style>
     :host {
-        font-size: 1.10rem;
-        font-family: var(--font-family);
-        font-variation-settings:
-            "CASL" 1,
-            "MONO" 0,
-            "slnt" 0;
+        font-size: 1.1rem;
+        font-family: var(--ui-primary-fontFamily);
+        font-variation-settings: var(--ui-primary-fontVariation);
     }
 </style>
 

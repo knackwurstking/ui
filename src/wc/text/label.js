@@ -7,8 +7,8 @@ const innerHTML = `
         display: flex;
         flex-direction: row;
         width: 100%;
-        padding: calc(var(--spacing) / 4) calc(var(--spacing) / 2);
-        border-radius: var(--radius);
+        padding: calc(var(--ui-spacing) / 4) calc(var(--ui-spacing) / 2);
+        border-radius: var(--ui-radius);
     }
 
     :host > .text {
@@ -17,7 +17,7 @@ const innerHTML = `
         justify-content: center;
         min-width: fit-content;
         width: 100%;
-        margin-right: var(--spacing);
+        margin-right: var(--ui-spacing);
     }
 
     :host > .input {

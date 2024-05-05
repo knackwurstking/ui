@@ -452,7 +452,7 @@
 </style>
 
 <slot></slot>
-`;var f,Ft;let $e=(Ft=class{constructor(t){n(this,f,void 0);l(this,f,t)}get value(){return i(this,f).getAttribute("value")}set value(t){i(this,f).setAttribute("value",t)}get selected(){return i(this,f).hasAttribute("selected")}set selected(t){t?i(this,f).setAttribute("selected",""):i(this,f).removeAttribute("selected")}},f=new WeakMap,Ft);const vt=class vt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Re,this.ui=new $e(this)}};r(vt,"register",()=>customElements.define("ui-select-option",vt));let q=vt;const Ae=`
+`;var f,Ft;let $e=(Ft=class{constructor(t){n(this,f,void 0);l(this,f,t)}get value(){return i(this,f).getAttribute("value")}set value(t){i(this,f).setAttribute("value",t)}get selected(){return i(this,f).hasAttribute("selected")}set selected(t){t?i(this,f).setAttribute("selected",""):i(this,f).removeAttribute("selected")}},f=new WeakMap,Ft);const vt=class vt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Re,this.ui=new $e(this)}};r(vt,"register",()=>customElements.define("ui-select-option",vt));let O=vt;const Ae=`
 <style>
     * {
         box-sizing: border-box;
@@ -537,7 +537,7 @@
 
     <slot></slot>
 </div>
-`;let je=class{constructor(){this.events=new S}};var N;const bt=class bt extends HTMLElement{constructor(){super();n(this,N,async e=>{(e.composedPath()||[]).forEach(o=>{o instanceof q&&([...this.querySelectorAll("ui-select-option")].forEach(a=>a.removeAttribute("selected")),o.setAttribute("selected",""),this.ui.events.dispatch("change",o))})});this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ae,this.cleanup=[],this.ui=new je}connectedCallback(){const e=this.shadowRoot.querySelector(".options"),o=this.onClickOptions.bind(this);e.addEventListener("click",o),this.cleanup.push(()=>{this.removeEventListener("click",o),e.removeEventListener("click",this.onClickOptions)}),this.style.setProperty("--items-length",this.querySelectorAll("ui-select-option").length.toString())}disconnectedCallback(){this.cleanup.forEach(e=>e()),this.cleanup=[]}async onClickOptions(e){this.classList.toggle("open")?(e.stopPropagation(),this.addEventListener("click",i(this,N))):setTimeout(()=>this.removeEventListener("click",i(this,N)))}};N=new WeakMap,r(bt,"register",()=>customElements.define("ui-select",bt));let st=bt;var J,C,B,Gt;let Ie=(Gt=class{constructor(t){n(this,J,void 0);n(this,C,void 0);n(this,B,void 0);l(this,J,t),l(this,C,new S),this.langType=null}getFallbackElement(){return i(this,J).querySelector("ui-lang-type[fallback]")}new(t,e){this.langType=t,l(this,B,e),i(this,C).dispatch("change",this.langType)}get(t,e){var o;return(o=i(this,B))==null?void 0:o[t][e]}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.langType),i(this,C).on(t,e)}},J=new WeakMap,C=new WeakMap,B=new WeakMap,Gt);const U=class U extends HTMLElement{constructor(){super(),this.ui=new Ie(this)}attributeChangedCallback(t,e,o){switch(t){case"current":o!==null&&this._loadLanguage(o);break}}async _loadLanguage(t){const e=this.querySelector(`ui-lang-type[name="${t}"]`)||this.ui.getFallbackElement();if(!e)return;if(!e.ui.href)throw"Missing href attribute!";const o=await fetch(e.ui.href);this.ui.new(e,await o.json())}};r(U,"register",()=>customElements.define("ui-lang",U)),r(U,"observedAttributes",["current"]);let ot=U;var u,_t;let Ue=(_t=class{constructor(t){n(this,u,void 0);l(this,u,t)}get name(){return i(this,u).getAttribute("name")}set name(t){i(this,u).setAttribute("name",t)}get href(){return i(this,u).getAttribute("href")}set href(t){i(this,u).setAttribute("href",t)}get fallback(){return i(this,u).hasAttribute("fallback")}set fallback(t){t?i(this,u).setAttribute("fallback",""):i(this,u).removeAttribute("fallback")}},u=new WeakMap,_t);const wt=class wt extends HTMLElement{constructor(){super(),this.ui=new Ue(this)}};r(wt,"register",()=>customElements.define("ui-lang-type",wt));let rt=wt;const ze=`
+`;let je=class{constructor(){this.events=new S}};var N;const bt=class bt extends HTMLElement{constructor(){super();n(this,N,async e=>{(e.composedPath()||[]).forEach(o=>{o instanceof O&&([...this.querySelectorAll("ui-select-option")].forEach(a=>a.removeAttribute("selected")),o.setAttribute("selected",""),this.ui.events.dispatch("change",o))})});this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ae,this.cleanup=[],this.ui=new je}connectedCallback(){const e=this.shadowRoot.querySelector(".options"),o=this.onClickOptions.bind(this);e.addEventListener("click",o),this.cleanup.push(()=>{this.removeEventListener("click",o),e.removeEventListener("click",this.onClickOptions)}),this.style.setProperty("--items-length",this.querySelectorAll("ui-select-option").length.toString())}disconnectedCallback(){this.cleanup.forEach(e=>e()),this.cleanup=[]}async onClickOptions(e){this.classList.toggle("open")?(e.stopPropagation(),this.addEventListener("click",i(this,N))):setTimeout(()=>this.removeEventListener("click",i(this,N)))}};N=new WeakMap,r(bt,"register",()=>customElements.define("ui-select",bt));let st=bt;var J,C,B,Gt;let Ie=(Gt=class{constructor(t){n(this,J,void 0);n(this,C,void 0);n(this,B,void 0);l(this,J,t),l(this,C,new S),this.langType=null}getFallbackElement(){return i(this,J).querySelector("ui-lang-type[fallback]")}new(t,e){this.langType=t,l(this,B,e),i(this,C).dispatch("change",this.langType)}get(t,e){var o;return(o=i(this,B))==null?void 0:o[t][e]}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.langType),i(this,C).on(t,e)}},J=new WeakMap,C=new WeakMap,B=new WeakMap,Gt);const U=class U extends HTMLElement{constructor(){super(),this.ui=new Ie(this)}attributeChangedCallback(t,e,o){switch(t){case"current":o!==null&&this._loadLanguage(o);break}}async _loadLanguage(t){const e=this.querySelector(`ui-lang-type[name="${t}"]`)||this.ui.getFallbackElement();if(!e)return;if(!e.ui.href)throw"Missing href attribute!";const o=await fetch(e.ui.href);this.ui.new(e,await o.json())}};r(U,"register",()=>customElements.define("ui-lang",U)),r(U,"observedAttributes",["current"]);let ot=U;var u,_t;let Ue=(_t=class{constructor(t){n(this,u,void 0);l(this,u,t)}get name(){return i(this,u).getAttribute("name")}set name(t){i(this,u).setAttribute("name",t)}get href(){return i(this,u).getAttribute("href")}set href(t){i(this,u).setAttribute("href",t)}get fallback(){return i(this,u).hasAttribute("fallback")}set fallback(t){t?i(this,u).setAttribute("fallback",""):i(this,u).removeAttribute("fallback")}},u=new WeakMap,_t);const wt=class wt extends HTMLElement{constructor(){super(),this.ui=new Ue(this)}};r(wt,"register",()=>customElements.define("ui-lang-type",wt));let rt=wt;const ze=`
     <style>
         :host {
             display: block;
@@ -566,7 +566,7 @@
     </style>
 
     <slot></slot>
-`;var M,te;let Oe=(te=class{constructor(t){n(this,M,void 0);l(this,M,t)}get name(){return i(this,M).getAttribute("name")}set name(t){i(this,M).setAttribute("name",t)}},M=new WeakMap,te);const yt=class yt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=ze,this.ui=new Oe(this)}};r(yt,"register",()=>customElements.define("ui-stack-layout-page",yt));let nt=yt;const qe=`
+`;var M,te;let qe=(te=class{constructor(t){n(this,M,void 0);l(this,M,t)}get name(){return i(this,M).getAttribute("name")}set name(t){i(this,M).setAttribute("name",t)}},M=new WeakMap,te);const yt=class yt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=ze,this.ui=new qe(this)}};r(yt,"register",()=>customElements.define("ui-stack-layout-page",yt));let nt=yt;const Oe=`
     <style>
         :host {
             display: block;
@@ -577,7 +577,7 @@
     </style>
 
     <slot></slot>
-`;var k,T,ee;let Pe=(ee=class{constructor(t){n(this,k,void 0);n(this,T,{});l(this,k,t),this.events=new S,this.stack=[]}registerPage(t,e){i(this,T)[t]=e}unregisterPage(t){delete i(this,T)[t]}goBack(){if(!this.stack.length)return;const t=this.stack.pop();t.ontransitionend=()=>{t.ontransitionend=null,i(this,k).removeChild(t)},this.stack.length&&i(this,k).appendChild(this.stack[this.stack.length-1]),this.dispatchChangeEvent()}setPage(t){if(this.stack.push(i(this,k).appendChild(i(this,T)[t]().children[0])),this.stack.length>1){const e=this.stack[this.stack.length-2];e.ontransitionend=()=>{e.ontransitionend=null,e.parentElement.removeChild(e)}}this.dispatchChangeEvent()}async dispatchChangeEvent(){this.events.dispatch("change",{newPage:this.stack[this.stack.length-1]||null,oldPage:this.stack[this.stack.length-2]||null})}},k=new WeakMap,T=new WeakMap,ee);const xt=class xt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=qe,this.ui=new Pe(this)}};r(xt,"register",()=>customElements.define("ui-stack-layout",xt));let at=xt;var m,v,ie;let De=(ie=class{constructor(t){n(this,m,void 0);n(this,v,{});l(this,m,t),this.events=new S}get localStoragePrefix(){return i(this,m).getAttribute("local-storage-prefix")}set localStoragePrefix(t){i(this,m).setAttribute("local-storage-prefix",t)}get enableLocalStorage(){return i(this,m).hasAttribute("enable-local-storage")}set enableLocalStorage(t){t?i(this,m).setAttribute("enable-local-storage",""):i(this,m).removeAttribute("enable-local-storage")}get(t){return i(this,v)[t]}set(t,e,o=!1){if(o&&this.enableLocalStorage){const a=JSON.parse(localStorage.getItem(this.localStoragePrefix+t.toString())||"null");i(this,v)[t]=a??e}else i(this,v)[t]=e;this.enableLocalStorage&&localStorage.setItem(this.localStoragePrefix+t.toString(),JSON.stringify(i(this,v)[t])),this.events.dispatch(t,i(this,v)[t])}update(t,e){if(typeof e!="function")throw"callback is not a function";this.set(t,e(i(this,v)[t]))}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.get(t)),this.events.on(t,e)}},m=new WeakMap,v=new WeakMap,ie);const Lt=class Lt extends HTMLElement{constructor(){super(),this.ui=new De(this)}};r(Lt,"register",()=>customElements.define("ui-store",Lt));let lt=Lt;const Ve=`
+`;var k,T,ee;let Pe=(ee=class{constructor(t){n(this,k,void 0);n(this,T,{});l(this,k,t),this.events=new S,this.stack=[]}registerPage(t,e){i(this,T)[t]=e}unregisterPage(t){delete i(this,T)[t]}goBack(){if(!this.stack.length)return;const t=this.stack.pop();t.ontransitionend=()=>{t.ontransitionend=null,i(this,k).removeChild(t)},this.stack.length&&i(this,k).appendChild(this.stack[this.stack.length-1]),this.dispatchChangeEvent()}setPage(t){if(this.stack.push(i(this,k).appendChild(i(this,T)[t]().children[0])),this.stack.length>1){const e=this.stack[this.stack.length-2];e.ontransitionend=()=>{e.ontransitionend=null,e.parentElement.removeChild(e)}}this.dispatchChangeEvent()}async dispatchChangeEvent(){this.events.dispatch("change",{newPage:this.stack[this.stack.length-1]||null,oldPage:this.stack[this.stack.length-2]||null})}},k=new WeakMap,T=new WeakMap,ee);const xt=class xt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Oe,this.ui=new Pe(this)}};r(xt,"register",()=>customElements.define("ui-stack-layout",xt));let at=xt;var m,v,ie;let De=(ie=class{constructor(t){n(this,m,void 0);n(this,v,{});l(this,m,t),this.events=new S}get localStoragePrefix(){return i(this,m).getAttribute("local-storage-prefix")}set localStoragePrefix(t){i(this,m).setAttribute("local-storage-prefix",t)}get enableLocalStorage(){return i(this,m).hasAttribute("enable-local-storage")}set enableLocalStorage(t){t?i(this,m).setAttribute("enable-local-storage",""):i(this,m).removeAttribute("enable-local-storage")}get(t){return i(this,v)[t]}set(t,e,o=!1){if(o&&this.enableLocalStorage){const a=JSON.parse(localStorage.getItem(this.localStoragePrefix+t.toString())||"null");i(this,v)[t]=a??e}else i(this,v)[t]=e;this.enableLocalStorage&&localStorage.setItem(this.localStoragePrefix+t.toString(),JSON.stringify(i(this,v)[t])),this.events.dispatch(t,i(this,v)[t])}update(t,e){if(typeof e!="function")throw"callback is not a function";this.set(t,e(i(this,v)[t]))}on(t,e,o=!1){if(typeof e!="function")throw"callback is not a function";return o&&e(this.get(t)),this.events.on(t,e)}},m=new WeakMap,v=new WeakMap,ie);const Lt=class Lt extends HTMLElement{constructor(){super(),this.ui=new De(this)}};r(Lt,"register",()=>customElements.define("ui-store",Lt));let lt=Lt;const Ve=`
 <style>
     :host {
         width: 100%;
@@ -676,7 +676,7 @@
         fill="currentColor"
     />
 </svg>
-`,Tt=class Tt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Je}};r(Tt,"register",()=>customElements.define("ui-svg-delete-recycle-bin",Tt));let Ot=Tt;const Be=`
+`,Tt=class Tt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Je}};r(Tt,"register",()=>customElements.define("ui-svg-delete-recycle-bin",Tt));let qt=Tt;const Be=`
 <style>
     :host {
         width: 100%;
@@ -707,7 +707,7 @@
         stroke-linejoin="round"
     />
 </svg>;
-`,Et=class Et extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Be}};r(Et,"register",()=>customElements.define("ui-svg-edit2",Et));let qt=Et;const Xe=`
+`,Et=class Et extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Be}};r(Et,"register",()=>customElements.define("ui-svg-edit2",Et));let Ot=Et;const Xe=`
 <style>
     :host {
         width: 100%;
@@ -830,15 +830,15 @@
         y2="160"
     />
 </svg>
-`,Rt=class Rt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ke}};r(Rt,"register",()=>customElements.define("ui-svg-today-outline",Rt));let Vt=Rt;const g={BackArrowNavigation:It,ChevronDown:Ut,Close:zt,DeleteRecycleBin:Ot,Edit2:qt,PDFDocument:Pt,Settings:Dt,TodayOutline:Vt},Qe=`
+`,Rt=class Rt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ke}};r(Rt,"register",()=>customElements.define("ui-svg-today-outline",Rt));let Vt=Rt;const g={BackArrowNavigation:It,ChevronDown:Ut,Close:zt,DeleteRecycleBin:qt,Edit2:Ot,PDFDocument:Pt,Settings:Dt,TodayOutline:Vt},Qe=`
 <style>
     :host {
         position: relative;
         display: flex;
         flex-direction: row;
         width: 100%;
-        padding: calc(var(--spacing) / 4) calc(var(--spacing) / 2);
-        border-radius: var(--radius);
+        padding: calc(var(--ui-spacing) / 4) calc(var(--ui-spacing) / 2);
+        border-radius: var(--ui-radius);
     }
 
     :host > .text {
@@ -847,7 +847,7 @@
         justify-content: center;
         min-width: fit-content;
         width: 100%;
-        margin-right: var(--spacing);
+        margin-right: var(--ui-spacing);
     }
 
     :host > .input {
@@ -871,12 +871,9 @@
 `;var c,E,X,Y,H,se;let We=(se=class{constructor(t){n(this,c,void 0);n(this,E,!1);n(this,X,async()=>{[...i(this,c).querySelectorAll('[slot="input"]')].forEach(t=>t.click())});n(this,Y,async t=>{t.stopPropagation()});n(this,H,void 0);l(this,c,t)}get primary(){return i(this,c).getAttribute("primary")}set primary(t){i(this,c).setAttribute("primary",t)}get secondary(){return i(this,c).getAttribute("secondary")}set secondary(t){i(this,c).setAttribute("secondary",t)}getInputSlot(){return[...i(this,c).querySelectorAll('[slot="input"]')]}enableRipple(){i(this,H)||(this.removeRipple=jt(i(this,c)),i(this,c).style.cursor="pointer",this._startInputHandling())}disableRipple(){i(this,H)&&i(this,H).call(this),this._stopInputHandling()}_startInputHandling(){i(this,E)||(i(this,c).addEventListener("click",i(this,X)),this.getInputSlot().forEach(t=>{t.addEventListener("click",i(this,Y))}),l(this,E,!0))}_stopInputHandling(){i(this,c).removeEventListener("click",i(this,X)),[...i(this,c).querySelectorAll('[slot="input"]')].forEach(t=>{t.removeEventListener("click",i(this,Y))}),l(this,E,!1)}},c=new WeakMap,E=new WeakMap,X=new WeakMap,Y=new WeakMap,H=new WeakMap,se);const z=class z extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Qe,this.ui=new We(this)}attributeChangedCallback(t,e,o){switch(t){case"ripple":o!==null?this.ui.enableRipple():this.ui.disableRipple();break;case"primary":this.shadowRoot.querySelector("ui-primary").innerHTML=o||"";break;case"secondary":this.shadowRoot.querySelector("ui-secondary").innerHTML=o||"";break}}};r(z,"register",()=>customElements.define("ui-label",z)),r(z,"observedAttributes",["ripple","secondary","primary"]);let ct=z;const Fe=`
 <style>
     :host {
-        font-size: 1.10rem;
-        font-family: var(--font-family);
-        font-variation-settings:
-            "CASL" 1,
-            "MONO" 0,
-            "slnt" 0;
+        font-size: 1.1rem;
+        font-family: var(--ui-primary-fontFamily);
+        font-variation-settings: var(--ui-primary-fontVariation);
     }
 </style>
 
@@ -885,13 +882,10 @@
 <style>
     :host {
         font-size: 0.9rem;
-        font-family: var(--font-family);
-        font-variation-settings:
-            "CASL" 1,
-            "MONO" 0,
-            "slnt" -15;
+        font-family: var(--ui-secondary-fontFamily);
+        font-variation-settings: var(--ui-secondary-fontVariation);
     }
 </style>
 
 <slot></slot>
-`,At=class At extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ge}};r(At,"register",()=>customElements.define("ui-secondary",At));let dt=At;var p;class _e{constructor(){n(this,p,null);this.currentTheme=null,this.themes={}}enableAutoMode(){if(this.removeMode(),i(this,p)){this.mediaChangeHandler(i(this,p));return}l(this,p,window.matchMedia("(prefers-color-scheme: dark)")),i(this,p).addEventListener("change",this.mediaChangeHandler),this.mediaChangeHandler(i(this,p))}disableAutoMode(){this.removeMedia()}addTheme(t,e){this.themes[t]=e}loadTheme(t){var o;if(!this.themes[t])throw`theme "${t}" is missing in this.themes`;if(((o=this.currentTheme)==null?void 0:o.name)==t)return;{const a=document.getElementById("theme");a&&(document.head.removeChild(a),this.currentTheme=null)}const e=document.createElement("link");e.id="theme",e.rel="stylesheet",e.href=this.themes[t],document.head.appendChild(e),this.currentTheme={name:t,href:this.themes[t]}}mediaChangeHandler(t){t.matches?document.body.setAttribute("data-theme","dark"):document.body.setAttribute("data-theme","light")}removeMode(t=document.body){t.removeAttribute("data-theme")}setMode(t,e=document.body){switch(t){case"dark":e.setAttribute("data-theme",t);break;case"light":e.setAttribute("data-theme",t);break}}removeMedia(){i(this,p)&&(i(this,p).removeEventListener("change",this.mediaChangeHandler),l(this,p,null))}}p=new WeakMap;const O=class O extends HTMLElement{constructor(){super(),this.ui=new _e}attributeChangedCallback(t,e,o){switch(t){case"auto":o!==null?this.ui.enableAutoMode():this.ui.disableAutoMode();break;case"mode":o!==null?this.ui.setMode(o):this.ui.removeMode();break}}};r(O,"register",()=>customElements.define("ui-theme-handler",O)),r(O,"observedAttributes",["auto","mode"]);let ut=O;const ti=Object.freeze(Object.defineProperty({__proto__:null,AppBar:K,Button:Q,Card:F,Container:G,Dialog:_,FlexGrid:it,FlexGridItem:tt,FlexGridRow:et,IconButton:W,Label:ct,Lang:ot,LangType:rt,Primary:ht,Secondary:dt,Select:st,SelectOption:q,StackLayout:at,StackLayoutPage:nt,Store:lt,ThemeHandler:ut,svg:g},Symbol.toStringTag,{value:"Module"}));async function ei(){K.register(),W.register(),Q.register(),F.register(),G.register(),tt.register(),et.register(),it.register(),q.register(),st.register(),rt.register(),ot.register(),nt.register(),at.register(),lt.register(),dt.register(),ht.register(),ct.register(),ut.register(),_.register()}async function ii(){g.BackArrowNavigation.register(),g.ChevronDown.register(),g.Close.register(),g.DeleteRecycleBin.register(),g.Edit2.register(),g.PDFDocument.register(),g.Settings.register(),g.TodayOutline.register()}const si={js:me,wc:ti,define:ei,defineSVG:ii};module.exports=si;
+`,At=class At extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ge}};r(At,"register",()=>customElements.define("ui-secondary",At));let dt=At;var p;class _e{constructor(){n(this,p,null);this.currentTheme=null,this.themes={}}enableAutoMode(){if(this.removeMode(),i(this,p)){this.mediaChangeHandler(i(this,p));return}l(this,p,window.matchMedia("(prefers-color-scheme: dark)")),i(this,p).addEventListener("change",this.mediaChangeHandler),this.mediaChangeHandler(i(this,p))}disableAutoMode(){this.removeMedia()}addTheme(t,e){this.themes[t]=e}loadTheme(t){var o;if(!this.themes[t])throw`theme "${t}" is missing in this.themes`;if(((o=this.currentTheme)==null?void 0:o.name)==t)return;{const a=document.getElementById("theme");a&&(document.head.removeChild(a),this.currentTheme=null)}const e=document.createElement("link");e.id="theme",e.rel="stylesheet",e.href=this.themes[t],document.head.appendChild(e),this.currentTheme={name:t,href:this.themes[t]}}mediaChangeHandler(t){t.matches?document.body.setAttribute("data-theme","dark"):document.body.setAttribute("data-theme","light")}removeMode(t=document.body){t.removeAttribute("data-theme")}setMode(t,e=document.body){switch(t){case"dark":e.setAttribute("data-theme",t);break;case"light":e.setAttribute("data-theme",t);break}}removeMedia(){i(this,p)&&(i(this,p).removeEventListener("change",this.mediaChangeHandler),l(this,p,null))}}p=new WeakMap;const q=class q extends HTMLElement{constructor(){super(),this.ui=new _e}attributeChangedCallback(t,e,o){switch(t){case"auto":o!==null?this.ui.enableAutoMode():this.ui.disableAutoMode();break;case"mode":o!==null?this.ui.setMode(o):this.ui.removeMode();break}}};r(q,"register",()=>customElements.define("ui-theme-handler",q)),r(q,"observedAttributes",["auto","mode"]);let ut=q;const ti=Object.freeze(Object.defineProperty({__proto__:null,AppBar:K,Button:Q,Card:F,Container:G,Dialog:_,FlexGrid:it,FlexGridItem:tt,FlexGridRow:et,IconButton:W,Label:ct,Lang:ot,LangType:rt,Primary:ht,Secondary:dt,Select:st,SelectOption:O,StackLayout:at,StackLayoutPage:nt,Store:lt,ThemeHandler:ut,svg:g},Symbol.toStringTag,{value:"Module"}));async function ei(){K.register(),W.register(),Q.register(),F.register(),G.register(),tt.register(),et.register(),it.register(),O.register(),st.register(),rt.register(),ot.register(),nt.register(),at.register(),lt.register(),dt.register(),ht.register(),ct.register(),ut.register(),_.register()}async function ii(){g.BackArrowNavigation.register(),g.ChevronDown.register(),g.Close.register(),g.DeleteRecycleBin.register(),g.Edit2.register(),g.PDFDocument.register(),g.Settings.register(),g.TodayOutline.register()}const si={js:me,wc:ti,define:ei,defineSVG:ii};module.exports=si;
