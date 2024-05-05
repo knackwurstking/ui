@@ -157,6 +157,8 @@ textarea {
     font-variation-settings: var(--ui-input-fontVariation);
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
+    accent-color: var(--ui-input-accentColor);
 }
 
 select {
@@ -199,7 +201,6 @@ input[type="checkbox"] {
     cursor: pointer;
     height: 1.5rem;
     width: 1.5rem;
-    /*accent-color: var(--ui-secondary-bgColor);*/
 }
 
 input[type="color"] {

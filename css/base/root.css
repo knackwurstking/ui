@@ -85,9 +85,9 @@
 
     /*
         ui-input component
-        TODO: missing `accent-color` for `input[type="checkbox"]`
     */
 
+    --ui-input-accentColor: var(--ui-primary-bgColor);
     --ui-input-bgColor: transparent;
     --ui-input-color: var(--ui-color);
     --ui-input-borderColor: var(--ui-borderColor);
