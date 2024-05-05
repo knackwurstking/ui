@@ -83,18 +83,18 @@
     }
 
     :host([variant="full"][color="primary"]) {
-        background-color: hsl(var(--ui-primary-bgColor));
-        color: hsl(var(--ui-primary-color));
+        background-color: var(--ui-primary-bgColor);
+        color: var(--ui-primary-color);
     }
 
     :host([variant="full"][color="secondary"]) {
-        background-color: hsl(var(--ui-secondary-bgColor));
-        color: hsl(var(--ui-secondary-color));
+        background-color: var(--ui-secondary-bgColor);
+        color: var(--ui-secondary-color);
     }
 
     :host([variant="full"][color="destructive"]) {
-        background-color: hsl(var(--ui-destructive-bgColor));
-        color: hsl(var(--ui-destructive-color));
+        background-color: var(--ui-destructive-bgColor);
+        color: var(--ui-destructive-color);
     }
 
     :host([variant="outline"]) {
@@ -103,15 +103,15 @@
     }
 
     :host([variant="outline"][color="primary"]) {
-        color: hsl(var(--ui-primary-bgColor));
+        color: var(--ui-primary-bgColor);
     }
 
     :host([variant="outline"][color="secondary"]) {
-        color: hsl(var(--ui-secondary-bgColor));
+        color: var(--ui-secondary-bgColor);
     }
 
     :host([variant="outline"][color="destructive"]) {
-        color: hsl(var(--ui-destructive-bgColor));
+        color: var(--ui-destructive-bgColor);
     }
 
     :host([variant="ghost"]) {
@@ -120,15 +120,15 @@
     }
 
     :host([variant="ghost"][color="primary"]) {
-        color: hsl(var(--ui-primary-bgColor));
+        color: var(--ui-primary-bgColor);
     }
 
     :host([variant="ghost"][color="secondary"]) {
-        color: hsl(var(--ui-secondary-bgColor));
+        color: var(--ui-secondary-bgColor);
     }
 
     :host([variant="ghost"][color="destructive"]) {
-        color: hsl(var(--ui-destructive-bgColor));
+        color: var(--ui-destructive-bgColor);
     }
 
     :host(:disabled),
