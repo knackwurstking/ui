@@ -1,12 +1,11 @@
-const template = document.createElement("template");
-template.innerHTML = `
+const innerHTML = `
 <style>
     :host {
         display: block;
         width: 100%;
         max-width: 65rem;
         margin: 0 auto !important;
-        padding: var(--spacing);
+        padding: var(--ui-spacing);
     }
 </style>
 
@@ -19,8 +18,7 @@ export class Container extends HTMLElement {
 
     constructor() {
         super();
-
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = innerHTML;
     }
 }
