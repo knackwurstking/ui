@@ -1,6 +1,4 @@
-const template = document.createElement("template")
-
-template.innerHTML = `
+const innerHTML = `
 <style>
     :host {
         font-size: 0.9rem;
@@ -22,6 +20,6 @@ export class Secondary extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" })
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
+        this.shadowRoot.innerHTML = innerHTML
     }
 }

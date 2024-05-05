@@ -1,5 +1,4 @@
-const template = document.createElement("template");
-template.innerHTML = `
+const innerHTML = `
 <style>
     :host {
         width: 100%;
@@ -31,8 +30,7 @@ export class DeleteRecycleBin extends HTMLElement {
 
     constructor() {
         super();
-
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = innerHTML;
     }
 }
