@@ -6,12 +6,5 @@
 export default function rippleStart(ev: PointerEvent & {
     currentTarget: HTMLElement;
 }, options: import(".").RippleOptions): HTMLElement;
-export namespace defaultOptions {
-    let color: string;
-    let opacity: string;
-    let centered: boolean;
-    let spreadDuration: string;
-    let spreadTiming: string;
-    let clearDuration: string;
-    let clearTiming: string;
-}
+/** @type {import(".").RippleOptions} */
+export const defaultOptions: import(".").RippleOptions;

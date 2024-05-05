@@ -7,7 +7,7 @@ export { default as stop } from "./stop";
   * @typedef RippleOptions
   * @type {{
   *  color?: string;
-  *  opacity?: number;
+  *  opacity?: string;
   *  centered?: boolean;
   *  spreadDuration?: string;
   *  spreadTiming?: string;

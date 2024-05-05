@@ -3,7 +3,7 @@ export { default as start } from "./start";
 export { default as stop } from "./stop";
 export type RippleOptions = {
     color?: string;
-    opacity?: number;
+    opacity?: string;
     centered?: boolean;
     spreadDuration?: string;
     spreadTiming?: string;

@@ -1,3 +1,4 @@
+/** @type {import(".").RippleOptions} */
 export const defaultOptions = {
     color: "var(--ui-ripple-color, currentColor)",
     opacity: "var(--ui-ripple-opacity, 0.2)",
