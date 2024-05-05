@@ -6,20 +6,15 @@ import { events } from "../../js"
  * }} _Events
  */
 
-// {{{ Content Template
+// {{{ innerHTML
 
-const t = document.createElement("template")
-
-t.innerHTML = `
+const innerHTML = html`
 <style>
     :host dialog * {
         box-sizing: border-box;
     }
 
     dialog {
-        --header-height: 2.5rem;
-        --footer-height: 3rem;
-
         position: fixed;
 
         top: 50%;
@@ -48,16 +43,16 @@ t.innerHTML = `
     }
 
     dialog::backdrop {
-        background-color: hsl(0, 0%, 0%, 0.4);
-        backdrop-filter: blur(5px);
+        background-color: var(--ui-dialog-outside-bgColor);
+        backdrop-filter: var(--ui-dialog-outside-backdropFilter);
     }
 
     dialog > article {
-        background-color: hsl(var(--bg));
-        color: hsl(var(--fg));
+        background-color: var(--ui-dialog-bgColor);
+        color: var(--ui-dialog-color);
 
-        border: var(--border-width) var(--border-style) hsl(var(--border));
-        border-radius: var(--radius);
+        border: 1px solid var(--ui-dialog-borderColor);
+        border-radius: var(--ui-dialog-radius);
 
         padding: 0;
 
@@ -74,12 +69,12 @@ t.innerHTML = `
     }
 
     :host([fullscreen]) dialog > article {
-        width: calc(100% - var(--spacing) * 2);
-        height: calc(100% - (env(safe-area-inset-top, 0) + env(safe-area-inset-bottom, 0) + (var(--spacing) * 2)));
+        width: calc(100% - var(--ui-spacing) * 2);
+        height: calc(100% - (env(safe-area-inset-top, 0) + env(safe-area-inset-bottom, 0) + (var(--ui-spacing) * 2)));
 
-        margin: var(--spacing) !important;
-        margin-top: calc(env(safe-area-inset-top, 0) + var(--spacing)) !important;
-        margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--spacing)) !important;
+        margin: var(--ui-spacing) !important;
+        margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing)) !important;
+        margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--ui-spacing)) !important;
     }
 
     /*
@@ -91,14 +86,14 @@ t.innerHTML = `
         align-items: center;
         justify-content: space-between;
 
-        padding: calc(var(--spacing) / 2);
-        padding-left: var(--spacing);
+        padding: calc(var(--ui-spacing) / 2);
+        padding-left: var(--ui-spacing);
 
-        border-top-right-radius: var(--radius);
-        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--ui-dialog-radius);
+        border-top-left-radius: var(--ui-dialog-radius);
 
         width: 100%;
-        height: var(--header-height);
+        height: var(--ui-dialog-header-height);
     }
 
     header h4 {
@@ -117,8 +112,8 @@ t.innerHTML = `
      */
 
     .content {
-        padding-left: var(--spacing);
-        padding-right: var(--spacing);
+        padding-left: var(--ui-spacing);
+        padding-right: var(--ui-spacing);
         height: fit-content;
     }
 
@@ -127,8 +122,8 @@ t.innerHTML = `
         position: relative;
         width: 100%;
         height: 100%;
-        padding-top: calc(var(--header-height) + var(--spacing));
-        padding-bottom: calc(var(--footer-height) + var(--spacing));
+        padding-top: calc(var(--ui-dialog-header-height) + var(--ui-spacing));
+        padding-bottom: calc(var(--ui-dialog-footer-height) + var(--ui-spacing));
     }
 
     /*
@@ -136,13 +131,13 @@ t.innerHTML = `
      */
 
     footer {
-        padding: var(--spacing);
-        margin-top: var(--spacing) !important;
-        border-bottom-right-radius: var(--radius);
-        border-bottom-left-radius: var(--radius);
+        padding: var(--ui-spacing);
+        margin-top: var(--ui-spacing) !important;
+        border-bottom-right-radius: var(--ui-dialog-radius);
+        border-bottom-left-radius: var(--ui-dialog-radius);
 
         width: 100%;
-        height: var(--footer-height);
+        height: var(--ui-dialog-footer-height);
     }
 
     :host([fullscreen]) footer {
@@ -175,7 +170,7 @@ t.innerHTML = `
         </section>
 
         <footer>
-            <ui-flex-grid-row gap="calc(var(--spacing) / 2)">
+            <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
                 <slot name="actions"></slot>
             </ui-flex-grid-row>
         </footer>
@@ -257,7 +252,7 @@ export class Dialog extends HTMLElement {
     constructor() {
         super()
         this.attachShadow({ mode: "open" })
-        this.shadowRoot.appendChild(t.content.cloneNode(true))
+        this.shadowRoot.innerHTML = innerHTML
 
         this.ui = new UI(this, this.shadowRoot.querySelector("dialog"));
     }

@@ -38,9 +38,9 @@
         ui-app-bar component
     */
 
-    --ui-app-bar-bgColor: hsla(var(--ui-bgColor), .2);
+    --ui-app-bar-bgColor: hsla(240, 10%, 96.1%, .2);
     --ui-app-bar-backdropFilter: blur(5px);
-    --ui-app-bar-borderColor: var(--ui-border-color);
+    --ui-app-bar-borderColor: var(--ui-borderColor);
     --ui-app-bar-height: 3rem;
 
     /*
@@ -57,18 +57,21 @@
 
     --ui-card-bgColor: hsla(240, 10%, 92.1%, 1);
     --ui-card-color: hsla(240, 10%, 3.9%, 1);
-    --ui-card-borderColor: var(--ui-border-color);
+    --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
 
     /*
-        TODO: ui-dialog component
+        ui-dialog component
     */
 
-    --ui-dialog-bgColor: ;
-    --ui-dialog-color: ;
-    --ui-dialog-backdropFilter: ;
-    --ui-dialog-outside-bgColor: ;
-    --ui-dialog-outside-backdropFilter: ;
+    --ui-dialog-bgColor: var(--ui-bgColor);
+    --ui-dialog-color: var(--ui-color);
+    --ui-dialog-borderColor: var(--ui-borderColor);
+    --ui-dialog-radius: var(--ui-radius);
+    --ui-dialog-outside-bgColor: hsla(240, 10%, 96.1%, .2);
+    --ui-dialog-outside-backdropFilter: blur(5px);
+    --ui-dialog-header-height: 2.5rem;
+    --ui-dialog-footer-height: 3rem;
 
     /*
         ui-select component
