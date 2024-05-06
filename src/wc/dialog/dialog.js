@@ -25,7 +25,7 @@ const innerHTML = html`
         max-width: 100%;
         max-height: 100%;
 
-        margin: 0 !important;
+        margin: 0;
         padding: 0;
 
         border: none;
@@ -48,14 +48,14 @@ const innerHTML = html`
         backdrop-filter: var(--ui-dialog-outside-backdropFilter);
     }
 
-    dialog > article {
+    dialog > .container {
         background-color: var(--ui-dialog-bgColor);
         color: var(--ui-dialog-color);
 
         border: 1px solid var(--ui-dialog-borderColor);
         border-radius: var(--ui-dialog-radius);
 
-        padding: 0;
+        padding: var(--ui-spacing);
 
         display: flex;
         flex-direction: column;
@@ -69,28 +69,23 @@ const innerHTML = html`
         height: 100%;
     }
 
-    :host([fullscreen]) dialog > article {
+    :host([fullscreen]) dialog > .container {
         width: calc(100% - var(--ui-spacing) * 2);
         height: calc(100% - (env(safe-area-inset-top, 0) + env(safe-area-inset-bottom, 0) + (var(--ui-spacing) * 2)));
 
-        margin: var(--ui-spacing) !important;
-        margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing)) !important;
-        margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--ui-spacing)) !important;
-
-        padding: 0 !important;
+        margin: var(--ui-spacing);
+        margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing));
+        margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--ui-spacing));
     }
 
     /*
      * Header Styles
      */
   
-    header {
+    .header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        padding: 0 var(--ui-spacing);
-        padding-left: var(--ui-spacing);
 
         border-top-right-radius: var(--ui-dialog-radius);
         border-top-left-radius: var(--ui-dialog-radius);
@@ -99,15 +94,17 @@ const innerHTML = html`
         height: var(--ui-dialog-header-height);
     }
 
-    header h4 {
-        margin: auto 0 !important;
+    .header h4 {
+        margin: auto 0;
     }
 
-    :host([fullscreen]) header {
+    :host([fullscreen]) .header {
         z-index: 15;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: var(--ui-spacing);
+        right: var(--ui-spacing);
+        left: var(--ui-spacing);
+        width: calc(100% - var(--ui-spacing) * 2);
     }
 
     /*
@@ -132,9 +129,8 @@ const innerHTML = html`
      * Footer Styles
      */
 
-    footer {
-        padding: 0 var(--ui-spacing);
-        margin-top: var(--ui-spacing) !important;
+    .footer {
+        margin-top: var(--ui-spacing);
         border-bottom-right-radius: var(--ui-dialog-radius);
         border-bottom-left-radius: var(--ui-dialog-radius);
 
@@ -142,14 +138,16 @@ const innerHTML = html`
         height: var(--ui-dialog-footer-height);
     }
 
-    :host([fullscreen]) footer {
+    :host([fullscreen]) .footer {
         z-index: 15;
         position: absolute;
-        bottom: 0;
-        left: 0;
+        right: var(--ui-spacing);
+        bottom: var(--ui-spacing);
+        left: var(--ui-spacing);
+        width: calc(100% - var(--ui-spacing) * 2);
     }
 
-    footer ui-flex-grid-row {
+    .footer ui-flex-grid-row {
         height: 100%;
         flex-wrap: nowrap;
         justify-content: flex-end;
@@ -158,25 +156,25 @@ const innerHTML = html`
 </style>
 
 <dialog>
-	<article>
-        <header>
+	<div class="container">
+        <div class="header">
             <span><slot name="title"></slot></span>
 
-            <ui-icon-button ghost>
+            <ui-icon-button style="width: var(--ui-dialog-header-height); height: 100%;" ghost>
                 <ui-svg-close></ui-svg-close>
             </ui-icon-button>
-        </header>
+        </div>
 
-        <section class="content">
+        <div class="content">
             <slot></slot>
-        </section>
+        </div>
 
-        <footer>
+        <div class="footer">
             <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
                 <slot name="actions"></slot>
             </ui-flex-grid-row>
-        </footer>
-	</article>
+        </div>
+	</div>
 </dialog>
 `
 
@@ -260,13 +258,13 @@ export class Dialog extends HTMLElement {
     }
 
     connectedCallback() {
-        const button = this.shadowRoot.querySelector("header ui-icon-button")
+        const button = this.shadowRoot.querySelector(".header ui-icon-button")
         button.addEventListener("click", this.#closeHandler)
         button.addEventListener("click", this.#dispatchCloseHandler)
     }
 
     disconnectedCallback() {
-        const button = this.shadowRoot.querySelector("header ui-icon-button")
+        const button = this.shadowRoot.querySelector(".header ui-icon-button")
         button.removeEventListener("click", this.#closeHandler)
         button.removeEventListener("click", this.#dispatchCloseHandler)
     }
