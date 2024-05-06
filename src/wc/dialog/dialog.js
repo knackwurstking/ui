@@ -1,4 +1,5 @@
 import { events } from "../../js"
+import { html } from "../../js/utils"
 
 /**
  * @typedef {{
@@ -8,7 +9,7 @@ import { events } from "../../js"
 
 // {{{ innerHTML
 
-const innerHTML = `
+const innerHTML = html`
 <style>
     :host dialog * {
         box-sizing: border-box;

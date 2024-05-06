@@ -1,5 +1,6 @@
 import { SelectOption } from "./select-option"
 import { Events } from "../../js/events";
+import { html } from "../../js/utils";
 
 /**
  * @typedef {{
@@ -9,7 +10,7 @@ import { Events } from "../../js/events";
 
 // {{{ innerHTML
 
-const innerHTML = `
+const innerHTML = html`
 <style>
     * {
         box-sizing: border-box;

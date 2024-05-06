@@ -1,6 +1,8 @@
+import { html } from "../../js/utils";
+
 // {{{ innerHTML
 
-const innerHTML = `
+const innerHTML = html`
 <style>
     :host {
         display: flex;

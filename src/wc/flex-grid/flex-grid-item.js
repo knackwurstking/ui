@@ -1,6 +1,8 @@
+import { html } from "../../js/utils";
+
 const defaultFlex = "1"
 
-const innerHTML = `
+const innerHTML = html`
 <style></style>
 <slot></slot>
 `;

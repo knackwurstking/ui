@@ -1,4 +1,5 @@
 import { events } from "../../js";
+import { html } from "../../js/utils";
 import { StackLayoutPage } from "./stack-layout-page";
 
 /**
@@ -8,7 +9,7 @@ import { StackLayoutPage } from "./stack-layout-page";
  * }}
  */
 
-const innerHTML = `
+const innerHTML = html`
     <style>
         :host {
             display: block;

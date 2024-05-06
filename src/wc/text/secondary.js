@@ -1,4 +1,6 @@
-const innerHTML = `
+import { html } from "../../js/utils";
+
+const innerHTML = html`
 <style>
     :host {
         font-size: 0.9rem;

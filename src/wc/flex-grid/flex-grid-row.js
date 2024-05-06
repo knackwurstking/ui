@@ -1,6 +1,8 @@
+import { html } from "../../js/utils";
+
 const defaultGap = "0"
 
-const innerHTML = `
+const innerHTML = html`
 <style></style>
 <slot></slot>
 `;

@@ -1,6 +1,7 @@
 import { ripple } from "../../js"
+import { html } from "../../js/utils";
 
-const innerHTML = `
+const innerHTML = html`
 <style>
     :host {
         position: relative;
