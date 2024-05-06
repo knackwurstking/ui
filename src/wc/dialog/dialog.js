@@ -75,6 +75,8 @@ const innerHTML = `
         margin: var(--ui-spacing) !important;
         margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing)) !important;
         margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--ui-spacing)) !important;
+
+        padding: 0 !important;
     }
 
     /*
@@ -86,7 +88,7 @@ const innerHTML = `
         align-items: center;
         justify-content: space-between;
 
-        padding: calc(var(--ui-spacing) / 2);
+        padding: 0 var(--ui-spacing);
         padding-left: var(--ui-spacing);
 
         border-top-right-radius: var(--ui-dialog-radius);
@@ -112,8 +114,7 @@ const innerHTML = `
      */
 
     .content {
-        padding-left: var(--ui-spacing);
-        padding-right: var(--ui-spacing);
+        padding: var(--ui-spacing);
         height: fit-content;
     }
 
@@ -131,7 +132,7 @@ const innerHTML = `
      */
 
     footer {
-        padding: var(--ui-spacing);
+        padding: 0 var(--ui-spacing);
         margin-top: var(--ui-spacing) !important;
         border-bottom-right-radius: var(--ui-dialog-radius);
         border-bottom-left-radius: var(--ui-dialog-radius);
