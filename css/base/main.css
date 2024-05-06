@@ -264,10 +264,6 @@ tbody {
         "slnt" -3;
 }
 
-th {
-    background-color: var(--ui-borderColor);
-}
-
 th,
 td {
     padding: var(--ui-spacing);
