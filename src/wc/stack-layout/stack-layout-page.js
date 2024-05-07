@@ -3,8 +3,8 @@ import { html } from "../../js/utils";
 const innerHTML = html`
     <style>
         :host {
-            display: block;
-            position: absolute;
+            display: block !important;
+            position: absolute !important;
             top: 0;
             left: 0;
             width: 100%;

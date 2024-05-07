@@ -4,8 +4,8 @@ import { html } from "../../js/utils";
 const innerHTML = html`
 <style>
     :host {
-        position: relative;
-        display: flex;
+        position: relative !important;
+        display: flex !important;
         flex-direction: row;
         width: 100%;
         padding: var(--ui-spacing);

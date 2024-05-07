@@ -5,8 +5,8 @@ import { html } from "../../js/utils";
 const innerHTML = html`
 <style>
     :host {
-        display: flex;
-        position: absolute;
+        display: flex !important;
+        position: absolute !important;
         z-index: 100;
         background-color: var(--ui-app-bar-bgColor);
         backdrop-filter: var(--ui-app-bar-backdropFilter);

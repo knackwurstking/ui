@@ -12,8 +12,8 @@ import { StackLayoutPage } from "./stack-layout-page";
 const innerHTML = html`
     <style>
         :host {
-            display: block;
-            position: relative;
+            display: block !important;
+            position: relative !important;
             width: 100%;
             height: 100%;
         }

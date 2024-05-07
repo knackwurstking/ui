@@ -16,7 +16,7 @@ const innerHTML = html`
     }
 
     dialog {
-        position: fixed;
+        position: fixed !important;
 
         top: 50%;
         left: 50%;

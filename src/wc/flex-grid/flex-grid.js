@@ -39,9 +39,9 @@ export class FlexGrid extends HTMLElement {
     _updateStyle({ gap = defaultGap } = {}) {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
-                display: flex;
+                display: flex !important;
                 flex-flow: column nowrap;
-                position: relative;
+                position: relative !important;
                 width: 100%;
                 height: fit-content;
             }

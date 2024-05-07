@@ -6,10 +6,10 @@ import { html } from "../../js/utils";
 const innerHTML = html`
 <style>
     :host {
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
-        position: relative;
+        position: relative !important;
         padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
         border: 1px solid currentColor;
         border-radius: var(--ui-button-radius);

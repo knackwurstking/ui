@@ -18,8 +18,8 @@ const innerHTML = html`
 
     :host {
         --items-length: 0;
-        position: relative; 
-        display: block;
+        position: relative !important; 
+        display: block !important;
 
         width: 100%;
         height: calc(1em * var(--ui-line-height) + var(--ui-spacing) * 2);
