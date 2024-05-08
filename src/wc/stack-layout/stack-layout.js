@@ -65,10 +65,7 @@ class UI {
         if (!this.stack.length) return;
 
         const page = this.stack.pop();
-        page.ontransitionend = () => {
-            page.ontransitionend = null
-            this.#root.removeChild(page);
-        }
+        this.#root.removeChild(page);
 
         if (!!this.stack.length) {
             this.#root.appendChild(this.stack[this.stack.length - 1])
@@ -86,12 +83,10 @@ class UI {
             this.#root.appendChild(this.#pages[name]().children[0]),
         );
 
+        // TODO: Make this optional, remove child(s) from the dom?
         if (this.stack.length > 1) {
             const pageToRemove = this.stack[this.stack.length - 2]
-            pageToRemove.ontransitionend = () => {
-                pageToRemove.ontransitionend = null;
-                pageToRemove.parentElement.removeChild(pageToRemove)
-            }
+            pageToRemove.parentElement.removeChild(pageToRemove)
         }
 
         this.dispatchChangeEvent();
