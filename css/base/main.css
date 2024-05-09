@@ -27,14 +27,10 @@ body {
 
 /* }}} */
 
-/* {{{  Article, Section */
-
-article {
-    padding: var(--ui-spacing);
-}
+/* {{{  Section */
 
 section {
-    padding: var(--ui-spacing) 0;
+    padding: var(--ui-spacing);
 }
 
 /* }}} */
