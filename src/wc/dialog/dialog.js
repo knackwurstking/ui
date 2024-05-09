@@ -9,7 +9,6 @@ import { html } from "../../js/utils"
 
 // {{{ innerHTML
 
-// TODO: Handle overflow on non fullscreen dialogs
 const innerHTML = html`
 <style>
     :host dialog * {
