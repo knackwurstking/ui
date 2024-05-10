@@ -4,7 +4,7 @@ import { html } from "../../js/utils"
 /**
  * @typedef {{
  *  close: null;
- * }} _Events
+ * }} DialogEvents
  */
 
 // {{{ innerHTML
@@ -180,6 +180,9 @@ const innerHTML = html`
 
 // }}}
 
+/**
+ * @template {DialogEvents} T
+ */
 class UI {
     /** @type {Dialog} */
     #root
@@ -196,7 +199,7 @@ class UI {
         this.#root = root
         this.#dialog = dialog
 
-        /** @type {events.Events<_Events>} */
+        /** @type {events.Events<T>} */
         this.events = new events.Events()
 
         this.#h4 = document.createElement("h4")
@@ -242,6 +245,8 @@ class UI {
  * Special slots to use:
  *  - title: all childrens go into "dialog header > span", just use the `Dialog.ui.title` setter/getter
  *  - actions: all childrens go into "dialog footer > ui-flex-grid-row"
+ *
+ * @template {DialogEvents} T
  */
 export class Dialog extends HTMLElement {
     #dispatchCloseHandler = () => this.ui.events.dispatch("close", null)
@@ -254,6 +259,7 @@ export class Dialog extends HTMLElement {
         this.attachShadow({ mode: "open" })
         this.shadowRoot.innerHTML = innerHTML
 
+        /** @type {UI<DialogEvents & T>} */
         this.ui = new UI(this, this.shadowRoot.querySelector("dialog"));
     }
 
