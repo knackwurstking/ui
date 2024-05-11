@@ -26,6 +26,8 @@ class UI {
     /** @type {StackLayout} */
     #root
 
+    #lock = false;
+
     /**
      * @type {Pages}
      */
@@ -61,8 +63,16 @@ class UI {
         delete this.#pages[name];
     }
 
+    lock() {
+        this.#lock = true;
+    }
+
+    unlock() {
+        this.#lock = false;
+    }
+
     goBack() {
-        if (!this.stack.length) return;
+        if (!this.stack.length || this.#lock) return;
 
         const page = this.stack.pop();
         this.#root.removeChild(page);
@@ -78,6 +88,8 @@ class UI {
      * @param {string} name
      */
     setPage(name) {
+        if (this.#lock) return;
+
         this.stack.push(
             // @ts-expect-error
             this.#root.appendChild(this.#pages[name]().children[0]),
