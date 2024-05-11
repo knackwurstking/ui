@@ -30,6 +30,8 @@ declare class UI {
      * @param {string} name
      */
     unregisterPage(name: string): void;
+    lock(): void;
+    unlock(): void;
     goBack(): void;
     /**
      * @param {string} name

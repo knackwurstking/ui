@@ -29,12 +29,12 @@ declare class UI<T extends DialogEvents> {
     /** @type {events.Events<T>} */
     events: events.Events<T>;
     get dialog(): HTMLDialogElement;
-    open(modal?: boolean): void;
-    close(): void;
     set fullscreen(state: boolean);
     get fullscreen(): boolean;
     set title(value: string);
     get title(): string;
+    open(modal?: boolean): void;
+    close(): void;
     #private;
 }
 import { events } from "../../js";
