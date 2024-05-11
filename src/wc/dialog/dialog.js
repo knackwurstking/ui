@@ -211,18 +211,6 @@ class UI {
         return this.#dialog
     }
 
-    open(modal = false) {
-        if (!!modal) {
-            this.#dialog.showModal()
-        } else {
-            this.#dialog.show()
-        }
-    }
-
-    close() {
-        this.#dialog.close()
-    }
-
     get fullscreen() {
         return this.#root.hasAttribute("fullscreen")
     }
@@ -238,6 +226,18 @@ class UI {
 
     set title(value) {
         this.#h4.innerText = value
+    }
+
+    open(modal = false) {
+        if (!!modal) {
+            this.#dialog.showModal()
+        } else {
+            this.#dialog.show()
+        }
+    }
+
+    close() {
+        this.#dialog.close()
     }
 }
 
