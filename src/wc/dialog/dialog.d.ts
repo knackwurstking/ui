@@ -15,6 +15,7 @@ export class Dialog<T extends DialogEvents> extends HTMLElement {
     #private;
 }
 export type DialogEvents = {
+    open: null;
     close: null;
 };
 /**

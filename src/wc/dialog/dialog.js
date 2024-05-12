@@ -3,6 +3,7 @@ import { html } from "../../js/utils"
 
 /**
  * @typedef {{
+ *  open: null;
  *  close: null;
  * }} DialogEvents
  */
@@ -230,14 +231,17 @@ class UI {
 
     open(modal = false) {
         if (!!modal) {
-            this.#dialog.showModal()
+            this.#dialog.showModal();
         } else {
-            this.#dialog.show()
+            this.#dialog.show();
         }
+
+        this.events.dispatch("open", null);
     }
 
     close() {
-        this.#dialog.close()
+        this.#dialog.close();
+        this.events.dispatch("close", null);
     }
 }
 
@@ -249,8 +253,8 @@ class UI {
  * @template {DialogEvents} T
  */
 export class Dialog extends HTMLElement {
-    #dispatchCloseHandler = () => this.ui.events.dispatch("close", null)
-    #closeHandler = () => this.ui.close()
+    #dispatchCloseHandler = () => this.ui.close();
+    #closeHandler = () => this.ui.close();
 
     static register = () => customElements.define("ui-dialog", Dialog)
 
