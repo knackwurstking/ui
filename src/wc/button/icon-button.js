@@ -93,6 +93,7 @@ class UI {
 }
 
 export class IconButton extends HTMLElement {
+
     static register = () => customElements.define("ui-icon-button", IconButton)
     static observedAttributes = ["no-ripple"]
 
@@ -100,6 +101,7 @@ export class IconButton extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
+        this.setAttribute("role", "button");
 
         this.ui = new UI(this)
     }

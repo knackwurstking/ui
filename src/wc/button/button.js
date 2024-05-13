@@ -132,6 +132,7 @@ export class Button extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
+        this.setAttribute("role", "button");
 
         this.ui = new UI(this)
     }
