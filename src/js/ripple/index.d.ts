@@ -9,4 +9,5 @@ export type RippleOptions = {
     spreadTiming?: string;
     clearDuration?: string;
     clearTiming?: string;
+    useClick?: boolean;
 };
