@@ -43,11 +43,12 @@ const innerHTML = html`
 
     /* :disabled */
 
-    :host(:disabled),
-    :host(:disabled:hover),
-    :host(:disabled:active) {
+    :host([disabled]),
+    :host([disabled]:hover),
+    :host([disabled]:active) {
         opacity: 0.25;
         cursor: default;
+        pointer-events: none;
     }
 </style>
 
@@ -68,14 +69,26 @@ class UI {
         this.removeRipple = null;
     }
 
+    disable() {
+        this.#root.setAttribute("disabled", "");
+    }
+
+    enable() {
+        this.#root.removeAttribute("disabled");
+    }
+
     enableRipple() {
         if (!!this.removeRipple) return;
         this.removeRipple = ripple.create(this.#root, { centered: true });
+        this.#root.removeAttribute("no-ripple");
     }
 
     disableRipple() {
-        if (!!this.removeRipple) this.removeRipple()
+        if (!this.removeRipple) return;
+
+        this.removeRipple();
         this.removeRipple = null
+        this.#root.setAttribute("no-ripple", "");
     }
 }
 
@@ -105,9 +118,9 @@ export class IconButton extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "no-ripple":
-                if (newValue !== null) this.ui.disableRipple()
-                else this.ui.enableRipple()
-                break
+                if (newValue !== null) this.ui.disableRipple();
+                else this.ui.enableRipple();
+                break;
         }
     }
 }

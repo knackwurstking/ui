@@ -73,12 +73,13 @@ const innerHTML = html`
         color: var(--ui-destructive-bgColor);
     }
 
-    :host(:disabled),
-    :host(:disabled:hover),
-    :host(:disabled:active) {
+    :host([disabled]),
+    :host([disabled]:hover),
+    :host([disabled]:active) {
         background-color: transparent;
         opacity: 0.25;
         cursor: default;
+        pointer-events: none;
     }
 </style>
 
@@ -99,14 +100,26 @@ class UI {
         this.removeRipple = null;
     }
 
+    disable() {
+        this.#root.setAttribute("disabled", "");
+    }
+
+    enable() {
+        this.#root.removeAttribute("disabled");
+    }
+
     enableRipple() {
         if (!!this.removeRipple) return;
         this.removeRipple = ripple.create(this.#root, { centered: true });
+        this.#root.removeAttribute("no-ripple");
     }
 
     disableRipple() {
-        if (!!this.removeRipple) this.removeRipple()
+        if (!this.removeRipple) return;
+
+        this.removeRipple();
         this.removeRipple = null
+        this.#root.setAttribute("no-ripple", "");
     }
 }
 

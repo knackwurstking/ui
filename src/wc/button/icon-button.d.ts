@@ -15,6 +15,8 @@ declare class UI {
     constructor(root: IconButton);
     /** @type {(() => void) | null} */
     removeRipple: (() => void) | null;
+    disable(): void;
+    enable(): void;
     enableRipple(): void;
     disableRipple(): void;
     #private;
