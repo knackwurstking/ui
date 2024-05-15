@@ -14,10 +14,9 @@ const innerHTML = html`
 
     :host > .text {
         display: flex;
+        flex: 1;
         flex-direction: column;
         justify-content: center;
-        min-width: fit-content;
-        width: 100%;
         margin-right: var(--ui-spacing);
     }
 
@@ -25,8 +24,6 @@ const innerHTML = html`
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        min-width: fit-content;
-        width: 100%;
     }
 </style>
 
