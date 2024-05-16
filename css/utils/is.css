@@ -1,9 +1,9 @@
 .is-debug {
-    border: var(--border-width) var(--border-style) red;
+    border: 1px solid red;
 }
 
 .is-debug * {
-    border: var(--border-width) var(--border-style) red;
+    border: 1px solid red;
 }
 
 .is-primary {
