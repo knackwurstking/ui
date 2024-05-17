@@ -9,7 +9,7 @@ const innerHTML = html`
         padding: var(--ui-spacing);
         padding-right: 2rem;
 
-        height: calc(1em * var(--ui-line-height) + var(--ui-spacing) * 2);
+        height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
 
         white-space: nowrap;
         text-overflow: ellipsis;

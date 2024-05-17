@@ -22,7 +22,7 @@ const innerHTML = html`
         display: block !important;
 
         width: 100%;
-        height: calc(1em * var(--ui-line-height) + var(--ui-spacing) * 2);
+        height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
         transition: height 0.25s ease;
 
         background-color: var(--ui-select-bgColor);
@@ -61,7 +61,7 @@ const innerHTML = html`
     }
 
     :host(.open) {
-        height: calc((1em * var(--ui-line-height) + var(--ui-spacing) * 2) * var(--items-length));
+        height: calc((1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) * var(--items-length));
     }
 
     :host(.open) .options {
