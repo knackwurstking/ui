@@ -445,7 +445,7 @@
 </style>
 
 <slot></slot>
-`;var w,_t;let Re=(_t=class{constructor(t){n(this,w,void 0);l(this,w,t)}get value(){return i(this,w).getAttribute("value")}set value(t){i(this,w).setAttribute("value",t)}get selected(){return i(this,w).hasAttribute("selected")}set selected(t){t?i(this,w).setAttribute("selected",""):i(this,w).removeAttribute("selected")}},w=new WeakMap,_t);const vt=class vt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ae,this.ui=new Re(this)}};r(vt,"register",()=>customElements.define("ui-select-option",vt));let Z=vt;const $e=a`
+`;var w,_t;let Re=(_t=class{constructor(t){n(this,w,void 0);l(this,w,t)}get value(){return i(this,w).getAttribute("value")}set value(t){i(this,w).setAttribute("value",t)}get selected(){return i(this,w).hasAttribute("selected")}set selected(t){t?i(this,w).setAttribute("selected",""):i(this,w).removeAttribute("selected")}},w=new WeakMap,_t);const vt=class vt extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=Ae,this.setAttribute("role","button"),this.ui=new Re(this)}};r(vt,"register",()=>customElements.define("ui-select-option",vt));let Z=vt;const $e=a`
 <style>
     * {
         box-sizing: border-box;
