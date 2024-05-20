@@ -204,6 +204,7 @@ class UI {
         this.events = new events.Events()
 
         this.#h4 = document.createElement("h4")
+        this.#h4.classList.add("title")
         this.#h4.slot = "title"
         this.#root.appendChild(this.#h4)
     }
