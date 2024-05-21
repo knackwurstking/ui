@@ -34,7 +34,7 @@ declare class UI<T extends DialogEvents> {
     get fullscreen(): boolean;
     set title(value: string);
     get title(): string;
-    open(modal?: boolean): void;
+    open(modal?: boolean, inert?: boolean): void;
     close(): void;
     #private;
 }
