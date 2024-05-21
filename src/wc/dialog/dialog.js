@@ -229,7 +229,10 @@ class UI {
         this.#h4.innerText = value
     }
 
-    open(modal = false) {
+    open(modal = false, inert = true) {
+        const inertBackup = this.#dialog.inert;
+        this.#dialog.inert = inert;
+
         if (!!modal) {
             this.#dialog.showModal();
         } else {
@@ -237,6 +240,7 @@ class UI {
         }
 
         this.events.dispatch("open", null);
+        this.#dialog.inert = inertBackup;
     }
 
     close() {
