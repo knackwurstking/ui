@@ -1,4 +1,4 @@
-export { default as create } from "./create";
+export { default as create, defaultOptions } from "./create";
 
 export { default as start } from "./start";
 export { default as stop } from "./stop";

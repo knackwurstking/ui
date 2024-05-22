@@ -1,4 +1,3 @@
-export { default as create } from "./create";
 export { default as start } from "./start";
 export { default as stop } from "./stop";
 export type RippleOptions = {
@@ -11,3 +10,4 @@ export type RippleOptions = {
     clearTiming?: string;
     useClick?: boolean;
 };
+export { default as create, defaultOptions } from "./create";
