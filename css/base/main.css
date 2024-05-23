@@ -202,13 +202,13 @@ input[type="color"] {
     cursor: pointer;
 }
 
-input[aria-invalid] {
-    border-color: var(--ui-input-borderColor--invalid);
-}
-
 input:focus:not([type=checkbox]),
 textarea:focus {
     border-color: var(--ui-input-borderColor--focus);
+}
+
+input[aria-invalid] {
+    border-color: var(--ui-input-borderColor--invalid);
 }
 
 input:disabled {
