@@ -208,7 +208,7 @@ textarea:focus {
 }
 
 input[aria-invalid] {
-    border-color: var(--ui-input-borderColor--invalid);
+    border-color: var(--ui-input-borderColor--invalid) !important;
 }
 
 input:disabled {
