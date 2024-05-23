@@ -202,7 +202,7 @@ input[type="color"] {
     cursor: pointer;
 }
 
-input[aria-invalid="true"] {
+input[aria-invalid] {
     border-color: var(--ui-input-borderColor--invalid);
 }
 
