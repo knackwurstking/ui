@@ -176,6 +176,7 @@ select {
 input {
     border: none;
     border-bottom: 1px solid var(--ui-input-borderColor);
+    border-radius: 0;
 }
 
 input[type="number"] {
