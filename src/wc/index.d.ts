@@ -5,6 +5,7 @@ export * from "./dialog";
 export * from "./flex-grid";
 export * from "./input";
 export * from "./lang";
+export * from "./spinner";
 export * from "./stack-layout";
 export * from "./store";
 export * from "./text";
