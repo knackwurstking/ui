@@ -25,6 +25,9 @@ async function define() {
     wc.LangType.register()
     wc.Lang.register()
 
+    // Spinner components
+    wc.Spinner.register()
+
     // StackLayout components
     wc.StackLayoutPage.register()
     wc.StackLayout.register()
