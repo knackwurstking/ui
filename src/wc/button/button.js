@@ -12,7 +12,7 @@ const innerHTML = html`
         position: relative !important;
         padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
         border: 1px solid currentColor;
-        border-radius: var(--ui-button-radius);
+        border-radius: var(--ui-radius);
         overflow: hidden;
         text-transform: capitalize;
         cursor: pointer;

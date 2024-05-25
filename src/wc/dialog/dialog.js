@@ -45,16 +45,16 @@ const innerHTML = html`
     }
 
     dialog::backdrop {
-        background-color: var(--ui-dialog-outside-bgColor);
-        backdrop-filter: var(--ui-dialog-outside-backdropFilter);
+        background-color: var(--ui-backdrop-bgColor);
+        backdrop-filter: var(--ui-backdropFilter);
     }
 
     dialog > .container {
-        background-color: var(--ui-dialog-bgColor);
-        color: var(--ui-dialog-color);
+        background-color: var(--ui-bgColor);
+        color: var(--ui-color);
 
-        border: 1px solid var(--ui-dialog-borderColor);
-        border-radius: var(--ui-dialog-radius);
+        border: 1px solid var(--ui-borderColor);
+        border-radius: var(--ui-radius);
 
         padding: var(--ui-spacing);
 
@@ -88,8 +88,8 @@ const innerHTML = html`
         align-items: center;
         justify-content: space-between;
 
-        border-top-right-radius: var(--ui-dialog-radius);
-        border-top-left-radius: var(--ui-dialog-radius);
+        border-top-right-radius: var(--ui-radius);
+        border-top-left-radius: var(--ui-radius);
 
         width: 100%;
         height: var(--ui-dialog-header-height);
@@ -132,8 +132,8 @@ const innerHTML = html`
 
     .footer {
         margin-top: var(--ui-spacing);
-        border-bottom-right-radius: var(--ui-dialog-radius);
-        border-bottom-left-radius: var(--ui-dialog-radius);
+        border-bottom-right-radius: var(--ui-radius);
+        border-bottom-left-radius: var(--ui-radius);
 
         width: 100%;
         height: var(--ui-dialog-footer-height);

@@ -14,7 +14,7 @@ const innerHTML = html`
         height: 2rem;
         padding: calc(var(--ui-spacing) / 2);
         border: 1px solid currentColor;
-        border-radius: var(--ui-icon-button-radius);
+        border-radius: var(--ui-radius);
         outline: none;
         overflow: hidden;
         cursor: pointer;

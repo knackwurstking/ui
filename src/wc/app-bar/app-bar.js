@@ -8,8 +8,8 @@ const innerHTML = html`
         display: flex !important;
         position: absolute !important;
         z-index: 100;
-        background-color: var(--ui-app-bar-bgColor);
-        backdrop-filter: var(--ui-app-bar-backdropFilter);
+        background-color: var(--ui-backdrop-bgColor);
+        backdrop-filter: var(--ui-backdropFilter);
         overflow: hidden;
         user-select: none;
     }
@@ -19,7 +19,7 @@ const innerHTML = html`
         left: 0;
         width: 100%;
         height: var(--ui-app-bar-height);
-        border-bottom: 1px solid var(--ui-app-bar-borderColor);
+        border-bottom: 1px solid var(--ui-borderColor);
     }
 
     :host > ui-flex-grid-row {

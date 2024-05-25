@@ -17,7 +17,9 @@ const innerHTML = html`
     }
 
     :host {
+        --ui-bgColor: "transparent";
         --items-length: 0;
+
         position: relative !important; 
         display: block !important;
 
@@ -25,11 +27,11 @@ const innerHTML = html`
         height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
         transition: height 0.25s ease;
 
-        background-color: var(--ui-select-bgColor);
-        color: var(--ui-select-color);
+        background-color: var(--ui-bgColor);
+        color: var(--ui-color);
 
-        border: 1px solid var(--ui-select-borderColor);
-        border-radius: var(--ui-select-radius);
+        border: 1px solid var(--ui-borderColor);
+        border-radius: var(--ui-radius);
 
         line-height: 1.15;
 
@@ -73,12 +75,12 @@ const innerHTML = html`
     }
 
     :host(.open) ::slotted(ui-select-option[selected]) {
-        background-color: var(--ui-select-selected-bgColor);
-        color: var(--ui-select-selected-color);
+        background-color: var(--ui-primary-bgColor);
+        color: var(--ui-primary-color);
     }
 
     :host(.open) ::slotted(ui-select-option:not([selected]):hover) {
-        background-color: var(--ui-select-bgColor--hover);
+        background-color: hsla(var(--ui-color-hsl), 0.1);
     }
 
     :host(:not(.open)) .options:has(> ::slotted(ui-select-option[selected])) {

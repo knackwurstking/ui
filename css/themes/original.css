@@ -1,5 +1,3 @@
-/** TODO: Kick some extra component variables, too mush shit here */
-
 [data-theme="light"] { /* {{{ */
     /* {{{ Basics */
 
@@ -10,7 +8,13 @@
 
     --ui-fontFamily: "RecVar";
     --ui-fontSize: 16px;
-    --ui-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
+
+    --ui-fontVariation:                 "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-button-fontVariation:          "CASL" 1, "MONO" 0, "slnt" -6;
+    --ui-input-fontVariation:           "CASL" 1, "MONO" 1, "slnt" 0;
+    --ui-text-primary-fontVariation:    "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-text-secondary-fontVariation:  "CASL" 1, "MONO" 0, "slnt" -15;
+    --ui-select-fontVariation:          "CASL" 1, "MONO" 1, "slnt" 0;
 
     --ui-bgColor-hsl: 240, 10%, 96.1%;
     --ui-bgColor: hsla(var(--ui-bgColor-hsl), 1);
@@ -34,6 +38,10 @@
     --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), .2);
     --ui-backdropFilter: blur(5px);
 
+    --ui-app-bar-height: 3rem;
+    --ui-dialog-header-height: 2.5rem;
+    --ui-dialog-footer-height: 3rem;
+
     /* }}} */
 
     /* {{{ Muted: code, pre */
@@ -47,90 +55,12 @@
 
     /* }}} */
 
-    /* {{{ ui-primary */
-
-    --ui-primary-fontFamily: var(--ui-fontFamily);
-    --ui-primary-fontVariation: var(--ui-fontVariation);
-
-    /* }}} */
-
-    /* {{{ ui-secondary */
-
-    --ui-secondary-fontFamily: var(--ui-fontFamily);
-    --ui-secondary-fontVariation: "CASL" 1, "MONO" 0, "slnt" -15;
-
-    /* }}} */
-
-    /* {{{ ui-app-bar */
-
-    --ui-app-bar-bgColor: var(--ui-backdrop-bgColor);
-    --ui-app-bar-backdropFilter: var(--ui-backdropFilter);
-    --ui-app-bar-borderColor: var(--ui-borderColor);
-    --ui-app-bar-height: 3rem;
-
-    /* }}} */
-
-    /* {{{ ui-button */
-
-    --ui-button-radius: var(--ui-radius);
-    --ui-button-fontFamily: var(--ui-fontFamily);
-    --ui-button-fontVariation: "CASL" 1, "MONO" 0, "slnt" -6;
-
-    /* }}} */
-
-    /* {{{ ui-icon-button */
-
-    --ui-icon-button-radius: var(--ui-radius);
-
-    /* }}} */
-
     /* {{{ ui-card */
 
     --ui-card-bgColor: hsla(240, 10%, 92.1%, 1);
     --ui-card-color: hsla(240, 10%, 3.9%, 1);
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
-
-    /* }}} */
-
-    /* {{{ ui-dialog */
-
-    --ui-dialog-bgColor: var(--ui-bgColor);
-    --ui-dialog-color: var(--ui-color);
-    --ui-dialog-borderColor: var(--ui-borderColor);
-    --ui-dialog-radius: var(--ui-radius);
-    --ui-dialog-outside-bgColor: var(--ui-backdrop-bgColor);
-    --ui-dialog-outside-backdropFilter: var(--ui-backdropFilter);
-    --ui-dialog-header-height: 2.5rem;
-    --ui-dialog-footer-height: 3rem;
-
-    /* }}} */
-
-    /* {{{ ui-select */
-
-    --ui-select-bgColor: transparent;
-    --ui-select-bgColor--hover: hsla(var(--ui-color-hsl), 0.1);
-    --ui-select-color: var(--ui-color);
-    --ui-select-borderColor: var(--ui-borderColor);
-    --ui-select-radius: var(--ui-radius);
-    --ui-select-selected-bgColor: var(--ui-primary-bgColor);
-    --ui-select-selected-color: var(--ui-primary-color);
-    --ui-select-fontFamily: var(--ui-fontFamily);
-    --ui-select-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
-
-    /* }}} */
-
-    /* {{{ ui-input */
-
-    --ui-input-accentColor: var(--ui-primary-bgColor);
-    --ui-input-bgColor: transparent;
-    --ui-input-color: var(--ui-color);
-    --ui-input-borderColor: var(--ui-borderColor);
-    --ui-input-borderColor--focus: var(--ui-primary-bgColor);
-    --ui-input-borderColor--invalid: var(--ui-destructive-bgColor);
-    --ui-input-radius: var(--ui-radius);
-    --ui-input-fontFamily: var(--ui-fontFamily);
-    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
 
     /* }}} */
 
@@ -149,7 +79,13 @@
 
     --ui-fontFamily: "RecVar";
     --ui-fontSize: 16px;
-    --ui-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
+
+    --ui-fontVariation:                 "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-button-fontVariation:          "CASL" 1, "MONO" 0, "slnt" -6;
+    --ui-input-fontVariation:           "CASL" 1, "MONO" 1, "slnt" 0;
+    --ui-text-primary-fontVariation:    "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-text-secondary-fontVariation:  "CASL" 1, "MONO" 0, "slnt" -15;
+    --ui-select-fontVariation:          "CASL" 1, "MONO" 1, "slnt" 0;
 
     --ui-bgColor-hsl: 240, 10%, 3.9%;
     --ui-bgColor: hsla(var(--ui-bgColor-hsl), 1);
@@ -173,6 +109,10 @@
     --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), .2);
     --ui-backdropFilter: blur(5px);
 
+    --ui-app-bar-height: 3rem;
+    --ui-dialog-header-height: 2.5rem;
+    --ui-dialog-footer-height: 3rem;
+
     /* }}} */
 
     /* {{{ Muted: code, pre */
@@ -186,90 +126,12 @@
 
     /* }}} */
 
-    /* {{{ ui-primary */
-
-    --ui-primary-fontFamily: var(--ui-fontFamily);
-    --ui-primary-fontVariation: var(--ui-fontVariation);
-
-    /* }}} */
-
-    /* {{{ ui-secondary */
-
-    --ui-secondary-fontFamily: var(--ui-fontFamily);
-    --ui-secondary-fontVariation: "CASL" 1, "MONO" 0, "slnt" -15;
-
-    /* }}} */
-
-    /* {{{ ui-app-bar */
-
-    --ui-app-bar-bgColor: var(--ui-backdrop-bgColor);
-    --ui-app-bar-backdropFilter: var(--ui-backdropFilter);
-    --ui-app-bar-borderColor: var(--ui-borderColor);
-    --ui-app-bar-height: 3rem;
-
-    /* }}} */
-
-    /* {{{ ui-button */
-
-    --ui-button-radius: var(--ui-radius);
-    --ui-button-fontFamily: var(--ui-fontFamily);
-    --ui-button-fontVariation: "CASL" 1, "MONO" 0, "slnt" -6;
-
-    /* }}} */
-
-    /* {{{ ui-icon-button */
-
-    --ui-icon-button-radius: var(--ui-radius);
-
-    /* }}} */
-
     /* {{{ ui-card */
 
     --ui-card-bgColor: hsla(240, 10%, 7.9%, 1);
     --ui-card-color: hsla(240, 10%, 98%, 1);
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
-
-    /* }}} */
-
-    /* {{{ ui-dialog */
-
-    --ui-dialog-bgColor: var(--ui-bgColor);
-    --ui-dialog-color: var(--ui-color);
-    --ui-dialog-borderColor: var(--ui-borderColor);
-    --ui-dialog-radius: var(--ui-radius);
-    --ui-dialog-outside-bgColor: var(--ui-backdrop-bgColor);
-    --ui-dialog-outside-backdropFilter: var(--ui-backdropFilter);
-    --ui-dialog-header-height: 2.5rem;
-    --ui-dialog-footer-height: 3rem;
-
-    /* }}} */
-
-    /* {{{ ui-select */
-
-    --ui-select-bgColor: transparent;
-    --ui-select-bgColor--hover: hsla(var(--ui-color-hsl), 0.1);
-    --ui-select-color: var(--ui-color);
-    --ui-select-borderColor: var(--ui-borderColor);
-    --ui-select-radius: var(--ui-radius);
-    --ui-select-selected-bgColor: var(--ui-primary-bgColor);
-    --ui-select-selected-color: var(--ui-primary-color);
-    --ui-select-fontFamily: var(--ui-fontFamily);
-    --ui-select-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
-
-    /* }}} */
-
-    /* {{{ ui-input */
-
-    --ui-input-accentColor: var(--ui-primary-bgColor);
-    --ui-input-bgColor: transparent;
-    --ui-input-color: var(--ui-color);
-    --ui-input-borderColor: var(--ui-borderColor);
-    --ui-input-borderColor--focus: var(--ui-primary-bgColor);
-    --ui-input-borderColor--invalid: var(--ui-destructive-bgColor);
-    --ui-input-radius: var(--ui-radius);
-    --ui-input-fontFamily: var(--ui-fontFamily);
-    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
 
     /* }}} */
 

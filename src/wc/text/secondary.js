@@ -4,8 +4,8 @@ const innerHTML = html`
 <style>
     :host {
         font-size: 0.9rem;
-        font-family: var(--ui-secondary-fontFamily);
-        font-variation-settings: var(--ui-secondary-fontVariation);
+        font-family: var(--ui-fontFamily);
+        font-variation-settings: var(--ui-text-secondary-fontVariation);
     }
 </style>
 
