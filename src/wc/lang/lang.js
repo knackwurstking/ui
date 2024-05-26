@@ -51,7 +51,7 @@ class UI {
      * @param {string} key
      */
     get(group, key) {
-        return this.#data?.[group][key]
+        return this.#data?.[group]?.[key] || null;
     }
 
     /**
