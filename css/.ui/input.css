@@ -1,20 +1,3 @@
-.ui-input {
-    width: 100%;
-}
-
-/*
- * input text and number component
- */
-
-.ui-input-text,
-.ui-input-number,
-.ui-input-month,
-.ui-input-date {
-    border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
-
-    transition: border-color 0.25s linear;
-}
-
 /*
  * input slider component
  */
