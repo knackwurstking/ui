@@ -1,6 +1,11 @@
 /**
  * @typedef {{
  * }} InputEvents
+ *
+ * @typedef {(
+ *  | "text"
+ *  | "number"
+ * )} InputTypes
  */
 
 import { Events } from "../../js/events";

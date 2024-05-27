@@ -18,6 +18,7 @@ export class Input<T extends InputEvents> extends HTMLElement {
     private create;
 }
 export type InputEvents = {};
+export type InputTypes = ("text" | "number");
 /**
  * @template {InputEvents} T
  */
