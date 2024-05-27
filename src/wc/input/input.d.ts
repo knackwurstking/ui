@@ -1,32 +1,105 @@
 /**
- * @template {InputEvents} T
+ * @template {InputEvents} E
+ * @template {InputTypes} T
  * @extends {HTMLElement}
  */
-export class Input<T extends InputEvents> extends HTMLElement {
-    static register: void;
+export class Input<E extends InputEvents, T extends InputTypes> extends HTMLElement {
+    static register: () => void;
     static observedAttributes: string[];
     constructor();
-    /** @type {UI<InputEvents & T>} */
-    ui: UI<InputEvents & T>;
+    /** @type {UI<InputEvents & E, T>} */
+    ui: UI<InputEvents & E, T>;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /** @private */
-    private create;
+    /**
+     * @private
+     * @param {string | null} value
+     * @returns {InputTypeValues[T]}
+     */
+    private parseNewValue;
 }
 export type InputEvents = {};
-export type InputTypes = ("text" | "number");
+export type InputTypes = ("text" | "number" | "month" | "date");
+export type InputTypeValues = {
+    text: string;
+    number: number;
+    month: string;
+    date: string;
+};
 /**
- * @template {InputEvents} T
+ * @template {InputEvents} E
+ * @template {InputTypes} T
  */
-declare class UI<T extends InputEvents> {
-    /** @type {Events<T>} */
-    events: Events<T>;
-    /** @type {HTMLInputElement} */
+declare class UI<E extends InputEvents, T extends InputTypes> {
+    /**
+     * @param {Input} root
+     */
+    constructor(root: Input<any, any>);
+    /**
+     * @private
+     * @type {Input}
+     */
+    private root;
+    /**
+     * @type {Events<E>}
+     */
+    events: Events<E>;
+    /**
+     * @type {HTMLInputElement}
+     */
     input: HTMLInputElement;
+    /**
+     * @param {T} value
+     */
+    set type(value: T);
+    /**
+     * @returns {T}
+     */
+    get type(): T;
+    /**
+     * @param {InputTypeValues[T]} value
+     */
+    set value(value: InputTypeValues[T]);
+    /**
+     * @returns {InputTypeValues[T]}
+     */
+    get value(): InputTypeValues[T];
+    /**
+     * @param {string} value
+     */
+    set placeholder(value: string);
+    /**
+     * @returns {string}
+     */
+    get placeholder(): string;
+    /**
+     * @param {boolean} state
+     */
+    set invalid(state: boolean);
+    /**
+     * @returns {boolean}
+     */
+    get invalid(): boolean;
+    /**
+     * @param {InputTypeValues[T]} n
+     */
+    set min(n: InputTypeValues[T]);
+    /**
+     * @returns {InputTypeValues[T]}
+     */
+    get min(): InputTypeValues[T];
+    /**
+     * @param {InputTypeValues[T]} n
+     */
+    set max(n: InputTypeValues[T]);
+    /**
+     * @returns {InputTypeValues[T]}
+     */
+    get max(): InputTypeValues[T];
 }
 import { Events } from "../../js/events";
 export {};

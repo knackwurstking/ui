@@ -28,6 +28,8 @@ t.innerHTML = `
             border-bottom: 1px solid var(--ui-borderColor);
             transition: border-color 0.25s linear;
         }
+
+        /* TODO: Add all missing styles from "css/.ui/input.css" */
     </style>
 
     <div class="container">
