@@ -183,6 +183,7 @@ class UI {
 export class Input extends HTMLElement {
 
     static register = () => customElements.define("ui-input", Input);
+    // TODO: Add "title" observer
     static observedAttributes = [
         "type", "value",
         "placeholder",
