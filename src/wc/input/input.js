@@ -42,7 +42,7 @@ class UI {
  */
 export class Input extends HTMLElement {
 
-    static register = customElements.define("ui-input", Input);
+    static register = () => customElements.define("ui-input", Input);
     static observedAttributes = ["type", "value", "placeholder", "invalid", "min", "max"];
 
     constructor() {
