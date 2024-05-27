@@ -18,6 +18,7 @@ async function define() {
     wc.FlexGrid.register()
 
     // Input components
+    wc.Input.register();
     wc.SelectOption.register()
     wc.Select.register()
 
