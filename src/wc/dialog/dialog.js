@@ -115,6 +115,8 @@ const innerHTML = html`
     .content {
         padding: var(--ui-spacing);
         height: fit-content;
+        min-width: fit-content;
+        width: 100%;
     }
 
     :host([fullscreen]) .content {
