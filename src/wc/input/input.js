@@ -22,18 +22,50 @@ import { Events } from "../../js/events";
 const t = document.createElement("template");
 t.innerHTML = `
     <style>
+        :host {
+            display: block;
+            position: relative;
+            width: 100%;
+        }
+
+        input {
+            width: calc(100% - var(--ui-spacing) * 4);
+            display: block;
+            margin: 0;
+            padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+            padding-top: calc(var(--ui-spacing) / 2);
+            border: none !important;
+            outline: none !important;
+            font-size: 0.9rem;
+            font-family: var(--ui-fontFamily);
+            font-variation-settings: var(--ui-input-fontVariation);
+            accent-color: var(--ui-primary-bgColor);
+            background-color: var(--ui-bgColor);
+        }
+
         .container {
             width: 100%;
             border: none;
             border-bottom: 1px solid var(--ui-borderColor);
+            border-radius: var(--ui-radius);
             transition: border-color 0.25s linear;
         }
 
-        /* TODO: Add all missing styles from "css/.ui/input.css" */
+        .container:has(input:focus) {
+            border-color: var(--ui-primary-bgColor);
+        }
+
+        .container:has(input[aria-invalid]) {
+            border-color: hsl(var(--ui-destructive-bgColor));
+        }
+
+        .title {
+            padding: 0 var(--ui-spacing);
+        }
     </style>
 
     <div class="container">
-        <div class="title"></div>
+        <ui-secondary class="title"></ui-secondary>
         <input>
     </div>
 `;
@@ -63,6 +95,17 @@ class UI {
          */
         this.input = this.root.shadowRoot.querySelector("input");
         this.input.type = this.root.getAttribute("type") || "text";
+    }
+
+    /**
+     * @param {string} v
+     */
+    set title(v) {
+        this.root.shadowRoot.querySelector(".title").innerHTML = v || "";
+    }
+
+    get title() {
+        return this.root.shadowRoot.querySelector(".title").innerHTML;
     }
 
     /**
@@ -183,12 +226,12 @@ class UI {
 export class Input extends HTMLElement {
 
     static register = () => customElements.define("ui-input", Input);
-    // TODO: Add "title" observer
     static observedAttributes = [
+        "title",
         "type", "value",
         "placeholder",
         "invalid",
-        "min", "max"
+        "min", "max",
     ];
 
     constructor() {
@@ -207,6 +250,10 @@ export class Input extends HTMLElement {
      */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
+            case "title":
+                this.ui.title = newValue;
+                break;
+
             case "type":
                 if (newValue === null) {
                     // @ts-expect-error
