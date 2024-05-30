@@ -22,13 +22,17 @@ export class Input<E extends InputEvents, T extends InputTypes> extends HTMLElem
      */
     private parseNewValue;
 }
-export type InputEvents = {};
-export type InputTypes = ("text" | "number" | "month" | "date");
+export type InputEvents = {
+    input: string | number;
+    change: string | number;
+};
+export type InputTypes = ("text" | "number" | "month" | "date" | "email");
 export type InputTypeValues = {
     text: string;
     number: number;
     month: string;
     date: string;
+    email: string;
 };
 /**
  * @template {InputEvents} E
@@ -53,13 +57,18 @@ declare class UI<E extends InputEvents, T extends InputTypes> {
      */
     input: HTMLInputElement;
     /**
-     * @param {T} value
+     * @param {string} v
      */
-    set type(value: T);
+    set title(v: string);
+    get title(): string;
     /**
-     * @returns {T}
+     * @param {InputTypes} value
      */
-    get type(): T;
+    set type(value: InputTypes);
+    /**
+     * @returns {InputTypes}
+     */
+    get type(): InputTypes;
     /**
      * @param {InputTypeValues[T]} value
      */

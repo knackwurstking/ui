@@ -1,5 +1,7 @@
 /**
  * @typedef {{
+ *  input: string | number;
+ *  change: string | number;
  * }} InputEvents
  *
  * @typedef {(
@@ -7,6 +9,7 @@
  *  | "number"
  *  | "month"
  *  | "date"
+ *  | "email"
  * )} InputTypes
  *
  * @typedef {{
@@ -14,6 +17,7 @@
  *  number: number;
  *  month: string;
  *  date: string;
+ *  email: string;
  * }} InputTypeValues
  */
 
@@ -40,7 +44,7 @@ t.innerHTML = `
             font-family: var(--ui-fontFamily);
             font-variation-settings: var(--ui-input-fontVariation);
             accent-color: var(--ui-primary-bgColor);
-            background-color: var(--ui-bgColor);
+            background-color: transparent !important;
         }
 
         .container {
@@ -61,6 +65,7 @@ t.innerHTML = `
 
         .title {
             padding: 0 var(--ui-spacing);
+            user-select: none;
         }
     </style>
 
@@ -95,6 +100,12 @@ class UI {
          */
         this.input = this.root.shadowRoot.querySelector("input");
         this.input.type = this.root.getAttribute("type") || "text";
+
+        this.input.oninput = () =>
+            this.events.dispatch("input", this.value);
+
+        this.input.onchange = () =>
+            this.events.dispatch("change", this.value);
     }
 
     /**
@@ -109,14 +120,14 @@ class UI {
     }
 
     /**
-     * @param {T} value
+     * @param {InputTypes} value
      */
     set type(value) {
         this.input.type = value
     }
 
     /**
-     * @returns {T}
+     * @returns {InputTypes}
      */
     get type() {
         // @ts-expect-error
@@ -256,7 +267,6 @@ export class Input extends HTMLElement {
 
             case "type":
                 if (newValue === null) {
-                    // @ts-expect-error
                     this.ui.type = "text";
                 } else {
                     // @ts-expect-error
