@@ -57,7 +57,7 @@ declare class UI<E extends InputEvents, T extends InputTypes> {
      */
     input: HTMLInputElement;
     /**
-     * @param {string} v
+     * @param {string | null} v
      */
     set title(v: string);
     get title(): string;

@@ -1,3 +1,6 @@
+import { Secondary } from "..";
+import { Events } from "../../js/events";
+
 /**
  * @typedef {{
  *  input: string | number;
@@ -20,8 +23,6 @@
  *  email: string;
  * }} InputTypeValues
  */
-
-import { Events } from "../../js/events";
 
 const t = document.createElement("template");
 t.innerHTML = `
@@ -63,14 +64,14 @@ t.innerHTML = `
             border-color: hsl(var(--ui-destructive-bgColor));
         }
 
-        .title {
+        ::slotted([slot="title"]) {
             padding: 0 var(--ui-spacing);
             user-select: none;
         }
     </style>
 
     <div class="container">
-        <ui-secondary class="title"></ui-secondary>
+        <slot name="title"></slot>
         <input>
     </div>
 `;
@@ -109,14 +110,26 @@ class UI {
     }
 
     /**
-     * @param {string} v
+     * @param {string | null} v
      */
     set title(v) {
-        this.root.shadowRoot.querySelector(".title").innerHTML = v || "";
+        let el = this.root.shadowRoot.querySelector(`[slot="title"]`);
+
+        if (v === null && !!el) {
+            this.root.removeChild(el);
+        }
+
+        if (!el) {
+            el = new Secondary();
+            el.slot = "title";
+            this.root.appendChild(el);
+        }
+
+        el.innerHTML = v || "";
     }
 
     get title() {
-        return this.root.shadowRoot.querySelector(".title").innerHTML;
+        return this.root.querySelector(`[slot="title"]`)?.innerHTML || null;
     }
 
     /**
