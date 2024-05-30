@@ -38,7 +38,6 @@ t.innerHTML = `
             display: block;
             margin: 0;
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-            padding-top: calc(var(--ui-spacing) / 2);
             border: none !important;
             outline: none !important;
             font-size: 0.9rem;
@@ -65,8 +64,10 @@ t.innerHTML = `
         }
 
         ::slotted([slot="title"]) {
+            display: block;
             padding: 0 var(--ui-spacing);
             user-select: none;
+            transform: translateY(calc(var(--ui-spacing) / 2));
         }
     </style>
 
