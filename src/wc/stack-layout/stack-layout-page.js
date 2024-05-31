@@ -1,3 +1,4 @@
+import { CleanUp } from "../../js";
 import { html } from "../../js/utils";
 
 const innerHTML = html`
@@ -60,6 +61,13 @@ export class StackLayoutPage extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
 
+        this.cleanup = new CleanUp();
         this.ui = new UI(this)
+    }
+
+    connectedCallback() { }
+
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 }

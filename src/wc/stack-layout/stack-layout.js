@@ -1,4 +1,4 @@
-import { events } from "../../js";
+import { events, CleanUp } from "../../js";
 import { html } from "../../js/utils";
 import { StackLayoutPage } from "./stack-layout-page";
 
@@ -121,6 +121,13 @@ export class StackLayout extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
 
-        this.ui = new UI(this)
+        this.cleanup = new CleanUp();
+        this.ui = new UI(this);
+    }
+
+    connectedCallback() { }
+
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 }

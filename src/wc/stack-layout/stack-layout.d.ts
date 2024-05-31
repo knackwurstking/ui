@@ -1,10 +1,14 @@
 export class StackLayout extends HTMLElement {
     static register: () => void;
+    cleanup: CleanUp;
     ui: UI;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
 }
 export type Pages = {
     [key: string]: () => (StackLayoutPage | DocumentFragment | Node);
 };
+import { CleanUp } from "../../js";
 declare class UI {
     /** @param {StackLayout} root */
     constructor(root: StackLayout);
