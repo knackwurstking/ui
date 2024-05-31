@@ -3,7 +3,7 @@ export class StackLayout extends HTMLElement {
     ui: UI;
 }
 export type Pages = {
-    [key: string]: () => (StackLayoutPage | DocumentFragment);
+    [key: string]: () => (StackLayoutPage | DocumentFragment | Node);
 };
 declare class UI {
     /** @param {StackLayout} root */
@@ -23,9 +23,9 @@ declare class UI {
     stack: import("./stack-layout-page").StackLayoutPage[];
     /**
      * @param {string} name
-     * @param {() => (StackLayoutPage | DocumentFragment)} cb
+     * @param {() => (StackLayoutPage | DocumentFragment | Node)} cb
      */
-    registerPage(name: string, cb: () => (StackLayoutPage | DocumentFragment)): void;
+    registerPage(name: string, cb: () => (StackLayoutPage | DocumentFragment | Node)): void;
     /**
      * @param {string} name
      */

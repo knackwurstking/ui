@@ -5,7 +5,7 @@ import { StackLayoutPage } from "./stack-layout-page";
 /**
  * @typedef Pages
  * @type {{
- *  [key: string]: () => (StackLayoutPage | DocumentFragment);
+ *  [key: string]: () => (StackLayoutPage | DocumentFragment | Node);
  * }}
  */
 
@@ -50,7 +50,7 @@ class UI {
 
     /**
      * @param {string} name
-     * @param {() => (StackLayoutPage | DocumentFragment)} cb
+     * @param {() => (StackLayoutPage | DocumentFragment | Node)} cb
      */
     registerPage(name, cb) {
         this.#pages[name] = cb;
