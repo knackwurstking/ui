@@ -315,11 +315,15 @@
 
     :host([fullscreen]) .content {
         z-index: 10;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        padding-top: calc(var(--ui-dialog-header-height) + var(--ui-spacing));
-        padding-bottom: calc(var(--ui-dialog-footer-height) + var(--ui-spacing));
+        position: absolute;
+        top: calc(var(--ui-dialog-header-height) + var(--ui-spacing));
+        bottom: calc(var(--ui-dialog-footer-height) + var(--ui-spacing));
+        right: var(--ui-spacing);
+        left: var(--ui-spacing);
+        padding: unset;
+        height: unset;
+        width: unset;
+        min-width: unset;
     }
 
     /*
