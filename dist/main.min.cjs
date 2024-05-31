@@ -440,6 +440,7 @@
             margin: 0;
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
             border: none !important;
+            border-radius: inherit;
             outline: none !important;
             font-size: 0.9rem;
             font-family: var(--ui-fontFamily);
@@ -452,7 +453,7 @@
             width: 100%;
             border: none;
             border-bottom: 1px solid var(--ui-borderColor);
-            border-radius: var(--ui-radius);
+            border-radius: 0;
             transition: border-color 0.25s linear;
         }
 
