@@ -46,8 +46,8 @@
 
     /* {{{ Muted: code, pre */
 
-    --ui-muted-bgColor: hsla(240, 10%, 95.9%, 1);
-    --ui-muted-color: hsla(240, 10%, 46.1%, 1);
+    --ui-muted-bgColor: hsla(240, 10%, 84.1%, 1);
+    --ui-muted-color: hsla(240, 10%, 36.1%, 1);
     --ui-muted-borderColor: var(--ui-borderColor);
     --ui-muted-radius: var(--ui-radius);
     --ui-muted-fontFamily: var(--ui-fontFamily);
