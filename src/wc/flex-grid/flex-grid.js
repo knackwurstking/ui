@@ -16,7 +16,7 @@ export class FlexGrid extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
-        this._updateStyle()
+        this.updateStyle()
     }
 
     /**
@@ -27,16 +27,17 @@ export class FlexGrid extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "gap":
-                this._updateStyle({ gap: newValue || defaultGap })
+                this.updateStyle({ gap: newValue || defaultGap })
                 break
         }
     }
 
     /**
+     * @private
      * @param {Object} attributes
      * @param {string} [attributes.gap]
      */
-    _updateStyle({ gap = defaultGap } = {}) {
+    updateStyle({ gap = defaultGap } = {}) {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
                 display: flex !important;
