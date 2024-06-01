@@ -1,28 +1,3 @@
-.has-border {
-    border: var(--border-width) var(--border-style) hsl(var(--border));
-    border-radius: var(--radius);
-}
-
-.has-top-border {
-    border-top: var(--border-width) var(--border-style) hsl(var(--border));
-    border-radius: var(--radius);
-}
-
-.has-right-border {
-    border-right: var(--border-width) var(--border-style) hsl(var(--border));
-    border-radius: var(--radius);
-}
-
-.has-bottom-border {
-    border-bottom: var(--border-width) var(--border-style) hsl(var(--border));
-    border-radius: var(--radius);
-}
-
-.has-left-border {
-    border-left: var(--border-width) var(--border-style) hsl(var(--border));
-    border-radius: var(--radius);
-}
-
 .has-save-area {
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
