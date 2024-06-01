@@ -6,33 +6,6 @@
     border: 1px solid red;
 }
 
-.is-primary {
-    color: hsl(var(--primary-fg));
-    background-color: hsl(var(--primary));
-}
-
-.is-primary-color {
-    color: hsl(var(--primary));
-}
-
-.is-secondary {
-    color: hsl(var(--secondary-fg));
-    background-color: hsl(var(--secondary));
-}
-
-.is-secondary-color {
-    color: hsl(var(--secondary));
-}
-
-.is-destructive {
-    color: hsl(var(--destructive-fg));
-    background-color: hsl(var(--destructive));
-}
-
-.is-destructive-color {
-    color: hsl(var(--destructive));
-}
-
 .is-card {
     background-color: var(--ui-card-bgColor);
     color: var(--ui-card-color);
@@ -43,6 +16,6 @@
 
 .is-outline-text {
     -webkit-text-stroke-width: 0.05rem;
-    -webkit-text-stroke-color: hsl(var(--fg));
+    -webkit-text-stroke-color: var(--ui-color);
     color: transparent;
 }
