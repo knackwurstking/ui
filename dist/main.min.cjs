@@ -409,7 +409,7 @@
         `}};o(q,"register",()=>customElements.define("ui-flex-grid-row",q)),o(q,"observedAttributes",["gap"]);let rt=q;const _t="0",ze=a`
 <style></style>
 <slot></slot>
-`,N=class N extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=ze,this._updateStyle()}attributeChangedCallback(t,e,s){switch(t){case"gap":this._updateStyle({gap:s||_t});break}}_updateStyle({gap:t=_t}={}){this.shadowRoot.querySelector("style").textContent=`
+`,N=class N extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"}),this.shadowRoot.innerHTML=ze,this.updateStyle()}attributeChangedCallback(t,e,s){switch(t){case"gap":this.updateStyle({gap:s||_t});break}}updateStyle({gap:t=_t}={}){this.shadowRoot.querySelector("style").textContent=`
             :host {
                 display: flex !important;
                 flex-flow: column nowrap;

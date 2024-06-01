@@ -8,10 +8,9 @@ export class FlexGrid extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
     /**
+     * @private
      * @param {Object} attributes
      * @param {string} [attributes.gap]
      */
-    _updateStyle({ gap }?: {
-        gap?: string;
-    }): void;
+    private updateStyle;
 }
