@@ -164,7 +164,7 @@ class UI {
         switch (this.input.type) {
             case "number":
                 // @ts-expect-error
-                return new Number(this.input.value);
+                return !!this.input.value ? new Number(this.input.value) : NaN;
             default:
                 // @ts-expect-error
                 return this.input.value;
@@ -214,7 +214,7 @@ class UI {
         switch (this.input.type) {
             case "number":
                 // @ts-ignore-error
-                return new Number(this.input.min);
+                return !!this.input.min ? new Number(this.input.min) : NaN;
             default:
                 // @ts-ignore-error
                 return this.input.min;
@@ -236,7 +236,7 @@ class UI {
         switch (this.input.type) {
             case "number":
                 // @ts-ignore-error
-                return new Number(this.input.max);
+                return !!this.input.max ? new Number(this.input.max) : NaN;
             default:
                 // @ts-ignore-error
                 return this.input.max;
@@ -324,7 +324,7 @@ export class Input extends HTMLElement {
         switch (this.ui.type) {
             case "number":
                 // @ts-expect-error
-                return new Number(value);
+                return !!value ? new Number(value) : NaN;
             default:
                 // @ts-expect-error
                 return value || "";
