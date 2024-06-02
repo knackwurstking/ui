@@ -1,6 +1,10 @@
 export class FlexGrid extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    cleanup: CleanUp;
+    ui: UI;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -14,3 +18,18 @@ export class FlexGrid extends HTMLElement {
      */
     private updateStyle;
 }
+import { CleanUp } from "../../js";
+declare class UI {
+    /**
+     * @param {FlexGrid} root
+     */
+    constructor(root: FlexGrid);
+    /**
+     * @private
+     * @type {FlexGrid}
+     */
+    private root;
+    set gap(v: string);
+    get gap(): string;
+}
+export {};

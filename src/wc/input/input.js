@@ -1,4 +1,5 @@
 import { Secondary } from "..";
+import { CleanUp } from "../../js";
 import { Events } from "../../js/events";
 
 /**
@@ -266,8 +267,14 @@ export class Input extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.appendChild(t.content.cloneNode(true));
 
+        this.cleanup = new CleanUp();
         /** @type {UI<InputEvents & E, T>} */
         this.ui = new UI(this);
+    }
+
+    connectedCallback() { }
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 
     /**

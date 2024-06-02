@@ -8,14 +8,19 @@ export class Lang extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /** @param {string} name */
-    _loadLanguage(name: string): Promise<void>;
+    /**
+     * @private
+     * @param {string} name
+     */
+    private loadLanguage;
 }
 declare class UI {
     /** @param {Lang} root */
     constructor(root: Lang);
     /** @type {import("./lang-type").LangType | null} */
     langType: import("./lang-type").LangType | null;
+    set current(v: string);
+    get current(): string;
     /** @returns {import("./lang-type").LangType} */
     getFallbackElement(): import("./lang-type").LangType;
     /**

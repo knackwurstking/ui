@@ -1,6 +1,6 @@
 export class Select extends HTMLElement {
     static register: () => void;
-    cleanup: any[];
+    cleanup: CleanUp;
     /** @type {UI} */
     ui: UI;
     connectedCallback(): void;
@@ -15,6 +15,7 @@ export class Select extends HTMLElement {
 export type SelectEvents = {
     "change": SelectOption;
 };
+import { CleanUp } from "../../js";
 declare class UI {
     /** @type {Events<SelectEvents>} */
     events: Events<SelectEvents>;

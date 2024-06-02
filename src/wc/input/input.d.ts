@@ -7,8 +7,11 @@ export class Input<E extends InputEvents, T extends InputTypes> extends HTMLElem
     static register: () => void;
     static observedAttributes: string[];
     constructor();
+    cleanup: CleanUp;
     /** @type {UI<InputEvents & E, T>} */
     ui: UI<InputEvents & E, T>;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -34,6 +37,7 @@ export type InputTypeValues = {
     date: string;
     email: string;
 };
+import { CleanUp } from "../../js";
 /**
  * @template {InputEvents} E
  * @template {InputTypes} T

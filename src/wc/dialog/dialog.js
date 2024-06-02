@@ -1,5 +1,5 @@
-import { events } from "../../js"
-import { html } from "../../js/utils"
+import { CleanUp, events } from "../../js";
+import { html } from "../../js/utils";
 
 /**
  * @typedef {{
@@ -8,8 +8,7 @@ import { html } from "../../js/utils"
  * }} DialogEvents
  */
 
-// {{{ innerHTML
-
+// {{{ HTML Content
 const innerHTML = html`
 <style>
     :host dialog * {
@@ -183,8 +182,7 @@ const innerHTML = html`
         </div>
 	</div>
 </dialog>
-`
-
+`;
 // }}}
 
 /**
@@ -214,10 +212,6 @@ class UI {
         this.#root.appendChild(this.#h4)
     }
 
-    get dialog() {
-        return this.#dialog
-    }
-
     get fullscreen() {
         return this.#root.hasAttribute("fullscreen")
     }
@@ -233,6 +227,10 @@ class UI {
 
     set title(value) {
         this.#h4.innerText = value
+    }
+
+    getDialogElement() {
+        return this.#dialog
     }
 
     open(modal = false, inert = true) {
@@ -273,6 +271,7 @@ export class Dialog extends HTMLElement {
         this.attachShadow({ mode: "open" })
         this.shadowRoot.innerHTML = innerHTML
 
+        this.cleanup = new CleanUp();
         /** @type {UI<DialogEvents & T>} */
         this.ui = new UI(this, this.shadowRoot.querySelector("dialog"));
     }
@@ -281,11 +280,14 @@ export class Dialog extends HTMLElement {
         const button = this.shadowRoot.querySelector(".header ui-icon-button")
         button.addEventListener("click", this.#closeHandler)
         button.addEventListener("click", this.#dispatchCloseHandler)
+
+        this.cleanup.add(() => {
+            button.removeEventListener("click", this.#closeHandler)
+            button.removeEventListener("click", this.#dispatchCloseHandler)
+        })
     }
 
     disconnectedCallback() {
-        const button = this.shadowRoot.querySelector(".header ui-icon-button")
-        button.removeEventListener("click", this.#closeHandler)
-        button.removeEventListener("click", this.#dispatchCloseHandler)
+        this.cleanup.run();
     }
 }

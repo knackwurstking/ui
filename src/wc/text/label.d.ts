@@ -5,7 +5,10 @@
 export class Label extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    cleanup: CleanUp;
     ui: UI;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
     * @param {string} name
     * @param {string | null} _oldValue
@@ -13,6 +16,7 @@ export class Label extends HTMLElement {
     */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
+import { CleanUp } from "../../js";
 declare class UI {
     /** @param {Label} root */
     constructor(root: Label);
@@ -24,8 +28,14 @@ declare class UI {
     enableRipple(): void;
     removeRipple: () => void;
     disableRipple(): void;
-    _startInputHandling(): void;
-    _stopInputHandling(): void;
+    /**
+     * @private
+     */
+    private startInputHandling;
+    /**
+     * @private
+     */
+    private stopInputHandling;
     #private;
 }
 export {};

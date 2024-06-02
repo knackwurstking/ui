@@ -1,6 +1,10 @@
 export class FlexGridItem extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    cleanup: CleanUp;
+    ui: UI;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -8,10 +12,24 @@ export class FlexGridItem extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
     /**
+     * @private
      * @param {Object} attributes
      * @param {string} [attributes.flex]
      */
-    _updateStyle({ flex }?: {
-        flex?: string;
-    }): void;
+    private updateStyle;
 }
+import { CleanUp } from "../../js";
+declare class UI {
+    /**
+     * @param {FlexGridItem} root
+     */
+    constructor(root: FlexGridItem);
+    /**
+     * @private
+     * @type FlexGridItem
+     */
+    private root;
+    set flex(v: string);
+    get flex(): string;
+}
+export {};

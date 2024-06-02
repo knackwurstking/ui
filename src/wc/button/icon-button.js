@@ -1,8 +1,16 @@
-import { ripple } from "../../js";
+import { CleanUp, ripple } from "../../js";
 import { html } from "../../js/utils";
 
-// {{{ innerHTML
+/**
+ * @typedef IconButtonColor
+ * @type {(
+ *  | "primary"
+ *  | "secondary"
+ *  | "destructive"
+ * )}
+ */
 
+// {{{ HTML Content
 const innerHTML = html`
 <style>
     :host {
@@ -54,7 +62,6 @@ const innerHTML = html`
 
 <slot></slot>
 `;
-
 // }}}
 
 class UI {
@@ -67,6 +74,30 @@ class UI {
 
         /** @type {(() => void) | null} */
         this.removeRipple = null;
+    }
+
+    get color() {
+        // @ts-ignore
+        return this.#root.getAttribute("color");
+    }
+
+    /**
+     * @param {IconButtonColor} v
+     */
+    set color(v) {
+        this.#root.setAttribute("color", v);
+    }
+
+    get ghost() {
+        return this.#root.hasAttribute("ghost");
+    }
+
+    set ghost(s) {
+        if (s) {
+            this.#root.setAttribute("ghost", "");
+        } else {
+            this.#root.removeAttribute("ghost");
+        }
     }
 
     disable() {
@@ -103,6 +134,7 @@ export class IconButton extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
         this.setAttribute("role", "button");
 
+        this.cleanup = new CleanUp();
         this.ui = new UI(this)
     }
 
@@ -110,6 +142,10 @@ export class IconButton extends HTMLElement {
         if (!this.hasAttribute("no-ripple") && !this.ui.removeRipple) {
             this.ui.enableRipple()
         }
+    }
+
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 
     /**

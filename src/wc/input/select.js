@@ -1,6 +1,7 @@
-import { SelectOption } from "./select-option"
+import { CleanUp } from "../../js";
 import { Events } from "../../js/events";
 import { html } from "../../js/utils";
+import { SelectOption } from "./select-option";
 
 /**
  * @typedef {{
@@ -8,8 +9,7 @@ import { html } from "../../js/utils";
  * }} SelectEvents
  */
 
-// {{{ innerHTML
-
+// {{{ HTML Content
 const innerHTML = html`
 <style>
     * {
@@ -97,8 +97,7 @@ const innerHTML = html`
 
     <slot></slot>
 </div>
-`
-
+`;
 // }}}
 
 class UI {
@@ -130,7 +129,7 @@ export class Select extends HTMLElement {
         this.attachShadow({ mode: "open" })
         this.shadowRoot.innerHTML = innerHTML;
 
-        this.cleanup = []
+        this.cleanup = new CleanUp();
 
         /** @type {UI} */
         this.ui = new UI();
@@ -140,7 +139,7 @@ export class Select extends HTMLElement {
         const options = this.shadowRoot.querySelector(".options");
         const cb = this.onClickOptions.bind(this);
         options.addEventListener("click", cb);
-        this.cleanup.push(() => {
+        this.cleanup.add(() => {
             this.removeEventListener("click", cb);
             options.removeEventListener("click", this.onClickOptions);
         });
@@ -151,8 +150,7 @@ export class Select extends HTMLElement {
     } // }}}
 
     disconnectedCallback() { // {{{
-        this.cleanup.forEach(fn => fn());
-        this.cleanup = [];
+        this.cleanup.run();
     } // }}}
 
     /**

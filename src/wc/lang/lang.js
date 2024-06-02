@@ -27,6 +27,18 @@ class UI {
         this.langType = null;
     }
 
+    get current() {
+        return this.#root.getAttribute("current");
+    }
+
+    set current(v) {
+        if (v === null) {
+            this.#root.removeAttribute("current");
+        } else {
+            this.#root.setAttribute("current", v);
+        }
+    }
+
     /** @returns {import("./lang-type").LangType} */
     getFallbackElement() {
         return this.#root.querySelector("ui-lang-type[fallback]")
@@ -93,13 +105,16 @@ export class Lang extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "current":
-                if (newValue !== null) this._loadLanguage(newValue)
+                if (newValue !== null) this.loadLanguage(newValue)
                 break
         }
     }
 
-    /** @param {string} name */
-    async _loadLanguage(name) {
+    /**
+     * @private
+     * @param {string} name
+     */
+    async loadLanguage(name) {
         /** @type {import("./lang-type").LangType} */
         const next =
             this.querySelector(`ui-lang-type[name="${name}"]`) ||

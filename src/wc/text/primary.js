@@ -1,3 +1,4 @@
+import { CleanUp } from "../../js";
 import { html } from "../../js/utils";
 
 const innerHTML = html`
@@ -20,5 +21,12 @@ export class Primary extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" })
         this.shadowRoot.innerHTML = innerHTML
+
+        this.cleanup = new CleanUp();
+    }
+
+    connectedCallback() { }
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 }

@@ -1,7 +1,7 @@
+import { CleanUp } from "../../js";
 import { html } from "../../js/utils";
 
-// {{{ innerHTML
-
+// {{{ HTML Content
 const innerHTML = html`
 <style>
     :host {
@@ -106,6 +106,12 @@ export class AppBar extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
 
+        this.cleanup = new CleanUp();
         this.ui = new UI(this);
+    }
+
+    connectedCallback() { }
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 }

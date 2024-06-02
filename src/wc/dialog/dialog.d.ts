@@ -8,6 +8,7 @@
 export class Dialog<T extends DialogEvents> extends HTMLElement {
     static register: () => void;
     constructor();
+    cleanup: CleanUp;
     /** @type {UI<DialogEvents & T>} */
     ui: UI<DialogEvents & T>;
     connectedCallback(): void;
@@ -18,6 +19,7 @@ export type DialogEvents = {
     open: null;
     close: null;
 };
+import { CleanUp } from "../../js";
 /**
  * @template {DialogEvents} T
  */
@@ -29,11 +31,11 @@ declare class UI<T extends DialogEvents> {
     constructor(root: Dialog<any>, dialog: HTMLDialogElement);
     /** @type {events.Events<T>} */
     events: events.Events<T>;
-    get dialog(): HTMLDialogElement;
     set fullscreen(state: boolean);
     get fullscreen(): boolean;
     set title(value: string);
     get title(): string;
+    getDialogElement(): HTMLDialogElement;
     open(modal?: boolean, inert?: boolean): void;
     close(): void;
     #private;

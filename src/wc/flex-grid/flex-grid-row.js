@@ -1,3 +1,4 @@
+import { CleanUp } from "../../js";
 import { html } from "../../js/utils";
 
 const defaultGap = "0"
@@ -6,6 +7,31 @@ const innerHTML = html`
 <style></style>
 <slot></slot>
 `;
+
+class UI {
+    /**
+     * @param {FlexGridRow} root
+     */
+    constructor(root) {
+        /**
+         * @private
+         * @type {FlexGridRow}
+         */
+        this.root = root;
+    }
+
+    get gap() {
+        return this.root.getAttribute("gap") || defaultGap;
+    }
+
+    set gap(v) {
+        if (v === null) {
+            this.root.removeAttribute("gap");
+        } else {
+            this.root.setAttribute("gap", v);
+        }
+    }
+}
 
 export class FlexGridRow extends HTMLElement {
 
@@ -16,7 +42,16 @@ export class FlexGridRow extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
-        this._updateStyle()
+
+        this.cleanup = new CleanUp();
+        this.ui = new UI(this);
+
+        this.updateStyle()
+    }
+
+    connectedCallback() { }
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 
     /**
@@ -27,16 +62,17 @@ export class FlexGridRow extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "gap":
-                this._updateStyle({ gap: newValue || defaultGap })
+                this.updateStyle({ gap: newValue || defaultGap })
                 break
         }
     }
 
     /**
+     * @private
      * @param {Object} attributes
      * @param {string} [attributes.gap]
      */
-    _updateStyle({ gap = defaultGap } = {}) {
+    updateStyle({ gap = defaultGap } = {}) {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
                 display: flex !important;

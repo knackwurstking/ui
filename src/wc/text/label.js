@@ -1,4 +1,4 @@
-import { ripple } from "../../js"
+import { CleanUp, ripple } from "../../js";
 import { html } from "../../js/utils";
 
 const innerHTML = html`
@@ -85,15 +85,18 @@ class UI {
         if (!!this.#removeRipple) return;
         this.removeRipple = ripple.create(this.#root);
         this.#root.style.cursor = "pointer";
-        this._startInputHandling()
+        this.startInputHandling()
     }
 
     disableRipple() {
         if (!!this.#removeRipple) this.#removeRipple()
-        this._stopInputHandling()
+        this.stopInputHandling()
     }
 
-    _startInputHandling() {
+    /**
+     * @private
+     */
+    startInputHandling() {
         if (this.#running) return;
 
         this.#root.addEventListener("click", this.#onClick);
@@ -105,7 +108,10 @@ class UI {
         this.#running = true;
     }
 
-    _stopInputHandling() {
+    /**
+     * @private
+     */
+    stopInputHandling() {
         this.#root.removeEventListener("click", this.#onClick);
 
         [...this.#root.querySelectorAll(`[slot="input"]`)].forEach(el => {
@@ -130,7 +136,13 @@ export class Label extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
 
+        this.cleanup = new CleanUp();
         this.ui = new UI(this)
+    }
+
+    connectedCallback() { }
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 
     /**

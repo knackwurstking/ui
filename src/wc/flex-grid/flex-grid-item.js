@@ -1,3 +1,4 @@
+import { CleanUp } from "../../js";
 import { html } from "../../js/utils";
 
 const defaultFlex = "1"
@@ -6,6 +7,35 @@ const innerHTML = html`
 <style></style>
 <slot></slot>
 `;
+
+class UI {
+    /**
+     * @param {FlexGridItem} root
+     */
+    constructor(root) {
+        /**
+         * @private
+         * @type FlexGridItem
+         */
+        this.root = root;
+    }
+
+    get flex() {
+        if (!this.root.hasAttribute("flex")) {
+            return defaultFlex;
+        }
+
+        return this.root.getAttribute("flex");
+    }
+
+    set flex(v) {
+        if (v === null) {
+            this.root.removeAttribute("flex");
+        } else {
+            this.root.setAttribute("flex", v);
+        }
+    }
+}
 
 export class FlexGridItem extends HTMLElement {
 
@@ -16,7 +46,16 @@ export class FlexGridItem extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = innerHTML;
-        this._updateStyle()
+
+        this.cleanup = new CleanUp();
+        this.ui = new UI(this);
+
+        this.updateStyle()
+    }
+
+    connectedCallback() { }
+    disconnectedCallback() {
+        this.cleanup.run();
     }
 
     /**
@@ -27,16 +66,17 @@ export class FlexGridItem extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "flex":
-                this._updateStyle({ flex: newValue || defaultFlex })
+                this.updateStyle({ flex: newValue || defaultFlex })
                 break
         }
     }
 
     /**
+     * @private
      * @param {Object} attributes
      * @param {string} [attributes.flex]
      */
-    _updateStyle({ flex = defaultFlex } = {}) {
+    updateStyle({ flex = defaultFlex } = {}) {
         this.shadowRoot.querySelector("style").textContent = `
             :host {
                 flex: ${flex};
