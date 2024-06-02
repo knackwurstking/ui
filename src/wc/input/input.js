@@ -115,10 +115,11 @@ class UI {
      * @param {string | null} v
      */
     set title(v) {
-        let el = this.root.shadowRoot.querySelector(`[slot="title"]`);
+        let el = this.root.querySelector(`[slot="title"]`);
 
         if (v === null && !!el) {
             this.root.removeChild(el);
+            el = null;
         }
 
         if (!el) {
