@@ -261,8 +261,6 @@ class UI {
  * @template {DialogEvents} T
  */
 export class Dialog extends HTMLElement {
-    #dispatchCloseHandler = () => this.ui.close();
-    #closeHandler = () => this.ui.close();
 
     static register = () => customElements.define("ui-dialog", Dialog)
 
@@ -278,12 +276,20 @@ export class Dialog extends HTMLElement {
 
     connectedCallback() {
         const button = this.shadowRoot.querySelector(".header ui-icon-button")
-        button.addEventListener("click", this.#closeHandler)
-        button.addEventListener("click", this.#dispatchCloseHandler)
+        const onClick = () => {
+            this.ui.close();
+        };
+        button.addEventListener("click", onClick)
+
+        const dialog = this.shadowRoot.querySelector("dialog");
+        const onCancel = (/** @type {Event} */ ev) => {
+            ev.preventDefault(); // NOTE: Disable escape key action
+        };
+        dialog.addEventListener("cancel", onCancel);
 
         this.cleanup.add(() => {
-            button.removeEventListener("click", this.#closeHandler)
-            button.removeEventListener("click", this.#dispatchCloseHandler)
+            button.removeEventListener("click", onClick)
+            dialog.removeEventListener("cancel", onCancel);
         })
     }
 

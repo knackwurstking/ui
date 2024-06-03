@@ -13,7 +13,6 @@ export class Dialog<T extends DialogEvents> extends HTMLElement {
     ui: UI<DialogEvents & T>;
     connectedCallback(): void;
     disconnectedCallback(): void;
-    #private;
 }
 export type DialogEvents = {
     open: null;
