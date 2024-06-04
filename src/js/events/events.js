@@ -1,8 +1,5 @@
 /**
- * @typedef _Events
- * @type {{
- *  [key: string]: any;
- * }}
+ * @typedef {import(".")._Events} _Events
  */
 
 /**

@@ -1,13 +1,10 @@
 /**
- * @typedef _Events
- * @type {{
- *  [key: string]: any;
- * }}
+ * @typedef {import(".")._Events} _Events
  */
 /**
  * @template {_Events} T
  */
-export default class Events<T extends _Events> {
+export default class Events<T extends import(".")._Events> {
     /**
      * @template {keyof T} K
      * @param {K} key
@@ -29,6 +26,4 @@ export default class Events<T extends _Events> {
     dispatch<K_2 extends keyof T>(key: K_2, data: T[K_2]): this;
     #private;
 }
-export type _Events = {
-    [key: string]: any;
-};
+export type _Events = import(".")._Events;

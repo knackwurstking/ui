@@ -1,67 +1,25 @@
-import * as js from "./js";
-import * as wc from "./wc";
+// UI Exports
+export { UIAppBar } from "./ui-app-bar";
+export { UIButton, UIIconButton } from "./ui-button";
+export { UIContainer } from "./ui-container";
+export { UIDialog } from "./ui-dialog";
+export { UIFlexGrid, UIFlexGridRow, UIFlexGridItem } from "./ui-flex-grid";
+export { UIInput, UISelect } from "./ui-input";
+export { UILang, UILangType } from "./ui-lang";
+export { UISpinner } from "./ui-spinner";
+export { UIStackLayout, UIStackLayoutPage } from "./ui-stack-layout";
+export { UIStore } from "./ui-store";
+export { UILabel, UIPrimary, UISecondary } from "./ui-text";
+export { UIThemeHandler } from "./ui-theme-handler";
 
-async function define() {
-    // AppBar components
-    wc.AppBar.register()
-
-    // Button components
-    wc.IconButton.register()
-    wc.Button.register()
-
-    // Container components
-    wc.Container.register()
-
-    // FlexGrid components
-    wc.FlexGridItem.register()
-    wc.FlexGridRow.register()
-    wc.FlexGrid.register()
-
-    // Input components
-    wc.Input.register();
-    wc.SelectOption.register()
-    wc.Select.register()
-
-    // Lang components
-    wc.LangType.register()
-    wc.Lang.register()
-
-    // Spinner components
-    wc.Spinner.register()
-
-    // StackLayout components
-    wc.StackLayoutPage.register()
-    wc.StackLayout.register()
-
-    // Store components
-    wc.Store.register()
-
-    // Text components
-    wc.Secondary.register()
-    wc.Primary.register()
-    wc.Label.register()
-
-    // ThemeHandler components
-    wc.ThemeHandler.register()
-
-    // Dialog components
-    wc.Dialog.register()
-}
-
-async function defineSVG() {
-    wc.svg.BackArrowNavigation.register()
-    wc.svg.ChevronDown.register()
-    wc.svg.Close.register()
-    wc.svg.DeleteRecycleBin.register()
-    wc.svg.Edit2.register()
-    wc.svg.PDFDocument.register()
-    wc.svg.Settings.register()
-    wc.svg.TodayOutline.register()
-}
-
-export default {
-    js: js,
-    wc: wc,
-    define: define,
-    defineSVG: defineSVG,
-};
+// Svg Exports
+export {
+    BackArrowNavigation as SvgBackArrowNavigation,
+    ChevronDown as SvgChevronDown,
+    Close as SvgClose,
+    DeleteRecycleBin as SvgDeleteRecycleBin,
+    Edit2 as SvgEdit2,
+    PDFDocument as SvgPDFDocument,
+    Settings as SvgSettings,
+    TodayOutline as SvgTodayOutline,
+} from "./svg";
