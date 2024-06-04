@@ -15,7 +15,6 @@ t.innerHTML = `
             position: relative;
             width: 100%;
         }
-                // @ts-expect-error
 
         input {
             width: calc(100% - var(--ui-spacing) * 4);
