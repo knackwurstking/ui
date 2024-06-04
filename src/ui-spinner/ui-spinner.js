@@ -42,7 +42,10 @@ const innerHTML = html`
 
 export class UISpinner extends HTMLElement {
 
-    static register = () => customElements.define("ui-spinner", UISpinner);
+    static register = () => {
+        console.debug("register web component: ui-spinner");
+        customElements.define("ui-spinner", UISpinner);
+    };
 
     constructor() {
         super();
@@ -57,3 +60,5 @@ export class UISpinner extends HTMLElement {
         this.cleanup.run();
     }
 }
+
+UISpinner.register();

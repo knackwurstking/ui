@@ -120,7 +120,10 @@ class UI {
 
 export class UIIconButton extends HTMLElement {
 
-    static register = () => customElements.define("ui-icon-button", UIIconButton)
+    static register = () => {
+        console.debug("register web component: ui-icon-button");
+        customElements.define("ui-icon-button", UIIconButton);
+    }
     static observedAttributes = ["no-ripple"]
 
     constructor() {
@@ -157,3 +160,5 @@ export class UIIconButton extends HTMLElement {
         }
     }
 }
+
+UIIconButton.register();

@@ -259,7 +259,10 @@ class UI {
  */
 export class UIDialog extends HTMLElement {
 
-    static register = () => customElements.define("ui-dialog", UIDialog)
+    static register = () => {
+        console.debug("register web component: ui-dialog");
+        customElements.define("ui-dialog", UIDialog);
+    };
 
     constructor() {
         super()
@@ -294,3 +297,5 @@ export class UIDialog extends HTMLElement {
         this.cleanup.run();
     }
 }
+
+UIDialog.register();

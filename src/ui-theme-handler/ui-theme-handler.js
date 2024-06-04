@@ -115,7 +115,11 @@ class UI {
 
 export class UIThemeHandler extends HTMLElement {
 
-    static register = () => customElements.define("ui-theme-handler", UIThemeHandler)
+    static register = () => {
+        console.debug("register web component: ui-theme-handler");
+        customElements.define("ui-theme-handler", UIThemeHandler)
+    };
+
     static observedAttributes = ["auto", "mode"]
 
     constructor() {
@@ -143,3 +147,5 @@ export class UIThemeHandler extends HTMLElement {
         }
     }
 }
+
+UIThemeHandler.register();

@@ -119,7 +119,10 @@ export class UISelect extends HTMLElement {
         });
     } // }}}
 
-    static register = () => customElements.define("ui-select", UISelect)
+    static register = () => {
+        console.debug("register web component: ui-select");
+        customElements.define("ui-select", UISelect);
+    };
 
     constructor() { // {{{
         super();
@@ -166,3 +169,5 @@ export class UISelect extends HTMLElement {
     } // }}}
 
 }
+
+UISelect.register();

@@ -99,7 +99,10 @@ class UI {
  */
 export class UIAppBar extends HTMLElement {
 
-    static register = () => customElements.define("ui-app-bar", UIAppBar)
+    static register = () => {
+        console.debug("register web component: ui-app-bar");
+        customElements.define("ui-app-bar", UIAppBar)
+    };
 
     constructor() {
         super();
@@ -115,3 +118,5 @@ export class UIAppBar extends HTMLElement {
         this.cleanup.run();
     }
 }
+
+UIAppBar.register();

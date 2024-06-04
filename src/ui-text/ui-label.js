@@ -128,7 +128,11 @@ class UI {
  */
 export class UILabel extends HTMLElement {
 
-    static register = () => customElements.define("ui-label", UILabel);
+    static register = () => {
+        console.debug("register web component: ui-label");
+        customElements.define("ui-label", UILabel);
+    };
+
     static observedAttributes = ["ripple", "secondary", "primary"];
 
     constructor() {
@@ -165,3 +169,5 @@ export class UILabel extends HTMLElement {
         }
     }
 }
+
+UILabel.register();

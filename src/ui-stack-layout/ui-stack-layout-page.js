@@ -54,7 +54,10 @@ class UI {
 
 export class UIStackLayoutPage extends HTMLElement {
 
-    static register = () => customElements.define("ui-stack-layout-page", UIStackLayoutPage);
+    static register = () => {
+        console.debug("register web component: ui-stack-layout-page");
+        customElements.define("ui-stack-layout-page", UIStackLayoutPage);
+    };
 
     constructor() {
         super();
@@ -71,3 +74,5 @@ export class UIStackLayoutPage extends HTMLElement {
         this.cleanup.run();
     }
 }
+
+UIStackLayoutPage.register();

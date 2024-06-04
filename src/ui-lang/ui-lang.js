@@ -88,7 +88,11 @@ class UI {
 
 export class UILang extends HTMLElement {
 
-    static register = () => customElements.define("ui-lang", UILang);
+    static register = () => {
+        console.debug("register web component: ui-lang");
+        customElements.define("ui-lang", UILang);
+    };
+
     static observedAttributes = ["current"]
 
     constructor() {
@@ -127,3 +131,5 @@ export class UILang extends HTMLElement {
         this.ui.new(next, await request.json())
     }
 }
+
+UILang.register();

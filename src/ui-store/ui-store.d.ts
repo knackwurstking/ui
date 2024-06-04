@@ -1,5 +1,5 @@
 /**
- * @template {_Events} T
+ * @template {UIStoreEvents} T
  * @extends {HTMLElement}
  */
 export class UIStore<T extends events._Events> extends HTMLElement {
@@ -8,14 +8,14 @@ export class UIStore<T extends events._Events> extends HTMLElement {
     /** @type {UI<T>} */
     ui: UI<T>;
 }
-export type _Events = import("../js/events/events")._Events;
+export type UIStoreEvents = import(".").UIStoreEvents;
 import { events } from "../js";
 /**
  *
- * @typedef {import("../js/events/events")._Events} _Events
+ * @typedef {import(".").UIStoreEvents} UIStoreEvents
  */
 /**
- * @template {_Events} T
+ * @template {UIStoreEvents} T
  */
 declare class UI<T extends events._Events> {
     /**

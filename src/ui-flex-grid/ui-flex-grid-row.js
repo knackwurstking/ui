@@ -35,7 +35,11 @@ class UI {
 
 export class UIFlexGridRow extends HTMLElement {
 
-    static register = () => customElements.define("ui-flex-grid-row", UIFlexGridRow)
+    static register = () => {
+        console.debug("register web component: ui-flex-grid-row");
+        customElements.define("ui-flex-grid-row", UIFlexGridRow);
+    };
+
     static observedAttributes = ["gap"]
 
     constructor() {
@@ -95,3 +99,5 @@ export class UIFlexGridRow extends HTMLElement {
         `
     }
 }
+
+UIFlexGridRow.register();

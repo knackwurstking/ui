@@ -15,7 +15,10 @@ const innerHTML = html`
 
 export class UISecondary extends HTMLElement {
 
-    static register = () => customElements.define("ui-secondary", UISecondary)
+    static register = () => {
+        console.debug("register web component: ui-secondary");
+        customElements.define("ui-secondary", UISecondary);
+    };
 
     constructor() {
         super();
@@ -30,3 +33,5 @@ export class UISecondary extends HTMLElement {
         this.cleanup.run();
     }
 }
+
+UISecondary.register();

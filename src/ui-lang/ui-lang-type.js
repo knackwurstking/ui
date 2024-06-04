@@ -40,7 +40,10 @@ class UI {
 
 export class UILangType extends HTMLElement {
 
-    static register = () => customElements.define("ui-lang-type", UILangType);
+    static register = () => {
+        console.debug("register web component: ui-lang-type");
+        customElements.define("ui-lang-type", UILangType);
+    };
 
     constructor() {
         super();
@@ -48,3 +51,5 @@ export class UILangType extends HTMLElement {
         this.ui = new UI(this)
     }
 }
+
+UILangType.register();

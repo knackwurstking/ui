@@ -2,11 +2,11 @@ import { events } from "../js";
 
 /**
  *
- * @typedef {import("../js/events/events")._Events} _Events
+ * @typedef {import(".").UIStoreEvents} UIStoreEvents
  */
 
 /**
- * @template {_Events} T
+ * @template {UIStoreEvents} T
  */
 class UI {
     /** @type {UIStore} */
@@ -110,12 +110,15 @@ class UI {
 }
 
 /**
- * @template {_Events} T
+ * @template {UIStoreEvents} T
  * @extends {HTMLElement}
  */
 export class UIStore extends HTMLElement {
 
-    static register = () => customElements.define("ui-store", UIStore);
+    static register = () => {
+        console.debug("register web component: ui-store");
+        customElements.define("ui-store", UIStore);
+    };
 
     constructor() {
         super();
@@ -124,3 +127,5 @@ export class UIStore extends HTMLElement {
         this.ui = new UI(this);
     }
 }
+
+UIStore.register();
