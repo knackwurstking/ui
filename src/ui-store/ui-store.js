@@ -127,5 +127,3 @@ export class UIStore extends HTMLElement {
         this.ui = new UI(this);
     }
 }
-
-UIStore.register();

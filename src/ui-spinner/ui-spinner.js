@@ -60,5 +60,3 @@ export class UISpinner extends HTMLElement {
         this.cleanup.run();
     }
 }
-
-UISpinner.register();

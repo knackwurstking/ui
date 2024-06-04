@@ -169,5 +169,3 @@ export class UILabel extends HTMLElement {
         }
     }
 }
-
-UILabel.register();

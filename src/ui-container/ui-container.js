@@ -35,5 +35,3 @@ export class UIContainer extends HTMLElement {
         this.cleanup.run();
     }
 }
-
-UIContainer.register();

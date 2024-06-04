@@ -192,5 +192,3 @@ export class UIButton extends HTMLElement {
         }
     }
 }
-
-UIButton.register();

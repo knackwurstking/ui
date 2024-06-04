@@ -169,5 +169,3 @@ export class UISelect extends HTMLElement {
     } // }}}
 
 }
-
-UISelect.register();

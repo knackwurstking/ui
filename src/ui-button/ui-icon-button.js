@@ -160,5 +160,3 @@ export class UIIconButton extends HTMLElement {
         }
     }
 }
-
-UIIconButton.register();

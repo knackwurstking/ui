@@ -297,5 +297,3 @@ export class UIDialog extends HTMLElement {
         this.cleanup.run();
     }
 }
-
-UIDialog.register();

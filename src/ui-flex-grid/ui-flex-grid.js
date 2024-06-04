@@ -101,5 +101,3 @@ export class UIFlexGrid extends HTMLElement {
         `
     }
 }
-
-UIFlexGrid.register();

@@ -51,5 +51,3 @@ export class UILangType extends HTMLElement {
         this.ui = new UI(this)
     }
 }
-
-UILangType.register();

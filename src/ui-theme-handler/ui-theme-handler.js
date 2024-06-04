@@ -147,5 +147,3 @@ export class UIThemeHandler extends HTMLElement {
         }
     }
 }
-
-UIThemeHandler.register();

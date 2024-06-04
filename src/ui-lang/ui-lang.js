@@ -131,5 +131,3 @@ export class UILang extends HTMLElement {
         this.ui.new(next, await request.json())
     }
 }
-
-UILang.register();

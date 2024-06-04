@@ -74,5 +74,3 @@ export class UIStackLayoutPage extends HTMLElement {
         this.cleanup.run();
     }
 }
-
-UIStackLayoutPage.register();

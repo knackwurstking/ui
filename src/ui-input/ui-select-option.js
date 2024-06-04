@@ -68,5 +68,3 @@ export class UISelectOption extends HTMLElement {
         this.ui = new UI(this);
     }
 }
-
-UISelectOption.register();

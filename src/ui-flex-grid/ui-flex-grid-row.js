@@ -99,5 +99,3 @@ export class UIFlexGridRow extends HTMLElement {
         `
     }
 }
-
-UIFlexGridRow.register();

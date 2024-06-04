@@ -118,5 +118,3 @@ export class UIAppBar extends HTMLElement {
         this.cleanup.run();
     }
 }
-
-UIAppBar.register();

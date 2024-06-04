@@ -131,5 +131,3 @@ export class UIStackLayout extends HTMLElement {
         this.cleanup.run();
     }
 }
-
-UIStackLayout.register();

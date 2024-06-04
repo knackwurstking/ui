@@ -33,5 +33,3 @@ export class UISecondary extends HTMLElement {
         this.cleanup.run();
     }
 }
-
-UISecondary.register();

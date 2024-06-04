@@ -326,5 +326,3 @@ export class UIInput extends HTMLElement {
         }
     }
 }
-
-UIInput.register();

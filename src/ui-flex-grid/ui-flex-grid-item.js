@@ -88,5 +88,3 @@ export class UIFlexGridItem extends HTMLElement {
         `
     }
 }
-
-UIFlexGridItem.register();
