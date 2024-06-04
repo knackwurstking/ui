@@ -76,7 +76,10 @@ const innerHTML = html`
 
 export class TodayOutline extends HTMLElement {
 
-    static register = () => customElements.define("ui-svg-today-outline", TodayOutline);
+    static register = () => {
+        console.debug("register svg component: svg-today-outline");
+        customElements.define("svg-today-outline", TodayOutline);
+    };
 
     constructor() {
         super();
@@ -84,3 +87,5 @@ export class TodayOutline extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
+
+TodayOutline.register();

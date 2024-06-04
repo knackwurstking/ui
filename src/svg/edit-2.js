@@ -35,7 +35,10 @@ const innerHTML = html`
 
 export class Edit2 extends HTMLElement {
 
-    static register = () => customElements.define("ui-svg-edit2", Edit2);
+    static register = () => {
+        console.debug("register svg component: svg-edit2");
+        customElements.define("svg-edit2", Edit2);
+    };
 
     constructor() {
         super();
@@ -43,3 +46,5 @@ export class Edit2 extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
+
+Edit2.register();

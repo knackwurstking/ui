@@ -24,7 +24,10 @@ const innerHTML = html`
 
 export class BackArrowNavigation extends HTMLElement {
 
-    static register = () => customElements.define("ui-svg-back-arrow-navigation", BackArrowNavigation);
+    static register = () => {
+        console.debug("register svg component: svg-back-arrow-navigation");
+        customElements.define("svg-back-arrow-navigation", BackArrowNavigation);
+    };
 
     constructor() {
         super();
@@ -32,3 +35,5 @@ export class BackArrowNavigation extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
+
+BackArrowNavigation.register();

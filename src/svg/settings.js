@@ -31,7 +31,10 @@ const innerHTML = html`
 
 export class Settings extends HTMLElement {
 
-    static register = () => customElements.define("ui-svg-settings", Settings);
+    static register = () => {
+        console.debug("register svg component: svg-settings");
+        customElements.define("svg-settings", Settings);
+    };
 
     constructor() {
         super();
@@ -39,3 +42,5 @@ export class Settings extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
+
+Settings.register();

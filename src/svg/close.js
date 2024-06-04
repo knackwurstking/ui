@@ -35,7 +35,10 @@ const innerHTML = html`
 
 export class Close extends HTMLElement {
 
-    static register = () => customElements.define("ui-svg-close", Close);
+    static register = () => {
+        console.debug("register svg component: svg-close");
+        customElements.define("svg-close", Close);
+    };
 
     constructor() {
         super();
@@ -43,3 +46,5 @@ export class Close extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
+
+Close.register();

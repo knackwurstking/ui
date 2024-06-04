@@ -28,7 +28,10 @@ const innerHTML = html`
 
 export class ChevronDown extends HTMLElement {
 
-    static register = () => customElements.define("ui-svg-chevron-down", ChevronDown);
+    static register = () => {
+        console.debug("register svg component: svg-chevron-down");
+        customElements.define("svg-chevron-down", ChevronDown);
+    }
 
     constructor() {
         super();
@@ -36,3 +39,5 @@ export class ChevronDown extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
+
+ChevronDown.register();
