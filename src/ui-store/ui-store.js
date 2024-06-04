@@ -1,4 +1,4 @@
-import { events } from "../js";
+import { Events } from "../js";
 
 /**
  *
@@ -20,9 +20,9 @@ class UI {
     constructor(root) {
         this.#root = root
         /**
-         * @type {events.Events<T>}
+         * @type {Events<T>}
          */
-        this.events = new events.Events();
+        this.events = new Events();
     }
 
     get localStoragePrefix() {

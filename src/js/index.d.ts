@@ -1,5 +1,8 @@
-export * as draggable from "./draggable";
-export * as events from "./events";
-export * as ripple from "./ripple";
-export * as utils from "./utils";
-export * from "./cleanup";
+export { create as createDraggable } from "./draggable";
+export { Events } from "./events";
+export { CleanUp } from "./cleanup";
+export type _Events = import("./events")._Events;
+export type DraggableOptions = import("./draggable").DraggableOptions;
+export type RippleOptions = import("./ripple").RippleOptions;
+export { create as rippleCreate, defaultOptions as defaultRippleOptions } from "./ripple";
+export { isAndroid, html, css } from "./utils";

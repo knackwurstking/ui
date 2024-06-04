@@ -1,4 +1,4 @@
-import { html } from "../js/utils";
+import { html } from "../js";
 
 const innerHTML = html`
 <style>
@@ -39,5 +39,3 @@ export class PDFDocument extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
-
-PDFDocument.register();

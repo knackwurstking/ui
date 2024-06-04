@@ -10,8 +10,8 @@ import { CleanUp } from "../js";
 declare class UI {
     /** @param {UIStackLayout} root */
     constructor(root: UIStackLayout);
-    /** @type {events.Events<{ "change": { oldPage: UIStackLayoutPage | null, newPage: UIStackLayoutPage | null } }>} */
-    events: events.Events<{
+    /** @type {Events<{ "change": { oldPage: UIStackLayoutPage | null, newPage: UIStackLayoutPage | null } }>} */
+    events: Events<{
         "change": {
             oldPage: UIStackLayoutPage | null;
             newPage: UIStackLayoutPage | null;
@@ -42,6 +42,6 @@ declare class UI {
     dispatchChangeEvent(): Promise<void>;
     #private;
 }
-import { events } from "../js";
+import { Events } from "../js";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 export {};

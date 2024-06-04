@@ -1,5 +1,5 @@
+import { CleanUp, Events } from "../js";
 import { UISecondary } from "../ui-text";
-import { CleanUp, events } from "../js";
 
 /**
  * @typedef {import(".").UIInputEvents} UIInputEvents
@@ -78,9 +78,9 @@ class UI {
         this.root = root;
 
         /**
-         * @type {events.Events<E>}
+         * @type {Events<E>}
          */
-        this.events = new events.Events();
+        this.events = new Events();
 
         /**
          * @type {HTMLInputElement}

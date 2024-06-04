@@ -1,6 +1,4 @@
-// TODO: Add js exports
-
-// TODO: Add jsdoc imports
+export * as js from "./js";
 
 // UI Exports
 export { UIAppBar } from "./ui-app-bar";
@@ -29,3 +27,7 @@ export {
 } from "./svg";
 
 export { registerWebComponents, registerSVGComponents } from "./register";
+
+/**
+ * TODO: JSDoc exports here...
+ */

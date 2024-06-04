@@ -1,4 +1,4 @@
-import { html } from "../js/utils";
+import { html } from "../js";
 
 const innerHTML = html`
 <style>
@@ -46,5 +46,3 @@ export class Close extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
-
-Close.register();

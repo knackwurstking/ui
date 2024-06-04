@@ -1,4 +1,4 @@
-import { html } from "../js/utils";
+import { html } from "../js";
 
 const innerHTML = html`
 <style>
@@ -42,5 +42,3 @@ export class Settings extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
-
-Settings.register();

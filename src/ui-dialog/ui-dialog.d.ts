@@ -25,8 +25,8 @@ declare class UI<T extends import(".").UIDialogEvents> {
      * @param {HTMLDialogElement} dialog
      */
     constructor(root: UIDialog<any>, dialog: HTMLDialogElement);
-    /** @type {events.Events<T>} */
-    events: events.Events<T>;
+    /** @type {Events<T>} */
+    events: Events<T>;
     set fullscreen(state: boolean);
     get fullscreen(): boolean;
     set title(value: string);
@@ -36,5 +36,5 @@ declare class UI<T extends import(".").UIDialogEvents> {
     close(): void;
     #private;
 }
-import { events } from "../js";
+import { Events } from "../js";
 export {};

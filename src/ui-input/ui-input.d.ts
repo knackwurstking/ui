@@ -44,9 +44,9 @@ declare class UI<E extends import(".").UIInputEvents, T extends import(".").UIIn
      */
     private root;
     /**
-     * @type {events.Events<E>}
+     * @type {Events<E>}
      */
-    events: events.Events<E>;
+    events: Events<E>;
     /**
      * @type {HTMLInputElement}
      */
@@ -105,5 +105,5 @@ declare class UI<E extends import(".").UIInputEvents, T extends import(".").UIIn
      */
     get max(): import(".").UIInputTypeValues[T];
 }
-import { events } from "../js";
+import { Events } from "../js";
 export {};

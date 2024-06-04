@@ -1,4 +1,4 @@
-import { html } from "../js/utils";
+import { html } from "../js";
 
 const innerHTML = html`
 <style>

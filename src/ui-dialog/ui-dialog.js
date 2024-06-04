@@ -1,5 +1,4 @@
-import { CleanUp, events } from "../js";
-import { html } from "../js/utils";
+import { CleanUp, Events, html } from "../js";
 
 /**
  * @typedef {import(".").UIDialogEvents} UIDialogEvents
@@ -201,8 +200,8 @@ class UI {
         this.#root = root
         this.#dialog = dialog
 
-        /** @type {events.Events<T>} */
-        this.events = new events.Events()
+        /** @type {Events<T>} */
+        this.events = new Events()
 
         this.#h4 = document.createElement("h4")
         this.#h4.slot = "title"

@@ -1,3 +1,4 @@
+export * as js from "./js";
 export { UIAppBar } from "./ui-app-bar";
 export { UIContainer } from "./ui-container";
 export { UIDialog } from "./ui-dialog";

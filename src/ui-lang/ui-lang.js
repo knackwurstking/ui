@@ -1,11 +1,11 @@
-import { events } from "../js";
+import { Events } from "../js";
 
 class UI {
     /** @type {UILang} */
     #root
 
     /**
-     * @type {events.Events<{ "change": import(".").UILangType}>}
+     * @type {Events<{ "change": import(".").UILangType}>}
      */
     #events
 
@@ -21,7 +21,7 @@ class UI {
     /** @param {UILang} root */
     constructor(root) {
         this.#root = root
-        this.#events = new events.Events()
+        this.#events = new Events()
 
         /** @type {import(".").UILangType | null} */
         this.langType = null;

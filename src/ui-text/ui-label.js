@@ -1,5 +1,4 @@
-import { CleanUp, ripple } from "../js";
-import { html } from "../js/utils";
+import { CleanUp, html, rippleCreate } from "../js";
 
 const innerHTML = html`
 <style>
@@ -83,7 +82,7 @@ class UI {
 
     enableRipple() {
         if (!!this.#removeRipple) return;
-        this.removeRipple = ripple.create(this.#root);
+        this.removeRipple = rippleCreate(this.#root);
         this.#root.style.cursor = "pointer";
         this.startInputHandling()
     }

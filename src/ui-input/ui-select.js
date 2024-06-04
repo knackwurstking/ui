@@ -1,5 +1,4 @@
-import { CleanUp, events } from "../js";
-import { html } from "../js/utils";
+import { CleanUp, Events, html } from "../js";
 import { UISelectOption } from "./ui-select-option";
 
 /**
@@ -99,8 +98,8 @@ const innerHTML = html`
 
 class UI {
     constructor() {
-        /** @type {events.Events<UISelectEvents>} */
-        this.events = new events.Events();
+        /** @type {Events<UISelectEvents>} */
+        this.events = new Events();
     }
 }
 

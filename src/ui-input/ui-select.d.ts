@@ -15,8 +15,8 @@ export class UISelect extends HTMLElement {
 export type UISelectEvents = import(".").UISelectEvents;
 import { CleanUp } from "../js";
 declare class UI {
-    /** @type {events.Events<UISelectEvents>} */
-    events: events.Events<UISelectEvents>;
+    /** @type {Events<UISelectEvents>} */
+    events: Events<UISelectEvents>;
 }
-import { events } from "../js";
+import { Events } from "../js";
 export {};

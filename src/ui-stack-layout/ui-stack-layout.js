@@ -1,5 +1,4 @@
-import { events, CleanUp } from "../js";
-import { html } from "../js/utils";
+import { CleanUp, Events, html } from "../js";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**
@@ -34,8 +33,8 @@ class UI {
     constructor(root) {
         this.#root = root
 
-        /** @type {events.Events<{ "change": { oldPage: UIStackLayoutPage | null, newPage: UIStackLayoutPage | null } }>} */
-        this.events = new events.Events();
+        /** @type {Events<{ "change": { oldPage: UIStackLayoutPage | null, newPage: UIStackLayoutPage | null } }>} */
+        this.events = new Events();
 
         /**
          * All rendered pages

@@ -1,5 +1,4 @@
-import { CleanUp } from "../js";
-import { html } from "../js/utils";
+import { CleanUp, html } from "../js";
 
 // {{{ HTML Content
 const innerHTML = html`

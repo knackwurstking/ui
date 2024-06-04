@@ -1,5 +1,4 @@
-import { CleanUp, ripple } from "../js";
-import { html } from "../js/utils";
+import { CleanUp, html, rippleCreate } from "../js";
 
 /**
  * @typedef {import(".").UIButtonColor} UIButtonColor
@@ -137,7 +136,7 @@ class UI {
 
     enableRipple() {
         if (!!this.removeRipple) return;
-        this.removeRipple = ripple.create(this.#root, { centered: true });
+        this.removeRipple = rippleCreate(this.#root, { centered: true });
         this.#root.removeAttribute("no-ripple");
     }
 

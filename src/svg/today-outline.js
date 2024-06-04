@@ -1,4 +1,4 @@
-import { html } from "../js/utils";
+import { html } from "../js";
 
 const innerHTML = html`
 <style>
@@ -87,5 +87,3 @@ export class TodayOutline extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
     }
 }
-
-TodayOutline.register();

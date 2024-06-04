@@ -2,14 +2,13 @@
  * @template {UIStoreEvents} T
  * @extends {HTMLElement}
  */
-export class UIStore<T extends events._Events> extends HTMLElement {
+export class UIStore<T extends import("../js/events")._Events> extends HTMLElement {
     static register: () => void;
     constructor();
     /** @type {UI<T>} */
     ui: UI<T>;
 }
 export type UIStoreEvents = import(".").UIStoreEvents;
-import { events } from "../js";
 /**
  *
  * @typedef {import(".").UIStoreEvents} UIStoreEvents
@@ -17,15 +16,15 @@ import { events } from "../js";
 /**
  * @template {UIStoreEvents} T
  */
-declare class UI<T extends events._Events> {
+declare class UI<T extends import("../js/events")._Events> {
     /**
      * @param {UIStore} root
      */
     constructor(root: UIStore<any>);
     /**
-     * @type {events.Events<T>}
+     * @type {Events<T>}
      */
-    events: events.Events<T>;
+    events: Events<T>;
     set localStoragePrefix(prefix: string);
     get localStoragePrefix(): string;
     set enableLocalStorage(state: boolean);
@@ -60,4 +59,5 @@ declare class UI<T extends events._Events> {
     on<K_3 extends keyof T>(key: K_3, callback: (data: T[K_3]) => void | Promise<void>, trigger?: boolean): () => void;
     #private;
 }
+import { Events } from "../js";
 export {};
