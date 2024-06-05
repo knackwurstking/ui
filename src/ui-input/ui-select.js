@@ -33,6 +33,10 @@ const innerHTML = html`
         line-height: 1.15;
 
         overflow: hidden;
+
+        font-size: 0.9rem;
+        font-family: var(--ui-fontFamily);
+        font-variation-settings: var(--ui-select-fontVariation);
     }
 
     .options {

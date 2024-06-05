@@ -112,11 +112,9 @@ pre {
 
 /* }}} */
 
-/* {{{ (UI-)Button */
+/* {{{ Button */
 
-button,
-ui-icon-button,
-ui-button {
+button {
     font-size: 1.1rem;
     font-weight: 450;
     font-family: var(--ui-fontFamily);
@@ -125,7 +123,7 @@ ui-button {
 
 /* }}} */
 
-/* {{{ (UI-)Select, Input, Textarea */
+/* {{{ Select, Input, Textarea */
 
 input,
 textarea {
