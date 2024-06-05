@@ -42,8 +42,10 @@ const innerHTML = html`
 export class UISpinner extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-spinner");
-        customElements.define("ui-spinner", UISpinner);
+        if (!customElements.get("ui-spinner")) {
+            console.debug("register web component: ui-spinner");
+            customElements.define("ui-spinner", UISpinner);
+        }
     };
 
     constructor() {

@@ -152,8 +152,10 @@ class UI {
 export class UIButton extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-button");
-        customElements.define("ui-button", UIButton)
+        if (!customElements.get("ui-button")) {
+            console.debug("register web component: ui-button");
+            customElements.define("ui-button", UIButton);
+        }
     };
     static observedAttributes = ["no-ripple"]
 

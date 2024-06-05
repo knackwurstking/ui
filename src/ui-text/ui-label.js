@@ -1,4 +1,6 @@
 import { CleanUp, html, rippleCreate } from "../js";
+import { UIPrimary } from "./ui-primary";
+import { UISecondary } from "./ui-secondary";
 
 const innerHTML = html`
 <style>
@@ -128,8 +130,18 @@ class UI {
 export class UILabel extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-label");
-        customElements.define("ui-label", UILabel);
+        if (!customElements.get("ui-primary")) {
+            UIPrimary.register();
+        }
+
+        if (!customElements.get("ui-secondary")) {
+            UISecondary.register();
+        }
+
+        if (!customElements.get("ui-label")) {
+            console.debug("register web component: ui-label");
+            customElements.define("ui-label", UILabel);
+        }
     };
 
     static observedAttributes = ["ripple", "secondary", "primary"];

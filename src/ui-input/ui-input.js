@@ -236,8 +236,10 @@ class UI {
 export class UIInput extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-input");
-        customElements.define("ui-input", UIInput);
+        if (!customElements.get("ui-input")) {
+            console.debug("register web component: ui-input");
+            customElements.define("ui-input", UIInput);
+        }
     };
 
     static observedAttributes = [

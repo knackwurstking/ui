@@ -55,8 +55,10 @@ class UI {
 
 export class UISelectOption extends HTMLElement {
     static register = () => {
-        console.debug("register web component: ui-select-option");
-        customElements.define("ui-select-option", UISelectOption);
+        if (!customElements.get("ui-select-option")) {
+            console.debug("register web component: ui-select-option");
+            customElements.define("ui-select-option", UISelectOption);
+        }
     };
 
     constructor() {

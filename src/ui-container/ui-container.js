@@ -17,8 +17,10 @@ const innerHTML = html`
 export class UIContainer extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-container");
-        customElements.define("ui-container", UIContainer)
+        if (!customElements.get("ui-container")) {
+            console.debug("register web component: ui-container");
+            customElements.define("ui-container", UIContainer)
+        }
     };
 
     constructor() {

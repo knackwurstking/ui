@@ -29,8 +29,10 @@ const innerHTML = html`
 export class ChevronDown extends HTMLElement {
 
     static register = () => {
-        console.debug("register svg component: svg-chevron-down");
-        customElements.define("svg-chevron-down", ChevronDown);
+        if (!customElements.get("svg-chevron-down")) {
+            console.debug("register svg component: svg-chevron-down");
+            customElements.define("svg-chevron-down", ChevronDown);
+        }
     }
 
     constructor() {

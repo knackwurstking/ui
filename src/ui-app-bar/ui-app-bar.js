@@ -1,4 +1,5 @@
 import { CleanUp, html } from "../js";
+import { UIFlexGridRow } from "../ui-flex-grid";
 
 // {{{ HTML Content
 const innerHTML = html`
@@ -99,8 +100,14 @@ class UI {
 export class UIAppBar extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-app-bar");
-        customElements.define("ui-app-bar", UIAppBar)
+        if (!customElements.get("ui-flex-grid-row")) {
+            UIFlexGridRow.register();
+        }
+
+        if (!customElements.get("ui-app-bar")) {
+            console.debug("register web component: ui-app-bar");
+            customElements.define("ui-app-bar", UIAppBar);
+        }
     };
 
     constructor() {

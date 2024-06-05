@@ -1,11 +1,15 @@
 import { Events } from "../js";
 
+/**
+ * @typedef {import(".").UILangType} UILangType
+ */
+
 class UI {
     /** @type {UILang} */
     #root
 
     /**
-     * @type {Events<{ "change": import(".").UILangType}>}
+     * @type {Events<{ "change": UILangType}>}
      */
     #events
 
@@ -23,7 +27,7 @@ class UI {
         this.#root = root
         this.#events = new Events()
 
-        /** @type {import(".").UILangType | null} */
+        /** @type {UILangType | null} */
         this.langType = null;
     }
 
@@ -39,13 +43,13 @@ class UI {
         }
     }
 
-    /** @returns {import(".").UILangType} */
+    /** @returns {UILangType} */
     getFallbackElement() {
         return this.#root.querySelector("ui-lang-type[fallback]")
     }
 
     /**
-     * @param {import(".").UILangType} langType
+     * @param {UILangType} langType
      * @param {{
      *  [key: string]: {
      *      [key: string]: string;
@@ -68,7 +72,7 @@ class UI {
 
     /**
      * @param {"change"} key
-     * @param {(langType: import(".").UILangType | null) => void|Promise<void>} callback
+     * @param {(langType: UILangType | null) => void|Promise<void>} callback
      * @param {boolean} [trigger] - this will run the callback first
      * @returns {() => void} clean up function
      */
@@ -89,8 +93,10 @@ class UI {
 export class UILang extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-lang");
-        customElements.define("ui-lang", UILang);
+        if (!customElements.get("ui-lang")) {
+            console.debug("register web component: ui-lang");
+            customElements.define("ui-lang", UILang);
+        }
     };
 
     static observedAttributes = ["current"]
@@ -119,7 +125,7 @@ export class UILang extends HTMLElement {
      * @param {string} name
      */
     async loadLanguage(name) {
-        /** @type {import(".").UILangType} */
+        /** @type {UILangType} */
         const next =
             this.querySelector(`ui-lang-type[name="${name}"]`) ||
             this.ui.getFallbackElement();

@@ -1,4 +1,7 @@
 import { CleanUp, Events, html } from "../js";
+import { UIIconButton } from "../ui-button";
+import { UIFlexGridRow } from "../ui-flex-grid";
+import { Close as SvgClose } from "../svg";
 
 /**
  * @typedef {import(".").UIDialogEvents} UIDialogEvents
@@ -163,7 +166,7 @@ const innerHTML = html`
             <span><slot name="title"></slot></span>
 
             <ui-icon-button style="width: var(--ui-dialog-header-height); height: 100%;" ghost>
-                <ui-svg-close></ui-svg-close>
+                <svg-close></svg-close>
             </ui-icon-button>
         </div>
 
@@ -259,8 +262,19 @@ class UI {
 export class UIDialog extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-dialog");
-        customElements.define("ui-dialog", UIDialog);
+        if (!customElements.get("ui-icon-button"))
+            UIIconButton.register();
+
+        if (!customElements.get("svg-close"))
+            SvgClose.register();
+
+        if (!customElements.get("ui-flex-grid-row"))
+            UIFlexGridRow.register();
+
+        if (!customElements.get("ui-dialog")) {
+            console.debug("register web component: ui-dialog");
+            customElements.define("ui-dialog", UIDialog);
+        }
     };
 
     constructor() {

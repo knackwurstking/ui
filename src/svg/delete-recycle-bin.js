@@ -29,8 +29,10 @@ const innerHTML = html`
 export class DeleteRecycleBin extends HTMLElement {
 
     static register = () => {
-        console.debug("register svg component: svg-delete-recycle-bin");
-        customElements.define("svg-delete-recycle-bin", DeleteRecycleBin);
+        if (!customElements.get("svg-delete-recycle-bin")) {
+            console.debug("register svg component: svg-delete-recycle-bin");
+            customElements.define("svg-delete-recycle-bin", DeleteRecycleBin);
+        }
     };
 
     constructor() {

@@ -35,8 +35,10 @@ class UI {
 export class UIFlexGrid extends HTMLElement {
 
     static register = () => {
-        console.debug("register web component: ui-flex-grid");
-        customElements.define("ui-flex-grid", UIFlexGrid);
+        if (!customElements.get("ui-flex-grid")) {
+            console.debug("register web component: ui-flex-grid");
+            customElements.define("ui-flex-grid", UIFlexGrid);
+        }
     };
 
     static observedAttributes = ["gap"]

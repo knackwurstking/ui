@@ -36,8 +36,10 @@ const innerHTML = html`
 export class Edit2 extends HTMLElement {
 
     static register = () => {
-        console.debug("register svg component: svg-edit2");
-        customElements.define("svg-edit2", Edit2);
+        if (!customElements.get("svg-edit2")) {
+            console.debug("register svg component: svg-edit2");
+            customElements.define("svg-edit2", Edit2);
+        }
     };
 
     constructor() {

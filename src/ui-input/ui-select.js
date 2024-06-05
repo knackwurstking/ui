@@ -1,4 +1,5 @@
 import { CleanUp, Events, html } from "../js";
+import { ChevronDown } from "../svg";
 import { UISelectOption } from "./ui-select-option";
 
 /**
@@ -89,7 +90,7 @@ const innerHTML = html`
 </style>
 
 <div class="options">
-    <div class="icon"><ui-icon-chevron-down></ui-icon-chevron-down></div>
+    <div class="icon"><svg-chevron-down></svg-chevron-down></div>
 
     <slot></slot>
 </div>
@@ -119,8 +120,14 @@ export class UISelect extends HTMLElement {
     } // }}}
 
     static register = () => {
-        console.debug("register web component: ui-select");
-        customElements.define("ui-select", UISelect);
+        if (!customElements.get("svg-chevron-down")) {
+            ChevronDown.register();
+        }
+
+        if (!customElements.get("ui-select")) {
+            console.debug("register web component: ui-select");
+            customElements.define("ui-select", UISelect);
+        }
     };
 
     constructor() { // {{{

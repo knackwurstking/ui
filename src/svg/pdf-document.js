@@ -29,8 +29,10 @@ const innerHTML = html`
 export class PDFDocument extends HTMLElement {
 
     static register = () => {
-        console.debug("register svg component: svg-pdf-document");
-        customElements.define("svg-pdf-document", PDFDocument);
+        if (!customElements.get("svg-pdf-document")) {
+            console.debug("register svg component: svg-pdf-document");
+            customElements.define("svg-pdf-document", PDFDocument);
+        }
     };
 
     constructor() {
