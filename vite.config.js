@@ -8,7 +8,7 @@ export default defineConfig({
         lib: {
             entry: "src/index.js",
             fileName: "main.min",
-            formats: ["es", "cjs"],
+            formats: ["es"],
         },
     },
 });
