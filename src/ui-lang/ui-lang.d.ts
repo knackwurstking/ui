@@ -14,24 +14,28 @@ export class UILang extends HTMLElement {
      */
     private loadLanguage;
 }
+export type UILangType = import(".").UILangType;
+/**
+ * @typedef {import(".").UILangType} UILangType
+ */
 declare class UI {
     /** @param {UILang} root */
     constructor(root: UILang);
-    /** @type {import(".").UILangType | null} */
-    langType: import(".").UILangType | null;
+    /** @type {UILangType | null} */
+    langType: UILangType | null;
     set current(v: string);
     get current(): string;
-    /** @returns {import(".").UILangType} */
-    getFallbackElement(): import(".").UILangType;
+    /** @returns {UILangType} */
+    getFallbackElement(): UILangType;
     /**
-     * @param {import(".").UILangType} langType
+     * @param {UILangType} langType
      * @param {{
      *  [key: string]: {
      *      [key: string]: string;
      *  };
      * }} data
      */
-    "new"(langType: import(".").UILangType, data: {
+    "new"(langType: UILangType, data: {
         [key: string]: {
             [key: string]: string;
         };
@@ -43,11 +47,11 @@ declare class UI {
     get(group: string, key: string): string;
     /**
      * @param {"change"} key
-     * @param {(langType: import(".").UILangType | null) => void|Promise<void>} callback
+     * @param {(langType: UILangType | null) => void|Promise<void>} callback
      * @param {boolean} [trigger] - this will run the callback first
      * @returns {() => void} clean up function
      */
-    on(key: "change", callback: (langType: import(".").UILangType | null) => void | Promise<void>, trigger?: boolean): () => void;
+    on(key: "change", callback: (langType: UILangType | null) => void | Promise<void>, trigger?: boolean): () => void;
     #private;
 }
 export {};
