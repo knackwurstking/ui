@@ -150,13 +150,6 @@ textarea {
     accent-color: var(--ui-primary-bgColor);
 }
 
-ui-select,
-select {
-    font-size: 0.9rem;
-    font-family: var(--ui-fontFamily);
-    font-variation-settings: var(--ui-select-fontVariation);
-}
-
 select {
     --ui-bgColor: "transparent";
 
@@ -173,6 +166,10 @@ select {
 
     box-shadow: none;
     outline: none;
+
+    font-size: 0.9rem;
+    font-family: var(--ui-fontFamily);
+    font-variation-settings: var(--ui-select-fontVariation);
 }
 
 input {
