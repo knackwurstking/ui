@@ -673,7 +673,7 @@
 <dialog>
 	<div class="container">
         <div class="header">
-            <span><slot name="title"></slot></span>
+            <span style="white-space: nowrap;"><slot name="title"></slot></span>
 
             <ui-icon-button style="width: var(--ui-dialog-header-height); height: 100%;" ghost>
                 <svg-close></svg-close>
