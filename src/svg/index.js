@@ -5,4 +5,5 @@ export { DeleteRecycleBin } from "./delete-recycle-bin";
 export { Edit2 } from "./edit-2";
 export { PDFDocument } from "./pdf-document";
 export { Settings } from "./settings";
+export { SvgMenu } from "./svg-menu.js";
 export { TodayOutline } from "./today-outline";

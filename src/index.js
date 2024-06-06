@@ -23,6 +23,7 @@ export {
     Edit2 as SvgEdit2,
     PDFDocument as SvgPDFDocument,
     Settings as SvgSettings,
+    SvgMenu,
     TodayOutline as SvgTodayOutline,
 } from "./svg";
 
