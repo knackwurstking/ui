@@ -16,19 +16,13 @@ export { UIThemeHandler } from "./ui-theme-handler";
 
 // Svg Exports
 export {
-    BackArrowNavigation as SvgBackArrowNavigation,
-    ChevronDown as SvgChevronDown,
-    Close as SvgClose,
-    DeleteRecycleBin as SvgDeleteRecycleBin,
-    Edit2 as SvgEdit2,
-    PDFDocument as SvgPDFDocument,
-    Settings as SvgSettings,
+    SvgBackArrow,
+    SvgChevronDown,
+    SvgClose,
+    SvgRecycle,
+    SvgEdit2,
+    SvgPDF,
+    SvgSettings,
     SvgMenu,
-    TodayOutline as SvgTodayOutline,
+    SvgToday,
 } from "./svg";
-
-export { registerWebComponents, registerSVGComponents } from "./register";
-
-/**
- * TODO: JSDoc exports here...
- */

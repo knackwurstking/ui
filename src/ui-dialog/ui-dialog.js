@@ -1,7 +1,7 @@
 import { CleanUp, Events, html } from "../js";
 import { UIIconButton } from "../ui-button";
 import { UIFlexGridRow } from "../ui-flex-grid";
-import { Close as SvgClose } from "../svg";
+import { SvgClose } from "../svg";
 
 /**
  * @typedef {import(".").UIDialogEvents} UIDialogEvents

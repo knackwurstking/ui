@@ -1,9 +1,9 @@
-export { BackArrowNavigation } from "./back-arrow-navigation";
-export { ChevronDown } from "./chevron-down";
-export { Close } from "./close";
-export { DeleteRecycleBin } from "./delete-recycle-bin";
-export { Edit2 } from "./edit-2";
-export { PDFDocument } from "./pdf-document";
-export { Settings } from "./settings";
+export { SvgBackArrow } from "./svg-back-arrow";
+export { SvgChevronDown } from "./svg-chevron-down";
+export { SvgClose } from "./svg-close";
+export { SvgEdit2 } from "./svg-edit2";
+export { SvgPDF } from "./svg-pdf";
+export { SvgRecycle } from "./svg-recycle";
+export { SvgSettings } from "./svg-settings";
 export { SvgMenu } from "./svg-menu.js";
-export { TodayOutline } from "./today-outline";
+export { SvgToday } from "./svg-today";

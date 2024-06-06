@@ -26,12 +26,12 @@ const innerHTML = html`
 >
 `;
 
-export class PDFDocument extends HTMLElement {
+export class SvgPDF extends HTMLElement {
 
     static register = () => {
-        if (!customElements.get("svg-pdf-document")) {
-            console.debug("register svg component: svg-pdf-document");
-            customElements.define("svg-pdf-document", PDFDocument);
+        if (!customElements.get("svg-pdf")) {
+            console.debug("register svg component: svg-pdf");
+            customElements.define("svg-pdf", SvgPDF);
         }
     };
 

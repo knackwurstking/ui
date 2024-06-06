@@ -33,12 +33,12 @@ const innerHTML = html`
 </svg>
 `;
 
-export class Close extends HTMLElement {
+export class SvgClose extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-close")) {
             console.debug("register svg component: svg-close");
-            customElements.define("svg-close", Close);
+            customElements.define("svg-close", SvgClose);
         }
     };
 

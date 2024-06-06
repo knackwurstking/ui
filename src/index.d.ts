@@ -11,5 +11,4 @@ export { UIInput, UISelect, UISelectOption } from "./ui-input";
 export { UILang, UILangType } from "./ui-lang";
 export { UIStackLayout, UIStackLayoutPage } from "./ui-stack-layout";
 export { UILabel, UIPrimary, UISecondary } from "./ui-text";
-export { BackArrowNavigation as SvgBackArrowNavigation, ChevronDown as SvgChevronDown, Close as SvgClose, DeleteRecycleBin as SvgDeleteRecycleBin, Edit2 as SvgEdit2, PDFDocument as SvgPDFDocument, Settings as SvgSettings, SvgMenu, TodayOutline as SvgTodayOutline } from "./svg";
-export { registerWebComponents, registerSVGComponents } from "./register";
+export { SvgBackArrow, SvgChevronDown, SvgClose, SvgRecycle, SvgEdit2, SvgPDF, SvgSettings, SvgMenu, SvgToday } from "./svg";

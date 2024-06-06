@@ -74,12 +74,12 @@ const innerHTML = html`
 </svg>
 `;
 
-export class TodayOutline extends HTMLElement {
+export class SvgToday extends HTMLElement {
 
     static register = () => {
-        if (!customElements.get("svg-today-outline")) {
-            console.debug("register svg component: svg-today-outline");
-            customElements.define("svg-today-outline", TodayOutline);
+        if (!customElements.get("svg-today")) {
+            console.debug("register svg component: svg-today");
+            customElements.define("svg-today", SvgToday);
         }
     };
 

@@ -29,12 +29,12 @@ const innerHTML = html`
 </svg>
 `;
 
-export class Settings extends HTMLElement {
+export class SvgSettings extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-settings")) {
             console.debug("register svg component: svg-settings");
-            customElements.define("svg-settings", Settings);
+            customElements.define("svg-settings", SvgSettings);
         }
     };
 

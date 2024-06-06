@@ -22,12 +22,12 @@ const innerHTML = html`
 </svg>
 `;
 
-export class BackArrowNavigation extends HTMLElement {
+export class SvgBackArrow extends HTMLElement {
 
     static register = () => {
-        if (!customElements.get("svg-back-arrow-navigation")) {
-            console.debug("register svg component: svg-back-arrow-navigation");
-            customElements.define("svg-back-arrow-navigation", BackArrowNavigation);
+        if (!customElements.get("svg-back-arrow")) {
+            console.debug("register svg component: svg-back-arrow");
+            customElements.define("svg-back-arrow", SvgBackArrow);
         }
     };
 

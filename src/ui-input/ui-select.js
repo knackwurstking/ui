@@ -1,5 +1,5 @@
 import { CleanUp, Events, html } from "../js";
-import { ChevronDown } from "../svg";
+import { SvgChevronDown } from "../svg";
 import { UISelectOption } from "./ui-select-option";
 
 /**
@@ -125,7 +125,7 @@ export class UISelect extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-chevron-down")) {
-            ChevronDown.register();
+            SvgChevronDown.register();
         }
 
         if (!customElements.get("ui-select")) {
