@@ -78,7 +78,6 @@ export class SvgToday extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-today")) {
-            console.debug("register svg component: svg-today");
             customElements.define("svg-today", SvgToday);
         }
     };

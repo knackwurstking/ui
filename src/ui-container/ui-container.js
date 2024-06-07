@@ -18,7 +18,6 @@ export class UIContainer extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-container")) {
-            console.debug("register web component: ui-container");
             customElements.define("ui-container", UIContainer)
         }
     };

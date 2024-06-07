@@ -30,7 +30,6 @@ export class SvgMenu extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-menu")) {
-            console.debug("register svg component: svg-menu");
             customElements.define("svg-menu", SvgMenu);
         }
     };

@@ -129,7 +129,6 @@ export class UISelect extends HTMLElement {
         }
 
         if (!customElements.get("ui-select")) {
-            console.debug("register web component: ui-select");
             customElements.define("ui-select", UISelect);
         }
     };

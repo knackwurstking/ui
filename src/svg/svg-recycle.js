@@ -30,7 +30,6 @@ export class SvgRecycle extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-recycle")) {
-            console.debug("register svg component: svg-recycle");
             customElements.define("svg-recycle", SvgRecycle);
         }
     };

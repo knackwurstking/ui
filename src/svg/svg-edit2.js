@@ -37,7 +37,6 @@ export class SvgEdit2 extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-edit2")) {
-            console.debug("register svg component: svg-edit2");
             customElements.define("svg-edit2", SvgEdit2);
         }
     };

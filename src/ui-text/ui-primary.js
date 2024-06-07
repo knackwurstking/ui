@@ -16,7 +16,6 @@ export class UIPrimary extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-primary")) {
-            console.debug("register web component: ui-primary");
             customElements.define("ui-primary", UIPrimary);
         }
     };

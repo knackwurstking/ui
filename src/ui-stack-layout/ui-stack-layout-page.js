@@ -55,7 +55,6 @@ export class UIStackLayoutPage extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-stack-layout-page")) {
-            console.debug("register web component: ui-stack-layout-page");
             customElements.define("ui-stack-layout-page", UIStackLayoutPage);
         }
     };

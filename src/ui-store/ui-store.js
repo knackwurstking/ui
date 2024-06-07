@@ -117,7 +117,6 @@ export class UIStore extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-store")) {
-            console.debug("register web component: ui-store");
             customElements.define("ui-store", UIStore);
         }
     };

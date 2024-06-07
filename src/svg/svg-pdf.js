@@ -30,7 +30,6 @@ export class SvgPDF extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-pdf")) {
-            console.debug("register svg component: svg-pdf");
             customElements.define("svg-pdf", SvgPDF);
         }
     };

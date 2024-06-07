@@ -125,7 +125,6 @@ export class UIIconButton extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-icon-button")) {
-            console.debug("register web component: ui-icon-button");
             customElements.define("ui-icon-button", UIIconButton);
         }
     }

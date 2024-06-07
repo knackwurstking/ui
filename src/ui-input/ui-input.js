@@ -237,7 +237,6 @@ export class UIInput extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-input")) {
-            console.debug("register web component: ui-input");
             customElements.define("ui-input", UIInput);
         }
     };

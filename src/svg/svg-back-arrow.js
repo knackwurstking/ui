@@ -26,7 +26,6 @@ export class SvgBackArrow extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-back-arrow")) {
-            console.debug("register svg component: svg-back-arrow");
             customElements.define("svg-back-arrow", SvgBackArrow);
         }
     };

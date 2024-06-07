@@ -139,7 +139,6 @@ export class UILabel extends HTMLElement {
         }
 
         if (!customElements.get("ui-label")) {
-            console.debug("register web component: ui-label");
             customElements.define("ui-label", UILabel);
         }
     };

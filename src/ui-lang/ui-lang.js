@@ -94,7 +94,6 @@ export class UILang extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-lang")) {
-            console.debug("register web component: ui-lang");
             customElements.define("ui-lang", UILang);
         }
     };

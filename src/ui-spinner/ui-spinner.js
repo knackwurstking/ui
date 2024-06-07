@@ -43,7 +43,6 @@ export class UISpinner extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-spinner")) {
-            console.debug("register web component: ui-spinner");
             customElements.define("ui-spinner", UISpinner);
         }
     };

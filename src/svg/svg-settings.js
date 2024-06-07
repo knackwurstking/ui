@@ -33,7 +33,6 @@ export class SvgSettings extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-settings")) {
-            console.debug("register svg component: svg-settings");
             customElements.define("svg-settings", SvgSettings);
         }
     };

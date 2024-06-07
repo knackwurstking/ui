@@ -30,7 +30,6 @@ export class SvgChevronDown extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("svg-chevron-down")) {
-            console.debug("register svg component: svg-chevron-down");
             customElements.define("svg-chevron-down", SvgChevronDown);
         }
     }

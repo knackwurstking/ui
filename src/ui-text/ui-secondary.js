@@ -16,7 +16,6 @@ export class UISecondary extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-secondary")) {
-            console.debug("register web component: ui-secondary");
             customElements.define("ui-secondary", UISecondary);
         }
     };

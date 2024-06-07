@@ -105,7 +105,6 @@ export class UIAppBar extends HTMLElement {
         }
 
         if (!customElements.get("ui-app-bar")) {
-            console.debug("register web component: ui-app-bar");
             customElements.define("ui-app-bar", UIAppBar);
         }
     };

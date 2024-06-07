@@ -36,7 +36,6 @@ export class UIFlexGridRow extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-flex-grid-row")) {
-            console.debug("register web component: ui-flex-grid-row");
             customElements.define("ui-flex-grid-row", UIFlexGridRow);
         }
     };

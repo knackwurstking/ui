@@ -40,7 +40,6 @@ export class UIFlexGridItem extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-flex-grid-item")) {
-            console.debug("register web component: ui-flex-grid-item");
             customElements.define("ui-flex-grid-item", UIFlexGridItem)
         }
     };

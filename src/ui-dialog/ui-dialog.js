@@ -272,7 +272,6 @@ export class UIDialog extends HTMLElement {
             UIFlexGridRow.register();
 
         if (!customElements.get("ui-dialog")) {
-            console.debug("register web component: ui-dialog");
             customElements.define("ui-dialog", UIDialog);
         }
     };
