@@ -2,7 +2,7 @@ export { create as createDraggable } from "./draggable";
 export { Events } from "./events";
 
 export {
-    create as rippleCreate,
+    create as createRipple,
     defaultOptions as defaultRippleOptions,
 } from "./ripple";
 

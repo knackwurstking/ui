@@ -1,4 +1,4 @@
-import { CleanUp, html, rippleCreate } from "../js";
+import { CleanUp, html, createRipple } from "../js";
 import { UIPrimary } from "./ui-primary";
 import { UISecondary } from "./ui-secondary";
 
@@ -84,7 +84,7 @@ class UI {
 
     enableRipple() {
         if (!!this.#removeRipple) return;
-        this.removeRipple = rippleCreate(this.#root);
+        this.removeRipple = createRipple(this.#root);
         this.#root.style.cursor = "pointer";
         this.startInputHandling()
     }
