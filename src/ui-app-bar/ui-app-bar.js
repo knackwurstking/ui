@@ -4,6 +4,10 @@ import { UIFlexGridRow } from "../ui-flex-grid";
 // {{{ HTML Content
 const innerHTML = html`
 <style>
+    * {
+        border: 1px solid red;
+    }
+
     :host {
         display: flex !important;
         position: absolute !important;

@@ -86,15 +86,15 @@ export class UIFlexGridRow extends HTMLElement {
                 width: 100%;
             }
 
-            :host ::slotted(ui-flex-grid-item) {
+            :host > ::slotted(*) {
                 margin: 0 ${gap} !important;
             }
 
-            :host ::slotted(ui-flex-grid-item:first-child) {
+            :host > ::slotted(*:first-child) {
                 margin-left: 0 !important;
             }
 
-            :host ::slotted(ui-flex-grid-item:last-child) {
+            :host > ::slotted(*:last-child) {
                 margin-right: 0 !important;
             }
         `
