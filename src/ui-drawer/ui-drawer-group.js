@@ -4,24 +4,22 @@ import { UIDrawerGroupItem } from "./ui-drawer-group-item";
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
-        :host {
+        ul {
             list-style: none;
             padding: var(--ui-spacing);
             overflow: hidden;
         }
 
-        :host(:not([title])) ui-drawer-group-item.title {
+        ul:not([title]) ui-drawer-group-item.title {
             display: none;
         }
     </style>
 
-    <ui-drawer-group-item class="title">
-        <h3>
-            <slot name="title"></slot>
-        </h3>
-    </ui-drawer-group-item>
+    <ul>
+        <slot name="title"></slot>
 
-    <slot></slot>
+        <slot></slot>
+    </ul>
 `;
 
 class UI {
@@ -51,7 +49,7 @@ class UI {
     }
 }
 
-export class UIDrawerGroup extends HTMLUListElement {
+export class UIDrawerGroup extends HTMLElement {
 
     static register = () => {
         UIDrawerGroupItem.register();
@@ -102,14 +100,16 @@ export class UIDrawerGroup extends HTMLUListElement {
      * @param {string} value
      */
     setTitle(value) {
-        let span = this.querySelector(`span[slot="title"]`);
-        if (!span) {
-            const span = document.createElement("span");
-            span.slot = "title";
+        let item = this.querySelector(`ui-drawer-group-item[slot="title"]`);
+        if (!item) {
+            item = new UIDrawerGroupItem();
+            item.slot = "title";
         }
 
-        span.innerHTML = value;
-        this.appendChild(span);
+        item.innerHTML = `
+            <h4>${value}</h4>
+        `;
+        this.appendChild(item);
     }
 
     /**
