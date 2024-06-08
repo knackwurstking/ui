@@ -7,6 +7,7 @@ export { UIStore } from "./ui-store";
 export { UIThemeHandler } from "./ui-theme-handler";
 export * from "./svg";
 export { UIButton, UIIconButton } from "./ui-button";
+export { UIDrawer, UIDrawerGroup, UIDrawerGroupItem } from "./ui-drawer";
 export { UIFlexGrid, UIFlexGridRow, UIFlexGridItem } from "./ui-flex-grid";
 export { UIInput, UISelect, UISelectOption } from "./ui-input";
 export { UILang, UILangType } from "./ui-lang";
