@@ -15,14 +15,4 @@ export { UILabel, UIPrimary, UISecondary } from "./ui-text";
 export { UIThemeHandler } from "./ui-theme-handler";
 
 // Svg Exports
-export {
-    SvgBackArrow,
-    SvgChevronDown,
-    SvgClose,
-    SvgRecycle,
-    SvgEdit,
-    SvgPDF,
-    SvgSettings,
-    SvgMenu,
-    SvgToday,
-} from "./svg";
+export * from "./svg";
