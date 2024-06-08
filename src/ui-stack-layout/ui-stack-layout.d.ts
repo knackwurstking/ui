@@ -39,7 +39,10 @@ declare class UI {
      * @param {string} name
      */
     setPage(name: string): void;
-    dispatchChangeEvent(): Promise<void>;
+    /**
+     * @param {UIStackLayoutPage} oldChild
+     */
+    dispatchChangeEvent(oldChild: UIStackLayoutPage): Promise<void>;
     #private;
 }
 import { Events } from "../js";

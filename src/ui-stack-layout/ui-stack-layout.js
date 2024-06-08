@@ -71,13 +71,13 @@ class UI {
         if (!this.stack.length || this.#lock) return;
 
         const page = this.stack.pop();
-        this.#root.removeChild(page);
+        const removedChild = this.#root.removeChild(page);
 
         if (!!this.stack.length) {
             this.#root.appendChild(this.stack[this.stack.length - 1])
         }
 
-        this.dispatchChangeEvent();
+        this.dispatchChangeEvent(removedChild);
     }
 
     /**
@@ -97,13 +97,16 @@ class UI {
             pageToRemove.parentElement.removeChild(pageToRemove)
         }
 
-        this.dispatchChangeEvent();
+        this.dispatchChangeEvent(null);
     }
 
-    async dispatchChangeEvent() {
+    /**
+     * @param {UIStackLayoutPage} oldChild
+     */
+    async dispatchChangeEvent(oldChild) {
         this.events.dispatch("change", {
             newPage: this.stack[this.stack.length - 1] || null,
-            oldPage: this.stack[this.stack.length - 2] || null,
+            oldPage: oldChild || this.stack[this.stack.length - 2] || null,
         });
     }
 }
