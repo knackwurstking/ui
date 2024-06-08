@@ -33,11 +33,11 @@ const innerHTML = html`
 </svg>;
 `;
 
-export class SvgEdit2 extends HTMLElement {
+export class SvgEdit extends HTMLElement {
 
     static register = () => {
-        if (!customElements.get("svg-edit2")) {
-            customElements.define("svg-edit2", SvgEdit2);
+        if (!customElements.get("svg-edit")) {
+            customElements.define("svg-edit", SvgEdit);
         }
     };
 

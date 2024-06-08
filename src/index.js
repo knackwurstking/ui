@@ -20,7 +20,7 @@ export {
     SvgChevronDown,
     SvgClose,
     SvgRecycle,
-    SvgEdit2,
+    SvgEdit,
     SvgPDF,
     SvgSettings,
     SvgMenu,

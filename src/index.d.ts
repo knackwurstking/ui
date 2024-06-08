@@ -11,4 +11,4 @@ export { UIInput, UISelect, UISelectOption } from "./ui-input";
 export { UILang, UILangType } from "./ui-lang";
 export { UIStackLayout, UIStackLayoutPage } from "./ui-stack-layout";
 export { UILabel, UIPrimary, UISecondary } from "./ui-text";
-export { SvgBackArrow, SvgChevronDown, SvgClose, SvgRecycle, SvgEdit2, SvgPDF, SvgSettings, SvgMenu, SvgToday } from "./svg";
+export { SvgBackArrow, SvgChevronDown, SvgClose, SvgRecycle, SvgEdit, SvgPDF, SvgSettings, SvgMenu, SvgToday } from "./svg";
