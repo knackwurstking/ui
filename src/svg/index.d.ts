@@ -1,9 +1,12 @@
+export { SvgAdd } from "./svg-add";
 export { SvgBackArrow } from "./svg-back-arrow";
 export { SvgChevronDown } from "./svg-chevron-down";
 export { SvgClose } from "./svg-close";
+export { SvgDownload } from "./svg-download";
 export { SvgEdit } from "./svg-edit";
 export { SvgPDF } from "./svg-pdf";
 export { SvgRecycle } from "./svg-recycle";
 export { SvgSettings } from "./svg-settings";
 export { SvgMenu } from "./svg-menu.js";
+export { SvgShare } from "./svg-share.js";
 export { SvgToday } from "./svg-today";
