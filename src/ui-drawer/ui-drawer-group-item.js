@@ -3,7 +3,7 @@ import { CleanUp } from "../js";
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
-        :host {
+        li {
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
             border: none;
             display: flex;
@@ -12,7 +12,9 @@ template.innerHTML = `
         }
     </style>
 
-    <slot></slot>
+    <li>
+        <slot></slot>
+    </li>
 `;
 
 class UI {
@@ -42,15 +44,13 @@ class UI {
     }
 }
 
-export class UIDrawerGroupItem extends HTMLLIElement {
+export class UIDrawerGroupItem extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-drawer-group-item")) {
             customElements.define("ui-drawer-group-item", UIDrawerGroupItem);
         }
     };
-
-    static observedAttributes = ["open"];
 
     constructor() {
         super();
@@ -61,35 +61,9 @@ export class UIDrawerGroupItem extends HTMLLIElement {
         this.ui = new UI(this);
     }
 
-    connectedCallback() {
-        this.ui.outside.addEventListener("click", (ev) => {
-            ev.stopPropagation();
-            this.ui.open = false;
-        });
-
-        this.ui.aside.addEventListener("click", (ev) => {
-            ev.stopPropagation();
-        });
-    }
+    connectedCallback() { }
 
     disconnectedCallback() {
         this.cleanup.run();
-    }
-
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "open":
-                if (newValue !== null) {
-                    this.ui.outside.classList.add("open");
-                } else {
-                    this.ui.outside.classList.remove("open");
-                }
-                break;
-        }
     }
 }
