@@ -43,6 +43,7 @@ template.innerHTML = `
             -ms-overflow-style: none;
             scrollbar-width: none;
 
+            /* TODO: Maybe add card bgColor here? */
             color: var(--ui-color);
             background-color: var(--ui-backdrop-bgColor);
             backdrop-filter: var(--ui-backdropFilter);
