@@ -4,6 +4,12 @@ import { UIDrawerGroupItem } from "./ui-drawer-group-item";
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
+        :host {
+            list-style: none;
+            padding: var(--ui-spacing);
+            overflow: hidden;
+        }
+
         :host(:not([title])) ui-drawer-group-item.title {
             display: none;
         }
