@@ -236,6 +236,8 @@ class UI {
 export class UIInput extends HTMLElement {
 
     static register = () => {
+        UISecondary.register();
+
         if (!customElements.get("ui-input")) {
             customElements.define("ui-input", UIInput);
         }

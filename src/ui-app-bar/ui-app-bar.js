@@ -100,9 +100,7 @@ class UI {
 export class UIAppBar extends HTMLElement {
 
     static register = () => {
-        if (!customElements.get("ui-flex-grid-row")) {
-            UIFlexGridRow.register();
-        }
+        UIFlexGridRow.register();
 
         if (!customElements.get("ui-app-bar")) {
             customElements.define("ui-app-bar", UIAppBar);

@@ -130,13 +130,8 @@ class UI {
 export class UILabel extends HTMLElement {
 
     static register = () => {
-        if (!customElements.get("ui-primary")) {
-            UIPrimary.register();
-        }
-
-        if (!customElements.get("ui-secondary")) {
-            UISecondary.register();
-        }
+        UIPrimary.register();
+        UISecondary.register();
 
         if (!customElements.get("ui-label")) {
             customElements.define("ui-label", UILabel);

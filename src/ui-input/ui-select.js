@@ -124,9 +124,9 @@ export class UISelect extends HTMLElement {
     } // }}}
 
     static register = () => {
-        if (!customElements.get("svg-chevron-down")) {
-            SvgChevronDown.register();
-        }
+        SvgChevronDown.register();
+
+        UISelectOption.register();
 
         if (!customElements.get("ui-select")) {
             customElements.define("ui-select", UISelect);

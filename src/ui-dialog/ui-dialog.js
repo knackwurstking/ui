@@ -262,14 +262,9 @@ class UI {
 export class UIDialog extends HTMLElement {
 
     static register = () => {
-        if (!customElements.get("ui-icon-button"))
-            UIIconButton.register();
-
-        if (!customElements.get("svg-close"))
-            SvgClose.register();
-
-        if (!customElements.get("ui-flex-grid-row"))
-            UIFlexGridRow.register();
+        UIIconButton.register();
+        SvgClose.register();
+        UIFlexGridRow.register();
 
         if (!customElements.get("ui-dialog")) {
             customElements.define("ui-dialog", UIDialog);
