@@ -9,15 +9,13 @@ template.innerHTML = `
         }
     </style>
 
-    <ul>
-        <ui-drawer-group-item class="title">
-            <h3>
-                <slot name="title"></slot>
-            </h3>
-        </ui-drawer-group-item>
+    <ui-drawer-group-item class="title">
+        <h3>
+            <slot name="title"></slot>
+        </h3>
+    </ui-drawer-group-item>
 
-        <slot></slot>
-    </ul>
+    <slot></slot>
 `;
 
 class UI {
@@ -47,7 +45,7 @@ class UI {
     }
 }
 
-export class UIDrawerGroup extends HTMLElement {
+export class UIDrawerGroup extends HTMLUListElement {
 
     static register = () => {
         UIDrawerGroupItem.register();
