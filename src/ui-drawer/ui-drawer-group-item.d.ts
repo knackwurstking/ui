@@ -1,4 +1,4 @@
-export class UIDrawerGroupItem extends HTMLLIElement {
+export class UIDrawerGroupItem extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     cleanup: CleanUp;
