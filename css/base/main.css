@@ -57,10 +57,7 @@ h6 {
     margin: 0;
     font-family: "RecVar";
     font-weight: 600;
-    font-variation-settings:
-        "CASL" 1,
-        "MONO" 0,
-        "slnt" -9;
+    font-variation-settings: var(--ui-heading-fontVariation);
 }
 
 h1 {

@@ -10,6 +10,7 @@
     --ui-fontSize: 16px;
 
     --ui-fontVariation:                 "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-heading-fontVariation:         "CASL" 1, "MONO" 0, "slnt" -9;
     --ui-button-fontVariation:          "CASL" 1, "MONO" 0, "slnt" -6;
     --ui-input-fontVariation:           "CASL" 1, "MONO" 1, "slnt" 0;
     --ui-text-primary-fontVariation:    "CASL" 1, "MONO" 0, "slnt" 0;
@@ -81,6 +82,7 @@
     --ui-fontSize: 16px;
 
     --ui-fontVariation:                 "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-heading-fontVariation:         "CASL" 1, "MONO" 0, "slnt" -9;
     --ui-button-fontVariation:          "CASL" 1, "MONO" 0, "slnt" -6;
     --ui-input-fontVariation:           "CASL" 1, "MONO" 1, "slnt" 0;
     --ui-text-primary-fontVariation:    "CASL" 1, "MONO" 0, "slnt" 0;
