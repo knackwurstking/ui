@@ -10,13 +10,14 @@ template.innerHTML = `
             overflow: hidden;
         }
 
-        ul:not([title]) ui-drawer-group-item.title {
+        ui-drawer-group-item:not(.visible) {
             display: none;
         }
     </style>
 
     <ul>
-        <slot name="title"></slot>
+        <ui-drawer-group-item class="ui-drawer-group-title">
+        </ui-drawer-group-item>
 
         <slot></slot>
     </ul>
@@ -52,23 +53,16 @@ class UI {
      * @param {string} value
      */
     setTitle(value) {
-        let item = this.root.querySelector(`ui-drawer-group-item[slot="title"]`);
-        if (!item) {
-            item = new UIDrawerGroupItem();
-            item.slot = "title";
-        }
-
+        let item = this.root.shadowRoot.querySelector(`.ui-drawer-group-title`);
+        item.classList.add("visible");
         item.innerHTML = `
             <h4>${value}</h4>
         `;
-        this.root.appendChild(item);
     }
 
     removeTitle() {
-        const title = this.root.querySelector(`span[slot="title"]`);
-        if (!!title) {
-            this.root.removeChild(title);
-        }
+        const item = this.root.shadowRoot.querySelector(`.ui-drawer-group-title`);
+        item.classList.remove("visible");
     }
 }
 
