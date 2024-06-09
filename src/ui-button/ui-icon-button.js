@@ -1,7 +1,12 @@
-import { CleanUp, createRipple, html } from "../js";
+import { CleanUp, Events, createRipple, html } from "../js";
 
 /**
  * @typedef {import(".").UIIconButtonColor} UIIconButtonColor
+ *
+ * @typedef UIIconButtonEvents
+ * @type {{
+ *  click: UIIconButton;
+ * }}
  */
 
 // {{{ HTML Content
@@ -63,53 +68,61 @@ const innerHTML = html`
 // }}}
 
 class UI {
-    /** @type {UIIconButton} */
-    #root
 
     /** @param {UIIconButton} root */
     constructor(root) {
-        this.#root = root
+        /**
+         * @private
+         * @type {UIIconButton}
+         */
+        this.root = root
 
         /** @type {(() => void) | null} */
         this.removeRipple = null;
+
+        /**
+         * @type {Events<UIIconButtonEvents>}
+         */
+        this.events = new Events();
+        this.root.onclick = () => this.events.dispatch("click", this.root);
     }
 
     get color() {
         // @ts-ignore
-        return this.#root.getAttribute("color");
+        return this.root.getAttribute("color");
     }
 
     /**
      * @param {UIIconButtonColor} v
      */
     set color(v) {
-        this.#root.setAttribute("color", v);
+        this.root.setAttribute("color", v);
     }
 
     get ghost() {
-        return this.#root.hasAttribute("ghost");
+        return this.root.hasAttribute("ghost");
     }
 
     set ghost(s) {
         if (s) {
-            this.#root.setAttribute("ghost", "");
+            this.root.setAttribute("ghost", "");
         } else {
-            this.#root.removeAttribute("ghost");
+            this.root.removeAttribute("ghost");
         }
     }
 
     disable() {
-        this.#root.setAttribute("disabled", "");
+        this.root.setAttribute("disabled", "");
     }
 
     enable() {
-        this.#root.removeAttribute("disabled");
+        this.root.removeAttribute("disabled");
     }
 
     enableRipple() {
         if (!!this.removeRipple) return;
-        this.removeRipple = createRipple(this.#root, { centered: true });
-        this.#root.removeAttribute("no-ripple");
+        this.removeRipple = createRipple(this.root, { centered: true });
+        this.root.removeAttribute("no-ripple");
     }
 
     disableRipple() {
@@ -117,7 +130,7 @@ class UI {
 
         this.removeRipple();
         this.removeRipple = null
-        this.#root.setAttribute("no-ripple", "");
+        this.root.setAttribute("no-ripple", "");
     }
 }
 

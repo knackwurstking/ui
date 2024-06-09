@@ -13,12 +13,24 @@ export class UIIconButton extends HTMLElement {
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
 export type UIIconButtonColor = import(".").UIIconButtonColor;
+export type UIIconButtonEvents = {
+    click: UIIconButton;
+};
 import { CleanUp } from "../js";
 declare class UI {
     /** @param {UIIconButton} root */
     constructor(root: UIIconButton);
+    /**
+     * @private
+     * @type {UIIconButton}
+     */
+    private root;
     /** @type {(() => void) | null} */
     removeRipple: (() => void) | null;
+    /**
+     * @type {Events<UIIconButtonEvents>}
+     */
+    events: Events<UIIconButtonEvents>;
     /**
      * @param {UIIconButtonColor} v
      */
@@ -30,6 +42,6 @@ declare class UI {
     enable(): void;
     enableRipple(): void;
     disableRipple(): void;
-    #private;
 }
+import { Events } from "../js";
 export {};

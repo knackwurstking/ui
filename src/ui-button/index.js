@@ -22,4 +22,7 @@ export { UIIconButton } from "./ui-icon-button";
  *  | "outline"
  *  | "ghost"
  * )}
+ *
+ * @typedef {import("./ui-icon-button").UIIconButtonEvents} UIIconButtonEvents
+ * @typedef {import("./ui-button").UIButtonEvents} UIButtonEvents
  */

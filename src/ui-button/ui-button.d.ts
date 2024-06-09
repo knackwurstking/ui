@@ -14,12 +14,24 @@ export class UIButton extends HTMLElement {
 }
 export type UIButtonColor = import(".").UIButtonColor;
 export type UIButtonVariant = import(".").UIButtonVariant;
+export type UIButtonEvents = {
+    click: UIButton;
+};
 import { CleanUp } from "../js";
 declare class UI {
     /** @param {UIButton} root */
     constructor(root: UIButton);
+    /**
+     * @private
+     * @type {UIButton}
+     */
+    private root;
     /** @type {(() => void) | null} */
     removeRipple: (() => void) | null;
+    /**
+     * @type {Events<UIButtonEvents>}
+     */
+    events: Events<UIButtonEvents>;
     /**
      * @param {UIButtonColor} v
      */
@@ -34,6 +46,6 @@ declare class UI {
     enable(): void;
     enableRipple(): void;
     disableRipple(): void;
-    #private;
 }
+import { Events } from "../js";
 export {};
