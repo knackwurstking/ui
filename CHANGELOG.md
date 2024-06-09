@@ -2,7 +2,7 @@
 
 ## v0.2.0 [unreleased]
 
-- [ ] Fuck svelte, using vanilla now (vite vanilla js)
+- First version using javascript web components
 
 ## v0.1.1 2024-03-22
 
