@@ -57,7 +57,15 @@ class UI {
         let item = this.root.shadowRoot.querySelector(`.ui-drawer-group-title`);
         item.classList.add("visible");
         item.innerHTML = `
-            <h3>${value}</h3>
+            <span
+                style="
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    font-variation-settings: var(--ui-heading-fontVariation);
+                "
+            >
+                ${value}
+            </span>
         `;
     }
 
