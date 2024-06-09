@@ -11,15 +11,6 @@ export class UIDrawerGroup extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @private
-     * @param {string} value
-     */
-    private setTitle;
-    /**
-     * @private
-     */
-    private removeTitle;
 }
 import { CleanUp } from "../js";
 declare class UI {
@@ -35,5 +26,10 @@ declare class UI {
     aside: HTMLElement;
     set title(value: string);
     get title(): string;
+    /**
+     * @param {string} value
+     */
+    setTitle(value: string): void;
+    removeTitle(): void;
 }
 export {};

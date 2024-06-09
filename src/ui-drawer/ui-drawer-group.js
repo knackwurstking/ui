@@ -47,6 +47,29 @@ class UI {
             this.root.removeAttribute("title");
         }
     }
+
+    /**
+     * @param {string} value
+     */
+    setTitle(value) {
+        let item = this.root.querySelector(`ui-drawer-group-item[slot="title"]`);
+        if (!item) {
+            item = new UIDrawerGroupItem();
+            item.slot = "title";
+        }
+
+        item.innerHTML = `
+            <h4>${value}</h4>
+        `;
+        this.root.appendChild(item);
+    }
+
+    removeTitle() {
+        const title = this.root.querySelector(`span[slot="title"]`);
+        if (!!title) {
+            this.root.removeChild(title);
+        }
+    }
 }
 
 export class UIDrawerGroup extends HTMLElement {
@@ -87,38 +110,11 @@ export class UIDrawerGroup extends HTMLElement {
                 if (newValue === "") {
                     this.removeAttribute("title");
                 } else if (newValue !== null) {
-                    this.setTitle(newValue);
+                    this.ui.setTitle(newValue);
                 } else {
-                    this.removeTitle();
+                    this.ui.removeTitle();
                 }
                 break;
-        }
-    }
-
-    /**
-     * @private
-     * @param {string} value
-     */
-    setTitle(value) {
-        let item = this.querySelector(`ui-drawer-group-item[slot="title"]`);
-        if (!item) {
-            item = new UIDrawerGroupItem();
-            item.slot = "title";
-        }
-
-        item.innerHTML = `
-            <h4>${value}</h4>
-        `;
-        this.appendChild(item);
-    }
-
-    /**
-     * @private
-     */
-    removeTitle() {
-        const title = this.querySelector(`span[slot="title"]`);
-        if (!!title) {
-            this.removeChild(title);
         }
     }
 }
