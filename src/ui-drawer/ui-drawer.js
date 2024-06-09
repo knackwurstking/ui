@@ -43,10 +43,13 @@ template.innerHTML = `
             -ms-overflow-style: none;
             scrollbar-width: none;
 
-            /* TODO: Maybe add card bgColor here? */
-            color: var(--ui-color);
+            background-color: var(--ui-card-bgColor);
+            color: var(--ui-card-color);
+            border: 1px solid var(--ui-card-borderColor);
+            /*
             background-color: var(--ui-backdrop-bgColor);
             backdrop-filter: var(--ui-backdropFilter);
+            */
 
             transition: left .5s ease;
         }
