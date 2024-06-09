@@ -1,4 +1,5 @@
 import { CleanUp } from "../js";
+import { UIPrimary, UISecondary } from "../ui-text";
 import { UIDrawerGroupItem } from "./ui-drawer-group-item";
 
 const template = document.createElement("template");
@@ -56,7 +57,7 @@ class UI {
         let item = this.root.shadowRoot.querySelector(`.ui-drawer-group-title`);
         item.classList.add("visible");
         item.innerHTML = `
-            <h4>${value}</h4>
+            <h3>${value}</h3>
         `;
     }
 
@@ -70,6 +71,7 @@ export class UIDrawerGroup extends HTMLElement {
 
     static register = () => {
         UIDrawerGroupItem.register();
+        UIPrimary.register();
 
         if (!customElements.get("ui-drawer-group")) {
             customElements.define("ui-drawer-group", UIDrawerGroup);
