@@ -12,6 +12,10 @@ export class UIDrawer extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
+export type UIDrawerEvents = {
+    open: UIDrawer;
+    close: UIDrawer;
+};
 import { CleanUp } from "../js";
 declare class UI {
     /**
@@ -23,7 +27,12 @@ declare class UI {
      */
     private root;
     aside: HTMLElement;
+    /**
+     * @type {Events<UIDrawerEvents>}
+     */
+    events: Events<UIDrawerEvents>;
     set open(state: boolean);
     get open(): boolean;
 }
+import { Events } from "../js";
 export {};

@@ -1,4 +1,12 @@
-import { CleanUp } from "../js";
+import { CleanUp, Events } from "../js";
+
+/**
+ * @typedef UIDrawerEvents
+ * @type {{
+ *  open: UIDrawer,
+ *  close: UIDrawer,
+ * }}
+ */
 
 const zIndex = 150;
 const template = document.createElement("template");
@@ -75,6 +83,11 @@ class UI {
         this.root = root
 
         this.aside = this.root.shadowRoot.querySelector("aside");
+
+        /**
+         * @type {Events<UIDrawerEvents>}
+         */
+        this.events = new Events();
     }
 
     get open() {
@@ -142,8 +155,10 @@ export class UIDrawer extends HTMLElement {
             case "open":
                 if (newValue !== null) {
                     this.classList.add("open");
+                    this.ui.events.dispatch("open", this);
                 } else {
                     this.classList.remove("open");
+                    this.ui.events.dispatch("close", this);
                 }
                 break;
         }
