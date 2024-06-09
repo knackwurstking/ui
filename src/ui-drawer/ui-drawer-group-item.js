@@ -5,10 +5,13 @@ template.innerHTML = `
     <style>
         li {
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
-            border: none;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
+        }
+
+        ::slotted(*) {
+            width: 100%;
         }
     </style>
 
