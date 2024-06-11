@@ -53,7 +53,7 @@ template.innerHTML = `
 
             background-color: var(--ui-card-bgColor);
             color: var(--ui-card-color);
-            border: 1px solid var(--ui-card-borderColor);
+            border-right: 1px solid var(--ui-card-borderColor);
             /*
             background-color: var(--ui-backdrop-bgColor);
             backdrop-filter: var(--ui-backdropFilter);
