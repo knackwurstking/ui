@@ -141,7 +141,7 @@ export class UIIconButton extends HTMLElement {
             customElements.define("ui-icon-button", UIIconButton);
         }
     }
-    static observedAttributes = ["no-ripple"]
+    static observedAttributes = ["no-ripple", "color"]
 
     constructor() {
         super();
@@ -173,6 +173,15 @@ export class UIIconButton extends HTMLElement {
             case "no-ripple":
                 if (newValue !== null) this.ui.disableRipple();
                 else this.ui.enableRipple();
+                break;
+            case "color":
+                if (newValue !== null) {
+                    if (["primary", "secondary", "destructive"].includes(newValue)) {
+                        this.style.color = null;
+                    } else {
+                        this.style.color = newValue;
+                    }
+                }
                 break;
         }
     }

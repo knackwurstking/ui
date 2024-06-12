@@ -4,6 +4,7 @@ export { UIIconButton } from "./ui-icon-button";
 /**
  * @typedef UIIconButtonColor
  * @type {(
+ *  | "string"
  *  | "primary"
  *  | "secondary"
  *  | "destructive"
@@ -11,6 +12,7 @@ export { UIIconButton } from "./ui-icon-button";
  *
  * @typedef UIButtonColor
  * @type {(
+ *  | "string"
  *  | "primary"
  *  | "secondary"
  *  | "destructive"

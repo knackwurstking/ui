@@ -173,7 +173,7 @@ export class UIButton extends HTMLElement {
             customElements.define("ui-button", UIButton);
         }
     };
-    static observedAttributes = ["no-ripple"]
+    static observedAttributes = ["no-ripple", "color"];
 
     constructor() {
         super();
@@ -187,7 +187,7 @@ export class UIButton extends HTMLElement {
 
     connectedCallback() {
         if (!this.hasAttribute("no-ripple") && !this.ui.removeRipple) {
-            this.ui.enableRipple()
+            this.ui.enableRipple();
         }
     }
 
@@ -203,9 +203,18 @@ export class UIButton extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "no-ripple":
-                if (newValue !== null) this.ui.disableRipple()
-                else this.ui.enableRipple()
-                break
+                if (newValue !== null) this.ui.disableRipple();
+                else this.ui.enableRipple();
+                break;
+            case "color":
+                if (newValue !== null) {
+                    if (["primary", "secondary", "destructive"].includes(newValue)) {
+                        this.style.color = null;
+                    } else {
+                        this.style.color = newValue;
+                    }
+                }
+                break;
         }
     }
 }
