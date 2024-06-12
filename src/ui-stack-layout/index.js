@@ -4,6 +4,6 @@ export { UIStackLayoutPage } from "./ui-stack-layout-page";
 /**
  * @typedef UIPages
  * @type {{
- *  [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage | DocumentFragment | Node);
+ *  [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
  * }}
  */

@@ -26,9 +26,9 @@ declare class UI {
     private stack;
     /**
      * @param {string} name
-     * @param {() => (UIStackLayoutPage | DocumentFragment | Node)} cb
+     * @param {() => (UIStackLayoutPage)} cb
      */
-    registerPage(name: string, cb: () => (UIStackLayoutPage | DocumentFragment | Node)): void;
+    registerPage(name: string, cb: () => (UIStackLayoutPage)): void;
     /**
      * @param {string} name
      */

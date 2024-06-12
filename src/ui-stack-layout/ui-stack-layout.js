@@ -47,7 +47,7 @@ class UI {
 
     /**
      * @param {string} name
-     * @param {() => (UIStackLayoutPage | DocumentFragment | Node)} cb
+     * @param {() => (UIStackLayoutPage)} cb
      */
     registerPage(name, cb) {
         this.#pages[name] = cb;
@@ -98,8 +98,7 @@ class UI {
         if (this.#lock) return;
 
         this.stack.push(
-            // @ts-expect-error
-            this.#root.appendChild(this.#pages[name]().children[0]),
+            this.#root.appendChild(this.#pages[name]()),
         );
 
         if (this.stack.length > 1) {
