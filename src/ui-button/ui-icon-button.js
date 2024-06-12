@@ -35,6 +35,7 @@ const innerHTML = html`
     :host([ghost]) {
         border-color: transparent !important;
         box-shadow: none;
+        font-weight: 900;
     }
 
     :host([color="primary"]) {

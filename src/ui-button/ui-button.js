@@ -71,6 +71,7 @@ const innerHTML = html`
     :host([variant="ghost"]) {
         border-color: transparent;
         background-color: transparent;
+        font-weight: 900;
     }
 
     :host([variant="ghost"][color="primary"]) {
