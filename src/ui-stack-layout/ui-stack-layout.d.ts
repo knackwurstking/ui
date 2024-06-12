@@ -20,9 +20,10 @@ declare class UI {
     /**
      * All rendered pages
      *
+     * @private
      * @type {UIStackLayoutPage[]}
      */
-    stack: UIStackLayoutPage[];
+    private stack;
     /**
      * @param {string} name
      * @param {() => (UIStackLayoutPage | DocumentFragment | Node)} cb
@@ -34,6 +35,8 @@ declare class UI {
     unregisterPage(name: string): void;
     lock(): void;
     unlock(): void;
+    clearStack(): void;
+    stackSize(): number;
     goBack(): void;
     /**
      * @param {string} name

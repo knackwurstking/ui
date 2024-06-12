@@ -39,6 +39,7 @@ class UI {
         /**
          * All rendered pages
          *
+         * @private
          * @type {UIStackLayoutPage[]}
          */
         this.stack = [];
@@ -67,6 +68,16 @@ class UI {
         this.#lock = false;
     }
 
+    clearStack() {
+        while (this.stackSize() > 0) {
+            this.#root.removeChild(this.stack.pop());
+        }
+    }
+
+    stackSize() {
+        return this.stack.length;
+    }
+
     goBack() {
         if (!this.stack.length || this.#lock) return;
 
@@ -91,7 +102,6 @@ class UI {
             this.#root.appendChild(this.#pages[name]().children[0]),
         );
 
-        // TODO: Make this optional, remove child(s) from the dom?
         if (this.stack.length > 1) {
             const pageToRemove = this.stack[this.stack.length - 2]
             pageToRemove.parentElement.removeChild(pageToRemove)
