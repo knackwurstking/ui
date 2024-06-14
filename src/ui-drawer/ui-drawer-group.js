@@ -5,6 +5,8 @@ import { UIDrawerGroupItem } from "./ui-drawer-group-item";
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
+        * { box-sizing: border-box; }
+
         ul {
             list-style: none;
             padding: var(--ui-spacing);

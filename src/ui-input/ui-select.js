@@ -9,9 +9,7 @@ import { UISelectOption } from "./ui-select-option";
 // {{{ HTML Content
 const innerHTML = html`
 <style>
-    * {
-        box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     :host {
         --ui-bgColor: "transparent";

@@ -7,7 +7,7 @@ export { UIContainer } from "./ui-container";
 export { UIDialog } from "./ui-dialog";
 export { UIDrawer, UIDrawerGroup, UIDrawerGroupItem } from "./ui-drawer";
 export { UIFlexGrid, UIFlexGridRow, UIFlexGridItem } from "./ui-flex-grid";
-export { UIInput, UISelect, UISelectOption } from "./ui-input";
+export { UIInput, UISelect, UISelectOption, UISearch } from "./ui-input";
 export { UILang, UILangType } from "./ui-lang";
 export { UISpinner } from "./ui-spinner";
 export { UIStackLayout, UIStackLayoutPage } from "./ui-stack-layout";

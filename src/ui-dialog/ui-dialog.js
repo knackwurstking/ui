@@ -10,6 +10,8 @@ import { SvgClose } from "../svg";
 // {{{ HTML Content
 const innerHTML = html`
 <style>
+    * { box-sizing: border-box; }
+
     :host dialog * {
         box-sizing: border-box;
     }

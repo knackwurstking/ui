@@ -12,11 +12,13 @@ import { CleanUp, Events, createRipple, html } from "../js";
 // {{{ HTML Content
 const innerHTML = html`
 <style>
+    * { box-sizing: border-box; }
+
     :host {
         display: flex !important;
         align-items: center;
         justify-content: center;
-        position: relative !important;
+        position: relative;
         width: 2rem;
         height: 2rem;
         padding: calc(var(--ui-spacing) / 2);

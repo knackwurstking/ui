@@ -13,6 +13,8 @@ import { CleanUp, Events, createRipple, html } from "../js";
 // {{{ HTML Content
 const innerHTML = html`
 <style>
+    * { box-sizing: border-box; }
+
     :host {
         display: flex !important;
         align-items: center;

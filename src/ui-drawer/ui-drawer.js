@@ -12,6 +12,8 @@ const zIndex = 150;
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
+        * { box-sizing: border-box; }
+
         :host {
             display: block;
 

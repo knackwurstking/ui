@@ -2,6 +2,8 @@ import { CleanUp, html } from "../js";
 
 const innerHTML = html`
 <style>
+    * { box-sizing: border-box; }
+
     :host {
         display: block;
         width: 100%;

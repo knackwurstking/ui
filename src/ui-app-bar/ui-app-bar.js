@@ -4,6 +4,8 @@ import { UIFlexGridRow } from "../ui-flex-grid";
 // {{{ HTML Content
 const innerHTML = html`
 <style>
+    * { box-sizing: border-box; }
+
     :host {
         display: flex !important;
         position: absolute !important;

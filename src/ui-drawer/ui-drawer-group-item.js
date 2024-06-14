@@ -3,6 +3,8 @@ import { CleanUp } from "../js";
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
+        * { box-sizing: border-box; }
+
         li {
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
             display: flex;

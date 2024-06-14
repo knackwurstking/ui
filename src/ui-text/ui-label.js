@@ -4,6 +4,8 @@ import { UISecondary } from "./ui-secondary";
 
 const innerHTML = html`
 <style>
+    * { box-sizing: border-box; }
+
     :host {
         position: relative !important;
         display: flex !important;
