@@ -109,8 +109,10 @@ class UI {
          */
         this.input = this.root.shadowRoot.querySelector("input");
         this.input.type = "text";
-        this.input.onsubmit = () => {
-            this.submit.click();
+        this.input.onkeydown = (ev) => {
+            if (ev.key === "Enter") {
+                this.submit.click();
+            }
         };
     }
 
