@@ -97,10 +97,21 @@ class UI {
         this.events = new Events();
 
         /**
+         * @type {UIIconButton}
+         */
+        this.submit = this.root.shadowRoot.querySelector("ui-icon-button");
+        this.submit.ui.events.on("click", () => {
+            this.events.dispatch("submit", this.value);
+        });
+
+        /**
          * @type {HTMLInputElement}
          */
         this.input = this.root.shadowRoot.querySelector("input");
-        this.input.type = this.root.getAttribute("type") || "text";
+        this.input.type = "text";
+        this.input.onsubmit = () => {
+            this.submit.click();
+        };
     }
 
     /**
@@ -119,17 +130,11 @@ class UI {
     }
 
     set value(value) {
-        // @ts-expect-error
         this.input.value = value
     }
 
     get value() {
-        switch (this.input.type) {
-            case "number":
-                return !!this.input.value ? new Number(this.input.value) : NaN;
-            default:
-                return this.input.value;
-        }
+        return this.input.value;
     }
 
     /**

@@ -38,16 +38,20 @@ declare class UI<E extends import(".").UISearchEvents> {
      */
     events: Events<E>;
     /**
+     * @type {UIIconButton}
+     */
+    submit: UIIconButton;
+    /**
      * @type {HTMLInputElement}
      */
     input: HTMLInputElement;
     /**
-     * @param {string | null} v
+     * @param {string | null} value
      */
-    set title(v: string);
+    set title(value: string);
     get title(): string;
-    set value(value: string | number | Number);
-    get value(): string | number | Number;
+    set value(value: string);
+    get value(): string;
     /**
      * @param {string} value
      */
@@ -66,4 +70,5 @@ declare class UI<E extends import(".").UISearchEvents> {
     get invalid(): boolean;
 }
 import { Events } from "../js";
+import { UIIconButton } from "../ui-button";
 export {};
