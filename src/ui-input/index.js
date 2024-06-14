@@ -1,6 +1,7 @@
 export { UIInput } from "./ui-input";
 export { UISelect } from "./ui-select";
 export { UISelectOption } from "./ui-select-option";
+export { UISearch } from "./ui-search";
 
 /**
  * @typedef {{
@@ -25,4 +26,10 @@ export { UISelectOption } from "./ui-select-option";
  * }} UIInputTypeValues
  *
  * @typedef {{ "change": import("./ui-select-option").UISelectOption }} UISelectEvents
+ *
+ * @typedef {{
+ *  input: string;
+ *  change: string;
+ *  submit: string;
+ * }} UISearchEvents
  */

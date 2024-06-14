@@ -1,6 +1,7 @@
 export { UIInput } from "./ui-input";
 export { UISelect } from "./ui-select";
 export { UISelectOption } from "./ui-select-option";
+export { UISearch } from "./ui-search";
 export type UIInputEvents = {
     input: string | number;
     change: string | number;
@@ -15,4 +16,9 @@ export type UIInputTypeValues = {
 };
 export type UISelectEvents = {
     "change": import("./ui-select-option").UISelectOption;
+};
+export type UISearchEvents = {
+    input: string;
+    change: string;
+    submit: string;
 };
