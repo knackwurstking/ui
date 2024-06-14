@@ -6,6 +6,7 @@ export { SvgDownload } from "./svg-download";
 export { SvgEdit } from "./svg-edit";
 export { SvgPDF } from "./svg-pdf";
 export { SvgRecycle } from "./svg-recycle";
+export { SvgSearch } from "./svg-search";
 export { SvgSettings } from "./svg-settings";
 export { SvgMenu } from "./svg-menu.js";
 export { SvgShare } from "./svg-share.js";
