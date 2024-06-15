@@ -84,7 +84,9 @@ class UI {
         const removedChild = this.#root.removeChild(this.stack.pop());
 
         if (this.stack.length > 0) {
-            this.#root.appendChild(this.stack[this.stack.length - 1])
+            if (!this.stack[this.stack.length - 1].parentElement) {
+                this.#root.appendChild(this.stack[this.stack.length - 1])
+            }
         }
 
         this.dispatchChangeEvent(removedChild);
