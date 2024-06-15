@@ -81,10 +81,9 @@ class UI {
     goBack() {
         if (!this.stack.length || this.#lock) return;
 
-        const page = this.stack.pop();
-        const removedChild = this.#root.removeChild(page);
+        const removedChild = this.#root.removeChild(this.stack.pop());
 
-        if (!!this.stack.length) {
+        if (this.stack.length > 0) {
             this.#root.appendChild(this.stack[this.stack.length - 1])
         }
 
