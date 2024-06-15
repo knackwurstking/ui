@@ -93,20 +93,22 @@ class UI {
 
     /**
      * @param {string} name
+     * @param {boolean} keepOldPage
      */
-    setPage(name) {
+    setPage(name, keepOldPage = false) {
         if (this.#lock) return;
 
         this.stack.push(
             this.#root.appendChild(this.#pages[name]()),
         );
 
-        if (this.stack.length > 1) {
-            const pageToRemove = this.stack[this.stack.length - 2]
-            pageToRemove.parentElement.removeChild(pageToRemove)
+        let pageToRemove = null;
+        if (this.stack.length > 1 && !keepOldPage) {
+            pageToRemove = this.stack[this.stack.length - 2];
+            pageToRemove.parentElement.removeChild(pageToRemove);
         }
 
-        this.dispatchChangeEvent(null);
+        this.dispatchChangeEvent(pageToRemove);
     }
 
     /**

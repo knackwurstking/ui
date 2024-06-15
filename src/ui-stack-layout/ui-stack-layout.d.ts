@@ -40,8 +40,9 @@ declare class UI {
     goBack(): void;
     /**
      * @param {string} name
+     * @param {boolean} keepOldPage
      */
-    setPage(name: string): void;
+    setPage(name: string, keepOldPage?: boolean): void;
     /**
      * @param {UIStackLayoutPage} oldChild
      */
