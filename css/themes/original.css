@@ -16,6 +16,8 @@
     --ui-text-primary-fontVariation:    "CASL" 1, "MONO" 0, "slnt" 0;
     --ui-text-secondary-fontVariation:  "CASL" 1, "MONO" 0, "slnt" -15;
     --ui-select-fontVariation:          "CASL" 1, "MONO" 1, "slnt" 0;
+    --ui-thead-fontVariation:           "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-tbody-fontVariation:           "CASL" 1, "MONO" 0, "slnt" -3;
 
     --ui-bgColor-hsl: 240, 10%, 96.1%;
     --ui-bgColor: hsla(var(--ui-bgColor-hsl), 1);

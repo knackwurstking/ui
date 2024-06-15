@@ -244,18 +244,12 @@ table {
 
 thead {
     font-weight: 450;
-    font-variation-settings:
-        "CASL" 1,
-        "MONO" 0,
-        "slnt" 0;
+    font-variation-settings: var(--ui-thead-fontVariation);
 }
 
 tbody {
     font-weight: 350;
-    font-variation-settings:
-        "CASL" 1,
-        "MONO" 0,
-        "slnt" -3;
+    font-variation-settings: var(--ui-tbody-fontVariation);
 }
 
 th,
