@@ -70,7 +70,7 @@ const content = html`
 
     <div class="container">
         <slot name="title"></slot>
-        <input />
+        <input type="search" />
         <ui-icon-button ghost>
             <svg-search></svg-search>
         </ui-icon-button>
