@@ -7,5 +7,5 @@ export class CleanUp {
      * @param {(() => void|Promise<void>)} cb
      */
     add(cb: (() => void | Promise<void>)): void;
-    run(): Promise<void>;
+    run(): void;
 }

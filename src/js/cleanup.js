@@ -13,11 +13,11 @@ export class CleanUp {
         this.callbacks.push(cb);
     }
 
-    async run() {
+    run() {
         for (let i = 0; i < this.callbacks.length; i++) {
             if (this.callbacks[i] !== null) {
                 try {
-                    await this.callbacks[i]();
+                    this.callbacks[i]();
                     this.callbacks[i] = null;
                 } catch (err) {
                     console.error("cleanup error:", err);
