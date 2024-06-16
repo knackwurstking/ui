@@ -85,8 +85,6 @@ class UI {
      * @param {UISearch} root
      */
     constructor(root) {
-        // TODO: allow caching just like the ui-store ("storage-prefix", "enable-storage")
-
         /**
          * @private
          * @type {UISearch}
