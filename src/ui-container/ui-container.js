@@ -1,6 +1,6 @@
 import { CleanUp, html } from "../js";
 
-const innerHTML = html`
+const content = html`
 <style>
     * { box-sizing: border-box; }
 
@@ -27,9 +27,10 @@ export class UIContainer extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = innerHTML;
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
+        this.ui = {};
     }
 
     connectedCallback() { }
