@@ -28,6 +28,7 @@ export class UIAppBarItem extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
+        this.cleanup = new CleanUp();
         this.ui = {
             enable: () => {
                 this.style.display = "flex";
@@ -36,8 +37,6 @@ export class UIAppBarItem extends HTMLElement {
                 this.style.display = "none";
             },
         };
-
-        this.cleanup = new CleanUp();
     }
 
     connectedCallback() { }

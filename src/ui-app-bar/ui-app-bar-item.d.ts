@@ -4,11 +4,11 @@
 export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     static register: () => void;
     constructor();
+    cleanup: CleanUp;
     ui: {
         enable: () => void;
         disable: () => void;
     };
-    cleanup: CleanUp;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**

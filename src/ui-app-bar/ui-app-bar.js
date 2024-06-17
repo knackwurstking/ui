@@ -68,30 +68,8 @@ const innerHTML = html`
 </ui-flex-grid-row>
 `;
 
-class UI {
-    /** @type {UIAppBar} */
-    #root
-
-    /** @param {UIAppBar} root */
-    constructor(root) {
-        this.#root = root
-    }
-
-    getLeftSlot() {
-        return [...this.#root.querySelectorAll(`[slot="left"]`)]
-    }
-
-    getCenterSlot() {
-        return [...this.#root.querySelectorAll(`[slot="center"]`)]
-    }
-
-    getRightSlot() {
-        return [...this.#root.querySelectorAll(`[slot="right"]`)]
-    }
-}
-
 /**
- * Special slots to use (no unnamed slots)
+ * Special slots:
  *  - **left**: childrens inside a "ui-flex-grid-row"
  *  - **center**: childrens inside a "ui-flex-grid-row"
  *  - **right**: childrens inside a "ui-flex-grid-row"
@@ -112,7 +90,18 @@ export class UIAppBar extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
 
         this.cleanup = new CleanUp();
-        this.ui = new UI(this);
+        this.ui = {
+            getLeftSlot: () => {
+                return [...this.querySelectorAll(`[slot="left"]`)]
+            },
+            getCenterSlot: () => {
+                return [...this.querySelectorAll(`[slot="center"]`)]
+            },
+
+            getRightSlot: () => {
+                return [...this.querySelectorAll(`[slot="right"]`)]
+            }
+        };
     }
 
     connectedCallback() { }
