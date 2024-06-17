@@ -1,11 +1,12 @@
 export * as js from "./js";
-export { UIAppBar } from "./ui-app-bar";
 export { UIContainer } from "./ui-container";
 export { UIDialog } from "./ui-dialog";
 export { UISpinner } from "./ui-spinner";
 export { UIStore } from "./ui-store";
 export { UIThemeHandler } from "./ui-theme-handler";
 export * from "./svg";
+export type UISearchEvents = import("./ui-input").UISearchEvents;
+export { UIAppBar, UIAppBarItem } from "./ui-app-bar";
 export { UIButton, UIIconButton } from "./ui-button";
 export { UIDrawer, UIDrawerGroup, UIDrawerGroupItem } from "./ui-drawer";
 export { UIFlexGrid, UIFlexGridRow, UIFlexGridItem } from "./ui-flex-grid";
