@@ -1,7 +1,6 @@
 import { CleanUp, html } from "../js";
 import { UIFlexGridRow } from "../ui-flex-grid";
 
-// {{{ HTML Content
 const innerHTML = html`
 <style>
     * { box-sizing: border-box; }
@@ -19,7 +18,7 @@ const innerHTML = html`
     :host([position="top"]) {
         top: 0;
         left: 0;
-        width: 100%;
+        right: 0;
         height: var(--ui-app-bar-height);
         border-bottom: 1px solid var(--ui-borderColor);
     }
@@ -68,8 +67,6 @@ const innerHTML = html`
     </ui-flex-grid-row>
 </ui-flex-grid-row>
 `;
-
-// }}}
 
 class UI {
     /** @type {UIAppBar} */
