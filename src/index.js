@@ -1,7 +1,7 @@
 export * as js from "./js";
 
 // UI Exports
-export { UIAppBar } from "./ui-app-bar";
+export { UIAppBar, UIAppBarItem } from "./ui-app-bar";
 export { UIButton, UIIconButton } from "./ui-button";
 export { UIContainer } from "./ui-container";
 export { UIDialog } from "./ui-dialog";
@@ -17,3 +17,7 @@ export { UIThemeHandler } from "./ui-theme-handler";
 
 // Svg Exports
 export * from "./svg";
+
+/**
+ * @typedef {import("./ui-input").UISearchEvents} UISearchEvents
+ */
