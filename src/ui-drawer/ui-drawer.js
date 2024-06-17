@@ -17,7 +17,7 @@ template.innerHTML = `
         :host {
             display: block;
 
-            position: absolute;
+            position: absolute !important;
             z-index: ${zIndex};
             top: 0;
             left: -100%;
