@@ -1,7 +1,7 @@
 import { CleanUp, html } from "../js";
 import { UIFlexGridRow } from "../ui-flex-grid";
 
-const innerHTML = html`
+const content = html`
     <style>
         * { box-sizing: border-box; }
 
@@ -87,7 +87,7 @@ export class UIAppBar extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = innerHTML;
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
         this.ui = {
