@@ -2,6 +2,8 @@ import { CleanUp, html } from "../js";
 
 const content = html`
     <style>
+        * { box-sizing: border-box; }
+
         :host {
             display: flex;
             align-items: center;
