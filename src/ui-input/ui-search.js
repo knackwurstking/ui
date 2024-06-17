@@ -201,6 +201,7 @@ export class UISearch extends HTMLElement {
         this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
+
         /** @type {UI<UISearchEvents & E>} */
         this.ui = new UI(this);
     }
