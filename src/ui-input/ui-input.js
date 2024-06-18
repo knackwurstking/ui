@@ -273,7 +273,7 @@ export class UIInput extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }

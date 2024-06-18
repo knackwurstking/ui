@@ -191,7 +191,7 @@ export class UISearch extends HTMLElement {
             setInvalid(state) {
                 if (state === null || state === false) {
                     this.root.setAttribute("invalid", "");
-                    return
+                    return;
                 }
 
                 this.root.removeAttribute("invalid");
@@ -206,7 +206,7 @@ export class UISearch extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }
