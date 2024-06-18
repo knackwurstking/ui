@@ -1,11 +1,12 @@
-import { CleanUp } from "../js";
-import { UIPrimary, UISecondary } from "../ui-text";
+import { CleanUp, html } from "../js";
+import { UIPrimary } from "../ui-text";
 import { UIDrawerGroupItem } from "./ui-drawer-group-item";
 
-const template = document.createElement("template");
-template.innerHTML = `
+const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         ul {
             list-style: none;
@@ -34,51 +35,11 @@ class UI {
         /**
          * @private
          */
-        this.root = root
-
-        this.outside = this.root.querySelector(".outside");
-        this.aside = this.root.shadowRoot.querySelector("aside");
-    }
-
-    get title() {
-        return this.root.getAttribute("title") || null;
-    }
-
-    set title(value) {
-        if (!!value) {
-            this.root.setAttribute("title", value);
-        } else {
-            this.root.removeAttribute("title");
-        }
-    }
-
-    /**
-     * @param {string} value
-     */
-    setTitle(value) {
-        let item = this.root.shadowRoot.querySelector(`.ui-drawer-group-title`);
-        item.classList.add("visible");
-        item.innerHTML = `
-            <span
-                style="
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    font-variation-settings: var(--ui-heading-fontVariation);
-                "
-            >
-                ${value}
-            </span>
-        `;
-    }
-
-    removeTitle() {
-        const item = this.root.shadowRoot.querySelector(`.ui-drawer-group-title`);
-        item.classList.remove("visible");
+        this.root = root;
     }
 }
 
 export class UIDrawerGroup extends HTMLElement {
-
     static register = () => {
         UIDrawerGroupItem.register();
         UIPrimary.register();
@@ -93,14 +54,45 @@ export class UIDrawerGroup extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
-        this.ui = new UI(this);
+        this.ui = {
+            getTitle: () => {
+                return this.getAttribute("title") || null;
+            },
+
+            /**
+             * @param {string} value
+             */
+            setTitle: (value) => {
+                let item = this.shadowRoot.querySelector(
+                    `.ui-drawer-group-title`,
+                );
+                item.classList.add("visible");
+                item.innerHTML = `
+                    <span
+                        style="
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            font-variation-settings: var(--ui-heading-fontVariation);
+                        "
+                    >
+                        ${value}
+                    </span>
+                `;
+            },
+
+            removeTitle() {
+                const item = this.root.shadowRoot.querySelector(
+                    `.ui-drawer-group-title`,
+                );
+                item.classList.remove("visible");
+            },
+        };
     }
 
-    connectedCallback() { }
-
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }

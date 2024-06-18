@@ -8,8 +8,66 @@ export class UIInput<E extends import(".").UIInputEvents, T extends import(".").
     static observedAttributes: string[];
     constructor();
     cleanup: CleanUp;
-    /** @type {UI<UIInputEvents & E, T>} */
-    ui: UI<UIInputEvents & E, T>;
+    ui: {
+        input: HTMLInputElement;
+        /**
+         * @type {Events<E>}
+         */
+        events: Events<E>;
+        /**
+         * @param {string | null} v
+         */
+        setTitle: (v: string | null) => void;
+        getTitle: () => string;
+        /**
+         * @param {UIInputTypes} value
+         */
+        setType: (value: UIInputTypes) => void;
+        /**
+         * @returns {UIInputTypes}
+         */
+        getType: () => UIInputTypes;
+        /**
+         * @param {UIInputTypeValues[T]} value
+         */
+        setValue: (value: UIInputTypeValues[T]) => void;
+        /**
+         * @returns {UIInputTypeValues[T]}
+         */
+        getValue: () => UIInputTypeValues[T];
+        /**
+         * @param {string | null} value
+         */
+        setPlaceholder: (value: string | null) => void;
+        /**
+         * @returns {string}
+         */
+        getPlaceholder: () => string;
+        /**
+         * @param {boolean} state
+         */
+        setInvalid: (state: boolean) => void;
+        /**
+         * @returns {boolean}
+         */
+        getInvalid: () => boolean;
+        /**
+         * @param {UIInputTypeValues[T]} n
+         */
+        setMin: (n: UIInputTypeValues[T]) => void;
+        /**
+         * @returns {UIInputTypeValues[T]}
+         */
+        getMin: () => UIInputTypeValues[T];
+        /**
+         * @param {UIInputTypeValues[T]} n
+         */
+        setMax: (n: UIInputTypeValues[T]) => void;
+        /**
+         * @returns {UIInputTypeValues[T]}
+         */
+        getMax: () => UIInputTypeValues[T];
+    };
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -29,81 +87,4 @@ export type UIInputEvents = import(".").UIInputEvents;
 export type UIInputTypes = import(".").UIInputTypes;
 export type UIInputTypeValues = import(".").UIInputTypeValues;
 import { CleanUp } from "../js";
-/**
- * @template {UIInputEvents} E
- * @template {UIInputTypes} T
- */
-declare class UI<E extends import(".").UIInputEvents, T extends import(".").UIInputTypes> {
-    /**
-     * @param {UIInput} root
-     */
-    constructor(root: UIInput<any, any>);
-    /**
-     * @private
-     * @type {UIInput}
-     */
-    private root;
-    /**
-     * @type {Events<E>}
-     */
-    events: Events<E>;
-    /**
-     * @type {HTMLInputElement}
-     */
-    input: HTMLInputElement;
-    /**
-     * @param {string | null} v
-     */
-    set title(v: string);
-    get title(): string;
-    /**
-     * @param {UIInputTypes} value
-     */
-    set type(value: import(".").UIInputTypes);
-    /**
-     * @returns {UIInputTypes}
-     */
-    get type(): import(".").UIInputTypes;
-    /**
-     * @param {UIInputTypeValues[T]} value
-     */
-    set value(value: import(".").UIInputTypeValues[T]);
-    /**
-     * @returns {UIInputTypeValues[T]}
-     */
-    get value(): import(".").UIInputTypeValues[T];
-    /**
-     * @param {string} value
-     */
-    set placeholder(value: string);
-    /**
-     * @returns {string}
-     */
-    get placeholder(): string;
-    /**
-     * @param {boolean} state
-     */
-    set invalid(state: boolean);
-    /**
-     * @returns {boolean}
-     */
-    get invalid(): boolean;
-    /**
-     * @param {UIInputTypeValues[T]} n
-     */
-    set min(n: import(".").UIInputTypeValues[T]);
-    /**
-     * @returns {UIInputTypeValues[T]}
-     */
-    get min(): import(".").UIInputTypeValues[T];
-    /**
-     * @param {UIInputTypeValues[T]} n
-     */
-    set max(n: import(".").UIInputTypeValues[T]);
-    /**
-     * @returns {UIInputTypeValues[T]}
-     */
-    get max(): import(".").UIInputTypeValues[T];
-}
 import { Events } from "../js";
-export {};

@@ -1,9 +1,10 @@
-import { CleanUp } from "../js";
+import { CleanUp, html } from "../js";
 
-const template = document.createElement("template");
-template.innerHTML = `
+const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         li {
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
@@ -22,35 +23,7 @@ template.innerHTML = `
     </li>
 `;
 
-class UI {
-    /**
-     * @param {UIDrawerGroupItem} root
-     */
-    constructor(root) {
-        /**
-         * @private
-         */
-        this.root = root
-
-        this.outside = this.root.querySelector(".outside");
-        this.aside = this.root.shadowRoot.querySelector("aside");
-    }
-
-    get open() {
-        return this.root.hasAttribute("open");
-    }
-
-    set open(state) {
-        if (state) {
-            this.root.setAttribute("open", "");
-        } else {
-            this.root.removeAttribute("open");
-        }
-    }
-}
-
 export class UIDrawerGroupItem extends HTMLElement {
-
     static register = () => {
         if (!customElements.get("ui-drawer-group-item")) {
             customElements.define("ui-drawer-group-item", UIDrawerGroupItem);
@@ -60,13 +33,31 @@ export class UIDrawerGroupItem extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
-        this.ui = new UI(this);
+        this.ui = {
+            /**
+             * @returns {boolean}
+             */
+            getOpen() {
+                return this.root.hasAttribute("open");
+            },
+
+            /**
+             * @param {boolean} state
+             */
+            setOpen(state) {
+                if (state) {
+                    this.root.setAttribute("open", "");
+                } else {
+                    this.root.removeAttribute("open");
+                }
+            },
+        };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
 
     disconnectedCallback() {
         this.cleanup.run();

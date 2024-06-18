@@ -1,63 +1,52 @@
 import { CleanUp, html } from "../js";
 
-const defaultFlex = "1"
+const defaultFlex = "1";
 
-const innerHTML = html`
-<style></style>
-<slot></slot>
+const content = html`
+    <style></style>
+    <slot></slot>
 `;
 
-class UI {
-    /**
-     * @param {UIFlexGridItem} root
-     */
-    constructor(root) {
-        /**
-         * @private
-         * @type {UIFlexGridItem}
-         */
-        this.root = root;
-    }
-
-    get flex() {
-        if (!this.root.hasAttribute("flex")) {
-            return defaultFlex;
-        }
-
-        return this.root.getAttribute("flex");
-    }
-
-    set flex(v) {
-        if (v === null) {
-            this.root.removeAttribute("flex");
-        } else {
-            this.root.setAttribute("flex", v);
-        }
-    }
-}
-
 export class UIFlexGridItem extends HTMLElement {
-
     static register = () => {
         if (!customElements.get("ui-flex-grid-item")) {
-            customElements.define("ui-flex-grid-item", UIFlexGridItem)
+            customElements.define("ui-flex-grid-item", UIFlexGridItem);
         }
     };
 
-    static observedAttributes = ["flex"]
+    static observedAttributes = ["flex"];
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = innerHTML;
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
-        this.ui = new UI(this);
+        this.ui = {
+            getFlex: () => {
+                if (!this.hasAttribute("flex")) {
+                    return defaultFlex;
+                }
 
-        this.updateStyle()
+                return this.getAttribute("flex");
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setFlex: (value) => {
+                if (value === null) {
+                    this.removeAttribute("flex");
+                } else {
+                    this.setAttribute("flex", value);
+                }
+            },
+        };
+
+        this.updateStyle();
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }
@@ -70,8 +59,8 @@ export class UIFlexGridItem extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "flex":
-                this.updateStyle({ flex: newValue || defaultFlex })
-                break
+                this.updateStyle({ flex: newValue || defaultFlex });
+                break;
         }
     }
 
@@ -85,6 +74,6 @@ export class UIFlexGridItem extends HTMLElement {
             :host {
                 flex: ${flex};
             }
-        `
+        `;
     }
 }

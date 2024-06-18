@@ -2,7 +2,13 @@ export class UIFlexGridRow extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     cleanup: CleanUp;
-    ui: UI;
+    ui: {
+        getGap: () => string;
+        /**
+         * @param {string | null} value
+         */
+        setGap: (value: string | null) => void;
+    };
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -19,17 +25,3 @@ export class UIFlexGridRow extends HTMLElement {
     private updateStyle;
 }
 import { CleanUp } from "../js";
-declare class UI {
-    /**
-     * @param {UIFlexGridRow} root
-     */
-    constructor(root: UIFlexGridRow);
-    /**
-     * @private
-     * @type {UIFlexGridRow}
-     */
-    private root;
-    set gap(v: string);
-    get gap(): string;
-}
-export {};

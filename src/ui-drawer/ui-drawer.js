@@ -1,4 +1,4 @@
-import { CleanUp, Events } from "../js";
+import { CleanUp, Events, html } from "../js";
 
 /**
  * @typedef UIDrawerEvents
@@ -9,10 +9,11 @@ import { CleanUp, Events } from "../js";
  */
 
 const zIndex = 150;
-const template = document.createElement("template");
-template.innerHTML = `
+const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         :host {
             display: block;
@@ -26,7 +27,7 @@ template.innerHTML = `
 
             overflow: hidden;
 
-            transition: left 0s ease .5s;
+            transition: left 0s ease 0.5s;
         }
 
         :host([open]) {
@@ -61,7 +62,7 @@ template.innerHTML = `
             backdrop-filter: var(--ui-backdropFilter);
             */
 
-            transition: left .5s ease;
+            transition: left 0.5s ease;
         }
 
         :host([open]) aside {
@@ -74,39 +75,7 @@ template.innerHTML = `
     </aside>
 `;
 
-class UI {
-    /**
-     * @param {UIDrawer} root
-     */
-    constructor(root) {
-        /**
-         * @private
-         */
-        this.root = root
-
-        this.aside = this.root.shadowRoot.querySelector("aside");
-
-        /**
-         * @type {Events<UIDrawerEvents>}
-         */
-        this.events = new Events();
-    }
-
-    get open() {
-        return this.root.hasAttribute("open");
-    }
-
-    set open(state) {
-        if (state) {
-            this.root.setAttribute("open", "");
-        } else {
-            this.root.removeAttribute("open");
-        }
-    }
-}
-
 export class UIDrawer extends HTMLElement {
-
     static register = () => {
         if (!customElements.get("ui-drawer")) {
             customElements.define("ui-drawer", UIDrawer);
@@ -118,16 +87,38 @@ export class UIDrawer extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
-        this.ui = new UI(this);
+        this.ui = {
+            aside: this.shadowRoot.querySelector("aside"),
+
+            /**
+             * @type {Events<UIDrawerEvents>}
+             */
+            events: new Events(),
+
+            getOpen: () => {
+                return this.hasAttribute("open");
+            },
+
+            /**
+             * @param {boolean} state
+             */
+            setOpen: (state) => {
+                if (state) {
+                    this.setAttribute("open", "");
+                } else {
+                    this.removeAttribute("open");
+                }
+            },
+        };
     }
 
     connectedCallback() {
         const onClick = (/** @type {MouseEvent} */ ev) => {
             ev.stopPropagation();
-            this.ui.open = false;
+            this.ui.setOpen(false);
         };
 
         const onClickAside = (/** @type {MouseEvent} */ ev) => {

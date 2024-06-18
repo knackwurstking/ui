@@ -9,7 +9,9 @@ import { UISecondary } from "../ui-text";
 
 const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         :host {
             display: block;
@@ -132,7 +134,7 @@ class UI {
     }
 
     set value(value) {
-        this.input.value = value
+        this.input.value = value;
     }
 
     get value() {
@@ -143,7 +145,7 @@ class UI {
      * @param {string} value
      */
     set placeholder(value) {
-        this.input.placeholder = value
+        this.input.placeholder = value;
     }
 
     /**
@@ -168,7 +170,7 @@ class UI {
      * @returns {boolean}
      */
     get invalid() {
-        return this.input.ariaInvalid !== null
+        return this.input.ariaInvalid !== null;
     }
 }
 
@@ -177,7 +179,6 @@ class UI {
  * @extends {HTMLElement}
  */
 export class UISearch extends HTMLElement {
-
     static register = () => {
         UISecondary.register();
         UIIconButton.register();
@@ -186,27 +187,23 @@ export class UISearch extends HTMLElement {
         if (!customElements.get("ui-search")) {
             customElements.define("ui-search", UISearch);
         }
-    }
+    };
 
-    static observedAttributes = [
-        "title",
-        "value",
-        "placeholder",
-        "invalid",
-    ];
+    static observedAttributes = ["title", "value", "placeholder", "invalid"];
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" })
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
 
-        /** @type {UI<UISearchEvents & E>} */
-        this.ui = new UI(this);
+        this.ui = {
+            // TODO: Continue here...
+        };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }

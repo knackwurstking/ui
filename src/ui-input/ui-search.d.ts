@@ -7,8 +7,7 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
     static observedAttributes: string[];
     constructor();
     cleanup: CleanUp;
-    /** @type {UI<UISearchEvents & E>} */
-    ui: UI<UISearchEvents & E>;
+    ui: {};
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -20,55 +19,3 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
 }
 export type UISearchEvents = import(".").UISearchEvents;
 import { CleanUp } from "../js";
-/**
- * @template {UISearchEvents} E
- */
-declare class UI<E extends import(".").UISearchEvents> {
-    /**
-     * @param {UISearch} root
-     */
-    constructor(root: UISearch<any>);
-    /**
-     * @private
-     * @type {UISearch}
-     */
-    private root;
-    /**
-     * @type {Events<E>}
-     */
-    events: Events<E>;
-    /**
-     * @type {UIIconButton}
-     */
-    submit: UIIconButton;
-    /**
-     * @type {HTMLInputElement}
-     */
-    input: HTMLInputElement;
-    /**
-     * @param {string | null} value
-     */
-    set title(value: string);
-    get title(): string;
-    set value(value: string);
-    get value(): string;
-    /**
-     * @param {string} value
-     */
-    set placeholder(value: string);
-    /**
-     * @returns {string}
-     */
-    get placeholder(): string;
-    /**
-     * @param {boolean} state
-     */
-    set invalid(state: boolean);
-    /**
-     * @returns {boolean}
-     */
-    get invalid(): boolean;
-}
-import { Events } from "../js";
-import { UIIconButton } from "../ui-button";
-export {};

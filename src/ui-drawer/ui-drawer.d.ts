@@ -2,7 +2,18 @@ export class UIDrawer extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     cleanup: CleanUp;
-    ui: UI;
+    ui: {
+        aside: HTMLElement;
+        /**
+         * @type {Events<UIDrawerEvents>}
+         */
+        events: Events<UIDrawerEvents>;
+        getOpen: () => boolean;
+        /**
+         * @param {boolean} state
+         */
+        setOpen: (state: boolean) => void;
+    };
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -17,22 +28,4 @@ export type UIDrawerEvents = {
     close: UIDrawer;
 };
 import { CleanUp } from "../js";
-declare class UI {
-    /**
-     * @param {UIDrawer} root
-     */
-    constructor(root: UIDrawer);
-    /**
-     * @private
-     */
-    private root;
-    aside: HTMLElement;
-    /**
-     * @type {Events<UIDrawerEvents>}
-     */
-    events: Events<UIDrawerEvents>;
-    set open(state: boolean);
-    get open(): boolean;
-}
 import { Events } from "../js";
-export {};
