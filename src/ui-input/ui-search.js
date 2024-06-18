@@ -94,11 +94,6 @@ class UI {
         this.root = root;
 
         /**
-         * @type {Events<E>}
-         */
-        this.events = new Events();
-
-        /**
          * @type {UIIconButton}
          */
         this.submit = this.root.shadowRoot.querySelector("ui-icon-button");
@@ -199,6 +194,11 @@ export class UISearch extends HTMLElement {
         this.cleanup = new CleanUp();
 
         this.ui = {
+            root: this,
+
+            /** @type {Events<E>} */
+            events: new Events(),
+
             // TODO: Continue here...
         };
     }

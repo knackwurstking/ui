@@ -23,22 +23,24 @@ export class UIFlexGridItem extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
-            getFlex: () => {
-                if (!this.hasAttribute("flex")) {
+            root: this,
+
+            getFlex() {
+                if (!this.root.hasAttribute("flex")) {
                     return defaultFlex;
                 }
 
-                return this.getAttribute("flex");
+                return this.root.getAttribute("flex");
             },
 
             /**
              * @param {string | null} value
              */
-            setFlex: (value) => {
+            setFlex(value) {
                 if (value === null) {
-                    this.removeAttribute("flex");
+                    this.root.removeAttribute("flex");
                 } else {
-                    this.setAttribute("flex", value);
+                    this.root.setAttribute("flex", value);
                 }
             },
         };

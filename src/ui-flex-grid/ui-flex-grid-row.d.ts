@@ -3,11 +3,12 @@ export class UIFlexGridRow extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
-        getGap: () => string;
+        root: this;
+        getGap(): string;
         /**
          * @param {string | null} value
          */
-        setGap: (value: string | null) => void;
+        setGap(value: string | null): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

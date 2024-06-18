@@ -3,11 +3,13 @@ export class UIFlexGrid extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
-        getGap: () => string;
+        /** @private */
+        root: this;
+        getGap(): string;
         /**
          * @param {string | null} value
          */
-        setGap: (value: string | null) => void;
+        setGap(value: string | null): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

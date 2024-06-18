@@ -9,6 +9,7 @@ export class UIInput<E extends import(".").UIInputEvents, T extends import(".").
     constructor();
     cleanup: CleanUp;
     ui: {
+        root: this;
         input: HTMLInputElement;
         /**
          * @type {Events<E>}
@@ -17,56 +18,56 @@ export class UIInput<E extends import(".").UIInputEvents, T extends import(".").
         /**
          * @param {string | null} v
          */
-        setTitle: (v: string | null) => void;
-        getTitle: () => string;
+        setTitle(v: string | null): void;
+        getTitle(): string;
         /**
          * @param {UIInputTypes} value
          */
-        setType: (value: UIInputTypes) => void;
+        setType(value: UIInputTypes): void;
         /**
          * @returns {UIInputTypes}
          */
-        getType: () => UIInputTypes;
+        getType(): UIInputTypes;
         /**
          * @param {UIInputTypeValues[T]} value
          */
-        setValue: (value: UIInputTypeValues[T]) => void;
+        setValue(value: UIInputTypeValues[T]): void;
         /**
          * @returns {UIInputTypeValues[T]}
          */
-        getValue: () => UIInputTypeValues[T];
+        getValue(): UIInputTypeValues[T];
         /**
          * @param {string | null} value
          */
-        setPlaceholder: (value: string | null) => void;
+        setPlaceholder(value: string | null): void;
         /**
          * @returns {string}
          */
-        getPlaceholder: () => string;
+        getPlaceholder(): string;
         /**
          * @param {boolean} state
          */
-        setInvalid: (state: boolean) => void;
+        setInvalid(state: boolean): void;
         /**
          * @returns {boolean}
          */
-        getInvalid: () => boolean;
+        getInvalid(): boolean;
         /**
          * @param {UIInputTypeValues[T]} n
          */
-        setMin: (n: UIInputTypeValues[T]) => void;
+        setMin(n: UIInputTypeValues[T]): void;
         /**
          * @returns {UIInputTypeValues[T]}
          */
-        getMin: () => UIInputTypeValues[T];
+        getMin(): UIInputTypeValues[T];
         /**
          * @param {UIInputTypeValues[T]} n
          */
-        setMax: (n: UIInputTypeValues[T]) => void;
+        setMax(n: UIInputTypeValues[T]): void;
         /**
          * @returns {UIInputTypeValues[T]}
          */
-        getMax: () => UIInputTypeValues[T];
+        getMax(): UIInputTypeValues[T];
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

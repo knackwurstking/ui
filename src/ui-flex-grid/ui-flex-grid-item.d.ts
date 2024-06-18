@@ -3,11 +3,12 @@ export class UIFlexGridItem extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
-        getFlex: () => string;
+        root: this;
+        getFlex(): string;
         /**
          * @param {string | null} value
          */
-        setFlex: (value: string | null) => void;
+        setFlex(value: string | null): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

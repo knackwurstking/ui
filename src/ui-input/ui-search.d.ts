@@ -7,7 +7,11 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
     static observedAttributes: string[];
     constructor();
     cleanup: CleanUp;
-    ui: {};
+    ui: {
+        root: this;
+        /** @type {Events<E>} */
+        events: Events<E>;
+    };
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -19,3 +23,4 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
 }
 export type UISearchEvents = import(".").UISearchEvents;
 import { CleanUp } from "../js";
+import { Events } from "../js";

@@ -87,10 +87,12 @@ export class UIInput extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.appendChild(t.content.cloneNode(true));
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
         this.ui = {
+            root: this,
+
             input: (() => {
                 /** @type {HTMLInputElement} */
                 const input = this.shadowRoot.querySelector("input");
@@ -114,138 +116,140 @@ export class UIInput extends HTMLElement {
             /**
              * @param {string | null} v
              */
-            setTitle: (v) => {
-                let el = this.querySelector(`[slot="title"]`);
+            setTitle(v) {
+                let el = this.root.querySelector(`[slot="title"]`);
 
                 if (v === null && !!el) {
-                    this.removeChild(el);
+                    this.root.removeChild(el);
                     el = null;
                 }
 
                 if (!el) {
                     el = new UISecondary();
                     el.slot = "title";
-                    this.appendChild(el);
+                    this.root.appendChild(el);
                 }
 
                 el.innerHTML = v || "";
             },
 
-            getTitle: () => {
-                return this.querySelector(`[slot="title"]`)?.innerHTML || null;
+            getTitle() {
+                return (
+                    this.root.querySelector(`[slot="title"]`)?.innerHTML || null
+                );
             },
 
             /**
              * @param {UIInputTypes} value
              */
-            setType: (value) => {
-                this.ui.input.value = value;
+            setType(value) {
+                this.input.value = value;
             },
 
             /**
              * @returns {UIInputTypes}
              */
-            getType: () => {
+            getType() {
                 // @ts-expect-error
-                return this.ui.input.type || "text";
+                return this.input.type || "text";
             },
 
             /**
              * @param {UIInputTypeValues[T]} value
              */
-            setValue: (value) => {
-                this.ui.input.value = value.toString();
+            setValue(value) {
+                this.input.value = value.toString();
             },
 
             /**
              * @returns {UIInputTypeValues[T]}
              */
-            getValue: () => {
-                switch (this.ui.input.type) {
+            getValue() {
+                switch (this.input.type) {
                     case "number":
                         // @ts-expect-error
-                        return !!this.ui.input.value
-                            ? new Number(this.ui.input.value)
+                        return !!this.input.value
+                            ? new Number(this.input.value)
                             : NaN;
                     default:
                         // @ts-expect-error
-                        return this.ui.input.value;
+                        return this.input.value;
                 }
             },
 
             /**
              * @param {string | null} value
              */
-            setPlaceholder: (value) => {
-                this.ui.input.placeholder = value || "";
+            setPlaceholder(value) {
+                this.input.placeholder = value || "";
             },
 
             /**
              * @returns {string}
              */
-            getPlaceholder: () => {
-                return this.ui.input.placeholder;
+            getPlaceholder() {
+                return this.input.placeholder;
             },
 
             /**
              * @param {boolean} state
              */
-            setInvalid: (state) => {
-                this.ui.input.ariaInvalid = state ? "" : null;
+            setInvalid(state) {
+                this.input.ariaInvalid = state ? "" : null;
             },
 
             /**
              * @returns {boolean}
              */
-            getInvalid: () => {
-                return this.ui.input.ariaInvalid !== null;
+            getInvalid() {
+                return this.input.ariaInvalid !== null;
             },
 
             /**
              * @param {UIInputTypeValues[T]} n
              */
-            setMin: (n) => {
+            setMin(n) {
                 // @ts-expect-error
-                this.ui.input.min = n;
+                this.input.min = n;
             },
 
             /**
              * @returns {UIInputTypeValues[T]}
              */
-            getMin: () => {
-                switch (this.ui.input.type) {
+            getMin() {
+                switch (this.input.type) {
                     case "number":
                         // @ts-expect-error
-                        return !!this.ui.input.min
-                            ? new Number(this.ui.input.min)
+                        return !!this.input.min
+                            ? new Number(this.input.min)
                             : NaN;
                     default:
                         // @ts-expect-error
-                        return this.ui.input.min;
+                        return this.input.min;
                 }
             },
 
             /**
              * @param {UIInputTypeValues[T]} n
              */
-            setMax: (n) => {
+            setMax(n) {
                 // @ts-expect-error
-                this.ui.input.max = n;
+                this.input.max = n;
             },
 
             /**
              * @returns {UIInputTypeValues[T]}
              */
-            getMax: () => {
-                switch (this.ui.input.type) {
+            getMax() {
+                switch (this.input.type) {
                     case "number":
                         // @ts-ignore-error
-                        return !!this.ui.input.max
-                            ? new Number(this.ui.input.max)
+                        return !!this.input.max
+                            ? new Number(this.input.max)
                             : NaN;
                     default:
                         // @ts-ignore-error
-                        return this.ui.input.max;
+                        return this.input.max;
                 }
             },
         };

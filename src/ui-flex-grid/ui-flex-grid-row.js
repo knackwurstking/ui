@@ -23,18 +23,20 @@ export class UIFlexGridRow extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
-            getGap: () => {
-                return this.getAttribute("gap") || defaultGap;
+            root: this,
+
+            getGap() {
+                return this.root.getAttribute("gap") || defaultGap;
             },
 
             /**
              * @param {string | null} value
              */
-            setGap: (value) => {
+            setGap(value) {
                 if (value === null) {
-                    this.removeAttribute("gap");
+                    this.root.removeAttribute("gap");
                 } else {
-                    this.setAttribute("gap", value);
+                    this.root.setAttribute("gap", value);
                 }
             },
         };
