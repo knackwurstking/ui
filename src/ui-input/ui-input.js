@@ -42,8 +42,8 @@ const content = html`
             border-color: var(--ui-primary-bgColor);
         }
 
-        .container:has(input[aria-invalid]) {
-            border-color: hsl(var(--ui-destructive-bgColor));
+        :host([invalid]) .container {
+            border-color: var(--ui-destructive-bgColor);
         }
 
         ::slotted([slot="title"]) {
@@ -201,7 +201,7 @@ export class UIInput extends HTMLElement {
              * @param {boolean} state
              */
             setInvalid(state) {
-                if (state === null) {
+                if (state === null || state === false) {
                     this.root.removeAttribute("invalid");
                     return;
                 }

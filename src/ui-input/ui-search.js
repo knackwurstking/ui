@@ -49,8 +49,8 @@ const content = html`
             border-color: var(--ui-primary-bgColor);
         }
 
-        .container:has(input[aria-invalid]) {
-            border-color: hsl(var(--ui-destructive-bgColor));
+        :host([invalid]) .container {
+            border-color: var(--ui-destructive-bgColor);
         }
 
         ::slotted([slot="title"]) {
@@ -189,11 +189,12 @@ export class UISearch extends HTMLElement {
              * @param {boolean} state
              */
             setInvalid(state) {
-                if (state) {
+                if (state === null || state === false) {
                     this.root.setAttribute("invalid", "");
-                } else {
-                    this.root.removeAttribute("invalid");
+                    return
                 }
+
+                this.root.removeAttribute("invalid");
             },
 
             /**
@@ -205,7 +206,7 @@ export class UISearch extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }
