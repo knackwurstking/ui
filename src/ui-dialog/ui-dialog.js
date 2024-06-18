@@ -209,8 +209,9 @@ const content = html`
  */
 export class UIDialog extends HTMLElement {
     static register = () => {
-        UIIconButton.register();
         SvgClose.register();
+
+        UIIconButton.register();
         UIFlexGridRow.register();
 
         if (!customElements.get("ui-dialog")) {
@@ -314,6 +315,8 @@ export class UIDialog extends HTMLElement {
             button.removeEventListener("click", onClick);
             dialog.removeEventListener("cancel", onCancel);
         });
+
+        console.debug(this.shadowRoot.querySelector("svg-close"));
     }
 
     disconnectedCallback() {

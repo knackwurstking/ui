@@ -22,17 +22,17 @@ export class UIInput<E extends import(".").UIInputEvents, T extends import(".").
         setTitle(v: string | null): void;
         getTitle(): string;
         /**
-         * @param {UIInputTypes} value
+         * @param {UIInputTypes | null} value
          */
-        setType(value: UIInputTypes): void;
+        setType(value: UIInputTypes | null): void;
         /**
          * @returns {UIInputTypes}
          */
         getType(): UIInputTypes;
         /**
-         * @param {UIInputTypeValues[T]} value
+         * @param {UIInputTypeValues[T] | null} value
          */
-        setValue(value: UIInputTypeValues[T]): void;
+        setValue(value: UIInputTypeValues[T] | null): void;
         /**
          * @returns {UIInputTypeValues[T]}
          */
@@ -54,17 +54,17 @@ export class UIInput<E extends import(".").UIInputEvents, T extends import(".").
          */
         getInvalid(): boolean;
         /**
-         * @param {UIInputTypeValues[T]} n
+         * @param {UIInputTypeValues[T] | null} n
          */
-        setMin(n: UIInputTypeValues[T]): void;
+        setMin(n: UIInputTypeValues[T] | null): void;
         /**
          * @returns {UIInputTypeValues[T]}
          */
         getMin(): UIInputTypeValues[T];
         /**
-         * @param {UIInputTypeValues[T]} n
+         * @param {UIInputTypeValues[T] | null} n
          */
-        setMax(n: UIInputTypeValues[T]): void;
+        setMax(n: UIInputTypeValues[T] | null): void;
         /**
          * @returns {UIInputTypeValues[T]}
          */
@@ -78,12 +78,6 @@ export class UIInput<E extends import(".").UIInputEvents, T extends import(".").
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @private
-     * @param {string | null} value
-     * @returns {UIInputTypeValues[T]}
-     */
-    private parseNewValue;
 }
 export type UIInputEvents = import(".").UIInputEvents;
 export type UIInputTypes = import(".").UIInputTypes;

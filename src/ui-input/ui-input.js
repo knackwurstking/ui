@@ -118,33 +118,28 @@ export class UIInput extends HTMLElement {
              * @param {string | null} v
              */
             setTitle(v) {
-                let el = this.root.querySelector(`[slot="title"]`);
-
-                if (v === null && !!el) {
-                    this.root.removeChild(el);
-                    el = null;
+                if (v === null) {
+                    this.root.removeAttribute("title");
+                    return;
                 }
 
-                if (!el) {
-                    el = new UISecondary();
-                    el.slot = "title";
-                    this.root.appendChild(el);
-                }
-
-                el.innerHTML = v || "";
+                this.root.setAttribute("title", v);
             },
 
             getTitle() {
-                return (
-                    this.root.querySelector(`[slot="title"]`)?.innerHTML || null
-                );
+                return this.root.getAttribute("title");
             },
 
             /**
-             * @param {UIInputTypes} value
+             * @param {UIInputTypes | null} value
              */
             setType(value) {
-                this.input.value = value;
+                if (value === null) {
+                    this.root.removeAttribute("type");
+                    return;
+                }
+
+                this.root.setAttribute("type", value);
             },
 
             /**
@@ -152,29 +147,34 @@ export class UIInput extends HTMLElement {
              */
             getType() {
                 // @ts-expect-error
-                return this.input.type || "text";
+                return this.root.getAttribute("type") || "text";
             },
 
             /**
-             * @param {UIInputTypeValues[T]} value
+             * @param {UIInputTypeValues[T] | null} value
              */
             setValue(value) {
-                this.input.value = value.toString();
+                if (value === null) {
+                    this.root.removeAttribute("value");
+                    return;
+                }
+
+                this.root.setAttribute("value", value.toString());
             },
 
             /**
              * @returns {UIInputTypeValues[T]}
              */
             getValue() {
-                switch (this.input.type) {
+                const value = this.root.getAttribute("value");
+
+                switch (this.getType()) {
                     case "number":
                         // @ts-expect-error
-                        return !!this.input.value
-                            ? new Number(this.input.value)
-                            : NaN;
+                        return !!value ? parseFloat(value) : NaN;
                     default:
                         // @ts-expect-error
-                        return this.input.value;
+                        return value;
                 }
             },
 
@@ -182,81 +182,98 @@ export class UIInput extends HTMLElement {
              * @param {string | null} value
              */
             setPlaceholder(value) {
-                this.input.placeholder = value || "";
+                if (value === null) {
+                    this.root.removeAttribute("placeholder");
+                    return;
+                }
+
+                this.root.setAttribute("placeholder", value);
             },
 
             /**
              * @returns {string}
              */
             getPlaceholder() {
-                return this.input.placeholder;
+                return this.root.getAttribute("placeholder");
             },
 
             /**
              * @param {boolean} state
              */
             setInvalid(state) {
-                this.input.ariaInvalid = state ? "" : null;
+                if (state === null) {
+                    this.root.removeAttribute("invalid");
+                    return;
+                }
+
+                this.root.setAttribute("invalid", "");
             },
 
             /**
              * @returns {boolean}
              */
             getInvalid() {
-                return this.input.ariaInvalid !== null;
+                return this.root.hasAttribute("invalid");
             },
 
             /**
-             * @param {UIInputTypeValues[T]} n
+             * @param {UIInputTypeValues[T] | null} n
              */
             setMin(n) {
-                // @ts-expect-error
-                this.input.min = n;
+                if (n === null) {
+                    this.root.removeAttribute("min");
+                    return;
+                }
+
+                this.root.setAttribute("min", n.toString());
             },
 
             /**
              * @returns {UIInputTypeValues[T]}
              */
             getMin() {
+                const min = this.root.getAttribute("min");
+
                 switch (this.input.type) {
                     case "number":
                         // @ts-expect-error
-                        return !!this.input.min
-                            ? new Number(this.input.min)
-                            : NaN;
+                        return !!min ? parseFloat(min) : NaN;
                     default:
                         // @ts-expect-error
-                        return this.input.min;
+                        return min;
                 }
             },
 
             /**
-             * @param {UIInputTypeValues[T]} n
+             * @param {UIInputTypeValues[T] | null} n
              */
             setMax(n) {
-                // @ts-expect-error
-                this.input.max = n;
+                if (n === null) {
+                    this.root.removeAttribute("max");
+                }
+
+                this.root.setAttribute("max", n.toString());
             },
 
             /**
              * @returns {UIInputTypeValues[T]}
              */
             getMax() {
+                const max = this.root.getAttribute("max");
+
                 switch (this.input.type) {
                     case "number":
                         // @ts-ignore-error
-                        return !!this.input.max
-                            ? new Number(this.input.max)
-                            : NaN;
+                        return !!max ? parseFloat(max) : NaN;
                     default:
                         // @ts-ignore-error
-                        return this.input.max;
+                        return max;
                 }
             },
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }
@@ -269,57 +286,49 @@ export class UIInput extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "title":
-                this.ui.setTitle(newValue);
+                let el = this.querySelector(`[slot="title"]`);
+
+                if (newValue === null && !!el) {
+                    this.removeChild(el);
+                    el = null;
+                }
+
+                if (newValue === null) {
+                    return;
+                }
+
+                if (!el) {
+                    el = new UISecondary();
+                    el.slot = "title";
+                    this.appendChild(el);
+                }
+
+                el.innerHTML = newValue;
                 break;
 
             case "type":
-                if (newValue === null) {
-                    this.ui.setType("text");
-                } else {
-                    // @ts-expect-error
-                    this.ui.setType(newValue);
-                }
+                this.ui.input.value = newValue || "text";
                 break;
 
             case "value":
-                this.ui.setValue(this.parseNewValue(newValue));
+                this.ui.input.value = (newValue || "").toString();
                 break;
 
             case "placeholder":
-                if (newValue === null) {
-                    this.ui.setPlaceholder(null);
-                } else {
-                    this.ui.setPlaceholder(newValue);
-                }
+                this.ui.input.placeholder = newValue || "";
                 break;
 
             case "invalid":
-                this.ui.setInvalid(newValue !== null);
+                this.ui.input.ariaInvalid = newValue;
                 break;
 
             case "min":
-                this.ui.setMin(this.parseNewValue(newValue));
+                this.ui.input.min = newValue || "";
                 break;
 
             case "max":
-                this.ui.setMax(this.parseNewValue(newValue));
+                this.ui.input.max = newValue || "";
                 break;
-        }
-    }
-
-    /**
-     * @private
-     * @param {string | null} value
-     * @returns {UIInputTypeValues[T]}
-     */
-    parseNewValue(value) {
-        switch (this.ui.getType()) {
-            case "number":
-                // @ts-expect-error
-                return !!value ? new Number(value) : NaN;
-            default:
-                // @ts-expect-error
-                return value || "";
         }
     }
 }

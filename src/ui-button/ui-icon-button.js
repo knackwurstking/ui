@@ -70,8 +70,6 @@ const content = html`
     <slot></slot>
 `;
 
-class UI {}
-
 export class UIIconButton extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-icon-button")) {
