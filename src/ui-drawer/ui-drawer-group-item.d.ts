@@ -2,6 +2,8 @@ export class UIDrawerGroupItem extends HTMLElement {
     static register: () => void;
     cleanup: CleanUp;
     ui: {
+        /** @private */
+        root: this;
         /**
          * @returns {boolean}
          */

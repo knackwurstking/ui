@@ -3,6 +3,7 @@ export class UIFlexGridRow extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
+        /** @private */
         root: this;
         getGap(): string;
         /**

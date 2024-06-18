@@ -3,6 +3,8 @@ export class UIButton extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
+        /** @private */
+        root: this;
         /**
          * @type {Events<UIButtonEvents>}
          */
@@ -15,23 +17,23 @@ export class UIButton extends HTMLElement {
         /**
          * @returns {UIButtonColor}
          */
-        getColor: () => UIButtonColor;
+        getColor(): UIButtonColor;
         /**
          * @param {UIButtonColor} value
          */
-        setColor: (value: UIButtonColor) => void;
+        setColor(value: UIButtonColor): void;
         /**
          * @returns {UIButtonVariant}
          */
-        getVariant: () => UIButtonVariant;
+        getVariant(): UIButtonVariant;
         /**
          * @param {UIButtonVariant} value
          */
-        setVariant: (value: UIButtonVariant) => void;
-        disable: () => void;
-        enable: () => void;
-        enableRipple: () => void;
-        disableRipple: () => void;
+        setVariant(value: UIButtonVariant): void;
+        disable(): void;
+        enable(): void;
+        enableRipple(): void;
+        disableRipple(): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

@@ -3,11 +3,13 @@ export class UIDrawerGroup extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
-        getTitle: () => string;
+        /** @private */
+        root: this;
+        getTitle(): string;
         /**
          * @param {string} value
          */
-        setTitle: (value: string) => void;
+        setTitle(value: string): void;
         removeTitle(): void;
     };
     connectedCallback(): void;

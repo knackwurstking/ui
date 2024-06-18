@@ -1,8 +1,12 @@
 export class UISelect extends HTMLElement {
     static register: () => void;
     cleanup: CleanUp;
-    /** @type {UI} */
-    ui: UI;
+    ui: {
+        /**
+         *  @type {Events<UISelectEvents>}
+         */
+        events: Events<UISelectEvents>;
+    };
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -14,9 +18,4 @@ export class UISelect extends HTMLElement {
 }
 export type UISelectEvents = import(".").UISelectEvents;
 import { CleanUp } from "../js";
-declare class UI {
-    /** @type {Events<UISelectEvents>} */
-    events: Events<UISelectEvents>;
-}
 import { Events } from "../js";
-export {};

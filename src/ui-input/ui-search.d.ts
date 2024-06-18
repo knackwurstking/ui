@@ -8,6 +8,7 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
     constructor();
     cleanup: CleanUp;
     ui: {
+        /** @private */
         root: this;
         submit: UIIconButton;
         input: HTMLInputElement;
@@ -18,12 +19,15 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
          */
         setTitle(value: string | null): void;
         getTitle(): string;
-        setValue(value: any): void;
+        /**
+         * @param {string | null} value
+         */
+        setValue(value: string | null): void;
         getValue(): string;
         /**
-         * @param {string} value
+         * @param {string | null} value
          */
-        setPlaceholder(value: string): void;
+        setPlaceholder(value: string | null): void;
         /**
          * @returns {string}
          */

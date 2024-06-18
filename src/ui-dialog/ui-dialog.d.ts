@@ -10,6 +10,8 @@ export class UIDialog<T extends import(".").UIDialogEvents> extends HTMLElement 
     constructor();
     cleanup: CleanUp;
     ui: {
+        /** @private */
+        root: this;
         /** @type {Events<T>} */
         events: Events<T>;
         /**
@@ -22,19 +24,19 @@ export class UIDialog<T extends import(".").UIDialogEvents> extends HTMLElement 
          * @type {HTMLDialogElement}
          */
         dialog: HTMLDialogElement;
-        getFullscreen: () => boolean;
+        getFullscreen(): boolean;
         /**
          * @param {boolean} state
          */
-        setFullscreen: (state: boolean) => void;
-        getTitle: () => string;
+        setFullscreen(state: boolean): void;
+        getTitle(): string;
         /**
          * @param {string} value
          */
-        setTitle: (value: string) => void;
-        getDialogElement: () => HTMLDialogElement;
-        open: (modal?: boolean, inert?: boolean) => void;
-        close: () => void;
+        setTitle(value: string): void;
+        getDialogElement(): HTMLDialogElement;
+        open(modal?: boolean, inert?: boolean): void;
+        close(): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

@@ -4,8 +4,8 @@ export class UILangType extends HTMLElement {
 }
 declare class UI {
     /**
-    * @param {UILangType} root
-    */
+     * @param {UILangType} root
+     */
     constructor(root: UILangType);
     set name(value: string);
     get name(): string;

@@ -3,6 +3,8 @@ export class UIIconButton extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
+        /** @private */
+        root: this;
         /**
          * @type {Events<UIIconButtonEvents>}
          */
@@ -15,23 +17,23 @@ export class UIIconButton extends HTMLElement {
         /**
          * @returns {UIIconButtonColor}
          */
-        getColor: () => UIIconButtonColor;
+        getColor(): UIIconButtonColor;
         /**
          * @param {UIIconButtonColor} value
          */
-        setColor: (value: UIIconButtonColor) => void;
+        setColor(value: UIIconButtonColor): void;
         /**
          * @returns {boolean}
          */
-        getGhost: () => boolean;
+        getGhost(): boolean;
         /**
          * @param {boolean} state
          */
-        setGhost: (state: boolean) => void;
-        disable: () => void;
-        enable: () => void;
-        enableRipple: () => void;
-        disableRipple: () => void;
+        setGhost(state: boolean): void;
+        disable(): void;
+        enable(): void;
+        enableRipple(): void;
+        disableRipple(): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

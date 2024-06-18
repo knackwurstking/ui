@@ -9,6 +9,7 @@ export class UIInput<E extends import(".").UIInputEvents, T extends import(".").
     constructor();
     cleanup: CleanUp;
     ui: {
+        /** @private */
         root: this;
         input: HTMLInputElement;
         /**

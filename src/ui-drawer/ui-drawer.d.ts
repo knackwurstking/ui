@@ -3,16 +3,18 @@ export class UIDrawer extends HTMLElement {
     static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
+        /** @private */
+        root: this;
         aside: HTMLElement;
         /**
          * @type {Events<UIDrawerEvents>}
          */
         events: Events<UIDrawerEvents>;
-        getOpen: () => boolean;
+        getOpen(): boolean;
         /**
          * @param {boolean} state
          */
-        setOpen: (state: boolean) => void;
+        setOpen(state: boolean): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;

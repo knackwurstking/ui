@@ -6,8 +6,7 @@ import { UISelectOption } from "./ui-select-option";
  * @typedef {import(".").UISelectEvents} UISelectEvents
  */
 
-// {{{ HTML Content
-const innerHTML = html`
+const content = html`
     <style>
         * {
             box-sizing: border-box;
@@ -103,14 +102,6 @@ const innerHTML = html`
         <slot></slot>
     </div>
 `;
-// }}}
-
-class UI {
-    constructor() {
-        /** @type {Events<UISelectEvents>} */
-        this.events = new Events();
-    }
-}
 
 export class UISelect extends HTMLElement {
     /** @param {MouseEvent | PointerEvent} ev */
@@ -139,20 +130,21 @@ export class UISelect extends HTMLElement {
     };
 
     constructor() {
-        // {{{
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = innerHTML;
+        this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
 
-        // TODO: Continue here...
-        /** @type {UI} */
-        this.ui = new UI();
-    } // }}}
+        this.ui = {
+            /**
+             *  @type {Events<UISelectEvents>}
+             */
+            events: new Events(),
+        };
+    }
 
     connectedCallback() {
-        // {{{
         const options = this.shadowRoot.querySelector(".options");
         const cb = this.onClickOptions.bind(this);
         options.addEventListener("click", cb);
@@ -165,24 +157,22 @@ export class UISelect extends HTMLElement {
             "--items-length",
             this.querySelectorAll("ui-select-option").length.toString(),
         );
-    } // }}}
+    }
 
     disconnectedCallback() {
-        // {{{
         this.cleanup.run();
-    } // }}}
+    }
 
     /**
      * @private
      * @param {Event} ev
      */
     async onClickOptions(ev) {
-        // {{{
         if (this.classList.toggle("open")) {
             ev.stopPropagation();
             this.addEventListener("click", this.#onClick);
         } else {
             setTimeout(() => this.removeEventListener("click", this.#onClick));
         }
-    } // }}}
+    }
 }
