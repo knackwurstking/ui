@@ -129,9 +129,9 @@ export class UILang extends HTMLElement {
             this.ui.getFallbackElement();
 
         if (!next) return;
-        if (!next.ui.href) throw `Missing href attribute!`;
+        if (!next.ui.getHref()) throw `Missing href attribute!`;
 
-        const request = await fetch(next.ui.href);
+        const request = await fetch(next.ui.getHref());
         this.ui.new(next, await request.json());
     }
 }
