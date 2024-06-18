@@ -91,6 +91,9 @@ export class UIDrawer extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
+            /** @private */
+            root: this,
+
             aside: this.shadowRoot.querySelector("aside"),
 
             /**
@@ -98,18 +101,18 @@ export class UIDrawer extends HTMLElement {
              */
             events: new Events(),
 
-            getOpen: () => {
-                return this.hasAttribute("open");
+            getOpen() {
+                return this.root.hasAttribute("open");
             },
 
             /**
              * @param {boolean} state
              */
-            setOpen: (state) => {
+            setOpen(state) {
                 if (state) {
-                    this.setAttribute("open", "");
+                    this.root.setAttribute("open", "");
                 } else {
-                    this.removeAttribute("open");
+                    this.root.removeAttribute("open");
                 }
             },
         };

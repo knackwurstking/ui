@@ -81,96 +81,6 @@ const content = html`
 
 /**
  * @template {UISearchEvents} E
- */
-class UI {
-    /**
-     * @param {UISearch} root
-     */
-    constructor(root) {
-        /**
-         * @private
-         * @type {UISearch}
-         */
-        this.root = root;
-
-        /**
-         * @type {UIIconButton}
-         */
-        this.submit = this.root.shadowRoot.querySelector("ui-icon-button");
-        this.submit.ui.events.on("click", () => {
-            this.events.dispatch("submit", this.value);
-        });
-
-        /**
-         * @type {HTMLInputElement}
-         */
-        this.input = this.root.shadowRoot.querySelector("input");
-        this.input.type = "text";
-        this.input.onkeydown = (ev) => {
-            if (ev.key === "Enter") {
-                this.submit.click();
-            }
-        };
-    }
-
-    /**
-     * @param {string | null} value
-     */
-    set title(value) {
-        if (value === null) {
-            this.root.removeAttribute("title");
-        } else {
-            this.root.setAttribute("title", value);
-        }
-    }
-
-    get title() {
-        return this.root.getAttribute("title");
-    }
-
-    set value(value) {
-        this.input.value = value;
-    }
-
-    get value() {
-        return this.input.value;
-    }
-
-    /**
-     * @param {string} value
-     */
-    set placeholder(value) {
-        this.input.placeholder = value;
-    }
-
-    /**
-     * @returns {string}
-     */
-    get placeholder() {
-        return this.input.placeholder;
-    }
-
-    /**
-     * @param {boolean} state
-     */
-    set invalid(state) {
-        if (state) {
-            this.root.setAttribute("invalid", "");
-        } else {
-            this.root.removeAttribute("invalid");
-        }
-    }
-
-    /**
-     * @returns {boolean}
-     */
-    get invalid() {
-        return this.input.ariaInvalid !== null;
-    }
-}
-
-/**
- * @template {UISearchEvents} E
  * @extends {HTMLElement}
  */
 export class UISearch extends HTMLElement {
@@ -194,12 +104,104 @@ export class UISearch extends HTMLElement {
         this.cleanup = new CleanUp();
 
         this.ui = {
+            /** @private */
             root: this,
+
+            submit: (() => {
+                /** @type {UIIconButton} */
+                const submit = this.shadowRoot.querySelector("ui-icon-button");
+
+                submit.ui.events.on("click", () => {
+                    this.ui.events.dispatch("submit", this.ui.getValue());
+                });
+
+                return submit;
+            })(),
+
+            input: (() => {
+                /** @type {HTMLInputElement} */
+                const input = this.shadowRoot.querySelector("input");
+                input.type = "text";
+
+                input.onkeydown = (ev) => {
+                    if (ev.key === "Enter") {
+                        this.ui.submit.click();
+                    }
+                };
+
+                return input;
+            })(),
 
             /** @type {Events<E>} */
             events: new Events(),
 
-            // TODO: Continue here...
+            /**
+             * @param {string | null} value
+             */
+            setTitle(value) {
+                if (value === null) {
+                    this.root.removeAttribute("title");
+                } else {
+                    this.root.setAttribute("title", value);
+                }
+            },
+
+            getTitle() {
+                return this.root.getAttribute("title");
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setValue(value) {
+                if (value === null) {
+                    this.root.removeAttribute("value");
+                    return;
+                }
+
+                this.root.setAttribute("value", value);
+            },
+
+            getValue() {
+                return this.root.getAttribute("value");
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setPlaceholder(value) {
+                if (value === null) {
+                    this.root.removeAttribute("placeholder");
+                    return;
+                }
+
+                this.root.setAttribute("placeholder", value);
+            },
+
+            /**
+             * @returns {string}
+             */
+            getPlaceholder() {
+                return this.root.getAttribute("placeholder");
+            },
+
+            /**
+             * @param {boolean} state
+             */
+            setInvalid(state) {
+                if (state) {
+                    this.root.setAttribute("invalid", "");
+                } else {
+                    this.root.removeAttribute("invalid");
+                }
+            },
+
+            /**
+             * @returns {boolean}
+             */
+            getInvalid() {
+                return this.root.hasAttribute("invalid");
+            },
         };
     }
 
@@ -233,15 +235,11 @@ export class UISearch extends HTMLElement {
                 break;
 
             case "value":
-                this.ui.value = newValue || "";
+                this.ui.input.value = newValue || "";
                 break;
 
             case "placeholder":
-                if (newValue === null) {
-                    this.ui.placeholder = "";
-                } else {
-                    this.ui.placeholder = newValue;
-                }
+                this.ui.input.placeholder = newValue || "";
                 break;
 
             case "invalid":

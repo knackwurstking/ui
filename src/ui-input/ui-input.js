@@ -91,6 +91,7 @@ export class UIInput extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
+            /** @private */
             root: this,
 
             input: (() => {

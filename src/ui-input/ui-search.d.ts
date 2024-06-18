@@ -9,8 +9,33 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
     cleanup: CleanUp;
     ui: {
         root: this;
+        submit: UIIconButton;
+        input: HTMLInputElement;
         /** @type {Events<E>} */
         events: Events<E>;
+        /**
+         * @param {string | null} value
+         */
+        setTitle(value: string | null): void;
+        getTitle(): string;
+        setValue(value: any): void;
+        getValue(): string;
+        /**
+         * @param {string} value
+         */
+        setPlaceholder(value: string): void;
+        /**
+         * @returns {string}
+         */
+        getPlaceholder(): string;
+        /**
+         * @param {boolean} state
+         */
+        setInvalid(state: boolean): void;
+        /**
+         * @returns {boolean}
+         */
+        getInvalid(): boolean;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
@@ -23,4 +48,5 @@ export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement 
 }
 export type UISearchEvents = import(".").UISearchEvents;
 import { CleanUp } from "../js";
+import { UIIconButton } from "../ui-button";
 import { Events } from "../js";

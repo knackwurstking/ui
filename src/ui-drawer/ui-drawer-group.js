@@ -27,18 +27,6 @@ const content = html`
     </ul>
 `;
 
-class UI {
-    /**
-     * @param {UIDrawerGroup} root
-     */
-    constructor(root) {
-        /**
-         * @private
-         */
-        this.root = root;
-    }
-}
-
 export class UIDrawerGroup extends HTMLElement {
     static register = () => {
         UIDrawerGroupItem.register();
@@ -58,15 +46,18 @@ export class UIDrawerGroup extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
-            getTitle: () => {
-                return this.getAttribute("title") || null;
+            /** @private */
+            root: this,
+
+            getTitle() {
+                return this.root.getAttribute("title") || null;
             },
 
             /**
              * @param {string} value
              */
-            setTitle: (value) => {
-                let item = this.shadowRoot.querySelector(
+            setTitle(value) {
+                let item = this.root.shadowRoot.querySelector(
                     `.ui-drawer-group-title`,
                 );
                 item.classList.add("visible");

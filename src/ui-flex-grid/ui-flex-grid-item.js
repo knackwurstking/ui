@@ -23,6 +23,7 @@ export class UIFlexGridItem extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
+            /** @private */
             root: this,
 
             getFlex() {

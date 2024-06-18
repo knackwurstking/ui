@@ -11,7 +11,9 @@ import { CleanUp, Events, createRipple, html } from "../js";
 
 const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         :host {
             display: flex !important;
@@ -68,22 +70,15 @@ const content = html`
     <slot></slot>
 `;
 
-class UI {
-
-
-
-
-
-}
+class UI {}
 
 export class UIIconButton extends HTMLElement {
-
     static register = () => {
         if (!customElements.get("ui-icon-button")) {
             customElements.define("ui-icon-button", UIIconButton);
         }
-    }
-    static observedAttributes = ["no-ripple", "color"]
+    };
+    static observedAttributes = ["no-ripple", "color"];
 
     constructor() {
         super();
@@ -94,6 +89,9 @@ export class UIIconButton extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
+            /** @private */
+            root: this,
+
             /**
              * @type {Events<UIIconButtonEvents>}
              */
@@ -108,63 +106,63 @@ export class UIIconButton extends HTMLElement {
             /**
              * @returns {UIIconButtonColor}
              */
-            getColor: () => {
+            getColor() {
                 // @ts-expect-error
-                return this.getAttribute("color");
+                return this.root.getAttribute("color");
             },
 
             /**
              * @param {UIIconButtonColor} value
              */
-            setColor: (value) => {
-                this.setAttribute("color", value);
+            setColor(value) {
+                this.root.setAttribute("color", value);
             },
 
             /**
              * @returns {boolean}
              */
-            getGhost: () => {
-                return this.hasAttribute("ghost");
+            getGhost() {
+                return this.root.hasAttribute("ghost");
             },
 
             /**
              * @param {boolean} state
              */
-            setGhost: (state) => {
+            setGhost(state) {
                 if (state) {
-                    this.setAttribute("ghost", "");
+                    this.root.setAttribute("ghost", "");
                 } else {
-                    this.removeAttribute("ghost");
+                    this.root.removeAttribute("ghost");
                 }
             },
 
-            disable: () => {
-                this.setAttribute("disabled", "");
+            disable() {
+                this.root.setAttribute("disabled", "");
             },
 
-            enable: () => {
-                this.removeAttribute("disabled");
+            enable() {
+                this.root.removeAttribute("disabled");
             },
 
-            enableRipple: () => {
-                if (!!this.ui.removeRipple) return;
-                this.ui.removeRipple = createRipple(this, { centered: true });
-                this.removeAttribute("no-ripple");
+            enableRipple() {
+                if (!!this.removeRipple) return;
+                this.removeRipple = createRipple(this.root, { centered: true });
+                this.root.removeAttribute("no-ripple");
             },
 
-            disableRipple: () => {
-                if (!this.ui.removeRipple) return;
+            disableRipple() {
+                if (!this.removeRipple) return;
 
-                this.ui.removeRipple();
-                this.ui.removeRipple = null
-                this.setAttribute("no-ripple", "");
+                this.removeRipple();
+                this.removeRipple = null;
+                this.root.setAttribute("no-ripple", "");
             },
         };
     }
 
     connectedCallback() {
         if (!this.hasAttribute("no-ripple") && !this.ui.removeRipple) {
-            this.ui.enableRipple()
+            this.ui.enableRipple();
         }
 
         this.bindClickEvent();
@@ -187,7 +185,11 @@ export class UIIconButton extends HTMLElement {
                 break;
             case "color":
                 if (newValue !== null) {
-                    if (["primary", "secondary", "destructive"].includes(newValue)) {
+                    if (
+                        ["primary", "secondary", "destructive"].includes(
+                            newValue,
+                        )
+                    ) {
                         this.style.color = null;
                     } else {
                         this.style.color = newValue;

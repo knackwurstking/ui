@@ -1,57 +1,29 @@
 import { html } from "../js";
 
-const innerHTML = html`
-<style>
-    :host {
-        display: none;
-        align-items: center;
+const content = html`
+    <style>
+        :host {
+            display: none;
+            align-items: center;
 
-        padding: var(--ui-spacing);
-        padding-right: 2rem;
+            padding: var(--ui-spacing);
+            padding-right: 2rem;
 
-        height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
+            height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
 
-        white-space: nowrap;
-        text-overflow: ellipsis;
+            white-space: nowrap;
+            text-overflow: ellipsis;
 
-        transition: background-color 0.25s linear, color 0.25s linear;
+            transition:
+                background-color 0.25s linear,
+                color 0.25s linear;
 
-        overflow: hidden;
-    }
-</style>
-
-<slot></slot>
-`
-
-class UI {
-    /** @type {UISelectOption} */
-    #root
-
-    /** @param {UISelectOption} root */
-    constructor(root) {
-        this.#root = root
-    }
-
-    get value() {
-        return this.#root.getAttribute("value")
-    }
-
-    set value(value) {
-        this.#root.setAttribute("value", value)
-    }
-
-    get selected() {
-        return this.#root.hasAttribute("selected")
-    }
-
-    set selected(state) {
-        if (!state) {
-            this.#root.removeAttribute("selected")
-        } else {
-            this.#root.setAttribute("selected", "")
+            overflow: hidden;
         }
-    }
-}
+    </style>
+
+    <slot></slot>
+`;
 
 export class UISelectOption extends HTMLElement {
     static register = () => {
@@ -63,9 +35,45 @@ export class UISelectOption extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = innerHTML;
+        this.shadowRoot.innerHTML = content;
+
         this.setAttribute("role", "button");
 
-        this.ui = new UI(this);
+        this.ui = {
+            /** @private */
+            root: this,
+
+            getValue() {
+                return this.root.getAttribute("value");
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setValue(value) {
+                if (value === null) {
+                    this.root.removeAttribute("value");
+                    return;
+                }
+
+                this.root.setAttribute("value", value);
+            },
+
+            getSelected() {
+                return this.root.hasAttribute("selected");
+            },
+
+            /**
+             * @param {boolean} state
+             */
+            setSelected(state) {
+                if (!state) {
+                    this.root.removeAttribute("selected");
+                    return;
+                }
+
+                this.root.setAttribute("selected", "");
+            },
+        };
     }
 }

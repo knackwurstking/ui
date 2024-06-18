@@ -37,6 +37,9 @@ export class UIDrawerGroupItem extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
+            /** @private */
+            root: this,
+
             /**
              * @returns {boolean}
              */

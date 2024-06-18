@@ -12,7 +12,9 @@ import { CleanUp, Events, createRipple, html } from "../js";
 
 const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         :host {
             display: flex !important;
@@ -101,7 +103,6 @@ const content = html`
 `;
 
 export class UIButton extends HTMLElement {
-
     static register = () => {
         if (!customElements.get("ui-button")) {
             customElements.define("ui-button", UIButton);
@@ -118,6 +119,9 @@ export class UIButton extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
+            /** @private */
+            root: this,
+
             /**
              * @type {Events<UIButtonEvents>}
              */
@@ -132,56 +136,55 @@ export class UIButton extends HTMLElement {
             /**
              * @returns {UIButtonColor}
              */
-            getColor: () => {
+            getColor() {
                 // @ts-expect-error
-                return this.getAttribute("color");
+                return this.root.getAttribute("color");
             },
 
             /**
              * @param {UIButtonColor} value
              */
-            setColor: (value) => {
-                this.setAttribute("color", value);
+            setColor(value) {
+                this.root.setAttribute("color", value);
             },
 
             /**
              * @returns {UIButtonVariant}
              */
-            getVariant: () => {
+            getVariant() {
                 // @ts-expect-error
-                return this.getAttribute("variant");
+                return this.root.getAttribute("variant");
             },
 
             /**
              * @param {UIButtonVariant} value
              */
-            setVariant: (value) => {
-                this.setAttribute("variant", value);
+            setVariant(value) {
+                this.root.setAttribute("variant", value);
             },
 
-            disable: () => {
-                this.setAttribute("disabled", "");
+            disable() {
+                this.root.setAttribute("disabled", "");
             },
 
-            enable: () => {
-                this.removeAttribute("disabled");
+            enable() {
+                this.root.removeAttribute("disabled");
             },
 
-            enableRipple: () => {
-                if (!!this.ui.removeRipple) return;
-                this.ui.removeRipple = createRipple(this, { centered: true });
-                this.removeAttribute("no-ripple");
+            enableRipple() {
+                if (!!this.removeRipple) return;
+                this.removeRipple = createRipple(this.root, { centered: true });
+                this.root.removeAttribute("no-ripple");
             },
 
-            disableRipple: () => {
-                if (!this.ui.removeRipple) return;
+            disableRipple() {
+                if (!this.removeRipple) return;
 
-                this.ui.removeRipple();
-                this.ui.removeRipple = null
-                this.setAttribute("no-ripple", "");
+                this.removeRipple();
+                this.removeRipple = null;
+                this.root.setAttribute("no-ripple", "");
             },
         };
-
     }
 
     connectedCallback() {
@@ -209,7 +212,11 @@ export class UIButton extends HTMLElement {
                 break;
             case "color":
                 if (newValue !== null) {
-                    if (["primary", "secondary", "destructive"].includes(newValue)) {
+                    if (
+                        ["primary", "secondary", "destructive"].includes(
+                            newValue,
+                        )
+                    ) {
                         this.style.color = null;
                     } else {
                         this.style.color = newValue;

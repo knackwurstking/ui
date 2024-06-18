@@ -23,6 +23,7 @@ export class UIFlexGridRow extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
+            /** @private */
             root: this,
 
             getGap() {

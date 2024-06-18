@@ -9,7 +9,9 @@ import { SvgClose } from "../svg";
 
 const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         :host dialog * {
             box-sizing: border-box;
@@ -71,17 +73,26 @@ const content = html`
 
         :host([fullscreen]) dialog > .container {
             width: calc(100% - var(--ui-spacing) * 2);
-            height: calc(100% - (env(safe-area-inset-top, 0) + env(safe-area-inset-bottom, 0) + (var(--ui-spacing) * 2)));
+            height: calc(
+                100% -
+                    (
+                        env(safe-area-inset-top, 0) +
+                            env(safe-area-inset-bottom, 0) +
+                            (var(--ui-spacing) * 2)
+                    )
+            );
 
             margin: var(--ui-spacing);
             margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing));
-            margin-bottom: calc(env(safe-area-inset-bottom, 0) + var(--ui-spacing));
+            margin-bottom: calc(
+                env(safe-area-inset-bottom, 0) + var(--ui-spacing)
+            );
         }
 
         /*
         * Header Styles
         */
-    
+
         .header {
             display: flex;
             align-items: center;
@@ -164,9 +175,14 @@ const content = html`
     <dialog>
         <div class="container">
             <div class="header">
-                <span style="white-space: nowrap;"><slot name="title"></slot></span>
+                <span style="white-space: nowrap;"
+                    ><slot name="title"></slot
+                ></span>
 
-                <ui-icon-button style="width: var(--ui-dialog-header-height); height: 100%;" ghost>
+                <ui-icon-button
+                    style="width: var(--ui-dialog-header-height); height: 100%;"
+                    ghost
+                >
                     <svg-close></svg-close>
                 </ui-icon-button>
             </div>
@@ -192,7 +208,6 @@ const content = html`
  * @template {UIDialogEvents} T
  */
 export class UIDialog extends HTMLElement {
-
     static register = () => {
         UIIconButton.register();
         SvgClose.register();
@@ -204,13 +219,16 @@ export class UIDialog extends HTMLElement {
     };
 
     constructor() {
-        super()
+        super();
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
 
         this.ui = {
+            /** @private */
+            root: this,
+
             /** @type {Events<T>} */
             events: new Events(),
 
@@ -231,60 +249,60 @@ export class UIDialog extends HTMLElement {
              */
             dialog: this.shadowRoot.querySelector("dialog"),
 
-            getFullscreen: () => {
-                return this.hasAttribute("fullscreen")
+            getFullscreen() {
+                return this.root.hasAttribute("fullscreen");
             },
 
             /**
              * @param {boolean} state
              */
-            setFullscreen: (state) => {
-                if (!!state) this.setAttribute("fullscreen", "")
-                else this.removeAttribute("fullscreen")
+            setFullscreen(state) {
+                if (!!state) this.root.setAttribute("fullscreen", "");
+                else this.root.removeAttribute("fullscreen");
             },
 
-            getTitle: () => {
-                return this.ui.h4.innerText
+            getTitle() {
+                return this.h4.innerText;
             },
 
             /**
              * @param {string} value
              */
-            setTitle: (value) => {
-                this.ui.h4.innerText = value
+            setTitle(value) {
+                this.h4.innerText = value;
             },
 
-            getDialogElement: () => {
-                return this.ui.dialog
+            getDialogElement() {
+                return this.dialog;
             },
 
-            open: (modal = false, inert = true) => {
-                const inertBackup = this.ui.dialog.inert;
-                this.ui.dialog.inert = inert;
+            open(modal = false, inert = true) {
+                const inertBackup = this.dialog.inert;
+                this.dialog.inert = inert;
 
                 if (!!modal) {
-                    this.ui.dialog.showModal();
+                    this.dialog.showModal();
                 } else {
-                    this.ui.dialog.show();
+                    this.dialog.show();
                 }
 
-                this.ui.events.dispatch("open", null);
-                this.ui.dialog.inert = inertBackup;
+                this.events.dispatch("open", null);
+                this.dialog.inert = inertBackup;
             },
 
-            close: () => {
-                this.ui.dialog.close();
-                this.ui.events.dispatch("close", null);
+            close() {
+                this.dialog.close();
+                this.events.dispatch("close", null);
             },
         };
     }
 
     connectedCallback() {
-        const button = this.shadowRoot.querySelector(".header ui-icon-button")
+        const button = this.shadowRoot.querySelector(".header ui-icon-button");
         const onClick = () => {
             this.ui.close();
         };
-        button.addEventListener("click", onClick)
+        button.addEventListener("click", onClick);
 
         const dialog = this.shadowRoot.querySelector("dialog");
         const onCancel = (/** @type {Event} */ ev) => {
@@ -293,9 +311,9 @@ export class UIDialog extends HTMLElement {
         dialog.addEventListener("cancel", onCancel);
 
         this.cleanup.add(() => {
-            button.removeEventListener("click", onClick)
+            button.removeEventListener("click", onClick);
             dialog.removeEventListener("cancel", onCancel);
-        })
+        });
     }
 
     disconnectedCallback() {
