@@ -1,6 +1,7 @@
 export class UIPrimary extends HTMLElement {
     static register: () => void;
     cleanup: CleanUp;
+    ui: {};
     connectedCallback(): void;
     disconnectedCallback(): void;
 }

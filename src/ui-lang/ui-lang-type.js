@@ -1,44 +1,3 @@
-// TODO: Continue here...
-class UI {
-    /** @type {UILangType} */
-    #root;
-
-    /**
-     * @param {UILangType} root
-     */
-    constructor(root) {
-        this.#root = root;
-    }
-
-    get name() {
-        return this.#root.getAttribute("name");
-    }
-
-    set name(value) {
-        this.#root.setAttribute("name", value);
-    }
-
-    get href() {
-        return this.#root.getAttribute("href");
-    }
-
-    set href(value) {
-        this.#root.setAttribute("href", value);
-    }
-
-    get fallback() {
-        return this.#root.hasAttribute("fallback");
-    }
-
-    set fallback(state) {
-        if (!!state) {
-            this.#root.setAttribute("fallback", "");
-        } else {
-            this.#root.removeAttribute("fallback");
-        }
-    }
-}
-
 export class UILangType extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-lang-type")) {
@@ -49,6 +8,57 @@ export class UILangType extends HTMLElement {
     constructor() {
         super();
 
-        this.ui = new UI(this);
+        this.ui = {
+            /** @private */
+            root: this,
+
+            getName() {
+                return this.root.getAttribute("name");
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setName(value) {
+                if (value === null) {
+                    this.root.removeAttribute("name");
+                    return;
+                }
+
+                this.root.setAttribute("name", value);
+            },
+
+            getHref() {
+                return this.root.getAttribute("href");
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setHref(value) {
+                if (value === null) {
+                    this.root.removeAttribute("href");
+                    return;
+                }
+
+                this.root.setAttribute("href", value);
+            },
+
+            getFallback() {
+                return this.root.hasAttribute("fallback");
+            },
+
+            /**
+             * @param {boolean} state
+             */
+            setFallback(state) {
+                if (!state) {
+                    this.root.removeAttribute("fallback");
+                    return;
+                }
+
+                this.root.setAttribute("fallback", "");
+            },
+        };
     }
 }

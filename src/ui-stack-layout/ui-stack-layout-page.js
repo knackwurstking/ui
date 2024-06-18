@@ -1,5 +1,6 @@
 import { CleanUp, html } from "../js";
 
+// TODO: Continue here
 const innerHTML = html`
     <style>
         :host {
@@ -31,28 +32,7 @@ const innerHTML = html`
     <slot></slot>
 `;
 
-class UI {
-    /** @type {UIStackLayoutPage} */
-    #root
-
-    /**
-    * @param {UIStackLayoutPage} root
-    */
-    constructor(root) {
-        this.#root = root
-    }
-
-    get name() {
-        return this.#root.getAttribute("name")
-    }
-
-    set name(value) {
-        this.#root.setAttribute("name", value)
-    }
-}
-
 export class UIStackLayoutPage extends HTMLElement {
-
     static register = () => {
         if (!customElements.get("ui-stack-layout-page")) {
             customElements.define("ui-stack-layout-page", UIStackLayoutPage);
@@ -65,11 +45,28 @@ export class UIStackLayoutPage extends HTMLElement {
         this.shadowRoot.innerHTML = innerHTML;
 
         this.cleanup = new CleanUp();
-        this.ui = new UI(this)
+        this.ui = {
+            /** @private */
+            root: this,
+
+            getName() {
+                return this.root.getAttribute("name");
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setName(value) {
+                if (value === null) {
+                    this.root.removeAttribute("name");
+                }
+
+                this.root.setAttribute("name", value);
+            },
+        };
     }
 
-    connectedCallback() { }
-
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }
