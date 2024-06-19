@@ -104,20 +104,7 @@ const content = html`
 `;
 
 export class UISelect extends HTMLElement {
-    /** @param {MouseEvent | PointerEvent} ev */
-    #onClick = async (ev) => {
-        // {{{
-        (ev.composedPath() || []).forEach((child) => {
-            if (child instanceof UISelectOption) {
-                [...this.querySelectorAll("ui-select-option")].forEach((c) =>
-                    c.removeAttribute("selected"),
-                );
 
-                child.setAttribute("selected", "");
-                this.ui.events.dispatch("change", child);
-            }
-        });
-    }; // }}}
 
     static register = () => {
         SvgChevronDown.register();
@@ -146,11 +133,39 @@ export class UISelect extends HTMLElement {
 
     connectedCallback() {
         const options = this.shadowRoot.querySelector(".options");
-        const cb = this.onClickOptions.bind(this);
-        options.addEventListener("click", cb);
+
+        /**
+         * @param {MouseEvent | PointerEvent} ev
+         */
+        const onClickOption = async (ev) => {
+            (ev.composedPath() || []).forEach((child) => {
+                if (child instanceof UISelectOption) {
+                    [...this.querySelectorAll("ui-select-option")].forEach((c) =>
+                        c.removeAttribute("selected"),
+                    );
+
+                    child.setAttribute("selected", "");
+                    this.ui.events.dispatch("change", child);
+                }
+            });
+        };
+
+        /**
+         * @param {Event} ev
+         */
+        const onClick = (ev) => {
+            if (this.classList.toggle("open")) {
+                ev.stopPropagation();
+                this.addEventListener("click", onClickOption);
+            } else {
+                setTimeout(() => this.removeEventListener("click", onClickOption));
+            }
+        };
+
+        options.addEventListener("click", onClick);
         this.cleanup.add(() => {
-            this.removeEventListener("click", cb);
-            options.removeEventListener("click", this.onClickOptions);
+            this.removeEventListener("click", onClick);
+            options.removeEventListener("click", onClick);
         });
 
         this.style.setProperty(
@@ -161,18 +176,5 @@ export class UISelect extends HTMLElement {
 
     disconnectedCallback() {
         this.cleanup.run();
-    }
-
-    /**
-     * @private
-     * @param {Event} ev
-     */
-    async onClickOptions(ev) {
-        if (this.classList.toggle("open")) {
-            ev.stopPropagation();
-            this.addEventListener("click", this.#onClick);
-        } else {
-            setTimeout(() => this.removeEventListener("click", this.#onClick));
-        }
     }
 }

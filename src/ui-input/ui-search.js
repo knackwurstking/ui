@@ -163,7 +163,7 @@ export class UISearch extends HTMLElement {
             },
 
             getValue() {
-                return this.root.getAttribute("value");
+                return this.input.value;
             },
 
             /**

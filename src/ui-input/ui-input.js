@@ -166,7 +166,7 @@ export class UIInput extends HTMLElement {
              * @returns {UIInputTypeValues[T]}
              */
             getValue() {
-                const value = this.root.getAttribute("value");
+                const value = this.input.value;
 
                 switch (this.getType()) {
                     case "number":

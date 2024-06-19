@@ -9,12 +9,6 @@ export class UISelect extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
-    /**
-     * @private
-     * @param {Event} ev
-     */
-    private onClickOptions;
-    #private;
 }
 export type UISelectEvents = import(".").UISelectEvents;
 import { CleanUp } from "../js";
