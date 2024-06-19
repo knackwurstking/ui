@@ -82,10 +82,10 @@ export class UIStore extends HTMLElement {
              * `this.enableLocalStorage` flag needs to be set to `true` for this to work
              */
             set(key, data, useDataAsFallback = false) {
-                if (useDataAsFallback && this.enableLocalStorage) {
+                if (useDataAsFallback && this.getEnableLocalStorage()) {
                     const sData = JSON.parse(
                         localStorage.getItem(
-                            this.localStoragePrefix + key.toString(),
+                            this.getLocalStoragePrefix() + key.toString(),
                         ) || "null",
                     );
                     this.stores[key] =
@@ -94,9 +94,9 @@ export class UIStore extends HTMLElement {
                     this.stores[key] = data;
                 }
 
-                if (this.enableLocalStorage) {
+                if (this.getEnableLocalStorage()) {
                     localStorage.setItem(
-                        this.localStoragePrefix + key.toString(),
+                        this.getLocalStoragePrefix() + key.toString(),
                         JSON.stringify(this.stores[key]),
                     );
                 }

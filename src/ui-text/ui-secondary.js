@@ -28,7 +28,7 @@ export class UISecondary extends HTMLElement {
         this.ui = {};
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

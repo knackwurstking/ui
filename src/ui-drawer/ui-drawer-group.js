@@ -83,7 +83,7 @@ export class UIDrawerGroup extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

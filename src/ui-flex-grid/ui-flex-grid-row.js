@@ -45,7 +45,7 @@ export class UIFlexGridRow extends HTMLElement {
         this.updateStyle();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

@@ -28,7 +28,7 @@ export class UIPrimary extends HTMLElement {
         this.ui = {};
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

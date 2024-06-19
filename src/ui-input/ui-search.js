@@ -206,7 +206,7 @@ export class UISearch extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

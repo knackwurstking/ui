@@ -171,7 +171,7 @@ export class UILabel extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

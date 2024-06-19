@@ -49,7 +49,7 @@ export class UIFlexGridItem extends HTMLElement {
         this.updateStyle();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

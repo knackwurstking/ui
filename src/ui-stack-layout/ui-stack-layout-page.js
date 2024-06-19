@@ -1,6 +1,5 @@
 import { CleanUp, html } from "../js";
 
-// TODO: Continue here
 const innerHTML = html`
     <style>
         :host {
@@ -66,7 +65,7 @@ export class UIStackLayoutPage extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }

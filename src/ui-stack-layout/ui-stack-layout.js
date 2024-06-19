@@ -128,7 +128,7 @@ export class UIStackLayout extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
 
     disconnectedCallback() {
         this.cleanup.run();

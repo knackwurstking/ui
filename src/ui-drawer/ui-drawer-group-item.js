@@ -60,7 +60,7 @@ export class UIDrawerGroupItem extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
 
     disconnectedCallback() {
         this.cleanup.run();

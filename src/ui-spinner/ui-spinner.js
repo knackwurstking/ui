@@ -57,7 +57,7 @@ export class UISpinner extends HTMLElement {
         this.ui = {};
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
     }
