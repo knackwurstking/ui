@@ -38,9 +38,10 @@ export class UIStackLayout extends HTMLElement {
         goBack(): void;
         /**
          * @param {string} name
-         * @param {boolean} keepOldPage
+         * @param {((page: UIStackLayoutPage) => void|Promise<void>) | null} [cb]
+         * @param {boolean} [keepOldPage]
          */
-        setPage(name: string, keepOldPage?: boolean): void;
+        setPage(name: string, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): void;
         /**
          * @param {UIStackLayoutPage} oldChild
          */
