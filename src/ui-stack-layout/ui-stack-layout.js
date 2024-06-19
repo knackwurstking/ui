@@ -99,12 +99,17 @@ export class UIStackLayout extends HTMLElement {
 
             /**
              * @param {string} name
-             * @param {boolean} keepOldPage
+             * @param {((page: UIStackLayoutPage) => void|Promise<void>) | null} [cb]
+             * @param {boolean} [keepOldPage]
              */
-            setPage(name, keepOldPage = false) {
+            setPage(name, cb = null, keepOldPage = false) {
                 if (this.lock) return;
 
-                this.stack.push(this.root.appendChild(this.pages[name]()));
+                const page = this.pages[name]();
+                this.stack.push(this.root.appendChild(page));
+                if (typeof cb === "function") {
+                    setTimeout(() => cb(page));
+                }
 
                 let pageToRemove = null;
                 if (this.stack.length > 1 && !keepOldPage) {
