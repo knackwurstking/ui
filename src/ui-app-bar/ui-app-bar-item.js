@@ -32,11 +32,22 @@ export class UIAppBarItem extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
-            enable: () => {
-                this.style.display = "flex";
+            /** @private */
+            root: this,
+
+            enable() {
+                this.root.style.display = "flex";
             },
-            disable: () => {
-                this.style.display = "none";
+
+            disable() {
+                this.root.style.display = "none";
+            },
+
+            /**
+             * @returns {T}
+             */
+            getItem() {
+                return this.root.querySelector("*");
             },
         };
     }
@@ -44,12 +55,5 @@ export class UIAppBarItem extends HTMLElement {
     connectedCallback() { }
     disconnectedCallback() {
         this.cleanup.run();
-    }
-
-    /**
-     * @returns {T}
-     */
-    get item() {
-        return this.querySelector("*");
     }
 }

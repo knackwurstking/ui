@@ -6,14 +6,16 @@ export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     constructor();
     cleanup: CleanUp;
     ui: {
-        enable: () => void;
-        disable: () => void;
+        /** @private */
+        root: this;
+        enable(): void;
+        disable(): void;
+        /**
+         * @returns {T}
+         */
+        getItem(): T;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
-    /**
-     * @returns {T}
-     */
-    get item(): T;
 }
 import { CleanUp } from "../js";
