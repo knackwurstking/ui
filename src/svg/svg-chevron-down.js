@@ -1,29 +1,29 @@
 import { html } from "../js";
 
-const innerHTML = html`
-<style>
-    :host {
-        width: 100%;
-        height: 100%;
-        color: inherit;
-    }
-</style>
+const content = html`
+    <style>
+        :host {
+            width: 100%;
+            height: 100%;
+            color: inherit;
+        }
+    </style>
 
-<svg
-    width="100%"
-    height="100%"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
->
-    <rect width="24" height="24" fill="none" />
-    <path
-        d="M17 9.5L12 14.5L7 9.5"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-    />
-</svg>
+    <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <rect width="24" height="24" fill="none" />
+        <path
+            d="M17 9.5L12 14.5L7 9.5"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+    </svg>
 `;
 
 export class SvgChevronDown extends HTMLElement {
@@ -37,6 +37,6 @@ export class SvgChevronDown extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = innerHTML;
+        this.shadowRoot.innerHTML = content;
     }
 }

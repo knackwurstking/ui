@@ -91,15 +91,19 @@ export class UIAppBar extends HTMLElement {
 
         this.cleanup = new CleanUp();
         this.ui = {
-            getLeftSlot: () => {
-                return [...this.querySelectorAll(`[slot="left"]`)]
-            },
-            getCenterSlot: () => {
-                return [...this.querySelectorAll(`[slot="center"]`)]
+            /** @private */
+            root: this,
+
+            getLeftSlot() {
+                return [...this.root.querySelectorAll(`[slot="left"]`)];
             },
 
-            getRightSlot: () => {
-                return [...this.querySelectorAll(`[slot="right"]`)]
+            getCenterSlot() {
+                return [...this.root.querySelectorAll(`[slot="center"]`)]
+            },
+
+            getRightSlot() {
+                return [...this.root.querySelectorAll(`[slot="right"]`)]
             }
         };
     }
