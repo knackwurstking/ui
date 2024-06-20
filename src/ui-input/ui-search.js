@@ -253,7 +253,6 @@ export class UISearch extends HTMLElement {
         }
     }
 
-
     /**
      * @param {FocusOptions | null} [options]
      */
