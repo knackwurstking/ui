@@ -252,4 +252,16 @@ export class UISearch extends HTMLElement {
                 break;
         }
     }
+
+
+    /**
+     * @param {FocusOptions} options
+     */
+    focus(options) {
+        this.shadowRoot.querySelector("input").focus(options);
+    }
+
+    blur() {
+        this.shadowRoot.querySelector("input").blur();
+    }
 }
