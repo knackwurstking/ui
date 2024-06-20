@@ -124,10 +124,14 @@ export class UISearch extends HTMLElement {
                 input.type = "text";
 
                 input.onkeydown = (ev) => {
-                    if (ev.key === "Enter") {
-                        this.ui.submit.click();
-                    }
+                    if (ev.key === "Enter") this.ui.submit.click();
                 };
+
+                input.oninput = () =>
+                    this.ui.events.dispatch("input", input.value);
+
+                input.onchange = () =>
+                    this.ui.events.dispatch("change", input.value);
 
                 return input;
             })(),
