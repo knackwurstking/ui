@@ -49,10 +49,6 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @param {FocusOptions} options
-     */
-    focus(options: FocusOptions): void;
 }
 export type UISearchEvents = import(".").UISearchEvents;
 import { CleanUp } from "../js";

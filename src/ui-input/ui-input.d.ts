@@ -78,10 +78,6 @@ export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HT
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @param {FocusOptions} options
-     */
-    focus(options: FocusOptions): void;
 }
 export type UIInputEvents = import(".").UIInputEvents;
 export type UIInputTypes = import(".").UIInputTypes;

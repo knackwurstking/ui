@@ -255,9 +255,9 @@ export class UISearch extends HTMLElement {
 
 
     /**
-     * @param {FocusOptions} options
+     * @param {FocusOptions | null} [options]
      */
-    focus(options) {
+    focus(options = null) {
         this.shadowRoot.querySelector("input").focus(options);
     }
 
