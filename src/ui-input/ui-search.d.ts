@@ -2,7 +2,7 @@
  * @template {UISearchEvents} E
  * @extends {HTMLElement}
  */
-export class UISearch<E extends import(".").UISearchEvents> extends HTMLElement {
+export class UISearch<E extends UISearchEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();

@@ -6,7 +6,7 @@
  * @template {UIStoreEvents} T
  * @extends {HTMLElement}
  */
-export class UIStore<T extends import("../js/events")._Events> extends HTMLElement {
+export class UIStore<T extends UIStoreEvents> extends HTMLElement {
     static register: () => void;
     constructor();
     ui: {
@@ -43,13 +43,13 @@ export class UIStore<T extends import("../js/events")._Events> extends HTMLEleme
          * @param {boolean} [useDataAsFallback] Use data as fallback, if nothing found in the browsers `localStorage`
          * `this.enableLocalStorage` flag needs to be set to `true` for this to work
          */
-        set<K_1 extends keyof T>(key: K_1, data: T[K_1], useDataAsFallback?: boolean): void;
+        set<K extends keyof T>(key: K, data: T[K], useDataAsFallback?: boolean): void;
         /**
          * @template {keyof T} K
          * @param {K} key
          * @param {(data: T[K]) => any} callback
          */
-        update<K_2 extends keyof T>(key: K_2, callback: (data: T[K_2]) => any): void;
+        update<K extends keyof T>(key: K, callback: (data: T[K]) => any): void;
         /**
          * @template {keyof T} K
          * @param {K} key
@@ -57,7 +57,7 @@ export class UIStore<T extends import("../js/events")._Events> extends HTMLEleme
          * @param {boolean} [trigger] - this will run the callback first
          * @returns {() => void} clean up function
          */
-        on<K_3 extends keyof T>(key: K_3, callback: (data: T[K_3]) => void | Promise<void>, trigger?: boolean): () => void;
+        on<K extends keyof T>(key: K, callback: (data: T[K]) => void | Promise<void>, trigger?: boolean): () => void;
     };
 }
 export type UIStoreEvents = import(".").UIStoreEvents;

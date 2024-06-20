@@ -5,7 +5,7 @@
  *
  * @template {UIDialogEvents} T
  */
-export class UIDialog<T extends import(".").UIDialogEvents> extends HTMLElement {
+export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     static register: () => void;
     constructor();
     cleanup: CleanUp;

@@ -3,7 +3,7 @@
  * @template {UIInputTypes} T
  * @extends {HTMLElement}
  */
-export class UIInput<E extends import(".").UIInputEvents, T extends import(".").UIInputTypes> extends HTMLElement {
+export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
