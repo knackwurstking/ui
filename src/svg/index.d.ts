@@ -1,11 +1,11 @@
-export { SvgAdd } from "./svg-add";
-export { SvgBackArrow } from "./svg-back-arrow";
+export { SvgPlus } from "./svg-plus";
+export { SvgChevronLeft } from "./svg-chevron-left";
 export { SvgChevronDown } from "./svg-chevron-down";
 export { SvgClose } from "./svg-close";
 export { SvgDownload } from "./svg-download";
-export { SvgEdit } from "./svg-edit";
-export { SvgPDF } from "./svg-pdf";
-export { SvgRecycle } from "./svg-recycle";
+export { SvgPen } from "./svg-pen";
+export { SvgDocumentNew } from "./svg-document-new";
+export { SvgTrash } from "./svg-trash";
 export { SvgSearch } from "./svg-search";
 export { SvgSettings } from "./svg-settings";
 export { SvgMenu } from "./svg-menu.js";
