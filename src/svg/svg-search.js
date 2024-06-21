@@ -8,6 +8,11 @@ const content = html`
             height: 100%;
             color: inherit;
         }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +24,7 @@ const content = html`
         ></g>
         <g id="SVGRepo_iconCarrier">
             <g clip-path="url(#clip0_15_152)">
-                <rect width="24" height="24" fill="white"></rect>
+                <rect width="24" height="24" fill="none"></rect>
                 <circle
                     cx="10.5"
                     cy="10.5"
@@ -34,7 +39,7 @@ const content = html`
             </g>
             <defs>
                 <clipPath id="clip0_15_152">
-                    <rect width="24" height="24" fill="white"></rect>
+                    <rect width="24" height="24" fill="none"></rect>
                 </clipPath>
             </defs>
         </g>

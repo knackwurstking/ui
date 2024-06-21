@@ -8,6 +8,11 @@ const content = html`
             height: 100%;
             color: inherit;
         }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +23,7 @@ const content = html`
             stroke-linejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
-            <rect width="24" height="24" fill="white"></rect>
+            <rect width="24" height="24" fill="none"></rect>
             <path
                 d="M12 6V18"
                 stroke="currentColor"

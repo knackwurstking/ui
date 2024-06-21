@@ -8,6 +8,11 @@ const content = html`
             height: 100%;
             color: inherit;
         }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +23,7 @@ const content = html`
             stroke-linejoin="round"
         ></g>
         <g id="SVGRepo_iconCarrier">
-            <rect width="24" height="24" fill="white"></rect>
+            <rect width="24" height="24" fill="none"></rect>
             <g filter="url(#filter0_d_15_286)">
                 <path
                     d="M3 8.26667V19C3 19.5523 3.44772 20 4 20H20C20.5523 20 21 19.5523 21 19V8.26667M3 8.26667V5C3 4.44772 3.44772 4 4 4H20C20.5523 4 21 4.44772 21 5V8.26667M3 8.26667H21"
