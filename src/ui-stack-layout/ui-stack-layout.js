@@ -27,6 +27,8 @@ export class UIStackLayout extends HTMLElement {
         }
     };
 
+    static observedAttributes = ["use-history"];
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -50,11 +52,37 @@ export class UIStackLayout extends HTMLElement {
             stack: [],
 
             /**
+             * @type {((ev: PopStateEvent) => void|Promise<void>) | null}
+             */
+            onpopstate: null,
+
+            /**
              * @type {Events<{ "change": { oldPage: UIStackLayoutPage | null, newPage: UIStackLayoutPage | null } }>}
              */
             events: new Events(),
 
             lock: false,
+
+            enableHistory() {
+                if (this.onpopstate !== null) return;
+
+                this.onpopstate = (ev) => {
+                    window.history.pushState({}, "", null);
+                    this.goBack();
+                };
+
+                window.history.pushState({}, "", null);
+                window.addEventListener("popstate", this.onpopstate);
+            },
+
+            disableHistory() {
+                if (this.onpopstate !== null) return;
+                window.removeEventListener("popstate", this.onpopstate);
+            },
+
+            usesHistory() {
+                return this.onpopstate !== null;
+            },
 
             /**
              * @param {string} name
@@ -137,5 +165,22 @@ export class UIStackLayout extends HTMLElement {
 
     disconnectedCallback() {
         this.cleanup.run();
+    }
+
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "use-history":
+                if (newValue !== null) {
+                    this.ui.enableHistory();
+                } else {
+                    this.ui.disableHistory();
+                }
+                break;
+        }
     }
 }

@@ -1,5 +1,6 @@
 export class UIStackLayout extends HTMLElement {
     static register: () => void;
+    static observedAttributes: string[];
     cleanup: CleanUp;
     ui: {
         /** @private */
@@ -15,6 +16,10 @@ export class UIStackLayout extends HTMLElement {
          */
         stack: UIStackLayoutPage[];
         /**
+         * @type {((ev: PopStateEvent) => void|Promise<void>) | null}
+         */
+        onpopstate: ((ev: PopStateEvent) => void | Promise<void>) | null;
+        /**
          * @type {Events<{ "change": { oldPage: UIStackLayoutPage | null, newPage: UIStackLayoutPage | null } }>}
          */
         events: Events<{
@@ -24,6 +29,9 @@ export class UIStackLayout extends HTMLElement {
             };
         }>;
         lock: boolean;
+        enableHistory(): void;
+        disableHistory(): void;
+        usesHistory(): boolean;
         /**
          * @param {string} name
          * @param {() => (UIStackLayoutPage)} cb
@@ -49,6 +57,12 @@ export class UIStackLayout extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
 export type UIPages = import(".").UIPages;
 import { CleanUp } from "../js";
