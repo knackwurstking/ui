@@ -94,7 +94,13 @@ export class UISearch extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["title", "value", "placeholder", "invalid"];
+    static observedAttributes = [
+        "title",
+        "value",
+        "placeholder",
+        "invalid",
+        "no-submit",
+    ];
 
     constructor() {
         super();
@@ -124,6 +130,7 @@ export class UISearch extends HTMLElement {
                 input.type = "text";
 
                 input.onkeydown = (ev) => {
+                    if (!this.ui.hasSubmit()) return;
                     if (ev.key === "Enter") this.ui.submit.click();
                 };
 
@@ -138,6 +145,23 @@ export class UISearch extends HTMLElement {
 
             /** @type {Events<E>} */
             events: new Events(),
+
+            hasSubmit() {
+                return !!this.submit.parentElement;
+            },
+
+            disableSubmit() {
+                if (this.hasSubmit()) {
+                    this.submit.parentElement.removeChild(this.submit);
+                }
+            },
+
+            enableSubmit() {
+                if (!this.hasSubmit()) return;
+                const container =
+                    this.root.shadowRoot.querySelector(".container");
+                container.appendChild(this.submit);
+            },
 
             /**
              * @param {string | null} value
@@ -210,7 +234,7 @@ export class UISearch extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }
@@ -249,6 +273,14 @@ export class UISearch extends HTMLElement {
 
             case "invalid":
                 this.ui.input.ariaInvalid = newValue !== null ? "" : null;
+                break;
+
+            case "no-submit":
+                if (newValue !== null) {
+                    this.ui.disableSubmit();
+                } else {
+                    this.ui.enableSubmit();
+                }
                 break;
         }
     }

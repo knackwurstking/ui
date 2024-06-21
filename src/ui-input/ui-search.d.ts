@@ -14,6 +14,9 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
         input: HTMLInputElement;
         /** @type {Events<E>} */
         events: Events<E>;
+        hasSubmit(): boolean;
+        disableSubmit(): void;
+        enableSubmit(): void;
         /**
          * @param {string | null} value
          */
