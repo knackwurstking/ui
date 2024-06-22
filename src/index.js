@@ -20,4 +20,5 @@ export * from "./svg";
 
 /**
  * @typedef {import("./ui-input").UISearchEvents} UISearchEvents
+ * @typedef {import("./ui-dialog").UIDialogEvents} UIDialogEvents
  */
