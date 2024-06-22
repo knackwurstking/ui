@@ -307,7 +307,7 @@ export class UIInput extends HTMLElement {
                 break;
 
             case "type":
-                this.ui.input.value = newValue || "text";
+                this.ui.input.type = newValue || "text";
                 break;
 
             case "value":
