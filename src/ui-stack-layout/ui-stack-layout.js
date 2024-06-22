@@ -66,13 +66,13 @@ export class UIStackLayout extends HTMLElement {
             enableHistory() {
                 if (this.onpopstate !== null) return;
 
-                this.onpopstate = (ev) => {
-                    window.history.pushState({}, "", null);
+                this.onpopstate = () => {
+                    history.pushState(null, document.title, location.href);
                     this.goBack();
                 };
 
-                window.history.pushState({}, "", null);
-                window.addEventListener("popstate", this.onpopstate);
+                history.pushState(null, document.title, location.href);
+                window.addEventListener('popstate', this.onpopstate);
             },
 
             disableHistory() {
