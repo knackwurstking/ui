@@ -16,12 +16,27 @@ export class UIStore extends HTMLElement {
         }
     };
 
+    static observedAttributes = [
+        "use-storage",
+        "storage-prefix",
+    ];
+
     constructor() {
         super();
 
         this.ui = {
             /** @private */
             root: this,
+
+            /**
+             * @type {boolean}
+             */
+            useStorage: false,
+
+            /**
+             * @type {string | null}
+             */
+            storagePrefix: null,
 
             /**
              * @type {any}
@@ -32,38 +47,6 @@ export class UIStore extends HTMLElement {
              * @type {Events<T>}
              */
             events: new Events(),
-
-            getLocalStoragePrefix() {
-                return this.root.getAttribute("local-storage-prefix");
-            },
-
-            /**
-             * @param {string | null} prefix
-             */
-            setLocalStoragePrefix(prefix) {
-                if (prefix === null) {
-                    this.root.removeAttribute("local-storage-prefix");
-                    return;
-                }
-
-                this.root.setAttribute("local-storage-prefix", prefix);
-            },
-
-            getEnableLocalStorage() {
-                return this.root.hasAttribute("enable-local-storage");
-            },
-
-            /**
-             * @param {boolean} state
-             */
-            setEnableLocalStorage(state) {
-                if (!state) {
-                    this.root.removeAttribute("enable-local-storage");
-                    return;
-                }
-
-                this.root.setAttribute("enable-local-storage", "");
-            },
 
             /**
              * @template {keyof T} K
@@ -82,10 +65,10 @@ export class UIStore extends HTMLElement {
              * `this.enableLocalStorage` flag needs to be set to `true` for this to work
              */
             set(key, data, useDataAsFallback = false) {
-                if (useDataAsFallback && this.getEnableLocalStorage()) {
+                if (useDataAsFallback && this.storagePrefix) {
                     const sData = JSON.parse(
                         localStorage.getItem(
-                            this.getLocalStoragePrefix() + key.toString(),
+                            (this.storagePrefix || "") + key.toString(),
                         ) || "null",
                     );
                     this.stores[key] =
@@ -94,9 +77,9 @@ export class UIStore extends HTMLElement {
                     this.stores[key] = data;
                 }
 
-                if (this.getEnableLocalStorage()) {
+                if (this.useStorage) {
                     localStorage.setItem(
-                        this.getLocalStoragePrefix() + key.toString(),
+                        (this.storagePrefix || "") + key.toString(),
                         JSON.stringify(this.stores[key]),
                     );
                 }
@@ -136,5 +119,22 @@ export class UIStore extends HTMLElement {
                 return this.events.on(key, callback);
             },
         };
+    }
+
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "use-storage":
+                this.ui.useStorage = newValue !== null;
+                break;
+
+            case "storage-prefix":
+                this.ui.storagePrefix = newValue;
+                break;
+        }
     }
 }

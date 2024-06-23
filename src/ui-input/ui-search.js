@@ -101,6 +101,8 @@ export class UISearch extends HTMLElement {
         "placeholder",
         "invalid",
         "no-submit",
+        "use-storage",
+        "storage-prefix",
     ];
 
     constructor() {
@@ -113,6 +115,16 @@ export class UISearch extends HTMLElement {
         this.ui = {
             /** @private */
             root: this,
+
+            /**
+             * @type {boolean}
+             */
+            useStorage: false,
+
+            /**
+             * @type {string | null}
+             */
+            storagePrefix: null,
 
             submit: (() => {
                 /** @type {UIIconButton} */
@@ -130,15 +142,35 @@ export class UISearch extends HTMLElement {
                 const input = this.shadowRoot.querySelector("input");
                 input.type = "text";
 
-                input.onkeydown = (ev) => {
+                input.onkeydown = async (ev) => {
                     if (!this.ui.hasSubmit()) return;
                     if (ev.key === "Enter") this.ui.submit.click();
                 };
 
-                input.oninput = () =>
-                    this.ui.events.dispatch("input", input.value);
+                input.oninput = async () => {
+                    if (this.ui.useStorage) {
+                        if (timeout !== null) {
+                            clearTimeout(timeout);
+                        }
 
-                input.onchange = () =>
+                        timeout = setTimeout(() => {
+                            localStorage.setItem(
+                                (this.ui.storagePrefix || "") + this.ui.getKey(),
+                                input.value,
+                            );
+                            timeout = null;
+                        }, 250);
+                    }
+
+                    this.ui.events.dispatch("input", input.value);
+                };
+
+                /**
+                 * @type {NodeJS.Timeout | null}
+                 */
+                let timeout = null;
+
+                input.onchange = async () =>
                     this.ui.events.dispatch("change", input.value);
 
                 return input;
@@ -146,6 +178,26 @@ export class UISearch extends HTMLElement {
 
             /** @type {Events<E>} */
             events: new Events(),
+
+            /**
+             *  @param {string | null} value
+             */
+            setKey(value) {
+                if (value === null) {
+                    this.root.removeAttribute("key");
+                    this.setValue("");
+                    return;
+                }
+
+                this.root.setAttribute("key", value);
+                this.setValue(
+                    localStorage.getItem(this.storagePrefix + this.getKey()),
+                );
+            },
+
+            getKey() {
+                return this.root.getAttribute("key") || "";
+            },
 
             hasSubmit() {
                 return !!this.submit.parentElement;
@@ -265,7 +317,7 @@ export class UISearch extends HTMLElement {
                 break;
 
             case "value":
-                this.ui.input.value = newValue || "";
+                this.ui.input.value = newValue || ""
                 break;
 
             case "placeholder":
@@ -282,6 +334,14 @@ export class UISearch extends HTMLElement {
                 } else {
                     this.ui.enableSubmit();
                 }
+                break;
+
+            case "use-storage":
+                this.ui.useStorage = newValue !== null;
+                break;
+
+            case "storage-prefix":
+                this.ui.storagePrefix = newValue;
                 break;
         }
     }

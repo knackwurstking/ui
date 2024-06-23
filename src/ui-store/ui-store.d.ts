@@ -8,10 +8,19 @@
  */
 export class UIStore<T extends UIStoreEvents> extends HTMLElement {
     static register: () => void;
+    static observedAttributes: string[];
     constructor();
     ui: {
         /** @private */
         root: this;
+        /**
+         * @type {boolean}
+         */
+        useStorage: boolean;
+        /**
+         * @type {string | null}
+         */
+        storagePrefix: string | null;
         /**
          * @type {any}
          */
@@ -20,16 +29,6 @@ export class UIStore<T extends UIStoreEvents> extends HTMLElement {
          * @type {Events<T>}
          */
         events: Events<T>;
-        getLocalStoragePrefix(): string;
-        /**
-         * @param {string | null} prefix
-         */
-        setLocalStoragePrefix(prefix: string | null): void;
-        getEnableLocalStorage(): boolean;
-        /**
-         * @param {boolean} state
-         */
-        setEnableLocalStorage(state: boolean): void;
         /**
          * @template {keyof T} K
          * @param {K} key
@@ -59,6 +58,12 @@ export class UIStore<T extends UIStoreEvents> extends HTMLElement {
          */
         on<K extends keyof T>(key: K, callback: (data: T[K]) => void | Promise<void>, trigger?: boolean): () => void;
     };
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
 export type UIStoreEvents = import(".").UIStoreEvents;
 import { Events } from "../js";

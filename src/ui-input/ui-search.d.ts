@@ -10,10 +10,23 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
     ui: {
         /** @private */
         root: this;
+        /**
+         * @type {boolean}
+         */
+        useStorage: boolean;
+        /**
+         * @type {string | null}
+         */
+        storagePrefix: string | null;
         submit: UIIconButton;
         input: HTMLInputElement;
         /** @type {Events<E>} */
         events: Events<E>;
+        /**
+         *  @param {string | null} value
+         */
+        setKey(value: string | null): void;
+        getKey(): string;
         hasSubmit(): boolean;
         disableSubmit(): void;
         enableSubmit(): void;
