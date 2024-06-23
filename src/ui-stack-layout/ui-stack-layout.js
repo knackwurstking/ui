@@ -67,11 +67,9 @@ export class UIStackLayout extends HTMLElement {
                 if (this.onpopstate !== null) return;
 
                 this.onpopstate = async () => {
-                    history.pushState(null, document.title, location.href);
-                    this.goBack();
+                    this._goBack();
                 };
 
-                history.pushState(null, document.title, location.href);
                 window.addEventListener('popstate', this.onpopstate);
             },
 
@@ -112,6 +110,18 @@ export class UIStackLayout extends HTMLElement {
             goBack() {
                 if (!this.stack.length || this.lock) return;
 
+                if (this.onpopstate !== null) {
+                    history.back();
+                    return;
+                }
+
+                this._goBack();
+            },
+
+            /**
+             * @private
+             */
+            _goBack() {
                 const removedChild = this.root.removeChild(this.stack.pop());
 
                 if (this.stack.length > 0) {
@@ -146,6 +156,10 @@ export class UIStackLayout extends HTMLElement {
                 }
 
                 this.dispatchChangeEvent(pageToRemove);
+
+                if (this.onpopstate !== null) {
+                    history.pushState(null, document.title, location.href);
+                }
             },
 
             /**

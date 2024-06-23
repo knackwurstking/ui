@@ -45,6 +45,10 @@ export class UIStackLayout extends HTMLElement {
         stackSize(): number;
         goBack(): void;
         /**
+         * @private
+         */
+        _goBack(): void;
+        /**
          * @param {string} name
          * @param {((page: UIStackLayoutPage) => void|Promise<void>) | null} [cb]
          * @param {boolean} [keepOldPage]
