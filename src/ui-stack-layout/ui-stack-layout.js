@@ -66,7 +66,7 @@ export class UIStackLayout extends HTMLElement {
             enableHistory() {
                 if (this.onpopstate !== null) return;
 
-                this.onpopstate = () => {
+                this.onpopstate = async () => {
                     history.pushState(null, document.title, location.href);
                     this.goBack();
                 };
