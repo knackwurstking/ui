@@ -42,6 +42,7 @@ const content = html`
             border-radius: var(--ui-radius);
             transition: border-color 0.25s linear;
             background-color: var(--ui-backdrop-bgColor);
+            -webkit-backdrop-filter: var(--ui-backdropFilter);
             backdrop-filter: var(--ui-backdropFilter);
         }
 

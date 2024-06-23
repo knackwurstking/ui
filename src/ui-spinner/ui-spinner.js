@@ -10,6 +10,7 @@ const content = html`
             bottom: 0;
             left: 0;
             background-color: var(--ui-backdrop-bgColor);
+            -webkit-backdrop-filter: var(--ui-backdropFilter);
             backdrop-filter: var(--ui-backdropFilter);
         }
 

@@ -10,6 +10,7 @@ const content = html`
             position: absolute !important;
             z-index: 100;
             background-color: var(--ui-backdrop-bgColor);
+            -webkit-backdrop-filter: var(--ui-backdropFilter);
             backdrop-filter: var(--ui-backdropFilter);
             overflow: hidden;
             user-select: none;

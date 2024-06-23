@@ -32,6 +32,7 @@ const content = html`
 
         :host([open]) {
             background-color: var(--ui-backdrop-bgColor);
+            -webkit-backdrop-filter: var(--ui-backdropFilter);
             backdrop-filter: var(--ui-backdropFilter);
 
             left: 0;
@@ -60,6 +61,7 @@ const content = html`
             */
             border-right: 1px solid var(--ui-card-borderColor);
             background-color: var(--ui-backdrop-bgColor);
+            -webkit-backdrop-filter: var(--ui-backdropFilter);
             backdrop-filter: var(--ui-backdropFilter);
 
             transition: left 0.5s ease;
