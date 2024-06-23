@@ -54,13 +54,13 @@ const content = html`
             -ms-overflow-style: none;
             scrollbar-width: none;
 
+            /*
             background-color: var(--ui-card-bgColor);
             color: var(--ui-card-color);
+            */
             border-right: 1px solid var(--ui-card-borderColor);
-            /*
             background-color: var(--ui-backdrop-bgColor);
             backdrop-filter: var(--ui-backdropFilter);
-            */
 
             transition: left 0.5s ease;
         }
