@@ -241,12 +241,7 @@ export class UISearch extends HTMLElement {
              * @param {string | null} value
              */
             setValue(value) {
-                if (value === null) {
-                    this.root.removeAttribute("value");
-                    return;
-                }
-
-                this.root.setAttribute("value", value);
+                this.input.value = value || "";
             },
 
             getValue() {
@@ -323,7 +318,7 @@ export class UISearch extends HTMLElement {
                 break;
 
             case "value":
-                this.ui.input.value = newValue || "";
+                this.ui.setValue(newValue);
                 break;
 
             case "placeholder":

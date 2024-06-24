@@ -174,12 +174,7 @@ export class UIInput extends HTMLElement {
              * @param {UIInputTypeValues[T] | null} value
              */
             setValue(value) {
-                if (value === null) {
-                    this.root.removeAttribute("value");
-                    return;
-                }
-
-                this.root.setAttribute("value", value.toString());
+                this.input.value = (value || "").toString();
             },
 
             /**
@@ -331,7 +326,7 @@ export class UIInput extends HTMLElement {
                 break;
 
             case "value":
-                this.ui.input.value = (newValue || "").toString();
+                this.ui.setValue(newValue);
                 break;
 
             case "placeholder":
