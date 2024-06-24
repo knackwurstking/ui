@@ -160,18 +160,16 @@ export class UILabel extends HTMLElement {
             stopInputHandling() {
                 this.root.removeEventListener("click", this.onClick);
 
-                [...this.root.querySelectorAll(`[slot="input"]`)].forEach(
-                    (el) => {
-                        el.removeEventListener("click", this.onInputClick);
-                    },
-                );
+                this.getInputSlot().forEach((el) => {
+                    el.removeEventListener("click", this.onInputClick);
+                });
 
                 this.running = false;
             },
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }
