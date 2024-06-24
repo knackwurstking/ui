@@ -3,6 +3,7 @@
 ## v0.2.1 [unreleased]
 
 - Updated JSDoc exports
+- Change value handling for input components: "ui-input", "ui-search"
 
 ## v0.2.0 2024-06-23
 
