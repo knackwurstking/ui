@@ -2,7 +2,10 @@ import { CleanUp, Events, html } from "../js";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**
- * @typedef {import(".").UIPages} UIPages
+ * @typedef Pages
+ * @type {{
+ *  [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
+ * }}
  */
 
 const content = html`
@@ -41,7 +44,7 @@ export class UIStackLayout extends HTMLElement {
 
             /**
              * @private
-             * @type {UIPages}
+             * @type {Pages}
              */
             pages: {},
 
@@ -70,7 +73,7 @@ export class UIStackLayout extends HTMLElement {
                     this._goBack();
                 };
 
-                window.addEventListener('popstate', this.onpopstate);
+                window.addEventListener("popstate", this.onpopstate);
             },
 
             disableHistory() {
@@ -175,7 +178,7 @@ export class UIStackLayout extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
 
     disconnectedCallback() {
         this.cleanup.run();

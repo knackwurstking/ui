@@ -2,23 +2,8 @@ export { UIInput } from "./ui-input";
 export { UISelect } from "./ui-select";
 export { UISelectOption } from "./ui-select-option";
 export { UISearch } from "./ui-search";
-export type UIInputEvents = {
-    input: string | number;
-    change: string | number;
-};
-export type UIInputTypes = ("text" | "number" | "month" | "date" | "email");
-export type UIInputTypeValues = {
-    text: string;
-    number: number;
-    month: string;
-    date: string;
-    email: string;
-};
-export type UISelectEvents = {
-    "change": import("./ui-select-option").UISelectOption;
-};
-export type UISearchEvents = {
-    input: string;
-    change: string;
-    submit: string;
-};
+export type UIInputEvents = import("./ui-input").UIInputEvents;
+export type UIInputTypes = import("./ui-input").UIInputTypes;
+export type UIInputTypeValues = import("./ui-input").UIInputTypeValues;
+export type UISearchEvents = import("./ui-search").UISearchEvents;
+export type UISelectEvents = import("./ui-select").UISelectEvents;

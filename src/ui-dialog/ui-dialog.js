@@ -4,7 +4,11 @@ import { UIFlexGridRow } from "../ui-flex-grid";
 import { SvgClose } from "../svg";
 
 /**
- * @typedef {import(".").UIDialogEvents} UIDialogEvents
+ * @typedef UIDialogEvents
+ * @type {{
+ *  open: null;
+ *  close: null;
+ * }}
  */
 
 const content = html`

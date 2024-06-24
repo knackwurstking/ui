@@ -1,8 +1,7 @@
 import { Events } from "../js";
 
 /**
- *
- * @typedef {import(".").UIStoreEvents} UIStoreEvents
+ * @typedef {import("../js/events/events")._Events} UIStoreEvents
  */
 
 /**
@@ -16,10 +15,7 @@ export class UIStore extends HTMLElement {
         }
     };
 
-    static observedAttributes = [
-        "use-storage",
-        "storage-prefix",
-    ];
+    static observedAttributes = ["use-storage", "storage-prefix"];
 
     constructor() {
         super();

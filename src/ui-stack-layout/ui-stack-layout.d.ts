@@ -7,9 +7,9 @@ export class UIStackLayout extends HTMLElement {
         root: this;
         /**
          * @private
-         * @type {UIPages}
+         * @type {Pages}
          */
-        pages: UIPages;
+        pages: Pages;
         /**
          * @private
          * @type {UIStackLayoutPage[]}
@@ -68,7 +68,9 @@ export class UIStackLayout extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIPages = import(".").UIPages;
+export type Pages = {
+    [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
+};
 import { CleanUp } from "../js";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 import { Events } from "../js";

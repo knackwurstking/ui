@@ -1,6 +1,5 @@
 /**
- *
- * @typedef {import(".").UIStoreEvents} UIStoreEvents
+ * @typedef {import("../js/events/events")._Events} UIStoreEvents
  */
 /**
  * @template {UIStoreEvents} T
@@ -65,5 +64,5 @@ export class UIStore<T extends UIStoreEvents> extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIStoreEvents = import(".").UIStoreEvents;
+export type UIStoreEvents = import("../js/events/events")._Events;
 import { Events } from "../js";

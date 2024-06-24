@@ -4,7 +4,12 @@ import { UIIconButton } from "../ui-button";
 import { UISecondary } from "../ui-text";
 
 /**
- * @typedef {import(".").UISearchEvents} UISearchEvents
+ * @typedef UISearchEvents
+ * @type {{
+ *  input: string;
+ *  change: string;
+ *  submit: string;
+ * }}
  */
 
 const content = html`
@@ -155,7 +160,8 @@ export class UISearch extends HTMLElement {
 
                         timeout = setTimeout(() => {
                             localStorage.setItem(
-                                (this.ui.storagePrefix || "") + this.ui.getKey(),
+                                (this.ui.storagePrefix || "") +
+                                    this.ui.getKey(),
                                 input.value,
                             );
                             timeout = null;
@@ -287,7 +293,7 @@ export class UISearch extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }
@@ -317,7 +323,7 @@ export class UISearch extends HTMLElement {
                 break;
 
             case "value":
-                this.ui.input.value = newValue || ""
+                this.ui.input.value = newValue || "";
                 break;
 
             case "placeholder":

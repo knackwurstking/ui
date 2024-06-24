@@ -1,2 +1,2 @@
 export { UIThemeHandler } from "./ui-theme-handler";
-export type UIMode = "dark" | "light";
+export type UIThemeHandlerMode = import(".").UIThemeHandlerMode;

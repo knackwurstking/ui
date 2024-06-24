@@ -1,6 +1,3 @@
-/**
- * @typedef {import(".").UILangType} UILangType
- */
 export class UILang extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
@@ -77,5 +74,5 @@ export class UILang extends HTMLElement {
      */
     private loadLanguage;
 }
-export type UILangType = import(".").UILangType;
 import { Events } from "../js";
+import { UILangType } from "./ui-lang-type";

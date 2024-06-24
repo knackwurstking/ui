@@ -1,8 +1,20 @@
 import { CleanUp, Events, createRipple, html } from "../js";
 
 /**
- * @typedef {import(".").UIButtonColor} UIButtonColor
- * @typedef {import(".").UIButtonVariant} UIButtonVariant
+ * @typedef UIButtonColor
+ * @type {(
+ *  | "string"
+ *  | "primary"
+ *  | "secondary"
+ *  | "destructive"
+ * )}
+ *
+ * @typedef UIButtonVariant
+ * @type {(
+ *  | "full"
+ *  | "outline"
+ *  | "ghost"
+ * )}
  *
  * @typedef UIButtonEvents
  * @type {{

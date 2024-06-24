@@ -1,5 +1,6 @@
 /**
- * @typedef {import(".").UIMode} UIMode
+ * @typedef UIThemeHandlerMode
+ * @type {"dark" | "light" | null}
  */
 
 export class UIThemeHandler extends HTMLElement {
@@ -31,8 +32,64 @@ export class UIThemeHandler extends HTMLElement {
              */
             themes: {},
 
-            enableAutoMode() {
-                this.removeMode();
+            /**
+             * @param {HTMLElement} [element]
+             */
+            getMode(element = document.body) {
+                return element.getAttribute("data-theme");
+            },
+
+            /**
+             * @param {UIThemeHandlerMode} mode
+             * @param {HTMLElement} [element]
+             */
+            setMode(mode, element = document.body) {
+                switch (mode) {
+                    case "dark":
+                        element.setAttribute("data-theme", mode);
+                        break;
+                    case "light":
+                        element.setAttribute("data-theme", mode);
+                        break;
+                    default:
+                        element.removeAttribute("data-theme");
+                }
+            },
+
+            /**
+             * @private
+             * @param {MediaQueryListEvent | MediaQueryList} ev
+             */
+            mediaChangeHandler: (ev) => {
+                if (ev.matches) {
+                    document.body.setAttribute("data-theme", "dark");
+                } else {
+                    document.body.setAttribute("data-theme", "light");
+                }
+            },
+
+            getAuto() {
+                return !!this.media;
+            },
+
+            /**
+             * @param {boolean} state
+             * @param {HTMLElement} [element]
+             */
+            setAuto(state, element = document.body) {
+                if (!state) {
+                    if (!this.media) return;
+
+                    this.media.removeEventListener(
+                        "change",
+                        this.mediaChangeHandler,
+                    );
+
+                    this.media = null;
+                    return;
+                }
+
+                this.setMode(null, element);
 
                 if (!!this.media) {
                     this.mediaChangeHandler(this.media);
@@ -42,10 +99,6 @@ export class UIThemeHandler extends HTMLElement {
                 this.media = window.matchMedia("(prefers-color-scheme: dark)");
                 this.media.addEventListener("change", this.mediaChangeHandler);
                 this.mediaChangeHandler(this.media);
-            },
-
-            disableAutoMode() {
-                this.removeMedia();
             },
 
             /**
@@ -59,7 +112,7 @@ export class UIThemeHandler extends HTMLElement {
             /**
              * @param {string} name
              */
-            loadTheme(name) {
+            setTheme(name) {
                 if (!this.themes[name]) {
                     throw `theme "${name}" is missing in this.themes`;
                 }
@@ -85,52 +138,6 @@ export class UIThemeHandler extends HTMLElement {
                 document.head.appendChild(link);
                 this.currentTheme = { name, href: this.themes[name] };
             },
-
-            /**
-             * @param {MediaQueryListEvent | MediaQueryList} ev
-             */
-            mediaChangeHandler(ev) {
-                if (ev.matches) {
-                    document.body.setAttribute("data-theme", "dark");
-                } else {
-                    document.body.setAttribute("data-theme", "light");
-                }
-            },
-
-            /**
-             * @param {HTMLElement} element
-             */
-            removeMode(element = document.body) {
-                element.removeAttribute("data-theme");
-            },
-
-            /**
-             * @param {UIMode} mode
-             * @param {HTMLElement} element
-             */
-            setMode(mode, element = document.body) {
-                switch (mode) {
-                    case "dark":
-                        element.setAttribute("data-theme", mode);
-                        break;
-                    case "light":
-                        element.setAttribute("data-theme", mode);
-                        break;
-                }
-            },
-
-            /**
-             * @private
-             */
-            removeMedia() {
-                if (!!this.media) {
-                    this.media.removeEventListener(
-                        "change",
-                        this.mediaChangeHandler,
-                    );
-                    this.media = null;
-                }
-            },
         };
     }
 
@@ -142,13 +149,11 @@ export class UIThemeHandler extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "auto":
-                if (newValue !== null) this.ui.enableAutoMode();
-                else this.ui.disableAutoMode();
+                this.ui.setAuto(newValue !== null);
                 break;
             case "mode":
                 // @ts-expect-error
-                if (newValue !== null) this.ui.setMode(newValue);
-                else this.ui.removeMode();
+                this.ui.setMode(newValue);
                 break;
         }
     }

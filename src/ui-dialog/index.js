@@ -1,5 +1,5 @@
 export { UIDialog } from "./ui-dialog";
 
 /**
- * @typedef {{ open: null; close: null; }} UIDialogEvents
+ * @typedef {import("./ui-dialog").UIDialogEvents} UIDialogEvents
  */

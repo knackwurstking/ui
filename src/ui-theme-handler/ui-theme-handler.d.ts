@@ -1,5 +1,6 @@
 /**
- * @typedef {import(".").UIMode} UIMode
+ * @typedef UIThemeHandlerMode
+ * @type {"dark" | "light" | null}
  */
 export class UIThemeHandler extends HTMLElement {
     static register: () => void;
@@ -23,8 +24,26 @@ export class UIThemeHandler extends HTMLElement {
         themes: {
             [key: string]: string;
         };
-        enableAutoMode(): void;
-        disableAutoMode(): void;
+        /**
+         * @param {HTMLElement} [element]
+         */
+        getMode(element?: HTMLElement): string;
+        /**
+         * @param {UIThemeHandlerMode} mode
+         * @param {HTMLElement} [element]
+         */
+        setMode(mode: UIThemeHandlerMode, element?: HTMLElement): void;
+        /**
+         * @private
+         * @param {MediaQueryListEvent | MediaQueryList} ev
+         */
+        mediaChangeHandler: (ev: MediaQueryListEvent | MediaQueryList) => void;
+        getAuto(): boolean;
+        /**
+         * @param {boolean} state
+         * @param {HTMLElement} [element]
+         */
+        setAuto(state: boolean, element?: HTMLElement): void;
         /**
          * @param {string} name
          * @param {string} href
@@ -33,24 +52,7 @@ export class UIThemeHandler extends HTMLElement {
         /**
          * @param {string} name
          */
-        loadTheme(name: string): void;
-        /**
-         * @param {MediaQueryListEvent | MediaQueryList} ev
-         */
-        mediaChangeHandler(ev: MediaQueryListEvent | MediaQueryList): void;
-        /**
-         * @param {HTMLElement} element
-         */
-        removeMode(element?: HTMLElement): void;
-        /**
-         * @param {UIMode} mode
-         * @param {HTMLElement} element
-         */
-        setMode(mode: UIMode, element?: HTMLElement): void;
-        /**
-         * @private
-         */
-        removeMedia(): void;
+        setTheme(name: string): void;
     };
     /**
      * @param {string} name
@@ -59,4 +61,4 @@ export class UIThemeHandler extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIMode = import(".").UIMode;
+export type UIThemeHandlerMode = "dark" | "light" | null;

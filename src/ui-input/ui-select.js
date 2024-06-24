@@ -3,7 +3,10 @@ import { SvgChevronDown } from "../svg";
 import { UISelectOption } from "./ui-select-option";
 
 /**
- * @typedef {import(".").UISelectEvents} UISelectEvents
+ * @typedef UISelectEvents
+ * @type {{
+ *  "change": UISelectOption;
+ * }} UISelectEvents
  */
 
 const content = html`
@@ -104,8 +107,6 @@ const content = html`
 `;
 
 export class UISelect extends HTMLElement {
-
-
     static register = () => {
         SvgChevronDown.register();
 
@@ -140,8 +141,8 @@ export class UISelect extends HTMLElement {
         const onClickOption = async (ev) => {
             (ev.composedPath() || []).forEach((child) => {
                 if (child instanceof UISelectOption) {
-                    [...this.querySelectorAll("ui-select-option")].forEach((c) =>
-                        c.removeAttribute("selected"),
+                    [...this.querySelectorAll("ui-select-option")].forEach(
+                        (c) => c.removeAttribute("selected"),
                     );
 
                     child.setAttribute("selected", "");
@@ -158,7 +159,9 @@ export class UISelect extends HTMLElement {
                 ev.stopPropagation();
                 this.addEventListener("click", onClickOption);
             } else {
-                setTimeout(() => this.removeEventListener("click", onClickOption));
+                setTimeout(() =>
+                    this.removeEventListener("click", onClickOption),
+                );
             }
         };
 

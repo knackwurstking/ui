@@ -41,6 +41,9 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     connectedCallback(): void;
     disconnectedCallback(): void;
 }
-export type UIDialogEvents = import(".").UIDialogEvents;
+export type UIDialogEvents = {
+    open: null;
+    close: null;
+};
 import { CleanUp } from "../js";
 import { Events } from "../js";

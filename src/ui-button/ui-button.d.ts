@@ -48,8 +48,8 @@ export class UIButton extends HTMLElement {
      */
     private bindClickEvent;
 }
-export type UIButtonColor = import(".").UIButtonColor;
-export type UIButtonVariant = import(".").UIButtonVariant;
+export type UIButtonColor = ("string" | "primary" | "secondary" | "destructive");
+export type UIButtonVariant = ("full" | "outline" | "ghost");
 export type UIButtonEvents = {
     click: UIButton;
 };

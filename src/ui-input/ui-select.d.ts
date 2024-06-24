@@ -10,6 +10,12 @@ export class UISelect extends HTMLElement {
     connectedCallback(): void;
     disconnectedCallback(): void;
 }
-export type UISelectEvents = import(".").UISelectEvents;
+/**
+ * UISelectEvents
+ */
+export type UISelectEvents = {
+    "change": UISelectOption;
+};
 import { CleanUp } from "../js";
 import { Events } from "../js";
+import { UISelectOption } from "./ui-select-option";

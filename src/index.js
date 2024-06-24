@@ -19,6 +19,18 @@ export { UIThemeHandler } from "./ui-theme-handler";
 export * from "./svg";
 
 /**
- * @typedef {import("./ui-input").UISearchEvents} UISearchEvents
+ * @typedef {import("./ui-button").UIButtonVariant} UIButtonVariant
+ * @typedef {import("./ui-button").UIButtonColor} UIButtonColor
+ * @typedef {import("./ui-button").UIButtonEvents} UIButtonEvents
+ * @typedef {import("./ui-button").UIIconButtonColor} UIIconButtonColor
+ * @typedef {import("./ui-button").UIIconButtonEvents} UIIconButtonEvents
  * @typedef {import("./ui-dialog").UIDialogEvents} UIDialogEvents
+ * @typedef {import("./ui-drawer").UIDrawerEvents} UIDrawerEvents
+ * @typedef {import("./ui-input").UIInputEvents} UIInputEvents
+ * @typedef {import("./ui-input").UIInputTypes} UIInputTypes
+ * @typedef {import("./ui-input").UIInputTypeValues} UIInputTypeValues
+ * @typedef {import("./ui-input").UISearchEvents} UISearchEvents
+ * @typedef {import("./ui-input").UISelectEvents} UISelectEvents
+ * @typedef {import("./ui-store").UIStoreEvents} UIStoreEvents
+ * @typedef {import("./ui-theme-handler").UIThemeHandlerMode} UIThemeHandlerMode
  */

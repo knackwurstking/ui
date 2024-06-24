@@ -2,9 +2,29 @@ import { CleanUp, Events, html } from "../js";
 import { UISecondary } from "../ui-text";
 
 /**
- * @typedef {import(".").UIInputEvents} UIInputEvents
- * @typedef {import(".").UIInputTypes} UIInputTypes
- * @typedef {import(".").UIInputTypeValues} UIInputTypeValues
+ * @typedef UIInputEvents
+ * @type {{
+ *  input: string | number;
+ *  change: string | number;
+ * }}
+ *
+ * @typedef UIInputTypes
+ * @type {(
+ *  | "text"
+ *  | "number"
+ *  | "month"
+ *  | "date"
+ *  | "email"
+ * )}
+ *
+ * @typedef UIInputTypeValues
+ * @type {{
+ *  text: string;
+ *  number: number;
+ *  month: string;
+ *  date: string;
+ *  email: string;
+ * }}
  */
 
 const content = html`
@@ -273,7 +293,7 @@ export class UIInput extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }

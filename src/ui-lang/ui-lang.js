@@ -1,11 +1,10 @@
 import { Events } from "../js";
-
-/**
- * @typedef {import(".").UILangType} UILangType
- */
+import { UILangType } from "./ui-lang-type";
 
 export class UILang extends HTMLElement {
     static register = () => {
+        UILangType.register();
+
         if (!customElements.get("ui-lang")) {
             customElements.define("ui-lang", UILang);
         }

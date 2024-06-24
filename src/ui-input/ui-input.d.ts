@@ -79,8 +79,17 @@ export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HT
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIInputEvents = import(".").UIInputEvents;
-export type UIInputTypes = import(".").UIInputTypes;
-export type UIInputTypeValues = import(".").UIInputTypeValues;
+export type UIInputEvents = {
+    input: string | number;
+    change: string | number;
+};
+export type UIInputTypes = ("text" | "number" | "month" | "date" | "email");
+export type UIInputTypeValues = {
+    text: string;
+    number: number;
+    month: string;
+    date: string;
+    email: string;
+};
 import { CleanUp } from "../js";
 import { Events } from "../js";

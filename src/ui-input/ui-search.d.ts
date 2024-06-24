@@ -66,7 +66,11 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UISearchEvents = import(".").UISearchEvents;
+export type UISearchEvents = {
+    input: string;
+    change: string;
+    submit: string;
+};
 import { CleanUp } from "../js";
 import { UIIconButton } from "../ui-button";
 import { Events } from "../js";
