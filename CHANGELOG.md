@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.2.0 [unreleased]
+## v0.2.1 [unreleased]
+
+- Updated JSDoc exports
+
+## v0.2.0 2024-06-23
 
 - First version using javascript web components
 
