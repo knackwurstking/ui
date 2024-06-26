@@ -281,6 +281,10 @@ export class UIDialog extends HTMLElement {
                 return this.dialog;
             },
 
+            /**
+             * @param {boolean} modal
+             * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
+             */
             open(modal = false, inert = true) {
                 const inertBackup = this.dialog.inert;
                 this.dialog.inert = inert;

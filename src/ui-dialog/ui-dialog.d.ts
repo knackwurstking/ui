@@ -35,6 +35,10 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
          */
         setTitle(value: string): void;
         getDialogElement(): HTMLDialogElement;
+        /**
+         * @param {boolean} modal
+         * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
+         */
         open(modal?: boolean, inert?: boolean): void;
         close(): void;
     };
