@@ -5,7 +5,7 @@
 - Updated JSDoc exports
 - Changed value handling for input components: "ui-input", "ui-search"
 - Changed input border style
-- Table work-break set to `auto-phrase`
+- Table word-break set to `auto-phrase`
 
 ## v0.2.0 2024-06-23
 
