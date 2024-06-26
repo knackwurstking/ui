@@ -258,6 +258,7 @@ th,
 td {
     padding: var(--ui-spacing);
     border: 1px solid var(--ui-borderColor);
+    word-break: auto-phrase;
 }
 
 td {
