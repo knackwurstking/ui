@@ -22,6 +22,7 @@ const content = html`
             display: block;
             position: relative;
             width: 100%;
+            height: fit-content;
         }
 
         input {

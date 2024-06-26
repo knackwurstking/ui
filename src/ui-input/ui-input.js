@@ -29,10 +29,15 @@ import { UISecondary } from "../ui-text";
 
 const content = html`
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         :host {
             display: block;
             position: relative;
             width: 100%;
+            height: fit-content;
         }
 
         input {
@@ -53,8 +58,8 @@ const content = html`
         .container {
             width: 100%;
             border: none;
-            border-bottom: 1px solid var(--ui-borderColor);
-            border-radius: 0;
+            border: 1px solid var(--ui-borderColor);
+            border-radius: var(--ui-radius);
             transition: border-color 0.25s linear;
         }
 
