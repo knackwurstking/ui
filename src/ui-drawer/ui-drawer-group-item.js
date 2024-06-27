@@ -40,27 +40,11 @@ export class UIDrawerGroupItem extends HTMLElement {
             /** @private */
             root: this,
 
-            /**
-             * @returns {boolean}
-             */
-            getOpen() {
-                return this.root.hasAttribute("open");
-            },
-
-            /**
-             * @param {boolean} state
-             */
-            setOpen(state) {
-                if (state) {
-                    this.root.setAttribute("open", "");
-                } else {
-                    this.root.removeAttribute("open");
-                }
-            },
+            // TODO: Fold and Unfold Group (optional)
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
 
     disconnectedCallback() {
         this.cleanup.run();

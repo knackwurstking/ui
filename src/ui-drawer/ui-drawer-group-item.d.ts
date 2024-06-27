@@ -4,14 +4,6 @@ export class UIDrawerGroupItem extends HTMLElement {
     ui: {
         /** @private */
         root: this;
-        /**
-         * @returns {boolean}
-         */
-        getOpen(): boolean;
-        /**
-         * @param {boolean} state
-         */
-        setOpen(state: boolean): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
