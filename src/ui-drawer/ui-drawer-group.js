@@ -45,6 +45,8 @@ export class UIDrawerGroup extends HTMLElement {
         this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
+
+        // TODO: Fold and Unfold Group (optional)
         this.ui = {
             /** @private */
             root: this,
@@ -83,7 +85,7 @@ export class UIDrawerGroup extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }

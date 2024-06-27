@@ -36,12 +36,7 @@ export class UIDrawerGroupItem extends HTMLElement {
         this.shadowRoot.innerHTML = content;
 
         this.cleanup = new CleanUp();
-        this.ui = {
-            /** @private */
-            root: this,
-
-            // TODO: Fold and Unfold Group (optional)
-        };
+        this.ui = {};
     }
 
     connectedCallback() {}

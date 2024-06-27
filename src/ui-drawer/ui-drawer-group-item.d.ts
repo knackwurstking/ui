@@ -1,10 +1,7 @@
 export class UIDrawerGroupItem extends HTMLElement {
     static register: () => void;
     cleanup: CleanUp;
-    ui: {
-        /** @private */
-        root: this;
-    };
+    ui: {};
     connectedCallback(): void;
     disconnectedCallback(): void;
 }
