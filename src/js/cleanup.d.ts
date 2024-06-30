@@ -4,8 +4,8 @@ export class CleanUp {
      */
     callbacks: ((() => void | Promise<void>) | null)[];
     /**
-     * @param {(() => void|Promise<void>)} cb
+     * @param {(() => void|Promise<void>)[]} cb
      */
-    add(cb: (() => void | Promise<void>)): void;
+    add(...cb: (() => void | Promise<void>)[]): void;
     run(): void;
 }

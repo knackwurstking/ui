@@ -7,10 +7,10 @@ export class CleanUp {
     }
 
     /**
-     * @param {(() => void|Promise<void>)} cb
+     * @param {(() => void|Promise<void>)[]} cb
      */
-    add(cb) {
-        this.callbacks.push(cb);
+    add(...cb) {
+        this.callbacks.push(...cb);
     }
 
     run() {
@@ -25,6 +25,6 @@ export class CleanUp {
             }
         }
 
-        this.callbacks = this.callbacks.filter(cb => cb !== null);
+        this.callbacks = this.callbacks.filter((cb) => cb !== null);
     }
 }
