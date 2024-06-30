@@ -44,8 +44,13 @@ const content = html`
 `;
 
 /**
- * Special slots:
- *  - **input**
+ * Observed Attributes:
+ *  - **primary**   - [type: string]
+ *  - **secondary**   - [type: string]
+ *  - **ripple**    - [type: flag]
+ *
+ * Special Slots:
+ *  - **input** - click handling if "ripple" flag is set
  */
 export class UILabel extends HTMLElement {
     static register = () => {
