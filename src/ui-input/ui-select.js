@@ -106,6 +106,10 @@ const content = html`
     </div>
 `;
 
+/**
+ * Observed Attributes:
+ *  - **open**    - [type: flag]
+ */
 export class UISelect extends HTMLElement {
     static register = () => {
         SvgChevronDown.register();
@@ -129,6 +133,23 @@ export class UISelect extends HTMLElement {
              *  @type {Events<UISelectEvents>}
              */
             events: new Events(),
+
+            /**
+             * @private
+             */
+            root: this,
+
+            isOpen() {
+                this.root.hasAttribute("open");
+            },
+
+            open() {
+                this.root.setAttribute("open", "");
+            },
+
+            close() {
+                this.root.removeAttribute("open");
+            },
         };
     }
 
