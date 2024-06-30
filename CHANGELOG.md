@@ -1,10 +1,10 @@
 # Changelog
 
-## v0.2.2
+## v0.2.2 [unreleased]
 
 - Changed `Cleanup.add` method parameter
 
-## v0.2.1 [unreleased]
+## v0.2.1 2024-06-27
 
 - Updated JSDoc exports
 - Changed value handling for input components: "ui-input", "ui-search"
