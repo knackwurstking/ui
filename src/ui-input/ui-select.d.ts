@@ -1,3 +1,7 @@
+/**
+ * Observed Attributes:
+ *  - **open**    - [type: flag]
+ */
 export class UISelect extends HTMLElement {
     static register: () => void;
     cleanup: CleanUp;
@@ -6,6 +10,13 @@ export class UISelect extends HTMLElement {
          *  @type {Events<UISelectEvents>}
          */
         events: Events<UISelectEvents>;
+        /**
+         * @private
+         */
+        root: this;
+        isOpen(): void;
+        open(): void;
+        close(): void;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
