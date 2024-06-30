@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.2
+
+- Changed `Cleanup.add` method parameter
+
 ## v0.2.1 [unreleased]
 
 - Updated JSDoc exports
