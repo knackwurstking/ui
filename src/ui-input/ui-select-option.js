@@ -25,6 +25,11 @@ const content = html`
     <slot></slot>
 `;
 
+/**
+ * Observed Attributes:
+ *  - **value**    - [type: string]
+ *  - **selected** - [type: flag]
+ */
 export class UISelectOption extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-select-option")) {
