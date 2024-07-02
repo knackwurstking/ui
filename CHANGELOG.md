@@ -4,7 +4,8 @@
 
 - Changed `Cleanup.add` method parameter
 - Add components doc strings for observed attributes and special slots
-- Fixed padding (right) for the ui-select-option component
+- Fixed padding (right) for the `ui-select-option` component
+- Added (ui) method: `ui-select`: `getSelectedOption`
 
 ## v0.2.1 2024-06-27
 
