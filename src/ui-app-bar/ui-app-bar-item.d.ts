@@ -13,7 +13,7 @@ export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
         /**
          * @returns {T}
          */
-        getItem(): T;
+        getChild(): T;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
