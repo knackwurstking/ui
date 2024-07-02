@@ -152,13 +152,21 @@ export class UISelect extends HTMLElement {
             },
 
             /**
+             * @returns {UISelectOption[]}
+             */
+            getChildren() {
+                return [...this.root.children].filter(
+                    (child) => child instanceof UISelectOption,
+                );
+            },
+
+            /**
              * @returns {UISelectOption | null}
              */
             getSelectedOption() {
                 try {
-                    // @ts-ignore
                     return (
-                        [...this.root.children].find(
+                        this.getChildren().find(
                             (/** @type {UISelectOption} */ option) =>
                                 !!option.ui.getSelected(),
                         ) || null

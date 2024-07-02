@@ -18,6 +18,10 @@ export class UISelect extends HTMLElement {
         open(): void;
         close(): void;
         /**
+         * @returns {UISelectOption[]}
+         */
+        getChildren(): UISelectOption[];
+        /**
          * @returns {UISelectOption | null}
          */
         getSelectedOption(): UISelectOption | null;
