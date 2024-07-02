@@ -2,7 +2,9 @@ import { CleanUp, html } from "../js";
 
 const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         :host {
             display: flex;
@@ -19,7 +21,6 @@ const content = html`
  * @template {HTMLElement} T
  */
 export class UIAppBarItem extends HTMLElement {
-
     static register = () => {
         if (!customElements.get("ui-app-bar-item"))
             customElements.define("ui-app-bar-item", UIAppBarItem);
@@ -46,13 +47,13 @@ export class UIAppBarItem extends HTMLElement {
             /**
              * @returns {T}
              */
-            getItem() {
+            getChild() {
                 return this.root.querySelector("*");
             },
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }
