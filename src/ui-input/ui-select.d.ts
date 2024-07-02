@@ -20,7 +20,7 @@ export class UISelect extends HTMLElement {
         /**
          * @returns {UISelectOption[]}
          */
-        getChildren(): UISelectOption[];
+        getOptions(): UISelectOption[];
         /**
          * @returns {UISelectOption | null}
          */
