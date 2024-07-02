@@ -6,6 +6,7 @@
 - Add components doc strings for observed attributes and special slots
 - Fixed padding (right) for the `ui-select-option` component
 - Added (ui) method: `ui-select`: `getSelectedOption`
+- Added (ui) method: `ui-select`: `getChildren`
 
 ## v0.2.1 2024-06-27
 
