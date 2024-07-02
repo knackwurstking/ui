@@ -150,6 +150,23 @@ export class UISelect extends HTMLElement {
             close() {
                 this.root.removeAttribute("open");
             },
+
+            /**
+             * @returns {UISelectOption | null}
+             */
+            getSelectedOption() {
+                try {
+                    // @ts-ignore
+                    return (
+                        [...this.root.children].find(
+                            (/** @type {UISelectOption} */ option) =>
+                                !!option.ui.getSelected(),
+                        ) || null
+                    );
+                } catch {
+                    return null;
+                }
+            },
         };
     }
 

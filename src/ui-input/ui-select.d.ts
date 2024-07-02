@@ -17,6 +17,10 @@ export class UISelect extends HTMLElement {
         isOpen(): void;
         open(): void;
         close(): void;
+        /**
+         * @returns {UISelectOption | null}
+         */
+        getSelectedOption(): UISelectOption | null;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
