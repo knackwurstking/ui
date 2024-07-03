@@ -1,12 +1,17 @@
 {
     "name": "ui",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "Just an ui lib for my projects.",
     "type": "module",
     "main": "src/index.js",
     "style": "css/main.css",
     "types": "src/index.d.ts",
-    "files": ["LICENSE", "src", "dist", "svg"],
+    "files": [
+        "LICENSE",
+        "src",
+        "dist",
+        "svg"
+    ],
     "repository": "knackwurstking/ui",
     "scripts": {
         "build": "npm run build:types && npm run build:lib && npm run build:css",
