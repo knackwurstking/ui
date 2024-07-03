@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.2 [unreleased]
+## v0.2.2 2024-07-03
 
 - Changed `Cleanup.add` method parameter
 - Add components doc strings for observed attributes and special slots
