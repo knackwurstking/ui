@@ -26,7 +26,7 @@ const content = html`
         }
 
         input {
-            width: calc(100% - var(--ui-spacing) * 4);
+            width: 100%;
             display: block;
             margin: 0;
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
@@ -38,6 +38,10 @@ const content = html`
             font-variation-settings: var(--ui-input-fontVariation);
             accent-color: var(--ui-primary-bgColor);
             background-color: transparent !important;
+        }
+
+        :host(:not([no-submit])) input {
+            width: calc(100% - 2rem);
         }
 
         .container {

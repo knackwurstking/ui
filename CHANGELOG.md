@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.3 [unreleased]
+
+- Fixed `ui-input` and `ui-search` input width
+
 ## v0.2.2 2024-07-03
 
 - Changed `Cleanup.add` method parameter

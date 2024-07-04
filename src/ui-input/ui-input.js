@@ -41,7 +41,7 @@ const content = html`
         }
 
         input {
-            width: calc(100% - var(--ui-spacing) * 4);
+            width: 100%;
             display: block;
             margin: 0;
             padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
