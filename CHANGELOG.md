@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.4 [unreleased]
+
+- Updated `ui-spinner` positioning, absolute with 100% width and height
+
 ## v0.2.3 2024-07-05
 
 - Fixed `ui-input` and `ui-search` input width
