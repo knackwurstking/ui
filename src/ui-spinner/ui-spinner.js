@@ -2,6 +2,12 @@ import { CleanUp, html } from "../js";
 
 const content = html`
     <style>
+        :host {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
         .background {
             z-index: 999;
             position: absolute;
@@ -58,7 +64,7 @@ export class UISpinner extends HTMLElement {
         this.ui = {};
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.cleanup.run();
     }

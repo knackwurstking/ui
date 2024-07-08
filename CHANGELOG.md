@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.3 [unreleased]
+## v0.2.3 2024-07-05
 
 - Fixed `ui-input` and `ui-search` input width
 
