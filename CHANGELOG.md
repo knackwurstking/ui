@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.4 [unreleased]
+## v0.2.4 2024-07-09
 
 - Updated `ui-spinner` positioning, absolute with 100% width and height
 
