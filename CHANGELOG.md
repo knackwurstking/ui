@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.5
+## v0.2.5 2024-07-11
 
 - Added cleanup to ui object
 
