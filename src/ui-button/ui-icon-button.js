@@ -85,7 +85,11 @@ export class UIIconButton extends HTMLElement {
 
         this.setAttribute("role", "button");
 
+        /**
+         * @private
+         */
         this.cleanup = new CleanUp();
+
         this.ui = {
             /** @private */
             root: this,
@@ -105,7 +109,6 @@ export class UIIconButton extends HTMLElement {
              * @returns {UIIconButtonColor}
              */
             getColor() {
-                // @ts-expect-error
                 return this.root.getAttribute("color");
             },
 

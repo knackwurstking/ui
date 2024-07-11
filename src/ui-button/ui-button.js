@@ -129,7 +129,11 @@ export class UIButton extends HTMLElement {
 
         this.setAttribute("role", "button");
 
+        /**
+         * @private
+         */
         this.cleanup = new CleanUp();
+
         this.ui = {
             /** @private */
             root: this,
