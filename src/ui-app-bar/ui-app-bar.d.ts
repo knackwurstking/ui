@@ -6,10 +6,10 @@
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;
-    cleanup: CleanUp;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         getLeftSlot(): any[];
         getCenterSlot(): any[];
         getRightSlot(): any[];

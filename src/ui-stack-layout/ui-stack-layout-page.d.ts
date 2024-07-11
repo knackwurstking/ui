@@ -1,9 +1,9 @@
 export class UIStackLayoutPage extends HTMLElement {
     static register: () => void;
-    cleanup: CleanUp;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         getName(): string;
         /**
          * @param {string | null} value

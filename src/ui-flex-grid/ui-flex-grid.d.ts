@@ -1,10 +1,12 @@
 export class UIFlexGrid extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    cleanup: CleanUp;
     ui: {
-        /** @private */
+        /**
+         * @private
+         */
         root: this;
+        cleanup: CleanUp;
         getGap(): string;
         /**
          * @param {string | null} value

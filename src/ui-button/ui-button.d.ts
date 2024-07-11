@@ -1,10 +1,14 @@
 export class UIButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    cleanup: CleanUp;
+    /**
+     * @private
+     */
+    private cleanup;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         /**
          * @type {Events<UIButtonEvents>}
          */

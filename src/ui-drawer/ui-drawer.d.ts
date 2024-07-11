@@ -1,10 +1,14 @@
 export class UIDrawer extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    cleanup: CleanUp;
+    /**
+     * @private
+     */
+    private cleanup;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         aside: HTMLElement;
         /**
          * @type {Events<UIDrawerEvents>}

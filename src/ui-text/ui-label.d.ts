@@ -10,10 +10,10 @@
 export class UILabel extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    cleanup: CleanUp;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         /** @private */
         running: boolean;
         /**

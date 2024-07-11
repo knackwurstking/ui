@@ -4,8 +4,12 @@
  */
 export class UISelect extends HTMLElement {
     static register: () => void;
-    cleanup: CleanUp;
+    /**
+     * @private
+     */
+    private cleanup;
     ui: {
+        cleanup: CleanUp;
         /**
          *  @type {Events<UISelectEvents>}
          */

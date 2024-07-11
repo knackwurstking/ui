@@ -7,10 +7,10 @@ export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HT
     static register: () => void;
     static observedAttributes: string[];
     constructor();
-    cleanup: CleanUp;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         input: HTMLInputElement;
         /**
          * @type {Events<E>}

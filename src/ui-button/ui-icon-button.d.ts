@@ -1,10 +1,14 @@
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    cleanup: CleanUp;
+    /**
+     * @private
+     */
+    private cleanup;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         /**
          * @type {Events<UIIconButtonEvents>}
          */

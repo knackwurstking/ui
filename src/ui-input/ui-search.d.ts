@@ -6,10 +6,10 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
-    cleanup: CleanUp;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         /**
          * @type {boolean}
          */

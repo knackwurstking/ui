@@ -8,10 +8,14 @@
 export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     static register: () => void;
     constructor();
-    cleanup: CleanUp;
+    /**
+     * @private
+     */
+    private cleanup;
     ui: {
         /** @private */
         root: this;
+        cleanup: CleanUp;
         /** @type {Events<T>} */
         events: Events<T>;
         /**

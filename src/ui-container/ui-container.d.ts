@@ -1,7 +1,8 @@
 export class UIContainer extends HTMLElement {
     static register: () => void;
-    cleanup: CleanUp;
-    ui: {};
+    ui: {
+        cleanup: CleanUp;
+    };
     connectedCallback(): void;
     disconnectedCallback(): void;
 }
