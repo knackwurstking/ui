@@ -68,10 +68,11 @@ export class UILabel extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
-        this.cleanup = new CleanUp();
         this.ui = {
             /** @private */
             root: this,
+
+            cleanup: new CleanUp(),
 
             /** @private */
             running: false,
@@ -176,7 +177,7 @@ export class UILabel extends HTMLElement {
 
     connectedCallback() {}
     disconnectedCallback() {
-        this.cleanup.run();
+        this.ui.cleanup.run();
     }
 
     /**

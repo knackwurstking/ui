@@ -35,13 +35,14 @@ export class UIDrawerGroupItem extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
-        this.cleanup = new CleanUp();
-        this.ui = {};
+        this.ui = {
+            cleanup: new CleanUp(),
+        };
     }
 
     connectedCallback() {}
 
     disconnectedCallback() {
-        this.cleanup.run();
+        this.ui.cleanup.run();
     }
 }

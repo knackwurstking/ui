@@ -94,6 +94,8 @@ export class UIIconButton extends HTMLElement {
             /** @private */
             root: this,
 
+            cleanup: new CleanUp(),
+
             /**
              * @type {Events<UIIconButtonEvents>}
              */
@@ -170,6 +172,7 @@ export class UIIconButton extends HTMLElement {
     }
 
     disconnectedCallback() {
+        this.ui.cleanup.run();
         this.cleanup.run();
     }
 

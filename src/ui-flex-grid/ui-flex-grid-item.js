@@ -21,10 +21,11 @@ export class UIFlexGridItem extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
-        this.cleanup = new CleanUp();
         this.ui = {
             /** @private */
             root: this,
+
+            cleanup: new CleanUp(),
 
             getFlex() {
                 if (!this.root.hasAttribute("flex")) {
@@ -49,9 +50,9 @@ export class UIFlexGridItem extends HTMLElement {
         this.updateStyle();
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
-        this.cleanup.run();
+        this.ui.cleanup.run();
     }
 
     /**

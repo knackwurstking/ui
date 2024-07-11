@@ -138,6 +138,8 @@ export class UIButton extends HTMLElement {
             /** @private */
             root: this,
 
+            cleanup: new CleanUp(),
+
             /**
              * @type {Events<UIButtonEvents>}
              */
@@ -212,6 +214,7 @@ export class UIButton extends HTMLElement {
     }
 
     disconnectedCallback() {
+        this.ui.cleanup.run();
         this.cleanup.run();
     }
 

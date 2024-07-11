@@ -91,10 +91,16 @@ export class UIDrawer extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
+        /**
+         * @private
+         */
         this.cleanup = new CleanUp();
+
         this.ui = {
             /** @private */
             root: this,
+
+            cleanup: new CleanUp(),
 
             aside: this.shadowRoot.querySelector("aside"),
 
@@ -140,6 +146,7 @@ export class UIDrawer extends HTMLElement {
     }
 
     disconnectedCallback() {
+        this.ui.cleanup.run();
         this.cleanup.run();
     }
 

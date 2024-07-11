@@ -21,10 +21,13 @@ export class UIFlexGrid extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
-        this.cleanup = new CleanUp();
         this.ui = {
-            /** @private */
+            /**
+             * @private
+             */
             root: this,
+
+            cleanup: new CleanUp(),
 
             getGap() {
                 return this.root.getAttribute("gap") || defaultGap;
@@ -45,9 +48,9 @@ export class UIFlexGrid extends HTMLElement {
         this.updateStyle();
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
-        this.cleanup.run();
+        this.ui.cleanup.run();
     }
 
     /**

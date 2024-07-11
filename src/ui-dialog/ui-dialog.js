@@ -228,11 +228,16 @@ export class UIDialog extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
+        /**
+         * @private
+         */
         this.cleanup = new CleanUp();
 
         this.ui = {
             /** @private */
             root: this,
+
+            cleanup: new CleanUp(),
 
             /** @type {Events<T>} */
             events: new Events(),
@@ -326,6 +331,7 @@ export class UIDialog extends HTMLElement {
     }
 
     disconnectedCallback() {
+        this.ui.cleanup.run();
         this.cleanup.run();
     }
 }

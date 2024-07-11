@@ -1,5 +1,4 @@
 import { CleanUp, html } from "../js";
-import { UIPrimary } from "../ui-text";
 import { UIDrawerGroupItem } from "./ui-drawer-group-item";
 
 const content = html`
@@ -30,7 +29,6 @@ const content = html`
 export class UIDrawerGroup extends HTMLElement {
     static register = () => {
         UIDrawerGroupItem.register();
-        UIPrimary.register();
 
         if (!customElements.get("ui-drawer-group")) {
             customElements.define("ui-drawer-group", UIDrawerGroup);
@@ -44,12 +42,12 @@ export class UIDrawerGroup extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
-        this.cleanup = new CleanUp();
-
         // TODO: Fold and Unfold Group (optional)
         this.ui = {
             /** @private */
             root: this,
+
+            cleanup: new CleanUp(),
 
             getTitle() {
                 return this.root.getAttribute("title") || null;
@@ -87,7 +85,7 @@ export class UIDrawerGroup extends HTMLElement {
 
     connectedCallback() {}
     disconnectedCallback() {
-        this.cleanup.run();
+        this.ui.cleanup.run();
     }
 
     /**

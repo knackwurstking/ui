@@ -114,10 +114,11 @@ export class UIInput extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
-        this.cleanup = new CleanUp();
         this.ui = {
             /** @private */
             root: this,
+
+            cleanup: new CleanUp(),
 
             input: (() => {
                 /** @type {HTMLInputElement} */
@@ -295,7 +296,7 @@ export class UIInput extends HTMLElement {
 
     connectedCallback() {}
     disconnectedCallback() {
-        this.cleanup.run();
+        this.ui.cleanup.run();
     }
 
     /**
@@ -331,6 +332,7 @@ export class UIInput extends HTMLElement {
                 break;
 
             case "value":
+                // @ts-expect-error
                 this.ui.setValue(newValue);
                 break;
 

@@ -126,9 +126,14 @@ export class UISelect extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
+        /**
+         * @private
+         */
         this.cleanup = new CleanUp();
 
         this.ui = {
+            cleanup: new CleanUp(),
+
             /**
              *  @type {Events<UISelectEvents>}
              */

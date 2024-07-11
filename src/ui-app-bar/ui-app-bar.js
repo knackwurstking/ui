@@ -3,7 +3,9 @@ import { UIFlexGridRow } from "../ui-flex-grid";
 
 const content = html`
     <style>
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         :host {
             display: flex !important;
@@ -76,7 +78,6 @@ const content = html`
  *  - **right**: childrens inside a "ui-flex-grid-row"
  */
 export class UIAppBar extends HTMLElement {
-
     static register = () => {
         UIFlexGridRow.register();
 
@@ -90,27 +91,28 @@ export class UIAppBar extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = content;
 
-        this.cleanup = new CleanUp();
         this.ui = {
             /** @private */
             root: this,
+
+            cleanup: new CleanUp(),
 
             getLeftSlot() {
                 return [...this.root.querySelectorAll(`[slot="left"]`)];
             },
 
             getCenterSlot() {
-                return [...this.root.querySelectorAll(`[slot="center"]`)]
+                return [...this.root.querySelectorAll(`[slot="center"]`)];
             },
 
             getRightSlot() {
-                return [...this.root.querySelectorAll(`[slot="right"]`)]
-            }
+                return [...this.root.querySelectorAll(`[slot="right"]`)];
+            },
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
-        this.cleanup.run();
+        this.ui.cleanup.run();
     }
 }
