@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.6 [unreleased]
+
+- Fixed (ui-drawer) scrollbar still visible on webkit devices
+
 ## v0.2.5 2024-07-11
 
 - Added cleanup to ui object
