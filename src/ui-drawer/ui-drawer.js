@@ -51,6 +51,7 @@ const content = html`
 
             overflow-x: hidden;
             overflow-y: auto;
+            scroll-behavior: smooth;
 
             -ms-overflow-style: none;
             scrollbar-width: none;
@@ -65,6 +66,10 @@ const content = html`
             backdrop-filter: var(--ui-backdropFilter);
 
             transition: left 0.5s ease;
+        }
+
+        aside::-webkit-scrollbar {
+            display: none;
         }
 
         :host([open]) aside {
