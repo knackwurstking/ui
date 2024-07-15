@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.7 [unreleased]
+
+- Add register functions for svgs and components
+
 ## v0.2.6 2024-07-12
 
 - Fixed (ui-drawer) scrollbar still visible on webkit devices
