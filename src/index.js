@@ -18,6 +18,8 @@ export { UIThemeHandler } from "./ui-theme-handler";
 // Svg Exports
 export * from "./svg";
 
+export { registerSVGs, registerComponents } from "./register";
+
 /**
  * @typedef {import("./ui-button").UIButtonVariant} UIButtonVariant
  * @typedef {import("./ui-button").UIButtonColor} UIButtonColor

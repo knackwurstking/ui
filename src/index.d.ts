@@ -27,3 +27,4 @@ export { UIInput, UISelect, UISelectOption, UISearch } from "./ui-input";
 export { UILang, UILangType } from "./ui-lang";
 export { UIStackLayout, UIStackLayoutPage } from "./ui-stack-layout";
 export { UILabel, UIPrimary, UISecondary } from "./ui-text";
+export { registerSVGs, registerComponents } from "./register";
