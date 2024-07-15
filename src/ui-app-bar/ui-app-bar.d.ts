@@ -10,9 +10,9 @@ export class UIAppBar extends HTMLElement {
         /** @private */
         root: this;
         cleanup: CleanUp;
-        getLeftSlot(): any[];
-        getCenterSlot(): any[];
-        getRightSlot(): any[];
+        leftSlotItems(): any[];
+        centerSlotItems(): any[];
+        rightSlotItems(): any[];
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
