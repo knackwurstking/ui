@@ -97,15 +97,15 @@ export class UIAppBar extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            leftSlotItems() {
+            getLeftItems() {
                 return [...this.root.querySelectorAll(`[slot="left"]`)];
             },
 
-            centerSlotItems() {
+            getCenterItems() {
                 return [...this.root.querySelectorAll(`[slot="center"]`)];
             },
 
-            rightSlotItems() {
+            getRightItems() {
                 return [...this.root.querySelectorAll(`[slot="right"]`)];
             },
         };
