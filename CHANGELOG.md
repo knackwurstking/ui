@@ -4,6 +4,7 @@
 
 - Add register functions for svgs and components
 - Removed margin from css resets
+- Rename ui-app-bar ui methods
 
 ## v0.2.6 2024-07-12
 
