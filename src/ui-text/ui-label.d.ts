@@ -10,6 +10,8 @@
 export class UILabel extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    css: () => any;
+    template: () => any;
     ui: {
         /** @private */
         root: this;
@@ -58,5 +60,6 @@ export class UILabel extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    render(): void;
 }
 import { CleanUp } from "../js";

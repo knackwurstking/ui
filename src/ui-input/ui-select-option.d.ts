@@ -5,6 +5,8 @@
  */
 export class UISelectOption extends HTMLElement {
     static register: () => void;
+    css: () => any;
+    template: () => any;
     ui: {
         /** @private */
         root: this;
@@ -19,4 +21,5 @@ export class UISelectOption extends HTMLElement {
          */
         setSelected(state: boolean): void;
     };
+    render(): void;
 }

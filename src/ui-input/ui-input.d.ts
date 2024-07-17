@@ -1,4 +1,29 @@
 /**
+ * @typedef UIInputEvents
+ * @type {{
+ *  input: string | number;
+ *  change: string | number;
+ * }}
+ *
+ * @typedef UIInputTypes
+ * @type {(
+ *  | "text"
+ *  | "number"
+ *  | "month"
+ *  | "date"
+ *  | "email"
+ * )}
+ *
+ * @typedef UIInputTypeValues
+ * @type {{
+ *  text: string;
+ *  number: number;
+ *  month: string;
+ *  date: string;
+ *  email: string;
+ * }}
+ */
+/**
  * @template {UIInputEvents} E
  * @template {UIInputTypes} T
  * @extends {HTMLElement}
@@ -7,6 +32,8 @@ export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HT
     static register: () => void;
     static observedAttributes: string[];
     constructor();
+    css: () => any;
+    template: () => any;
     ui: {
         /** @private */
         root: this;
@@ -78,6 +105,7 @@ export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HT
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    render(): void;
 }
 export type UIInputEvents = {
     input: string | number;

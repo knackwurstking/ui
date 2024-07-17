@@ -1,6 +1,14 @@
+/**
+ * @typedef Pages
+ * @type {{
+ *  [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
+ * }}
+ */
 export class UIStackLayout extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    css: () => any;
+    template: () => any;
     ui: {
         /** @private */
         root: this;
@@ -67,6 +75,7 @@ export class UIStackLayout extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    render(): void;
 }
 export type Pages = {
     [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);

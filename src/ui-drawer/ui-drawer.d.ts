@@ -8,9 +8,7 @@
 export class UIDrawer extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    css: ({ zIndex }: {
-        zIndex?: number;
-    }) => any;
+    css: () => any;
     template: () => any;
     /**
      * @private
@@ -39,9 +37,7 @@ export class UIDrawer extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    render({ zIndex }?: {
-        zIndex?: number;
-    }): void;
+    render(): void;
 }
 export type UIDrawerEvents = {
     open: UIDrawer;

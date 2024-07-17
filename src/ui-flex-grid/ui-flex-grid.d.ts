@@ -1,12 +1,19 @@
 export class UIFlexGrid extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    css: ({ gap }: {
+        gap?: string;
+    }) => any;
+    template: () => any;
     ui: {
         /**
          * @private
          */
         root: this;
         cleanup: CleanUp;
+        attr: {
+            gap: string;
+        };
         getGap(): string;
         /**
          * @param {string | null} value
@@ -21,11 +28,8 @@ export class UIFlexGrid extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @private
-     * @param {Object} attributes
-     * @param {string} [attributes.gap]
-     */
-    private updateStyle;
+    render({ gap }?: {
+        gap?: string;
+    }): void;
 }
 import { CleanUp } from "../js";

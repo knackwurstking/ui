@@ -1,23 +1,31 @@
 /**
+ * @typedef UISelectEvents
+ * @type {{
+ *  "change": UISelectOption;
+ * }} UISelectEvents
+ */
+/**
  * Observed Attributes:
  *  - **open**    - [type: flag]
  */
 export class UISelect extends HTMLElement {
     static register: () => void;
+    css: () => any;
+    template: () => any;
     /**
      * @private
      */
     private cleanup;
     ui: {
+        /**
+         * @private
+         */
+        root: this;
         cleanup: CleanUp;
         /**
          *  @type {Events<UISelectEvents>}
          */
         events: Events<UISelectEvents>;
-        /**
-         * @private
-         */
-        root: this;
         isOpen(): void;
         open(): void;
         close(): void;
@@ -32,6 +40,7 @@ export class UISelect extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
+    render(): void;
 }
 /**
  * UISelectEvents
