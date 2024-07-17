@@ -2,7 +2,9 @@
 
 ## v0.2.8 [unreleased]
 
-- [ ] Code clean up
+- Code clean up: using template and css props
+- Added `ui-svg` component
+- Added svgs
 
 ## v0.2.7 2024-07-15
 
