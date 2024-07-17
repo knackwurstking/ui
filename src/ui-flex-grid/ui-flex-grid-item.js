@@ -1,11 +1,6 @@
-import { CleanUp, html } from "../js";
+import { CleanUp, html, css } from "../js";
 
 const defaultFlex = "1";
-
-const content = html`
-    <style></style>
-    <slot></slot>
-`;
 
 export class UIFlexGridItem extends HTMLElement {
     static register = () => {
@@ -16,10 +11,18 @@ export class UIFlexGridItem extends HTMLElement {
 
     static observedAttributes = ["flex"];
 
+    css = ({ flex = defaultFlex }) => css`
+            :host {
+                flex: ${flex};
+            }
+    `;
+
+    template = () => html`<slot></slot>`;
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -27,30 +30,25 @@ export class UIFlexGridItem extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            getFlex() {
-                if (!this.root.hasAttribute("flex")) {
-                    return defaultFlex;
-                }
+            attr: {
+                flex: defaultFlex,
+            },
 
-                return this.root.getAttribute("flex");
+            getFlex() {
+                return this.attr.flex;
             },
 
             /**
              * @param {string | null} value
              */
             setFlex(value) {
-                if (value === null) {
-                    this.root.removeAttribute("flex");
-                } else {
-                    this.root.setAttribute("flex", value);
-                }
+                this.attr.flex = value || defaultFlex;
+                this.root.render({ ...this.attr });
             },
         };
-
-        this.updateStyle();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
@@ -63,21 +61,15 @@ export class UIFlexGridItem extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "flex":
-                this.updateStyle({ flex: newValue || defaultFlex });
+                this.ui.setFlex(newValue);
                 break;
         }
     }
 
-    /**
-     * @private
-     * @param {Object} attributes
-     * @param {string} [attributes.flex]
-     */
-    updateStyle({ flex = defaultFlex } = {}) {
-        this.shadowRoot.querySelector("style").textContent = `
-            :host {
-                flex: ${flex};
-            }
+    render({ flex = defaultFlex } = {}) {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim({ flex })}</style>
+            ${this.template().trim()}
         `;
     }
 }

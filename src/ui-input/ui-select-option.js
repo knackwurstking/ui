@@ -1,7 +1,18 @@
-import { html } from "../js";
+import { html, css } from "../js";
 
-const content = html`
-    <style>
+/**
+ * Observed Attributes:
+ *  - **value**    - [type: string]
+ *  - **selected** - [type: flag]
+ */
+export class UISelectOption extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-select-option")) {
+            customElements.define("ui-select-option", UISelectOption);
+        }
+    };
+
+    css = () => css`
         :host {
             display: none;
             align-items: center;
@@ -20,27 +31,14 @@ const content = html`
 
             overflow: hidden;
         }
-    </style>
+    `;
 
-    <slot></slot>
-`;
-
-/**
- * Observed Attributes:
- *  - **value**    - [type: string]
- *  - **selected** - [type: flag]
- */
-export class UISelectOption extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-select-option")) {
-            customElements.define("ui-select-option", UISelectOption);
-        }
-    };
+    template = () => html`<slot></slot>`;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.setAttribute("role", "button");
 
@@ -80,5 +78,12 @@ export class UISelectOption extends HTMLElement {
                 this.root.setAttribute("selected", "");
             },
         };
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

@@ -1,5 +1,5 @@
-import { CleanUp, Events, html } from "../js";
-import { SvgSearch } from "../svg";
+import { CleanUp, css, Events, html } from "../js";
+import svgSearch from "../svg/smoothie-line-icons/search";
 import { UIIconButton } from "../ui-button";
 import { UISecondary } from "../ui-text";
 
@@ -12,8 +12,28 @@ import { UISecondary } from "../ui-text";
  * }}
  */
 
-const content = html`
-    <style>
+/**
+ * @template {UISearchEvents} E
+ * @extends {HTMLElement}
+ */
+export class UISearch extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-search")) {
+            customElements.define("ui-search", UISearch);
+        }
+    };
+
+    static observedAttributes = [
+        "title",
+        "value",
+        "placeholder",
+        "invalid",
+        "no-submit",
+        "use-storage",
+        "storage-prefix",
+    ];
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -79,46 +99,20 @@ const content = html`
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }
-    </style>
+    `;
 
-    <div class="container">
-        <slot name="title"></slot>
-        <input type="search" />
-        <ui-icon-button ghost>
-            <svg-search></svg-search>
-        </ui-icon-button>
-    </div>
-`;
-
-/**
- * @template {UISearchEvents} E
- * @extends {HTMLElement}
- */
-export class UISearch extends HTMLElement {
-    static register = () => {
-        UISecondary.register();
-        UIIconButton.register();
-        SvgSearch.register();
-
-        if (!customElements.get("ui-search")) {
-            customElements.define("ui-search", UISearch);
-        }
-    };
-
-    static observedAttributes = [
-        "title",
-        "value",
-        "placeholder",
-        "invalid",
-        "no-submit",
-        "use-storage",
-        "storage-prefix",
-    ];
+    template = () => html`
+        <div class="container">
+            <slot name="title"></slot>
+            <input type="search" />
+            <ui-icon-button ghost>${svgSearch}</ui-icon-button>
+        </div>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -166,7 +160,7 @@ export class UISearch extends HTMLElement {
                         timeout = setTimeout(() => {
                             localStorage.setItem(
                                 (this.ui.storagePrefix || "") +
-                                    this.ui.getKey(),
+                                this.ui.getKey(),
                                 input.value,
                             );
                             timeout = null;
@@ -293,7 +287,7 @@ export class UISearch extends HTMLElement {
         };
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
@@ -350,6 +344,13 @@ export class UISearch extends HTMLElement {
                 this.ui.storagePrefix = newValue;
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 
     /**

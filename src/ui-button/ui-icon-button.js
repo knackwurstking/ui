@@ -1,4 +1,4 @@
-import { CleanUp, Events, createRipple, html } from "../js";
+import { CleanUp, Events, createRipple, html, css } from "../js";
 
 /**
  * @typedef {import(".").UIIconButtonColor} UIIconButtonColor
@@ -9,8 +9,16 @@ import { CleanUp, Events, createRipple, html } from "../js";
  * }}
  */
 
-const content = html`
-    <style>
+export class UIIconButton extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-icon-button")) {
+            customElements.define("ui-icon-button", UIIconButton);
+        }
+    };
+
+    static observedAttributes = ["no-ripple", "color"];
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -65,23 +73,14 @@ const content = html`
             cursor: default;
             pointer-events: none;
         }
-    </style>
+    `;
 
-    <slot></slot>
-`;
-
-export class UIIconButton extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-icon-button")) {
-            customElements.define("ui-icon-button", UIIconButton);
-        }
-    };
-    static observedAttributes = ["no-ripple", "color"];
+    template = () => html` <ui-svg><slot></slot></ui-svg> `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.setAttribute("role", "button");
 
@@ -201,6 +200,13 @@ export class UIIconButton extends HTMLElement {
                 }
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 
     /**

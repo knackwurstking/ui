@@ -1,11 +1,6 @@
-import { CleanUp } from "../js";
+import { CleanUp, html, css } from "../js";
 
 const defaultGap = "0";
-
-const content = `
-    <style></style>
-    <slot></slot>
-`;
 
 export class UIFlexGrid extends HTMLElement {
     static register = () => {
@@ -16,63 +11,7 @@ export class UIFlexGrid extends HTMLElement {
 
     static observedAttributes = ["gap"];
 
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
-
-        this.ui = {
-            /**
-             * @private
-             */
-            root: this,
-
-            cleanup: new CleanUp(),
-
-            getGap() {
-                return this.root.getAttribute("gap") || defaultGap;
-            },
-
-            /**
-             * @param {string | null} value
-             */
-            setGap(value) {
-                if (value === null) {
-                    this.root.removeAttribute("gap");
-                } else {
-                    this.root.setAttribute("gap", value);
-                }
-            },
-        };
-
-        this.updateStyle();
-    }
-
-    connectedCallback() {}
-    disconnectedCallback() {
-        this.ui.cleanup.run();
-    }
-
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "gap":
-                this.updateStyle({ gap: newValue || defaultGap });
-                break;
-        }
-    }
-
-    /**
-     * @private
-     * @param {Object} attributes
-     * @param {string} [attributes.gap]
-     */
-    updateStyle({ gap = defaultGap } = {}) {
-        this.shadowRoot.querySelector("style").textContent = `
+    css = ({ gap = defaultGap }) => css`
             :host {
                 display: flex !important;
                 flex-flow: column nowrap;
@@ -92,6 +31,63 @@ export class UIFlexGrid extends HTMLElement {
             :host > ::slotted(*:last-child) {
                 margin-bottom: 0 !important;
             }
+    `;
+
+    template = () => html`<slot></slot>`;
+
+    constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
+        this.render();
+
+        this.ui = {
+            /**
+             * @private
+             */
+            root: this,
+
+            cleanup: new CleanUp(),
+
+            attr: {
+                gap: defaultGap,
+            },
+
+            getGap() {
+                return this.attr.gap;
+            },
+
+            /**
+             * @param {string | null} value
+             */
+            setGap(value) {
+                this.attr.gap = value || defaultGap
+                this.root.render({ ...this.attr });
+            },
+        };
+    }
+
+    connectedCallback() { }
+    disconnectedCallback() {
+        this.ui.cleanup.run();
+    }
+
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "gap":
+                this.ui.setGap(newValue);
+                break;
+        }
+    }
+
+    render({ gap = defaultGap } = {}) {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css({ gap }).trim()}</style>
+            ${this.template().trim()}
         `;
     }
 }

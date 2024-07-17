@@ -1,8 +1,20 @@
-import { CleanUp, html } from "../js";
+import { CleanUp, html, css } from "../js";
 import { UIFlexGridRow } from "../ui-flex-grid";
 
-const content = html`
-    <style>
+/**
+ * Special slots:
+ *  - **left**: childrens inside a "ui-flex-grid-row"
+ *  - **center**: childrens inside a "ui-flex-grid-row"
+ *  - **right**: childrens inside a "ui-flex-grid-row"
+ */
+export class UIAppBar extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-app-bar")) {
+            customElements.define("ui-app-bar", UIAppBar);
+        }
+    };
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -54,42 +66,28 @@ const content = html`
             margin-right: 0 !important;
             justify-content: flex-end;
         }
-    </style>
+    `;
 
-    <ui-flex-grid-row gap="0.25rem">
+    template = () => html`
         <ui-flex-grid-row gap="0.25rem">
-            <slot name="left"></slot>
+            <ui-flex-grid-row gap="0.25rem">
+                <slot name="left"></slot>
+            </ui-flex-grid-row>
+
+            <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;">
+                <slot name="center"></slot>
+            </ui-flex-grid-row>
+
+            <ui-flex-grid-row gap="0.25rem">
+                <slot name="right"></slot>
+            </ui-flex-grid-row>
         </ui-flex-grid-row>
-
-        <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;">
-            <slot name="center"></slot>
-        </ui-flex-grid-row>
-
-        <ui-flex-grid-row gap="0.25rem">
-            <slot name="right"></slot>
-        </ui-flex-grid-row>
-    </ui-flex-grid-row>
-`;
-
-/**
- * Special slots:
- *  - **left**: childrens inside a "ui-flex-grid-row"
- *  - **center**: childrens inside a "ui-flex-grid-row"
- *  - **right**: childrens inside a "ui-flex-grid-row"
- */
-export class UIAppBar extends HTMLElement {
-    static register = () => {
-        UIFlexGridRow.register();
-
-        if (!customElements.get("ui-app-bar")) {
-            customElements.define("ui-app-bar", UIAppBar);
-        }
-    };
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -114,5 +112,12 @@ export class UIAppBar extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

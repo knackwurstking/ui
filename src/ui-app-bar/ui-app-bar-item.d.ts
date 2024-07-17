@@ -4,6 +4,8 @@
 export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     static register: () => void;
     constructor();
+    css: () => any;
+    template: () => any;
     ui: {
         /** @private */
         root: this;
@@ -17,5 +19,6 @@ export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
+    render(): void;
 }
 import { CleanUp } from "../js";

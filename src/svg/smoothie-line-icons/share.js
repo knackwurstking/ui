@@ -1,20 +1,6 @@
-import { html } from "../js";
+import { html } from "../../js";
 
-// NOTE: Smoothie Line Icons
-const content = html`
-    <style>
-        :host {
-            width: 100%;
-            height: 100%;
-            color: inherit;
-        }
-
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-
+export default html`
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
         <g
@@ -58,16 +44,3 @@ const content = html`
     </svg>
 `;
 
-export class SvgShare extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("svg-share")) {
-            customElements.define("svg-share", SvgShare);
-        }
-    };
-
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
-    }
-}

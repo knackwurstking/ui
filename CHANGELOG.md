@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.2.7 [unreleased]
+## v0.2.8 [unreleased]
+
+- [ ] Code clean up
+
+## v0.2.7 2024-07-15
 
 - Add register functions for svgs and components
 - Removed margin from css resets

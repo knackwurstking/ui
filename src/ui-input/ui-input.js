@@ -1,4 +1,4 @@
-import { CleanUp, Events, html } from "../js";
+import { CleanUp, Events, html, css } from "../js";
 import { UISecondary } from "../ui-text";
 
 /**
@@ -27,8 +27,29 @@ import { UISecondary } from "../ui-text";
  * }}
  */
 
-const content = html`
-    <style>
+/**
+ * @template {UIInputEvents} E
+ * @template {UIInputTypes} T
+ * @extends {HTMLElement}
+ */
+export class UIInput extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-input")) {
+            customElements.define("ui-input", UIInput);
+        }
+    };
+
+    static observedAttributes = [
+        "title",
+        "type",
+        "value",
+        "placeholder",
+        "invalid",
+        "min",
+        "max",
+    ];
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -77,42 +98,19 @@ const content = html`
             user-select: none;
             transform: translateY(calc(var(--ui-spacing) / 2));
         }
-    </style>
+    `;
 
-    <div class="container">
-        <slot name="title"></slot>
-        <input />
-    </div>
-`;
-
-/**
- * @template {UIInputEvents} E
- * @template {UIInputTypes} T
- * @extends {HTMLElement}
- */
-export class UIInput extends HTMLElement {
-    static register = () => {
-        UISecondary.register();
-
-        if (!customElements.get("ui-input")) {
-            customElements.define("ui-input", UIInput);
-        }
-    };
-
-    static observedAttributes = [
-        "title",
-        "type",
-        "value",
-        "placeholder",
-        "invalid",
-        "min",
-        "max",
-    ];
+    template = () => html`
+        <div class="container">
+            <slot name="title"></slot>
+            <input />
+        </div>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -352,6 +350,13 @@ export class UIInput extends HTMLElement {
                 this.ui.input.max = newValue || "";
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 
     /**

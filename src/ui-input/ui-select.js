@@ -1,5 +1,5 @@
-import { CleanUp, Events, html } from "../js";
-import { SvgChevronDown } from "../svg";
+import { CleanUp, css, Events, html } from "../js";
+import svgChevronDown from "../svg/smoothie-line-icons/chevron-down";
 import { UISelectOption } from "./ui-select-option";
 
 /**
@@ -9,8 +9,18 @@ import { UISelectOption } from "./ui-select-option";
  * }} UISelectEvents
  */
 
-const content = html`
-    <style>
+/**
+ * Observed Attributes:
+ *  - **open**    - [type: flag]
+ */
+export class UISelect extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-select")) {
+            customElements.define("ui-select", UISelect);
+        }
+    };
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -97,34 +107,20 @@ const content = html`
         :host(:not(.open)) ::slotted(ui-select-option:not([selected])) {
             display: none;
         }
-    </style>
+    `;
 
-    <div class="options">
-        <div class="icon"><svg-chevron-down></svg-chevron-down></div>
+    template = () => html`
+        <div class="options">
+            <div class="icon"><ui-svg>${svgChevronDown}</ui-svg></div>
 
-        <slot></slot>
-    </div>
-`;
-
-/**
- * Observed Attributes:
- *  - **open**    - [type: flag]
- */
-export class UISelect extends HTMLElement {
-    static register = () => {
-        SvgChevronDown.register();
-
-        UISelectOption.register();
-
-        if (!customElements.get("ui-select")) {
-            customElements.define("ui-select", UISelect);
-        }
-    };
+            <slot></slot>
+        </div>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         /**
          * @private
@@ -132,17 +128,17 @@ export class UISelect extends HTMLElement {
         this.cleanup = new CleanUp();
 
         this.ui = {
+            /**
+             * @private
+             */
+            root: this,
+
             cleanup: new CleanUp(),
 
             /**
              *  @type {Events<UISelectEvents>}
              */
             events: new Events(),
-
-            /**
-             * @private
-             */
-            root: this,
 
             isOpen() {
                 this.root.hasAttribute("open");
@@ -230,5 +226,12 @@ export class UISelect extends HTMLElement {
 
     disconnectedCallback() {
         this.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

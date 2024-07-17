@@ -1,9 +1,29 @@
-import { CleanUp, html, createRipple } from "../js";
+import { CleanUp, createRipple, css, html } from "../js";
 import { UIPrimary } from "./ui-primary";
 import { UISecondary } from "./ui-secondary";
 
-const content = html`
-    <style>
+/**
+ * Observed Attributes:
+ *  - **primary**   - [type: string]
+ *  - **secondary**   - [type: string]
+ *  - **ripple**    - [type: flag]
+ *
+ * Special Slots:
+ *  - **input** - click handling if "ripple" flag is set
+ */
+export class UILabel extends HTMLElement {
+    static register = () => {
+        UIPrimary.register();
+        UISecondary.register();
+
+        if (!customElements.get("ui-label")) {
+            customElements.define("ui-label", UILabel);
+        }
+    };
+
+    static observedAttributes = ["ripple", "secondary", "primary"];
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -30,43 +50,24 @@ const content = html`
             align-items: center;
             justify-content: flex-end;
         }
-    </style>
+    `;
 
-    <span class="text">
-        <ui-primary></ui-primary>
-        <ui-secondary></ui-secondary>
-    </span>
+    template = () => html`
+        <span class="text">
+            <ui-primary></ui-primary>
+            <ui-secondary></ui-secondary>
+        </span>
 
-    <span class="input">
-        <slot name="input"></slot>
-        <slot></slot>
-    </span>
-`;
-
-/**
- * Observed Attributes:
- *  - **primary**   - [type: string]
- *  - **secondary**   - [type: string]
- *  - **ripple**    - [type: flag]
- *
- * Special Slots:
- *  - **input** - click handling if "ripple" flag is set
- */
-export class UILabel extends HTMLElement {
-    static register = () => {
-        UIPrimary.register();
-        UISecondary.register();
-
-        if (!customElements.get("ui-label")) {
-            customElements.define("ui-label", UILabel);
-        }
-    };
-    static observedAttributes = ["ripple", "secondary", "primary"];
+        <span class="input">
+            <slot name="input"></slot>
+            <slot></slot>
+        </span>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -200,5 +201,12 @@ export class UILabel extends HTMLElement {
                     newValue || "";
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

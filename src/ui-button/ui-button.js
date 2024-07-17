@@ -1,4 +1,4 @@
-import { CleanUp, Events, createRipple, html } from "../js";
+import { CleanUp, Events, createRipple, html, css } from "../js";
 
 /**
  * @typedef UIButtonColor
@@ -22,8 +22,16 @@ import { CleanUp, Events, createRipple, html } from "../js";
  * }}
  */
 
-const content = html`
-    <style>
+export class UIButton extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-button")) {
+            customElements.define("ui-button", UIButton);
+        }
+    };
+
+    static observedAttributes = ["no-ripple", "color"];
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -109,23 +117,14 @@ const content = html`
             cursor: default;
             pointer-events: none;
         }
-    </style>
+    `;
 
-    <slot></slot>
-`;
-
-export class UIButton extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-button")) {
-            customElements.define("ui-button", UIButton);
-        }
-    };
-    static observedAttributes = ["no-ripple", "color"];
+    template = () => html`<slot></slot>`;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.setAttribute("role", "button");
 
@@ -243,6 +242,13 @@ export class UIButton extends HTMLElement {
                 }
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 
     /**

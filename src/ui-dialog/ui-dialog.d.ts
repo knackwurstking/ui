@@ -1,4 +1,11 @@
 /**
+ * @typedef UIDialogEvents
+ * @type {{
+ *  open: null;
+ *  close: null;
+ * }}
+ */
+/**
  * Special slots to use:
  *  - **title**: all childrens go into _"dialog header > span"_, just use the `Dialog.ui.title` setter/getter
  *  - **actions**: all childrens go into _"dialog footer > ui-flex-grid-row"_
@@ -8,6 +15,8 @@
 export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     static register: () => void;
     constructor();
+    css: () => any;
+    template: () => any;
     /**
      * @private
      */
@@ -48,6 +57,7 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
+    render(): void;
 }
 export type UIDialogEvents = {
     open: null;

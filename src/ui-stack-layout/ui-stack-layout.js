@@ -1,4 +1,4 @@
-import { CleanUp, Events, html } from "../js";
+import { CleanUp, Events, html, css } from "../js";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**
@@ -7,19 +7,6 @@ import { UIStackLayoutPage } from "./ui-stack-layout-page";
  *  [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
  * }}
  */
-
-const content = html`
-    <style>
-        :host {
-            display: block !important;
-            position: relative !important;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-
-    <slot></slot>
-`;
 
 export class UIStackLayout extends HTMLElement {
     static register = () => {
@@ -32,10 +19,21 @@ export class UIStackLayout extends HTMLElement {
 
     static observedAttributes = ["use-history"];
 
+    css = () => css`
+        :host {
+            display: block !important;
+            position: relative !important;
+            width: 100%;
+            height: 100%;
+        }
+    `;
+
+    template = () => html`<slot></slot>`;
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -200,5 +198,12 @@ export class UIStackLayout extends HTMLElement {
                 }
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

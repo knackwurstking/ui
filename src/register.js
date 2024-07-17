@@ -1,16 +1,3 @@
-import { SvgChevronDown } from "./svg";
-import { SvgChevronLeft } from "./svg/svg-chevron-left";
-import { SvgClose } from "./svg/svg-close";
-import { SvgDocumentNew } from "./svg/svg-document-new";
-import { SvgDownload } from "./svg/svg-download";
-import { SvgMenu } from "./svg/svg-menu";
-import { SvgPen } from "./svg/svg-pen";
-import { SvgPlus } from "./svg/svg-plus";
-import { SvgSearch } from "./svg/svg-search";
-import { SvgSettings } from "./svg/svg-settings";
-import { SvgShare } from "./svg/svg-share";
-import { SvgToday } from "./svg/svg-today";
-import { SvgTrash } from "./svg/svg-trash";
 import { UIAppBar, UIAppBarItem } from "./ui-app-bar";
 import { UIButton, UIIconButton } from "./ui-button";
 import { UIContainer } from "./ui-container";
@@ -25,12 +12,13 @@ import { UILangType } from "./ui-lang/ui-lang-type";
 import { UISpinner } from "./ui-spinner";
 import { UIStackLayout, UIStackLayoutPage } from "./ui-stack-layout";
 import { UIStore } from "./ui-store";
+import { UISvg } from "./ui-svg";
 import { UILabel } from "./ui-text";
 import { UIPrimary } from "./ui-text/ui-primary";
 import { UISecondary } from "./ui-text/ui-secondary";
 import { UIThemeHandler } from "./ui-theme-handler";
 
-export function registerComponents() {
+export function register() {
     UIAppBarItem.register();
     UIAppBar.register();
 
@@ -64,25 +52,11 @@ export function registerComponents() {
 
     UIStore.register();
 
+    UISvg.register();
+
     UILabel.register();
     UIPrimary.register();
     UISecondary.register();
 
     UIThemeHandler.register();
-}
-
-export function registerSVGs() {
-    SvgChevronDown.register();
-    SvgChevronLeft.register();
-    SvgClose.register();
-    SvgDocumentNew.register();
-    SvgDownload.register();
-    SvgMenu.register();
-    SvgPen.register();
-    SvgPlus.register();
-    SvgSearch.register();
-    SvgSettings.register();
-    SvgShare.register();
-    SvgToday.register();
-    SvgTrash.register();
 }

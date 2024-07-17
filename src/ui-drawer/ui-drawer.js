@@ -1,4 +1,4 @@
-import { CleanUp, Events, html } from "../js";
+import { CleanUp, Events, html, css } from "../js";
 
 /**
  * @typedef UIDrawerEvents
@@ -7,80 +7,6 @@ import { CleanUp, Events, html } from "../js";
  *  close: UIDrawer,
  * }}
  */
-
-const zIndex = 150;
-const content = html`
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        :host {
-            display: block;
-
-            position: absolute !important;
-            z-index: ${zIndex};
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-
-            overflow: hidden;
-
-            transition: left 0s ease 0.5s;
-        }
-
-        :host([open]) {
-            background-color: var(--ui-backdrop-bgColor);
-            -webkit-backdrop-filter: var(--ui-backdropFilter);
-            backdrop-filter: var(--ui-backdropFilter);
-
-            left: 0;
-
-            transition: none;
-        }
-
-        aside {
-            position: absolute;
-            z-index: ${zIndex};
-            top: 0;
-            left: -100%;
-            width: 18em;
-            max-width: 100%;
-            height: 100%;
-
-            overflow-x: hidden;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-
-            /*
-            background-color: var(--ui-card-bgColor);
-            color: var(--ui-card-color);
-            */
-            border-right: 1px solid var(--ui-card-borderColor);
-            background-color: var(--ui-backdrop-bgColor);
-            -webkit-backdrop-filter: var(--ui-backdropFilter);
-            backdrop-filter: var(--ui-backdropFilter);
-
-            transition: left 0.5s ease;
-        }
-
-        aside::-webkit-scrollbar {
-            display: none;
-        }
-
-        :host([open]) aside {
-            left: 0;
-        }
-    </style>
-
-    <aside>
-        <slot></slot>
-    </aside>
-`;
 
 export class UIDrawer extends HTMLElement {
     static register = () => {
@@ -91,10 +17,84 @@ export class UIDrawer extends HTMLElement {
 
     static observedAttributes = ["open"];
 
+    css = () => {
+        return css`
+            * {
+                box-sizing: border-box;
+            }
+
+            :host {
+                display: block;
+
+                position: absolute !important;
+                z-index: 150;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+
+                overflow: hidden;
+
+                transition: left 0s ease 0.5s;
+            }
+
+            :host([open]) {
+                background-color: var(--ui-backdrop-bgColor);
+                -webkit-backdrop-filter: var(--ui-backdropFilter);
+                backdrop-filter: var(--ui-backdropFilter);
+
+                left: 0;
+
+                transition: none;
+            }
+
+            aside {
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 18em;
+                max-width: 100%;
+                height: 100%;
+
+                overflow-x: hidden;
+                overflow-y: auto;
+                scroll-behavior: smooth;
+
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+
+                /*
+            background-color: var(--ui-card-bgColor);
+            color: var(--ui-card-color);
+            */
+                border-right: 1px solid var(--ui-card-borderColor);
+                background-color: var(--ui-backdrop-bgColor);
+                -webkit-backdrop-filter: var(--ui-backdropFilter);
+                backdrop-filter: var(--ui-backdropFilter);
+
+                transition: left 0.5s ease;
+            }
+
+            aside::-webkit-scrollbar {
+                display: none;
+            }
+
+            :host([open]) aside {
+                left: 0;
+            }
+        `;
+    };
+
+    template = () => html`
+        <aside>
+            <slot></slot>
+        </aside>
+    `;
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         /**
          * @private
@@ -172,5 +172,12 @@ export class UIDrawer extends HTMLElement {
                 }
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}<style>
+            ${this.template().trim()}
+        `;
     }
 }

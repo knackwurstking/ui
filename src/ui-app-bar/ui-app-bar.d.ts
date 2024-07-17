@@ -6,6 +6,8 @@
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;
+    css: () => any;
+    template: () => any;
     ui: {
         /** @private */
         root: this;
@@ -16,5 +18,6 @@ export class UIAppBar extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
+    render(): void;
 }
 import { CleanUp } from "../js";

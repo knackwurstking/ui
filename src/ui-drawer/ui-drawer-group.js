@@ -1,8 +1,15 @@
-import { CleanUp, html } from "../js";
-import { UIDrawerGroupItem } from "./ui-drawer-group-item";
+import { CleanUp, html, css } from "../js";
 
-const content = html`
-    <style>
+export class UIDrawerGroup extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-drawer-group")) {
+            customElements.define("ui-drawer-group", UIDrawerGroup);
+        }
+    };
+
+    static observedAttributes = ["title"];
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -16,31 +23,21 @@ const content = html`
         ui-drawer-group-item:not(.visible) {
             display: none;
         }
-    </style>
+    `;
 
-    <ul>
-        <ui-drawer-group-item class="ui-drawer-group-title">
-        </ui-drawer-group-item>
+    template = () => html`
+        <ul>
+            <ui-drawer-group-item class="ui-drawer-group-title">
+            </ui-drawer-group-item>
 
-        <slot></slot>
-    </ul>
-`;
-
-export class UIDrawerGroup extends HTMLElement {
-    static register = () => {
-        UIDrawerGroupItem.register();
-
-        if (!customElements.get("ui-drawer-group")) {
-            customElements.define("ui-drawer-group", UIDrawerGroup);
-        }
-    };
-
-    static observedAttributes = ["title"];
+            <slot></slot>
+        </ul>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         // TODO: Fold and Unfold Group (optional)
         this.ui = {
@@ -105,5 +102,12 @@ export class UIDrawerGroup extends HTMLElement {
                 }
                 break;
         }
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

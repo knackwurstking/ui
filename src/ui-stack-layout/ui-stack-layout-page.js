@@ -1,7 +1,13 @@
-import { CleanUp, html } from "../js";
+import { CleanUp, html, css } from "../js";
 
-const innerHTML = html`
-    <style>
+export class UIStackLayoutPage extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-stack-layout-page")) {
+            customElements.define("ui-stack-layout-page", UIStackLayoutPage);
+        }
+    };
+
+    css = () => css`
         :host {
             display: block !important;
             position: absolute !important;
@@ -26,22 +32,14 @@ const innerHTML = html`
                 opacity: 1;
             }
         }
-    </style>
+    `;
 
-    <slot></slot>
-`;
-
-export class UIStackLayoutPage extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-stack-layout-page")) {
-            customElements.define("ui-stack-layout-page", UIStackLayoutPage);
-        }
-    };
+    template = () => html`<slot></slot>`;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = innerHTML;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -69,5 +67,12 @@ export class UIStackLayoutPage extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

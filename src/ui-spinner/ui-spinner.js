@@ -1,7 +1,13 @@
-import { CleanUp, html } from "../js";
+import { CleanUp, html, css } from "../js";
 
-const content = html`
-    <style>
+export class UISpinner extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-spinner")) {
+            customElements.define("ui-spinner", UISpinner);
+        }
+    };
+
+    css = () => css`
         :host {
             position: absolute;
             width: 100%;
@@ -42,23 +48,17 @@ const content = html`
                 transform: rotate(360deg);
             }
         }
-    </style>
+    `;
 
-    <div class="background"></div>
-    <div class="spinner"></div>
-`;
-
-export class UISpinner extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-spinner")) {
-            customElements.define("ui-spinner", UISpinner);
-        }
-    };
+    template = () => html`
+        <div class="background"></div>
+        <div class="spinner"></div>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             cleanup: new CleanUp(),
@@ -68,5 +68,12 @@ export class UISpinner extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

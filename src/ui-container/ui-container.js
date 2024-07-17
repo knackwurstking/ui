@@ -1,7 +1,13 @@
-import { CleanUp, html } from "../js";
+import { CleanUp, html, css } from "../js";
 
-const content = html`
-    <style>
+export class UIContainer extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-container")) {
+            customElements.define("ui-container", UIContainer);
+        }
+    };
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -13,22 +19,14 @@ const content = html`
             margin: 0 auto !important;
             padding: var(--ui-spacing);
         }
-    </style>
+    `;
 
-    <slot></slot>
-`;
-
-export class UIContainer extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-container")) {
-            customElements.define("ui-container", UIContainer);
-        }
-    };
+    template = () => html` <slot></slot> `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             cleanup: new CleanUp(),
@@ -38,5 +36,12 @@ export class UIContainer extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

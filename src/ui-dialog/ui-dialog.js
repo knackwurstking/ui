@@ -1,7 +1,5 @@
-import { CleanUp, Events, html } from "../js";
-import { UIIconButton } from "../ui-button";
-import { UIFlexGridRow } from "../ui-flex-grid";
-import { SvgClose } from "../svg";
+import { CleanUp, Events, html, css } from "../js";
+import svgClose from "../svg/smoothie-line-icons/close";
 
 /**
  * @typedef UIDialogEvents
@@ -11,8 +9,21 @@ import { SvgClose } from "../svg";
  * }}
  */
 
-const content = html`
-    <style>
+/**
+ * Special slots to use:
+ *  - **title**: all childrens go into _"dialog header > span"_, just use the `Dialog.ui.title` setter/getter
+ *  - **actions**: all childrens go into _"dialog footer > ui-flex-grid-row"_
+ *
+ * @template {UIDialogEvents} T
+ */
+export class UIDialog extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-dialog")) {
+            customElements.define("ui-dialog", UIDialog);
+        }
+    };
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -147,8 +158,8 @@ const content = html`
         }
 
         /*
-        * Footer Styles
-        */
+         * Footer Styles
+         */
 
         .footer {
             margin-top: var(--ui-spacing);
@@ -174,59 +185,41 @@ const content = html`
             justify-content: flex-end;
             align-items: center;
         }
-    </style>
+    `;
 
-    <dialog>
-        <div class="container">
-            <div class="header">
-                <span style="white-space: nowrap;"
-                    ><slot name="title"></slot
-                ></span>
+    template = () => html`
+        <dialog>
+            <div class="container">
+                <div class="header">
+                    <span style="white-space: nowrap;"
+                        ><slot name="title"></slot
+                    ></span>
 
-                <ui-icon-button
-                    style="width: var(--ui-dialog-header-height); height: 100%;"
-                    ghost
-                >
-                    <svg-close></svg-close>
-                </ui-icon-button>
+                    <ui-icon-button
+                        style="width: var(--ui-dialog-header-height); height: 100%;"
+                        ghost
+                    >
+                        ${svgClose}
+                    </ui-icon-button>
+                </div>
+
+                <div class="content">
+                    <slot></slot>
+                </div>
+
+                <div class="footer">
+                    <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
+                        <slot name="actions"></slot>
+                    </ui-flex-grid-row>
+                </div>
             </div>
-
-            <div class="content">
-                <slot></slot>
-            </div>
-
-            <div class="footer">
-                <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
-                    <slot name="actions"></slot>
-                </ui-flex-grid-row>
-            </div>
-        </div>
-    </dialog>
-`;
-
-/**
- * Special slots to use:
- *  - **title**: all childrens go into _"dialog header > span"_, just use the `Dialog.ui.title` setter/getter
- *  - **actions**: all childrens go into _"dialog footer > ui-flex-grid-row"_
- *
- * @template {UIDialogEvents} T
- */
-export class UIDialog extends HTMLElement {
-    static register = () => {
-        SvgClose.register();
-
-        UIIconButton.register();
-        UIFlexGridRow.register();
-
-        if (!customElements.get("ui-dialog")) {
-            customElements.define("ui-dialog", UIDialog);
-        }
-    };
+        </dialog>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         /**
          * @private
@@ -333,5 +326,12 @@ export class UIDialog extends HTMLElement {
     disconnectedCallback() {
         this.ui.cleanup.run();
         this.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

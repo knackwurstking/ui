@@ -1,21 +1,4 @@
-import { CleanUp, html } from "../js";
-
-const content = html`
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        :host {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-        }
-    </style>
-
-    <slot></slot>
-`;
+import { CleanUp, html, css } from "../js";
 
 /**
  * @template {HTMLElement} T
@@ -26,10 +9,25 @@ export class UIAppBarItem extends HTMLElement {
             customElements.define("ui-app-bar-item", UIAppBarItem);
     };
 
+    css = () => css`
+        * {
+            box-sizing: border-box;
+        }
+
+        :host {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+    `;
+
+    template = () => html`<slot></slot>`;
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -57,5 +55,12 @@ export class UIAppBarItem extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

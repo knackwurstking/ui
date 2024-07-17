@@ -1,11 +1,6 @@
-import { CleanUp } from "../js";
+import { CleanUp, html, css } from "../js";
 
 const defaultGap = "0";
-
-const content = `
-    <style></style>
-    <slot></slot>
-`;
 
 export class UIFlexGridRow extends HTMLElement {
     static register = () => {
@@ -16,10 +11,33 @@ export class UIFlexGridRow extends HTMLElement {
 
     static observedAttributes = ["gap"];
 
+    css = ({ gap = defaultGap }) => css`
+        :host {
+            display: flex !important;
+            flex-flow: row nowrap;
+            position: relative !important;
+            width: 100%;
+        }
+
+        :host > ::slotted(*) {
+            margin: 0 ${gap} !important;
+        }
+
+        :host > ::slotted(*:first-child) {
+            margin-left: 0 !important;
+        }
+
+        :host > ::slotted(*:last-child) {
+            margin-right: 0 !important;
+        }
+    `;
+
+    template = () => html`<slot></slot>`;
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             /** @private */
@@ -27,26 +45,25 @@ export class UIFlexGridRow extends HTMLElement {
 
             cleanup: new CleanUp(),
 
+            attr: {
+                gap: defaultGap,
+            },
+
             getGap() {
-                return this.root.getAttribute("gap") || defaultGap;
+                return this.attr.gap;
             },
 
             /**
              * @param {string | null} value
              */
             setGap(value) {
-                if (value === null) {
-                    this.root.removeAttribute("gap");
-                } else {
-                    this.root.setAttribute("gap", value);
-                }
+                this.attr.gap = value || defaultGap;
+                this.root.render({ ...this.attr });
             },
         };
-
-        this.updateStyle();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
@@ -59,36 +76,15 @@ export class UIFlexGridRow extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "gap":
-                this.updateStyle({ gap: newValue || defaultGap });
+                this.ui.setGap(newValue)
                 break;
         }
     }
 
-    /**
-     * @private
-     * @param {Object} attributes
-     * @param {string} [attributes.gap]
-     */
-    updateStyle({ gap = defaultGap } = {}) {
-        this.shadowRoot.querySelector("style").textContent = `
-            :host {
-                display: flex !important;
-                flex-flow: row nowrap;
-                position: relative !important;
-                width: 100%;
-            }
-
-            :host > ::slotted(*) {
-                margin: 0 ${gap} !important;
-            }
-
-            :host > ::slotted(*:first-child) {
-                margin-left: 0 !important;
-            }
-
-            :host > ::slotted(*:last-child) {
-                margin-right: 0 !important;
-            }
+    render({ gap = defaultGap } = {}) {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css({ gap }).trim()}</style>
+            ${this.template().trim()}
         `;
     }
 }

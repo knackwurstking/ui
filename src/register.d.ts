@@ -1,2 +1,1 @@
-export function registerComponents(): void;
-export function registerSVGs(): void;
+export function register(): void;

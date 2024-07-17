@@ -1,6 +1,29 @@
+/**
+ * @typedef UIButtonColor
+ * @type {(
+ *  | "string"
+ *  | "primary"
+ *  | "secondary"
+ *  | "destructive"
+ * )}
+ *
+ * @typedef UIButtonVariant
+ * @type {(
+ *  | "full"
+ *  | "outline"
+ *  | "ghost"
+ * )}
+ *
+ * @typedef UIButtonEvents
+ * @type {{
+ *  click: UIButton;
+ * }}
+ */
 export class UIButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    css: () => any;
+    template: () => any;
     /**
      * @private
      */
@@ -47,6 +70,7 @@ export class UIButton extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    render(): void;
     /**
      * @private
      */

@@ -1,6 +1,16 @@
+/**
+ * @typedef {import(".").UIIconButtonColor} UIIconButtonColor
+ *
+ * @typedef UIIconButtonEvents
+ * @type {{
+ *  click: UIIconButton;
+ * }}
+ */
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    css: () => any;
+    template: () => any;
     /**
      * @private
      */
@@ -47,6 +57,7 @@ export class UIIconButton extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    render(): void;
     /**
      * @private
      */

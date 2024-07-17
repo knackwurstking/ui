@@ -1,7 +1,13 @@
-import { CleanUp, html } from "../js";
+import { CleanUp, html, css } from "../js";
 
-const content = html`
-    <style>
+export class UIDrawerGroupItem extends HTMLElement {
+    static register = () => {
+        if (!customElements.get("ui-drawer-group-item")) {
+            customElements.define("ui-drawer-group-item", UIDrawerGroupItem);
+        }
+    };
+
+    css = () => css`
         * {
             box-sizing: border-box;
         }
@@ -16,24 +22,18 @@ const content = html`
         ::slotted(*) {
             width: 100%;
         }
-    </style>
+    `;
 
-    <li>
-        <slot></slot>
-    </li>
-`;
-
-export class UIDrawerGroupItem extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-drawer-group-item")) {
-            customElements.define("ui-drawer-group-item", UIDrawerGroupItem);
-        }
-    };
+    template = () => html`
+        <li>
+            <slot></slot>
+        </li>
+    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             cleanup: new CleanUp(),
@@ -44,5 +44,12 @@ export class UIDrawerGroupItem extends HTMLElement {
 
     disconnectedCallback() {
         this.ui.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }

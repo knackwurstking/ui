@@ -1,16 +1,4 @@
-import { CleanUp, html } from "../js";
-
-const content = html`
-    <style>
-        :host {
-            font-size: 0.9rem;
-            font-family: var(--ui-fontFamily);
-            font-variation-settings: var(--ui-text-secondary-fontVariation);
-        }
-    </style>
-
-    <slot></slot>
-`;
+import { CleanUp, css, html } from "../js";
 
 export class UISecondary extends HTMLElement {
     static register = () => {
@@ -19,10 +7,20 @@ export class UISecondary extends HTMLElement {
         }
     };
 
+    css = () => css`
+        :host {
+            font-size: 0.9rem;
+            font-family: var(--ui-fontFamily);
+            font-variation-settings: var(--ui-text-secondary-fontVariation);
+        }
+    `;
+
+    template = () => html`<slot></slot>`;
+
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = content;
+        this.render();
 
         this.ui = {
             cleanup: new CleanUp(),
@@ -32,5 +30,12 @@ export class UISecondary extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+            <style>${this.css().trim()}</style>
+            ${this.template().trim()}
+        `;
     }
 }
