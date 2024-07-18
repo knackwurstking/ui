@@ -12,9 +12,9 @@ export class UIFlexGridItem extends HTMLElement {
     static observedAttributes = ["flex"];
 
     css = ({ flex = defaultFlex }) => css`
-            :host {
-                flex: ${flex};
-            }
+        :host {
+            flex: ${flex};
+        }
     `;
 
     template = () => html`<slot></slot>`;
@@ -48,7 +48,7 @@ export class UIFlexGridItem extends HTMLElement {
         };
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
@@ -68,7 +68,7 @@ export class UIFlexGridItem extends HTMLElement {
 
     render({ flex = defaultFlex } = {}) {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim({ flex })}</style>
+            <style>${this.css({}).trim({ flex })}</style>
             ${this.template().trim()}
         `;
     }
