@@ -112,6 +112,7 @@ export class UISearch extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+        this.render();
 
         this.ui = {
             /** @private */
@@ -284,8 +285,6 @@ export class UISearch extends HTMLElement {
                 return this.root.hasAttribute("invalid");
             },
         };
-
-        this.render();
     }
 
     connectedCallback() {}

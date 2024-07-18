@@ -37,6 +37,7 @@ export class UIFlexGridRow extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+        this.render();
 
         this.ui = {
             /** @private */
@@ -60,8 +61,6 @@ export class UIFlexGridRow extends HTMLElement {
                 this.root.render({ ...this.attr });
             },
         };
-
-        this.render();
     }
 
     connectedCallback() {}

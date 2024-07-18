@@ -219,6 +219,7 @@ export class UIDialog extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+        this.render();
 
         /**
          * @private
@@ -301,8 +302,6 @@ export class UIDialog extends HTMLElement {
                 this.events.dispatch("close", null);
             },
         };
-
-        this.render();
     }
 
     connectedCallback() {

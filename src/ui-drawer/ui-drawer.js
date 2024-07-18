@@ -64,14 +64,16 @@ export class UIDrawer extends HTMLElement {
                 -ms-overflow-style: none;
                 scrollbar-width: none;
 
-                /*
                 background-color: var(--ui-card-bgColor);
                 color: var(--ui-card-color);
-                */
-                border-right: 1px solid var(--ui-card-borderColor);
+
+                /*
                 background-color: var(--ui-backdrop-bgColor);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
+                */
+
+                border-right: 1px solid var(--ui-card-borderColor);
 
                 transition: left 0.5s ease;
             }
@@ -95,6 +97,7 @@ export class UIDrawer extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+        this.render();
 
         /**
          * @private
@@ -129,8 +132,6 @@ export class UIDrawer extends HTMLElement {
                 }
             },
         };
-
-        this.render();
     }
 
     connectedCallback() {
@@ -181,5 +182,7 @@ export class UIDrawer extends HTMLElement {
             <style>${this.css().trim()}</style>
             ${this.template().trim()}
         `;
+        if (!this.ui) return;
+        this.ui.aside = this.shadowRoot.querySelector("aside");
     }
 }

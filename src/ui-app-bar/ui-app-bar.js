@@ -87,6 +87,7 @@ export class UIAppBar extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+        this.render();
 
         this.ui = {
             /** @private */
@@ -106,8 +107,6 @@ export class UIAppBar extends HTMLElement {
                 return [...this.root.querySelectorAll(`[slot="right"]`)];
             },
         };
-
-        this.render();
     }
 
     connectedCallback() {}
