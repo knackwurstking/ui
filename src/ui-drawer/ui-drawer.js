@@ -50,6 +50,7 @@ export class UIDrawer extends HTMLElement {
 
             aside {
                 position: absolute;
+                z-index: 150;
                 top: 0;
                 left: -100%;
                 width: 18em;
@@ -64,9 +65,9 @@ export class UIDrawer extends HTMLElement {
                 scrollbar-width: none;
 
                 /*
-            background-color: var(--ui-card-bgColor);
-            color: var(--ui-card-color);
-            */
+                background-color: var(--ui-card-bgColor);
+                color: var(--ui-card-color);
+                */
                 border-right: 1px solid var(--ui-card-borderColor);
                 background-color: var(--ui-backdrop-bgColor);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
