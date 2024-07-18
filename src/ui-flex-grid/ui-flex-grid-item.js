@@ -68,7 +68,7 @@ export class UIFlexGridItem extends HTMLElement {
 
     render({ flex = defaultFlex } = {}) {
         this.shadowRoot.innerHTML = `
-            <style>${this.css({}).trim({ flex })}</style>
+            <style>${this.css({ flex }).trim()}</style>
             ${this.template().trim()}
         `;
     }
