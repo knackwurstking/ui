@@ -37,7 +37,6 @@ export class UIFlexGridRow extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -61,9 +60,11 @@ export class UIFlexGridRow extends HTMLElement {
                 this.root.render({ ...this.attr });
             },
         };
+
+        this.render();
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
@@ -76,7 +77,7 @@ export class UIFlexGridRow extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "gap":
-                this.ui.setGap(newValue)
+                this.ui.setGap(newValue);
                 break;
         }
     }

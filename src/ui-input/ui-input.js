@@ -110,7 +110,6 @@ export class UIInput extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -290,6 +289,8 @@ export class UIInput extends HTMLElement {
                 }
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {}

@@ -27,7 +27,6 @@ export class UIAppBarItem extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -50,6 +49,8 @@ export class UIAppBarItem extends HTMLElement {
                 return this.root.querySelector("*");
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {}

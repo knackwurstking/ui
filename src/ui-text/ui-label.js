@@ -67,7 +67,6 @@ export class UILabel extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -174,6 +173,8 @@ export class UILabel extends HTMLElement {
                 this.running = false;
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {}

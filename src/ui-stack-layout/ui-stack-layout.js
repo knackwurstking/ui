@@ -33,7 +33,6 @@ export class UIStackLayout extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -175,6 +174,8 @@ export class UIStackLayout extends HTMLElement {
                 });
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {}

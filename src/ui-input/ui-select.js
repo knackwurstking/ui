@@ -120,7 +120,6 @@ export class UISelect extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         /**
          * @private
@@ -177,6 +176,8 @@ export class UISelect extends HTMLElement {
                 }
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {

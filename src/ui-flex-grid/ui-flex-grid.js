@@ -12,25 +12,25 @@ export class UIFlexGrid extends HTMLElement {
     static observedAttributes = ["gap"];
 
     css = ({ gap = defaultGap }) => css`
-            :host {
-                display: flex !important;
-                flex-flow: column nowrap;
-                position: relative !important;
-                width: 100%;
-                height: fit-content;
-            }
+        :host {
+            display: flex !important;
+            flex-flow: column nowrap;
+            position: relative !important;
+            width: 100%;
+            height: fit-content;
+        }
 
-            :host > ::slotted(*) {
-                margin: ${gap} 0 !important;
-            }
+        :host > ::slotted(*) {
+            margin: ${gap} 0 !important;
+        }
 
-            :host > ::slotted(*:first-child) {
-                margin-top: 0 !important;
-            }
+        :host > ::slotted(*:first-child) {
+            margin-top: 0 !important;
+        }
 
-            :host > ::slotted(*:last-child) {
-                margin-bottom: 0 !important;
-            }
+        :host > ::slotted(*:last-child) {
+            margin-bottom: 0 !important;
+        }
     `;
 
     template = () => html`<slot></slot>`;
@@ -38,7 +38,6 @@ export class UIFlexGrid extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /**
@@ -60,13 +59,15 @@ export class UIFlexGrid extends HTMLElement {
              * @param {string | null} value
              */
             setGap(value) {
-                this.attr.gap = value || defaultGap
+                this.attr.gap = value || defaultGap;
                 this.root.render({ ...this.attr });
             },
         };
+
+        this.render();
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
     }

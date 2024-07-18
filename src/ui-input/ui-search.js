@@ -112,7 +112,6 @@ export class UISearch extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -160,7 +159,7 @@ export class UISearch extends HTMLElement {
                         timeout = setTimeout(() => {
                             localStorage.setItem(
                                 (this.ui.storagePrefix || "") +
-                                this.ui.getKey(),
+                                    this.ui.getKey(),
                                 input.value,
                             );
                             timeout = null;
@@ -285,9 +284,11 @@ export class UISearch extends HTMLElement {
                 return this.root.hasAttribute("invalid");
             },
         };
+
+        this.render();
     }
 
-    connectedCallback() { }
+    connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
     }

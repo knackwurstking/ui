@@ -1,4 +1,5 @@
 import { css, html } from "../js";
+import { CleanUp } from "../js/cleanup";
 
 export class UISvg extends HTMLElement {
     static register = () => {
@@ -25,7 +26,17 @@ export class UISvg extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
+
+        this.ui = {
+            cleanup: new CleanUp(),
+        };
+
         this.render();
+    }
+
+    connectedCallback() {}
+    disconnectedCallback() {
+        this.ui.cleanup.run();
     }
 
     render() {

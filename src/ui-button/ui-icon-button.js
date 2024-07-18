@@ -80,7 +80,6 @@ export class UIIconButton extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.setAttribute("role", "button");
 
@@ -160,6 +159,8 @@ export class UIIconButton extends HTMLElement {
                 this.root.setAttribute("no-ripple", "");
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {
