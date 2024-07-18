@@ -240,6 +240,7 @@ export class UIDialog extends HTMLElement {
              * @type {HTMLElement}
              */
             h4: (() => {
+                // TODO: Move to set title element (private) function
                 const h4 = document.createElement("h4");
                 h4.slot = "title";
                 this.appendChild(h4);
@@ -329,9 +330,24 @@ export class UIDialog extends HTMLElement {
     }
 
     render() {
+        let title = "";
+        if (!!this.ui) {
+            title = this.ui.getTitle();
+        }
+
         this.shadowRoot.innerHTML = `
             <style>${this.css().trim()}</style>
             ${this.template().trim()}
         `;
+
+        if (!this.ui) return;
+        this.ui.dialog = this.shadowRoot.querySelector("dialog");
+        this.ui.h4 = (() => {
+            const h4 = document.createElement("h4");
+            h4.slot = "title";
+            this.appendChild(h4);
+            return h4;
+        })();
+        this.ui.setTitle(title);
     }
 }
