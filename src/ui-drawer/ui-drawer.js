@@ -177,7 +177,7 @@ export class UIDrawer extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}<style>
+            <style>${this.css().trim()}</style>
             ${this.template().trim()}
         `;
     }
