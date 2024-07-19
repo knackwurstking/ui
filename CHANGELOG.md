@@ -3,6 +3,7 @@
 ## v0.2.10 [unreleased]
 
 - Changed render methods
+- Removed aside field from the ui-drawers this.ui object
 
 ## v0.2.9 2024-07-19
 
