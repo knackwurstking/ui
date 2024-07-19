@@ -191,9 +191,9 @@ export class UIDialog extends HTMLElement {
         <dialog>
             <div class="container">
                 <div class="header">
-                    <span style="white-space: nowrap;"
-                        ><slot name="title"></slot
-                    ></span>
+                    <span style="white-space: nowrap;">
+                        <h4 name="title"><h4>
+                    </span>
 
                     <ui-icon-button
                         style="width: var(--ui-dialog-header-height); height: 100%;"
@@ -219,16 +219,14 @@ export class UIDialog extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
-
-        /**
-         * @private
-         */
-        this.cleanup = new CleanUp();
 
         this.ui = {
             /** @private */
             root: this,
+
+            renderProps: {
+                title: "",
+            },
 
             cleanup: new CleanUp(),
 
@@ -237,21 +235,15 @@ export class UIDialog extends HTMLElement {
 
             /**
              * @private
-             * @type {HTMLElement}
+             * @type {HTMLElement | null}
              */
-            h4: (() => {
-                // TODO: Move to set title element (private) function
-                const h4 = document.createElement("h4");
-                h4.slot = "title";
-                this.appendChild(h4);
-                return h4;
-            })(),
+            title: null,
 
             /**
              * @private
              * @type {HTMLDialogElement}
              */
-            dialog: this.shadowRoot.querySelector("dialog"),
+            dialog: null,
 
             getFullscreen() {
                 return this.root.hasAttribute("fullscreen");
@@ -266,14 +258,14 @@ export class UIDialog extends HTMLElement {
             },
 
             getTitle() {
-                return this.h4.innerText;
+                return this.title?.innerText || "";
             },
 
             /**
              * @param {string} value
              */
             setTitle(value) {
-                this.h4.innerText = value;
+                this.title.innerText = value;
             },
 
             getDialogElement() {
@@ -303,6 +295,13 @@ export class UIDialog extends HTMLElement {
                 this.events.dispatch("close", null);
             },
         };
+
+        /**
+         * @private
+         */
+        this.cleanup = new CleanUp();
+
+        this.render({ ...this.ui.renderProps });
     }
 
     connectedCallback() {
@@ -329,25 +328,19 @@ export class UIDialog extends HTMLElement {
         this.cleanup.run();
     }
 
-    render() {
-        let title = "";
-        if (!!this.ui) {
-            title = this.ui.getTitle();
-        }
-
+    /**
+     * @param {Object} options
+     * @param {string} options.title
+     */
+    render({ title }) {
         this.shadowRoot.innerHTML = `
             <style>${this.css().trim()}</style>
             ${this.template().trim()}
         `;
 
-        if (!this.ui) return;
         this.ui.dialog = this.shadowRoot.querySelector("dialog");
-        this.ui.h4 = (() => {
-            const h4 = document.createElement("h4");
-            h4.slot = "title";
-            this.appendChild(h4);
-            return h4;
-        })();
+        this.ui.title = this.shadowRoot.querySelector("title");
+
         this.ui.setTitle(title);
     }
 }

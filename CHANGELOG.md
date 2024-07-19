@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.2.8 [unreleased]
+## v0.2.9 [unreleased]
+
+- Code clean up, move render call to the end
+
+## v0.2.8 2024-07-18
 
 - Code clean up: using template and css props
 - Added `ui-svg` component

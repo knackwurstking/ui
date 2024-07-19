@@ -1,6 +1,6 @@
 {
     "name": "ui",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "description": "Just an ui lib for my projects.",
     "type": "module",
     "main": "src/index.js",

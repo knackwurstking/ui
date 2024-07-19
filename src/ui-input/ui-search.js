@@ -112,7 +112,6 @@ export class UISearch extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -130,56 +129,11 @@ export class UISearch extends HTMLElement {
              */
             storagePrefix: null,
 
-            submit: (() => {
-                /** @type {UIIconButton} */
-                const submit = this.shadowRoot.querySelector("ui-icon-button");
+            /** @type {UIIconButton | null} */
+            submit: null,
 
-                submit.ui.events.on("click", () => {
-                    this.ui.events.dispatch("submit", this.ui.getValue());
-                });
-
-                return submit;
-            })(),
-
-            input: (() => {
-                /** @type {HTMLInputElement} */
-                const input = this.shadowRoot.querySelector("input");
-                input.type = "text";
-
-                input.onkeydown = async (ev) => {
-                    if (!this.ui.hasSubmit()) return;
-                    if (ev.key === "Enter") this.ui.submit.click();
-                };
-
-                input.oninput = async () => {
-                    if (this.ui.useStorage) {
-                        if (timeout !== null) {
-                            clearTimeout(timeout);
-                        }
-
-                        timeout = setTimeout(() => {
-                            localStorage.setItem(
-                                (this.ui.storagePrefix || "") +
-                                    this.ui.getKey(),
-                                input.value,
-                            );
-                            timeout = null;
-                        }, 250);
-                    }
-
-                    this.ui.events.dispatch("input", input.value);
-                };
-
-                /**
-                 * @type {NodeJS.Timeout | null}
-                 */
-                let timeout = null;
-
-                input.onchange = async () =>
-                    this.ui.events.dispatch("change", input.value);
-
-                return input;
-            })(),
+            /** @type {HTMLInputElement | null} */
+            input: null,
 
             /** @type {Events<E>} */
             events: new Events(),
@@ -285,6 +239,8 @@ export class UISearch extends HTMLElement {
                 return this.root.hasAttribute("invalid");
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {}
@@ -351,6 +307,49 @@ export class UISearch extends HTMLElement {
             <style>${this.css().trim()}</style>
             ${this.template().trim()}
         `;
+
+        /** @type {UIIconButton} */
+        this.ui.submit = this.shadowRoot.querySelector("ui-icon-button");
+        this.ui.submit.ui.events.on("click", () => {
+            this.ui.events.dispatch("submit", this.ui.getValue());
+        });
+
+        {
+            /** @type {HTMLInputElement} */
+            this.ui.input = this.shadowRoot.querySelector("input");
+            this.ui.input.type = "text";
+
+            this.ui.input.onkeydown = async (ev) => {
+                if (!this.ui.hasSubmit()) return;
+                if (ev.key === "Enter") this.ui.submit.click();
+            };
+
+            this.ui.input.oninput = async () => {
+                if (this.ui.useStorage) {
+                    if (timeout !== null) {
+                        clearTimeout(timeout);
+                    }
+
+                    timeout = setTimeout(() => {
+                        localStorage.setItem(
+                            (this.ui.storagePrefix || "") + this.ui.getKey(),
+                            this.ui.input.value,
+                        );
+                        timeout = null;
+                    }, 250);
+                }
+
+                this.ui.events.dispatch("input", this.ui.input.value);
+            };
+
+            /**
+             * @type {NodeJS.Timeout | null}
+             */
+            let timeout = null;
+
+            this.ui.input.onchange = async () =>
+                this.ui.events.dispatch("change", this.ui.input.value);
+        }
     }
 
     /**

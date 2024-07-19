@@ -110,7 +110,6 @@ export class UIInput extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -118,20 +117,8 @@ export class UIInput extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            input: (() => {
-                /** @type {HTMLInputElement} */
-                const input = this.shadowRoot.querySelector("input");
-
-                input.type = this.getAttribute("type") || "text";
-
-                input.oninput = () =>
-                    this.ui.events.dispatch("input", this.ui.getValue());
-
-                input.onchange = () =>
-                    this.ui.events.dispatch("change", this.ui.getValue());
-
-                return input;
-            })(),
+            /** @type {HTMLInputElement | null} */
+            input: null,
 
             /**
              * @type {Events<E>}
@@ -290,6 +277,8 @@ export class UIInput extends HTMLElement {
                 }
             },
         };
+
+        this.render();
     }
 
     connectedCallback() {}
@@ -357,6 +346,19 @@ export class UIInput extends HTMLElement {
             <style>${this.css().trim()}</style>
             ${this.template().trim()}
         `;
+
+        {
+            /** @type {HTMLInputElement} */
+            this.ui.input = this.shadowRoot.querySelector("input");
+
+            this.ui.input.type = this.getAttribute("type") || "text";
+
+            this.ui.input.oninput = () =>
+                this.ui.events.dispatch("input", this.ui.getValue());
+
+            this.ui.input.onchange = () =>
+                this.ui.events.dispatch("change", this.ui.getValue());
+        }
     }
 
     /**

@@ -26,11 +26,12 @@ export class UISvg extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             cleanup: new CleanUp(),
         };
+
+        this.render();
     }
 
     connectedCallback() {}

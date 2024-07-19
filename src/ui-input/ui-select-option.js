@@ -38,8 +38,6 @@ export class UISelectOption extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
-
         this.setAttribute("role", "button");
 
         this.ui = {
@@ -78,6 +76,8 @@ export class UISelectOption extends HTMLElement {
                 this.root.setAttribute("selected", "");
             },
         };
+
+        this.render();
     }
 
     render() {

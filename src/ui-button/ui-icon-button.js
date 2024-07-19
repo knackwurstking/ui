@@ -80,14 +80,7 @@ export class UIIconButton extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
-
         this.setAttribute("role", "button");
-
-        /**
-         * @private
-         */
-        this.cleanup = new CleanUp();
 
         this.ui = {
             /** @private */
@@ -160,6 +153,13 @@ export class UIIconButton extends HTMLElement {
                 this.root.setAttribute("no-ripple", "");
             },
         };
+
+        /**
+         * @private
+         */
+        this.cleanup = new CleanUp();
+
+        this.render();
     }
 
     connectedCallback() {
