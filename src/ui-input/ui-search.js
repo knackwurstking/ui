@@ -139,6 +139,8 @@ export class UISearch extends HTMLElement {
             events: new Events(),
 
             /**
+             * Used as storage key, if enabled
+             *
              *  @param {string | null} value
              */
             setKey(value) {
