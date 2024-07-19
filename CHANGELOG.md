@@ -1,7 +1,7 @@
 # Changelog
 
 
-## v0.2.10 [unreleased]
+## v0.2.10 2024-07-19
 
 ### Added
 
