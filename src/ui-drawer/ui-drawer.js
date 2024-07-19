@@ -109,9 +109,6 @@ export class UIDrawer extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            /** @type {HTMLElement} */
-            aside: null,
-
             /**
              * @type {Events<UIDrawerEvents>}
              */
@@ -142,15 +139,9 @@ export class UIDrawer extends HTMLElement {
             this.ui.setOpen(false);
         };
 
-        const onClickAside = (/** @type {MouseEvent} */ ev) => {
-            ev.stopPropagation();
-        };
-
         this.addEventListener("click", onClick);
-        this.ui.aside.addEventListener("click", onClickAside);
 
         this.cleanup.add(() => {
-            this.ui.aside.removeEventListener("click", onClickAside);
             this.removeEventListener("click", onClick);
         });
     }
@@ -169,10 +160,8 @@ export class UIDrawer extends HTMLElement {
         switch (name) {
             case "open":
                 if (newValue !== null) {
-                    this.classList.add("open");
                     this.ui.events.dispatch("open", this);
                 } else {
-                    this.classList.remove("open");
                     this.ui.events.dispatch("close", this);
                 }
                 break;
@@ -185,6 +174,12 @@ export class UIDrawer extends HTMLElement {
             ${this.shadowTemplate().trim()}
         `;
 
-        this.ui.aside = this.shadowRoot.querySelector("aside");
+        const aside = this.shadowRoot.querySelector("aside");
+        const onClickAside = (/** @type {MouseEvent} */ ev) => {
+            ev.stopPropagation();
+        };
+
+        aside.addEventListener("click", onClickAside);
+        aside.removeEventListener("click", onClickAside);
     }
 }

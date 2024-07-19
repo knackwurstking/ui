@@ -18,8 +18,6 @@ export class UIDrawer extends HTMLElement {
         /** @private */
         root: this;
         cleanup: CleanUp;
-        /** @type {HTMLElement} */
-        aside: HTMLElement;
         /**
          * @type {Events<UIDrawerEvents>}
          */
