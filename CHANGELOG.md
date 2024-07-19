@@ -1,8 +1,8 @@
 # Changelog
 
-## v0.2.9 [unreleased]
+## v0.2.9 2024-07-19
 
-- Code clean up, move render call to the end
+- Code clean up, moved render call to the constructors end
 
 ## v0.2.8 2024-07-18
 
