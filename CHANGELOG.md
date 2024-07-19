@@ -2,8 +2,13 @@
 
 ## v0.2.10 [unreleased]
 
-- Changed render methods
-- Removed aside field from the ui-drawers this.ui object
+### Added
+
+- CSS util `is-scroll`: Disable all pointer events
+
+### Changed
+
+- (Shadow-)Render methods
 
 ## v0.2.9 2024-07-19
 
