@@ -192,7 +192,7 @@ export class UIDialog extends HTMLElement {
             <div class="container">
                 <div class="header">
                     <span style="white-space: nowrap;">
-                        <h4 name="title"><h4>
+                        <h3 name="title"></h3>
                     </span>
 
                     <ui-icon-button
@@ -339,7 +339,7 @@ export class UIDialog extends HTMLElement {
         `;
 
         this.ui.dialog = this.shadowRoot.querySelector("dialog");
-        this.ui.title = this.shadowRoot.querySelector("title");
+        this.ui.title = this.shadowRoot.querySelector(`[name="title"]`);
 
         this.ui.setTitle(title);
     }
