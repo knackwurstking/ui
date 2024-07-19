@@ -1,5 +1,6 @@
 # Changelog
 
+
 ## v0.2.10 [unreleased]
 
 ### Added
@@ -10,9 +11,11 @@
 
 - (Shadow-)Render methods
 
+
 ## v0.2.9 2024-07-19
 
 - Code clean up, moved render call to the constructors end
+
 
 ## v0.2.8 2024-07-18
 
@@ -20,27 +23,33 @@
 - Added `ui-svg` component
 - Added svgs
 
+
 ## v0.2.7 2024-07-15
 
 - Add register functions for svgs and components
 - Removed margin from css resets
 - Rename ui-app-bar ui methods
 
+
 ## v0.2.6 2024-07-12
 
 - Fixed (ui-drawer) scrollbar still visible on webkit devices
+
 
 ## v0.2.5 2024-07-11
 
 - Added cleanup to ui object
 
+
 ## v0.2.4 2024-07-09
 
 - Updated `ui-spinner` positioning, absolute with 100% width and height
 
+
 ## v0.2.3 2024-07-05
 
 - Fixed `ui-input` and `ui-search` input width
+
 
 ## v0.2.2 2024-07-03
 
@@ -50,6 +59,7 @@
 - Added (ui) method: `ui-select`: `getSelectedOption`
 - Added (ui) method: `ui-select`: `getChildren`
 
+
 ## v0.2.1 2024-06-27
 
 - Updated JSDoc exports
@@ -57,9 +67,11 @@
 - Changed input border style
 - Table word-break set to `auto-phrase`
 
+
 ## v0.2.0 2024-06-23
 
 - First version using javascript web components
+
 
 ## v0.1.1 2024-03-22
 
