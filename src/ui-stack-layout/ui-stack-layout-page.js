@@ -7,7 +7,7 @@ export class UIStackLayoutPage extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         :host {
             display: block !important;
             position: absolute !important;
@@ -34,7 +34,7 @@ export class UIStackLayoutPage extends HTMLElement {
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -72,8 +72,8 @@ export class UIStackLayoutPage extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

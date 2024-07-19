@@ -31,7 +31,7 @@ export class UIButton extends HTMLElement {
 
     static observedAttributes = ["no-ripple", "color"];
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -119,7 +119,7 @@ export class UIButton extends HTMLElement {
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -246,8 +246,8 @@ export class UIButton extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 

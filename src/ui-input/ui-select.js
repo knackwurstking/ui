@@ -20,7 +20,7 @@ export class UISelect extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -109,7 +109,7 @@ export class UISelect extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <div class="options">
             <div class="icon"><ui-svg>${svgChevronDown}</ui-svg></div>
 
@@ -231,8 +231,8 @@ export class UISelect extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

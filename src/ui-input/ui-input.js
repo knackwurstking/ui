@@ -49,7 +49,7 @@ export class UIInput extends HTMLElement {
         "max",
     ];
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -100,7 +100,7 @@ export class UIInput extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <div class="container">
             <slot name="title"></slot>
             <input />
@@ -343,8 +343,8 @@ export class UIInput extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
 
         {

@@ -7,7 +7,7 @@ export class UISpinner extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         :host {
             position: absolute;
             width: 100%;
@@ -50,7 +50,7 @@ export class UISpinner extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <div class="background"></div>
         <div class="spinner"></div>
     `;
@@ -73,8 +73,8 @@ export class UISpinner extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

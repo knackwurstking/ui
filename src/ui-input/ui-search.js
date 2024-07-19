@@ -33,7 +33,7 @@ export class UISearch extends HTMLElement {
         "storage-prefix",
     ];
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -101,7 +101,7 @@ export class UISearch extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <div class="container">
             <slot name="title"></slot>
             <input type="search" />
@@ -304,8 +304,8 @@ export class UISearch extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
 
         /** @type {UIIconButton} */

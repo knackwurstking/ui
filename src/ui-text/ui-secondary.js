@@ -7,7 +7,7 @@ export class UISecondary extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         :host {
             font-size: 0.9rem;
             font-family: var(--ui-fontFamily);
@@ -15,7 +15,7 @@ export class UISecondary extends HTMLElement {
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -35,8 +35,8 @@ export class UISecondary extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

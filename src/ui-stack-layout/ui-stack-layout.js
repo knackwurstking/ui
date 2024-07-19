@@ -19,7 +19,7 @@ export class UIStackLayout extends HTMLElement {
 
     static observedAttributes = ["use-history"];
 
-    css = () => css`
+    shadowCSS = () => css`
         :host {
             display: block !important;
             position: relative !important;
@@ -28,7 +28,7 @@ export class UIStackLayout extends HTMLElement {
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -203,8 +203,8 @@ export class UIStackLayout extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

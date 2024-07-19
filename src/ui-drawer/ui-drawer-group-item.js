@@ -7,7 +7,7 @@ export class UIDrawerGroupItem extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -24,7 +24,7 @@ export class UIDrawerGroupItem extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <li>
             <slot></slot>
         </li>
@@ -48,8 +48,8 @@ export class UIDrawerGroupItem extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

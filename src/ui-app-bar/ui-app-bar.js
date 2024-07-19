@@ -14,7 +14,7 @@ export class UIAppBar extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -68,7 +68,7 @@ export class UIAppBar extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <ui-flex-grid-row gap="0.25rem">
             <ui-flex-grid-row gap="0.25rem">
                 <slot name="left"></slot>
@@ -117,8 +117,8 @@ export class UIAppBar extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

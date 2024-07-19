@@ -12,7 +12,7 @@ export class UISelectOption extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         :host {
             display: none;
             align-items: center;
@@ -33,7 +33,7 @@ export class UISelectOption extends HTMLElement {
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -82,8 +82,8 @@ export class UISelectOption extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

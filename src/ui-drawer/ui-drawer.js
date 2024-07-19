@@ -17,7 +17,7 @@ export class UIDrawer extends HTMLElement {
 
     static observedAttributes = ["open"];
 
-    css = () => {
+    shadowCSS = () => {
         return css`
             * {
                 box-sizing: border-box;
@@ -88,7 +88,7 @@ export class UIDrawer extends HTMLElement {
         `;
     };
 
-    template = () => html`
+    shadowTemplate = () => html`
         <aside>
             <slot></slot>
         </aside>
@@ -179,8 +179,8 @@ export class UIDrawer extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
         if (!this.ui) return;
         this.ui.aside = this.shadowRoot.querySelector("aside");

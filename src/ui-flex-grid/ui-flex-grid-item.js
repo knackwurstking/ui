@@ -11,13 +11,13 @@ export class UIFlexGridItem extends HTMLElement {
 
     static observedAttributes = ["flex"];
 
-    css = ({ flex = defaultFlex }) => css`
+    shadowCSS = ({ flex = defaultFlex }) => css`
         :host {
             flex: ${flex};
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -68,8 +68,8 @@ export class UIFlexGridItem extends HTMLElement {
 
     render({ flex = defaultFlex } = {}) {
         this.shadowRoot.innerHTML = `
-            <style>${this.css({ flex }).trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS({ flex }).trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

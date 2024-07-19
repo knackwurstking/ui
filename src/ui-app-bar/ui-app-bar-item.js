@@ -9,7 +9,7 @@ export class UIAppBarItem extends HTMLElement {
             customElements.define("ui-app-bar-item", UIAppBarItem);
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -22,7 +22,7 @@ export class UIAppBarItem extends HTMLElement {
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -60,8 +60,8 @@ export class UIAppBarItem extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

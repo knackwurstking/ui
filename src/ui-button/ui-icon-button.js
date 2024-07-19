@@ -18,7 +18,7 @@ export class UIIconButton extends HTMLElement {
 
     static observedAttributes = ["no-ripple", "color"];
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -75,7 +75,7 @@ export class UIIconButton extends HTMLElement {
         }
     `;
 
-    template = () => html` <ui-svg><slot></slot></ui-svg> `;
+    shadowTemplate = () => html` <ui-svg><slot></slot></ui-svg> `;
 
     constructor() {
         super();
@@ -204,8 +204,8 @@ export class UIIconButton extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 

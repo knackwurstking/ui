@@ -9,7 +9,7 @@ export class UIDrawerGroup extends HTMLElement {
 
     static observedAttributes = ["title"];
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -25,7 +25,7 @@ export class UIDrawerGroup extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <ul>
             <ui-drawer-group-item class="ui-drawer-group-title">
             </ui-drawer-group-item>
@@ -106,8 +106,8 @@ export class UIDrawerGroup extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

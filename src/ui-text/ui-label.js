@@ -23,7 +23,7 @@ export class UILabel extends HTMLElement {
 
     static observedAttributes = ["ripple", "secondary", "primary"];
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -52,7 +52,7 @@ export class UILabel extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <span class="text">
             <ui-primary></ui-primary>
             <ui-secondary></ui-secondary>
@@ -206,8 +206,8 @@ export class UILabel extends HTMLElement {
 
     render() {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

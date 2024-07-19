@@ -11,7 +11,7 @@ export class UIFlexGridRow extends HTMLElement {
 
     static observedAttributes = ["gap"];
 
-    css = ({ gap = defaultGap }) => css`
+    shadowCSS = ({ gap = defaultGap }) => css`
         :host {
             display: flex !important;
             flex-flow: row nowrap;
@@ -32,7 +32,7 @@ export class UIFlexGridRow extends HTMLElement {
         }
     `;
 
-    template = () => html`<slot></slot>`;
+    shadowTemplate = () => html`<slot></slot>`;
 
     constructor() {
         super();
@@ -83,8 +83,8 @@ export class UIFlexGridRow extends HTMLElement {
 
     render({ gap = defaultGap } = {}) {
         this.shadowRoot.innerHTML = `
-            <style>${this.css({ gap }).trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS({ gap }).trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
     }
 }

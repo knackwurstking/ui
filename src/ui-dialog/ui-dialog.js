@@ -23,7 +23,7 @@ export class UIDialog extends HTMLElement {
         }
     };
 
-    css = () => css`
+    shadowCSS = () => css`
         * {
             box-sizing: border-box;
         }
@@ -187,7 +187,7 @@ export class UIDialog extends HTMLElement {
         }
     `;
 
-    template = () => html`
+    shadowTemplate = () => html`
         <dialog>
             <div class="container">
                 <div class="header">
@@ -334,8 +334,8 @@ export class UIDialog extends HTMLElement {
      */
     render({ title }) {
         this.shadowRoot.innerHTML = `
-            <style>${this.css().trim()}</style>
-            ${this.template().trim()}
+            <style>${this.shadowCSS().trim()}</style>
+            ${this.shadowTemplate().trim()}
         `;
 
         this.ui.dialog = this.shadowRoot.querySelector("dialog");
