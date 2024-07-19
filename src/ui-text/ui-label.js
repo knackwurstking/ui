@@ -174,7 +174,7 @@ export class UILabel extends HTMLElement {
             },
         };
 
-        this.render();
+        this.shadowRender();
     }
 
     connectedCallback() {}
@@ -204,7 +204,7 @@ export class UILabel extends HTMLElement {
         }
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

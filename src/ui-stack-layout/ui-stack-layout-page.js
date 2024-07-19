@@ -62,7 +62,7 @@ export class UIStackLayoutPage extends HTMLElement {
             },
         };
 
-        this.render();
+        this.shadowRender();
     }
 
     connectedCallback() {}
@@ -70,7 +70,7 @@ export class UIStackLayoutPage extends HTMLElement {
         this.ui.cleanup.run();
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

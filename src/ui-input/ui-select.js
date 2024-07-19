@@ -177,7 +177,7 @@ export class UISelect extends HTMLElement {
          */
         this.cleanup = new CleanUp();
 
-        this.render();
+        this.shadowRender();
     }
 
     connectedCallback() {
@@ -229,7 +229,7 @@ export class UISelect extends HTMLElement {
         this.cleanup.run();
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

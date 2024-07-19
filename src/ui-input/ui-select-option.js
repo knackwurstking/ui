@@ -77,10 +77,10 @@ export class UISelectOption extends HTMLElement {
             },
         };
 
-        this.render();
+        this.shadowRender();
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

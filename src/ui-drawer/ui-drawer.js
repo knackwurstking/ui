@@ -97,7 +97,6 @@ export class UIDrawer extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         /**
          * @private
@@ -110,7 +109,8 @@ export class UIDrawer extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            aside: this.shadowRoot.querySelector("aside"),
+            /** @type {HTMLElement} */
+            aside: null,
 
             /**
              * @type {Events<UIDrawerEvents>}
@@ -132,6 +132,8 @@ export class UIDrawer extends HTMLElement {
                 }
             },
         };
+
+        this.shadowRender();
     }
 
     connectedCallback() {
@@ -177,12 +179,12 @@ export class UIDrawer extends HTMLElement {
         }
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}
         `;
-        if (!this.ui) return;
+
         this.ui.aside = this.shadowRoot.querySelector("aside");
     }
 }

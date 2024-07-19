@@ -37,7 +37,6 @@ export class UIDrawerGroup extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         // TODO: Fold and Unfold Group (optional)
         this.ui = {
@@ -78,6 +77,8 @@ export class UIDrawerGroup extends HTMLElement {
                 item.classList.remove("visible");
             },
         };
+
+        this.shadowRender();
     }
 
     connectedCallback() {}
@@ -104,7 +105,7 @@ export class UIDrawerGroup extends HTMLElement {
         }
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

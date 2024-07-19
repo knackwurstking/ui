@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.10 2024-07-19
+
+- Changed render methods
+
 ## v0.2.9 2024-07-19
 
 - Code clean up, moved render call to the constructors end

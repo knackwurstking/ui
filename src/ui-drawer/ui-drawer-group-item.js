@@ -33,11 +33,12 @@ export class UIDrawerGroupItem extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             cleanup: new CleanUp(),
         };
+
+        this.shadowRender();
     }
 
     connectedCallback() {}
@@ -46,7 +47,7 @@ export class UIDrawerGroupItem extends HTMLElement {
         this.ui.cleanup.run();
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

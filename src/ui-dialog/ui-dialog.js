@@ -224,7 +224,7 @@ export class UIDialog extends HTMLElement {
             /** @private */
             root: this,
 
-            renderProps: {
+            shadowAttr: {
                 title: "",
             },
 
@@ -265,7 +265,7 @@ export class UIDialog extends HTMLElement {
              * @param {string} value
              */
             setTitle(value) {
-                this.title.innerText = value;
+                this.title.innerText = this.shadowAttr.title = value;
             },
 
             getDialogElement() {
@@ -301,7 +301,7 @@ export class UIDialog extends HTMLElement {
          */
         this.cleanup = new CleanUp();
 
-        this.render({ ...this.ui.renderProps });
+        this.render({ ...this.ui.shadowAttr });
     }
 
     connectedCallback() {

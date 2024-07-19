@@ -1,7 +1,5 @@
 import { CleanUp, html, css } from "../js";
 
-const defaultGap = "0";
-
 export class UIFlexGridRow extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-flex-grid-row")) {
@@ -11,7 +9,13 @@ export class UIFlexGridRow extends HTMLElement {
 
     static observedAttributes = ["gap"];
 
-    shadowCSS = ({ gap = defaultGap }) => css`
+    static defaultGap = "0";
+
+    /**
+     * @param {Object} options
+     * @param {string} options.gap
+     */
+    shadowCSS = ({ gap }) => css`
         :host {
             display: flex !important;
             flex-flow: row nowrap;
@@ -37,7 +41,6 @@ export class UIFlexGridRow extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -45,22 +48,24 @@ export class UIFlexGridRow extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            attr: {
-                gap: defaultGap,
+            shadowAttr: {
+                gap: UIFlexGridRow.defaultGap,
             },
 
             getGap() {
-                return this.attr.gap;
+                return this.shadowAttr.gap;
             },
 
             /**
              * @param {string | null} value
              */
             setGap(value) {
-                this.attr.gap = value || defaultGap;
-                this.root.render({ ...this.attr });
+                this.shadowAttr.gap = value || UIFlexGridRow.defaultGap;
+                this.root.shadowRender({ ...this.shadowAttr });
             },
         };
+
+        this.shadowRender({ ...this.ui.shadowAttr });
     }
 
     connectedCallback() {}
@@ -81,7 +86,11 @@ export class UIFlexGridRow extends HTMLElement {
         }
     }
 
-    render({ gap = defaultGap } = {}) {
+    /**
+     * @param {Object} options
+     * @param {string} options.gap
+     */
+    shadowRender({ gap }) {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS({ gap }).trim()}</style>
             ${this.shadowTemplate().trim()}

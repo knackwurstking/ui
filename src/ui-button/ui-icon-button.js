@@ -159,7 +159,7 @@ export class UIIconButton extends HTMLElement {
          */
         this.cleanup = new CleanUp();
 
-        this.render();
+        this.shadowRender();
     }
 
     connectedCallback() {
@@ -202,7 +202,7 @@ export class UIIconButton extends HTMLElement {
         }
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

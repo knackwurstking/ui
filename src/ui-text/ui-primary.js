@@ -25,7 +25,7 @@ export class UIPrimary extends HTMLElement {
             cleanup: new CleanUp(),
         };
 
-        this.render();
+        this.shadowRender();
     }
 
     connectedCallback() {}
@@ -33,7 +33,7 @@ export class UIPrimary extends HTMLElement {
         this.ui.cleanup.run();
     }
 
-    render() {
+    shadowRender() {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS().trim()}</style>
             ${this.shadowTemplate().trim()}

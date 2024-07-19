@@ -1,7 +1,5 @@
 import { CleanUp, html, css } from "../js";
 
-const defaultFlex = "1";
-
 export class UIFlexGridItem extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-flex-grid-item")) {
@@ -11,7 +9,13 @@ export class UIFlexGridItem extends HTMLElement {
 
     static observedAttributes = ["flex"];
 
-    shadowCSS = ({ flex = defaultFlex }) => css`
+    static defaultFlex = "1";
+
+    /**
+     * @param {Object} options
+     * @param {string} options.flex
+     */
+    shadowCSS = ({ flex }) => css`
         :host {
             flex: ${flex};
         }
@@ -22,7 +26,6 @@ export class UIFlexGridItem extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.render();
 
         this.ui = {
             /** @private */
@@ -30,22 +33,24 @@ export class UIFlexGridItem extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            attr: {
-                flex: defaultFlex,
+            shadowAttr: {
+                flex: UIFlexGridItem.defaultFlex,
             },
 
             getFlex() {
-                return this.attr.flex;
+                return this.shadowAttr.flex;
             },
 
             /**
              * @param {string | null} value
              */
             setFlex(value) {
-                this.attr.flex = value || defaultFlex;
-                this.root.render({ ...this.attr });
+                this.shadowAttr.flex = value || UIFlexGridItem.defaultFlex;
+                this.root.shadowRender({ ...this.shadowAttr });
             },
         };
+
+        this.shadowRender({ ...this.ui.shadowAttr });
     }
 
     connectedCallback() {}
@@ -66,7 +71,11 @@ export class UIFlexGridItem extends HTMLElement {
         }
     }
 
-    render({ flex = defaultFlex } = {}) {
+    /**
+     * @param {Object} options
+     * @param {string} options.flex
+     */
+    shadowRender({ flex }) {
         this.shadowRoot.innerHTML = `
             <style>${this.shadowCSS({ flex }).trim()}</style>
             ${this.shadowTemplate().trim()}
