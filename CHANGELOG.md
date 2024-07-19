@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.10 2024-07-19
+## v0.2.10 [unreleased]
 
 - Changed render methods
 

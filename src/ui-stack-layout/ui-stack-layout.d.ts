@@ -75,7 +75,7 @@ export class UIStackLayout extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    render(): void;
+    shadowRender(): void;
 }
 export type Pages = {
     [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);

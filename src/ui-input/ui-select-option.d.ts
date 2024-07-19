@@ -21,5 +21,5 @@ export class UISelectOption extends HTMLElement {
          */
         setSelected(state: boolean): void;
     };
-    render(): void;
+    shadowRender(): void;
 }

@@ -40,7 +40,7 @@ export class UISelect extends HTMLElement {
     private cleanup;
     connectedCallback(): void;
     disconnectedCallback(): void;
-    render(): void;
+    shadowRender(): void;
 }
 /**
  * UISelectEvents

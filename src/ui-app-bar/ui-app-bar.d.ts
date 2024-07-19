@@ -18,6 +18,6 @@ export class UIAppBar extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
-    render(): void;
+    shadowRender(): void;
 }
 import { CleanUp } from "../js";

@@ -20,7 +20,7 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     ui: {
         /** @private */
         root: this;
-        renderProps: {
+        shadowAttr: {
             title: string;
         };
         cleanup: CleanUp;

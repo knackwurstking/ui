@@ -1,15 +1,20 @@
 export class UIFlexGridItem extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    static defaultFlex: string;
+    /**
+     * @param {Object} options
+     * @param {string} options.flex
+     */
     shadowCSS: ({ flex }: {
-        flex?: string;
+        flex: string;
     }) => any;
     shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;
         cleanup: CleanUp;
-        attr: {
+        shadowAttr: {
             flex: string;
         };
         getFlex(): string;
@@ -26,8 +31,12 @@ export class UIFlexGridItem extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    render({ flex }?: {
-        flex?: string;
+    /**
+     * @param {Object} options
+     * @param {string} options.flex
+     */
+    shadowRender({ flex }: {
+        flex: string;
     }): void;
 }
 import { CleanUp } from "../js";

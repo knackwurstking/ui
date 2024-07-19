@@ -7,6 +7,6 @@ export class UISecondary extends HTMLElement {
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
-    render(): void;
+    shadowRender(): void;
 }
 import { CleanUp } from "../js";

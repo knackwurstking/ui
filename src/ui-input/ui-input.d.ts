@@ -106,7 +106,7 @@ export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HT
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    render(): void;
+    shadowRender(): void;
 }
 export type UIInputEvents = {
     input: string | number;
