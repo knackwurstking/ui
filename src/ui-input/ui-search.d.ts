@@ -14,8 +14,8 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
-    css: () => any;
-    template: () => any;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;
@@ -28,11 +28,15 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
          * @type {string | null}
          */
         storagePrefix: string | null;
-        submit: UIIconButton;
-        input: HTMLInputElement;
+        /** @type {UIIconButton | null} */
+        submit: UIIconButton | null;
+        /** @type {HTMLInputElement | null} */
+        input: HTMLInputElement | null;
         /** @type {Events<E>} */
         events: Events<E>;
         /**
+         * Used as storage key, if enabled
+         *
          *  @param {string | null} value
          */
         setKey(value: string | null): void;

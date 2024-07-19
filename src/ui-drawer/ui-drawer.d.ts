@@ -8,8 +8,8 @@
 export class UIDrawer extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    css: () => any;
-    template: () => any;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     /**
      * @private
      */

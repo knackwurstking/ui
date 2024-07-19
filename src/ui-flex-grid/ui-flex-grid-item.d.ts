@@ -1,10 +1,10 @@
 export class UIFlexGridItem extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    css: ({ flex }: {
+    shadowCSS: ({ flex }: {
         flex?: string;
     }) => any;
-    template: () => any;
+    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;

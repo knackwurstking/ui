@@ -4,8 +4,8 @@
 export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     static register: () => void;
     constructor();
-    css: () => any;
-    template: () => any;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;

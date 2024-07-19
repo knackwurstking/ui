@@ -9,12 +9,8 @@
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    css: () => any;
-    template: () => any;
-    /**
-     * @private
-     */
-    private cleanup;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;
@@ -49,6 +45,10 @@ export class UIIconButton extends HTMLElement {
         enableRipple(): void;
         disableRipple(): void;
     };
+    /**
+     * @private
+     */
+    private cleanup;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**

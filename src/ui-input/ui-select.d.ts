@@ -10,12 +10,8 @@
  */
 export class UISelect extends HTMLElement {
     static register: () => void;
-    css: () => any;
-    template: () => any;
-    /**
-     * @private
-     */
-    private cleanup;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     ui: {
         /**
          * @private
@@ -38,6 +34,10 @@ export class UISelect extends HTMLElement {
          */
         getSelectedOption(): UISelectOption | null;
     };
+    /**
+     * @private
+     */
+    private cleanup;
     connectedCallback(): void;
     disconnectedCallback(): void;
     render(): void;

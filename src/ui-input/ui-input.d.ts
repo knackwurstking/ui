@@ -32,13 +32,14 @@ export class UIInput<E extends UIInputEvents, T extends UIInputTypes> extends HT
     static register: () => void;
     static observedAttributes: string[];
     constructor();
-    css: () => any;
-    template: () => any;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;
         cleanup: CleanUp;
-        input: HTMLInputElement;
+        /** @type {HTMLInputElement | null} */
+        input: HTMLInputElement | null;
         /**
          * @type {Events<E>}
          */

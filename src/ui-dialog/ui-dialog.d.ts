@@ -15,23 +15,22 @@
 export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     static register: () => void;
     constructor();
-    css: () => any;
-    template: () => any;
-    /**
-     * @private
-     */
-    private cleanup;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;
+        renderProps: {
+            title: string;
+        };
         cleanup: CleanUp;
         /** @type {Events<T>} */
         events: Events<T>;
         /**
          * @private
-         * @type {HTMLElement}
+         * @type {HTMLElement | null}
          */
-        h4: HTMLElement;
+        title: HTMLElement | null;
         /**
          * @private
          * @type {HTMLDialogElement}
@@ -55,9 +54,19 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
         open(modal?: boolean, inert?: boolean): void;
         close(): void;
     };
+    /**
+     * @private
+     */
+    private cleanup;
     connectedCallback(): void;
     disconnectedCallback(): void;
-    render(): void;
+    /**
+     * @param {Object} options
+     * @param {string} options.title
+     */
+    render({ title }: {
+        title: string;
+    }): void;
 }
 export type UIDialogEvents = {
     open: null;

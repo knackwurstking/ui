@@ -1,8 +1,8 @@
 export class UIDrawerGroup extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    css: () => any;
-    template: () => any;
+    shadowCSS: () => any;
+    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;
