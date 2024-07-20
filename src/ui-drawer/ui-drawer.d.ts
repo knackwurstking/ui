@@ -24,7 +24,6 @@ export class UIDrawer extends HTMLElement {
          */
         setOpen(state: boolean): void;
     };
-    connectedCallback(): void;
     disconnectedCallback(): void;
     /**
      * @param {string} name

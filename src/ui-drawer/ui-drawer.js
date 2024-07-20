@@ -128,7 +128,6 @@ export class UIDrawer extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
@@ -157,11 +156,13 @@ export class UIDrawer extends HTMLElement {
         `;
 
         const aside = this.shadowRoot.querySelector("aside");
-        const onClickAside = (/** @type {MouseEvent} */ ev) => {
-            ev.stopPropagation();
-        };
 
-        aside.addEventListener("click", onClickAside);
-        aside.removeEventListener("click", onClickAside);
+        this.addEventListener("click", () => {
+            this.ui.setOpen(false);
+        })
+
+        aside.addEventListener("click", (ev) => {
+            ev.stopPropagation();
+        });
     }
 }
