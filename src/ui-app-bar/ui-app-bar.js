@@ -20,7 +20,6 @@ export class UIAppBar extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRender();
 
         this.ui = {
             root: this,
@@ -55,6 +54,7 @@ export class UIAppBar extends HTMLElement {
             },
         };
 
+        this.shadowRender();
         this.render();
     }
 
