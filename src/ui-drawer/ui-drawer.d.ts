@@ -10,10 +10,6 @@ export class UIDrawer extends HTMLElement {
     static observedAttributes: string[];
     shadowCSS: () => any;
     shadowTemplate: () => any;
-    /**
-     * @private
-     */
-    private cleanup;
     ui: {
         /** @private */
         root: this;
