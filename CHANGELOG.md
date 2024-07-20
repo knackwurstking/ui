@@ -1,10 +1,10 @@
 # Changelog
 
-## v0.2.11 [unreleased]
+## v0.2.11 2024-07-20
 
-### Removed
+### Fixed
 
-- Auto close ui-drawer on click event
+- Drawer outside click to close
 
 
 ## v0.2.10 2024-07-19
