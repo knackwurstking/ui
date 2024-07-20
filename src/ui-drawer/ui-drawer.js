@@ -53,7 +53,7 @@ export class UIDrawer extends HTMLElement {
                 z-index: 150;
                 top: 0;
                 left: -100%;
-                width: 18em;
+                width: 20rem; /* TODO: Get drawer width from attr (render) */
                 max-width: 100%;
                 height: 100%;
 
