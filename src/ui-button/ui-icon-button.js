@@ -28,8 +28,8 @@ export class UIIconButton extends HTMLElement {
             align-items: center;
             justify-content: center;
             position: relative;
-            width: 2rem;
-            height: 2rem;
+            width: 2.5rem;
+            height: 2.5rem;
             padding: calc(var(--ui-spacing) / 2);
             border: 1px solid currentColor;
             border-radius: var(--ui-radius);
