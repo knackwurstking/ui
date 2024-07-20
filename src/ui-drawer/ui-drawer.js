@@ -98,11 +98,6 @@ export class UIDrawer extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
 
-        /**
-         * @private
-         */
-        this.cleanup = new CleanUp();
-
         this.ui = {
             /** @private */
             root: this,
@@ -133,22 +128,9 @@ export class UIDrawer extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {
-        const onClick = (/** @type {MouseEvent} */ ev) => {
-            ev.stopPropagation();
-            this.ui.setOpen(false);
-        };
-
-        this.addEventListener("click", onClick);
-
-        this.cleanup.add(() => {
-            this.removeEventListener("click", onClick);
-        });
-    }
-
+    connectedCallback() {}
     disconnectedCallback() {
         this.ui.cleanup.run();
-        this.cleanup.run();
     }
 
     /**
