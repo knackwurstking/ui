@@ -1,9 +1,10 @@
 # Changelog
 
-## v0.2.12 [unrelesed]
+## v0.2.12 [unreleased]
 
 ### Changed
 
+- Icon button size (2.5rem)
 - [ ] Components structure
 
 
