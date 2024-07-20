@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.12 [unrelesed]
+
+### Changed
+
+- [ ] Components structure
+
+
 ## v0.2.11 2024-07-20
 
 ### Changed

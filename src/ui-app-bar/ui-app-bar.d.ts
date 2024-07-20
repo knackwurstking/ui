@@ -6,18 +6,16 @@
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;
-    shadowCSS: () => any;
-    shadowTemplate: () => any;
-    ui: {
-        /** @private */
-        root: this;
-        cleanup: CleanUp;
-        getLeftItems(): any[];
-        getCenterItems(): any[];
-        getRightItems(): any[];
+    static defaultAttr: {
+        position: string;
     };
-    connectedCallback(): void;
-    disconnectedCallback(): void;
+    ui: {
+        root: this;
+        readonly leftSlot: any[];
+        readonly centerSlot: any[];
+        readonly rightSlot: any[];
+        position: string;
+    };
     shadowRender(): void;
+    render(): void;
 }
-import { CleanUp } from "../js";
