@@ -2,6 +2,10 @@
 
 ## v0.2.11 2024-07-20
 
+### Changed
+
+- Drawer width, now "20rem" instead of "18em"
+
 ### Fixed
 
 - Drawer outside click to close
