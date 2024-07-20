@@ -2,10 +2,24 @@
 
 ## v0.2.12 [unreleased]
 
+### NOTE
+
+New standard methods for all ui components:
+
+    - static defaultAttr = { ... }
+    - contructor
+        - this.ui = { ... }
+        - this.shadowRender()
+        - this.render()
+    - shadowRender()
+    - render()
+
 ### Changed
 
 - Icon button size (2.5rem)
 - [ ] Components structure
+    - [x] ui-app-bar
+    - [ ] ui-app-bar-item
 
 
 ## v0.2.11 2024-07-20
