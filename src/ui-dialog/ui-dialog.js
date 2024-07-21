@@ -51,7 +51,7 @@ export class UIDialog extends HTMLElement {
             set title(value) {
                 this.root.setAttribute(
                     "title",
-                    value || UIDialog.defaultAttributes.title,
+                    value || "",
                 );
             },
 
@@ -60,10 +60,6 @@ export class UIDialog extends HTMLElement {
             },
 
             set fullscreen(state) {
-                if (!state) {
-                    state = UIDialog.defaultAttributes.fullscreen !== null;
-                }
-
                 if (!state) {
                     this.root.removeAttribute("fullscreen");
                     return;
@@ -102,6 +98,15 @@ export class UIDialog extends HTMLElement {
 
         this.shadowRender();
         this.render();
+    }
+
+    connectedCallback() {
+        for (const [k, v] of Object.entries(UIDialog.defaultAttributes)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v);
+            }
+        }
+
     }
 
     shadowRender() {
@@ -299,12 +304,6 @@ export class UIDialog extends HTMLElement {
                 </div>
             </dialog>
         `;
-
-        for (const [k, v] of Object.entries(UIDialog.defaultAttributes)) {
-            if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v);
-            }
-        }
 
         // Close button
         const button = this.shadowRoot.querySelector(".header ui-icon-button");

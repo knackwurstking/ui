@@ -16,7 +16,7 @@ export class UIIconButton extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["no-ripple"];
+    static observedAttributes = ["ripple"];
 
     static defaultAttributes = {
         /** @type {string | null} */
@@ -26,7 +26,7 @@ export class UIIconButton extends HTMLElement {
         /** @type {string | null} */
         ghost: null,
         /** @type {string | null} */
-        noRipple: null,
+        ripple: "",
     }
 
     constructor() {
@@ -44,21 +44,17 @@ export class UIIconButton extends HTMLElement {
              */
             events: new Events(),
 
-            get noRipple() {
-                return this.root.hasAttribute("no-ripple");
+            get ripple() {
+                return this.root.hasAttribute("ripple");
             },
 
-            set noRipple(state) {
+            set ripple(state) {
                 if (!state) {
-                    state = UIIconButton.defaultAttributes.noRipple !== null;
-                }
-
-                if (!state) {
-                    this.root.removeAttribute("no-ripple");
+                    this.root.removeAttribute("ripple");
                     return;
                 }
 
-                this.root.setAttribute("no-ripple", "");
+                this.root.setAttribute("ripple", "");
             },
 
             get color() {
@@ -66,10 +62,6 @@ export class UIIconButton extends HTMLElement {
             },
 
             set color(value) {
-                if (!value) {
-                    value = UIIconButton.defaultAttributes.color;
-                }
-
                 if (!value) {
                     this.root.removeAttribute("color");
                     return;
@@ -84,10 +76,6 @@ export class UIIconButton extends HTMLElement {
 
             set ghost(state) {
                 if (!state) {
-                    state = UIIconButton.defaultAttributes.ghost !== null;
-                }
-
-                if (!state) {
                     this.root.removeAttribute("ghost");
                     return;
                 }
@@ -101,10 +89,6 @@ export class UIIconButton extends HTMLElement {
 
             set disabled(state) {
                 if (!state) {
-                    state = UIIconButton.defaultAttributes.disabled !== null;
-                }
-
-                if (!state) {
                     this.root.removeAttribute("disabled");
                     return;
                 }
@@ -115,6 +99,14 @@ export class UIIconButton extends HTMLElement {
 
         this.shadowRender();
         this.render();
+    }
+
+    connectedCallback() {
+        for (const [k, v] of Object.entries(UIIconButton.defaultAttributes)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v);
+            }
+        }
     }
 
     shadowRender() {
@@ -180,12 +172,6 @@ export class UIIconButton extends HTMLElement {
                 <slot></slot>
             </ui-svg>
         `;
-
-        for (const [k, v] of Object.entries(UIIconButton.defaultAttributes)) {
-            if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v);
-            }
-        }
     }
 
     render() {
@@ -209,17 +195,17 @@ export class UIIconButton extends HTMLElement {
      */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
-            case "no-ripple":
+            case "ripple":
                 if (newValue !== null) {
-                    if (typeof this.removeRippleCallback === "function") {
-                        this.removeRippleCallback();
-                        this.removeRippleCallback = null;
-                    }
-                } else {
-                    if (typeof this.removeRippleCallback === "function") {
+                    if (typeof this.removeRippleCallback !== "function") {
                         this.removeRippleCallback = createRipple(
                             this, { centered: true },
                         );
+                    }
+                } else {
+                    if (typeof this.removeRippleCallback === "function") {
+                        this.removeRippleCallback();
+                        this.removeRippleCallback = null;
                     }
                 }
 

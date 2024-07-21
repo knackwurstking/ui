@@ -17,7 +17,7 @@ export class UIIconButton extends HTMLElement {
         /** @type {string | null} */
         ghost: string | null;
         /** @type {string | null} */
-        noRipple: string | null;
+        ripple: string | null;
     };
     renderCleanUp: CleanUp;
     removeRippleCallback: () => void;
@@ -27,11 +27,12 @@ export class UIIconButton extends HTMLElement {
          * @type {Events<UIIconButtonEvents>}
          */
         events: Events<UIIconButtonEvents>;
-        noRipple: boolean;
+        ripple: boolean;
         color: string;
         ghost: boolean;
         disabled: boolean;
     };
+    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
     /**

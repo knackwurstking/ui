@@ -27,7 +27,7 @@ export class UIButton extends HTMLElement {
         /** @type {string | null} */
         disabled: string | null;
         /** @type {string | null} */
-        noRipple: string | null;
+        ripple: string | null;
         /** @type {string | null} */
         variant: string | null;
     };
@@ -39,11 +39,12 @@ export class UIButton extends HTMLElement {
          * @type {Events<UIButtonEvents>}
          */
         events: Events<UIButtonEvents>;
-        noRipple: boolean;
+        ripple: boolean;
         color: string;
         variant: string;
         disabled: boolean;
     };
+    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
     /**

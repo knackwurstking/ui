@@ -1,5 +1,6 @@
 import { CleanUp, html, css } from "../js";
 
+// TODO: Continue here...
 export class UIDrawerGroupItem extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-drawer-group-item")) {
@@ -41,7 +42,7 @@ export class UIDrawerGroupItem extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
 
     disconnectedCallback() {
         this.ui.cleanup.run();

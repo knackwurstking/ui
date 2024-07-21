@@ -29,7 +29,7 @@ export class UIButton extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["no-ripple"];
+    static observedAttributes = ["ripple"];
 
     static defaultAttributes = {
         /** @type {string | null} */
@@ -37,7 +37,7 @@ export class UIButton extends HTMLElement {
         /** @type {string | null} */
         disabled: null,
         /** @type {string | null} */
-        noRipple: null,
+        ripple: "",
         /** @type {string | null} */
         variant: null,
     }
@@ -57,21 +57,17 @@ export class UIButton extends HTMLElement {
              */
             events: new Events(),
 
-            get noRipple() {
-                return this.root.hasAttribute("no-ripple");
+            get ripple() {
+                return this.root.hasAttribute("ripple");
             },
 
-            set noRipple(state) {
+            set ripple(state) {
                 if (!state) {
-                    state = UIButton.defaultAttributes.noRipple !== null;
-                }
-
-                if (!state) {
-                    this.root.removeAttribute("no-ripple");
+                    this.root.removeAttribute("ripple");
                     return;
                 }
 
-                this.root.setAttribute("no-ripple", "");
+                this.root.setAttribute("ripple", "");
             },
 
             get color() {
@@ -79,10 +75,6 @@ export class UIButton extends HTMLElement {
             },
 
             set color(value) {
-                if (!value) {
-                    value = UIButton.defaultAttributes.color;
-                }
-
                 if (!value) {
                     this.root.removeAttribute("color");
                     return;
@@ -97,10 +89,6 @@ export class UIButton extends HTMLElement {
 
             set variant(value) {
                 if (!value) {
-                    value = UIButton.defaultAttributes.variant;
-                }
-
-                if (!value) {
                     this.root.removeAttribute("variant");
                     return;
                 }
@@ -114,10 +102,6 @@ export class UIButton extends HTMLElement {
 
             set disabled(state) {
                 if (!state) {
-                    state = UIButton.defaultAttributes.disabled !== null;
-                }
-
-                if (!state) {
                     this.root.removeAttribute("disabled");
                     return;
                 }
@@ -128,6 +112,14 @@ export class UIButton extends HTMLElement {
 
         this.shadowRender();
         this.render();
+    }
+
+    connectedCallback() {
+        for (const [k, v] of Object.entries(UIButton.defaultAttributes)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v);
+            }
+        }
     }
 
     shadowRender() {
@@ -222,12 +214,6 @@ export class UIButton extends HTMLElement {
 
             <slot></slot>
         `;
-
-        for (const [k, v] of Object.entries(UIButton.defaultAttributes)) {
-            if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v);
-            }
-        }
     }
 
     render() {
@@ -251,17 +237,17 @@ export class UIButton extends HTMLElement {
      */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
-            case "no-ripple":
+            case "ripple":
                 if (newValue !== null) {
-                    if (typeof this.removeRippleCallback === "function") {
-                        this.removeRippleCallback();
-                        this.removeRippleCallback = null;
-                    }
-                } else {
-                    if (typeof this.removeRippleCallback === "function") {
+                    if (typeof this.removeRippleCallback !== "function") {
                         this.removeRippleCallback = createRipple(
                             this, { centered: true },
                         );
+                    }
+                } else {
+                    if (typeof this.removeRippleCallback === "function") {
+                        this.removeRippleCallback();
+                        this.removeRippleCallback = null;
                     }
                 }
 

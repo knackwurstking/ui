@@ -36,6 +36,7 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
         open(modal?: boolean, inert?: boolean): void;
         close(): void;
     };
+    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
     /**

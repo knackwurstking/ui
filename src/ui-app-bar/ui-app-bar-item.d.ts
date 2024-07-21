@@ -17,6 +17,7 @@ export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
         show(value?: string | null): void;
         hide(): void;
     };
+    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
 }

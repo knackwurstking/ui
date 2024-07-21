@@ -17,6 +17,7 @@ export class UIAppBar extends HTMLElement {
         readonly rightSlot: any[];
         position: string;
     };
+    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
 }
