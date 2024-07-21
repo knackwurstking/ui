@@ -6,8 +6,9 @@
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;
-    static defaultAttr: {
-        position: string;
+    static defaultAttributes: {
+        /** @type {string | null} */
+        position: string | null;
     };
     ui: {
         root: this;

@@ -3,10 +3,9 @@
  */
 export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     static register: () => void;
-    static defaultAttr: {};
+    static defaultAttributes: {};
     constructor();
     ui: {
-        /** @private */
         root: this;
         /**
          * @returns {T}
