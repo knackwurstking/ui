@@ -13,7 +13,8 @@ export class UIAppBar extends HTMLElement {
         }
     };
 
-    static defaultAttr = {
+    static defaultAttributes = {
+        /** @type {string | null} */
         position: "top",
     };
 
@@ -37,15 +38,15 @@ export class UIAppBar extends HTMLElement {
             },
 
             get position() {
-                return this.root.getAttribute("position") || UIAppBar.defaultAttr.position;
+                return this.root.getAttribute("position");
             },
 
             set position(value) {
-                if (value === null) {
-                    value = UIAppBar.defaultAttr.position;
+                if (!value) {
+                    value = UIAppBar.defaultAttributes.position;
                 }
 
-                if (value === null) {
+                if (!value) {
                     this.root.removeAttribute("position");
                     return;
                 }
@@ -82,6 +83,8 @@ export class UIAppBar extends HTMLElement {
                     right: 0;
                     height: var(--ui-app-bar-height);
                     border-bottom: 1px solid var(--ui-borderColor);
+                    padding-left: var(--ui-spacing);
+                    padding-right: var(--ui-spacing);
                 }
 
                 :host > ui-flex-grid-row {
@@ -129,7 +132,7 @@ export class UIAppBar extends HTMLElement {
             </ui-flex-grid-row>
         `;
 
-        for (const [k, v] of Object.entries(UIAppBar.defaultAttr)) {
+        for (const [k, v] of Object.entries(UIAppBar.defaultAttributes)) {
             if (!this.hasAttribute(k) && v !== null) {
                 this.setAttribute(k, v)
             }

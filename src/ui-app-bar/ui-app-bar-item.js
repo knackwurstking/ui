@@ -9,14 +9,13 @@ export class UIAppBarItem extends HTMLElement {
             customElements.define("ui-app-bar-item", UIAppBarItem);
     };
 
-    static defaultAttr = {};
+    static defaultAttributes = {};
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
         this.ui = {
-            /** @private */
             root: this,
 
             /**
@@ -60,7 +59,7 @@ export class UIAppBarItem extends HTMLElement {
             <slot></slot>
         `;
 
-        for (const [k, v] of Object.entries(UIAppBarItem.defaultAttr)) {
+        for (const [k, v] of Object.entries(UIAppBarItem.defaultAttributes)) {
             if (!this.hasAttribute(k) && v !== null) {
                 this.setAttribute(k, v)
             }
