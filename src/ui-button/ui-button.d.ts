@@ -1,7 +1,6 @@
 /**
  * @typedef UIButtonColor
  * @type {(
- *  | "string"
  *  | "primary"
  *  | "secondary"
  *  | "destructive"
@@ -24,13 +23,13 @@ export class UIButton extends HTMLElement {
     static observedAttributes: string[];
     static defaultAttributes: {
         /** @type {string | null} */
-        noRipple: string | null;
-        /** @type {string | null} */
         color: string | null;
         /** @type {string | null} */
-        variant: string | null;
-        /** @type {string | null} */
         disabled: string | null;
+        /** @type {string | null} */
+        noRipple: string | null;
+        /** @type {string | null} */
+        variant: string | null;
     };
     removeRippleCallback: () => void;
     ui: {
@@ -53,7 +52,7 @@ export class UIButton extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIButtonColor = ("string" | "primary" | "secondary" | "destructive");
+export type UIButtonColor = ("primary" | "secondary" | "destructive");
 export type UIButtonVariant = ("full" | "outline" | "ghost");
 export type UIButtonEvents = {
     click: UIButton;
