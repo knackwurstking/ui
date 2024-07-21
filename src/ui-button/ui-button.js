@@ -1,4 +1,4 @@
-import { CleanUp, Events, createRipple, html, css } from "../js";
+import { Events, createRipple, html } from "../js";
 
 /**
  * @typedef UIButtonColor
@@ -29,192 +29,216 @@ export class UIButton extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["no-ripple", "color"];
+    static observedAttributes = ["no-ripple"];
 
-    shadowCSS = () => css`
-        * {
-            box-sizing: border-box;
-        }
-
-        :host {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            position: relative !important;
-            padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
-            border: 1px solid currentColor;
-            border-radius: var(--ui-radius);
-            overflow: hidden;
-            text-transform: capitalize;
-            cursor: pointer;
-            outline: none;
-            user-select: none;
-            font-size: 1.1rem;
-            font-weight: 450;
-            font-family: var(--ui-fontFamily);
-            font-variation-settings: var(--ui-button-fontVariation);
-        }
-
-        :host([variant="full"]) {
-            border: none;
-        }
-
-        :host([variant="full"][color="primary"]) {
-            background-color: var(--ui-primary-bgColor);
-            color: var(--ui-primary-color);
-        }
-
-        :host([variant="full"][color="secondary"]) {
-            background-color: var(--ui-secondary-bgColor);
-            color: var(--ui-secondary-color);
-        }
-
-        :host([variant="full"][color="destructive"]) {
-            background-color: var(--ui-destructive-bgColor);
-            color: var(--ui-destructive-color);
-        }
-
-        :host([variant="outline"]) {
-            border-color: currentColor;
-            background-color: transparent;
-        }
-
-        :host([variant="outline"][color="primary"]) {
-            color: var(--ui-primary-bgColor);
-        }
-
-        :host([variant="outline"][color="secondary"]) {
-            color: var(--ui-secondary-bgColor);
-        }
-
-        :host([variant="outline"][color="destructive"]) {
-            color: var(--ui-destructive-bgColor);
-        }
-
-        :host([variant="ghost"]) {
-            border-color: transparent;
-            background-color: transparent;
-            font-weight: 900;
-        }
-
-        :host([variant="ghost"][color="primary"]) {
-            color: var(--ui-primary-bgColor);
-        }
-
-        :host([variant="ghost"][color="secondary"]) {
-            color: var(--ui-secondary-bgColor);
-        }
-
-        :host([variant="ghost"][color="destructive"]) {
-            color: var(--ui-destructive-bgColor);
-        }
-
-        :host([disabled]),
-        :host([disabled]:hover),
-        :host([disabled]:active) {
-            background-color: transparent;
-            opacity: 0.25;
-            cursor: default;
-            pointer-events: none;
-        }
-    `;
-
-    shadowTemplate = () => html`<slot></slot>`;
+    static defaultAttributes = {
+        /** @type {string | null} */
+        noRipple: "",
+        /** @type {string | null} */
+        color: null,
+        /** @type {string | null} */
+        variant: null,
+        /** @type {string | null} */
+        disabled: null,
+    }
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.setAttribute("role", "button");
+
+        this.removeRippleCallback = null;
 
         this.ui = {
-            /** @private */
             root: this,
-
-            cleanup: new CleanUp(),
 
             /**
              * @type {Events<UIButtonEvents>}
              */
             events: new Events(),
 
-            /**
-             * @private
-             * @type {(() => void) | null}
-             */
-            removeRipple: null,
+            get noRipple() {
+                return this.root.hasAttribute("no-ripple");
+            },
 
-            /**
-             * @returns {UIButtonColor}
-             */
-            getColor() {
-                // @ts-expect-error
+            set noRipple(state) {
+                if (!state) {
+                    state = !!UIButton.defaultAttributes.noRipple;
+                }
+
+                if (!state) {
+                    this.root.removeAttribute("no-ripple");
+                    return;
+                }
+
+                this.root.setAttribute("no-ripple", "");
+            },
+
+            get color() {
                 return this.root.getAttribute("color");
             },
 
-            /**
-             * @param {UIButtonColor} value
-             */
-            setColor(value) {
+            set color(value) {
+                if (!value) {
+                    value = UIButton.defaultAttributes.color;
+                }
+
+                if (!value) {
+                    this.root.removeAttribute("color");
+                    return;
+                }
+
                 this.root.setAttribute("color", value);
             },
 
-            /**
-             * @returns {UIButtonVariant}
-             */
-            getVariant() {
-                // @ts-expect-error
+            get variant() {
                 return this.root.getAttribute("variant");
             },
 
-            /**
-             * @param {UIButtonVariant} value
-             */
-            setVariant(value) {
+            set variant(value) {
+                if (!value) {
+                    value = UIButton.defaultAttributes.variant;
+                }
+
+                if (!value) {
+                    this.root.removeAttribute("variant");
+                    return;
+                }
+
                 this.root.setAttribute("variant", value);
             },
 
-            disable() {
-                this.root.setAttribute("disabled", "");
+            get disabled() {
+                return this.root.hasAttribute("disabled");
             },
 
-            enable() {
-                this.root.removeAttribute("disabled");
-            },
+            set disabled(state) {
+                if (!state) {
+                    state = !!UIButton.defaultAttributes.disabled;
+                }
 
-            enableRipple() {
-                if (!!this.removeRipple) return;
-                this.removeRipple = createRipple(this.root, { centered: true });
-                this.root.removeAttribute("no-ripple");
-            },
+                if (!state) {
+                    this.root.removeAttribute("disabled");
+                    return;
+                }
 
-            disableRipple() {
-                if (!this.removeRipple) return;
-
-                this.removeRipple();
-                this.removeRipple = null;
-                this.root.setAttribute("no-ripple", "");
+                this.root.setAttribute("disabled", "")
             },
         };
 
-        /**
-         * @private
-         */
-        this.cleanup = new CleanUp();
-
         this.shadowRender();
+        this.render();
     }
 
-    connectedCallback() {
-        if (!this.hasAttribute("no-ripple") && !this.ui.removeRipple) {
-            this.ui.enableRipple();
+    shadowRender() {
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: flex !important;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative !important;
+                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
+                    border: 1px solid currentColor;
+                    border-radius: var(--ui-radius);
+                    overflow: hidden;
+                    text-transform: capitalize;
+                    cursor: pointer;
+                    outline: none;
+                    user-select: none;
+                    font-size: 1.1rem;
+                    font-weight: 450;
+                    font-family: var(--ui-fontFamily);
+                    font-variation-settings: var(--ui-button-fontVariation);
+                }
+
+                :host([variant="full"]) {
+                    border: none;
+                }
+
+                :host([variant="full"][color="primary"]) {
+                    background-color: var(--ui-primary-bgColor);
+                    color: var(--ui-primary-color);
+                }
+
+                :host([variant="full"][color="secondary"]) {
+                    background-color: var(--ui-secondary-bgColor);
+                    color: var(--ui-secondary-color);
+                }
+
+                :host([variant="full"][color="destructive"]) {
+                    background-color: var(--ui-destructive-bgColor);
+                    color: var(--ui-destructive-color);
+                }
+
+                :host([variant="outline"]) {
+                    border-color: currentColor;
+                    background-color: transparent;
+                }
+
+                :host([variant="outline"][color="primary"]) {
+                    color: var(--ui-primary-bgColor);
+                }
+
+                :host([variant="outline"][color="secondary"]) {
+                    color: var(--ui-secondary-bgColor);
+                }
+
+                :host([variant="outline"][color="destructive"]) {
+                    color: var(--ui-destructive-bgColor);
+                }
+
+                :host([variant="ghost"]) {
+                    border-color: transparent;
+                    background-color: transparent;
+                    font-weight: 900;
+                }
+
+                :host([variant="ghost"][color="primary"]) {
+                    color: var(--ui-primary-bgColor);
+                }
+
+                :host([variant="ghost"][color="secondary"]) {
+                    color: var(--ui-secondary-bgColor);
+                }
+
+                :host([variant="ghost"][color="destructive"]) {
+                    color: var(--ui-destructive-bgColor);
+                }
+
+                :host([disabled]),
+                :host([disabled]:hover),
+                :host([disabled]:active) {
+                    background-color: transparent;
+                    opacity: 0.25;
+                    cursor: default;
+                    pointer-events: none;
+                }
+            </style>
+
+            <slot></slot>
+        `;
+
+        for (const [k, v] of Object.entries(UIButton.defaultAttributes)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v)
+            }
         }
-
-        this.bindClickEvent();
     }
 
-    disconnectedCallback() {
-        this.ui.cleanup.run();
-        this.cleanup.run();
+    render() {
+        this.setAttribute("role", "button");
+
+        this.addEventListener("click", async () => {
+            this.ui.events.dispatch("click", this);
+        });
+
+        if (!this.ui.noRipple) {
+            this.attributeChangedCallback("no-ripple", null, null)
+        }
     }
 
     /**
@@ -225,42 +249,19 @@ export class UIButton extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "no-ripple":
-                if (newValue !== null) this.ui.disableRipple();
-                else this.ui.enableRipple();
-                break;
-            case "color":
                 if (newValue !== null) {
-                    if (
-                        ["primary", "secondary", "destructive"].includes(
-                            newValue,
-                        )
-                    ) {
-                        this.style.color = null;
-                    } else {
-                        this.style.color = newValue;
+                    if (typeof this.removeRippleCallback === "function") {
+                        this.removeRippleCallback();
+                        this.removeRippleCallback = null;
+                    }
+                } else {
+                    if (typeof this.removeRippleCallback === "function") {
+                        this.removeRippleCallback = createRipple(
+                            this, { centered: true },
+                        );
                     }
                 }
                 break;
         }
-    }
-
-    shadowRender() {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
-        `;
-    }
-
-    /**
-     * @private
-     */
-    bindClickEvent() {
-        const onClick = async () => {
-            this.ui.events.dispatch("click", this);
-        };
-        this.addEventListener("click", onClick);
-        this.cleanup.add(() => {
-            this.removeEventListener("click", onClick);
-        });
     }
 }
