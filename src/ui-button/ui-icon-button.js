@@ -50,7 +50,7 @@ export class UIIconButton extends HTMLElement {
 
             set noRipple(state) {
                 if (!state) {
-                    state = !!UIIconButton.defaultAttributes.noRipple;
+                    state = UIIconButton.defaultAttributes.noRipple !== null;
                 }
 
                 if (!state) {
@@ -84,7 +84,7 @@ export class UIIconButton extends HTMLElement {
 
             set ghost(state) {
                 if (!state) {
-                    state = !!UIIconButton.defaultAttributes.ghost;
+                    state = UIIconButton.defaultAttributes.ghost !== null;
                 }
 
                 if (!state) {
@@ -101,7 +101,7 @@ export class UIIconButton extends HTMLElement {
 
             set disabled(state) {
                 if (!state) {
-                    state = !!UIIconButton.defaultAttributes.disabled;
+                    state = UIIconButton.defaultAttributes.disabled !== null;
                 }
 
                 if (!state) {
@@ -189,9 +189,8 @@ export class UIIconButton extends HTMLElement {
     }
 
     render() {
-        this.setAttribute("role", "button");
-
         this.renderCleanUp.run();
+        this.setAttribute("role", "button");
 
         const handler = async () =>
             this.ui.events.dispatch("click", this);

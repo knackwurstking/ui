@@ -63,7 +63,7 @@ export class UIButton extends HTMLElement {
 
             set noRipple(state) {
                 if (!state) {
-                    state = !!UIButton.defaultAttributes.noRipple;
+                    state = UIButton.defaultAttributes.noRipple !== null;
                 }
 
                 if (!state) {
@@ -114,7 +114,7 @@ export class UIButton extends HTMLElement {
 
             set disabled(state) {
                 if (!state) {
-                    state = !!UIButton.defaultAttributes.disabled;
+                    state = UIButton.defaultAttributes.disabled !== null;
                 }
 
                 if (!state) {
@@ -231,9 +231,8 @@ export class UIButton extends HTMLElement {
     }
 
     render() {
-        this.setAttribute("role", "button");
-
         this.renderCleanUp.run();
+        this.setAttribute("role", "button");
 
         const handler = async () =>
             this.ui.events.dispatch("click", this);
