@@ -33,13 +33,13 @@ export class UIButton extends HTMLElement {
 
     static defaultAttributes = {
         /** @type {string | null} */
-        noRipple: "",
-        /** @type {string | null} */
         color: null,
         /** @type {string | null} */
-        variant: null,
-        /** @type {string | null} */
         disabled: null,
+        /** @type {string | null} */
+        noRipple: null,
+        /** @type {string | null} */
+        variant: null,
     }
 
     constructor() {
@@ -224,7 +224,7 @@ export class UIButton extends HTMLElement {
 
         for (const [k, v] of Object.entries(UIButton.defaultAttributes)) {
             if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v)
+                this.setAttribute(k, v);
             }
         }
     }
@@ -235,10 +235,6 @@ export class UIButton extends HTMLElement {
         this.addEventListener("click", async () => {
             this.ui.events.dispatch("click", this);
         });
-
-        if (!this.ui.noRipple) {
-            this.attributeChangedCallback("no-ripple", null, null)
-        }
     }
 
     /**
@@ -261,6 +257,7 @@ export class UIButton extends HTMLElement {
                         );
                     }
                 }
+
                 break;
         }
     }
