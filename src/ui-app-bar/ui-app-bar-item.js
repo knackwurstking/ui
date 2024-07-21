@@ -1,4 +1,4 @@
-import { CleanUp, html, css } from "../js";
+import { html } from "../js";
 
 /**
  * @template {HTMLElement} T
@@ -9,20 +9,7 @@ export class UIAppBarItem extends HTMLElement {
             customElements.define("ui-app-bar-item", UIAppBarItem);
     };
 
-    shadowCSS = () => css`
-        * {
-            box-sizing: border-box;
-        }
-
-        :host {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-        }
-    `;
-
-    shadowTemplate = () => html`<slot></slot>`;
+    static defaultAttr = {};
 
     constructor() {
         super();
@@ -32,36 +19,53 @@ export class UIAppBarItem extends HTMLElement {
             /** @private */
             root: this,
 
-            cleanup: new CleanUp(),
-
-            enable() {
-                this.root.style.display = "flex";
-            },
-
-            disable() {
-                this.root.style.display = "none";
-            },
-
             /**
              * @returns {T}
              */
-            getChild() {
+            get child() {
                 return this.root.querySelector("*");
+            },
+
+            /**
+             * @param {string | null} [value]
+             */
+            show(value = null) {
+                this.root.style.display = value;
+            },
+
+            hide() {
+                this.root.style.display = "none";
             },
         };
 
         this.shadowRender();
-    }
-
-    connectedCallback() {}
-    disconnectedCallback() {
-        this.ui.cleanup.run();
+        this.render();
     }
 
     shadowRender() {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex: 1;
+                }
+            </style>
+
+            <slot></slot>
         `;
+
+        for (const [k, v] of Object.entries(UIAppBarItem.defaultAttr)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v)
+            }
+        }
     }
+
+    render() { }
 }
