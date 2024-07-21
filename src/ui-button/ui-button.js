@@ -1,9 +1,9 @@
 import { Events, createRipple, html } from "../js";
 
+// NOTE: UIButtonColor and *Variant types not used anymore
 /**
  * @typedef UIButtonColor
  * @type {(
- *  | "string"
  *  | "primary"
  *  | "secondary"
  *  | "destructive"
