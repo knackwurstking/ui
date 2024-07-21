@@ -1,4 +1,4 @@
-import { Events, createRipple, html } from "../js";
+import { CleanUp, Events, createRipple, html } from "../js";
 
 /**
  * @typedef {import(".").UIIconButtonColor} UIIconButtonColor
@@ -33,6 +33,7 @@ export class UIIconButton extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
 
+        this.renderCleanUp = new CleanUp();
         this.removeRippleCallback = null;
 
         this.ui = {
@@ -190,9 +191,16 @@ export class UIIconButton extends HTMLElement {
     render() {
         this.setAttribute("role", "button");
 
-        this.addEventListener("click", async () => {
+        this.renderCleanUp.run();
+
+        const handler = async () =>
             this.ui.events.dispatch("click", this);
-        });
+
+        this.renderCleanUp.add(
+            () => this.removeEventListener("click", handler),
+        );
+
+        this.addEventListener("click", handler);
     }
 
     /**

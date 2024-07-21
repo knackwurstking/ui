@@ -20,7 +20,7 @@ New standard methods for all ui components:
 - [ ] Components structure
     - [x] ui-app-bar
     - [x] ui-app-bar-item
-    - [x] ui-button
+    - [x] ui-button [*dev3*]
     - [x] ui-icon-button [*dev3*]
 
 
