@@ -22,6 +22,29 @@ New standard methods for all ui components:
     - [x] ui-app-bar-item
     - [x] ui-button [*dev3*]
     - [x] ui-icon-button [*dev3*]
+    - [x] ui-container [*dev3*]
+    - [x] ui-dialog [*dev3*]
+    - [ ] ui-drawer-group-item
+    - [ ] ui-drawer-group
+    - [ ] ui-drawer
+    - [ ] ui-flex-grid-item
+    - [ ] ui-flex-grid-row
+    - [ ] ui-flex-grid
+    - [ ] ui-input
+    - [ ] ui-search
+    - [ ] ui-select-option
+    - [ ] ui-select
+    - [ ] ui-lang-type
+    - [ ] ui-lang
+    - [ ] ui-spinner
+    - [ ] ui-stack-layout-page
+    - [ ] ui-stack-layout
+    - [ ] ui-store
+    - [ ] ui-svg
+    - [ ] ui-label
+    - [ ] ui-primary
+    - [ ] ui-secondary
+    - [ ] ui-theme-handler
 
 
 ## v0.2.11 2024-07-20
