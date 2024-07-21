@@ -37,6 +37,12 @@ export class UIContainer extends HTMLElement {
 
             <slot></slot>
         `;
+
+        for (const [k, v] of Object.entries(UIContainer.defaultAttributes)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v);
+            }
+        }
     }
 
     render() { }
