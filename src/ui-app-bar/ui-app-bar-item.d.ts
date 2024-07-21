@@ -3,22 +3,21 @@
  */
 export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     static register: () => void;
+    static defaultAttr: {};
     constructor();
-    shadowCSS: () => any;
-    shadowTemplate: () => any;
     ui: {
         /** @private */
         root: this;
-        cleanup: CleanUp;
-        enable(): void;
-        disable(): void;
         /**
          * @returns {T}
          */
-        getChild(): T;
+        readonly child: T;
+        /**
+         * @param {string | null} [value]
+         */
+        show(value?: string | null): void;
+        hide(): void;
     };
-    connectedCallback(): void;
-    disconnectedCallback(): void;
     shadowRender(): void;
+    render(): void;
 }
-import { CleanUp } from "../js";
