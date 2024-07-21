@@ -1,4 +1,4 @@
-import { CleanUp, Events, html, css } from "../js";
+import { CleanUp, Events, html } from "../js";
 import svgClose from "../svg/smoothie-line-icons/close";
 
 /**
@@ -23,253 +23,53 @@ export class UIDialog extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
-        * {
-            box-sizing: border-box;
-        }
+    static observedAttributes = ["title"]
 
-        :host dialog * {
-            box-sizing: border-box;
-        }
-
-        dialog {
-            position: fixed !important;
-
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            max-width: 100%;
-            max-height: 100%;
-
-            margin: 0;
-            padding: 0;
-
-            border: none;
-            outline: none;
-
-            background-color: transparent;
-
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-
-            z-index: 999;
-        }
-
-        dialog::-webkit-scrollbar {
-            display: none;
-        }
-
-        dialog::backdrop {
-            background-color: var(--ui-backdrop-bgColor);
-            backdrop-filter: var(--ui-backdropFilter);
-        }
-
-        dialog > .container {
-            background-color: var(--ui-bgColor);
-            color: var(--ui-color);
-
-            border: 1px solid var(--ui-borderColor);
-            border-radius: var(--ui-radius);
-
-            padding: var(--ui-spacing);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            position: relative;
-        }
-
-        :host([fullscreen]) dialog {
-            width: 100%;
-            height: 100%;
-        }
-
-        :host([fullscreen]) dialog > .container {
-            width: calc(100% - var(--ui-spacing) * 2);
-            height: calc(
-                100% -
-                    (
-                        env(safe-area-inset-top, 0) +
-                            env(safe-area-inset-bottom, 0) +
-                            (var(--ui-spacing) * 2)
-                    )
-            );
-
-            margin: var(--ui-spacing);
-            margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing));
-            margin-bottom: calc(
-                env(safe-area-inset-bottom, 0) + var(--ui-spacing)
-            );
-        }
-
-        /*
-        * Header Styles
-        */
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            border-top-right-radius: var(--ui-radius);
-            border-top-left-radius: var(--ui-radius);
-
-            width: 100%;
-            height: var(--ui-dialog-header-height);
-        }
-
-        .header h4 {
-            margin: auto 0;
-        }
-
-        :host([fullscreen]) .header {
-            z-index: 15;
-            position: absolute;
-            top: var(--ui-spacing);
-            right: var(--ui-spacing);
-            left: var(--ui-spacing);
-            width: calc(100% - var(--ui-spacing) * 2);
-        }
-
-        /*
-        * Content Styles
-        */
-
-        .content {
-            padding: var(--ui-spacing);
-            height: fit-content;
-            min-width: fit-content;
-            width: 100%;
-        }
-
-        :host([fullscreen]) .content {
-            z-index: 10;
-            position: absolute;
-            top: calc(var(--ui-dialog-header-height) + var(--ui-spacing));
-            bottom: calc(var(--ui-dialog-footer-height) + var(--ui-spacing));
-            right: var(--ui-spacing);
-            left: var(--ui-spacing);
-            padding: unset;
-            height: unset;
-            width: unset;
-            min-width: unset;
-        }
-
-        /*
-         * Footer Styles
-         */
-
-        .footer {
-            margin-top: var(--ui-spacing);
-            border-bottom-right-radius: var(--ui-radius);
-            border-bottom-left-radius: var(--ui-radius);
-
-            width: 100%;
-            height: var(--ui-dialog-footer-height);
-        }
-
-        :host([fullscreen]) .footer {
-            z-index: 15;
-            position: absolute;
-            right: var(--ui-spacing);
-            bottom: var(--ui-spacing);
-            left: var(--ui-spacing);
-            width: calc(100% - var(--ui-spacing) * 2);
-        }
-
-        .footer ui-flex-grid-row {
-            height: 100%;
-            flex-wrap: nowrap;
-            justify-content: flex-end;
-            align-items: center;
-        }
-    `;
-
-    shadowTemplate = () => html`
-        <dialog>
-            <div class="container">
-                <div class="header">
-                    <span style="white-space: nowrap;">
-                        <h3 name="title"></h3>
-                    </span>
-
-                    <ui-icon-button
-                        style="width: var(--ui-dialog-header-height); height: 100%;"
-                        ghost
-                    >
-                        ${svgClose}
-                    </ui-icon-button>
-                </div>
-
-                <div class="content">
-                    <slot></slot>
-                </div>
-
-                <div class="footer">
-                    <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
-                        <slot name="actions"></slot>
-                    </ui-flex-grid-row>
-                </div>
-            </div>
-        </dialog>
-    `;
+    static defaultAttributes = {
+        /** @type {string | null} */
+        title: "",
+        /** @type {string | null} */
+        fullscreen: null,
+    };
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
+        this.shadowRenderCleanUp = new CleanUp();
+
         this.ui = {
-            /** @private */
             root: this,
-
-            shadowAttr: {
-                title: "",
-            },
-
-            cleanup: new CleanUp(),
 
             /** @type {Events<T>} */
             events: new Events(),
 
-            /**
-             * @private
-             * @type {HTMLElement | null}
-             */
-            title: null,
+            get title() {
+                return this.root.getAttribute("title");
+            },
 
-            /**
-             * @private
-             * @type {HTMLDialogElement}
-             */
-            dialog: null,
+            set title(value) {
+                this.root.setAttribute(
+                    "title",
+                    value || UIDialog.defaultAttributes.title,
+                );
+            },
 
-            getFullscreen() {
+            get fullscreen() {
                 return this.root.hasAttribute("fullscreen");
             },
 
-            /**
-             * @param {boolean} state
-             */
-            setFullscreen(state) {
-                if (!!state) this.root.setAttribute("fullscreen", "");
-                else this.root.removeAttribute("fullscreen");
-            },
+            set fullscreen(state) {
+                if (!state) {
+                    state = UIDialog.defaultAttributes.fullscreen !== null;
+                }
 
-            getTitle() {
-                return this.title?.innerText || "";
-            },
+                if (!state) {
+                    this.root.removeAttribute("fullscreen");
+                    return;
+                }
 
-            /**
-             * @param {string} value
-             */
-            setTitle(value) {
-                this.title.innerText = this.shadowAttr.title = value;
-            },
-
-            getDialogElement() {
-                return this.dialog;
+                this.root.setAttribute("fullscreen", "");
             },
 
             /**
@@ -277,70 +77,266 @@ export class UIDialog extends HTMLElement {
              * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
              */
             open(modal = false, inert = true) {
-                const inertBackup = this.dialog.inert;
-                this.dialog.inert = inert;
+                const dialog = this.root.shadowRoot.querySelector("dialog");
+
+                const inertBackup = dialog.inert;
+                dialog.inert = inert;
 
                 if (!!modal) {
-                    this.dialog.showModal();
+                    dialog.showModal();
                 } else {
-                    this.dialog.show();
+                    dialog.show();
                 }
 
                 this.events.dispatch("open", null);
-                this.dialog.inert = inertBackup;
+                dialog.inert = inertBackup;
             },
 
             close() {
-                this.dialog.close();
                 this.events.dispatch("close", null);
+
+                const dialog = this.root.shadowRoot.querySelector("dialog");
+                dialog.close();
             },
         };
 
-        /**
-         * @private
-         */
-        this.cleanup = new CleanUp();
-
-        this.render({ ...this.ui.shadowAttr });
+        this.shadowRender();
+        this.render();
     }
 
-    connectedCallback() {
+    shadowRender() {
+        this.shadowRenderCleanUp.run();
+
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host dialog * {
+                    box-sizing: border-box;
+                }
+
+                dialog {
+                    position: fixed !important;
+
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    max-width: 100%;
+                    max-height: 100%;
+
+                    margin: 0;
+                    padding: 0;
+
+                    border: none;
+                    outline: none;
+
+                    background-color: transparent;
+
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+
+                    z-index: 999;
+                }
+
+                dialog::-webkit-scrollbar {
+                    display: none;
+                }
+
+                dialog::backdrop {
+                    background-color: var(--ui-backdrop-bgColor);
+                    backdrop-filter: var(--ui-backdropFilter);
+                }
+
+                dialog > .container {
+                    background-color: var(--ui-bgColor);
+                    color: var(--ui-color);
+
+                    border: 1px solid var(--ui-borderColor);
+                    border-radius: var(--ui-radius);
+
+                    padding: var(--ui-spacing);
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    position: relative;
+                }
+
+                :host([fullscreen]) dialog {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                :host([fullscreen]) dialog > .container {
+                    width: calc(100% - var(--ui-spacing) * 2);
+                    height: calc(
+                        100% -
+                            (
+                                env(safe-area-inset-top, 0) +
+                                    env(safe-area-inset-bottom, 0) +
+                                    (var(--ui-spacing) * 2)
+                            )
+                    );
+
+                    margin: var(--ui-spacing);
+                    margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing));
+                    margin-bottom: calc(
+                        env(safe-area-inset-bottom, 0) + var(--ui-spacing)
+                    );
+                }
+
+                /*
+                * Header Styles
+                */
+
+                .header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    border-top-right-radius: var(--ui-radius);
+                    border-top-left-radius: var(--ui-radius);
+
+                    width: 100%;
+                    height: var(--ui-dialog-header-height);
+                }
+
+                .header h4 {
+                    margin: auto 0;
+                }
+
+                :host([fullscreen]) .header {
+                    z-index: 15;
+                    position: absolute;
+                    top: var(--ui-spacing);
+                    right: var(--ui-spacing);
+                    left: var(--ui-spacing);
+                    width: calc(100% - var(--ui-spacing) * 2);
+                }
+
+                /*
+                * Content Styles
+                */
+
+                .content {
+                    padding: var(--ui-spacing);
+                    height: fit-content;
+                    min-width: fit-content;
+                    width: 100%;
+                }
+
+                :host([fullscreen]) .content {
+                    z-index: 10;
+                    position: absolute;
+                    top: calc(var(--ui-dialog-header-height) + var(--ui-spacing));
+                    bottom: calc(var(--ui-dialog-footer-height) + var(--ui-spacing));
+                    right: var(--ui-spacing);
+                    left: var(--ui-spacing);
+                    padding: unset;
+                    height: unset;
+                    width: unset;
+                    min-width: unset;
+                }
+
+                /*
+                * Footer Styles
+                */
+
+                .footer {
+                    margin-top: var(--ui-spacing);
+                    border-bottom-right-radius: var(--ui-radius);
+                    border-bottom-left-radius: var(--ui-radius);
+
+                    width: 100%;
+                    height: var(--ui-dialog-footer-height);
+                }
+
+                :host([fullscreen]) .footer {
+                    z-index: 15;
+                    position: absolute;
+                    right: var(--ui-spacing);
+                    bottom: var(--ui-spacing);
+                    left: var(--ui-spacing);
+                    width: calc(100% - var(--ui-spacing) * 2);
+                }
+
+                .footer ui-flex-grid-row {
+                    height: 100%;
+                    flex-wrap: nowrap;
+                    justify-content: flex-end;
+                    align-items: center;
+                }
+            </style>
+
+            <dialog>
+                <div class="container">
+                    <div class="header">
+                        <span style="white-space: nowrap;">
+                            <h3 name="title"></h3>
+                        </span>
+
+                        <ui-icon-button
+                            style="width: var(--ui-dialog-header-height); height: 100%;"
+                            ghost
+                        >
+                            ${svgClose}
+                        </ui-icon-button>
+                    </div>
+
+                    <div class="content">
+                        <slot></slot>
+                    </div>
+
+                    <div class="footer">
+                        <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
+                            <slot name="actions"></slot>
+                        </ui-flex-grid-row>
+                    </div>
+                </div>
+            </dialog>
+        `;
+
+        for (const [k, v] of Object.entries(UIDialog.defaultAttributes)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v);
+            }
+        }
+
+        // Close button
         const button = this.shadowRoot.querySelector(".header ui-icon-button");
-        const onClick = () => {
-            this.ui.close();
-        };
+        const onClick = () => this.ui.close();
         button.addEventListener("click", onClick);
 
+        // Dialog - Disable escape key action
         const dialog = this.shadowRoot.querySelector("dialog");
-        const onCancel = (/** @type {Event} */ ev) => {
-            ev.preventDefault(); // NOTE: Disable escape key action
-        };
+        const onCancel = (/** @type {Event} */ ev) =>
+            ev.preventDefault();
         dialog.addEventListener("cancel", onCancel);
 
-        this.cleanup.add(() => {
+        this.shadowRenderCleanUp.add(() => {
             button.removeEventListener("click", onClick);
             dialog.removeEventListener("cancel", onCancel);
         });
     }
 
-    disconnectedCallback() {
-        this.ui.cleanup.run();
-        this.cleanup.run();
+    render() {
     }
 
     /**
-     * @param {Object} options
-     * @param {string} options.title
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
      */
-    render({ title }) {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
-        `;
-
-        this.ui.dialog = this.shadowRoot.querySelector("dialog");
-        this.ui.title = this.shadowRoot.querySelector(`[name="title"]`);
-
-        this.ui.setTitle(title);
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "title":
+                const title = this.shadowRoot.querySelector(`[name="title"]`);
+                title.innerHTML = newValue || "";
+                break;
+        }
     }
 }
