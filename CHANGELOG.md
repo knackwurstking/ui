@@ -19,7 +19,9 @@ New standard methods for all ui components:
 - Icon button size (2.5rem)
 - [ ] Components structure
     - [x] ui-app-bar
-    - [ ] ui-app-bar-item
+    - [x] ui-app-bar-item
+    - [ ] ui-button
+    - [ ] ui-icon-button
 
 
 ## v0.2.11 2024-07-20
