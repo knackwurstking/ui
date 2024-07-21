@@ -19,6 +19,7 @@ export class UIIconButton extends HTMLElement {
         /** @type {string | null} */
         noRipple: string | null;
     };
+    renderCleanUp: CleanUp;
     removeRippleCallback: () => void;
     ui: {
         root: this;
@@ -44,4 +45,5 @@ export type UIIconButtonColor = import(".").UIIconButtonColor;
 export type UIIconButtonEvents = {
     click: UIIconButton;
 };
+import { CleanUp } from "../js";
 import { Events } from "../js";
