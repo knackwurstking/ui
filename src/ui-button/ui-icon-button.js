@@ -1,4 +1,4 @@
-import { CleanUp, Events, createRipple, html, css } from "../js";
+import { Events, createRipple, html } from "../js";
 
 /**
  * @typedef {import(".").UIIconButtonColor} UIIconButtonColor
@@ -16,163 +16,183 @@ export class UIIconButton extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["no-ripple", "color"];
+    static observedAttributes = ["no-ripple"];
 
-    shadowCSS = () => css`
-        * {
-            box-sizing: border-box;
-        }
-
-        :host {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 2.5rem;
-            height: 2.5rem;
-            padding: calc(var(--ui-spacing) / 2);
-            border: 1px solid currentColor;
-            border-radius: var(--ui-radius);
-            outline: none;
-            overflow: hidden;
-            cursor: pointer;
-            user-select: none;
-            font-size: 1.1rem;
-            font-weight: 450;
-            font-family: var(--ui-fontFamily);
-            font-variation-settings: var(--ui-button-fontVariation);
-        }
-
-        :host([ghost]) {
-            border-color: transparent !important;
-            box-shadow: none;
-            font-weight: 900;
-        }
-
-        :host([color="primary"]) {
-            color: var(--ui-primary-bgColor);
-            border-color: var(--ui-primary-bgColor);
-        }
-
-        :host([color="secondary"]) {
-            color: var(--ui-secondary-bgColor);
-            border-color: var(--ui-secondary-bgColor);
-        }
-
-        :host([color="destructive"]) {
-            color: var(--ui-destructive-bgColor);
-            border-color: var(--ui-destructive-bgColor);
-        }
-
-        /* :disabled */
-
-        :host([disabled]),
-        :host([disabled]:hover),
-        :host([disabled]:active) {
-            opacity: 0.25;
-            cursor: default;
-            pointer-events: none;
-        }
-    `;
-
-    shadowTemplate = () => html` <ui-svg><slot></slot></ui-svg> `;
+    static defaultAttributes = {
+        /** @type {string | null} */
+        color: null,
+        /** @type {string | null} */
+        disabled: null,
+        /** @type {string | null} */
+        ghost: null,
+        /** @type {string | null} */
+        noRipple: null,
+    }
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.setAttribute("role", "button");
+
+        this.removeRippleCallback = null;
 
         this.ui = {
-            /** @private */
             root: this,
-
-            cleanup: new CleanUp(),
 
             /**
              * @type {Events<UIIconButtonEvents>}
              */
             events: new Events(),
 
-            /**
-             * @private
-             * @type {(() => void) | null}
-             */
-            removeRipple: null,
+            get noRipple() {
+                return this.root.hasAttribute("no-ripple");
+            },
 
-            /**
-             * @returns {UIIconButtonColor}
-             */
-            getColor() {
+            set noRipple(state) {
+                if (!state) {
+                    state = !!UIIconButton.defaultAttributes.noRipple;
+                }
+
+                if (!state) {
+                    this.root.removeAttribute("no-ripple");
+                    return;
+                }
+
+                this.root.setAttribute("no-ripple", "");
+            },
+
+            get color() {
                 return this.root.getAttribute("color");
             },
 
-            /**
-             * @param {UIIconButtonColor} value
-             */
-            setColor(value) {
+            set color(value) {
+                if (!value) {
+                    value = UIIconButton.defaultAttributes.color;
+                }
+
+                if (!value) {
+                    this.root.removeAttribute("color");
+                    return;
+                }
+
                 this.root.setAttribute("color", value);
             },
 
-            /**
-             * @returns {boolean}
-             */
-            getGhost() {
+            get ghost() {
                 return this.root.hasAttribute("ghost");
             },
 
-            /**
-             * @param {boolean} state
-             */
-            setGhost(state) {
-                if (state) {
-                    this.root.setAttribute("ghost", "");
-                } else {
-                    this.root.removeAttribute("ghost");
+            set ghost(state) {
+                if (!state) {
+                    state = !!UIIconButton.defaultAttributes.ghost;
                 }
+
+                if (!state) {
+                    this.root.removeAttribute("ghost");
+                    return;
+                }
+
+                this.root.setAttribute("ghost", "")
             },
 
-            disable() {
-                this.root.setAttribute("disabled", "");
+            get disabled() {
+                return this.root.hasAttribute("disabled");
             },
 
-            enable() {
-                this.root.removeAttribute("disabled");
-            },
+            set disabled(state) {
+                if (!state) {
+                    state = !!UIIconButton.defaultAttributes.disabled;
+                }
 
-            enableRipple() {
-                if (!!this.removeRipple) return;
-                this.removeRipple = createRipple(this.root, { centered: true });
-                this.root.removeAttribute("no-ripple");
-            },
+                if (!state) {
+                    this.root.removeAttribute("disabled");
+                    return;
+                }
 
-            disableRipple() {
-                if (!this.removeRipple) return;
-
-                this.removeRipple();
-                this.removeRipple = null;
-                this.root.setAttribute("no-ripple", "");
+                this.root.setAttribute("disabled", "")
             },
         };
 
-        /**
-         * @private
-         */
-        this.cleanup = new CleanUp();
-
         this.shadowRender();
+        this.render();
     }
 
-    connectedCallback() {
-        if (!this.hasAttribute("no-ripple") && !this.ui.removeRipple) {
-            this.ui.enableRipple();
+    shadowRender() {
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: flex !important;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    padding: calc(var(--ui-spacing) / 2);
+                    border: 1px solid currentColor;
+                    border-radius: var(--ui-radius);
+                    outline: none;
+                    overflow: hidden;
+                    cursor: pointer;
+                    user-select: none;
+                    font-size: 1.1rem;
+                    font-weight: 450;
+                    font-family: var(--ui-fontFamily);
+                    font-variation-settings: var(--ui-button-fontVariation);
+                }
+
+                :host([ghost]) {
+                    border-color: transparent !important;
+                    box-shadow: none;
+                    font-weight: 900;
+                }
+
+                :host([color="primary"]) {
+                    color: var(--ui-primary-bgColor);
+                    border-color: var(--ui-primary-bgColor);
+                }
+
+                :host([color="secondary"]) {
+                    color: var(--ui-secondary-bgColor);
+                    border-color: var(--ui-secondary-bgColor);
+                }
+
+                :host([color="destructive"]) {
+                    color: var(--ui-destructive-bgColor);
+                    border-color: var(--ui-destructive-bgColor);
+                }
+
+                /* :disabled */
+
+                :host([disabled]),
+                :host([disabled]:hover),
+                :host([disabled]:active) {
+                    opacity: 0.25;
+                    cursor: default;
+                    pointer-events: none;
+                }
+            </style>
+
+            <ui-svg>
+                <slot></slot>
+            </ui-svg>
+        `;
+
+        for (const [k, v] of Object.entries(UIIconButton.defaultAttributes)) {
+            if (!this.hasAttribute(k) && v !== null) {
+                this.setAttribute(k, v);
+            }
         }
-
-        this.bindClickEvent();
     }
 
-    disconnectedCallback() {
-        this.ui.cleanup.run();
-        this.cleanup.run();
+    render() {
+        this.setAttribute("role", "button");
+
+        this.addEventListener("click", async () => {
+            this.ui.events.dispatch("click", this);
+        });
     }
 
     /**
@@ -183,42 +203,20 @@ export class UIIconButton extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "no-ripple":
-                if (newValue !== null) this.ui.disableRipple();
-                else this.ui.enableRipple();
-                break;
-            case "color":
                 if (newValue !== null) {
-                    if (
-                        ["primary", "secondary", "destructive"].includes(
-                            newValue,
-                        )
-                    ) {
-                        this.style.color = null;
-                    } else {
-                        this.style.color = newValue;
+                    if (typeof this.removeRippleCallback === "function") {
+                        this.removeRippleCallback();
+                        this.removeRippleCallback = null;
+                    }
+                } else {
+                    if (typeof this.removeRippleCallback === "function") {
+                        this.removeRippleCallback = createRipple(
+                            this, { centered: true },
+                        );
                     }
                 }
+
                 break;
         }
-    }
-
-    shadowRender() {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
-        `;
-    }
-
-    /**
-     * @private
-     */
-    bindClickEvent() {
-        const onClick = async () => {
-            this.ui.events.dispatch("click", this);
-        };
-        this.addEventListener("click", onClick);
-        this.cleanup.add(() => {
-            this.removeEventListener("click", onClick);
-        });
     }
 }
