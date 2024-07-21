@@ -14,39 +14,21 @@
  */
 export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     static register: () => void;
+    static observedAttributes: string[];
+    static defaultAttributes: {
+        /** @type {string | null} */
+        title: string | null;
+        /** @type {string | null} */
+        fullscreen: string | null;
+    };
     constructor();
-    shadowCSS: () => any;
-    shadowTemplate: () => any;
+    shadowRenderCleanUp: CleanUp;
     ui: {
-        /** @private */
         root: this;
-        shadowAttr: {
-            title: string;
-        };
-        cleanup: CleanUp;
         /** @type {Events<T>} */
         events: Events<T>;
-        /**
-         * @private
-         * @type {HTMLElement | null}
-         */
-        title: HTMLElement | null;
-        /**
-         * @private
-         * @type {HTMLDialogElement}
-         */
-        dialog: HTMLDialogElement;
-        getFullscreen(): boolean;
-        /**
-         * @param {boolean} state
-         */
-        setFullscreen(state: boolean): void;
-        getTitle(): string;
-        /**
-         * @param {string} value
-         */
-        setTitle(value: string): void;
-        getDialogElement(): HTMLDialogElement;
+        title: string;
+        fullscreen: boolean;
         /**
          * @param {boolean} modal
          * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
@@ -54,19 +36,14 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
         open(modal?: boolean, inert?: boolean): void;
         close(): void;
     };
+    shadowRender(): void;
+    render(): void;
     /**
-     * @private
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
      */
-    private cleanup;
-    connectedCallback(): void;
-    disconnectedCallback(): void;
-    /**
-     * @param {Object} options
-     * @param {string} options.title
-     */
-    render({ title }: {
-        title: string;
-    }): void;
+    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
 export type UIDialogEvents = {
     open: null;
