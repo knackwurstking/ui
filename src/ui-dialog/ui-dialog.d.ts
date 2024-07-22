@@ -15,12 +15,6 @@
 export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    static defaultAttributes: {
-        /** @type {string | null} */
-        title: string | null;
-        /** @type {string | null} */
-        fullscreen: string | null;
-    };
     constructor();
     shadowRenderCleanUp: CleanUp;
     ui: {
@@ -36,7 +30,6 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
         open(modal?: boolean, inert?: boolean): void;
         close(): void;
     };
-    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
     /**

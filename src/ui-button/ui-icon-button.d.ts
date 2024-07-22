@@ -9,16 +9,6 @@
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    static defaultAttributes: {
-        /** @type {string | null} */
-        color: string | null;
-        /** @type {string | null} */
-        disabled: string | null;
-        /** @type {string | null} */
-        ghost: string | null;
-        /** @type {string | null} */
-        ripple: string | null;
-    };
     renderCleanUp: CleanUp;
     removeRippleCallback: () => void;
     ui: {
@@ -27,12 +17,11 @@ export class UIIconButton extends HTMLElement {
          * @type {Events<UIIconButtonEvents>}
          */
         events: Events<UIIconButtonEvents>;
-        ripple: boolean;
+        noRipple: boolean;
         color: string;
         ghost: boolean;
         disabled: boolean;
     };
-    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
     /**

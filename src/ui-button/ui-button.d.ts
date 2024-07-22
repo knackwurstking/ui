@@ -21,16 +21,6 @@
 export class UIButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    static defaultAttributes: {
-        /** @type {string | null} */
-        color: string | null;
-        /** @type {string | null} */
-        disabled: string | null;
-        /** @type {string | null} */
-        ripple: string | null;
-        /** @type {string | null} */
-        variant: string | null;
-    };
     renderCleanUp: CleanUp;
     removeRippleCallback: () => void;
     ui: {
@@ -39,12 +29,11 @@ export class UIButton extends HTMLElement {
          * @type {Events<UIButtonEvents>}
          */
         events: Events<UIButtonEvents>;
-        ripple: boolean;
+        noRipple: boolean;
         color: string;
         variant: string;
         disabled: boolean;
     };
-    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
     /**

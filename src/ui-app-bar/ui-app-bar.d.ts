@@ -6,10 +6,6 @@
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;
-    static defaultAttributes: {
-        /** @type {string | null} */
-        position: string | null;
-    };
     ui: {
         root: this;
         readonly leftSlot: any[];
@@ -17,7 +13,6 @@ export class UIAppBar extends HTMLElement {
         readonly rightSlot: any[];
         position: string;
     };
-    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
 }

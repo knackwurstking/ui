@@ -3,7 +3,6 @@
  */
 export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
     static register: () => void;
-    static defaultAttributes: {};
     constructor();
     ui: {
         root: this;
@@ -17,7 +16,6 @@ export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
         show(value?: string | null): void;
         hide(): void;
     };
-    connectedCallback(): void;
     shadowRender(): void;
     render(): void;
 }
