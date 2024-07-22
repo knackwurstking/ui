@@ -1,6 +1,5 @@
-import { CleanUp, html, css } from "../js";
+import { html } from "../js";
 
-// TODO: Continue here...
 export class UIDrawerGroupItem extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-drawer-group-item")) {
@@ -8,50 +7,40 @@ export class UIDrawerGroupItem extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
-        * {
-            box-sizing: border-box;
-        }
-
-        li {
-            padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-        }
-
-        ::slotted(*) {
-            width: 100%;
-        }
-    `;
-
-    shadowTemplate = () => html`
-        <li>
-            <slot></slot>
-        </li>
-    `;
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
-        this.ui = {
-            cleanup: new CleanUp(),
-        };
+        this.ui = {};
 
         this.shadowRender();
-    }
-
-    connectedCallback() { }
-
-    disconnectedCallback() {
-        this.ui.cleanup.run();
+        this.render();
     }
 
     shadowRender() {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                li {
+                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                }
+
+                ::slotted(*) {
+                    width: 100%;
+                }
+            </style>
+
+            <li>
+                <slot></slot>
+            </li>
         `;
     }
+
+    render() { }
 }

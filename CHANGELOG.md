@@ -6,8 +6,7 @@
 
 New standard methods for all ui components:
 
-    - static defaultAttr = { ... }
-    - contructor
+    - contructor()
         - this.ui = { ... }
         - this.shadowRender()
         - this.render()
@@ -24,8 +23,8 @@ New standard methods for all ui components:
     - [x] ui-icon-button
     - [x] ui-container
     - [x] ui-dialog
-    - [ ] ui-drawer-group-item [*dev5*]
-    - [ ] ui-drawer-group
+    - [x] ui-drawer-group-item [*dev5*]
+    - [x] ui-drawer-group [*dev5*]
     - [ ] ui-drawer
     - [ ] ui-flex-grid-item
     - [ ] ui-flex-grid-row

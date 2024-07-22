@@ -1,4 +1,4 @@
-import { CleanUp, html, css } from "../js";
+import { CleanUp, html } from "../js";
 
 export class UIDrawerGroup extends HTMLElement {
     static register = () => {
@@ -8,31 +8,6 @@ export class UIDrawerGroup extends HTMLElement {
     };
 
     static observedAttributes = ["title"];
-
-    shadowCSS = () => css`
-        * {
-            box-sizing: border-box;
-        }
-
-        ul {
-            list-style: none;
-            padding: var(--ui-spacing);
-            overflow: hidden;
-        }
-
-        ui-drawer-group-item:not(.visible) {
-            display: none;
-        }
-    `;
-
-    shadowTemplate = () => html`
-        <ul>
-            <ui-drawer-group-item class="ui-drawer-group-title">
-            </ui-drawer-group-item>
-
-            <slot></slot>
-        </ul>
-    `;
 
     constructor() {
         super();
@@ -45,46 +20,52 @@ export class UIDrawerGroup extends HTMLElement {
 
             cleanup: new CleanUp(),
 
-            getTitle() {
-                return this.root.getAttribute("title") || null;
+            get title() {
+                return this.root.getAttribute("title");
             },
 
-            /**
-             * @param {string} value
-             */
-            setTitle(value) {
-                let item = this.root.shadowRoot.querySelector(
-                    `.ui-drawer-group-title`,
-                );
-                item.classList.add("visible");
-                item.innerHTML = `
-                    <span
-                        style="
-                            font-size: 1.5rem;
-                            font-weight: 600;
-                            font-variation-settings: var(--ui-heading-fontVariation);
-                        "
-                    >
-                        ${value}
-                    </span>
-                `;
-            },
+            set title(value) {
+                if (!value) {
+                    this.root.removeAttribute("title");
+                    return;
+                }
 
-            removeTitle() {
-                const item = this.root.shadowRoot.querySelector(
-                    `.ui-drawer-group-title`,
-                );
-                item.classList.remove("visible");
+                this.root.setAttribute("title", value);
             },
         };
 
         this.shadowRender();
+        this.render();
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {
-        this.ui.cleanup.run();
+    shadowRender() {
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                ul {
+                    list-style: none;
+                    padding: var(--ui-spacing);
+                    overflow: hidden;
+                }
+
+                ui-drawer-group-item:not(.visible) {
+                    display: none;
+                }
+            </style>
+
+            <ul>
+                <ui-drawer-group-item class="ui-drawer-group-title">
+                </ui-drawer-group-item>
+
+                <slot></slot>
+            </ul>
+        `;
     }
+
+    render() { }
 
     /**
      * @param {string} name
@@ -94,21 +75,35 @@ export class UIDrawerGroup extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "title":
-                if (newValue === "") {
-                    this.removeAttribute("title");
-                } else if (newValue !== null) {
-                    this.ui.setTitle(newValue);
-                } else {
-                    this.ui.removeTitle();
-                }
+                this.setGroupTitle(newValue)
                 break;
         }
     }
 
-    shadowRender() {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
+    /**
+     * @param {string | null} title
+     */
+    setGroupTitle(title) {
+        let item = this.shadowRoot.querySelector(
+            `.ui-drawer-group-title`,
+        );
+
+        if (!title) {
+            item.classList.remove("visible");
+            return;
+        }
+
+        item.classList.add("visible");
+        item.innerHTML = `
+            <span
+                style="
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    font-variation-settings: var(--ui-heading-fontVariation);
+                "
+            >
+                ${title}
+            </span>
         `;
     }
 }
