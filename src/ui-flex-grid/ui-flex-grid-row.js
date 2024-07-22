@@ -1,5 +1,3 @@
-import { CleanUp, html, css } from "../js";
-
 export class UIFlexGridRow extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-flex-grid-row")) {
@@ -9,69 +7,63 @@ export class UIFlexGridRow extends HTMLElement {
 
     static observedAttributes = ["gap"];
 
-    static defaultGap = "0";
-
-    /**
-     * @param {Object} options
-     * @param {string} options.gap
-     */
-    shadowCSS = ({ gap }) => css`
-        :host {
-            display: flex !important;
-            flex-flow: row nowrap;
-            position: relative !important;
-            width: 100%;
-        }
-
-        :host > ::slotted(*) {
-            margin: 0 ${gap} !important;
-        }
-
-        :host > ::slotted(*:first-child) {
-            margin-left: 0 !important;
-        }
-
-        :host > ::slotted(*:last-child) {
-            margin-right: 0 !important;
-        }
-    `;
-
-    shadowTemplate = () => html`<slot></slot>`;
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
         this.ui = {
-            /** @private */
             root: this,
 
-            cleanup: new CleanUp(),
-
-            shadowAttr: {
-                gap: UIFlexGridRow.defaultGap,
+            get gap() {
+                return this.root.getAttribute("gap");
             },
 
-            getGap() {
-                return this.shadowAttr.gap;
-            },
+            set gap(value) {
+                if (!value) {
+                    this.root.removeAttribute("gap");
+                    return;
+                }
 
-            /**
-             * @param {string | null} value
-             */
-            setGap(value) {
-                this.shadowAttr.gap = value || UIFlexGridRow.defaultGap;
-                this.root.shadowRender({ ...this.shadowAttr });
+                this.root.setAttribute("gap", value);
             },
         };
 
-        this.shadowRender({ ...this.ui.shadowAttr });
+        this.shadowRender();
+        this.render();
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {
-        this.ui.cleanup.run();
+    shadowRender() {
+        this.shadowRoot.innerHTML = `
+            <style>
+                :host {
+                    display: flex !important;
+                    flex-flow: row nowrap;
+                    position: relative !important;
+                    width: 100%;
+                }
+            </style>
+
+            <style name="gap">
+                :host > ::slotted(*) {
+                    margin: 0 0 !important;
+                }
+            </style>
+
+            <style>
+                :host > ::slotted(*:first-child) {
+                    margin-left: 0 !important;
+                }
+
+                :host > ::slotted(*:last-child) {
+                    margin-right: 0 !important;
+                }
+            </style>
+
+            <slot></slot>
+        `;
     }
+
+    render() { }
 
     /**
      * @param {string} name
@@ -81,19 +73,13 @@ export class UIFlexGridRow extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "gap":
-                this.ui.setGap(newValue);
+                const style = this.shadowRoot.querySelector(`style[name="gap"]`);
+                style.textContent = `
+                    :host > ::slotted(*) {
+                        margin: 0 ${newValue || 0} !important;
+                    }
+                `;
                 break;
         }
-    }
-
-    /**
-     * @param {Object} options
-     * @param {string} options.gap
-     */
-    shadowRender({ gap }) {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS({ gap }).trim()}</style>
-            ${this.shadowTemplate().trim()}
-        `;
     }
 }

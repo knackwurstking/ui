@@ -27,7 +27,7 @@ New standard methods for all ui components:
     - [x] ui-drawer-group [*dev5*]
     - [x] ui-drawer [*dev5*]
     - [x] ui-flex-grid-item [*dev5*]
-    - [ ] ui-flex-grid-row
+    - [x] ui-flex-grid-row [*dev5*]
     - [ ] ui-flex-grid
     - [ ] ui-input
     - [ ] ui-search
