@@ -8,30 +8,23 @@
 export class UIDrawer extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    shadowCSS: () => any;
-    shadowTemplate: () => any;
+    renderCleanUp: CleanUp;
     ui: {
-        /** @private */
         root: this;
-        cleanup: CleanUp;
         /**
          * @type {Events<UIDrawerEvents>}
          */
         events: Events<UIDrawerEvents>;
-        getOpen(): boolean;
-        /**
-         * @param {boolean} state
-         */
-        setOpen(state: boolean): void;
+        open: boolean;
     };
-    disconnectedCallback(): void;
+    shadowRender(): void;
+    render(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    shadowRender(): void;
 }
 export type UIDrawerEvents = {
     open: UIDrawer;

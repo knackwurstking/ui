@@ -1,4 +1,4 @@
-import { CleanUp, Events, html, css } from "../js";
+import { CleanUp, Events } from "../js";
 
 /**
  * @typedef UIDrawerEvents
@@ -17,119 +17,132 @@ export class UIDrawer extends HTMLElement {
 
     static observedAttributes = ["open"];
 
-    shadowCSS = () => {
-        return css`
-            * {
-                box-sizing: border-box;
-            }
-
-            :host {
-                display: block;
-
-                position: absolute !important;
-                z-index: 150;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-
-                overflow: hidden;
-
-                transition: left 0s ease 0.5s;
-            }
-
-            :host([open]) {
-                background-color: var(--ui-backdrop-bgColor);
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
-
-                left: 0;
-
-                transition: none;
-            }
-
-            aside {
-                position: absolute;
-                z-index: 150;
-                top: 0;
-                left: -100%;
-                width: var(--ui-drawer-width, fit-content);
-                max-width: 100%;
-                height: 100%;
-
-                overflow-x: hidden;
-                overflow-y: auto;
-                scroll-behavior: smooth;
-
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-
-                background-color: var(--ui-card-bgColor);
-                color: var(--ui-card-color);
-
-                /*
-                background-color: var(--ui-backdrop-bgColor);
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
-                */
-
-                border-right: 1px solid var(--ui-card-borderColor);
-
-                transition: left 0.5s ease;
-            }
-
-            aside::-webkit-scrollbar {
-                display: none;
-            }
-
-            :host([open]) aside {
-                left: 0;
-            }
-        `;
-    };
-
-    shadowTemplate = () => html`
-        <aside>
-            <slot></slot>
-        </aside>
-    `;
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
-        this.ui = {
-            /** @private */
-            root: this,
+        this.renderCleanUp = new CleanUp();
 
-            cleanup: new CleanUp(),
+        this.ui = {
+            root: this,
 
             /**
              * @type {Events<UIDrawerEvents>}
              */
             events: new Events(),
 
-            getOpen() {
+            get open() {
                 return this.root.hasAttribute("open");
             },
 
-            /**
-             * @param {boolean} state
-             */
-            setOpen(state) {
-                if (state) {
-                    this.root.setAttribute("open", "");
-                } else {
+            set open(state) {
+                if (!state) {
                     this.root.removeAttribute("open");
+                    return;
                 }
+
+                this.root.setAttribute("open", "");
             },
         };
 
         this.shadowRender();
+        this.render();
     }
 
-    disconnectedCallback() {
-        this.ui.cleanup.run();
+    shadowRender() {
+        this.shadowRoot.innerHTML = `
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: block;
+
+                    position: absolute !important;
+                    z-index: 150;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+
+                    overflow: hidden;
+
+                    transition: left 0s ease 0.5s;
+                }
+
+                :host([open]) {
+                    background-color: var(--ui-backdrop-bgColor);
+                    -webkit-backdrop-filter: var(--ui-backdropFilter);
+                    backdrop-filter: var(--ui-backdropFilter);
+
+                    left: 0;
+
+                    transition: none;
+                }
+
+                aside {
+                    position: absolute;
+                    z-index: 150;
+                    top: 0;
+                    left: -100%;
+                    width: var(--ui-drawer-width, fit-content);
+                    max-width: 100%;
+                    height: 100%;
+
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    scroll-behavior: smooth;
+
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+
+                    background-color: var(--ui-card-bgColor);
+                    color: var(--ui-card-color);
+
+                    /*
+                    background-color: var(--ui-backdrop-bgColor);
+                    -webkit-backdrop-filter: var(--ui-backdropFilter);
+                    backdrop-filter: var(--ui-backdropFilter);
+                    */
+
+                    border-right: 1px solid var(--ui-card-borderColor);
+
+                    transition: left 0.5s ease;
+                }
+
+                aside::-webkit-scrollbar {
+                    display: none;
+                }
+
+                :host([open]) aside {
+                    left: 0;
+                }
+            </style>
+
+            <aside>
+                <slot></slot>
+            </aside>
+        `;
+
+        this.shadowRoot.querySelector("aside")
+            .addEventListener("click", (ev) =>
+                ev.stopPropagation());
+    }
+
+    render() {
+        this.renderCleanUp.run();
+
+        const onClick = () => {
+            this.ui.open = false;
+        };
+
+        this.addEventListener("click", onClick);
+        this.renderCleanUp.add(
+            () => {
+                this.removeEventListener("click", onClick);
+            },
+        );
     }
 
     /**
@@ -145,24 +158,8 @@ export class UIDrawer extends HTMLElement {
                 } else {
                     this.ui.events.dispatch("close", this);
                 }
+
                 break;
         }
-    }
-
-    shadowRender() {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
-        `;
-
-        const aside = this.shadowRoot.querySelector("aside");
-
-        this.addEventListener("click", () => {
-            this.ui.setOpen(false);
-        })
-
-        aside.addEventListener("click", (ev) => {
-            ev.stopPropagation();
-        });
     }
 }
