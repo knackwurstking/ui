@@ -1,5 +1,3 @@
-import { CleanUp, html, css } from "../js";
-
 export class UIFlexGridItem extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-flex-grid-item")) {
@@ -9,54 +7,44 @@ export class UIFlexGridItem extends HTMLElement {
 
     static observedAttributes = ["flex"];
 
-    static defaultFlex = "1";
-
-    /**
-     * @param {Object} options
-     * @param {string} options.flex
-     */
-    shadowCSS = ({ flex }) => css`
-        :host {
-            flex: ${flex};
-        }
-    `;
-
-    shadowTemplate = () => html`<slot></slot>`;
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
         this.ui = {
-            /** @private */
             root: this,
 
-            cleanup: new CleanUp(),
-
-            shadowAttr: {
-                flex: UIFlexGridItem.defaultFlex,
+            get flex() {
+                return this.root.getAttribute("flex");
             },
 
-            getFlex() {
-                return this.shadowAttr.flex;
-            },
+            set flex(value) {
+                if (!value) {
+                    this.root.removeAttribute("flex");
+                    return;
+                }
 
-            /**
-             * @param {string | null} value
-             */
-            setFlex(value) {
-                this.shadowAttr.flex = value || UIFlexGridItem.defaultFlex;
-                this.root.shadowRender({ ...this.shadowAttr });
+                this.root.setAttribute("flex", value);
             },
         };
 
-        this.shadowRender({ ...this.ui.shadowAttr });
+        this.shadowRender();
+        this.render();
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {
-        this.ui.cleanup.run();
+    shadowRender() {
+        this.shadowRoot.innerHTML = `
+            <style name="flex">
+                :host {
+                    flex: 1;
+                }
+            </style>
+
+            <slot></slot>
+        `;
     }
+
+    render() { }
 
     /**
      * @param {string} name
@@ -66,19 +54,13 @@ export class UIFlexGridItem extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "flex":
-                this.ui.setFlex(newValue);
+                const style = this.shadowRoot.querySelector(`style[name="flex"]`);
+                style.textContent = `
+                    :host {
+                        flex: ${newValue || 1};
+                    }
+                `;
                 break;
         }
-    }
-
-    /**
-     * @param {Object} options
-     * @param {string} options.flex
-     */
-    shadowRender({ flex }) {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS({ flex }).trim()}</style>
-            ${this.shadowTemplate().trim()}
-        `;
     }
 }
