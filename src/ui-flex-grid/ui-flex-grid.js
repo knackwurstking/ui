@@ -1,5 +1,6 @@
 import { CleanUp, html, css } from "../js";
 
+// TODO: Continue here...
 export class UIFlexGrid extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-flex-grid")) {
@@ -71,7 +72,7 @@ export class UIFlexGrid extends HTMLElement {
         this.shadowRender({ ...this.ui.shadowAttr });
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
