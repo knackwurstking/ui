@@ -7,8 +7,6 @@ export class UIContainer extends HTMLElement {
         }
     };
 
-    static defaultAttributes = {};
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -17,14 +15,6 @@ export class UIContainer extends HTMLElement {
 
         this.shadowRender();
         this.render();
-    }
-
-    connectedCallback() {
-        for (const [k, v] of Object.entries(UIContainer.defaultAttributes)) {
-            if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v);
-            }
-        }
     }
 
     shadowRender() {

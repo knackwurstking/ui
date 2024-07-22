@@ -25,13 +25,6 @@ export class UIDialog extends HTMLElement {
 
     static observedAttributes = ["title"]
 
-    static defaultAttributes = {
-        /** @type {string | null} */
-        title: "",
-        /** @type {string | null} */
-        fullscreen: null,
-    };
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -98,15 +91,6 @@ export class UIDialog extends HTMLElement {
 
         this.shadowRender();
         this.render();
-    }
-
-    connectedCallback() {
-        for (const [k, v] of Object.entries(UIDialog.defaultAttributes)) {
-            if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v);
-            }
-        }
-
     }
 
     shadowRender() {

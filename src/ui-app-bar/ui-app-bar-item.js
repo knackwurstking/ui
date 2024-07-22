@@ -9,8 +9,6 @@ export class UIAppBarItem extends HTMLElement {
             customElements.define("ui-app-bar-item", UIAppBarItem);
     };
 
-    static defaultAttributes = {};
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -39,14 +37,6 @@ export class UIAppBarItem extends HTMLElement {
 
         this.shadowRender();
         this.render();
-    }
-
-    connectedCallback() {
-        for (const [k, v] of Object.entries(UIAppBarItem.defaultAttributes)) {
-            if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v)
-            }
-        }
     }
 
     shadowRender() {

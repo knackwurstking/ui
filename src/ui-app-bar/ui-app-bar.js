@@ -13,11 +13,6 @@ export class UIAppBar extends HTMLElement {
         }
     };
 
-    static defaultAttributes = {
-        /** @type {string | null} */
-        position: "top",
-    };
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -53,14 +48,6 @@ export class UIAppBar extends HTMLElement {
 
         this.shadowRender();
         this.render();
-    }
-
-    connectedCallback() {
-        for (const [k, v] of Object.entries(UIAppBar.defaultAttributes)) {
-            if (!this.hasAttribute(k) && v !== null) {
-                this.setAttribute(k, v)
-            }
-        }
     }
 
     shadowRender() {
