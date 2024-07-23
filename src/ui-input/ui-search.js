@@ -1,7 +1,5 @@
-// TODO: Continue here...
-import { CleanUp, css, Events, html } from "../js";
+import { Events } from "../js";
 import svgSearch from "../svg/smoothie-line-icons/search";
-import { UIIconButton } from "../ui-button";
 import { UISecondary } from "../ui-text";
 
 /**
@@ -29,186 +27,60 @@ export class UISearch extends HTMLElement {
         "value",
         "placeholder",
         "invalid",
-        "no-submit",
-        "use-storage",
-        "storage-prefix",
+        "nosubmit",
+        //"storage",
+        //"storageprefix",
+        //"storagekey",
     ];
-
-    shadowCSS = () => css`
-        * {
-            box-sizing: border-box;
-        }
-
-        :host {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: fit-content;
-        }
-
-        input {
-            width: 100%;
-            display: block;
-            margin: 0;
-            padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-            border: none !important;
-            border-radius: inherit;
-            outline: none !important;
-            font-size: 0.9rem;
-            font-family: var(--ui-fontFamily);
-            font-variation-settings: var(--ui-input-fontVariation);
-            accent-color: var(--ui-primary-bgColor);
-            background-color: transparent !important;
-        }
-
-        :host(:not([no-submit])) input {
-            width: calc(100% - 2rem);
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            border: none;
-            border: 1px solid var(--ui-borderColor);
-            border-radius: var(--ui-radius);
-            transition: border-color 0.25s linear;
-            background-color: var(--ui-backdrop-bgColor);
-            -webkit-backdrop-filter: var(--ui-backdropFilter);
-            backdrop-filter: var(--ui-backdropFilter);
-        }
-
-        .container:has(input:focus) {
-            border-color: var(--ui-primary-bgColor);
-        }
-
-        :host([invalid]) .container {
-            border-color: var(--ui-destructive-bgColor);
-        }
-
-        ::slotted([slot="title"]) {
-            display: block;
-            padding: 0 var(--ui-spacing);
-            user-select: none;
-            transform: translateY(calc(var(--ui-spacing) / 2));
-        }
-
-        ui-icon-button {
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-    `;
-
-    shadowTemplate = () => html`
-        <div class="container">
-            <slot name="title"></slot>
-            <input type="search" />
-            <ui-icon-button ghost>${svgSearch}</ui-icon-button>
-        </div>
-    `;
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
         this.ui = {
-            /** @private */
             root: this,
-
-            cleanup: new CleanUp(),
-
-            /**
-             * @type {boolean}
-             */
-            useStorage: false,
-
-            /**
-             * @type {string | null}
-             */
-            storagePrefix: null,
-
-            /** @type {UIIconButton | null} */
-            submit: null,
-
-            /** @type {HTMLInputElement | null} */
-            input: null,
 
             /** @type {Events<E>} */
             events: new Events(),
 
             /**
-             * Used as storage key, if enabled
-             *
-             *  @param {string | null} value
+             * @param {FocusOptions | null} [options]
              */
-            setKey(value) {
-                if (value === null) {
-                    this.root.removeAttribute("key");
-                    this.setValue("");
-                    return;
-                }
-
-                this.root.setAttribute("key", value);
-                this.setValue(
-                    localStorage.getItem(this.storagePrefix + this.getKey()),
-                );
+            focus(options = null) {
+                this.root.shadowRoot.querySelector("input").focus(options);
             },
 
-            getKey() {
-                return this.root.getAttribute("key") || "";
+            blur() {
+                this.root.shadowRoot.querySelector("input").blur();
             },
 
-            hasSubmit() {
-                return !!this.submit.parentElement;
-            },
-
-            disableSubmit() {
-                if (this.hasSubmit()) {
-                    this.submit.parentElement.removeChild(this.submit);
-                }
-            },
-
-            enableSubmit() {
-                if (!this.hasSubmit()) return;
-                const container =
-                    this.root.shadowRoot.querySelector(".container");
-                container.appendChild(this.submit);
-            },
-
-            /**
-             * @param {string | null} value
-             */
-            setTitle(value) {
-                if (value === null) {
-                    this.root.removeAttribute("title");
-                } else {
-                    this.root.setAttribute("title", value);
-                }
-            },
-
-            getTitle() {
+            get title() {
                 return this.root.getAttribute("title");
             },
 
-            /**
-             * @param {string | null} value
-             */
-            setValue(value) {
-                this.input.value = value || "";
+            set title(value) {
+                if (!value) {
+                    this.root.removeAttribute("title");
+                    return;
+                }
+
+                this.root.setAttribute("title", value);
             },
 
-            getValue() {
-                return this.input.value;
+            get value() {
+                return this.root.shadowRoot.querySelector("input").value;
             },
 
-            /**
-             * @param {string | null} value
-             */
-            setPlaceholder(value) {
-                if (value === null) {
+            set value(value) {
+                this.root.shadowRoot.querySelector("input").value = value;
+            },
+
+            get placeholder() {
+                return this.root.getAttribute("placeholder");
+            },
+
+            set placeholder(value) {
+                if (!value) {
                     this.root.removeAttribute("placeholder");
                     return;
                 }
@@ -216,40 +88,198 @@ export class UISearch extends HTMLElement {
                 this.root.setAttribute("placeholder", value);
             },
 
-            /**
-             * @returns {string}
-             */
-            getPlaceholder() {
-                return this.root.getAttribute("placeholder");
+            get invalid() {
+                return this.root.hasAttribute("invalid");
             },
 
-            /**
-             * @param {boolean} state
-             */
-            setInvalid(state) {
-                if (state === null || state === false) {
-                    this.root.setAttribute("invalid", "");
+            set invalid(state) {
+                if (!state) {
+                    this.root.removeAttribute("invalid");
                     return;
                 }
 
-                this.root.removeAttribute("invalid");
+                this.root.setAttribute("invalid", "");
             },
 
-            /**
-             * @returns {boolean}
-             */
-            getInvalid() {
-                return this.root.hasAttribute("invalid");
+            get nosubmit() {
+                return this.root.hasAttribute("nosubmit");
+            },
+
+            set nosubmit(state) {
+                if (!state) {
+                    this.root.removeAttribute("nosubmit");
+                    return;
+                }
+
+                this.root.setAttribute("nosubmit", "");
+            },
+
+            get storage() {
+                return this.root.hasAttribute("storage");
+            },
+
+            set storage(state) {
+                if (!state) {
+                    this.root.removeAttribute("storage");
+                    return;
+                }
+
+                this.root.setAttribute("storage", "");
+            },
+
+            get storageprefix() {
+                return this.root.getAttribute("storageprefix");
+            },
+
+            set storageprefix(value) {
+                if (!value) {
+                    this.root.removeAttribute("storageprefix");
+                    return;
+                }
+
+                this.root.setAttribute("storageprefix", value);
+            },
+
+            get storagekey() {
+                return this.root.getAttribute("storagekey");
+            },
+
+            set storagekey(value) {
+                if (!value) {
+                    this.root.removeAttribute("storagekey");
+                    return;
+                }
+
+                this.root.setAttribute("storagekey", value);
             },
         };
 
         this.shadowRender();
+        this.render();
     }
 
-    connectedCallback() { }
-    disconnectedCallback() {
-        this.ui.cleanup.run();
+    shadowRender() {
+        this.shadowRoot.innerHTML = `
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: fit-content;
+                }
+
+                input {
+                    width: 100%;
+                    display: block;
+                    margin: 0;
+                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+                    border: none !important;
+                    border-radius: inherit;
+                    outline: none !important;
+                    font-size: 0.9rem;
+                    font-family: var(--ui-fontFamily);
+                    font-variation-settings: var(--ui-input-fontVariation);
+                    accent-color: var(--ui-primary-bgColor);
+                    background-color: transparent !important;
+                }
+
+                :host(:not([nosubmit])) input {
+                    width: calc(100% - 2rem);
+                }
+
+                .container {
+                    position: relative;
+                    width: 100%;
+                    border: none;
+                    border: 1px solid var(--ui-borderColor);
+                    border-radius: var(--ui-radius);
+                    transition: border-color 0.25s linear;
+                    background-color: var(--ui-backdrop-bgColor);
+                    -webkit-backdrop-filter: var(--ui-backdropFilter);
+                    backdrop-filter: var(--ui-backdropFilter);
+                }
+
+                .container:has(input:focus) {
+                    border-color: var(--ui-primary-bgColor);
+                }
+
+                :host([invalid]) .container {
+                    border-color: var(--ui-destructive-bgColor);
+                }
+
+                ::slotted([slot="title"]) {
+                    display: block;
+                    padding: 0 var(--ui-spacing);
+                    user-select: none;
+                    transform: translateY(calc(var(--ui-spacing) / 2));
+                }
+
+                ui-icon-button {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 100%;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+            </style>
+
+            <div class="container">
+                <slot name="title"></slot>
+                <input type="search" />
+                <ui-icon-button name="submit" ghost>${svgSearch}</ui-icon-button>
+            </div>
+        `;
+
+        /** @type {import("../ui-button").UIIconButton} */
+        const submit = this.shadowRoot.querySelector(`[name="submit"]`);
+
+        const input = this.shadowRoot.querySelector("input");
+        input.type = "search";
+
+        input.addEventListener("keydown", async (ev) => {
+            if (this.ui.nosubmit) return;
+
+            if (ev.key === "Enter") {
+                submit.click();
+            }
+        });
+
+        /** @type {NodeJS.Timeout | null} */
+        let timeout = null;
+        input.addEventListener("input", async () => {
+            if (this.ui.storage) {
+                if (timeout !== null) {
+                    clearTimeout(timeout);
+                }
+
+                timeout = setTimeout(() => {
+                    localStorage.setItem(
+                        (this.ui.storageprefix || "") + this.ui.storagekey,
+                        input.value,
+                    );
+                    timeout = null;
+                }, 250);
+            }
+
+            this.ui.events.dispatch("input", input.value);
+        });
+
+        input.addEventListener("change", async () => {
+            this.ui.events.dispatch("change", input.value);
+        });
+
+        this.shadowRoot.querySelector("ui-icon-button")
+            .addEventListener("click", () => {
+                this.ui.events.dispatch("submit", input.value);
+            });
     }
+
+    render() { }
 
     /**
      * @param {string} name
@@ -259,110 +289,83 @@ export class UISearch extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "title":
-                let el = this.querySelector(`[slot="title"]`);
-
-                if (newValue === null && !!el) {
-                    this.removeChild(el);
-                    el = null;
-                }
-
-                if (!el) {
-                    el = new UISecondary();
-                    el.slot = "title";
-                    this.appendChild(el);
-                }
-
-                el.innerHTML = newValue || "";
-                break;
+                this.setTitle(newValue);
+                break
 
             case "value":
-                this.ui.setValue(newValue);
+                this.setValue(newValue);
                 break;
 
             case "placeholder":
-                this.ui.input.placeholder = newValue || "";
+                this.setPlaceholder(newValue);
                 break;
 
             case "invalid":
-                this.ui.input.ariaInvalid = newValue !== null ? "" : null;
+                this.setInvalid(newValue);
                 break;
 
-            case "no-submit":
-                if (newValue !== null) {
-                    this.ui.disableSubmit();
-                } else {
-                    this.ui.enableSubmit();
-                }
+            case "nosubmit":
+                this.setNoSubmit(newValue);
                 break;
-
-            case "use-storage":
-                this.ui.useStorage = newValue !== null;
-                break;
-
-            case "storage-prefix":
-                this.ui.storagePrefix = newValue;
-                break;
-        }
-    }
-
-    shadowRender() {
-        this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
-        `;
-
-        /** @type {UIIconButton} */
-        this.ui.submit = this.shadowRoot.querySelector("ui-icon-button");
-        this.ui.submit.ui.events.on("click", () => {
-            this.ui.events.dispatch("submit", this.ui.getValue());
-        });
-
-        {
-            /** @type {HTMLInputElement} */
-            this.ui.input = this.shadowRoot.querySelector("input");
-            this.ui.input.type = "text";
-
-            this.ui.input.onkeydown = async (ev) => {
-                if (!this.ui.hasSubmit()) return;
-                if (ev.key === "Enter") this.ui.submit.click();
-            };
-
-            this.ui.input.oninput = async () => {
-                if (this.ui.useStorage) {
-                    if (timeout !== null) {
-                        clearTimeout(timeout);
-                    }
-
-                    timeout = setTimeout(() => {
-                        localStorage.setItem(
-                            (this.ui.storagePrefix || "") + this.ui.getKey(),
-                            this.ui.input.value,
-                        );
-                        timeout = null;
-                    }, 250);
-                }
-
-                this.ui.events.dispatch("input", this.ui.input.value);
-            };
-
-            /**
-             * @type {NodeJS.Timeout | null}
-             */
-            let timeout = null;
-
-            this.ui.input.onchange = async () =>
-                this.ui.events.dispatch("change", this.ui.input.value);
         }
     }
 
     /**
-     * @param {FocusOptions | null} [options]
+     * @param {string | null} title
      */
-    focus(options = null) {
-        this.shadowRoot.querySelector("input").focus(options);
+    setTitle(title) {
+        let el = this.querySelector(`[slot="title"]`);
+
+        if (!title && !!el) {
+            this.removeChild(el);
+        }
+
+        if (!title) return;
+
+        if (!el) {
+            el = new UISecondary();
+            el.slot = "title";
+            this.appendChild(el);
+        }
+
+        el.innerHTML = title;
     }
 
-    blur() {
-        this.shadowRoot.querySelector("input").blur();
+    /**
+     * @param {string | null} value
+     */
+    setValue(value) {
+        this.shadowRoot.querySelector("input").value = value;
+    }
+
+    /**
+     * @param {string | null} placeholder
+     */
+    setPlaceholder(placeholder) {
+        this.shadowRoot.querySelector("input")
+            .placeholder = placeholder || "";
+    }
+
+    /**
+     * @param {string | null} invalid
+     */
+    setInvalid(invalid) {
+        this.shadowRoot.querySelector("input")
+            .ariaInvalid = invalid;
+    }
+
+    /**
+     * @param {string | null} nosubmit
+     */
+    setNoSubmit(nosubmit) {
+        /** @type {import("../ui-button").UIIconButton} */
+        const submit = this.shadowRoot.querySelector(`[name="submit"]`);
+
+        if (nosubmit === null) {
+            submit.style.display = "none";
+            return;
+        }
+
+        submit.style.display = null;
     }
 }

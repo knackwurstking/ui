@@ -205,11 +205,11 @@ export class UIInput extends HTMLElement {
         input.type = this.getAttribute("type") || "text";
 
         input.oninput = () => {
-            this.ui.events.dispatch("input", this.ui.value);
+            this.ui.events.dispatch("input", input.value);
         };
 
         input.onchange = () => {
-            this.ui.events.dispatch("change", this.ui.value);
+            this.ui.events.dispatch("change", input.value);
         };
     }
 
