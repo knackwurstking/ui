@@ -6,7 +6,7 @@ export {
     defaultOptions as defaultRippleOptions,
 } from "./ripple";
 
-export { isAndroid, html, css } from "./utils";
+export { isAndroid, html } from "./utils";
 export { CleanUp } from "./cleanup";
 
 /**
