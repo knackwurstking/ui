@@ -1,3 +1,4 @@
+// TODO: Continue here...
 import { CleanUp, css, Events, html } from "../js";
 import svgSearch from "../svg/smoothie-line-icons/search";
 import { UIIconButton } from "../ui-button";
@@ -245,7 +246,7 @@ export class UISearch extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }

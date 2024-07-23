@@ -12,6 +12,7 @@ export type UIIconButtonColor = import("./ui-button").UIIconButtonColor;
 export type UIIconButtonEvents = import("./ui-button").UIIconButtonEvents;
 export type UIDialogEvents = import("./ui-dialog").UIDialogEvents;
 export type UIDrawerEvents = import("./ui-drawer").UIDrawerEvents;
+export type UIInputEvents = import("./ui-input").UIInputEvents;
 export type UIInputTypes = import("./ui-input").UIInputTypes;
 export type UISearchEvents = import("./ui-input").UISearchEvents;
 export type UISelectEvents = import("./ui-input").UISelectEvents;

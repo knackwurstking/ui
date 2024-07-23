@@ -2,6 +2,12 @@ import { Events } from "../js";
 import { UISecondary } from "../ui-text";
 
 /**
+ * @typedef UIInputEvents
+ * @type {{
+ *  input: string;
+ *  change: string;
+ * }}
+ *
  * @typedef UIInputTypes
  * @type {(
  *  | "text"
@@ -13,7 +19,7 @@ import { UISecondary } from "../ui-text";
  */
 
 /**
- * @template {UIInputTypes} T
+ * @template {UIInputEvents} E
  * @extends {HTMLElement}
  */
 export class UIInput extends HTMLElement {
@@ -40,7 +46,7 @@ export class UIInput extends HTMLElement {
         this.ui = {
             root: this,
 
-            /** @type {Events<{ input: string; change: string; }>} */
+            /** @type {Events<E>} */
             events: new Events(),
 
             get title() {

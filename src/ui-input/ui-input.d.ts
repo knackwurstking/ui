@@ -1,4 +1,10 @@
 /**
+ * @typedef UIInputEvents
+ * @type {{
+ *  input: string;
+ *  change: string;
+ * }}
+ *
  * @typedef UIInputTypes
  * @type {(
  *  | "text"
@@ -9,20 +15,17 @@
  * )}
  */
 /**
- * @template {UIInputTypes} T
+ * @template {UIInputEvents} E
  * @extends {HTMLElement}
  */
-export class UIInput<T extends UIInputTypes> extends HTMLElement {
+export class UIInput<E extends UIInputEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
     ui: {
         root: this;
-        /** @type {Events<{ input: string; change: string; }>} */
-        events: Events<{
-            input: string;
-            change: string;
-        }>;
+        /** @type {Events<E>} */
+        events: Events<E>;
         title: string;
         type: string;
         value: string;
@@ -73,5 +76,9 @@ export class UIInput<T extends UIInputTypes> extends HTMLElement {
      */
     setMax(max: string | null): void;
 }
+export type UIInputEvents = {
+    input: string;
+    change: string;
+};
 export type UIInputTypes = ("text" | "number" | "month" | "date" | "email");
 import { Events } from "../js";
