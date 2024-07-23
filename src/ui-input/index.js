@@ -4,9 +4,7 @@ export { UISelectOption } from "./ui-select-option";
 export { UISearch } from "./ui-search";
 
 /**
- * @typedef {import("./ui-input").UIInputEvents} UIInputEvents
  * @typedef {import("./ui-input").UIInputTypes} UIInputTypes
- * @typedef {import("./ui-input").UIInputTypeValues} UIInputTypeValues
  * @typedef {import("./ui-search").UISearchEvents} UISearchEvents
  * @typedef {import("./ui-select").UISelectEvents} UISelectEvents
  */

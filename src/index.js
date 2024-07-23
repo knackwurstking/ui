@@ -28,9 +28,7 @@ export { register } from "./register";
  * @typedef {import("./ui-dialog").UIDialogEvents} UIDialogEvents
  * @typedef {import("./ui-drawer").UIDrawerEvents} UIDrawerEvents
  *
- * @typedef {import("./ui-input").UIInputEvents} UIInputEvents
  * @typedef {import("./ui-input").UIInputTypes} UIInputTypes
- * @typedef {import("./ui-input").UIInputTypeValues} UIInputTypeValues
  *
  * @typedef {import("./ui-input").UISearchEvents} UISearchEvents
  * @typedef {import("./ui-input").UISelectEvents} UISelectEvents
