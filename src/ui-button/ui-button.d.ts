@@ -29,7 +29,7 @@ export class UIButton extends HTMLElement {
          * @type {Events<UIButtonEvents>}
          */
         events: Events<UIButtonEvents>;
-        noRipple: boolean;
+        noripple: boolean;
         color: string;
         variant: string;
         disabled: boolean;

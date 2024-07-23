@@ -16,7 +16,7 @@ export class UIIconButton extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["no-ripple"];
+    static observedAttributes = ["noripple"];
 
     constructor() {
         super();
@@ -33,17 +33,17 @@ export class UIIconButton extends HTMLElement {
              */
             events: new Events(),
 
-            get noRipple() {
-                return this.root.hasAttribute("no-ripple");
+            get noripple() {
+                return this.root.hasAttribute("noripple");
             },
 
-            set noRipple(state) {
+            set noripple(state) {
                 if (!state) {
-                    this.root.removeAttribute("no-ripple");
+                    this.root.removeAttribute("noripple");
                     return;
                 }
 
-                this.root.setAttribute("no-ripple", "");
+                this.root.setAttribute("noripple", "");
             },
 
             get color() {
@@ -176,7 +176,7 @@ export class UIIconButton extends HTMLElement {
      */
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
-            case "no-ripple":
+            case "noripple":
                 if (newValue !== null) {
                     if (typeof this.removeRippleCallback === "function") {
                         this.removeRippleCallback();

@@ -1,6 +1,6 @@
 export class UISpinner extends HTMLElement {
     static register: () => void;
-    shadowCSS: () => any;
+    shadowCSS: () => string;
     shadowTemplate: () => any;
     ui: {
         cleanup: CleanUp;

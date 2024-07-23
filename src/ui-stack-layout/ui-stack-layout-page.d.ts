@@ -1,6 +1,6 @@
 export class UIStackLayoutPage extends HTMLElement {
     static register: () => void;
-    shadowCSS: () => any;
+    shadowCSS: () => string;
     shadowTemplate: () => any;
     ui: {
         /** @private */

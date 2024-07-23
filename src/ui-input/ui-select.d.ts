@@ -10,7 +10,7 @@
  */
 export class UISelect extends HTMLElement {
     static register: () => void;
-    shadowCSS: () => any;
+    shadowCSS: () => string;
     shadowTemplate: () => any;
     ui: {
         /**

@@ -1,4 +1,4 @@
-import { CleanUp, Events, html, css } from "../js";
+import { CleanUp, Events, html } from "../js";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**
@@ -19,7 +19,7 @@ export class UIStackLayout extends HTMLElement {
 
     static observedAttributes = ["use-history"];
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         :host {
             display: block !important;
             position: relative !important;
@@ -178,7 +178,7 @@ export class UIStackLayout extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
 
     disconnectedCallback() {
         this.ui.cleanup.run();

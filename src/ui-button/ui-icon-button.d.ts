@@ -17,7 +17,7 @@ export class UIIconButton extends HTMLElement {
          * @type {Events<UIIconButtonEvents>}
          */
         events: Events<UIIconButtonEvents>;
-        noRipple: boolean;
+        noripple: boolean;
         color: string;
         ghost: boolean;
         disabled: boolean;

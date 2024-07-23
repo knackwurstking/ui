@@ -1,4 +1,4 @@
-import { CleanUp, html, css } from "../js";
+import { CleanUp, html } from "../js";
 
 export class UISpinner extends HTMLElement {
     static register = () => {
@@ -7,7 +7,7 @@ export class UISpinner extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         :host {
             position: absolute;
             width: 100%;
@@ -66,7 +66,7 @@ export class UISpinner extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }

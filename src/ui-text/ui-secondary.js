@@ -1,4 +1,4 @@
-import { CleanUp, css, html } from "../js";
+import { CleanUp, html } from "../js";
 
 export class UISecondary extends HTMLElement {
     static register = () => {
@@ -7,7 +7,7 @@ export class UISecondary extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         :host {
             font-size: 0.9rem;
             font-family: var(--ui-fontFamily);
@@ -28,7 +28,7 @@ export class UISecondary extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }

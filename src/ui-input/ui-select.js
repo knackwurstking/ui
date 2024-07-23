@@ -1,4 +1,4 @@
-import { CleanUp, css, Events, html } from "../js";
+import { CleanUp, Events, html } from "../js";
 import svgChevronDown from "../svg/smoothie-line-icons/chevron-down";
 import { UISelectOption } from "./ui-select-option";
 
@@ -20,7 +20,7 @@ export class UISelect extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         * {
             box-sizing: border-box;
         }

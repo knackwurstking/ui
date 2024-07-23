@@ -1,4 +1,4 @@
-import { html, css } from "../js";
+import { html } from "../js";
 
 /**
  * Observed Attributes:
@@ -12,7 +12,7 @@ export class UISelectOption extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         :host {
             display: none;
             align-items: center;

@@ -1,4 +1,4 @@
-import { css, html } from "../js";
+import { html } from "../js";
 import { CleanUp } from "../js/cleanup";
 
 export class UISvg extends HTMLElement {
@@ -8,7 +8,7 @@ export class UISvg extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         :host {
             width: 100%;
             height: 100%;
@@ -34,7 +34,7 @@ export class UISvg extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }

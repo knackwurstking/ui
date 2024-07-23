@@ -7,7 +7,7 @@
 export class UIStackLayout extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    shadowCSS: () => any;
+    shadowCSS: () => string;
     shadowTemplate: () => any;
     ui: {
         /** @private */

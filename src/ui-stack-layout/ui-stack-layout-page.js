@@ -1,4 +1,4 @@
-import { CleanUp, html, css } from "../js";
+import { CleanUp, html } from "../js";
 
 export class UIStackLayoutPage extends HTMLElement {
     static register = () => {
@@ -7,7 +7,7 @@ export class UIStackLayoutPage extends HTMLElement {
         }
     };
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         :host {
             display: block !important;
             position: absolute !important;
@@ -65,7 +65,7 @@ export class UIStackLayoutPage extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }

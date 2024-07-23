@@ -1,4 +1,4 @@
-import { CleanUp, createRipple, css, html } from "../js";
+import { CleanUp, createRipple, html } from "../js";
 import { UIPrimary } from "./ui-primary";
 import { UISecondary } from "./ui-secondary";
 
@@ -23,7 +23,7 @@ export class UILabel extends HTMLElement {
 
     static observedAttributes = ["ripple", "secondary", "primary"];
 
-    shadowCSS = () => css`
+    shadowCSS = () => `
         * {
             box-sizing: border-box;
         }
@@ -177,7 +177,7 @@ export class UILabel extends HTMLElement {
         this.shadowRender();
     }
 
-    connectedCallback() {}
+    connectedCallback() { }
     disconnectedCallback() {
         this.ui.cleanup.run();
     }
