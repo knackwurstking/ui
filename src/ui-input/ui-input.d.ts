@@ -8,6 +8,7 @@
  * @typedef UIInputTypes
  * @type {(
  *  | "text"
+ *  | "search"
  *  | "number"
  *  | "month"
  *  | "date"
@@ -80,5 +81,5 @@ export type UIInputEvents = {
     input: string;
     change: string;
 };
-export type UIInputTypes = ("text" | "number" | "month" | "date" | "email");
+export type UIInputTypes = ("text" | "search" | "number" | "month" | "date" | "email");
 import { Events } from "../js";

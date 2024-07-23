@@ -11,6 +11,7 @@ import { UISecondary } from "../ui-text";
  * @typedef UIInputTypes
  * @type {(
  *  | "text"
+ *  | "search"
  *  | "number"
  *  | "month"
  *  | "date"
