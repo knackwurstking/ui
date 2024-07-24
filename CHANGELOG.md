@@ -31,7 +31,7 @@ New standard methods for all ui components:
     - [x] ui-flex-grid          [*dev5*]
     - [x] ui-input              [*dev5*]
     - [x] ui-search             [*dev5*]
-    - [ ] ui-select-option
+    - [x] ui-select-option      [*dev5*]
     - [ ] ui-select
     - [ ] ui-lang-type
     - [ ] ui-lang
