@@ -23,16 +23,16 @@ New standard methods for all ui components:
     - [x] ui-icon-button
     - [x] ui-container
     - [x] ui-dialog
-    - [x] ui-drawer-group-item  [*dev5*]
-    - [x] ui-drawer-group       [*dev5*]
-    - [x] ui-drawer             [*dev5*]
-    - [x] ui-flex-grid-item     [*dev5*]
-    - [x] ui-flex-grid-row      [*dev5*]
-    - [x] ui-flex-grid          [*dev5*]
-    - [x] ui-input              [*dev5*]
-    - [x] ui-search             [*dev5*]
-    - [x] ui-select-option      [*dev5*]
-    - [ ] ui-select
+    - [x] ui-drawer-group-item
+    - [x] ui-drawer-group
+    - [x] ui-drawer
+    - [x] ui-flex-grid-item
+    - [x] ui-flex-grid-row
+    - [x] ui-flex-grid
+    - [x] ui-input
+    - [x] ui-search
+    - [x] ui-select-option      [*dev6*]
+    - [x] ui-select             [*dev6*]
     - [ ] ui-lang-type
     - [ ] ui-lang
     - [ ] ui-spinner
