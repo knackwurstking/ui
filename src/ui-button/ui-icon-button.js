@@ -98,9 +98,7 @@ export class UIIconButton extends HTMLElement {
                 }
 
                 :host {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    display: block;
                     position: relative;
                     width: 2.5rem;
                     height: 2.5rem;
@@ -146,6 +144,12 @@ export class UIIconButton extends HTMLElement {
                     opacity: 0.25;
                     cursor: default;
                     pointer-events: none;
+                }
+
+                ui-svg {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
             </style>
 
