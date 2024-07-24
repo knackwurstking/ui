@@ -153,6 +153,12 @@ export class UIIconButton extends HTMLElement {
                 <slot></slot>
             </ui-svg>
         `;
+
+        if (typeof this.removeRippleCallback !== "function") {
+            this.removeRippleCallback = createRipple(
+                this, { centered: true },
+            );
+        }
     }
 
     render() {

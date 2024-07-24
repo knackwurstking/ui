@@ -195,6 +195,12 @@ export class UIButton extends HTMLElement {
 
             <slot></slot>
         `;
+
+        if (typeof this.removeRippleCallback !== "function") {
+            this.removeRippleCallback = createRipple(
+                this, { centered: true },
+            );
+        }
     }
 
     render() {
