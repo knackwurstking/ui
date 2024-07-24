@@ -362,10 +362,10 @@ export class UISearch extends HTMLElement {
         const submit = this.shadowRoot.querySelector(`[name="submit"]`);
 
         if (nosubmit === null) {
-            submit.style.display = "none";
+            submit.style.display = null;
             return;
         }
 
-        submit.style.display = null;
+        submit.style.display = "none";
     }
 }

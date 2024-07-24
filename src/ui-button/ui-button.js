@@ -111,7 +111,7 @@ export class UIButton extends HTMLElement {
                 }
 
                 :host {
-                    display: flex !important;
+                    display: flex;
                     align-items: center;
                     justify-content: center;
                     position: relative !important;

@@ -98,7 +98,7 @@ export class UIIconButton extends HTMLElement {
                 }
 
                 :host {
-                    display: flex !important;
+                    display: flex;
                     align-items: center;
                     justify-content: center;
                     position: relative;
