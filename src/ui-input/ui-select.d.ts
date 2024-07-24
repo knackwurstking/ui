@@ -10,37 +10,24 @@
  */
 export class UISelect extends HTMLElement {
     static register: () => void;
-    shadowCSS: () => string;
-    shadowTemplate: () => any;
     ui: {
-        /**
-         * @private
-         */
         root: this;
-        cleanup: CleanUp;
         /**
          *  @type {Events<UISelectEvents>}
          */
         events: Events<UISelectEvents>;
-        isOpen(): void;
-        open(): void;
-        close(): void;
+        open: boolean;
         /**
          * @returns {UISelectOption[]}
          */
-        getOptions(): UISelectOption[];
+        readonly options: UISelectOption[];
         /**
          * @returns {UISelectOption | null}
          */
-        getSelectedOption(): UISelectOption | null;
+        selected(): UISelectOption | null;
     };
-    /**
-     * @private
-     */
-    private cleanup;
-    connectedCallback(): void;
-    disconnectedCallback(): void;
     shadowRender(): void;
+    render(): void;
 }
 /**
  * UISelectEvents
@@ -48,6 +35,5 @@ export class UISelect extends HTMLElement {
 export type UISelectEvents = {
     "change": UISelectOption;
 };
-import { CleanUp } from "../js";
 import { Events } from "../js";
 import { UISelectOption } from "./ui-select-option";
