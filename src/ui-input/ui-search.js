@@ -28,9 +28,9 @@ export class UISearch extends HTMLElement {
         "placeholder",
         "invalid",
         "nosubmit",
-        //"storage",
-        //"storageprefix",
-        //"storagekey",
+        "storage",
+        "storageprefix",
+        "storagekey",
     ];
 
     constructor() {
@@ -259,7 +259,7 @@ export class UISearch extends HTMLElement {
 
                 timeout = setTimeout(() => {
                     localStorage.setItem(
-                        (this.ui.storageprefix || "") + this.ui.storagekey,
+                        this.ui.storageprefix + this.ui.storagekey,
                         input.value,
                     );
                     timeout = null;
@@ -306,6 +306,10 @@ export class UISearch extends HTMLElement {
 
             case "nosubmit":
                 this.setNoSubmit(newValue);
+                break;
+
+            case "storagekey":
+                this.setStorageKey(newValue);
                 break;
         }
     }
@@ -367,5 +371,17 @@ export class UISearch extends HTMLElement {
         }
 
         submit.style.display = "none";
+    }
+
+    /**
+     * @param {string | null} value
+     */
+    setStorageKey(value) {
+        if (!this.ui.storage) return;
+
+        const input = this.shadowRoot.querySelector("input");
+        input.value = localStorage.getItem(
+            this.ui.storageprefix + value,
+        ) || "";
     }
 }

@@ -60,6 +60,10 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
      * @param {string | null} nosubmit
      */
     setNoSubmit(nosubmit: string | null): void;
+    /**
+     * @param {string | null} value
+     */
+    setStorageKey(value: string | null): void;
 }
 export type UISearchEvents = {
     input: string;
