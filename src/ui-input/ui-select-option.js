@@ -1,5 +1,3 @@
-import { html } from "../js";
-
 /**
  * Observed Attributes:
  *  - **value**    - [type: string]
@@ -12,47 +10,19 @@ export class UISelectOption extends HTMLElement {
         }
     };
 
-    shadowCSS = () => `
-        :host {
-            display: none;
-            align-items: center;
-
-            padding: var(--ui-spacing);
-            padding-right: 2.5rem;
-
-            height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
-
-            white-space: nowrap;
-            text-overflow: ellipsis;
-
-            transition:
-                background-color 0.25s linear,
-                color 0.25s linear;
-
-            overflow: hidden;
-        }
-    `;
-
-    shadowTemplate = () => html`<slot></slot>`;
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.setAttribute("role", "button");
 
         this.ui = {
-            /** @private */
             root: this,
 
-            getValue() {
+            get value() {
                 return this.root.getAttribute("value");
             },
 
-            /**
-             * @param {string | null} value
-             */
-            setValue(value) {
-                if (value === null) {
+            set value(value) {
+                if (!value) {
                     this.root.removeAttribute("value");
                     return;
                 }
@@ -60,15 +30,12 @@ export class UISelectOption extends HTMLElement {
                 this.root.setAttribute("value", value);
             },
 
-            getSelected() {
+            get selected() {
                 return this.root.hasAttribute("selected");
             },
 
-            /**
-             * @param {boolean} state
-             */
-            setSelected(state) {
-                if (!state) {
+            set selected(value) {
+                if (!value) {
                     this.root.removeAttribute("selected");
                     return;
                 }
@@ -78,12 +45,37 @@ export class UISelectOption extends HTMLElement {
         };
 
         this.shadowRender();
+        this.render();
     }
 
     shadowRender() {
         this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
+            <style>
+                :host {
+                    display: none;
+                    align-items: center;
+
+                    padding: var(--ui-spacing);
+                    padding-right: 2.5rem;
+
+                    height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
+
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
+                    transition:
+                        background-color 0.25s linear,
+                        color 0.25s linear;
+
+                    overflow: hidden;
+                }
+            </style>
+
+            <slot></slot>
         `;
+    }
+
+    render() {
+        this.setAttribute("role", "button");
     }
 }

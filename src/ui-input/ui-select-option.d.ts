@@ -5,21 +5,11 @@
  */
 export class UISelectOption extends HTMLElement {
     static register: () => void;
-    shadowCSS: () => string;
-    shadowTemplate: () => any;
     ui: {
-        /** @private */
         root: this;
-        getValue(): string;
-        /**
-         * @param {string | null} value
-         */
-        setValue(value: string | null): void;
-        getSelected(): boolean;
-        /**
-         * @param {boolean} state
-         */
-        setSelected(state: boolean): void;
+        value: string;
+        selected: boolean;
     };
     shadowRender(): void;
+    render(): void;
 }
