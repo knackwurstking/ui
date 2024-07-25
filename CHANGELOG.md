@@ -36,7 +36,7 @@ New standard methods for all ui components:
     - [x] ui-lang-type          [*dev6*]
     - [x] ui-lang               [*dev6*]
     - [x] ui-spinner            [*dev6*]
-    - [x] ui-stack-layout-page
+    - [x] ui-stack-layout-page  [*dev6*]
     - [ ] ui-stack-layout
     - [ ] ui-store
     - [ ] ui-svg
