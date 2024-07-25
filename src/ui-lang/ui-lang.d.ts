@@ -2,15 +2,7 @@ export class UILang extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     ui: {
-        /** @private */
         root: this;
-        /**
-         * @private
-         * @type {Events<{ "change": UILangType}>}
-         */
-        events: Events<{
-            "change": UILangType;
-        }>;
         /**
          * @type {{
          *  [key: string]: {
@@ -24,44 +16,22 @@ export class UILang extends HTMLElement {
             };
         };
         /**
-         *@type {UILangType | null}
+         * @type {Events<{ "change": import(".").UILangType}>}
          */
-        langType: UILangType | null;
-        getCurrent(): string;
-        /**
-         * @param {string | null} v
-         */
-        setCurrent(v: string | null): void;
-        /**
-         * @returns {UILangType}
-         */
-        getFallbackElement(): UILangType;
-        /**
-         * @param {UILangType} langType
-         * @param {{
-         *  [key: string]: {
-         *      [key: string]: string;
-         *  };
-         * }} data
-         */
-        "new"(langType: UILangType, data: {
-            [key: string]: {
-                [key: string]: string;
-            };
-        }): void;
+        events: Events<{
+            "change": import(".").UILangType;
+        }>;
+        current: string;
+        /** @returns {import(".").UILangType} */
+        fallback(): import(".").UILangType;
         /**
          * @param {string} group
          * @param {string} key
          */
         get(group: string, key: string): string;
-        /**
-         * @param {"change"} key
-         * @param {(langType: UILangType | null) => void|Promise<void>} callback
-         * @param {boolean} [trigger] - this will run the callback first
-         * @returns {() => void} clean up function
-         */
-        on(key: "change", callback: (langType: UILangType | null) => void | Promise<void>, trigger?: boolean): () => void;
     };
+    shadowRender(): void;
+    render(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -72,7 +42,7 @@ export class UILang extends HTMLElement {
      * @private
      * @param {string} name
      */
-    private loadLanguage;
+    private setCurrent;
+    data: Promise<any>;
 }
 import { Events } from "../js";
-import { UILangType } from "./ui-lang-type";

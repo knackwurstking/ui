@@ -9,18 +9,14 @@ export class UILangType extends HTMLElement {
         super();
 
         this.ui = {
-            /** @private */
             root: this,
 
-            getName() {
+            get name() {
                 return this.root.getAttribute("name");
             },
 
-            /**
-             * @param {string | null} value
-             */
-            setName(value) {
-                if (value === null) {
+            set name(value) {
+                if (!value) {
                     this.root.removeAttribute("name");
                     return;
                 }
@@ -28,15 +24,12 @@ export class UILangType extends HTMLElement {
                 this.root.setAttribute("name", value);
             },
 
-            getHref() {
+            get href() {
                 return this.root.getAttribute("href");
             },
 
-            /**
-             * @param {string | null} value
-             */
-            setHref(value) {
-                if (value === null) {
+            set href(value) {
+                if (!value) {
                     this.root.removeAttribute("href");
                     return;
                 }
@@ -44,15 +37,12 @@ export class UILangType extends HTMLElement {
                 this.root.setAttribute("href", value);
             },
 
-            getFallback() {
+            get fallback() {
                 return this.root.hasAttribute("fallback");
             },
 
-            /**
-             * @param {boolean} state
-             */
-            setFallback(state) {
-                if (!state) {
+            set fallback(value) {
+                if (!value) {
                     this.root.removeAttribute("fallback");
                     return;
                 }
@@ -60,5 +50,11 @@ export class UILangType extends HTMLElement {
                 this.root.setAttribute("fallback", "");
             },
         };
+
+        this.shadowRender();
+        this.render();
     }
+
+    shadowRender() { }
+    render() { }
 }

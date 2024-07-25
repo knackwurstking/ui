@@ -1,5 +1,4 @@
 import { Events } from "../js";
-import { UILangType } from "./ui-lang-type";
 
 export class UILang extends HTMLElement {
     static register = () => {
@@ -14,14 +13,7 @@ export class UILang extends HTMLElement {
         super();
 
         this.ui = {
-            /** @private */
             root: this,
-
-            /**
-             * @private
-             * @type {Events<{ "change": UILangType}>}
-             */
-            events: new Events(),
 
             /**
              * @type {{
@@ -33,45 +25,26 @@ export class UILang extends HTMLElement {
             data: {},
 
             /**
-             *@type {UILangType | null}
+             * @type {Events<{ "change": import(".").UILangType}>}
              */
-            langType: null,
+            events: new Events(),
 
-            getCurrent() {
+            get current() {
                 return this.root.getAttribute("current");
             },
 
-            /**
-             * @param {string | null} v
-             */
-            setCurrent(v) {
-                if (v === null) {
+            set current(value) {
+                if (!value) {
                     this.root.removeAttribute("current");
                     return;
                 }
 
-                this.root.setAttribute("current", v);
+                this.root.setAttribute("current", value);
             },
 
-            /**
-             * @returns {UILangType}
-             */
-            getFallbackElement() {
+            /** @returns {import(".").UILangType} */
+            fallback() {
                 return this.root.querySelector("ui-lang-type[fallback]");
-            },
-
-            /**
-             * @param {UILangType} langType
-             * @param {{
-             *  [key: string]: {
-             *      [key: string]: string;
-             *  };
-             * }} data
-             */
-            new(langType, data) {
-                this.langType = langType;
-                this.data = data;
-                this.events.dispatch("change", this.langType);
             },
 
             /**
@@ -81,26 +54,14 @@ export class UILang extends HTMLElement {
             get(group, key) {
                 return this.data?.[group]?.[key] || null;
             },
-
-            /**
-             * @param {"change"} key
-             * @param {(langType: UILangType | null) => void|Promise<void>} callback
-             * @param {boolean} [trigger] - this will run the callback first
-             * @returns {() => void} clean up function
-             */
-            on(key, callback, trigger = false) {
-                if (typeof callback !== "function") {
-                    throw `callback is not a function`;
-                }
-
-                if (trigger) {
-                    callback(this.langType);
-                }
-
-                return this.events.on(key, callback);
-            },
         };
+
+        this.shadowRender()
+        this.render()
     }
+
+    shadowRender() { }
+    render() { }
 
     /**
      * @param {string} name
@@ -110,7 +71,7 @@ export class UILang extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "current":
-                if (newValue !== null) this.loadLanguage(newValue);
+                if (newValue !== null) this.setCurrent(newValue);
                 break;
         }
     }
@@ -119,16 +80,21 @@ export class UILang extends HTMLElement {
      * @private
      * @param {string} name
      */
-    async loadLanguage(name) {
-        /** @type {UILangType} */
-        const next =
+    async setCurrent(name) {
+        /** @type {import(".").UILangType} */
+        const l =
             this.querySelector(`ui-lang-type[name="${name}"]`) ||
-            this.ui.getFallbackElement();
+            this.ui.fallback();
 
-        if (!next) return;
-        if (!next.ui.getHref()) throw `Missing href attribute!`;
+        if (!l) return;
+        if (!l.ui.getHref()) throw `Missing href attribute!`;
 
-        const request = await fetch(next.ui.getHref());
-        this.ui.new(next, await request.json());
+        try {
+            this.data = (await fetch(l.ui.getHref())).json();
+        } catch (err) {
+            console.error(err);
+        }
+
+        this.ui.events.dispatch("change", l);
     }
 }

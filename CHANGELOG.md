@@ -33,9 +33,9 @@ New standard methods for all ui components:
     - [x] ui-search
     - [x] ui-select-option      [*dev6*]
     - [x] ui-select             [*dev6*]
-    - [ ] ui-lang-type
-    - [ ] ui-lang
-    - [ ] ui-spinner
+    - [x] ui-lang-type          [*dev6*]
+    - [x] ui-lang               [*dev6*]
+    - [x] ui-spinner            [*dev6*]
     - [ ] ui-stack-layout-page
     - [ ] ui-stack-layout
     - [ ] ui-store
