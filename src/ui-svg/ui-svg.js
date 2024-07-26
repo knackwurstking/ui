@@ -1,6 +1,3 @@
-import { html } from "../js";
-import { CleanUp } from "../js/cleanup";
-
 export class UISvg extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-svg")) {
@@ -8,41 +5,34 @@ export class UISvg extends HTMLElement {
         }
     };
 
-    shadowCSS = () => `
-        :host {
-            width: 100%;
-            height: 100%;
-            color: inherit;
-        }
-
-        svg {
-            width: 100%;
-            height: 100%;
-        }
-    `;
-
-    shadowTemplate = () => html`<slot></slot>`;
-
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
 
-        this.ui = {
-            cleanup: new CleanUp(),
-        };
+        this.ui = {};
 
         this.shadowRender();
     }
 
-    connectedCallback() { }
-    disconnectedCallback() {
-        this.ui.cleanup.run();
-    }
-
     shadowRender() {
         this.shadowRoot.innerHTML = `
-            <style>${this.shadowCSS().trim()}</style>
-            ${this.shadowTemplate().trim()}
+            <style>
+                :host {
+                    width: 100%;
+                    height: 100%;
+                    color: inherit;
+                }
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                }
+            </style>
+
+            <slot></slot>
         `;
     }
+
+    connectedCallback() { }
+    disconnectedCallback() { }
 }

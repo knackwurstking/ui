@@ -9,25 +9,18 @@ export class UIStore<T extends UIStoreEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
+    /**
+     * @type {any}
+     */
+    stores: any;
     ui: {
-        /** @private */
         root: this;
-        /**
-         * @type {boolean}
-         */
-        useStorage: boolean;
-        /**
-         * @type {string | null}
-         */
-        storagePrefix: string | null;
-        /**
-         * @type {any}
-         */
-        stores: any;
         /**
          * @type {Events<T>}
          */
         events: Events<T>;
+        storage: boolean;
+        storageprefix: string;
         /**
          * @template {keyof T} K
          * @param {K} key
@@ -57,12 +50,9 @@ export class UIStore<T extends UIStoreEvents> extends HTMLElement {
          */
         on<K extends keyof T>(key: K, callback: (data: T[K]) => void | Promise<void>, trigger?: boolean): () => void;
     };
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    shadowRender(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
 }
 export type UIStoreEvents = import("../js/events/events")._Events;
 import { Events } from "../js";

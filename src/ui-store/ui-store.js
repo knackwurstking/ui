@@ -15,34 +15,49 @@ export class UIStore extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["use-storage", "storage-prefix"];
+    static observedAttributes = ["storageprefix"];
 
     constructor() {
         super();
 
+        /**
+         * @type {any}
+         */
+        this.stores = {};
+
         this.ui = {
-            /** @private */
             root: this,
-
-            /**
-             * @type {boolean}
-             */
-            useStorage: false,
-
-            /**
-             * @type {string | null}
-             */
-            storagePrefix: null,
-
-            /**
-             * @type {any}
-             */
-            stores: {},
 
             /**
              * @type {Events<T>}
              */
             events: new Events(),
+
+            get storage() {
+                return this.root.hasAttribute("storage");
+            },
+
+            set storage(value) {
+                if (!value) {
+                    this.root.removeAttribute("storage");
+                    return;
+                }
+
+                this.root.setAttribute("storage", "");
+            },
+
+            get storageprefix() {
+                return this.root.getAttribute("storageprefix");
+            },
+
+            set storageprefix(value) {
+                if (!value) {
+                    this.root.removeAttribute("storageprefix");
+                    return;
+                }
+
+                this.root.setAttribute("storageprefix", value);
+            },
 
             /**
              * @template {keyof T} K
@@ -50,7 +65,7 @@ export class UIStore extends HTMLElement {
              * @returns {T[K]}
              */
             get(key) {
-                return this.stores[key];
+                return this.root.stores[key];
             },
 
             /**
@@ -61,26 +76,26 @@ export class UIStore extends HTMLElement {
              * `this.enableLocalStorage` flag needs to be set to `true` for this to work
              */
             set(key, data, useDataAsFallback = false) {
-                if (useDataAsFallback && this.storagePrefix) {
+                if (useDataAsFallback && this.storageprefix) {
                     const sData = JSON.parse(
                         localStorage.getItem(
-                            (this.storagePrefix || "") + key.toString(),
+                            (this.storageprefix || "") + key.toString(),
                         ) || "null",
                     );
-                    this.stores[key] =
+                    this.root.stores[key] =
                         sData === null || sData === undefined ? data : sData;
                 } else {
-                    this.stores[key] = data;
+                    this.root.stores[key] = data;
                 }
 
-                if (this.useStorage) {
+                if (this.storage) {
                     localStorage.setItem(
-                        (this.storagePrefix || "") + key.toString(),
-                        JSON.stringify(this.stores[key]),
+                        (this.storageprefix || "") + key.toString(),
+                        JSON.stringify(this.root.stores[key]),
                     );
                 }
 
-                this.events.dispatch(key, this.stores[key]);
+                this.events.dispatch(key, this.root.stores[key]);
             },
 
             /**
@@ -93,7 +108,7 @@ export class UIStore extends HTMLElement {
                     throw `callback is not a function`;
                 }
 
-                this.set(key, callback(this.stores[key]));
+                this.set(key, callback(this.root.stores[key]));
             },
 
             /**
@@ -115,22 +130,11 @@ export class UIStore extends HTMLElement {
                 return this.events.on(key, callback);
             },
         };
+
+        this.shadowRender();
     }
 
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "use-storage":
-                this.ui.useStorage = newValue !== null;
-                break;
-
-            case "storage-prefix":
-                this.ui.storagePrefix = newValue;
-                break;
-        }
-    }
+    shadowRender() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 }
