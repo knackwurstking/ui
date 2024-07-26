@@ -31,19 +31,19 @@ New standard methods for all ui components:
     - [x] ui-flex-grid
     - [x] ui-input
     - [x] ui-search
-    - [x] ui-select-option      [*dev6*]
-    - [x] ui-select             [*dev6*]
-    - [x] ui-lang-type          [*dev6*]
-    - [x] ui-lang               [*dev6*]
-    - [x] ui-spinner            [*dev6*]
-    - [x] ui-stack-layout-page  [*dev6*]
-    - [x] ui-stack-layout       [*dev6*]
-    - [x] ui-store              [*dev6*]
-    - [x] ui-svg                [*dev6*]
-    - [x] ui-label              [*dev6*]
-    - [x] ui-primary            [*dev6*]
-    - [x] ui-secondary          [*dev6*]
-    - [x] ui-theme-handler      [*dev6*]
+    - [x] ui-select-option      [*dev7*]
+    - [x] ui-select             [*dev7*]
+    - [x] ui-lang-type          [*dev7*]
+    - [x] ui-lang               [*dev7*]
+    - [x] ui-spinner            [*dev7*]
+    - [x] ui-stack-layout-page  [*dev7*]
+    - [x] ui-stack-layout       [*dev7*]
+    - [x] ui-store              [*dev7*]
+    - [x] ui-svg                [*dev7*]
+    - [x] ui-label              [*dev7*]
+    - [x] ui-primary            [*dev7*]
+    - [x] ui-secondary          [*dev7*]
+    - [x] ui-theme-handler      [*dev7*]
 
 
 ## v0.2.11 2024-07-20
@@ -131,5 +131,5 @@ New standard methods for all ui components:
 
 ## v0.1.1 2024-03-22
 
-- Added css util: ".has-save-area"
 - Changed dialog paddings (top/bottom) for `env(save-area-inset-*)`
+- Added css util: ".has-save-area"
