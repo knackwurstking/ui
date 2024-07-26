@@ -30,5 +30,4 @@ export class UISecondary extends HTMLElement {
 
     connectedCallback() { }
     disconnectedCallback() { }
-
 }
