@@ -5,60 +5,54 @@
 export class UIThemeHandler extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    /**
+     * @type {((ev: MediaQueryListEvent | MediaQueryList) => void|Promise<void>) | null}
+     */
+    mediaHandler: ((ev: MediaQueryListEvent | MediaQueryList) => void | Promise<void>) | null;
+    /**
+     * @type {{ [key: string]: string }}
+     */
+    themes: {
+        [key: string]: string;
+    };
+    /**
+     * @type {{ name: string; href: string } | null}
+     */
+    currentTheme: {
+        name: string;
+        href: string;
+    } | null;
     ui: {
+        root: this;
+        auto: boolean;
+        mode: string;
         /**
-         * @private
-         * @type {MediaQueryList | null}
-         */
-        media: MediaQueryList | null;
-        /**
-         * @type {{ name: string; href: string } | null}
-         */
-        currentTheme: {
-            name: string;
-            href: string;
-        } | null;
-        /**
-         * @type {{ [key: string]: string }}
-         */
-        themes: {
-            [key: string]: string;
-        };
-        /**
-         * @param {HTMLElement} [element]
-         */
-        getMode(element?: HTMLElement): string;
-        /**
-         * @param {UIThemeHandlerMode} mode
-         * @param {HTMLElement} [element]
-         */
-        setMode(mode: UIThemeHandlerMode, element?: HTMLElement): void;
-        /**
-         * @private
-         * @param {MediaQueryListEvent | MediaQueryList} ev
-         */
-        mediaChangeHandler: (ev: MediaQueryListEvent | MediaQueryList) => void;
-        getAuto(): boolean;
-        /**
-         * @param {boolean} state
-         * @param {HTMLElement} [element]
-         */
-        setAuto(state: boolean, element?: HTMLElement): void;
-        /**
-         * @param {string} name
+         * @param {string} themeName
          * @param {string} href
          */
-        addTheme(name: string, href: string): void;
+        add(themeName: string, href: string): void;
         /**
-         * @param {string} name
+         * @param {string} themeName
          */
-        setTheme(name: string): void;
+        set(themeName: string): void;
     };
+    shadowRender(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    /**
+     * @param {string | null} value
+     * @param {HTMLElement} target
+     */
+    setAuto(value: string | null, target?: HTMLElement): void;
+    media: MediaQueryList;
+    /**
+     * @param {string | null} value
+     * @param {HTMLElement} target
+     */
+    setMode(value: string | null, target?: HTMLElement): void;
 }
 export type UIThemeHandlerMode = "dark" | "light" | null;

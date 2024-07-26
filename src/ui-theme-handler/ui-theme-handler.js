@@ -15,109 +15,67 @@ export class UIThemeHandler extends HTMLElement {
     constructor() {
         super();
 
+        /**
+         * @type {((ev: MediaQueryListEvent | MediaQueryList) => void|Promise<void>) | null}
+         */
+        this.mediaHandler = null;
+
+        /**
+         * @type {{ [key: string]: string }}
+         */
+        this.themes = {};
+
+        /**
+         * @type {{ name: string; href: string } | null}
+         */
+        this.currentTheme = null;
+
         this.ui = {
-            /**
-             * @private
-             * @type {MediaQueryList | null}
-             */
-            media: null,
+            root: this,
 
-            /**
-             * @type {{ name: string; href: string } | null}
-             */
-            currentTheme: null,
-
-            /**
-             * @type {{ [key: string]: string }}
-             */
-            themes: {},
-
-            /**
-             * @param {HTMLElement} [element]
-             */
-            getMode(element = document.body) {
-                return element.getAttribute("data-theme");
+            get auto() {
+                return this.root.hasAttribute("auto");
             },
 
-            /**
-             * @param {UIThemeHandlerMode} mode
-             * @param {HTMLElement} [element]
-             */
-            setMode(mode, element = document.body) {
-                switch (mode) {
-                    case "dark":
-                        element.setAttribute("data-theme", mode);
-                        break;
-                    case "light":
-                        element.setAttribute("data-theme", mode);
-                        break;
-                    default:
-                        element.removeAttribute("data-theme");
-                }
-            },
-
-            /**
-             * @private
-             * @param {MediaQueryListEvent | MediaQueryList} ev
-             */
-            mediaChangeHandler: (ev) => {
-                if (ev.matches) {
-                    document.body.setAttribute("data-theme", "dark");
-                } else {
-                    document.body.setAttribute("data-theme", "light");
-                }
-            },
-
-            getAuto() {
-                return !!this.media;
-            },
-
-            /**
-             * @param {boolean} state
-             * @param {HTMLElement} [element]
-             */
-            setAuto(state, element = document.body) {
-                if (!state) {
-                    if (!this.media) return;
-
-                    this.media.removeEventListener(
-                        "change",
-                        this.mediaChangeHandler,
-                    );
-
-                    this.media = null;
-                    return;
+            set auto(value) {
+                if (!value) {
+                    this.root.removeAttribute("auto")
+                    return
                 }
 
-                this.setMode(null, element);
+                this.root.setAttribute("auto", "");
+            },
 
-                if (!!this.media) {
-                    this.mediaChangeHandler(this.media);
-                    return;
+            get mode() {
+                return this.root.getAttribute("mode");
+            },
+
+            set mode(value) {
+                if (!value) {
+                    this.root.removeAttribute("mode")
+                    return
                 }
 
-                this.media = window.matchMedia("(prefers-color-scheme: dark)");
-                this.media.addEventListener("change", this.mediaChangeHandler);
-                this.mediaChangeHandler(this.media);
+                this.root.setAttribute("mode", value)
             },
 
             /**
-             * @param {string} name
+             * @param {string} themeName
              * @param {string} href
              */
-            addTheme(name, href) {
-                this.themes[name] = href;
+            add(themeName, href) {
+                this.root.themes[themeName] = href;
             },
 
             /**
-             * @param {string} name
+             * @param {string} themeName
              */
-            setTheme(name) {
-                if (!this.themes[name]) {
-                    throw `theme "${name}" is missing in this.themes`;
+            set(themeName) {
+                if (!this.root.themes[themeName]) {
+                    throw `theme "${themeName}" is missing in this.themes`;
                 }
 
-                if (this.currentTheme?.name == name) {
+                if (this.root.currentTheme?.name == themeName) {
                     return;
                 }
 
@@ -125,7 +83,7 @@ export class UIThemeHandler extends HTMLElement {
                     const link = document.getElementById("theme");
                     if (!!link) {
                         document.head.removeChild(link);
-                        this.currentTheme = null;
+                        this.root.currentTheme = null;
                     }
                 }
 
@@ -133,13 +91,20 @@ export class UIThemeHandler extends HTMLElement {
 
                 link.id = "theme";
                 link.rel = "stylesheet";
-                link.href = this.themes[name];
+                link.href = this.root.themes[themeName];
 
                 document.head.appendChild(link);
-                this.currentTheme = { name, href: this.themes[name] };
+                this.root.currentTheme = {
+                    name: themeName,
+                    href: this.root.themes[themeName]
+                };
             },
         };
+
+        this.shadowRender();
     }
+
+    shadowRender() { }
 
     /**
      * @param {string} name
@@ -149,12 +114,70 @@ export class UIThemeHandler extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "auto":
-                this.ui.setAuto(newValue !== null);
+                this.setAuto(newValue);
                 break;
+
             case "mode":
-                // @ts-expect-error
-                this.ui.setMode(newValue);
+                this.setMode(newValue);
                 break;
+        }
+    }
+
+    /**
+     * @param {string | null} value
+     * @param {HTMLElement} target
+     */
+    setAuto(value, target = document.body) {
+        if (value === null) {
+            if (!this.media) return;
+
+            this.media.removeEventListener(
+                "change",
+                this.mediaHandler,
+            );
+
+            this.media = null;
+            this.mediaHandler = null;
+            return;
+        }
+
+        this.setMode(null, target);
+
+        if (!!this.media) {
+            this.mediaHandler(this.media);
+            return;
+        }
+
+        /**
+         * @param {MediaQueryListEvent | MediaQueryList} ev
+         */
+        this.mediaHandler = (ev) => {
+            if (ev.matches) {
+                target.setAttribute("data-theme", "dark");
+            } else {
+                target.setAttribute("data-theme", "light");
+            }
+        };
+
+        this.media = window.matchMedia("(prefers-color-scheme: dark)");
+        this.media.addEventListener("change", this.mediaHandler);
+        this.mediaHandler(this.media);
+    }
+
+    /**
+     * @param {string | null} value
+     * @param {HTMLElement} target
+     */
+    setMode(value, target = document.body) {
+        switch (value) {
+            case "dark":
+                target.setAttribute("data-theme", value);
+                break;
+            case "light":
+                target.setAttribute("data-theme", value);
+                break;
+            default:
+                target.removeAttribute("data-theme");
         }
     }
 }
