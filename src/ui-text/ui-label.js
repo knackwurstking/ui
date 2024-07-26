@@ -1,7 +1,4 @@
-// TODO: Continue here...
-import { CleanUp, createRipple, html } from "../js";
-import { UIPrimary } from "./ui-primary";
-import { UISecondary } from "./ui-secondary";
+import { createRipple } from "../js";
 
 /**
  * Observed Attributes:
