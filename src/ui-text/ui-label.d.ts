@@ -10,48 +10,24 @@
 export class UILabel extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    shadowCSS: () => string;
-    shadowTemplate: () => any;
+    /**
+     * @type {(() => void|Promise<void>) | null}
+     */
+    removeRipple: (() => void | Promise<void>) | null;
+    /** @private */
+    private running;
+    /** @private */
+    private onClick;
+    /** @private */
+    private onInputClick;
     ui: {
-        /** @private */
         root: this;
-        cleanup: CleanUp;
-        /** @private */
-        running: boolean;
-        /**
-         * @private
-         * @type {(() => void|Promise<void>) | null}
-         */
-        removeRipple: (() => void | Promise<void>) | null;
-        /** @private */
-        onClick: () => Promise<void>;
-        /** @private */
-        onInputClick: (ev: MouseEvent & {
-            currentTarget: Element;
-        }) => Promise<void>;
-        getPrimary(): string;
-        /**
-         * @param {string | null} value
-         */
-        setPrimary(value: string | null): void;
-        getSecondary(): string;
-        /**
-         * @param {string | null} value
-         */
-        setSecondary(value: string | null): void;
-        /**
-         * @returns {HTMLElement[]}
-         */
-        getInputSlot(): HTMLElement[];
-        enableRipple(): void;
-        disableRipple(): void;
-        /** @private */
-        startInputHandling(): void;
-        /**
-         * @private
-         */
-        stopInputHandling(): void;
+        ripple: boolean;
+        primary: string;
+        secondary: string;
+        readonly inputSlot: any[];
     };
+    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -60,6 +36,20 @@ export class UILabel extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    shadowRender(): void;
+    /**
+     * @param {string | null} value
+     */
+    setRipple(value: string | null): void;
+    /**
+     * @param {string | null} value
+     */
+    setPrimary(value: string | null): void;
+    /**
+     * @param {string | null} value
+     */
+    setSecondary(value: string | null): void;
+    /** @private */
+    private enableRipple;
+    /** @private */
+    private disableRipple;
 }
-import { CleanUp } from "../js";
