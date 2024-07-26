@@ -41,9 +41,9 @@ New standard methods for all ui components:
     - [x] ui-store              [*dev6*]
     - [x] ui-svg                [*dev6*]
     - [x] ui-label              [*dev6*]
-    - [ ] ui-primary
-    - [ ] ui-secondary
-    - [ ] ui-theme-handler
+    - [x] ui-primary            [*dev6*]
+    - [x] ui-secondary          [*dev6*]
+    - [x] ui-theme-handler      [*dev6*]
 
 
 ## v0.2.11 2024-07-20
