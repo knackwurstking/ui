@@ -45,7 +45,6 @@ export class UISelectOption extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -75,7 +74,9 @@ export class UISelectOption extends HTMLElement {
         `;
     }
 
-    render() {
+    connectedCallback() {
         this.setAttribute("role", "button");
     }
+
+    disconnectedCallback() { }
 }

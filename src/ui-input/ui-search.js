@@ -155,7 +155,6 @@ export class UISearch extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -279,7 +278,8 @@ export class UISearch extends HTMLElement {
             });
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

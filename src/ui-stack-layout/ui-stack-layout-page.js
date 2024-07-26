@@ -27,7 +27,6 @@ export class UIStackLayoutPage extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -63,5 +62,6 @@ export class UIStackLayoutPage extends HTMLElement {
         `;
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 }

@@ -1,4 +1,4 @@
-import { CleanUp, html } from "../js";
+import { html } from "../js";
 
 export class UIDrawerGroup extends HTMLElement {
     static register = () => {
@@ -18,8 +18,6 @@ export class UIDrawerGroup extends HTMLElement {
             /** @private */
             root: this,
 
-            cleanup: new CleanUp(),
-
             get title() {
                 return this.root.getAttribute("title");
             },
@@ -35,7 +33,6 @@ export class UIDrawerGroup extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -65,7 +62,8 @@ export class UIDrawerGroup extends HTMLElement {
         `;
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

@@ -6,7 +6,8 @@ export class UIFlexGridItem extends HTMLElement {
         flex: string;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue

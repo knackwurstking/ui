@@ -31,7 +31,8 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
         close(): void;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue

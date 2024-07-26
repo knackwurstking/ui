@@ -41,7 +41,8 @@ export class UIInput<E extends UIInputEvents> extends HTMLElement {
         blur(): void;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue

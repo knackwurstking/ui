@@ -47,7 +47,6 @@ export class UIAppBar extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -124,5 +123,6 @@ export class UIAppBar extends HTMLElement {
         `;
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 }

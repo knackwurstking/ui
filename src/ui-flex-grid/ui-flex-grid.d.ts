@@ -6,7 +6,8 @@ export class UIFlexGrid extends HTMLElement {
         gap: string;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue

@@ -90,7 +90,6 @@ export class UIDialog extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -306,8 +305,8 @@ export class UIDialog extends HTMLElement {
         });
     }
 
-    render() {
-    }
+    connectedCallback() { }
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

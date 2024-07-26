@@ -35,7 +35,6 @@ export class UIButton extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
 
-        this.renderCleanUp = new CleanUp();
         this.removeRippleCallback = null;
 
         this.ui = {
@@ -100,7 +99,6 @@ export class UIButton extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -201,21 +199,17 @@ export class UIButton extends HTMLElement {
                 this, { centered: true },
             );
         }
-    }
 
-    render() {
-        this.renderCleanUp.run();
-        this.setAttribute("role", "button");
-
-        const handler = async () =>
+        this.addEventListener("click", () => {
             this.ui.events.dispatch("click", this);
-
-        this.renderCleanUp.add(
-            () => this.removeEventListener("click", handler),
-        );
-
-        this.addEventListener("click", handler);
+        });
     }
+
+    connectedCallback() {
+        this.setAttribute("role", "button");
+    }
+
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

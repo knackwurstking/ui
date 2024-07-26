@@ -52,9 +52,9 @@ export class UILangType extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() { }
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 }

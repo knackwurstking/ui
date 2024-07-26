@@ -4,11 +4,11 @@ export class UIDrawerGroup extends HTMLElement {
     ui: {
         /** @private */
         root: this;
-        cleanup: CleanUp;
         title: string;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -20,4 +20,3 @@ export class UIDrawerGroup extends HTMLElement {
      */
     setGroupTitle(title: string | null): void;
 }
-import { CleanUp } from "../js";

@@ -29,7 +29,6 @@ export class UIFlexGridRow extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -63,7 +62,8 @@ export class UIFlexGridRow extends HTMLElement {
         `;
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

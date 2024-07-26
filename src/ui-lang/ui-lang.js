@@ -56,12 +56,12 @@ export class UILang extends HTMLElement {
             },
         };
 
-        this.shadowRender()
-        this.render()
+        this.shadowRender();
     }
 
     shadowRender() { }
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

@@ -20,14 +20,15 @@ export class UISelect extends HTMLElement {
         /**
          * @returns {UISelectOption[]}
          */
-        readonly options: UISelectOption[];
+        options(): UISelectOption[];
         /**
          * @returns {UISelectOption | null}
          */
         selected(): UISelectOption | null;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
 }
 /**
  * UISelectEvents

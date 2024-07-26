@@ -9,7 +9,6 @@
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    renderCleanUp: CleanUp;
     removeRippleCallback: () => void;
     ui: {
         root: this;
@@ -23,7 +22,8 @@ export class UIIconButton extends HTMLElement {
         disabled: boolean;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -35,5 +35,4 @@ export type UIIconButtonColor = import(".").UIIconButtonColor;
 export type UIIconButtonEvents = {
     click: UIIconButton;
 };
-import { CleanUp } from "../js";
 import { Events } from "../js";

@@ -8,7 +8,6 @@
 export class UIDrawer extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    renderCleanUp: CleanUp;
     ui: {
         root: this;
         /**
@@ -18,7 +17,8 @@ export class UIDrawer extends HTMLElement {
         open: boolean;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -30,5 +30,4 @@ export type UIDrawerEvents = {
     open: UIDrawer;
     close: UIDrawer;
 };
-import { CleanUp } from "../js";
 import { Events } from "../js";

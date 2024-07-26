@@ -14,7 +14,6 @@ export class UIDrawerGroupItem extends HTMLElement {
         this.ui = {};
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -42,5 +41,6 @@ export class UIDrawerGroupItem extends HTMLElement {
         `;
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 }

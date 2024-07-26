@@ -33,7 +33,8 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
         storagekey: string;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue

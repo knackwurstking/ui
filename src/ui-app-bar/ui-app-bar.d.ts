@@ -14,5 +14,6 @@ export class UIAppBar extends HTMLElement {
         position: string;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
 }

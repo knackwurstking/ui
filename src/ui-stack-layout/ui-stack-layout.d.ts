@@ -6,29 +6,20 @@
  */
 export class UIStackLayout extends HTMLElement {
     static register: () => void;
-    static observedAttributes: string[];
-    shadowCSS: () => string;
-    shadowTemplate: () => any;
+    /** @type {Pages} */
+    pages: Pages;
+    /** @type {UIStackLayoutPage[]} */
+    stack: UIStackLayoutPage[];
+    onpopstate: () => void;
     ui: {
-        /** @private */
         root: this;
-        cleanup: CleanUp;
         /**
-         * @private
-         * @type {Pages}
-         */
-        pages: Pages;
-        /**
-         * @private
-         * @type {UIStackLayoutPage[]}
-         */
-        stack: UIStackLayoutPage[];
-        /**
-         * @type {((ev: PopStateEvent) => void|Promise<void>) | null}
-         */
-        onpopstate: ((ev: PopStateEvent) => void | Promise<void>) | null;
-        /**
-         * @type {Events<{ "change": { oldPage: UIStackLayoutPage | null, newPage: UIStackLayoutPage | null } }>}
+         * @type {Events<{
+         *  "change": {
+         *      oldPage: UIStackLayoutPage | null,
+         *      newPage: UIStackLayoutPage | null
+         *  }
+         * }>}
          */
         events: Events<{
             "change": {
@@ -37,49 +28,36 @@ export class UIStackLayout extends HTMLElement {
             };
         }>;
         lock: boolean;
-        enableHistory(): void;
-        disableHistory(): void;
-        usesHistory(): boolean;
-        /**
-         * @param {string} name
-         * @param {() => (UIStackLayoutPage)} cb
-         */
-        registerPage(name: string, cb: () => (UIStackLayoutPage)): void;
-        /**
-         * @param {string} name
-         */
-        unregisterPage(name: string): void;
-        clearStack(): void;
-        stackSize(): number;
+        size(): number;
+        clear(): void;
         goBack(): void;
         /**
-         * @private
+         * @param {string} pageName
+         * @param {() => (UIStackLayoutPage)} cb
          */
-        _goBack(): void;
+        register(pageName: string, cb: () => (UIStackLayoutPage)): void;
         /**
-         * @param {string} name
+         * @param {string} pageName
+         */
+        unregister(pageName: string): void;
+        /**
+         * @param {string} pageName
          * @param {((page: UIStackLayoutPage) => void|Promise<void>) | null} [cb]
          * @param {boolean} [keepOldPage]
          */
-        setPage(name: string, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): void;
-        /**
-         * @param {UIStackLayoutPage} oldChild
-         */
-        dispatchChangeEvent(oldChild: UIStackLayoutPage): Promise<void>;
+        set(pageName: string, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): void;
     };
+    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    goBack(): void;
     /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
+     * @param {UIStackLayoutPage} oldChild
      */
-    attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    shadowRender(): void;
+    dispatchChangeEvent(oldChild: UIStackLayoutPage): Promise<void>;
 }
 export type Pages = {
     [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
 };
-import { CleanUp } from "../js";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 import { Events } from "../js";

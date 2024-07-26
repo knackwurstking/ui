@@ -48,7 +48,7 @@ export class UISelect extends HTMLElement {
             /**
              * @returns {UISelectOption[]}
              */
-            get options() {
+            options() {
                 return [...this.root.children].filter(
                     (child) => child instanceof UISelectOption,
                 );
@@ -60,7 +60,7 @@ export class UISelect extends HTMLElement {
             selected() {
                 try {
                     return (
-                        this.options.find(
+                        this.options().find(
                             (/** @type {UISelectOption} */ option) =>
                                 option.ui.selected,
                         ) || null
@@ -72,7 +72,6 @@ export class UISelect extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -212,5 +211,6 @@ export class UISelect extends HTMLElement {
         );
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 }

@@ -29,7 +29,6 @@ export class UIFlexGridItem extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -44,7 +43,8 @@ export class UIFlexGridItem extends HTMLElement {
         `;
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

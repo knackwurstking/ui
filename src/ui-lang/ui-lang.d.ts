@@ -31,7 +31,8 @@ export class UILang extends HTMLElement {
         get(group: string, key: string): string;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue

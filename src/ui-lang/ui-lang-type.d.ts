@@ -7,5 +7,6 @@ export class UILangType extends HTMLElement {
         fallback: boolean;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
 }

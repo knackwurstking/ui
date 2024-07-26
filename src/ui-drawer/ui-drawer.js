@@ -21,8 +21,6 @@ export class UIDrawer extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
 
-        this.renderCleanUp = new CleanUp();
-
         this.ui = {
             root: this,
 
@@ -46,7 +44,6 @@ export class UIDrawer extends HTMLElement {
         };
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -128,22 +125,13 @@ export class UIDrawer extends HTMLElement {
         this.shadowRoot.querySelector("aside")
             .addEventListener("click", (ev) =>
                 ev.stopPropagation());
+
+
+        this.addEventListener("click", () => (this.ui.open = false));
     }
 
-    render() {
-        this.renderCleanUp.run();
-
-        const onClick = () => {
-            this.ui.open = false;
-        };
-
-        this.addEventListener("click", onClick);
-        this.renderCleanUp.add(
-            () => {
-                this.removeEventListener("click", onClick);
-            },
-        );
-    }
+    connectedCallback() { }
+    disconnectedCallback() { }
 
     /**
      * @param {string} name

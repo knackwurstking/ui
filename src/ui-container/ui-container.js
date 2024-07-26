@@ -14,7 +14,6 @@ export class UIContainer extends HTMLElement {
         this.ui = {};
 
         this.shadowRender();
-        this.render();
     }
 
     shadowRender() {
@@ -37,5 +36,6 @@ export class UIContainer extends HTMLElement {
         `;
     }
 
-    render() { }
+    connectedCallback() { }
+    disconnectedCallback() { }
 }

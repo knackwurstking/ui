@@ -9,9 +9,9 @@ New standard methods for all ui components:
     - contructor()
         - this.ui = { ... }
         - this.shadowRender()
-        - this.render()
     - shadowRender()
-    - render()
+    - connectedCallback()
+    - disconnectedCallback()
 
 ### Changed
 
@@ -37,7 +37,7 @@ New standard methods for all ui components:
     - [x] ui-lang               [*dev6*]
     - [x] ui-spinner            [*dev6*]
     - [x] ui-stack-layout-page  [*dev6*]
-    - [ ] ui-stack-layout
+    - [x] ui-stack-layout       [*dev6*]
     - [ ] ui-store
     - [ ] ui-svg
     - [ ] ui-label

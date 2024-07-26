@@ -11,5 +11,6 @@ export class UISelectOption extends HTMLElement {
         selected: boolean;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
 }

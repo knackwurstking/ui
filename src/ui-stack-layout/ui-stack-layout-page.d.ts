@@ -5,5 +5,6 @@ export class UIStackLayoutPage extends HTMLElement {
         name: string;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
 }

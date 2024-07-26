@@ -21,7 +21,6 @@
 export class UIButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    renderCleanUp: CleanUp;
     removeRippleCallback: () => void;
     ui: {
         root: this;
@@ -35,7 +34,8 @@ export class UIButton extends HTMLElement {
         disabled: boolean;
     };
     shadowRender(): void;
-    render(): void;
+    connectedCallback(): void;
+    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue
@@ -48,5 +48,4 @@ export type UIButtonVariant = ("full" | "outline" | "ghost");
 export type UIButtonEvents = {
     click: UIButton;
 };
-import { CleanUp } from "../js";
 import { Events } from "../js";
