@@ -16,7 +16,7 @@ New standard methods for all ui components:
 ### Changed
 
 - Icon button size (2.5rem)
-- [ ] Components structure
+- [x] Components structure
     - [x] ui-app-bar
     - [x] ui-app-bar-item
     - [x] ui-button
@@ -31,19 +31,19 @@ New standard methods for all ui components:
     - [x] ui-flex-grid
     - [x] ui-input
     - [x] ui-search
-    - [x] ui-select-option      [*dev7*]
-    - [x] ui-select             [*dev7*]
-    - [x] ui-lang-type          [*dev7*]
-    - [x] ui-lang               [*dev7*]
-    - [x] ui-spinner            [*dev7*]
-    - [x] ui-stack-layout-page  [*dev7*]
-    - [x] ui-stack-layout       [*dev7*]
-    - [x] ui-store              [*dev7*]
-    - [x] ui-svg                [*dev7*]
-    - [x] ui-label              [*dev7*]
-    - [x] ui-primary            [*dev7*]
-    - [x] ui-secondary          [*dev7*]
-    - [x] ui-theme-handler      [*dev7*]
+    - [x] ui-select-option
+    - [x] ui-select
+    - [x] ui-lang-type
+    - [x] ui-lang
+    - [x] ui-spinner
+    - [x] ui-stack-layout-page
+    - [x] ui-stack-layout
+    - [x] ui-store
+    - [x] ui-svg
+    - [x] ui-label
+    - [x] ui-primary
+    - [x] ui-secondary
+    - [x] ui-theme-handler
 
 
 ## v0.2.11 2024-07-20
