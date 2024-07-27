@@ -134,7 +134,6 @@ export class UIStackLayout extends HTMLElement {
 
     goBack() {
         const removedChild = this.removeChild(this.stack.pop());
-        console.debug(removedChild, this.stack)
 
         if (this.stack.length > 0) {
             if (!this.stack[this.stack.length - 1].parentElement) {
