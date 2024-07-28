@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.13 [unreleased]
+## v0.2.13 — [unreleased]
 
 ### Added
 
@@ -11,13 +11,13 @@
 
 - UISearch: "change" event
 
-## v0.2.12 2024-07-27
+## v0.2.12 — 2024-07-27
 
 ### NOTE
 
 New standard methods for all ui components:
 
-    - contructor()
+    - constructor()
         - this.ui = { ... }
         - this.shadowRender()
     - shadowRender()
