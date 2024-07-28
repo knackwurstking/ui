@@ -1,23 +1,24 @@
 export class UISvg extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-svg")) {
-            customElements.define("ui-svg", UISvg);
-        }
-    };
-
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
-
-        this.ui = {};
-
-        this.shadowRender();
+  static register = () => {
+    if (!customElements.get("ui-svg")) {
+      customElements.define("ui-svg", UISvg);
     }
+  };
 
-    shadowRender() {
-        this.shadowRoot.innerHTML = `
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+
+    this.ui = {};
+
+    this.shadowRender();
+  }
+
+  shadowRender() {
+    this.shadowRoot.innerHTML = `
             <style>
                 :host {
+                    display: block;
                     width: 100%;
                     height: 100%;
                     color: inherit;
@@ -31,8 +32,8 @@ export class UISvg extends HTMLElement {
 
             <slot></slot>
         `;
-    }
+  }
 
-    connectedCallback() { }
-    disconnectedCallback() { }
+  connectedCallback() {}
+  disconnectedCallback() {}
 }

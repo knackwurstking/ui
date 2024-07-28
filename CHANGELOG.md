@@ -24,12 +24,18 @@
 
 **Added**:
 
-- UISearch: "storage" event, fired if the storage key has changed
-- UISpinner: "nobg" attribute (removes background)
+- `UISearch`: Event "storage", fired if the storage key has changed
+- `UISpinner`: Attribute "nobg" (removes background)
+- `UIDrawerGroup`: Fold and Unfold
+
+**Changed**
+
+- `UISvg`: Host display to "block"
+- `UIDrawerGroupItem`: Host display to "block" with 100% width
 
 **Removed**:
 
-- UISearch: "change" event
+- `UISearch`: Event "change"
 
 ## v0.2.12 2024-07-27
 

@@ -5,6 +5,7 @@ export class UIDrawerGroup extends HTMLElement {
         /** @private */
         root: this;
         title: string;
+        fold: boolean;
     };
     shadowRender(): void;
     connectedCallback(): void;
