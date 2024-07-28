@@ -21,8 +21,8 @@ export type UIThemeHandlerMode = import("./ui-theme-handler").UIThemeHandlerMode
 export { UIAppBar, UIAppBarItem } from "./ui-app-bar";
 export { UIButton, UIIconButton } from "./ui-button";
 export { UIDrawer, UIDrawerGroup, UIDrawerGroupItem } from "./ui-drawer";
-export { UIFlexGrid, UIFlexGridRow, UIFlexGridItem } from "./ui-flex-grid";
-export { UIInput, UISelect, UISelectOption, UISearch } from "./ui-input";
+export { UIFlexGrid, UIFlexGridItem, UIFlexGridRow } from "./ui-flex-grid";
+export { UIInput, UISearch, UISelect, UISelectOption } from "./ui-input";
 export { UILang, UILangType } from "./ui-lang";
 export { UIStackLayout, UIStackLayoutPage } from "./ui-stack-layout";
 export { UILabel, UIPrimary, UISecondary } from "./ui-text";

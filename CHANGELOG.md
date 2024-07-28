@@ -25,7 +25,11 @@
 
 **Changed**:
 
-- [ ] Code formatting
+- Code formatting
+
+**Fixed**:
+
+- `UILang`: Attribute for `UILangType` href has changed
 
 ## v0.2.13 2024-07-28
 

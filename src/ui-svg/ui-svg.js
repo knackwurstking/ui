@@ -1,3 +1,5 @@
+import { html } from "../js";
+
 export class UISvg extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-svg")) {
@@ -15,23 +17,23 @@ export class UISvg extends HTMLElement {
   }
 
   shadowRender() {
-    this.shadowRoot.innerHTML = `
-            <style>
-                :host {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    color: inherit;
-                }
+    this.shadowRoot.innerHTML = html`
+      <style>
+        :host {
+          display: block;
+          width: 100%;
+          height: 100%;
+          color: inherit;
+        }
 
-                svg {
-                    width: 100%;
-                    height: 100%;
-                }
-            </style>
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      </style>
 
-            <slot></slot>
-        `;
+      <slot></slot>
+    `;
   }
 
   connectedCallback() {}

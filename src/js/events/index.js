@@ -1,4 +1,4 @@
-export { default as Events } from "./events.js"
+export { default as Events } from "./events.js";
 
 /**
  * @typedef _Events

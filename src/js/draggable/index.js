@@ -1,4 +1,4 @@
-export { default as create } from "./create"
+export { default as create } from "./create";
 
 /**
  * @typedef DraggableOptions
@@ -8,4 +8,3 @@ export { default as create } from "./create"
  *  onDragEnd?: ((startIndex: number, index: number) => void | Promise<void>) | null;
  * }}
  */
-

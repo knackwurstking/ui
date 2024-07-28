@@ -19,44 +19,44 @@ import { UISecondary } from "./ui-text/ui-secondary";
 import { UIThemeHandler } from "./ui-theme-handler";
 
 export function register() {
-    UIAppBarItem.register();
-    UIAppBar.register();
+  UIAppBarItem.register();
+  UIAppBar.register();
 
-    UIButton.register();
-    UIIconButton.register();
+  UIButton.register();
+  UIIconButton.register();
 
-    UIContainer.register();
+  UIContainer.register();
 
-    UIDialog.register();
+  UIDialog.register();
 
-    UIDrawerGroupItem.register();
-    UIDrawerGroup.register();
-    UIDrawer.register();
+  UIDrawerGroupItem.register();
+  UIDrawerGroup.register();
+  UIDrawer.register();
 
-    UIFlexGridItem.register();
-    UIFlexGridRow.register();
-    UIFlexGrid.register();
+  UIFlexGridItem.register();
+  UIFlexGridRow.register();
+  UIFlexGrid.register();
 
-    UIInput.register();
-    UISearch.register();
-    UISelectOption.register();
-    UISelect.register();
+  UIInput.register();
+  UISearch.register();
+  UISelectOption.register();
+  UISelect.register();
 
-    UILangType.register();
-    UILang.register();
+  UILangType.register();
+  UILang.register();
 
-    UISpinner.register();
+  UISpinner.register();
 
-    UIStackLayout.register();
-    UIStackLayoutPage.register();
+  UIStackLayout.register();
+  UIStackLayoutPage.register();
 
-    UIStore.register();
+  UIStore.register();
 
-    UISvg.register();
+  UISvg.register();
 
-    UILabel.register();
-    UIPrimary.register();
-    UISecondary.register();
+  UILabel.register();
+  UIPrimary.register();
+  UISecondary.register();
 
-    UIThemeHandler.register();
+  UIThemeHandler.register();
 }
