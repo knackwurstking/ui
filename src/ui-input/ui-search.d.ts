@@ -2,7 +2,7 @@
  * @typedef UISearchEvents
  * @type {{
  *  input: string;
- *  change: string;
+ *  storage: string;
  *  submit: string;
  * }}
  */
@@ -68,7 +68,7 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
 }
 export type UISearchEvents = {
     input: string;
-    change: string;
+    storage: string;
     submit: string;
 };
 import { Events } from "../js";
