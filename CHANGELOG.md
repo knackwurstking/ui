@@ -1,19 +1,39 @@
 # Changelog
 
-## v0.2.13 — [unreleased]
+<!--toc:start-->
 
-### Added
+- [Changelog](#changelog)
+  - [v0.2.13 [unreleased]](#v0213-unreleased)
+  - [v0.2.12 2024-07-27](#v0212-2024-07-27)
+  - [v0.2.11 2024-07-20](#v0211-2024-07-20)
+  - [v0.2.10 2024-07-19](#v0210-2024-07-19)
+  - [v0.2.9 2024-07-19](#v029-2024-07-19)
+  - [v0.2.8 2024-07-18](#v028-2024-07-18)
+  - [v0.2.7 2024-07-15](#v027-2024-07-15)
+  - [v0.2.6 2024-07-12](#v026-2024-07-12)
+  - [v0.2.5 2024-07-11](#v025-2024-07-11)
+  - [v0.2.4 2024-07-09](#v024-2024-07-09)
+  - [v0.2.3 2024-07-05](#v023-2024-07-05)
+  - [v0.2.2 2024-07-03](#v022-2024-07-03)
+  - [v0.2.1 2024-06-27](#v021-2024-06-27)
+  - [v0.2.0 2024-06-23](#v020-2024-06-23)
+  - [v0.1.1 2024-03-22](#v011-2024-03-22)
+  <!--toc:end-->
+
+## v0.2.13 [unreleased]
+
+**Added**:
 
 - UISearch: "storage" event, fired if the storage key has changed
 - UISpinner: "nobg" attribute (removes background)
 
-### Removed
+**Removed**:
 
 - UISearch: "change" event
 
-## v0.2.12 — 2024-07-27
+## v0.2.12 2024-07-27
 
-### NOTE
+**NOTE**:
 
 New standard methods for all ui components:
 
@@ -24,7 +44,7 @@ New standard methods for all ui components:
     - connectedCallback()
     - disconnectedCallback()
 
-### Changed
+**Changed**:
 
 - Icon button size (2.5rem)
 - Components structures
@@ -58,21 +78,21 @@ New standard methods for all ui components:
 
 ## v0.2.11 2024-07-20
 
-### Changed
+**Changed**:
 
 - Drawer width, now "20rem" instead of "18em"
 
-### Fixed
+**Fixed**:
 
 - Drawer outside click to close
 
 ## v0.2.10 2024-07-19
 
-### Added
+**Added**:
 
 - CSS util `is-scroll`: Disable all pointer events
 
-### Changed
+**Changed**:
 
 - (Shadow-)Render methods
 
