@@ -1,26 +1,45 @@
 export class UISpinner extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-spinner")) {
-            customElements.define("ui-spinner", UISpinner);
+  static register = () => {
+    if (!customElements.get("ui-spinner")) {
+      customElements.define("ui-spinner", UISpinner);
+    }
+  };
+
+  static observedAttributes = ["nobg"];
+
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+
+    this.ui = {
+      root: this,
+
+      get nobg() {
+        return this.root.hasAttribute("nobg");
+      },
+
+      set nobg(state) {
+        if (!state) {
+          this.root.removeAttribute("nobg");
+          return;
         }
+
+        this.root.setAttribute("nobg", "");
+      },
     };
 
-    constructor() {
-        super();
-        this.attachShadow({ mode: "open" });
+    this.shadowRender();
+  }
 
-        this.ui = {};
-
-        this.shadowRender();
-    }
-
-    shadowRender() {
-        this.shadowRoot.innerHTML = `
+  shadowRender() {
+    this.shadowRoot.innerHTML = `
             <style>
                 :host {
                     position: absolute;
-                    width: 100%;
-                    height: 100%;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
                 }
 
                 .background {
@@ -62,8 +81,33 @@ export class UISpinner extends HTMLElement {
             <div class="background"></div>
             <div class="spinner"></div>
         `;
+  }
+
+  connectedCallback() {}
+  disconnectedCallback() {}
+
+  /**
+   * @param {string} name
+   * @param {string | null} _oldValue
+   * @param {string | null} newValue
+   */
+  attributeChangedCallback(name, _oldValue, newValue) {
+    switch (name) {
+      case "nobg":
+        this.setNoBg(newValue);
+        break;
+    }
+  }
+
+  /** @param {string | null} value */
+  setNoBg(value) {
+    if (value === null) {
+      // @ts-expect-error
+      this.shadowRoot.querySelector(".background").style.display = null;
+      return;
     }
 
-    connectedCallback() { }
-    disconnectedCallback() { }
+    // @ts-expect-error
+    this.shadowRoot.querySelector(".background").style.display = "none";
+  }
 }
