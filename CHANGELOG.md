@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.2.13 [unreleased]
+
+### Added
+
+- UISearch: "storage" event, fired if the storage key has changed
+- UISpinner: "nobg" attribute (removes background)
+
+### Removed
+
+- UISearch: "change" event
+
 ## v0.2.12 2024-07-27
 
 ### NOTE
@@ -16,35 +27,34 @@ New standard methods for all ui components:
 ### Changed
 
 - Icon button size (2.5rem)
-- [x] Components structure
-    - [x] ui-app-bar
-    - [x] ui-app-bar-item
-    - [x] ui-button
-    - [x] ui-icon-button
-    - [x] ui-container
-    - [x] ui-dialog
-    - [x] ui-drawer-group-item
-    - [x] ui-drawer-group
-    - [x] ui-drawer
-    - [x] ui-flex-grid-item
-    - [x] ui-flex-grid-row
-    - [x] ui-flex-grid
-    - [x] ui-input
-    - [x] ui-search
-    - [x] ui-select-option
-    - [x] ui-select
-    - [x] ui-lang-type
-    - [x] ui-lang
-    - [x] ui-spinner
-    - [x] ui-stack-layout-page
-    - [x] ui-stack-layout
-    - [x] ui-store
-    - [x] ui-svg
-    - [x] ui-label
-    - [x] ui-primary
-    - [x] ui-secondary
-    - [x] ui-theme-handler
-
+- Components structures
+  - [x] ui-app-bar
+  - [x] ui-app-bar-item
+  - [x] ui-button
+  - [x] ui-icon-button
+  - [x] ui-container
+  - [x] ui-dialog
+  - [x] ui-drawer-group-item
+  - [x] ui-drawer-group
+  - [x] ui-drawer
+  - [x] ui-flex-grid-item
+  - [x] ui-flex-grid-row
+  - [x] ui-flex-grid
+  - [x] ui-input
+  - [x] ui-search
+  - [x] ui-select-option
+  - [x] ui-select
+  - [x] ui-lang-type
+  - [x] ui-lang
+  - [x] ui-spinner
+  - [x] ui-stack-layout-page
+  - [x] ui-stack-layout
+  - [x] ui-store
+  - [x] ui-svg
+  - [x] ui-label
+  - [x] ui-primary
+  - [x] ui-secondary
+  - [x] ui-theme-handler
 
 ## v0.2.11 2024-07-20
 
@@ -56,7 +66,6 @@ New standard methods for all ui components:
 
 - Drawer outside click to close
 
-
 ## v0.2.10 2024-07-19
 
 ### Added
@@ -67,11 +76,9 @@ New standard methods for all ui components:
 
 - (Shadow-)Render methods
 
-
 ## v0.2.9 2024-07-19
 
 - Code clean up, moved render call to the constructors end
-
 
 ## v0.2.8 2024-07-18
 
@@ -79,33 +86,27 @@ New standard methods for all ui components:
 - Added `ui-svg` component
 - Added svgs
 
-
 ## v0.2.7 2024-07-15
 
 - Add register functions for svgs and components
 - Removed margin from css resets
 - Rename ui-app-bar ui methods
 
-
 ## v0.2.6 2024-07-12
 
 - Fixed (ui-drawer) scrollbar still visible on webkit devices
-
 
 ## v0.2.5 2024-07-11
 
 - Added cleanup to ui object
 
-
 ## v0.2.4 2024-07-09
 
 - Updated `ui-spinner` positioning, absolute with 100% width and height
 
-
 ## v0.2.3 2024-07-05
 
 - Fixed `ui-input` and `ui-search` input width
-
 
 ## v0.2.2 2024-07-03
 
@@ -115,7 +116,6 @@ New standard methods for all ui components:
 - Added (ui) method: `ui-select`: `getSelectedOption`
 - Added (ui) method: `ui-select`: `getChildren`
 
-
 ## v0.2.1 2024-06-27
 
 - Updated JSDoc exports
@@ -123,11 +123,9 @@ New standard methods for all ui components:
 - Changed input border style
 - Table word-break set to `auto-phrase`
 
-
 ## v0.2.0 2024-06-23
 
 - First version using javascript web components
-
 
 ## v0.1.1 2024-03-22
 
