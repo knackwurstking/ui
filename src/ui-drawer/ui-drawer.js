@@ -129,7 +129,10 @@ export class UIDrawer extends HTMLElement {
     this.addEventListener("click", () => (this.ui.open = false));
   }
 
-  connectedCallback() {}
+  connectedCallback() {
+    this.setAttribute("role", "button");
+  }
+
   disconnectedCallback() {}
 
   /**

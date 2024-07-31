@@ -81,7 +81,7 @@ export class UIDrawerGroup extends HTMLElement {
       </style>
 
       <ul>
-        <ui-drawer-group-item>
+        <ui-drawer-group-item role="button">
           <ui-flex-grid-row>
             <ui-flex-grid-item class="title"></ui-flex-grid-item>
 
