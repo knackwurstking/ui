@@ -195,7 +195,7 @@ export class UIButton extends HTMLElement {
     `;
 
     if (typeof this.removeRippleCallback !== "function") {
-      this.removeRippleCallback = createRipple(this, { centered: true });
+      this.removeRippleCallback = createRipple(this);
     }
 
     this.addEventListener("click", () => {
@@ -224,7 +224,7 @@ export class UIButton extends HTMLElement {
           }
         } else {
           if (typeof this.removeRippleCallback !== "function") {
-            this.removeRippleCallback = createRipple(this, { centered: true });
+            this.removeRippleCallback = createRipple(this);
           }
         }
 
