@@ -26,7 +26,7 @@
 **Added**:
 
 - Button role
-  - `UIDrawe` toggle
+  - `UIDrawer` toggle
   - `UIDrawerGroup` toggle
 
 **Changed**:
