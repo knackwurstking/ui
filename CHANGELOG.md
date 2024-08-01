@@ -32,6 +32,7 @@
 **Changed**:
 
 - Code formatting
+- `UIButton` ripple no longer centered
 
 **Fixed**:
 
