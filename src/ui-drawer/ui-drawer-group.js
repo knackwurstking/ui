@@ -1,4 +1,4 @@
-import { html } from "../js";
+import { createRipple, html } from "../js";
 import chevronDown from "../svg/smoothie-line-icons/chevron-down";
 
 export class UIDrawerGroup extends HTMLElement {
@@ -71,6 +71,10 @@ export class UIDrawerGroup extends HTMLElement {
           display: none;
         }
 
+        .icon {
+          transition: transform 0.25s ease;
+        }
+
         :host([fold]) .icon {
           transform: rotate(-90deg);
         }
@@ -81,7 +85,10 @@ export class UIDrawerGroup extends HTMLElement {
       </style>
 
       <ul>
-        <ui-drawer-group-item role="button">
+        <ui-drawer-group-item
+          style="position: relative; border-radius: var(--ui-radius);"
+          role="button"
+        >
           <ui-flex-grid-row>
             <ui-flex-grid-item class="title"></ui-flex-grid-item>
 
@@ -102,6 +109,7 @@ export class UIDrawerGroup extends HTMLElement {
     item.addEventListener("click", () => {
       this.ui.fold = !this.ui.fold;
     });
+    createRipple(item);
   }
 
   connectedCallback() {}
