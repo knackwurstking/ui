@@ -7,7 +7,7 @@ export class UIFlexGridRow extends HTMLElement {
     }
   };
 
-  static observedAttributes = ["gap"];
+  static observedAttributes = ["gap", "justify", "align"];
 
   constructor() {
     super();
@@ -27,6 +27,32 @@ export class UIFlexGridRow extends HTMLElement {
         }
 
         this.root.setAttribute("gap", value);
+      },
+
+      get justify() {
+        return this.root.getAttribute("justify");
+      },
+
+      set justify(value) {
+        if (!value) {
+          this.root.removeAttribute("justify");
+          return;
+        }
+
+        this.root.setAttribute("justify", value);
+      },
+
+      get align() {
+        return this.root.getAttribute("align");
+      },
+
+      set align(value) {
+        if (!value) {
+          this.root.removeAttribute("align");
+          return;
+        }
+
+        this.root.setAttribute("align", value);
       },
     };
 
@@ -81,6 +107,14 @@ export class UIFlexGridRow extends HTMLElement {
                         margin: 0 ${newValue || 0} !important;
                     }
                 `;
+        break;
+
+      case "justify":
+        this.style.justifyContent = newValue;
+        break;
+
+      case "align":
+        this.style.alignItems = newValue;
         break;
     }
   }

@@ -4,6 +4,8 @@ export class UIFlexGridRow extends HTMLElement {
     ui: {
         root: this;
         gap: string;
+        justify: string;
+        align: string;
     };
     shadowRender(): void;
     connectedCallback(): void;
