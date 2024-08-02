@@ -111,6 +111,7 @@ export class UIIconButton extends HTMLElement {
           font-weight: 450;
           font-family: var(--ui-fontFamily);
           font-variation-settings: var(--ui-button-fontVariation);
+          transition: color 0.5s linear;
         }
 
         :host([ghost]) {
