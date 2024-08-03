@@ -51,7 +51,7 @@
   - [ ] ui-select-option
   - [ ] ui-select
   - [ ] ui-lang-type
-  - [ ] ui-lang
+  - [x] ui-lang
   - [x] ui-spinner
   - [x] ui-stack-layout-page
   - [x] ui-stack-layout

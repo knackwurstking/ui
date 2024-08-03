@@ -34,12 +34,7 @@ export class UILang extends HTMLElement {
       },
 
       set current(value) {
-        if (!value) {
-          this.root.removeAttribute("current");
-          return;
-        }
-
-        this.root.setAttribute("current", value);
+        this.root.setCurrent(value || "");
       },
 
       /** @returns {import(".").UILangType} */
@@ -71,7 +66,7 @@ export class UILang extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "current":
-        if (newValue !== null) this.setCurrent(newValue);
+        this.ui.current = newValue;
         break;
     }
   }
