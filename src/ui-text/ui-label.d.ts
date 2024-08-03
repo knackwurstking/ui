@@ -36,16 +36,6 @@ export class UILabel extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @param {string | null} value
-     */
-    setPrimary(value: string | null): void;
-    /**
-     * @param {string | null} value
-     */
-    setSecondary(value: string | null): void;
-    /** @private */
-    private enableRipple;
-    /** @private */
-    private disableRipple;
+    enableRipple(): void;
+    disableRipple(): void;
 }

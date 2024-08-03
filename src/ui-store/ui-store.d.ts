@@ -7,7 +7,6 @@
  */
 export class UIStore<T extends UIStoreEvents> extends HTMLElement {
     static register: () => void;
-    static observedAttributes: string[];
     constructor();
     /**
      * @type {any}
