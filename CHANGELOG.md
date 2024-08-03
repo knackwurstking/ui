@@ -57,7 +57,7 @@
   - [ ] ui-stack-layout
   - [ ] ui-store
   - [x] ui-svg
-  - [ ] ui-label
+  - [x] ui-label
   - [x] ui-primary
   - [x] ui-secondary
   - [x] ui-theme-handler

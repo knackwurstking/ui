@@ -39,10 +39,6 @@ export class UILabel extends HTMLElement {
     /**
      * @param {string | null} value
      */
-    setRipple(value: string | null): void;
-    /**
-     * @param {string | null} value
-     */
     setPrimary(value: string | null): void;
     /**
      * @param {string | null} value

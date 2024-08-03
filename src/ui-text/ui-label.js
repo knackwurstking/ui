@@ -48,42 +48,34 @@ export class UILabel extends HTMLElement {
       root: this,
 
       get ripple() {
-        return this.root.hasAttribute("ripple");
+        return this.root.running;
       },
 
-      set ripple(value) {
-        if (!value) {
-          this.root.removeAttribute("ripple");
+      set ripple(state) {
+        if (!state) {
+          this.root.disableRipple();
           return;
         }
 
-        this.root.setAttribute("ripple", "");
+        this.root.enableRipple();
       },
 
       get primary() {
-        return this.root.getAttribute("primary");
+        return this.root.shadowRoot.querySelector("ui-primary").innerHTML;
       },
 
       set primary(value) {
-        if (!value) {
-          this.root.removeAttribute("primary");
-          return;
-        }
-
-        this.root.setAttribute("primary", value);
+        this.root.shadowRoot.querySelector("ui-primary").innerHTML =
+          value || "";
       },
 
       get secondary() {
-        return this.root.getAttribute("primary");
+        return this.root.shadowRoot.querySelector("ui-secondary").innerHTML;
       },
 
       set secondary(value) {
-        if (!value) {
-          this.root.removeAttribute("secondary");
-          return;
-        }
-
-        this.root.setAttribute("secondary", value);
+        this.root.shadowRoot.querySelector("ui-secondary").innerHTML =
+          value || "";
       },
 
       get inputSlot() {
@@ -148,46 +140,19 @@ export class UILabel extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "ripple":
-        this.setRipple(newValue);
+        this.ui.ripple = newValue !== null;
         break;
 
       case "primary":
-        this.setPrimary(newValue);
+        this.ui.primary = newValue;
         break;
 
       case "secondary":
-        this.setSecondary(newValue);
+        this.ui.secondary = newValue;
         break;
     }
   }
 
-  /**
-   * @param {string | null} value
-   */
-  setRipple(value) {
-    if (value === null) {
-      this.disableRipple();
-      return;
-    }
-
-    this.enableRipple();
-  }
-
-  /**
-   * @param {string | null} value
-   */
-  setPrimary(value) {
-    this.shadowRoot.querySelector("ui-primary").innerHTML = value || "";
-  }
-
-  /**
-   * @param {string | null} value
-   */
-  setSecondary(value) {
-    this.shadowRoot.querySelector("ui-secondary").innerHTML = value || "";
-  }
-
-  /** @private */
   enableRipple() {
     if (!!this.removeRipple) return;
     this.removeRipple = createRipple(this);
@@ -206,7 +171,6 @@ export class UILabel extends HTMLElement {
     this.running = true;
   }
 
-  /** @private */
   disableRipple() {
     if (!this.running) return;
     if (!!this.removeRipple) this.removeRipple();
