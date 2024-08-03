@@ -1,4 +1,4 @@
-import { html } from "../js";
+import { css, html } from "../js";
 
 export class UIFlexGridRow extends HTMLElement {
   static register = () => {
@@ -26,7 +26,7 @@ export class UIFlexGridRow extends HTMLElement {
       set gap(value) {
         this.root.gap = value || "0";
         const style = this.root.shadowRoot.querySelector(`style[name="gap"]`);
-        style.textContent = `
+        style.textContent = css`
           :host > ::slotted(*) {
             margin: 0 ${this.root.gap} !important;
           }

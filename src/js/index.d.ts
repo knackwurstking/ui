@@ -5,4 +5,4 @@ export type _Events = import("./events")._Events;
 export type DraggableOptions = import("./draggable").DraggableOptions;
 export type RippleOptions = import("./ripple").RippleOptions;
 export { create as createRipple, defaultOptions as defaultRippleOptions } from "./ripple";
-export { isAndroid, html } from "./utils";
+export { isAndroid, html, css } from "./utils";

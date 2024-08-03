@@ -1,4 +1,4 @@
-import { html } from "../js";
+import { css, html } from "../js";
 
 export class UIFlexGridItem extends HTMLElement {
   static register = () => {
@@ -57,11 +57,11 @@ export class UIFlexGridItem extends HTMLElement {
     switch (name) {
       case "flex":
         const style = this.shadowRoot.querySelector(`style[name="flex"]`);
-        style.textContent = `
-                    :host {
-                        flex: ${newValue || 1};
-                    }
-                `;
+        style.textContent = css`
+          :host {
+            flex: ${newValue || 1};
+          }
+        `;
         break;
     }
   }
