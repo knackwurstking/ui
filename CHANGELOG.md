@@ -43,7 +43,7 @@
   - [ ] ui-drawer-group
   - [ ] ui-drawer
   - [ ] ui-flex-grid-item
-  - [ ] ui-flex-grid-row
+  - [x] ui-flex-grid-row
   - [x] ui-flex-grid
   - [x] ui-check
   - [ ] ui-input

@@ -1,6 +1,8 @@
 export class UIFlexGridRow extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    /** @private */
+    private gap;
     ui: {
         root: this;
         gap: string;

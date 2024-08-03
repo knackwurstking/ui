@@ -13,46 +13,40 @@ export class UIFlexGridRow extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
+    /** @private */
+    this.gap = "0";
+
     this.ui = {
       root: this,
 
       get gap() {
-        return this.root.getAttribute("gap");
+        return this.root.gap;
       },
 
       set gap(value) {
-        if (!value) {
-          this.root.removeAttribute("gap");
-          return;
-        }
-
-        this.root.setAttribute("gap", value);
+        this.root.gap = value || "0";
+        const style = this.root.shadowRoot.querySelector(`style[name="gap"]`);
+        style.textContent = `
+          :host > ::slotted(*) {
+            margin: 0 ${this.root.gap} !important;
+          }
+        `;
       },
 
       get justify() {
-        return this.root.getAttribute("justify");
+        return this.root.style.justifyContent;
       },
 
       set justify(value) {
-        if (!value) {
-          this.root.removeAttribute("justify");
-          return;
-        }
-
-        this.root.setAttribute("justify", value);
+        this.root.style.justifyContent = value;
       },
 
       get align() {
-        return this.root.getAttribute("align");
+        return this.root.style.alignItems;
       },
 
       set align(value) {
-        if (!value) {
-          this.root.removeAttribute("align");
-          return;
-        }
-
-        this.root.setAttribute("align", value);
+        this.root.style.alignItems = value;
       },
     };
 
@@ -101,20 +95,15 @@ export class UIFlexGridRow extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "gap":
-        const style = this.shadowRoot.querySelector(`style[name="gap"]`);
-        style.textContent = `
-                    :host > ::slotted(*) {
-                        margin: 0 ${newValue || 0} !important;
-                    }
-                `;
+        this.ui.gap = newValue;
         break;
 
       case "justify":
-        this.style.justifyContent = newValue;
+        this.ui.justify = newValue;
         break;
 
       case "align":
-        this.style.alignItems = newValue;
+        this.ui.align = newValue;
         break;
     }
   }
