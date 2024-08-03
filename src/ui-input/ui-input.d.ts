@@ -51,30 +51,6 @@ export class UIInput<E extends UIInputEvents> extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @param {string | null} type
-     */
-    setType(type: string | null): void;
-    /**
-     * @param {string | null} value
-     */
-    setValue(value: string | null): void;
-    /**
-     * @param {string | null} placeholder
-     */
-    setPlaceholder(placeholder: string | null): void;
-    /**
-     * @param {string | null} invalid
-     */
-    setInvalid(invalid: string | null): void;
-    /**
-     * @param {string | null} min
-     */
-    setMin(min: string | null): void;
-    /**
-     * @param {string | null} max
-     */
-    setMax(max: string | null): void;
 }
 export type UIInputEvents = {
     input: string;

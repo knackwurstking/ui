@@ -46,7 +46,7 @@
   - [x] ui-flex-grid-row
   - [x] ui-flex-grid
   - [x] ui-check
-  - [ ] ui-input
+  - [x] ui-input
   - [x] ui-search
   - [x] ui-select-option
   - [x] ui-select

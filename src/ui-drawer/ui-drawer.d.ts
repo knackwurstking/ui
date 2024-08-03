@@ -8,6 +8,7 @@
 export class UIDrawer extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    isOpen: boolean;
     ui: {
         root: this;
         /**
