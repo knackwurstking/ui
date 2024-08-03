@@ -2,8 +2,6 @@ export class UICheck extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     ui: {
-        /** @private */
-        root: this;
         /** @type {import("../ui-text").UILabel | null} */
         label: import("../ui-text").UILabel | null;
         /** @type {HTMLInputElement | null} */

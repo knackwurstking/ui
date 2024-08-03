@@ -13,9 +13,6 @@ export class UICheck extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this.ui = {
-      /** @private */
-      root: this,
-
       /** @type {import("../ui-text").UILabel | null} */
       label: null,
 
