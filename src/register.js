@@ -5,6 +5,7 @@ import { UIDialog } from "./ui-dialog";
 import { UIDrawer, UIDrawerGroup, UIDrawerGroupItem } from "./ui-drawer";
 import { UIFlexGrid, UIFlexGridItem, UIFlexGridRow } from "./ui-flex-grid";
 import { UIInput, UISelect } from "./ui-input";
+import { UICheck } from "./ui-input/ui-check";
 import { UISearch } from "./ui-input/ui-search";
 import { UISelectOption } from "./ui-input/ui-select-option";
 import { UILang } from "./ui-lang";
@@ -37,6 +38,7 @@ export function register() {
   UIFlexGridRow.register();
   UIFlexGrid.register();
 
+  UICheck.register();
   UIInput.register();
   UISearch.register();
   UISelectOption.register();

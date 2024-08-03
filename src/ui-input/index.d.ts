@@ -1,7 +1,8 @@
+export { UICheck } from "./ui-check";
 export { UIInput } from "./ui-input";
+export { UISearch } from "./ui-search";
 export { UISelect } from "./ui-select";
 export { UISelectOption } from "./ui-select-option";
-export { UISearch } from "./ui-search";
 export type UIInputEvents = import("./ui-input").UIInputEvents;
 export type UIInputTypes = import("./ui-input").UIInputTypes;
 export type UISearchEvents = import("./ui-search").UISearchEvents;
