@@ -13,20 +13,24 @@ export class UIFlexGridItem extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
+    /** @private */
+    this.flex = "1";
+
     this.ui = {
       root: this,
 
       get flex() {
-        return this.root.getAttribute("flex");
+        return this.root.flex;
       },
 
       set flex(value) {
-        if (!value) {
-          this.root.removeAttribute("flex");
-          return;
-        }
-
-        this.root.setAttribute("flex", value);
+        this.root.flex = value || "1";
+        const style = this.root.shadowRoot.querySelector(`style[name="flex"]`);
+        style.textContent = css`
+          :host {
+            flex: ${this.root.flex};
+          }
+        `;
       },
     };
 
@@ -56,12 +60,7 @@ export class UIFlexGridItem extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "flex":
-        const style = this.shadowRoot.querySelector(`style[name="flex"]`);
-        style.textContent = css`
-          :host {
-            flex: ${newValue || 1};
-          }
-        `;
+        this.ui.flex = newValue;
         break;
     }
   }
