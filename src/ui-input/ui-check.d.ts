@@ -4,8 +4,12 @@ export class UICheck extends HTMLElement {
     ui: {
         /** @private */
         root: this;
+        /** @type {import("../ui-text").UILabel | null} */
+        label: import("../ui-text").UILabel | null;
         /** @type {HTMLInputElement | null} */
         input: HTMLInputElement | null;
+        primary: string;
+        secondary: string;
         value: string;
         checked: boolean;
     };

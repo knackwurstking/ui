@@ -7,7 +7,7 @@ export class UICheck extends HTMLElement {
     }
   };
 
-  static observedAttributes = ["value", "checked"];
+  static observedAttributes = ["primary", "secondary", "value", "checked"];
 
   constructor() {
     super();
@@ -16,8 +16,27 @@ export class UICheck extends HTMLElement {
       /** @private */
       root: this,
 
+      /** @type {import("../ui-text").UILabel | null} */
+      label: null,
+
       /** @type {HTMLInputElement | null} */
       input: null,
+
+      get primary() {
+        return this.label.ui.primary;
+      },
+
+      set primary(value) {
+        this.label.ui.primary = value;
+      },
+
+      get secondary() {
+        return this.label.ui.secondary;
+      },
+
+      set secondary(value) {
+        this.label.ui.secondary = value;
+      },
 
       get value() {
         return this.input.value;
@@ -41,11 +60,12 @@ export class UICheck extends HTMLElement {
 
   shadowRender() {
     this.shadowRoot.innerHTML = html`
-      <ui-label>
+      <ui-label ripple>
         <input slot="input" type="checkbox"></input>
       </ui-label>
     `;
 
+    this.ui.label = this.shadowRoot.querySelector("ui-label");
     this.ui.input = this.shadowRoot.querySelector("input");
   }
 
@@ -59,6 +79,14 @@ export class UICheck extends HTMLElement {
    */
   attributeChangedCallback(name, _oV, nV) {
     switch (name) {
+      case "primary":
+        this.ui.primary = nV;
+        break;
+
+      case "secondary":
+        this.ui.primary = nV;
+        break;
+
       case "value":
         this.ui.value = nV;
         break;
