@@ -41,7 +41,7 @@
   - [x] ui-dialog
   - [ ] ui-drawer-group-item
   - [ ] ui-drawer-group
-  - [ ] ui-drawer
+  - [x] ui-drawer
   - [x] ui-flex-grid-item
   - [x] ui-flex-grid-row
   - [x] ui-flex-grid

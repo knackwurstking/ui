@@ -15,13 +15,9 @@ export class UIDrawer extends HTMLElement {
     }
   };
 
-  static observedAttributes = ["open"];
-
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-
-    this.isOpen = false;
 
     this.ui = {
       root: this,
@@ -32,17 +28,18 @@ export class UIDrawer extends HTMLElement {
       events: new Events(),
 
       get open() {
-        return this.root.isOpen;
+        return this.root.hasAttribute("open");
       },
 
       set open(state) {
-        this.root.isOpen = state;
-
-        if (state !== null) {
-          this.events.dispatch("open", this.root);
-        } else {
+        if (!state) {
+          this.root.removeAttribute("open");
           this.events.dispatch("close", this.root);
+          return;
         }
+
+        this.root.setAttribute("open", "");
+        this.events.dispatch("open", this.root);
       },
     };
 
@@ -137,17 +134,4 @@ export class UIDrawer extends HTMLElement {
   }
 
   disconnectedCallback() {}
-
-  /**
-   * @param {string} name
-   * @param {string | null} _oldValue
-   * @param {string | null} newValue
-   */
-  attributeChangedCallback(name, _oldValue, newValue) {
-    switch (name) {
-      case "open":
-        this.ui.open = newValue !== null;
-        break;
-    }
-  }
 }
