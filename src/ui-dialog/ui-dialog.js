@@ -38,11 +38,12 @@ export class UIDialog extends HTMLElement {
       events: new Events(),
 
       get title() {
-        return this.root.getAttribute("title");
+        return this.root.shadowRoot.querySelector(`[name="title"]`).innerHTML;
       },
 
       set title(value) {
-        this.root.setAttribute("title", value || "");
+        const title = this.root.shadowRoot.querySelector(`[name="title"]`);
+        title.innerHTML = value || "";
       },
 
       get fullscreen() {
@@ -174,8 +175,8 @@ export class UIDialog extends HTMLElement {
         }
 
         /*
-                * Header Styles
-                */
+         * Header Styles
+         */
 
         .header {
           display: flex;
@@ -203,8 +204,8 @@ export class UIDialog extends HTMLElement {
         }
 
         /*
-                * Content Styles
-                */
+         * Content Styles
+         */
 
         .content {
           padding: var(--ui-spacing);
@@ -227,8 +228,8 @@ export class UIDialog extends HTMLElement {
         }
 
         /*
-                * Footer Styles
-                */
+         * Footer Styles
+         */
 
         .footer {
           margin-top: var(--ui-spacing);
@@ -311,8 +312,7 @@ export class UIDialog extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "title":
-        const title = this.shadowRoot.querySelector(`[name="title"]`);
-        title.innerHTML = newValue || "";
+        this.ui.title = newValue;
         break;
     }
   }
