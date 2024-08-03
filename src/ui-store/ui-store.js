@@ -15,8 +15,6 @@ export class UIStore extends HTMLElement {
     }
   };
 
-  static observedAttributes = ["storageprefix"];
-
   constructor() {
     super();
 

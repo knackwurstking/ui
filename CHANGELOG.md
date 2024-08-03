@@ -55,7 +55,7 @@
   - [ ] ui-spinner
   - [ ] ui-stack-layout-page
   - [ ] ui-stack-layout
-  - [ ] ui-store
+  - [x] ui-store
   - [x] ui-svg
   - [x] ui-label
   - [x] ui-primary
