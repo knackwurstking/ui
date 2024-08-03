@@ -28,7 +28,7 @@ export class UIFlexGrid extends HTMLElement {
         const style = this.root.shadowRoot.querySelector(`style[name="gap"]`);
         style.textContent = `
           :host > ::slotted(*) {
-              margin: ${this.root.gap} 0 !important;
+            margin: ${this.root.gap} 0 !important;
           }
         `;
       },
