@@ -52,9 +52,9 @@
   - [ ] ui-select
   - [ ] ui-lang-type
   - [ ] ui-lang
-  - [ ] ui-spinner
-  - [ ] ui-stack-layout-page
-  - [ ] ui-stack-layout
+  - [x] ui-spinner
+  - [x] ui-stack-layout-page
+  - [x] ui-stack-layout
   - [x] ui-store
   - [x] ui-svg
   - [x] ui-label

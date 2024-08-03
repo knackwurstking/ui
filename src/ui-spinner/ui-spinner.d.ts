@@ -14,6 +14,4 @@ export class UISpinner extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /** @param {string | null} value */
-    setNoBg(value: string | null): void;
 }

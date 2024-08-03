@@ -21,12 +21,15 @@ export class UISpinner extends HTMLElement {
       },
 
       set nobg(state) {
+        /** @type {HTMLElement} */
+        const el = this.root.shadowRoot.querySelector(".background");
+
         if (!state) {
-          this.root.removeAttribute("nobg");
+          el.style.display = null;
           return;
         }
 
-        this.root.setAttribute("nobg", "");
+        el.style.display = "none";
       },
     };
 
@@ -96,20 +99,8 @@ export class UISpinner extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "nobg":
-        this.setNoBg(newValue);
+        this.ui.nobg = newValue !== null;
         break;
     }
-  }
-
-  /** @param {string | null} value */
-  setNoBg(value) {
-    if (value === null) {
-      // @ts-expect-error
-      this.shadowRoot.querySelector(".background").style.display = null;
-      return;
-    }
-
-    // @ts-expect-error
-    this.shadowRoot.querySelector(".background").style.display = "none";
   }
 }
