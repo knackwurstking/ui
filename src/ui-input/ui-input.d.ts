@@ -27,6 +27,8 @@ export class UIInput<E extends UIInputEvents> extends HTMLElement {
         root: this;
         /** @type {Events<E>} */
         events: Events<E>;
+        /** @type {HTMLInputElement | null} */
+        input: HTMLInputElement | null;
         title: string;
         type: string;
         value: string;
@@ -49,10 +51,6 @@ export class UIInput<E extends UIInputEvents> extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @param {string | null} title
-     */
-    setTitle(title: string | null): void;
     /**
      * @param {string | null} type
      */

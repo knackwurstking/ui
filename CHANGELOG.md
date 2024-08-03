@@ -47,7 +47,7 @@
   - [x] ui-flex-grid
   - [x] ui-check
   - [ ] ui-input
-  - [ ] ui-search
+  - [x] ui-search
   - [x] ui-select-option
   - [x] ui-select
   - [x] ui-lang-type

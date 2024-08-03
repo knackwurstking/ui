@@ -50,80 +50,77 @@ export class UIInput extends HTMLElement {
       /** @type {Events<E>} */
       events: new Events(),
 
+      /** @type {HTMLInputElement | null} */
+      input: null,
+
       get title() {
         return this.root.getAttribute("title");
       },
 
       set title(value) {
-        if (!value) {
-          this.root.removeAttribute("title");
-          return;
+        let el = this.root.querySelector(`[slot="title"]`);
+
+        if (!value && !!el) {
+          this.root.removeChild(el);
         }
 
-        this.root.setAttribute("title", value);
+        if (!value) return;
+
+        if (!el) {
+          el = new UISecondary();
+          el.slot = "title";
+          this.root.appendChild(el);
+        }
+
+        el.innerHTML = value;
       },
 
       get type() {
-        return this.root.getAttribute("type");
+        return this.input.type;
       },
 
       set type(value) {
-        if (!value) {
-          this.root.removeAttribute("type");
-          return;
-        }
-
-        this.root.setAttribute("type", value);
+        this.input.type = value || "";
       },
 
       get value() {
-        return this.root.shadowRoot.querySelector("input").value;
+        return this.input.value;
       },
 
       set value(value) {
-        this.root.shadowRoot.querySelector("input").value = value;
+        this.input.value = value;
       },
 
       get placeholder() {
-        return this.root.getAttribute("placeholder");
+        return this.input.placeholder;
       },
 
       set placeholder(value) {
-        if (!value) {
-          this.root.removeAttribute("placeholder");
-          return;
-        }
-
-        this.root.setAttribute("placeholder", value);
+        this.input.placeholder = value || "";
       },
 
       get invalid() {
-        return this.root.hasAttribute("invalid");
+        return this.input.ariaInvalid !== null;
       },
 
       set invalid(state) {
-        if (!state) {
-          this.root.removeAttribute("invalid");
-          return;
-        }
-
-        this.root.setAttribute("invalid", "");
+        this.input.ariaInvalid = state ? "" : null;
       },
 
       get min() {
-        return this.root.shadowRoot.querySelector("input").min;
+        return this.input.min;
       },
 
       set min(value) {
-        this.root.shadowRoot.querySelector("input").min = value;
+        this.input.min = value;
       },
 
       get max() {
-        return this.root.shadowRoot.querySelector("input").max;
+        return this.input.max;
       },
 
       set max(value) {
-        this.root.shadowRoot.querySelector("input").max = value;
+        this.input.max = value;
       },
 
       /**
@@ -200,15 +197,15 @@ export class UIInput extends HTMLElement {
       </div>
     `;
 
-    const input = this.shadowRoot.querySelector("input");
-    input.type = this.getAttribute("type") || "text";
+    this.ui.input = this.shadowRoot.querySelector("input");
+    this.ui.input.type = this.getAttribute("type") || "text";
 
-    input.oninput = () => {
-      this.ui.events.dispatch("input", input.value);
+    this.ui.input.oninput = () => {
+      this.ui.events.dispatch("input", this.ui.input.value);
     };
 
-    input.onchange = () => {
-      this.ui.events.dispatch("change", input.value);
+    this.ui.input.onchange = () => {
+      this.ui.events.dispatch("change", this.ui.input.value);
     };
   }
 
@@ -223,95 +220,32 @@ export class UIInput extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "title":
-        this.setTitle(newValue);
+        this.ui.title = newValue;
         break;
 
       case "type":
-        this.setType(newValue);
+        this.ui.type = newValue;
         break;
 
       case "value":
-        this.setValue(newValue);
+        this.ui.value = newValue;
         break;
 
       case "placeholder":
-        this.setPlaceholder(newValue);
+        this.ui.placeholder = newValue;
         break;
 
       case "invalid":
-        this.setInvalid(newValue);
+        this.ui.invalid = newValue !== null;
         break;
 
       case "min":
-        this.setMin(newValue);
+        this.ui.min = newValue;
         break;
 
       case "max":
-        this.setMax(newValue);
+        this.ui.max = newValue;
         break;
     }
-  }
-
-  /**
-   * @param {string | null} title
-   */
-  setTitle(title) {
-    let el = this.querySelector(`[slot="title"]`);
-
-    if (!title && !!el) {
-      this.removeChild(el);
-    }
-
-    if (!title) return;
-
-    if (!el) {
-      el = new UISecondary();
-      el.slot = "title";
-      this.appendChild(el);
-    }
-
-    el.innerHTML = title;
-  }
-
-  /**
-   * @param {string | null} type
-   */
-  setType(type) {
-    this.shadowRoot.querySelector("input").type = type !== null ? type : "";
-  }
-
-  /**
-   * @param {string | null} value
-   */
-  setValue(value) {
-    this.shadowRoot.querySelector("input").value = value;
-  }
-
-  /**
-   * @param {string | null} placeholder
-   */
-  setPlaceholder(placeholder) {
-    this.shadowRoot.querySelector("input").placeholder = placeholder || "";
-  }
-
-  /**
-   * @param {string | null} invalid
-   */
-  setInvalid(invalid) {
-    this.shadowRoot.querySelector("input").ariaInvalid = invalid;
-  }
-
-  /**
-   * @param {string | null} min
-   */
-  setMin(min) {
-    this.shadowRoot.querySelector("input").min = min;
-  }
-
-  /**
-   * @param {string | null} max
-   */
-  setMax(max) {
-    this.shadowRoot.querySelector("input").max = max;
   }
 }
