@@ -13,20 +13,24 @@ export class UIFlexGrid extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
+    /** @private */
+    this.gap = "0";
+
     this.ui = {
       root: this,
 
       get gap() {
-        return this.root.getAttribute("gap");
+        return this.root.gap;
       },
 
       set gap(value) {
-        if (!value) {
-          this.root.removeAttribute("gap");
-          return;
-        }
-
-        this.root.setAttribute("gap", value);
+        this.root.gap = value || "0";
+        const style = this.root.shadowRoot.querySelector(`style[name="gap"]`);
+        style.textContent = `
+          :host > ::slotted(*) {
+              margin: ${this.root.gap} 0 !important;
+          }
+        `;
       },
     };
 
@@ -76,12 +80,7 @@ export class UIFlexGrid extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "gap":
-        const style = this.shadowRoot.querySelector(`style[name="gap"]`);
-        style.textContent = `
-                    :host > ::slotted(*) {
-                        margin: ${newValue} 0 !important;
-                    }
-                `;
+        this.ui.gap = newValue;
         break;
     }
   }
