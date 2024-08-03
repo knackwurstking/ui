@@ -43,7 +43,7 @@ export class UISearch extends HTMLElement {
       /** @type {Events<E>} */
       events: new Events(),
 
-      /** @type {HTMLInputElement} */
+      /** @type {HTMLInputElement | null} */
       input: null,
 
       /** @type {import("../ui-button").UIIconButton} */

@@ -18,11 +18,10 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
         root: this;
         /** @type {Events<E>} */
         events: Events<E>;
-        /**
-         * @param {FocusOptions | null} [options]
-         */
-        focus(options?: FocusOptions | null): void;
-        blur(): void;
+        /** @type {HTMLInputElement | null} */
+        input: HTMLInputElement | null;
+        /** @type {import("../ui-button").UIIconButton} */
+        submit: import("../ui-button").UIIconButton;
         title: string;
         value: string;
         placeholder: string;
@@ -31,6 +30,11 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
         storage: boolean;
         storageprefix: string;
         storagekey: string;
+        /**
+         * @param {FocusOptions | null} [options]
+         */
+        focus(options?: FocusOptions | null): void;
+        blur(): void;
     };
     shadowRender(): void;
     connectedCallback(): void;
@@ -41,30 +45,6 @@ export class UISearch<E extends UISearchEvents> extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
-    /**
-     * @param {string | null} title
-     */
-    setTitle(title: string | null): void;
-    /**
-     * @param {string | null} value
-     */
-    setValue(value: string | null): void;
-    /**
-     * @param {string | null} placeholder
-     */
-    setPlaceholder(placeholder: string | null): void;
-    /**
-     * @param {string | null} invalid
-     */
-    setInvalid(invalid: string | null): void;
-    /**
-     * @param {string | null} nosubmit
-     */
-    setNoSubmit(nosubmit: string | null): void;
-    /**
-     * @param {string | null} value
-     */
-    setStorageKey(value: string | null): void;
 }
 export type UISearchEvents = {
     input: string;
