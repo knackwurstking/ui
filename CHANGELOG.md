@@ -56,11 +56,11 @@
   - [ ] ui-stack-layout-page
   - [ ] ui-stack-layout
   - [ ] ui-store
-  - [ ] ui-svg
+  - [x] ui-svg
   - [ ] ui-label
-  - [ ] ui-primary
-  - [ ] ui-secondary
-  - [ ] ui-theme-handler
+  - [x] ui-primary
+  - [x] ui-secondary
+  - [x] ui-theme-handler
 - Code formatting
 - `UIButton` ripple no longer centered
 

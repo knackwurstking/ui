@@ -30,33 +30,26 @@ export class UIThemeHandler extends HTMLElement {
      */
     this.currentTheme = null;
 
+    /** @private */
+    this.mode = "";
+
     this.ui = {
       root: this,
 
       get auto() {
-        return this.root.hasAttribute("auto");
+        return !!this.root.media;
       },
 
       set auto(value) {
-        if (!value) {
-          this.root.removeAttribute("auto");
-          return;
-        }
-
-        this.root.setAttribute("auto", "");
+        this.root.setAuto(value);
       },
 
       get mode() {
-        return this.root.getAttribute("mode");
+        return this.root.mode;
       },
 
       set mode(value) {
-        if (!value) {
-          this.root.removeAttribute("mode");
-          return;
-        }
-
-        this.root.setAttribute("mode", value);
+        this.root.setMode(value);
       },
 
       /**
@@ -114,21 +107,21 @@ export class UIThemeHandler extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "auto":
-        this.setAuto(newValue);
+        this.ui.auto = newValue !== null;
         break;
 
       case "mode":
-        this.setMode(newValue);
+        this.ui.mode = newValue;
         break;
     }
   }
 
   /**
-   * @param {string | null} value
+   * @param {boolean} state
    * @param {HTMLElement} target
    */
-  setAuto(value, target = document.body) {
-    if (value === null) {
+  setAuto(state, target = document.body) {
+    if (!state) {
       if (!this.media) return;
 
       this.media.removeEventListener("change", this.mediaHandler);
@@ -166,15 +159,11 @@ export class UIThemeHandler extends HTMLElement {
    * @param {HTMLElement} target
    */
   setMode(value, target = document.body) {
-    switch (value) {
-      case "dark":
-        target.setAttribute("data-theme", value);
-        break;
-      case "light":
-        target.setAttribute("data-theme", value);
-        break;
-      default:
-        target.removeAttribute("data-theme");
+    this.mode = value;
+    if (!this.mode) {
+      target.removeAttribute("data-theme");
+    } else {
+      target.setAttribute("data-theme", value);
     }
   }
 }

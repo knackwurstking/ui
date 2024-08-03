@@ -22,6 +22,8 @@ export class UIThemeHandler extends HTMLElement {
         name: string;
         href: string;
     } | null;
+    /** @private */
+    private mode;
     ui: {
         root: this;
         auto: boolean;
@@ -44,10 +46,10 @@ export class UIThemeHandler extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
     /**
-     * @param {string | null} value
+     * @param {boolean} state
      * @param {HTMLElement} target
      */
-    setAuto(value: string | null, target?: HTMLElement): void;
+    setAuto(state: boolean, target?: HTMLElement): void;
     media: MediaQueryList;
     /**
      * @param {string | null} value
