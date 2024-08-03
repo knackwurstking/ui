@@ -48,9 +48,9 @@
   - [x] ui-check
   - [ ] ui-input
   - [ ] ui-search
-  - [ ] ui-select-option
-  - [ ] ui-select
-  - [ ] ui-lang-type
+  - [x] ui-select-option
+  - [x] ui-select
+  - [x] ui-lang-type
   - [x] ui-lang
   - [x] ui-spinner
   - [x] ui-stack-layout-page

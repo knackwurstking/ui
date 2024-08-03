@@ -43,75 +43,69 @@ export class UISearch extends HTMLElement {
       /** @type {Events<E>} */
       events: new Events(),
 
-      /**
-       * @param {FocusOptions | null} [options]
-       */
-      focus(options = null) {
-        this.root.shadowRoot.querySelector("input").focus(options);
-      },
+      /** @type {HTMLInputElement} */
+      input: null,
 
-      blur() {
-        this.root.shadowRoot.querySelector("input").blur();
-      },
+      /** @type {import("../ui-button").UIIconButton} */
+      submit: this.querySelector(`[name="submit"]`),
 
       get title() {
-        return this.root.getAttribute("title");
+        return this.root.querySelector(`[slot="title"]`).innerHTML;
       },
 
       set title(value) {
-        if (!value) {
-          this.root.removeAttribute("title");
-          return;
+        let el = this.root.querySelector(`[slot="title"]`);
+
+        if (!value && !!el) {
+          this.root.removeChild(el);
         }
 
-        this.root.setAttribute("title", value);
+        if (!value) return;
+
+        if (!el) {
+          el = new UISecondary();
+          el.slot = "title";
+          this.root.appendChild(el);
+        }
+
+        el.innerHTML = value;
       },
 
       get value() {
-        return this.root.shadowRoot.querySelector("input").value;
+        return this.input.value;
       },
 
       set value(value) {
-        this.root.shadowRoot.querySelector("input").value = value;
+        this.input.value = value;
       },
 
       get placeholder() {
-        return this.root.getAttribute("placeholder");
+        return this.input.placeholder;
       },
 
       set placeholder(value) {
-        if (!value) {
-          this.root.removeAttribute("placeholder");
-          return;
-        }
-
-        this.root.setAttribute("placeholder", value);
+        this.input.placeholder = value || "";
       },
 
       get invalid() {
-        return this.root.hasAttribute("invalid");
+        return this.input.ariaInvalid !== null;
       },
 
       set invalid(state) {
-        if (!state) {
-          this.root.removeAttribute("invalid");
-          return;
-        }
-
-        this.root.setAttribute("invalid", "");
+        this.input.ariaInvalid = state ? "" : null;
       },
 
       get nosubmit() {
-        return this.root.hasAttribute("nosubmit");
+        return this.submit.style.display === "none";
       },
 
       set nosubmit(state) {
         if (!state) {
-          this.root.removeAttribute("nosubmit");
+          this.submit.style.display = null;
           return;
         }
 
-        this.root.setAttribute("nosubmit", "");
+        this.submit.style.display = "none";
       },
 
       get storage() {
@@ -145,12 +139,21 @@ export class UISearch extends HTMLElement {
       },
 
       set storagekey(value) {
-        if (!value) {
-          this.root.removeAttribute("storagekey");
-          return;
-        }
+        if (!this.storage) return;
 
-        this.root.setAttribute("storagekey", value);
+        this.value = localStorage.getItem(this.storageprefix + value) || "";
+        this.events.dispatch("storage", this.value);
+      },
+
+      /**
+       * @param {FocusOptions | null} [options]
+       */
+      focus(options = null) {
+        this.root.shadowRoot.querySelector("input").focus(options);
+      },
+
+      blur() {
+        this.root.shadowRoot.querySelector("input").blur();
       },
     };
 
@@ -235,22 +238,21 @@ export class UISearch extends HTMLElement {
     `;
 
     /** @type {import("../ui-button").UIIconButton} */
-    const submit = this.shadowRoot.querySelector(`[name="submit"]`);
+    this.ui.submit = this.shadowRoot.querySelector(`[name="submit"]`);
+    this.ui.input = this.shadowRoot.querySelector("input");
+    this.ui.input.type = "search";
 
-    const input = this.shadowRoot.querySelector("input");
-    input.type = "search";
-
-    input.addEventListener("keydown", async (ev) => {
+    this.ui.input.addEventListener("keydown", async (ev) => {
       if (this.ui.nosubmit) return;
 
       if (ev.key === "Enter") {
-        submit.click();
+        this.ui.submit.click();
       }
     });
 
     /** @type {NodeJS.Timeout | null} */
     let timeout = null;
-    input.addEventListener("input", async () => {
+    this.ui.input.addEventListener("input", async () => {
       if (this.ui.storage) {
         if (timeout !== null) {
           clearTimeout(timeout);
@@ -259,19 +261,19 @@ export class UISearch extends HTMLElement {
         timeout = setTimeout(() => {
           localStorage.setItem(
             this.ui.storageprefix + this.ui.storagekey,
-            input.value,
+            this.ui.input.value,
           );
           timeout = null;
         }, 250);
       }
 
-      this.ui.events.dispatch("input", input.value);
+      this.ui.events.dispatch("input", this.ui.input.value);
     });
 
     this.shadowRoot
       .querySelector("ui-icon-button")
       .addEventListener("click", () => {
-        this.ui.events.dispatch("submit", input.value);
+        this.ui.events.dispatch("submit", this.ui.input.value);
       });
   }
 
@@ -286,96 +288,28 @@ export class UISearch extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "title":
-        this.setTitle(newValue);
+        this.ui.title = newValue;
         break;
 
       case "value":
-        this.setValue(newValue);
+        this.ui.value = newValue;
         break;
 
       case "placeholder":
-        this.setPlaceholder(newValue);
+        this.ui.placeholder = newValue;
         break;
 
       case "invalid":
-        this.setInvalid(newValue);
+        this.ui.invalid = newValue !== null;
         break;
 
       case "nosubmit":
-        this.setNoSubmit(newValue);
+        this.ui.nosubmit = newValue !== null;
         break;
 
       case "storagekey":
-        this.setStorageKey(newValue);
+        this.ui.storagekey = newValue;
         break;
     }
-  }
-
-  /**
-   * @param {string | null} title
-   */
-  setTitle(title) {
-    let el = this.querySelector(`[slot="title"]`);
-
-    if (!title && !!el) {
-      this.removeChild(el);
-    }
-
-    if (!title) return;
-
-    if (!el) {
-      el = new UISecondary();
-      el.slot = "title";
-      this.appendChild(el);
-    }
-
-    el.innerHTML = title;
-  }
-
-  /**
-   * @param {string | null} value
-   */
-  setValue(value) {
-    this.shadowRoot.querySelector("input").value = value;
-  }
-
-  /**
-   * @param {string | null} placeholder
-   */
-  setPlaceholder(placeholder) {
-    this.shadowRoot.querySelector("input").placeholder = placeholder || "";
-  }
-
-  /**
-   * @param {string | null} invalid
-   */
-  setInvalid(invalid) {
-    this.shadowRoot.querySelector("input").ariaInvalid = invalid;
-  }
-
-  /**
-   * @param {string | null} nosubmit
-   */
-  setNoSubmit(nosubmit) {
-    /** @type {import("../ui-button").UIIconButton} */
-    const submit = this.shadowRoot.querySelector(`[name="submit"]`);
-
-    if (nosubmit === null) {
-      submit.style.display = null;
-      return;
-    }
-
-    submit.style.display = "none";
-  }
-
-  /**
-   * @param {string | null} value
-   */
-  setStorageKey(value) {
-    if (!this.ui.storage) return;
-
-    const input = this.shadowRoot.querySelector("input");
-    input.value = localStorage.getItem(this.ui.storageprefix + value) || "";
-    this.ui.events.dispatch("storage", input.value);
   }
 }
