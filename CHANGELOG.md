@@ -32,35 +32,7 @@
 
 **Changed**:
 
-- [ ] Component attribute handling like the new `UICheck` component
-  - [ ] ui-app-bar
-  - [ ] ui-app-bar-item
-  - [ ] ui-button
-  - [ ] ui-icon-button
-  - [ ] ui-container
-  - [x] ui-dialog
-  - [ ] ui-drawer-group-item
-  - [ ] ui-drawer-group
-  - [x] ui-drawer
-  - [x] ui-flex-grid-item
-  - [x] ui-flex-grid-row
-  - [x] ui-flex-grid
-  - [x] ui-check
-  - [x] ui-input
-  - [x] ui-search
-  - [x] ui-select-option
-  - [x] ui-select
-  - [x] ui-lang-type
-  - [x] ui-lang
-  - [x] ui-spinner
-  - [x] ui-stack-layout-page
-  - [x] ui-stack-layout
-  - [x] ui-store
-  - [x] ui-svg
-  - [x] ui-label
-  - [x] ui-primary
-  - [x] ui-secondary
-  - [x] ui-theme-handler
+- Component attribute handling
 - Code formatting
 - `UIButton` ripple no longer centered
 

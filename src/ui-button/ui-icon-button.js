@@ -33,16 +33,20 @@ export class UIIconButton extends HTMLElement {
       events: new Events(),
 
       get noripple() {
-        return this.root.hasAttribute("noripple");
+        return !this.root.removeRippleCallback;
       },
 
       set noripple(state) {
         if (!state) {
-          this.root.removeAttribute("noripple");
-          return;
+          if (!!this.root.removeRippleCallback) return;
+
+          this.root.removeRippleCallback = createRipple(this.root);
         }
 
-        this.root.setAttribute("noripple", "");
+        if (!this.root.removeRippleCallback) return;
+
+        this.root.removeRippleCallback();
+        this.root.removeRippleCallback = null;
       },
 
       get color() {
@@ -180,17 +184,7 @@ export class UIIconButton extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "noripple":
-        if (newValue !== null) {
-          if (typeof this.removeRippleCallback === "function") {
-            this.removeRippleCallback();
-            this.removeRippleCallback = null;
-          }
-        } else {
-          if (typeof this.removeRippleCallback !== "function") {
-            this.removeRippleCallback = createRipple(this, { centered: true });
-          }
-        }
-
+        this.ui.noripple = newValue !== null;
         break;
     }
   }
