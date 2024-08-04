@@ -15,20 +15,32 @@ export class UIDrawerGroup extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     this.ui = {
-      /** @private */
       root: this,
 
       get title() {
-        return this.root.getAttribute("title");
+        return this.root.shadowRoot.querySelector(`.title`).innerHTML;
       },
 
       set title(value) {
+        let item = this.root.shadowRoot.querySelector(`.title`);
+
         if (!value) {
-          this.root.removeAttribute("title");
+          item.classList.remove("visible");
           return;
         }
 
-        this.root.setAttribute("title", value);
+        item.classList.add("visible");
+        item.innerHTML = html`
+          <span
+            style="
+              font-size: 1.5rem;
+              font-weight: 600;
+              font-variation-settings: var(--ui-heading-fontVariation);
+            "
+          >
+            ${value}
+          </span>
+        `;
       },
 
       get fold() {
@@ -123,33 +135,8 @@ export class UIDrawerGroup extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     switch (name) {
       case "title":
-        this.setGroupTitle(newValue);
+        this.ui.title = newValue;
         break;
     }
-  }
-
-  /**
-   * @param {string | null} title
-   */
-  setGroupTitle(title) {
-    let item = this.shadowRoot.querySelector(`.title`);
-
-    if (!title) {
-      item.classList.remove("visible");
-      return;
-    }
-
-    item.classList.add("visible");
-    item.innerHTML = `
-            <span
-                style="
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    font-variation-settings: var(--ui-heading-fontVariation);
-                "
-            >
-                ${title}
-            </span>
-        `;
   }
 }
