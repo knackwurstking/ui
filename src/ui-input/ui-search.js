@@ -88,11 +88,16 @@ export class UISearch extends HTMLElement {
       },
 
       get invalid() {
-        return this.input.ariaInvalid !== null;
+        return this.root.hasAttribute("invalid");
       },
 
       set invalid(state) {
-        this.input.ariaInvalid = state ? "" : null;
+        if (!state) {
+          this.root.removeAttribute("invalid");
+          return;
+        }
+
+        this.root.setAttribute("invalid", "");
       },
 
       get nosubmit() {
@@ -300,7 +305,7 @@ export class UISearch extends HTMLElement {
         break;
 
       case "invalid":
-        this.ui.invalid = newValue !== null;
+        this.ui.input.ariaInvalid = newValue !== null ? "" : null;
         break;
 
       case "nosubmit":
