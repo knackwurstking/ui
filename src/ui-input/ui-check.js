@@ -13,10 +13,14 @@ export class UICheck extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
     this.ui = {
-      /** @type {import("../ui-text").UILabel | null} */
+      /**
+       * @type {import("../ui-text").UILabel | null}
+       */
       label: null,
 
-      /** @type {HTMLInputElement | null} */
+      /**
+       * @type {HTMLInputElement | null}
+       */
       input: null,
 
       get primary() {
