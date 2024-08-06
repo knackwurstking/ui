@@ -27,13 +27,14 @@ export class UITextarea<E extends UITextareaEvents> extends HTMLElement {
         root: this;
         /** @type {Events<E>} */
         events: Events<E>;
-        /** @type {HTMLInputElement | null} */
-        input: HTMLInputElement | null;
+        /** @type {HTMLTextAreaElement | null} */
+        textarea: HTMLTextAreaElement | null;
         title: string;
-        type: string;
         value: string;
         placeholder: string;
         invalid: boolean;
+        rows: number;
+        cols: number;
         /**
          * @param {FocusOptions | null} [options]
          */

@@ -32,10 +32,11 @@ export class UITextarea extends HTMLElement {
 
   static observedAttributes = [
     "title",
-    "type",
     "value",
     "placeholder",
     "invalid",
+    "rows",
+    "cols",
   ];
 
   constructor() {
@@ -48,8 +49,8 @@ export class UITextarea extends HTMLElement {
       /** @type {Events<E>} */
       events: new Events(),
 
-      /** @type {HTMLInputElement | null} */
-      input: null,
+      /** @type {HTMLTextAreaElement | null} */
+      textarea: null,
 
       get title() {
         return this.root.getAttribute("title");
@@ -73,28 +74,20 @@ export class UITextarea extends HTMLElement {
         el.innerHTML = value;
       },
 
-      get type() {
-        return this.input.type;
-      },
-
-      set type(value) {
-        this.input.type = value || "";
-      },
-
       get value() {
-        return this.input.value;
+        return this.textarea.value;
       },
 
       set value(value) {
-        this.input.value = value;
+        this.textarea.value = value;
       },
 
       get placeholder() {
-        return this.input.placeholder;
+        return this.textarea.placeholder;
       },
 
       set placeholder(value) {
-        this.input.placeholder = value || "";
+        this.textarea.placeholder = value || "";
       },
 
       get invalid() {
@@ -110,15 +103,31 @@ export class UITextarea extends HTMLElement {
         this.root.setAttribute("invalid", "");
       },
 
+      get rows() {
+        return this.textarea.rows;
+      },
+
+      set rows(value) {
+        this.textarea.rows = value;
+      },
+
+      get cols() {
+        return this.textarea.cols;
+      },
+
+      set cols(value) {
+        this.textarea.cols = value;
+      },
+
       /**
        * @param {FocusOptions | null} [options]
        */
       focus(options = null) {
-        this.root.shadowRoot.querySelector("input").focus(options);
+        this.root.shadowRoot.querySelector("textarea").focus(options);
       },
 
       blur() {
-        this.root.shadowRoot.querySelector("input").blur();
+        this.root.shadowRoot.querySelector("textarea").blur();
       },
     };
 
@@ -139,7 +148,8 @@ export class UITextarea extends HTMLElement {
           height: fit-content;
         }
 
-        input {
+        textarea {
+          resize: none;
           width: 100%;
           display: block;
           margin: 0;
@@ -156,13 +166,14 @@ export class UITextarea extends HTMLElement {
 
         .container {
           width: 100%;
+          height: 100%;
           border: none;
           border: 1px solid var(--ui-borderColor);
           border-radius: var(--ui-radius);
           transition: border-color 0.25s linear;
         }
 
-        .container:has(input:focus) {
+        .container:has(textarea:focus) {
           border-color: var(--ui-primary-bgColor);
         }
 
@@ -184,15 +195,14 @@ export class UITextarea extends HTMLElement {
       </div>
     `;
 
-    this.ui.input = this.shadowRoot.querySelector("input");
-    this.ui.input.type = this.getAttribute("type") || "text";
+    this.ui.textarea = this.shadowRoot.querySelector("textarea");
 
-    this.ui.input.oninput = () => {
-      this.ui.events.dispatch("input", this.ui.input.value);
+    this.ui.textarea.oninput = () => {
+      this.ui.events.dispatch("input", this.ui.textarea.value);
     };
 
-    this.ui.input.onchange = () => {
-      this.ui.events.dispatch("change", this.ui.input.value);
+    this.ui.textarea.onchange = () => {
+      this.ui.events.dispatch("change", this.ui.textarea.value);
     };
   }
 
@@ -210,10 +220,6 @@ export class UITextarea extends HTMLElement {
         this.ui.title = newValue;
         break;
 
-      case "type":
-        this.ui.type = newValue;
-        break;
-
       case "value":
         this.ui.value = newValue;
         break;
@@ -223,7 +229,15 @@ export class UITextarea extends HTMLElement {
         break;
 
       case "invalid":
-        this.ui.input.ariaInvalid = newValue !== null ? "" : null;
+        this.ui.textarea.ariaInvalid = newValue !== null ? "" : null;
+        break;
+
+      case "rows":
+        this.ui.rows = newValue !== null ? parseFloat(newValue) : null;
+        break;
+
+      case "cols":
+        this.ui.cols = newValue !== null ? parseFloat(newValue) : null;
         break;
     }
   }
