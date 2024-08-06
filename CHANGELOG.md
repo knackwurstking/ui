@@ -23,6 +23,10 @@
 
 ## v0.2.15 [unreleased]
 
+**Added**:
+
+- `UITextarea` component
+
 **Fixed**:
 
 - `UIInput` and `UISearch` invalid attribute handling
