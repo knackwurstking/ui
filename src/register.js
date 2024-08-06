@@ -4,10 +4,14 @@ import { UIContainer } from "./ui-container";
 import { UIDialog } from "./ui-dialog";
 import { UIDrawer, UIDrawerGroup, UIDrawerGroupItem } from "./ui-drawer";
 import { UIFlexGrid, UIFlexGridItem, UIFlexGridRow } from "./ui-flex-grid";
-import { UIInput, UISelect } from "./ui-input";
-import { UICheck } from "./ui-input/ui-check";
-import { UISearch } from "./ui-input/ui-search";
-import { UISelectOption } from "./ui-input/ui-select-option";
+import {
+  UICheck,
+  UIInput,
+  UISearch,
+  UISelect,
+  UISelectOption,
+  UITextarea,
+} from "./ui-input";
 import { UILang } from "./ui-lang";
 import { UILangType } from "./ui-lang/ui-lang-type";
 import { UISpinner } from "./ui-spinner";
@@ -43,6 +47,7 @@ export function register() {
   UISearch.register();
   UISelectOption.register();
   UISelect.register();
+  UITextarea.register();
 
   UILangType.register();
   UILang.register();
