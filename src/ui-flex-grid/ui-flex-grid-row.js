@@ -56,6 +56,10 @@ export class UIFlexGridRow extends HTMLElement {
   shadowRender() {
     this.shadowRoot.innerHTML = html`
       <style>
+        * {
+          box-sizing: border-box;
+        }
+
         :host {
           display: flex !important;
           flex-flow: row nowrap;

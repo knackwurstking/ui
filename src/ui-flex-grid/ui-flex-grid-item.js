@@ -39,6 +39,16 @@ export class UIFlexGridItem extends HTMLElement {
 
   shadowRender() {
     this.shadowRoot.innerHTML = html`
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        :host {
+          display: block;
+        }
+      </style>
+
       <style name="flex">
         :host {
           flex: 1;

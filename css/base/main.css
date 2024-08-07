@@ -1,52 +1,54 @@
-/* {{{ Global */
+/*
+ * Basic
+ */
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
-    background-color: var(--ui-primary-bgColor);
-    color: var(--ui-primary-color);
+  background-color: var(--ui-primary-bgColor);
+  color: var(--ui-primary-color);
 }
 
 html {
-    font-size: var(--ui-font-size);
-    background-color: var(--ui-bgColor);
-    color: var(--ui-color);
+  font-size: var(--ui-font-size);
+  background-color: var(--ui-bgColor);
+  color: var(--ui-color);
 }
 
 body {
-    font-family: var(--ui-fontFamily);
-    font-variation-settings: var(--ui-fontVariation);
-    font-size: 100%;
-    line-height: var(--ui-lineHeight);
+  font-family: var(--ui-fontFamily);
+  font-variation-settings: var(--ui-fontVariation);
+  font-size: 100%;
+  line-height: var(--ui-lineHeight);
 }
 
-/* }}} */
-
-/* {{{  Section */
+/*
+ * Container
+ */
 
 section {
-    padding: var(--ui-spacing);
+  padding: var(--ui-spacing);
 }
 
-/* }}} */
-
-/* {{{ Hr */
+/*
+ * Separator
+ */
 
 hr {
-    border: none;
-    height: 1px;
-    margin: var(--ui-spacing) 0;
-    background-color: var(--ui-borderColor);
+  border: none;
+  height: 1px;
+  margin: var(--ui-spacing) 0;
+  background-color: var(--ui-borderColor);
 }
 
-/* }}} */
-
-/*  {{{ H1-6 */
+/*
+ * Heading
+ */
 
 h1,
 h2,
@@ -54,227 +56,216 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
-    font-family: "RecVar";
-    font-weight: 600;
-    font-variation-settings: var(--ui-heading-fontVariation);
+  margin: 0;
+  font-family: "RecVar";
+  font-weight: 600;
+  font-variation-settings: var(--ui-heading-fontVariation);
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h2 {
-    font-size: 1.75rem;
+  font-size: 1.75rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 h4 {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 h5 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 h6 {
-    font-size: 7.5rem;
-}
-
-/* }}} */
-
-/* {{{ Code, Pre */
-
-code,
-pre {
-    background-color: var(--ui-muted-bgColor);
-    color: var(--ui-muted-color);
-    border: 1px solid var(--ui-muted-borderColor);
-    border-radius: var(--ui-muted-radius);
-    padding: var(--ui-spacing);
-    font-family: var(--ui-muted-fontFamily);
-    font-variation-settings: var(--ui-muted-fontVariation);
-}
-
-code {
-    display: inline-block;
-}
-
-pre {
-    display: block;
-}
-
-/* }}} */
-
-/* {{{ Button */
-
-button {
-    font-size: 1.1rem;
-    font-weight: 450;
-    font-family: var(--ui-fontFamily);
-    font-variation-settings: var(--ui-button-fontVariation);
-}
-
-/* }}} */
-
-/* {{{ Select, Input, Textarea */
-
-input,
-textarea {
-    --ui-bgColor: "transparent";
-
-    display: block;
-
-    border: 1px solid var(--ui-borderColor);
-    border-radius: var(--ui-radius);
-    transition: border-color 0.25s linear;
-
-    background-color: var(--ui-bgColor);
-    color: var(--ui-color);
-
-    box-shadow: none;
-    outline: none;
-
-    font-size: 0.9rem;
-    font-family: var(--ui-fontFamily);
-    font-variation-settings: var(--ui-input-fontVariation);
-
-    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-
-    accent-color: var(--ui-primary-bgColor);
-}
-
-select {
-    --ui-bgColor: "transparent";
-
-    display: block;
-
-    border: 1px solid var(--ui-borderColor);
-    border-radius: var(--ui-radius);
-    transition: border-color 0.25s linear;
-
-    background-color: var(--ui-bgColor);
-    color: var(--ui-color);
-
-    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-
-    box-shadow: none;
-    outline: none;
-
-    font-size: 0.9rem;
-    font-family: var(--ui-fontFamily);
-    font-variation-settings: var(--ui-select-fontVariation);
+  font-size: 7.5rem;
 }
 
 /*
-input {
-    border: none;
-    border-bottom: 1px solid var(--ui-borderColor);
-    border-radius: 0;
+ * Codeblock
+ */
+
+code,
+pre {
+  background-color: var(--ui-muted-bgColor);
+  color: var(--ui-muted-color);
+  border: 1px solid var(--ui-muted-borderColor);
+  border-radius: var(--ui-muted-radius);
+  padding: var(--ui-spacing);
+  font-family: var(--ui-muted-fontFamily);
+  font-variation-settings: var(--ui-muted-fontVariation);
 }
-*/
+
+code {
+  display: inline-block;
+}
+
+pre {
+  display: block;
+}
+
+/*
+ * Button
+ */
+
+button {
+  font-size: 1.1rem;
+  font-weight: 450;
+  font-family: var(--ui-fontFamily);
+  font-variation-settings: var(--ui-button-fontVariation);
+}
+
+/*
+ * Input
+ */
+
+input,
+textarea {
+  --ui-bgColor: "transparent";
+
+  display: block;
+
+  border: 1px solid var(--ui-borderColor);
+  border-radius: var(--ui-radius);
+  transition: border-color 0.25s linear;
+
+  background-color: var(--ui-bgColor);
+  color: var(--ui-color);
+
+  box-shadow: none;
+  outline: none;
+
+  font-size: 0.9rem;
+  font-family: var(--ui-fontFamily);
+  font-variation-settings: var(--ui-input-fontVariation);
+
+  padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
+  accent-color: var(--ui-primary-bgColor);
+}
+
+select {
+  --ui-bgColor: "transparent";
+
+  display: block;
+
+  border: 1px solid var(--ui-borderColor);
+  border-radius: var(--ui-radius);
+  transition: border-color 0.25s linear;
+
+  background-color: var(--ui-bgColor);
+  color: var(--ui-color);
+
+  padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
+  box-shadow: none;
+  outline: none;
+
+  font-size: 0.9rem;
+  font-family: var(--ui-fontFamily);
+  font-variation-settings: var(--ui-select-fontVariation);
+}
 
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type="checkbox"] {
-    display: inline-block;
-    cursor: pointer;
-    height: 1.5rem;
-    width: 1.5rem;
+  display: inline-block;
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 input[type="color"] {
-    height: calc(var(--ui-spacing) * 2 + 2rem);
-    padding: var(--ui-spacing);
-    cursor: pointer;
+  height: calc(var(--ui-spacing) * 2 + 2rem);
+  padding: var(--ui-spacing);
+  cursor: pointer;
 }
 
 input:focus:not([type="checkbox"]),
 textarea:focus {
-    border-color: var(--ui-primary-bgColor);
+  border-color: var(--ui-primary-bgColor);
 }
 
 input[aria-invalid] {
-    border-color: var(--ui-destructive-bgColor) !important;
+  border-color: var(--ui-destructive-bgColor) !important;
 }
 
 input:disabled {
-    cursor: default;
-    user-select: none;
+  cursor: default;
+  user-select: none;
 }
 
-/* }}} */
-
-/* {{{ UL */
+/*
+ * List
+ */
 
 ul {
-    list-style: none;
-    padding: var(--ui-spacing);
-    overflow: hidden;
+  list-style: none;
+  padding: var(--ui-spacing);
+  overflow: hidden;
+  margin: 0;
 }
 
 ul > * {
-    padding: var(--ui-spacing);
+  padding: var(--ui-spacing);
 }
 
-/* }}} */
-
-/* {{{ Table, Th, Td */
+/*
+ * Table
+ */
 
 table {
-    width: 100%;
+  width: 100%;
 
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 
-    border-collapse: collapse;
-    border: 1px solid var(--ui-borderColor);
+  border-collapse: collapse;
+  border: 1px solid var(--ui-borderColor);
 }
 
 thead {
-    font-weight: 450;
-    font-variation-settings: var(--ui-thead-fontVariation);
+  font-weight: 450;
+  font-variation-settings: var(--ui-thead-fontVariation);
 }
 
 tbody {
-    font-weight: 350;
-    font-variation-settings: var(--ui-tbody-fontVariation);
+  font-weight: 350;
+  font-variation-settings: var(--ui-tbody-fontVariation);
 }
 
 th,
 td {
-    padding: var(--ui-spacing);
-    border: 1px solid var(--ui-borderColor);
-    word-break: auto-phrase;
+  padding: var(--ui-spacing);
+  border: 1px solid var(--ui-borderColor);
+  word-break: auto-phrase;
 }
 
 td {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
-
-/* }}} */
-
-/* {{{ Blockquote */
 
 /*
-blockquote{
-    border-left: 1px black solid;
-    margin: 0;
-    padding-left: 1rem;
-}
-*/
+ * Blockquote
+ */
 
-/* }}} */
+blockquote {
+  border-left: 1px solid var(--ui-borderColor);
+  margin: 0;
+  padding-left: 1rem;
+}
