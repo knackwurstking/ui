@@ -21,7 +21,7 @@
   - [v0.1.1 2024-03-22](#v011-2024-03-22)
   <!--toc:end-->
 
-## v0.2.15 2024-08-06
+## v0.2.15 2024-08-07
 
 **Added**:
 
@@ -30,6 +30,10 @@
 **Fixed**:
 
 - `UIInput` and `UISearch` invalid attribute handling
+
+**Improved**:
+
+- CSS
 
 ## v0.2.14 2024-08-05
 
