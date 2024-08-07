@@ -21,6 +21,12 @@
   - [v0.1.1 2024-03-22](#v011-2024-03-22)
   <!--toc:end-->
 
+## v0.2.16 [unreleased]
+
+**Fixed**:
+
+- `UISearch` storage handling
+
 ## v0.2.15 2024-08-07
 
 **Added**:

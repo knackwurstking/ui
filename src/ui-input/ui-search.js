@@ -37,6 +37,8 @@ export class UISearch extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
+    this.storagekey = "";
+
     this.ui = {
       root: this,
 
@@ -140,13 +142,17 @@ export class UISearch extends HTMLElement {
       },
 
       get storagekey() {
-        return this.root.getAttribute("storagekey");
+        return this.root.storagekey;
       },
 
       set storagekey(value) {
+        this.root.storagekey = value;
+
         if (!this.storage) return;
 
-        this.value = localStorage.getItem(this.storageprefix + value) || "";
+        this.value =
+          localStorage.getItem(this.storageprefix + this.root.storagekey) || "";
+
         this.events.dispatch("storage", this.value);
       },
 
@@ -263,6 +269,7 @@ export class UISearch extends HTMLElement {
           clearTimeout(timeout);
         }
 
+        console.error(this.ui.storageprefix + this.ui.storagekey);
         timeout = setTimeout(() => {
           localStorage.setItem(
             this.ui.storageprefix + this.ui.storagekey,
