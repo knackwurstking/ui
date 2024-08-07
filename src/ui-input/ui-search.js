@@ -269,7 +269,6 @@ export class UISearch extends HTMLElement {
           clearTimeout(timeout);
         }
 
-        console.error(this.ui.storageprefix + this.ui.storagekey);
         timeout = setTimeout(() => {
           localStorage.setItem(
             this.ui.storageprefix + this.ui.storagekey,
