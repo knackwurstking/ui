@@ -40,7 +40,7 @@ export class UISpinner extends HTMLElement {
     this.shadowRoot.innerHTML = html`
       <style>
         :host {
-          position: absolute;
+          position: absolute !important;
           top: 0;
           right: 0;
           bottom: 0;
@@ -49,7 +49,7 @@ export class UISpinner extends HTMLElement {
 
         .background {
           z-index: 999;
-          position: absolute;
+          position: absolute !important;
           top: 0;
           right: 0;
           bottom: 0;
@@ -63,7 +63,7 @@ export class UISpinner extends HTMLElement {
           z-index: 1000;
           content: "";
           box-sizing: border-box;
-          position: absolute;
+          position: absolute !important;
           top: 50%;
           left: 50%;
           width: 2.5rem;
