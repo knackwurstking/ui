@@ -61,20 +61,24 @@ export class UILabel extends HTMLElement {
       },
 
       get primary() {
-        return this.root.shadowRoot.querySelector("ui-primary").innerHTML;
+        // @ts-expect-error
+        return this.root.shadowRoot.querySelector("ui-primary").innerText;
       },
 
       set primary(value) {
-        this.root.shadowRoot.querySelector("ui-primary").innerHTML =
+        // @ts-expect-error
+        this.root.shadowRoot.querySelector("ui-primary").innerText =
           value || "";
       },
 
       get secondary() {
-        return this.root.shadowRoot.querySelector("ui-secondary").innerHTML;
+        // @ts-expect-error
+        return this.root.shadowRoot.querySelector("ui-secondary").innerText;
       },
 
       set secondary(value) {
-        this.root.shadowRoot.querySelector("ui-secondary").innerHTML =
+        // @ts-expect-error
+        this.root.shadowRoot.querySelector("ui-secondary").innerText =
           value || "";
       },
 
