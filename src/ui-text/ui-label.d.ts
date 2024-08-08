@@ -23,8 +23,8 @@ export class UILabel extends HTMLElement {
     ui: {
         root: this;
         ripple: boolean;
-        primary: any;
-        secondary: any;
+        primary: string;
+        secondary: string;
         readonly inputSlot: any[];
     };
     shadowRender(): void;

@@ -10,8 +10,8 @@ export class UICheck extends HTMLElement {
          * @type {HTMLInputElement | null}
          */
         input: HTMLInputElement | null;
-        primary: any;
-        secondary: any;
+        primary: string;
+        secondary: string;
         value: string;
         checked: boolean;
     };
