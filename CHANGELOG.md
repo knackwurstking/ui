@@ -25,6 +25,7 @@
 
 **Changed**:
 
+- `UIDialog` attribute handling ("title")
 - `UIStackLayoutPage` attribute handling ("name")
 
 **Added**:
