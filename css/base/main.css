@@ -99,6 +99,7 @@ pre {
   padding: var(--ui-spacing);
   font-family: var(--ui-muted-fontFamily);
   font-variation-settings: var(--ui-muted-fontVariation);
+  font-size: 0.95rem;
 }
 
 code {
