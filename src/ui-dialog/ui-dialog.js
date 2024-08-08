@@ -25,11 +25,16 @@ export class UIDialog extends HTMLElement {
 
   static observedAttributes = ["title"];
 
-  constructor() {
+  /**
+   * @param {string} title
+   */
+  constructor(title) {
     super();
     this.attachShadow({ mode: "open" });
 
     this.shadowRenderCleanUp = new CleanUp();
+
+    this._title = title || "";
 
     this.ui = {
       root: this,
@@ -43,7 +48,7 @@ export class UIDialog extends HTMLElement {
 
       set title(value) {
         const title = this.root.shadowRoot.querySelector(`[name="title"]`);
-        title.innerHTML = value || "";
+        this.root._title = title.innerHTML = value || "";
       },
 
       get fullscreen() {
@@ -284,6 +289,8 @@ export class UIDialog extends HTMLElement {
         </div>
       </dialog>
     `;
+
+    this.ui.title = this._title;
 
     // Close button
     const button = this.shadowRoot.querySelector(".header ui-icon-button");

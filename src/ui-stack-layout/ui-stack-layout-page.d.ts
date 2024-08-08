@@ -5,7 +5,7 @@ export class UIStackLayoutPage extends HTMLElement {
      * @param {string} name
      */
     constructor(name: string);
-    name: string;
+    _name: string;
     ui: {
         root: this;
         name: string;

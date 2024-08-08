@@ -15,8 +15,12 @@
 export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    constructor();
+    /**
+     * @param {string} title
+     */
+    constructor(title: string);
     shadowRenderCleanUp: CleanUp;
+    _title: string;
     ui: {
         root: this;
         /** @type {Events<T>} */

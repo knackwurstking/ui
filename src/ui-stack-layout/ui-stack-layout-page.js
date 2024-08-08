@@ -16,13 +16,13 @@ export class UIStackLayoutPage extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
-    this.name = name;
+    this._name = name;
 
     this.ui = {
       root: this,
 
       get name() {
-        return this.root.name;
+        return this.root._name;
       },
 
       set name(value) {
