@@ -7,24 +7,26 @@ export class UIStackLayoutPage extends HTMLElement {
     }
   };
 
-  constructor() {
+  static observedAttributes = ["name"];
+
+  /**
+   * @param {string} name
+   */
+  constructor(name) {
     super();
     this.attachShadow({ mode: "open" });
+
+    this.name = name;
 
     this.ui = {
       root: this,
 
       get name() {
-        return this.root.getAttribute("name");
+        return this.root.name;
       },
 
       set name(value) {
-        if (!value) {
-          this.root.removeAttribute("name");
-          return;
-        }
-
-        this.root.setAttribute("name", value);
+        this.name = value || "";
       },
     };
 
@@ -66,4 +68,17 @@ export class UIStackLayoutPage extends HTMLElement {
 
   connectedCallback() {}
   disconnectedCallback() {}
+
+  /**
+   * @param {string} n
+   * @param {string | null} _oV
+   * @param {string | null} nV
+   */
+  attributeChangedCallback(n, _oV, nV) {
+    switch (n) {
+      case "name":
+        this.ui.name = nV;
+        break;
+    }
+  }
 }

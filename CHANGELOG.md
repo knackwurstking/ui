@@ -23,6 +23,14 @@
 
 ## v0.2.16 [unreleased]
 
+**Changed**:
+
+- `UIStackLayoutPage` attribute handling ("name")
+
+**Added**:
+
+- Constructor parameter "name" for the `UIStackLayoutPage`
+
 **Fixed**:
 
 - `UISearch` storage handling
