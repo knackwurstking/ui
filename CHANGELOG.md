@@ -25,6 +25,7 @@
 
 **Changed**:
 
+- CSS resets, added `display: relative` and fixed some components
 - Margin for `UIDrawerGroup` component
 - `UIDialog` attribute handling ("title")
 - `UIStackLayoutPage` attribute handling ("name")
