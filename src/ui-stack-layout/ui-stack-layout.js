@@ -88,9 +88,7 @@ export class UIStackLayout extends HTMLElement {
 
         const page = this.root.pages[pageName]();
         this.root.stack.push(this.root.appendChild(page));
-        if (typeof cb === "function") {
-          setTimeout(() => cb(page));
-        }
+        if (typeof cb === "function") cb(page);
 
         let pageToRemove = null;
         if (this.size() > 1 && !keepOldPage) {
