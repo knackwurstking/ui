@@ -23,6 +23,7 @@ export class UISecondary extends HTMLElement {
           font-size: 0.9rem;
           font-family: var(--ui-fontFamily);
           font-variation-settings: var(--ui-text-secondary-fontVariation);
+          overflow-wrap: anywhere;
         }
       </style>
 

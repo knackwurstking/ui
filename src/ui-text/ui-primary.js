@@ -23,6 +23,7 @@ export class UIPrimary extends HTMLElement {
           font-size: 1.1rem;
           font-family: var(--ui-fontFamily);
           font-variation-settings: var(--ui-text-primary-fontVariation);
+          overflow-wrap: anywhere;
         }
       </style>
 
