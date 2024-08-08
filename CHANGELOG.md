@@ -25,6 +25,7 @@
 
 **Changed**:
 
+- Margin for `UIDrawerGroup` component
 - `UIDialog` attribute handling ("title")
 - `UIStackLayoutPage` attribute handling ("name")
 

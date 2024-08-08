@@ -68,6 +68,7 @@ export class UIDrawerGroup extends HTMLElement {
         }
 
         ul {
+          margin: 0;
           list-style: none;
           padding: var(--ui-spacing);
           overflow: hidden;
