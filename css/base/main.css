@@ -2,13 +2,6 @@
  * Basic
  */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
-
 ::selection {
   background-color: var(--ui-primary-bgColor);
   color: var(--ui-primary-color);

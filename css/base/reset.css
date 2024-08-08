@@ -4,8 +4,10 @@
 *,
 *::before,
 *::after {
+  -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
   position: relative;
+  outline: none;
 }
 
 /*
