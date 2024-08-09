@@ -1,7 +1,9 @@
 /**
  * @param {HTMLElement} container
+ * @param {object} options
+ * @param {(() => void|Promise<void>) | null} [options.onDragEnd]
  */
-export default function createNoDrag(container) {
+export default function createMobile(container, { onDragEnd = null }) {
   /** @type {HTMLElement} */
   let elPlacing = null;
   /** @type {HTMLElement} */
@@ -52,9 +54,14 @@ export default function createNoDrag(container) {
     }
   };
 
-  /** @param {Event & TouchEvent & MouseEvent & { target: HTMLElement }} ev */
-  const moveEnd = (ev) => {
-    // TODO: ...
+  const moveEnd = () => {
+    if (!!elMoving) {
+      container.removeChild(elMoving);
+    }
+
+    if (!!onDragEnd) onDragEnd();
+    elMoving = null;
+    elPlacing = null;
   };
 
   /**
@@ -62,7 +69,26 @@ export default function createNoDrag(container) {
    * @param {Element} target
    */
   function insertElement(elPlacing, target) {
-    throw new Error("Function not implemented."); // TODO: ...
+    if (isBefore(elPlacing, target)) {
+      container.insertBefore(elPlacing, target);
+    } else {
+      container.insertBefore(elPlacing, target.nextElementSibling);
+    }
+  }
+
+  /**
+   * @param {Element} el
+   * @param {Element} target
+   */
+  function isBefore(el, target) {
+    let sibling = el.previousElementSibling;
+    while (sibling) {
+      if (sibling === target) {
+        return true;
+      }
+      sibling = el.previousElementSibling;
+    }
+    return false;
   }
 
   Array.from(container.children).forEach((/** @type {HTMLElement} */ child) => {

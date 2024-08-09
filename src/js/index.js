@@ -1,7 +1,7 @@
 export { CleanUp } from "./cleanup";
 export {
   create as createDraggable,
-  createNoDrag as createNoDragDraggable,
+  createMobile as createMobileDraggable,
 } from "./draggable";
 export { Events } from "./events";
 export {

@@ -1,5 +1,5 @@
 export { default as create } from "./create";
-export { default as createNoDrag } from "./create-no-drag";
+export { default as createMobile } from "./create-mobile";
 
 /**
  * @typedef DraggableOptions
