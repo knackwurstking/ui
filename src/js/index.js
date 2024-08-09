@@ -1,13 +1,14 @@
-export { create as createDraggable } from "./draggable";
+export { CleanUp } from "./cleanup";
+export {
+  create as createDraggable,
+  createNoDrag as createNoDragDraggable,
+} from "./draggable";
 export { Events } from "./events";
-
 export {
   create as createRipple,
   defaultOptions as defaultRippleOptions,
 } from "./ripple";
-
-export { isAndroid, html, css } from "./utils";
-export { CleanUp } from "./cleanup";
+export { css, html, isAndroid } from "./utils";
 
 /**
  * @typedef {import("./events")._Events} _Events
