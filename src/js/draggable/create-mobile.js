@@ -114,6 +114,8 @@ export default function createMobile(
     );
   };
 
+  setup();
+
   return {
     destroy: () => {
       Array.from(container.children).forEach(
