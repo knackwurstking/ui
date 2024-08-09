@@ -52,11 +52,13 @@ export default function create(el, options = {}) {
     el.addEventListener("pointerleave", _rippleStop);
   }
 
-  return () => {
-    el.classList.remove("ripple-container");
+  return {
+    destroy: () => {
+      el.classList.remove("ripple-container");
 
-    el.removeEventListener("pointerdown", _rippleStart);
-    el.removeEventListener("pointerup", _rippleStop);
-    el.removeEventListener("pointerleave", _rippleStop);
+      el.removeEventListener("pointerdown", _rippleStart);
+      el.removeEventListener("pointerup", _rippleStop);
+      el.removeEventListener("pointerleave", _rippleStop);
+    },
   };
 }
