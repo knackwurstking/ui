@@ -1,8 +1,9 @@
 /**
+ * @param {HTMLElement} container
  * @param {HTMLElement} el
  * @param {DraggableOptions} options
  */
-export default function create(el: HTMLElement, options?: DraggableOptions): {
+export default function create(container: HTMLElement, el: HTMLElement, options?: DraggableOptions): {
     /**
      * @param {DraggableOptions} _options
      */

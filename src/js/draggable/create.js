@@ -10,28 +10,26 @@ const defaultOptions = {
 };
 
 /**
+ * @param {HTMLElement} container
  * @param {HTMLElement} el
  * @param {DraggableOptions} options
  */
-export default function create(el, options = {}) {
+export default function create(container, el, options = {}) {
   options = {
     ...defaultOptions,
     ...options,
   };
 
   const setup = () => {
-    const children = [...el.parentNode.children];
-    const index = children.indexOf(el);
+    const children = [...container.children];
+    const childIndex = children.indexOf(el);
 
     el.draggable = true;
 
     el.ondragstart = (ev) => {
       ev.dataTransfer.effectAllowed = "move";
       ev.dataTransfer.dropEffect = "move";
-
-      ev.dataTransfer.setData("text/plain", index.toString());
-
-      if (!!options.onDragStart) options.onDragStart(index);
+      if (!!options.onDragStart) options.onDragStart(childIndex);
     };
 
     el.ondragover = (ev) => {
@@ -41,16 +39,32 @@ export default function create(el, options = {}) {
 
     el.ondragenter = (ev) => {
       ev.preventDefault();
-      if (!!options.onDragging) options.onDragging(index);
+
+      [...container.children].forEach((/** @type {HTMLElement} */ c, ci) => {
+        if (ci === childIndex) {
+          c.style.background = "var(--ui-primary-bgColor)";
+          c.style.color = "var(--ui-primary-color)";
+
+          return;
+        }
+
+        c.style.background = "inherit";
+        c.style.color = "inherit";
+      });
+
+      if (!!options.onDragging) options.onDragging(childIndex);
     };
 
     el.ondrop = (ev) => {
       ev.preventDefault();
       ev.dataTransfer.dropEffect = "move";
+      if (!!options.onDragEnd) options.onDragEnd(childIndex);
 
-      const startIndex = parseInt(ev.dataTransfer.getData("text/plain"), 10);
-
-      if (!!options.onDragEnd) options.onDragEnd(startIndex, index);
+      [...container.children].forEach((/**@type{HTMLElement}*/ c) => {
+        c.style.background = "inherit";
+        c.style.color = "inherit";
+        return;
+      });
     };
   };
 
