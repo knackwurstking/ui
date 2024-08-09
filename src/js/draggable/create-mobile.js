@@ -2,8 +2,12 @@
  * @param {HTMLElement} container
  * @param {object} options
  * @param {(() => void|Promise<void>) | null} [options.onDragEnd]
+ * @param {(() => void|Promise<void>) | null} [options.onDragStart]
  */
-export default function createMobile(container, { onDragEnd = null }) {
+export default function createMobile(
+  container,
+  { onDragEnd = null, onDragStart = null },
+) {
   /** @type {HTMLElement} */
   let elPlacing = null;
   /** @type {HTMLElement} */
@@ -23,6 +27,8 @@ export default function createMobile(container, { onDragEnd = null }) {
       // @ts-ignore
       container.append((elMoving = ev.target.cloneNode(true)));
       elMoving.className = "dragging";
+
+      if (!!onDragStart) onDragStart();
 
       const x = pos.pageX - elMoving.offsetWidth / 2 + "px";
       const y = pos.pageY - elMoving.offsetHeight / 2 + "px";
@@ -91,16 +97,39 @@ export default function createMobile(container, { onDragEnd = null }) {
     return false;
   }
 
-  Array.from(container.children).forEach((/** @type {HTMLElement} */ child) => {
-    child.classList.add("draggable");
+  const setup = () => {
+    Array.from(container.children).forEach(
+      (/** @type {HTMLElement} */ child) => {
+        child.classList.add("draggable");
 
-    child.onmousedown = moveStart;
-    child.ontouchstart = moveStart;
+        child.onmousedown = moveStart;
+        child.ontouchstart = moveStart;
 
-    child.onmousemove = move;
-    child.ontouchmove = move;
+        child.onmousemove = move;
+        child.ontouchmove = move;
 
-    child.onmouseup = moveEnd;
-    child.ontouchend = moveEnd;
-  });
+        child.onmouseup = moveEnd;
+        child.ontouchend = moveEnd;
+      },
+    );
+  };
+
+  return {
+    destroy: () => {
+      Array.from(container.children).forEach(
+        (/** @type {HTMLElement} */ child) => {
+          child.classList.remove("draggable");
+
+          child.onmousedown = null;
+          child.ontouchstart = null;
+
+          child.onmousemove = null;
+          child.ontouchmove = null;
+
+          child.onmouseup = null;
+          child.ontouchend = null;
+        },
+      );
+    },
+  };
 }
