@@ -9,7 +9,9 @@
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    removeRippleCallback: () => void;
+    removeRippleCallback: {
+        destroy: () => void;
+    };
     ui: {
         root: this;
         /**
