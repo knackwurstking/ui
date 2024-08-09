@@ -14,3 +14,9 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+.no-touch,
+.no-touch * {
+  -ms-touch-action: none !important;
+  touch-action: none !important;
+}
