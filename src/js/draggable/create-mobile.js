@@ -9,65 +9,80 @@ export default function createMobile(
   { onDragEnd = null, onDragStart = null },
 ) {
   /** @type {HTMLElement} */
-  let elPlacing = null;
-  /** @type {HTMLElement} */
-  let elMoving = null;
+  let originTarget = null;
+  /** @type {number | null} */
+  let start = null;
+  /** @type {NodeJS.Timeout | null} */
+  let timeout = null;
+  /** @type {boolean} */
+  let dragRunning = false;
+  /** @type {string | null} */
+  let backupColor = null;
+  /** @type {string | null} */
+  let backupBGColor = null;
 
-  /** @param {Event & TouchEvent & MouseEvent & { target: HTMLElement }} ev */
+  /** @param {Event & TouchEvent & MouseEvent & { currentTarget: HTMLElement }} ev */
   const moveStart = (ev) => {
     if (
-      !elMoving &&
-      !elPlacing &&
-      Array.from(ev.target.classList).includes("draggable")
+      !originTarget &&
+      Array.from(ev.currentTarget.classList).includes("draggable")
     ) {
-      const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
+      start = new Date().getTime();
+      originTarget = ev.currentTarget;
 
-      elPlacing = ev.target;
+      if (!timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        backupColor = originTarget.style.color;
+        backupBGColor = originTarget.style.backgroundColor;
+        originTarget.style.color = "var(--ui-primary-color)";
+        originTarget.style.backgroundColor = "var(--ui-primary-bgColor)";
 
-      // @ts-ignore
-      container.append((elMoving = ev.target.cloneNode(true)));
-      elMoving.className = "dragging";
-
-      if (!!onDragStart) onDragStart();
-
-      const x = pos.pageX - elMoving.offsetWidth / 2 + "px";
-      const y = pos.pageY - elMoving.offsetHeight / 2 + "px";
-      elMoving.style.willChange = "transform";
-      elMoving.style.transform = `translate(${x}, ${y})`;
+        dragRunning = true;
+        if (!!onDragStart) onDragStart();
+      }, 250);
     }
   };
 
-  /** @param {Event & TouchEvent & MouseEvent & { target: HTMLElement }} ev */
+  /** @param {TouchEvent & MouseEvent & { currentTarget: HTMLElement }} ev */
   const move = (ev) => {
-    if (!!elMoving && !!elPlacing) {
-      const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
+    if (!start || !originTarget) return;
 
-      const x = pos.pageX - elMoving.offsetWidth / 2 + "px";
-      const y = pos.pageY - elMoving.offsetHeight / 2 + "px";
-      elMoving.style.transform = `translate(${x}, ${y})`;
+    if (new Date().getTime() - start < 250) {
+      moveEnd();
+      return;
+    }
 
-      /** @type {Element | null} */
-      const target =
-        Array.from(
-          document.elementFromPoint(pos.clientX, pos.clientY).children,
-        ).find((child) => {
-          return child.classList.contains("draggable");
-        }) || null;
+    ev.preventDefault();
+    if (!dragRunning) {
+      dragRunning = true;
+      if (!!onDragStart) onDragStart();
+    }
 
-      if (!!target) {
-        insertElement(elPlacing, target);
-      }
+    const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
+    let target = document.elementFromPoint(pos.clientX, pos.clientY);
+    while (!target.classList.contains("draggable")) {
+      if (!target.parentElement) break;
+      target = target.parentElement;
+    }
+
+    if (target.classList.contains("draggable")) {
+      insertElement(originTarget, target);
     }
   };
 
   const moveEnd = () => {
-    if (!!elMoving) {
-      container.removeChild(elMoving);
-    }
+    if (!dragRunning) return;
+    clearTimeout(timeout);
+    timeout = null;
+
+    originTarget.style.color = backupColor;
+    originTarget.style.backgroundColor = backupBGColor;
+
+    originTarget = null;
+    start = null;
+    dragRunning = false;
 
     if (!!onDragEnd) onDragEnd();
-    elMoving = null;
-    elPlacing = null;
   };
 
   /**
@@ -88,11 +103,11 @@ export default function createMobile(
    */
   function isBefore(el, target) {
     let sibling = el.previousElementSibling;
-    while (sibling) {
+    while (!!sibling) {
       if (sibling === target) {
         return true;
       }
-      sibling = el.previousElementSibling;
+      sibling = sibling.previousElementSibling;
     }
     return false;
   }
