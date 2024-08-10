@@ -34,12 +34,15 @@ export default function createMobile(
       timeout = setTimeout(() => {
         backupColor = originTarget.style.color;
         backupBGColor = originTarget.style.backgroundColor;
+
         originTarget.style.color = "var(--ui-primary-color)";
         originTarget.style.backgroundColor = "var(--ui-primary-bgColor)";
 
+        container.classList.add("dragging");
+
         dragRunning = true;
         if (!!onDragStart) onDragStart();
-      }, 250);
+      }, 200);
     }
   };
 
@@ -47,7 +50,7 @@ export default function createMobile(
   const move = (ev) => {
     if (!start || !originTarget) return;
 
-    if (new Date().getTime() - start < 250) {
+    if (new Date().getTime() - start < 200) {
       moveEnd();
       return;
     }
@@ -83,6 +86,7 @@ export default function createMobile(
     }
 
     start = null;
+    container.classList.remove("dragging");
 
     if (!dragRunning) return;
     if (!!onDragEnd) onDragEnd();
