@@ -26,7 +26,7 @@ export class UISvg extends HTMLElement {
           color: inherit;
         }
 
-        svg {
+        ::slotted(svg) {
           width: 100%;
           height: 100%;
         }
