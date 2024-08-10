@@ -64,6 +64,19 @@ export class UIDialog extends HTMLElement {
         this.root.setAttribute("fullscreen", "");
       },
 
+      get nofooter() {
+        return this.root.hasAttribute("nofooter");
+      },
+
+      set nofooter(state) {
+        if (!state) {
+          this.root.removeAttribute("nofooter");
+          return;
+        }
+
+        this.root.setAttribute("nofooter", "");
+      },
+
       /**
        * @param {boolean} modal
        * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
@@ -232,6 +245,10 @@ export class UIDialog extends HTMLElement {
           min-width: unset;
         }
 
+        :host([nofooter]) .content {
+          bottom: var(--ui-spacing);
+        }
+
         /*
          * Footer Styles
          */
@@ -259,6 +276,10 @@ export class UIDialog extends HTMLElement {
           flex-wrap: nowrap;
           justify-content: flex-end;
           align-items: center;
+        }
+
+        :host([nofooter]) .footer {
+          display: none;
         }
       </style>
 

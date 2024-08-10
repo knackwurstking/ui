@@ -27,8 +27,8 @@
 
 **General**:
 
+- Added "nofooter" attribute to `UIDialog`
 - Added mobile draggable function (`createMobileDraggable`)
-
 - Changed `UIDialog` constructor parameters ("title")
 - Changed `UIStackLayoutPage` constructor parameters ("name")
 - Removed `UIDrawerGroup` margins
