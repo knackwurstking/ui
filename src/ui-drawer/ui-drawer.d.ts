@@ -1,5 +1,5 @@
 /**
- * @typedef UIDrawerEvents
+ * @typedef UIDrawer_Events
  * @type {{
  *  open: UIDrawer,
  *  close: UIDrawer,
@@ -10,17 +10,17 @@ export class UIDrawer extends HTMLElement {
     ui: {
         root: this;
         /**
-         * @type {Events<UIDrawerEvents>}
+         * @type {Events<UIDrawer_Events>}
          */
-        events: Events<UIDrawerEvents>;
+        events: Events<UIDrawer_Events>;
         open: boolean;
     };
     shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
 }
-export type UIDrawerEvents = {
+export type UIDrawer_Events = {
     open: UIDrawer;
     close: UIDrawer;
 };
-import { Events } from "../js";
+import { Events } from "../utils";

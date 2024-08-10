@@ -57,4 +57,4 @@ export type UIInputEvents = {
     change: string;
 };
 export type UIInputTypes = ("text" | "search" | "number" | "month" | "date" | "email");
-import { Events } from "../js";
+import { Events } from "../utils";

@@ -1,4 +1,4 @@
-import { createRipple, html } from "../js";
+import { ripple, html } from "../utils";
 
 /**
  * Observed Attributes:
@@ -23,9 +23,9 @@ export class UILabel extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     /**
-     * @type {(() => void|Promise<void>) | null}
+     * @type {import("../utils").Ripple | null}
      */
-    this.removeRipple = null;
+    this.ripple = null;
 
     /** @private */
     this.running = false;
@@ -154,8 +154,8 @@ export class UILabel extends HTMLElement {
   }
 
   enableRipple() {
-    if (!!this.removeRipple) return;
-    this.removeRipple = createRipple(this);
+    if (!!this.ripple) return;
+    this.ripple = ripple.create(this);
     this.style.cursor = "pointer";
 
     // Enable input handler
@@ -173,7 +173,7 @@ export class UILabel extends HTMLElement {
 
   disableRipple() {
     if (!this.running) return;
-    if (!!this.removeRipple) this.removeRipple();
+    if (!!this.ripple) this.ripple.destroy();
 
     // Disable input handler
     this.removeEventListener("click", this.onClick);

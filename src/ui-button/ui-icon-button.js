@@ -1,9 +1,9 @@
-import { Events, createRipple, html } from "../js";
+import { Events, html, ripple } from "../utils";
 
 /**
- * @typedef {import(".").UIIconButtonColor} UIIconButtonColor
+ * @typedef {import("./ui-button").UIButton_Color} UIIconButton_Color
  *
- * @typedef UIIconButtonEvents
+ * @typedef UIIconButton_Events
  * @type {{
  *  click: UIIconButton;
  * }}
@@ -22,13 +22,14 @@ export class UIIconButton extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
-    this.removeRippleCallback = null;
+    /** @type {import("../utils").Ripple | null} */
+    this.ripple = null;
 
     this.ui = {
       root: this,
 
       /**
-       * @type {Events<UIIconButtonEvents>}
+       * @type {Events<UIIconButton_Events>}
        */
       events: new Events(),
 
@@ -40,12 +41,12 @@ export class UIIconButton extends HTMLElement {
         if (!state) {
           if (!!this.root.removeRippleCallback) return;
 
-          this.root.removeRippleCallback = createRipple(this.root);
+          this.root.removeRippleCallback = ripple.create(this.root);
         }
 
         if (!this.root.removeRippleCallback) return;
 
-        this.root.removeRippleCallback();
+        this.root.ripple.destroy();
         this.root.removeRippleCallback = null;
       },
 
@@ -162,7 +163,7 @@ export class UIIconButton extends HTMLElement {
     `;
 
     if (typeof this.removeRippleCallback !== "function") {
-      this.removeRippleCallback = createRipple(this, { centered: true });
+      this.removeRippleCallback = ripple.create(this, { centered: true });
     }
 
     this.addEventListener("click", () => {

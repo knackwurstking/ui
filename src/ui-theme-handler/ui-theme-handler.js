@@ -1,5 +1,5 @@
 /**
- * @typedef UIThemeHandlerMode
+ * @typedef UIThemeHandler_Mode
  * @type {"dark" | "light" | null}
  */
 

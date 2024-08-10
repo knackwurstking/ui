@@ -1,8 +1,8 @@
-import { CleanUp, Events, html } from "../js";
+import { CleanUp, Events, html } from "../utils";
 import svgClose from "../svg/smoothie-line-icons/close";
 
 /**
- * @typedef UIDialogEvents
+ * @typedef UIDialog_Events
  * @type {{
  *  open: null;
  *  close: null;
@@ -14,7 +14,7 @@ import svgClose from "../svg/smoothie-line-icons/close";
  *  - **title**: all childrens go into _"dialog header > span"_, just use the `Dialog.ui.title` setter/getter
  *  - **actions**: all childrens go into _"dialog footer > ui-flex-grid-row"_
  *
- * @template {UIDialogEvents} T
+ * @template {UIDialog_Events} T
  */
 export class UIDialog extends HTMLElement {
   static register = () => {

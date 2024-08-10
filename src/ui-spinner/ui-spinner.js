@@ -1,4 +1,4 @@
-import { html } from "../js";
+import { html } from "../utils";
 
 export class UISpinner extends HTMLElement {
   static register = () => {

@@ -1,2 +1,2 @@
 export { UIThemeHandler } from "./ui-theme-handler";
-export type UIThemeHandlerMode = import(".").UIThemeHandlerMode;
+export type UIThemeHandler_Mode = import("./ui-theme-handler").UIThemeHandler_Mode;

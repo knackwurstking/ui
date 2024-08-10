@@ -1,4 +1,4 @@
-import { html } from "../js";
+import { html } from "../utils";
 
 export class UIContainer extends HTMLElement {
   static register = () => {

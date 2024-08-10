@@ -46,4 +46,4 @@ export class UILang extends HTMLElement {
     private setCurrent;
     data: Promise<any>;
 }
-import { Events } from "../js";
+import { Events } from "../utils";

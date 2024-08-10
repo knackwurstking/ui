@@ -1,5 +1,5 @@
 /**
- * @typedef UIThemeHandlerMode
+ * @typedef UIThemeHandler_Mode
  * @type {"dark" | "light" | null}
  */
 export class UIThemeHandler extends HTMLElement {
@@ -57,4 +57,4 @@ export class UIThemeHandler extends HTMLElement {
      */
     setMode(value: string | null, target?: HTMLElement): void;
 }
-export type UIThemeHandlerMode = "dark" | "light" | null;
+export type UIThemeHandler_Mode = "dark" | "light" | null;

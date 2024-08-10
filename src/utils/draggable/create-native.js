@@ -1,25 +1,22 @@
 /**
- * @typedef {import(".").DraggableOptions} DraggableOptions
+ * @typedef DraggableNative_Options
+ * @type {{
+ *  onDragging?: ((index: number) => void | Promise<void>) | null;
+ *  onDragStart?: ((index: number) => void | Promise<void>) | null;
+ *  onDragEnd?: ((index: number) => void | Promise<void>) | null;
+ * }}
  */
-
-/** @type {DraggableOptions} */
-const defaultOptions = {
-  onDragStart: null,
-  onDragging: null,
-  onDragEnd: null,
-};
 
 /**
  * @param {HTMLElement} container
  * @param {HTMLElement} el
- * @param {DraggableOptions} options
+ * @param {DraggableNative_Options} options
  */
-export default function create(container, el, options = {}) {
-  options = {
-    ...defaultOptions,
-    ...options,
-  };
-
+export default function createNative(
+  container,
+  el,
+  { onDragStart = null, onDragging = null, onDragEnd = null } = {},
+) {
   const setup = () => {
     const children = [...container.children];
     const childIndex = children.indexOf(el);
@@ -29,7 +26,7 @@ export default function create(container, el, options = {}) {
     el.ondragstart = (ev) => {
       ev.dataTransfer.effectAllowed = "move";
       ev.dataTransfer.dropEffect = "move";
-      if (!!options.onDragStart) options.onDragStart(childIndex);
+      if (!!onDragStart) onDragStart(childIndex);
     };
 
     el.ondragover = (ev) => {
@@ -52,13 +49,13 @@ export default function create(container, el, options = {}) {
         c.style.color = "inherit";
       });
 
-      if (!!options.onDragging) options.onDragging(childIndex);
+      if (!!onDragging) onDragging(childIndex);
     };
 
     el.ondrop = (ev) => {
       ev.preventDefault();
       ev.dataTransfer.dropEffect = "move";
-      if (!!options.onDragEnd) options.onDragEnd(childIndex);
+      if (!!onDragEnd) onDragEnd(childIndex);
 
       [...container.children].forEach((/**@type{HTMLElement}*/ c) => {
         c.style.background = "inherit";
@@ -81,16 +78,16 @@ export default function create(container, el, options = {}) {
 
   return {
     /**
-     * @param {DraggableOptions} _options
+     * @param {DraggableNative_Options} options
      */
-    update(_options) {
-      options = {
-        ...defaultOptions,
-        ..._options,
-      };
-      destroy();
-      setup();
+    update(options) {
+      if (Object.hasOwn(options, "onDragStart"))
+        onDragStart = options.onDragStart;
+      if (Object.hasOwn(options, "onDragging"))
+        onDragging = options.onDragStart;
+      if (Object.hasOwn(options, "onDragEnd")) onDragEnd = options.onDragEnd;
     },
+
     destroy,
   };
 }

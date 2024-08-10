@@ -36,5 +36,5 @@ export class UISelect extends HTMLElement {
 export type UISelectEvents = {
     "change": UISelectOption;
 };
-import { Events } from "../js";
+import { Events } from "../utils";
 import { UISelectOption } from "./ui-select-option";

@@ -1,19 +1,19 @@
 /**
- * @typedef UIButtonColor
+ * @typedef UIButton_Color
  * @type {(
  *  | "primary"
  *  | "secondary"
  *  | "destructive"
  * )}
  *
- * @typedef UIButtonVariant
+ * @typedef UIButton_Variant
  * @type {(
  *  | "full"
  *  | "outline"
  *  | "ghost"
  * )}
  *
- * @typedef UIButtonEvents
+ * @typedef UIButton_Events
  * @type {{
  *  click: UIButton;
  * }}
@@ -21,21 +21,21 @@
 export class UIButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    removeRippleCallback: {
-        destroy: () => void;
-    };
+    /** @type {import("../utils").Ripple | null} */
+    ripple: import("../utils").Ripple | null;
     ui: {
         root: this;
         /**
-         * @type {Events<UIButtonEvents>}
+         * @type {Events<UIButton_Events>}
          */
-        events: Events<UIButtonEvents>;
+        events: Events<UIButton_Events>;
         noripple: boolean;
         color: string;
         variant: string;
         disabled: boolean;
     };
     shadowRender(): void;
+    removeRippleCallback: ripple.Ripple;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -45,9 +45,10 @@ export class UIButton extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIButtonColor = ("primary" | "secondary" | "destructive");
-export type UIButtonVariant = ("full" | "outline" | "ghost");
-export type UIButtonEvents = {
+export type UIButton_Color = ("primary" | "secondary" | "destructive");
+export type UIButton_Variant = ("full" | "outline" | "ghost");
+export type UIButton_Events = {
     click: UIButton;
 };
-import { Events } from "../js";
+import { Events } from "../utils";
+import { ripple } from "../utils";

@@ -1,7 +1,7 @@
-import { Events, html } from "../js";
+import { Events, html } from "../utils";
 
 /**
- * @typedef UIDrawerEvents
+ * @typedef UIDrawer_Events
  * @type {{
  *  open: UIDrawer,
  *  close: UIDrawer,
@@ -23,7 +23,7 @@ export class UIDrawer extends HTMLElement {
       root: this,
 
       /**
-       * @type {Events<UIDrawerEvents>}
+       * @type {Events<UIDrawer_Events>}
        */
       events: new Events(),
 

@@ -1,5 +1,5 @@
 /**
- * @typedef UIDialogEvents
+ * @typedef UIDialog_Events
  * @type {{
  *  open: null;
  *  close: null;
@@ -10,9 +10,9 @@
  *  - **title**: all childrens go into _"dialog header > span"_, just use the `Dialog.ui.title` setter/getter
  *  - **actions**: all childrens go into _"dialog footer > ui-flex-grid-row"_
  *
- * @template {UIDialogEvents} T
+ * @template {UIDialog_Events} T
  */
-export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
+export class UIDialog<T extends UIDialog_Events> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     /**
@@ -44,9 +44,9 @@ export class UIDialog<T extends UIDialogEvents> extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIDialogEvents = {
+export type UIDialog_Events = {
     open: null;
     close: null;
 };
-import { CleanUp } from "../js";
-import { Events } from "../js";
+import { CleanUp } from "../utils";
+import { Events } from "../utils";

@@ -1,4 +1,4 @@
-import { Events, html } from "../js";
+import { Events, html } from "../utils";
 import { UISecondary } from "../ui-text";
 
 /**

@@ -1,4 +1,4 @@
-import { html } from "../js";
+import { html } from "../utils";
 
 /**
  * Special slots:

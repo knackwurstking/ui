@@ -11,9 +11,9 @@ export class UILabel extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     /**
-     * @type {(() => void|Promise<void>) | null}
+     * @type {import("../utils").Ripple | null}
      */
-    removeRipple: (() => void | Promise<void>) | null;
+    ripple: import("../utils").Ripple | null;
     /** @private */
     private running;
     /** @private */

@@ -52,4 +52,4 @@ export type UISearchEvents = {
     storage: string;
     submit: string;
 };
-import { Events } from "../js";
+import { Events } from "../utils";

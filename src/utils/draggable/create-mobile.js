@@ -1,12 +1,17 @@
 /**
+ * @typedef {{
+ *  onDragStart?: (() => void|Promise<void>) | null;
+ *  onDragEnd?: (() => void|Promise<void>) | null;
+ * }} DraggableMobile_Options
+ */
+
+/**
  * @param {HTMLElement} container
- * @param {object} options
- * @param {(() => void|Promise<void>) | null} [options.onDragEnd]
- * @param {(() => void|Promise<void>) | null} [options.onDragStart]
+ * @param {DraggableMobile_Options} options
  */
 export default function createMobile(
   container,
-  { onDragEnd = null, onDragStart = null },
+  { onDragEnd = null, onDragStart = null } = {},
 ) {
   /** @type {HTMLElement} */
   let originTarget = null;
@@ -156,6 +161,13 @@ export default function createMobile(
   setup();
 
   return {
+    /** @param {DraggableMobile_Options} options */
+    update: (options) => {
+      if (Object.hasOwn(options, "onDragStart"))
+        onDragStart = options.onDragStart;
+      if (Object.hasOwn(options, "onDragEnd")) onDragEnd = options.onDragEnd;
+    },
+
     destroy: () => {
       Array.from(container.children).forEach(
         (/** @type {HTMLElement} */ child) => {

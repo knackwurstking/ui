@@ -60,4 +60,4 @@ export type Pages = {
     [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
 };
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
-import { Events } from "../js";
+import { Events } from "../utils";

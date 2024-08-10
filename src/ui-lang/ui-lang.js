@@ -1,4 +1,4 @@
-import { Events } from "../js";
+import { Events } from "../utils";
 
 export class UILang extends HTMLElement {
   static register = () => {

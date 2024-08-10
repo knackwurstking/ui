@@ -1,7 +1,7 @@
 /**
- * @typedef {import(".").UIIconButtonColor} UIIconButtonColor
+ * @typedef {import("./ui-button").UIButton_Color} UIIconButton_Color
  *
- * @typedef UIIconButtonEvents
+ * @typedef UIIconButton_Events
  * @type {{
  *  click: UIIconButton;
  * }}
@@ -9,21 +9,21 @@
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
-    removeRippleCallback: {
-        destroy: () => void;
-    };
+    /** @type {import("../utils").Ripple | null} */
+    ripple: import("../utils").Ripple | null;
     ui: {
         root: this;
         /**
-         * @type {Events<UIIconButtonEvents>}
+         * @type {Events<UIIconButton_Events>}
          */
-        events: Events<UIIconButtonEvents>;
+        events: Events<UIIconButton_Events>;
         noripple: boolean;
         color: string;
         ghost: boolean;
         disabled: boolean;
     };
     shadowRender(): void;
+    removeRippleCallback: ripple.Ripple;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -33,8 +33,9 @@ export class UIIconButton extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIIconButtonColor = import(".").UIIconButtonColor;
-export type UIIconButtonEvents = {
+export type UIIconButton_Color = import("./ui-button").UIButton_Color;
+export type UIIconButton_Events = {
     click: UIIconButton;
 };
-import { Events } from "../js";
+import { Events } from "../utils";
+import { ripple } from "../utils";

@@ -1,9 +1,5 @@
 /**
- * @typedef {import(".")._Events} _Events
- */
-
-/**
- * @template {_Events} T
+ * @template {{ [key: string]: any }} T
  */
 export default class Events {
   /**

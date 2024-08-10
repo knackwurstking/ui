@@ -1,11 +1,10 @@
 /**
- * @typedef {import("../js/events/events")._Events} UIStoreEvents
- */
-/**
- * @template {UIStoreEvents} T
+ * @template {{ [key: string]: any }} T
  * @extends {HTMLElement}
  */
-export class UIStore<T extends UIStoreEvents> extends HTMLElement {
+export class UIStore<T extends {
+    [key: string]: any;
+}> extends HTMLElement {
     static register: () => void;
     constructor();
     /**
@@ -53,5 +52,4 @@ export class UIStore<T extends UIStoreEvents> extends HTMLElement {
     connectedCallback(): void;
     disconnectedCallback(): void;
 }
-export type UIStoreEvents = import("../js/events/events")._Events;
-import { Events } from "../js";
+import { Events } from "../utils";

@@ -3,5 +3,5 @@ export { UIDrawerGroup } from "./ui-drawer-group";
 export { UIDrawerGroupItem } from "./ui-drawer-group-item";
 
 /**
- * @typedef {import("./ui-drawer").UIDrawerEvents} UIDrawerEvents
+ * @typedef {import("./ui-drawer").UIDrawer_Events} UIDrawer_Events
  */

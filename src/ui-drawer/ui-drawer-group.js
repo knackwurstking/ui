@@ -1,5 +1,5 @@
-import { createRipple, html } from "../js";
 import chevronDown from "../svg/smoothie-line-icons/chevron-down";
+import { html, ripple } from "../utils";
 
 export class UIDrawerGroup extends HTMLElement {
   static register = () => {
@@ -122,7 +122,7 @@ export class UIDrawerGroup extends HTMLElement {
     item.addEventListener("click", () => {
       this.ui.fold = !this.ui.fold;
     });
-    createRipple(item);
+    ripple.create(item);
   }
 
   connectedCallback() {}

@@ -1,4 +1,4 @@
-import { Events, html } from "../js";
+import { Events, html } from "../utils";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**

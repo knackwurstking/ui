@@ -1,4 +1,4 @@
-import { Events, html } from "../js";
+import { Events, html } from "../utils";
 import svgChevronDown from "../svg/smoothie-line-icons/chevron-down";
 import { UISelectOption } from "./ui-select-option";
 

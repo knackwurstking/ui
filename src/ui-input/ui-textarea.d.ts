@@ -56,4 +56,4 @@ export type UITextareaEvents = {
     change: string;
 };
 export type UITextareaTypes = ("text" | "search" | "number" | "month" | "date" | "email");
-import { Events } from "../js";
+import { Events } from "../utils";

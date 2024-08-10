@@ -1,4 +1,4 @@
-export class CleanUp {
+export default class CleanUp {
     /**
      * @type {((() => void|Promise<void>) | null)[]}
      */

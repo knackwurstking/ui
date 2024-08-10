@@ -1,11 +1,7 @@
-import { Events } from "../js";
+import { Events } from "../utils";
 
 /**
- * @typedef {import("../js/events/events")._Events} UIStoreEvents
- */
-
-/**
- * @template {UIStoreEvents} T
+ * @template {{ [key: string]: any }} T
  * @extends {HTMLElement}
  */
 export class UIStore extends HTMLElement {

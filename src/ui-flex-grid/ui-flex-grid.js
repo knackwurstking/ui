@@ -1,4 +1,4 @@
-import { css, html } from "../js";
+import { css, html } from "../utils";
 
 export class UIFlexGrid extends HTMLElement {
   static register = () => {
