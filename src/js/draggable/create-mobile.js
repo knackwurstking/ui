@@ -11,7 +11,11 @@ export default function createMobile(
   /** @type {HTMLElement} */
   let originTarget = null;
   /** @type {number | null} */
-  let start = null;
+  let startTime = null;
+  /** @type {number | null} */
+  let startX = null;
+  /** @type {number | null} */
+  let startY = null;
   /** @type {NodeJS.Timeout | null} */
   let timeout = null;
   /** @type {boolean} */
@@ -27,7 +31,9 @@ export default function createMobile(
       !originTarget &&
       Array.from(ev.currentTarget.classList).includes("draggable")
     ) {
-      start = new Date().getTime();
+      startX = ev.clientX;
+      startY = ev.clientY;
+      startTime = new Date().getTime();
       originTarget = ev.currentTarget;
 
       if (!timeout) clearTimeout(timeout);
@@ -48,14 +54,24 @@ export default function createMobile(
 
   /** @param {TouchEvent & MouseEvent & { currentTarget: HTMLElement }} ev */
   const move = (ev) => {
-    if (!start || !originTarget) return;
+    if (!startTime || !originTarget) return;
 
-    if (new Date().getTime() - start < 200) {
-      moveEnd();
-      return;
+    if (!dragRunning) {
+      if (new Date().getTime() - startTime < 200) {
+        const diffX = Math.abs(startX - ev.clientX);
+        const diffY = Math.abs(startY - ev.clientY);
+        const diff = diffX > diffY ? diffX : diffY;
+        if (diff < 24) {
+          return;
+        }
+
+        moveEnd();
+        return;
+      }
     }
 
     ev.preventDefault();
+
     if (!dragRunning) {
       dragRunning = true;
       if (!!onDragStart) onDragStart();
@@ -85,7 +101,7 @@ export default function createMobile(
       originTarget = null;
     }
 
-    start = null;
+    startTime = null;
     container.classList.remove("dragging");
 
     if (!dragRunning) return;
