@@ -71,18 +71,20 @@ export default function createMobile(
   };
 
   const moveEnd = () => {
-    if (!dragRunning) return;
-    clearTimeout(timeout);
-    timeout = null;
+    if (timeout !== null) {
+      clearTimeout(timeout);
+      timeout = null;
+    }
 
     originTarget.style.color = backupColor;
     originTarget.style.backgroundColor = backupBGColor;
-
     originTarget = null;
-    start = null;
-    dragRunning = false;
 
+    start = null;
+
+    if (!dragRunning) return;
     if (!!onDragEnd) onDragEnd();
+    dragRunning = false;
   };
 
   /**
