@@ -76,9 +76,11 @@ export default function createMobile(
       timeout = null;
     }
 
-    originTarget.style.color = backupColor;
-    originTarget.style.backgroundColor = backupBGColor;
-    originTarget = null;
+    if (!!originTarget) {
+      originTarget.style.color = backupColor;
+      originTarget.style.backgroundColor = backupBGColor;
+      originTarget = null;
+    }
 
     start = null;
 
