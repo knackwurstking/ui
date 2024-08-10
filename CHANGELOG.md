@@ -25,20 +25,20 @@
 
 ## v0.2.16 [unreleased]
 
-**Changed**:
+**General**:
 
-- CSS resets, added `display: relative` and fixed some components
-- Margin for `UIDrawerGroup` component
-- `UIDialog` attribute handling ("title")
-- `UIStackLayoutPage` attribute handling ("name")
+- Added mobile draggable function (`createMobileDraggable`)
 
-**Added**:
+- Changed `UIDialog` constructor parameters ("title")
+- Changed `UIStackLayoutPage` constructor parameters ("name")
+- Removed `UIDrawerGroup` margins
+- Removed `<ul>` margins
+- Changed CSS resets, (set display to relative for "\*")
+- Code clean up
 
-- Constructor parameter "name" for the `UIStackLayoutPage`
+**Fixes**:
 
-**Fixed**:
-
-- `UISearch` storage handling
+- Fixed storage handler for the `UISearch` component
 
 ## v0.2.15 2024-08-07
 
