@@ -38,6 +38,7 @@
 
 **Fixes**:
 
+- Fixed slotted svg size for the `UISvg` component
 - Fixed storage handler for the `UISearch` component
 
 ## v0.2.15 2024-08-07
