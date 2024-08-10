@@ -3,7 +3,7 @@
  */
 
 /**
- * @param {PointerEvent & { currentTarget: HTMLElement }} ev
+ * @param {Event & { currentTarget: HTMLElement }} ev
  * @param {RippleOptions} options
  * @returns {HTMLElement}
  */
@@ -33,8 +33,10 @@ export default function rippleStart(ev, options) {
     ripple.style.top = `${tR.height / 2}px`;
     ripple.style.left = `${tR.width / 2}px`;
   } else {
-    ripple.style.top = `${ev.clientY - tR.top}px`;
-    ripple.style.left = `${ev.clientX - tR.left}px`;
+    // @ts-ignore
+    const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
+    ripple.style.top = `${pos.clientY - tR.top}px`;
+    ripple.style.left = `${pos.clientX - tR.left}px`;
   }
 
   const scale = Math.max(tR.width, tR.height) * 0.02;
