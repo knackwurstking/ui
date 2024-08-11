@@ -2,6 +2,10 @@
  * @returns {boolean}
  */
 export function isAndroid(): boolean;
+/**
+ * @param {string[]} styles
+ */
+export function styles(...styles: string[]): string;
 export { default as CleanUp } from "./cleanup";
 export * as draggable from "./draggable";
 export { default as Events } from "./events";

@@ -27,6 +27,7 @@
 
 **General**:
 
+- Added new `styles` utility
 - Added "nofooter" attribute to `UIDialog`
 - Added mobile draggable function (`createMobileDraggable`)
 - Changed `UIDialog` constructor parameters ("title")

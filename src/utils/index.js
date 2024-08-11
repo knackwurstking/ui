@@ -14,6 +14,13 @@ export const html = String.raw;
 export const css = String.raw;
 
 /**
+ * @param {string[]} styles
+ */
+export function styles(...styles) {
+  return styles.join(";") + ";";
+}
+
+/**
  * @typedef {import("./draggable").DraggableNative_Options} DraggableNative_Options
  * @typedef {import("./draggable").DraggableMobile_Options} DraggableMobile_Options
  * @typedef {import("./ripple").Ripple_Options} Ripple_Options
