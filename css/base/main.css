@@ -97,6 +97,7 @@ pre {
 
 code {
   display: inline-block;
+  padding: 0.1rem 0.25rem;
 }
 
 pre {
