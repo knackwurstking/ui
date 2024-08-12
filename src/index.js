@@ -1,4 +1,4 @@
-export * as utils from "./utils";
+export * from "./utils";
 
 // UI Exports
 export { UIAppBar, UIAppBarItem } from "./ui-app-bar";

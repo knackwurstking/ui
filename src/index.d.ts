@@ -1,4 +1,4 @@
-export * as utils from "./utils";
+export * from "./utils";
 export { UIContainer } from "./ui-container";
 export { UIDialog } from "./ui-dialog";
 export { UISpinner } from "./ui-spinner";
