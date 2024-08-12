@@ -6,12 +6,6 @@
   "main": "src/index.js",
   "style": "css/main.css",
   "types": "src/index.d.ts",
-  "files": [
-    "LICENSE",
-    "src",
-    "dist",
-    "svg"
-  ],
   "repository": "knackwurstking/ui",
   "scripts": {
     "build": "npm run build:types && npm run build:lib && npm run build:css",
