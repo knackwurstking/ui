@@ -27,6 +27,7 @@
 
 **General**:
 
+- Changed "utils" exports
 - Updated `<code>` styles (padding)
 - Added new `styles` utility
 - Added "nofooter" attribute to `UIDialog`
