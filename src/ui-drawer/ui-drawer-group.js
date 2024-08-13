@@ -1,6 +1,12 @@
 import chevronDown from "../svg/smoothie-line-icons/chevron-down";
 import { html, ripple } from "../utils";
 
+/**
+ * HTML: `ui-drawer-group`
+ *
+ * Slots:
+ *  - *
+ */
 export class UIDrawerGroup extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-drawer-group")) {

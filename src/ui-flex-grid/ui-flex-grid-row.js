@@ -1,5 +1,16 @@
 import { css, html } from "../utils";
 
+/**
+ * HTML: `ui-flex-grid-row`
+ *
+ * Attributes:
+ *  - gap: string
+ *  - justify: string
+ *  - align: string
+ *
+ * Slots:
+ *  - *
+ */
 export class UIFlexGridRow extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-flex-grid-row")) {

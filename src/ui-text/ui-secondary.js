@@ -1,5 +1,11 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-secondary`
+ *
+ * Slots:
+ *  - *
+ */
 export class UISecondary extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-secondary")) {

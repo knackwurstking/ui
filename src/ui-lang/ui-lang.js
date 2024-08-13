@@ -1,5 +1,14 @@
 import { Events } from "../utils";
 
+/**
+ * HTML: `ui-lang`
+ *
+ * Attributes:
+ *  - current: string
+ *
+ * Slots:
+ *  - * from type `UILangType`
+ */
 export class UILang extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-lang")) {

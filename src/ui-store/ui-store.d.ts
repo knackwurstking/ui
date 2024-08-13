@@ -1,4 +1,10 @@
 /**
+ * HTML: `ui-store`
+ *
+ * Attributes:
+ *  - storageprefix: string
+ *  - storage
+ *
  * @template {{ [key: string]: any }} T
  * @extends {HTMLElement}
  */

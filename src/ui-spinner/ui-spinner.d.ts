@@ -1,3 +1,9 @@
+/**
+ * HTML: `ui-spinner`
+ *
+ * Attributes:
+ *  - nobg
+ */
 export class UISpinner extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

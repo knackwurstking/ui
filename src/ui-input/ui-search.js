@@ -12,6 +12,21 @@ import { UISecondary } from "../ui-text";
  */
 
 /**
+ * HTML: `ui-search`
+ *
+ * Attributes:
+ *  - title: string
+ *  - value: string
+ *  - placeholder: string
+ *  - invalid
+ *  - nosubmit
+ *  - storage
+ *  - storageprefix
+ *  - storagekey
+ *
+ * Slots:
+ *  - title
+ *
  * @template {UISearchEvents} E
  * @extends {HTMLElement}
  */
@@ -28,8 +43,6 @@ export class UISearch extends HTMLElement {
     "placeholder",
     "invalid",
     "nosubmit",
-    "storage",
-    "storageprefix",
     "storagekey",
   ];
 

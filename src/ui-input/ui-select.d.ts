@@ -5,8 +5,13 @@
  * }} UISelectEvents
  */
 /**
- * Observed Attributes:
- *  - **open**    - [type: flag]
+ * HTML: `ui-select`
+ *
+ * Attributes:
+ *  - open
+ *
+ * Slots:
+ *  - * from type `UISelectOption`
  */
 export class UISelect extends HTMLElement {
     static register: () => void;

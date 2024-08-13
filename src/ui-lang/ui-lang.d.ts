@@ -1,3 +1,12 @@
+/**
+ * HTML: `ui-lang`
+ *
+ * Attributes:
+ *  - current: string
+ *
+ * Slots:
+ *  - * from type `UILangType`
+ */
 export class UILang extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

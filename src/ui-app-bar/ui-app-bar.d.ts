@@ -1,8 +1,13 @@
 /**
- * Special slots:
- *  - **left**: childrens inside a "ui-flex-grid-row"
- *  - **center**: childrens inside a "ui-flex-grid-row"
- *  - **right**: childrens inside a "ui-flex-grid-row"
+ * HTML: `ui-app-bar`
+ *
+ * Attributes:
+ *  - position: "top"
+ *
+ * Slots:
+ *  - left
+ *  - center
+ *  - right
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;

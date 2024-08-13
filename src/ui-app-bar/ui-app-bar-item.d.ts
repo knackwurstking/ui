@@ -1,4 +1,9 @@
 /**
+ * HTML: `ui-app-bar-item`
+ *
+ * Slots:
+ *  - *
+ *
  * @template {HTMLElement} T
  */
 export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {

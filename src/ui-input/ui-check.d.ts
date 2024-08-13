@@ -1,3 +1,12 @@
+/**
+ * HTML: `ui-check`
+ *
+ * Attributes:
+ *  - primary: string
+ *  - secondary: string
+ *  - value: string
+ *  - checked
+ */
 export class UICheck extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

@@ -18,6 +18,18 @@
  *  click: UIButton;
  * }}
  */
+/**
+ * HTML: `ui-button`
+ *
+ * Attribute:
+ *  - variant: "ghost" | "outline" | "full"
+ *  - color: "primary" | "secondary" | "destructive"
+ *  - noripple
+ *  - disabled
+ *
+ * Slots:
+ *  - *
+ */
 export class UIButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

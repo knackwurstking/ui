@@ -16,6 +16,19 @@
  * )}
  */
 /**
+ * HTML: `ui-textarea`
+ *
+ * Attributes:
+ *  - title: string
+ *  - value: string
+ *  - palceholder: string
+ *  - rows: number
+ *  - cols: number
+ *  - invalid
+ *
+ * Slots:
+ *  - title
+ *
  * @template {UITextareaEvents} E
  * @extends {HTMLElement}
  */

@@ -1,5 +1,11 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-spinner`
+ *
+ * Attributes:
+ *  - nobg
+ */
 export class UISpinner extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-spinner")) {

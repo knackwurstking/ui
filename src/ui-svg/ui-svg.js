@@ -1,5 +1,11 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-svg`
+ *
+ * Slots:
+ *  - * from type svg
+ */
 export class UISvg extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-svg")) {

@@ -1,5 +1,14 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-stack-layout-page`
+ *
+ * Attributes:
+ *  - name: string
+ *
+ * Slots:
+ *  - *
+ */
 export class UIStackLayoutPage extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-stack-layout-page")) {

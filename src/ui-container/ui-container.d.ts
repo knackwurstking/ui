@@ -1,3 +1,9 @@
+/**
+ * HTML: `ui-container`
+ *
+ * Slots:
+ *  - *
+ */
 export class UIContainer extends HTMLElement {
     static register: () => void;
     ui: {};

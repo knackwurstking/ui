@@ -8,6 +8,12 @@ import { UIStackLayoutPage } from "./ui-stack-layout-page";
  * }}
  */
 
+/**
+ * HTML: `ui-stack-layout`
+ *
+ * Slots:
+ *  - * from type `UIStackLayoutPage`
+ */
 export class UIStackLayout extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-stack-layout")) {

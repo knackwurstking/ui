@@ -6,6 +6,18 @@
  *  click: UIIconButton;
  * }}
  */
+/**
+ * HTML: `ui-icon-button`
+ *
+ * Attribute:
+ *  - color: "primary" | "secondary" | "destructive"
+ *  - ghost
+ *  - noripple
+ *  - disabled
+ *
+ * Slots:
+ *  - *
+ */
 export class UIIconButton extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

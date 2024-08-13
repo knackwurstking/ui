@@ -1,5 +1,14 @@
 import { css, html } from "../utils";
 
+/**
+ * HTML: `ui-flex-grid`
+ *
+ * Attributes:
+ *  - gap: string
+ *
+ * Slots:
+ *  - *
+ */
 export class UIFlexGrid extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-flex-grid")) {

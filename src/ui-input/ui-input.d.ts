@@ -16,6 +16,20 @@
  * )}
  */
 /**
+ * HTML: `ui-input`
+ *
+ * Attributes:
+ *  - title: string
+ *  - type: string
+ *  - value: string
+ *  - placeholder: string
+ *  - min: string
+ *  - max: string
+ *  - invalid
+ *
+ * Slots:
+ *  - title
+ *
  * @template {UIInputEvents} E
  * @extends {HTMLElement}
  */

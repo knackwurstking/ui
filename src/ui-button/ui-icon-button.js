@@ -9,6 +9,18 @@ import { Events, html, ripple } from "../utils";
  * }}
  */
 
+/**
+ * HTML: `ui-icon-button`
+ *
+ * Attribute:
+ *  - color: "primary" | "secondary" | "destructive"
+ *  - ghost
+ *  - noripple
+ *  - disabled
+ *
+ * Slots:
+ *  - *
+ */
 export class UIIconButton extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-icon-button")) {

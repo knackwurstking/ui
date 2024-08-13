@@ -3,6 +3,13 @@
  * @type {"dark" | "light" | null}
  */
 
+/**
+ * HTML: `ui-theme-handler`
+ *
+ * Attributes:
+ *  - mode: "dark" | "light"
+ *  - auto
+ */
 export class UIThemeHandler extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-theme-handler")) {

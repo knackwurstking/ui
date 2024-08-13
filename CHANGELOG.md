@@ -4,6 +4,7 @@
 
 **General**:
 
+- Added documentation for all components
 - Changed "utils" exports
 - Updated `<code>` styles (padding)
 - Added new `styles` utility

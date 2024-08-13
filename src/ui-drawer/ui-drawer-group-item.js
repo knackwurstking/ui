@@ -1,5 +1,11 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-drawer-group-item`
+ *
+ * Slots:
+ *  - *
+ */
 export class UIDrawerGroupItem extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-drawer-group-item")) {

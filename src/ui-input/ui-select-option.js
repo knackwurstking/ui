@@ -1,9 +1,14 @@
 import { html } from "../utils";
 
 /**
- * Observed Attributes:
- *  - **value**    - [type: string]
- *  - **selected** - [type: flag]
+ * HTML: `ui-select-option`
+ *
+ * Attributes:
+ *  - value: string
+ *  - selected
+ *
+ * Slots:
+ *  - *
  */
 export class UISelectOption extends HTMLElement {
   static register = () => {

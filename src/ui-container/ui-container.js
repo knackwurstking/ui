@@ -1,5 +1,11 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-container`
+ *
+ * Slots:
+ *  - *
+ */
 export class UIContainer extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-container")) {

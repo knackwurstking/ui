@@ -5,6 +5,15 @@
  *  close: UIDrawer,
  * }}
  */
+/**
+ * HTML: `ui-drawer`
+ *
+ * Attributes:
+ *  - open
+ *
+ * Slots:
+ *  - *
+ */
 export class UIDrawer extends HTMLElement {
     static register: () => void;
     ui: {

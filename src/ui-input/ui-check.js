@@ -1,5 +1,14 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-check`
+ *
+ * Attributes:
+ *  - primary: string
+ *  - secondary: string
+ *  - value: string
+ *  - checked
+ */
 export class UICheck extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-check")) {

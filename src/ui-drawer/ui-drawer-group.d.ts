@@ -1,3 +1,9 @@
+/**
+ * HTML: `ui-drawer-group`
+ *
+ * Slots:
+ *  - *
+ */
 export class UIDrawerGroup extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

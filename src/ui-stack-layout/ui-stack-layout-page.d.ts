@@ -1,3 +1,12 @@
+/**
+ * HTML: `ui-stack-layout-page`
+ *
+ * Attributes:
+ *  - name: string
+ *
+ * Slots:
+ *  - *
+ */
 export class UIStackLayoutPage extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

@@ -1,3 +1,11 @@
+/**
+ * HTML: `ui-lang-type`
+ *
+ * Attributes:
+ *  - name: string
+ *  - href: string
+ *  - fallback
+ */
 export class UILangType extends HTMLElement {
     static register: () => void;
     ui: {

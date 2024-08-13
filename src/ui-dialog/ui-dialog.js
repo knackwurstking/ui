@@ -10,9 +10,16 @@ import svgClose from "../svg/smoothie-line-icons/close";
  */
 
 /**
- * Special slots to use:
- *  - **title**: all childrens go into _"dialog header > span"_, just use the `Dialog.ui.title` setter/getter
- *  - **actions**: all childrens go into _"dialog footer > ui-flex-grid-row"_
+ * HTML: `ui-dialog`
+ *
+ * Attributes:
+ *  - title: string
+ *  - fullscreen
+ *  - nofooter
+ *
+ * Slots:
+ *  - actions
+ *  - *
  *
  * @template {UIDialog_Events} T
  */

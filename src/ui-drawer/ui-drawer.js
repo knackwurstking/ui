@@ -8,6 +8,15 @@ import { Events, html } from "../utils";
  * }}
  */
 
+/**
+ * HTML: `ui-drawer`
+ *
+ * Attributes:
+ *  - open
+ *
+ * Slots:
+ *  - *
+ */
 export class UIDrawer extends HTMLElement {
   static register = () => {
     if (!customElements.get("ui-drawer")) {

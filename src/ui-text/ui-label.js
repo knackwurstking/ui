@@ -1,13 +1,16 @@
 import { ripple, html } from "../utils";
 
 /**
- * Observed Attributes:
- *  - **primary**   - [type: string]
- *  - **secondary**   - [type: string]
- *  - **ripple**    - [type: flag]
+ * HTML: `ui-label`
  *
- * Special Slots:
- *  - **input** - click handling if "ripple" flag is set
+ * Attributes:
+ *  - primary: string
+ *  - secondary: string
+ *  - ripple -- this enables click forwarding
+ *
+ * Slots:
+ *  - input -- input slot get click forwarding
+ *  - *
  */
 export class UILabel extends HTMLElement {
   static register = () => {

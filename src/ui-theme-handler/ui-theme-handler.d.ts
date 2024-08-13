@@ -2,6 +2,13 @@
  * @typedef UIThemeHandler_Mode
  * @type {"dark" | "light" | null}
  */
+/**
+ * HTML: `ui-theme-handler`
+ *
+ * Attributes:
+ *  - mode: "dark" | "light"
+ *  - auto
+ */
 export class UIThemeHandler extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];

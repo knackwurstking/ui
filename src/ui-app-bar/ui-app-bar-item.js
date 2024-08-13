@@ -1,6 +1,11 @@
 import { html } from "../utils";
 
 /**
+ * HTML: `ui-app-bar-item`
+ *
+ * Slots:
+ *  - *
+ *
  * @template {HTMLElement} T
  */
 export class UIAppBarItem extends HTMLElement {
