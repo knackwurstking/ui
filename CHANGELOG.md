@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.17 — [unreleased]
+
+**General**:
+
+- Added "printer" SVG
+
 ## v0.2.16 — 2024-08-12
 
 **General**:
