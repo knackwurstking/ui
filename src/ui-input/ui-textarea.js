@@ -2,21 +2,11 @@ import { Events, html } from "../utils";
 import { UISecondary } from "../ui-text";
 
 /**
- * @typedef UITextareaEvents
+ * @typedef UITextarea_Events
  * @type {{
  *  input: string;
  *  change: string;
  * }}
- *
- * @typedef UITextareaTypes
- * @type {(
- *  | "text"
- *  | "search"
- *  | "number"
- *  | "month"
- *  | "date"
- *  | "email"
- * )}
  */
 
 /**
@@ -33,7 +23,7 @@ import { UISecondary } from "../ui-text";
  * Slots:
  *  - title
  *
- * @template {UITextareaEvents} E
+ * @template {UITextarea_Events} E
  * @extends {HTMLElement}
  */
 export class UITextarea extends HTMLElement {

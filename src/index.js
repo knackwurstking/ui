@@ -13,6 +13,7 @@ export {
   UISearch,
   UISelect,
   UISelectOption,
+  UITextarea,
 } from "./ui-input";
 export { UILang, UILangType } from "./ui-lang";
 export { UISpinner } from "./ui-spinner";
@@ -32,13 +33,13 @@ export { register } from "./register";
  * @typedef {import("./ui-button").UIIconButton_Events} UIIconButton_Events
  *
  * @typedef {import("./ui-dialog").UIDialog_Events} UIDialog_Events
+ *
  * @typedef {import("./ui-drawer").UIDrawer_Events} UIDrawer_Events
  *
  * @typedef {import("./ui-input").UIInputEvents} UIInput_Events
- * @typedef {import("./ui-input").UIInputTypes} UIInput_Types
- *
  * @typedef {import("./ui-input").UISearchEvents} UISearch_Events
  * @typedef {import("./ui-input").UISelectEvents} UISelect_Events
+ * @typedef {import("./ui-input").UITextarea_Events} UITextarea_Events
  *
  * @typedef {import("./ui-theme-handler").UIThemeHandler_Mode} UIThemeHandler_Mode
  */

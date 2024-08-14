@@ -7,16 +7,6 @@ import { UISecondary } from "../ui-text";
  *  input: string;
  *  change: string;
  * }}
- *
- * @typedef UIInputTypes
- * @type {(
- *  | "text"
- *  | "search"
- *  | "number"
- *  | "month"
- *  | "date"
- *  | "email"
- * )}
  */
 
 /**
