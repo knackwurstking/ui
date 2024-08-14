@@ -4,7 +4,12 @@
 
 **General**:
 
+- Added helper method for `UIDialog` create action buttons
 - Added "printer" SVG
+
+**Fixed**:
+
+- Missing `UITextarea` exports
 
 ## v0.2.16 — 2024-08-12
 
