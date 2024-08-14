@@ -1,19 +1,9 @@
 /**
- * @typedef UITextareaEvents
+ * @typedef UITextarea_Events
  * @type {{
  *  input: string;
  *  change: string;
  * }}
- *
- * @typedef UITextareaTypes
- * @type {(
- *  | "text"
- *  | "search"
- *  | "number"
- *  | "month"
- *  | "date"
- *  | "email"
- * )}
  */
 /**
  * HTML: `ui-textarea`
@@ -29,10 +19,10 @@
  * Slots:
  *  - title
  *
- * @template {UITextareaEvents} E
+ * @template {UITextarea_Events} E
  * @extends {HTMLElement}
  */
-export class UITextarea<E extends UITextareaEvents> extends HTMLElement {
+export class UITextarea<E extends UITextarea_Events> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
@@ -64,9 +54,8 @@ export class UITextarea<E extends UITextareaEvents> extends HTMLElement {
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UITextareaEvents = {
+export type UITextarea_Events = {
     input: string;
     change: string;
 };
-export type UITextareaTypes = ("text" | "search" | "number" | "month" | "date" | "email");
 import { Events } from "../utils";

@@ -23,6 +23,22 @@ export class UIDialog<T extends UIDialog_Events> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     /**
+     * @param {object} options
+     * @param {string} [options.variant]
+     * @param {string} [options.color]
+     * @param {string} [options.flex]
+     * @param {(() => void|Promise<void>) | null} [options.onClick]
+     */
+    static createAction({ variant, color, flex, onClick, }: {
+        variant?: string;
+        color?: string;
+        flex?: string;
+        onClick?: (() => void | Promise<void>) | null;
+    }): {
+        item: UIFlexGridItem;
+        action: import("../ui-button").UIButton;
+    };
+    /**
      * @param {string} title
      */
     constructor(title: string);
@@ -58,3 +74,4 @@ export type UIDialog_Events = {
 };
 import { CleanUp } from "../utils";
 import { Events } from "../utils";
+import { UIFlexGridItem } from "../ui-flex-grid";

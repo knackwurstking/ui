@@ -5,6 +5,6 @@ export { UISelect } from "./ui-select";
 export { UISelectOption } from "./ui-select-option";
 export { UITextarea } from "./ui-textarea";
 export type UIInputEvents = import("./ui-input").UIInputEvents;
-export type UIInputTypes = import("./ui-input").UIInputTypes;
 export type UISearchEvents = import("./ui-search").UISearchEvents;
 export type UISelectEvents = import("./ui-select").UISelectEvents;
+export type UITextarea_Events = import("./ui-textarea").UITextarea_Events;

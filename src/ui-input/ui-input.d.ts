@@ -4,16 +4,6 @@
  *  input: string;
  *  change: string;
  * }}
- *
- * @typedef UIInputTypes
- * @type {(
- *  | "text"
- *  | "search"
- *  | "number"
- *  | "month"
- *  | "date"
- *  | "email"
- * )}
  */
 /**
  * HTML: `ui-input`
@@ -70,5 +60,4 @@ export type UIInputEvents = {
     input: string;
     change: string;
 };
-export type UIInputTypes = ("text" | "search" | "number" | "month" | "date" | "email");
 import { Events } from "../utils";
