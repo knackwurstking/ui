@@ -1,5 +1,7 @@
+// TODO: Add submit and cancel (static) buttons (helper function for quickly create action buttons)
 import { CleanUp, Events, html } from "../utils";
 import svgClose from "../svg/smoothie-line-icons/close";
+import { UIFlexGrid, UIFlexGridItem } from "../ui-flex-grid";
 
 /**
  * @typedef UIDialog_Events
@@ -350,5 +352,40 @@ export class UIDialog extends HTMLElement {
         this.ui.title = newValue;
         break;
     }
+  }
+
+  /**
+   * @param {object} options
+   * @param {string} [options.variant]
+   * @param {string} [options.color]
+   * @param {string} [options.flex]
+   * @param {(() => void|Promise<void>) | null} [options.onClick]
+   */
+  static createAction({
+    variant = "full",
+    color = "primary",
+    flex = "0",
+    onClick = null,
+  }) {
+    const item = new UIFlexGridItem();
+
+    item.ui.flex = flex;
+    item.slot = "actions";
+
+    item.innerHTML = html`
+      <ui-button variant="${variant}" color="${color}"></ui-button>
+    `;
+
+    /** @type {import("../ui-button").UIButton} */
+    let button;
+    if (!!onClick) {
+      button = item.querySelector("ui-button");
+      button.ui.events.on("click", onClick);
+    }
+
+    return {
+      item: item,
+      action: button,
+    };
   }
 }
