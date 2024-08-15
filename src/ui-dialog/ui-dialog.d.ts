@@ -35,7 +35,7 @@ export class UIDialog<T extends UIDialog_Events> extends HTMLElement {
         flex?: string;
         onClick?: (() => void | Promise<void>) | null;
     }): {
-        item: UIFlexGridItem;
+        container: UIFlexGridItem;
         action: import("../ui-button").UIButton;
     };
     /**

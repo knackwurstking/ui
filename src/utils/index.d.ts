@@ -3,9 +3,11 @@
  */
 export function isAndroid(): boolean;
 /**
- * @param {string[]} styles
+ * @param {{ [key: string]: string }} style
  */
-export function styles(...styles: string[]): string;
+export function styles(style: {
+    [key: string]: string;
+}): string;
 export { default as CleanUp } from "./cleanup";
 export * as draggable from "./draggable";
 export { default as Events } from "./events";
