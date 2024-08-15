@@ -14,10 +14,16 @@ export const html = String.raw;
 export const css = String.raw;
 
 /**
- * @param {string[]} styles
+ * @param {{ [key: string]: string }} style
  */
-export function styles(...styles) {
-  return styles.join(";") + ";";
+export function styles(style) {
+  return (
+    Object.entries(style)
+      .map(
+        ([k, v]) => `${k.replace(/[A-Z]/g, (l) => `-${l.toLowerCase()}`)}:${v}`,
+      )
+      .join(";") + ";"
+  );
 }
 
 /**
