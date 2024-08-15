@@ -384,7 +384,7 @@ export class UIDialog extends HTMLElement {
     }
 
     return {
-      item: item,
+      container: item,
       action: button,
     };
   }
