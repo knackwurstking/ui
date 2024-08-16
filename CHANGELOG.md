@@ -4,6 +4,7 @@
 
 **General**:
 
+- Changed `styles` parameter type
 - Added helper method for `UIDialog` create action buttons
 - Added "printer" SVG
 
