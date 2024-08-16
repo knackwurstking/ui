@@ -53,6 +53,5 @@ export class UILang extends HTMLElement {
      * @param {string} name
      */
     private setCurrent;
-    data: Promise<any>;
 }
 import { Events } from "../utils";
