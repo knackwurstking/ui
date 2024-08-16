@@ -6,6 +6,9 @@
 
 - Changed `styles` parameter type
 - Added helper method for `UIDialog` create action buttons
+- Added "checkmark" SVG
+- Added "drag" SVG
+- Added "upload" SVG
 - Added "printer" SVG
 
 **Fixed**:
