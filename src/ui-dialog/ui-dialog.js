@@ -1,4 +1,3 @@
-// TODO: Add submit and cancel (static) buttons (helper function for quickly create action buttons)
 import { CleanUp, Events, html } from "../utils";
 import svgClose from "../svg/smoothie-line-icons/close";
 import { UIFlexGrid, UIFlexGridItem } from "../ui-flex-grid";
@@ -26,366 +25,375 @@ import { UIFlexGrid, UIFlexGridItem } from "../ui-flex-grid";
  * @template {UIDialog_Events} T
  */
 export class UIDialog extends HTMLElement {
-  static register = () => {
-    if (!customElements.get("ui-dialog")) {
-      customElements.define("ui-dialog", UIDialog);
-    }
-  };
-
-  static observedAttributes = ["title"];
-
-  /**
-   * @param {string} title
-   */
-  constructor(title) {
-    super();
-    this.attachShadow({ mode: "open" });
-
-    this.shadowRenderCleanUp = new CleanUp();
-
-    this._title = title || "";
-
-    this.ui = {
-      root: this,
-
-      /** @type {Events<T>} */
-      events: new Events(),
-
-      get title() {
-        return this.root.shadowRoot.querySelector(`[name="title"]`).innerHTML;
-      },
-
-      set title(value) {
-        const title = this.root.shadowRoot.querySelector(`[name="title"]`);
-        this.root._title = title.innerHTML = value || "";
-      },
-
-      get fullscreen() {
-        return this.root.hasAttribute("fullscreen");
-      },
-
-      set fullscreen(state) {
-        if (!state) {
-          this.root.removeAttribute("fullscreen");
-          return;
+    static register = () => {
+        if (!customElements.get("ui-dialog")) {
+            customElements.define("ui-dialog", UIDialog);
         }
-
-        this.root.setAttribute("fullscreen", "");
-      },
-
-      get nofooter() {
-        return this.root.hasAttribute("nofooter");
-      },
-
-      set nofooter(state) {
-        if (!state) {
-          this.root.removeAttribute("nofooter");
-          return;
-        }
-
-        this.root.setAttribute("nofooter", "");
-      },
-
-      /**
-       * @param {boolean} modal
-       * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
-       */
-      open(modal = false, inert = true) {
-        const dialog = this.root.shadowRoot.querySelector("dialog");
-
-        const inertBackup = dialog.inert;
-        dialog.inert = inert;
-
-        if (!!modal) {
-          dialog.showModal();
-        } else {
-          dialog.show();
-        }
-
-        this.events.dispatch("open", null);
-        dialog.inert = inertBackup;
-      },
-
-      close() {
-        this.events.dispatch("close", null);
-
-        const dialog = this.root.shadowRoot.querySelector("dialog");
-        dialog.close();
-      },
     };
 
-    this.shadowRender();
-  }
+    static observedAttributes = ["title"];
 
-  shadowRender() {
-    this.shadowRenderCleanUp.run();
+    /**
+     * @param {string} title
+     */
+    constructor(title) {
+        super();
+        this.attachShadow({ mode: "open" });
 
-    this.shadowRoot.innerHTML = html`
-      <style>
-        * {
-          box-sizing: border-box;
-        }
+        this.shadowRenderCleanUp = new CleanUp();
 
-        :host dialog * {
-          box-sizing: border-box;
-        }
+        this._title = title || "";
 
-        dialog {
-          position: fixed !important;
+        this.ui = {
+            root: this,
 
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+            /** @type {Events<T>} */
+            events: new Events(),
 
-          max-width: 100%;
-          max-height: 100%;
+            get title() {
+                return this.root.shadowRoot.querySelector(`[name="title"]`)
+                    .innerHTML;
+            },
 
-          margin: 0;
-          padding: 0;
+            set title(value) {
+                const title =
+                    this.root.shadowRoot.querySelector(`[name="title"]`);
+                this.root._title = title.innerHTML = value || "";
+            },
 
-          border: none;
-          outline: none;
+            get fullscreen() {
+                return this.root.hasAttribute("fullscreen");
+            },
 
-          background-color: transparent;
+            set fullscreen(state) {
+                if (!state) {
+                    this.root.removeAttribute("fullscreen");
+                    return;
+                }
 
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+                this.root.setAttribute("fullscreen", "");
+            },
 
-          z-index: 999;
-        }
+            get nofooter() {
+                return this.root.hasAttribute("nofooter");
+            },
 
-        dialog::-webkit-scrollbar {
-          display: none;
-        }
+            set nofooter(state) {
+                if (!state) {
+                    this.root.removeAttribute("nofooter");
+                    return;
+                }
 
-        dialog::backdrop {
-          background-color: var(--ui-backdrop-bgColor);
-          backdrop-filter: var(--ui-backdropFilter);
-        }
+                this.root.setAttribute("nofooter", "");
+            },
 
-        dialog > .container {
-          background-color: var(--ui-bgColor);
-          color: var(--ui-color);
+            /**
+             * @param {boolean} modal
+             * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
+             */
+            open(modal = false, inert = true) {
+                const dialog = this.root.shadowRoot.querySelector("dialog");
 
-          border: 1px solid var(--ui-borderColor);
-          border-radius: var(--ui-radius);
+                const inertBackup = dialog.inert;
+                dialog.inert = inert;
 
-          padding: var(--ui-spacing);
+                if (!!modal) {
+                    dialog.showModal();
+                } else {
+                    dialog.show();
+                }
 
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
+                this.events.dispatch("open", null);
+                dialog.inert = inertBackup;
+            },
 
-          position: relative;
-        }
+            close() {
+                this.events.dispatch("close", null);
 
-        :host([fullscreen]) dialog {
-          width: 100%;
-          height: 100%;
-        }
+                const dialog = this.root.shadowRoot.querySelector("dialog");
+                dialog.close();
+            },
+        };
 
-        :host([fullscreen]) dialog > .container {
-          width: calc(100% - var(--ui-spacing) * 2);
-          height: calc(
-            100% -
-              (
-                env(safe-area-inset-top, 0) + env(safe-area-inset-bottom, 0) +
-                  (var(--ui-spacing) * 2)
-              )
-          );
+        this.shadowRender();
+    }
 
-          margin: var(--ui-spacing);
-          margin-top: calc(env(safe-area-inset-top, 0) + var(--ui-spacing));
-          margin-bottom: calc(
-            env(safe-area-inset-bottom, 0) + var(--ui-spacing)
-          );
-        }
+    shadowRender() {
+        this.shadowRenderCleanUp.run();
 
-        /*
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host dialog * {
+                    box-sizing: border-box;
+                }
+
+                dialog {
+                    position: fixed !important;
+
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    max-width: 100%;
+                    max-height: 100%;
+
+                    margin: 0;
+                    padding: 0;
+
+                    border: none;
+                    outline: none;
+
+                    background-color: transparent;
+
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+
+                    z-index: 999;
+                }
+
+                dialog::-webkit-scrollbar {
+                    display: none;
+                }
+
+                dialog::backdrop {
+                    background-color: var(--ui-backdrop-bgColor);
+                    backdrop-filter: var(--ui-backdropFilter);
+                }
+
+                dialog > .container {
+                    background-color: var(--ui-bgColor);
+                    color: var(--ui-color);
+
+                    border: 1px solid var(--ui-borderColor);
+                    border-radius: var(--ui-radius);
+
+                    padding: var(--ui-spacing);
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    position: relative;
+                }
+
+                :host([fullscreen]) dialog {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                :host([fullscreen]) dialog > .container {
+                    width: calc(100% - var(--ui-spacing) * 2);
+                    height: calc(
+                        100% -
+                            (
+                                env(safe-area-inset-top, 0) +
+                                    env(safe-area-inset-bottom, 0) +
+                                    (var(--ui-spacing) * 2)
+                            )
+                    );
+
+                    margin: var(--ui-spacing);
+                    margin-top: calc(
+                        env(safe-area-inset-top, 0) + var(--ui-spacing)
+                    );
+                    margin-bottom: calc(
+                        env(safe-area-inset-bottom, 0) + var(--ui-spacing)
+                    );
+                }
+
+                /*
          * Header Styles
          */
 
-        .header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+                .header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
 
-          border-top-right-radius: var(--ui-radius);
-          border-top-left-radius: var(--ui-radius);
+                    border-top-right-radius: var(--ui-radius);
+                    border-top-left-radius: var(--ui-radius);
 
-          width: 100%;
-          height: var(--ui-dialog-header-height);
-        }
+                    width: 100%;
+                    height: var(--ui-dialog-header-height);
+                }
 
-        .header h4 {
-          margin: auto 0;
-        }
+                .header h4 {
+                    margin: auto 0;
+                }
 
-        :host([fullscreen]) .header {
-          z-index: 15;
-          position: absolute;
-          top: var(--ui-spacing);
-          right: var(--ui-spacing);
-          left: var(--ui-spacing);
-          width: calc(100% - var(--ui-spacing) * 2);
-        }
+                :host([fullscreen]) .header {
+                    z-index: 15;
+                    position: absolute;
+                    top: var(--ui-spacing);
+                    right: var(--ui-spacing);
+                    left: var(--ui-spacing);
+                    width: calc(100% - var(--ui-spacing) * 2);
+                }
 
-        /*
+                /*
          * Content Styles
          */
 
-        .content {
-          padding: var(--ui-spacing);
-          height: fit-content;
-          min-width: fit-content;
-          width: 100%;
-        }
+                .content {
+                    padding: var(--ui-spacing);
+                    height: fit-content;
+                    min-width: fit-content;
+                    width: 100%;
+                }
 
-        :host([fullscreen]) .content {
-          z-index: 10;
-          position: absolute;
-          top: calc(var(--ui-dialog-header-height) + var(--ui-spacing));
-          bottom: calc(var(--ui-dialog-footer-height) + var(--ui-spacing));
-          right: var(--ui-spacing);
-          left: var(--ui-spacing);
-          padding: unset;
-          height: unset;
-          width: unset;
-          min-width: unset;
-        }
+                :host([fullscreen]) .content {
+                    z-index: 10;
+                    position: absolute;
+                    top: calc(
+                        var(--ui-dialog-header-height) + var(--ui-spacing)
+                    );
+                    bottom: calc(
+                        var(--ui-dialog-footer-height) + var(--ui-spacing)
+                    );
+                    right: var(--ui-spacing);
+                    left: var(--ui-spacing);
+                    padding: unset;
+                    height: unset;
+                    width: unset;
+                    min-width: unset;
+                }
 
-        :host([nofooter]) .content {
-          bottom: var(--ui-spacing);
-        }
+                :host([nofooter]) .content {
+                    bottom: var(--ui-spacing);
+                }
 
-        /*
+                /*
          * Footer Styles
          */
 
-        .footer {
-          margin-top: var(--ui-spacing);
-          border-bottom-right-radius: var(--ui-radius);
-          border-bottom-left-radius: var(--ui-radius);
+                .footer {
+                    margin-top: var(--ui-spacing);
+                    border-bottom-right-radius: var(--ui-radius);
+                    border-bottom-left-radius: var(--ui-radius);
 
-          width: 100%;
-          height: var(--ui-dialog-footer-height);
-        }
+                    width: 100%;
+                    height: var(--ui-dialog-footer-height);
+                }
 
-        :host([fullscreen]) .footer {
-          z-index: 15;
-          position: absolute;
-          right: var(--ui-spacing);
-          bottom: var(--ui-spacing);
-          left: var(--ui-spacing);
-          width: calc(100% - var(--ui-spacing) * 2);
-        }
+                :host([fullscreen]) .footer {
+                    z-index: 15;
+                    position: absolute;
+                    right: var(--ui-spacing);
+                    bottom: var(--ui-spacing);
+                    left: var(--ui-spacing);
+                    width: calc(100% - var(--ui-spacing) * 2);
+                }
 
-        .footer ui-flex-grid-row {
-          height: 100%;
-          flex-wrap: nowrap;
-          justify-content: flex-end;
-          align-items: center;
-        }
+                .footer ui-flex-grid-row {
+                    height: 100%;
+                    flex-wrap: nowrap;
+                    justify-content: flex-end;
+                    align-items: center;
+                }
 
-        :host([nofooter]) .footer {
-          display: none;
-        }
-      </style>
+                :host([nofooter]) .footer {
+                    display: none;
+                }
+            </style>
 
-      <dialog>
-        <div class="container">
-          <div class="header">
-            <span style="white-space: nowrap;">
-              <h3 name="title"></h3>
-            </span>
+            <dialog>
+                <div class="container">
+                    <div class="header">
+                        <span style="white-space: nowrap;">
+                            <h3 name="title"></h3>
+                        </span>
 
-            <ui-icon-button
-              style="width: var(--ui-dialog-header-height); height: 100%;"
-              ghost
-            >
-              ${svgClose}
-            </ui-icon-button>
-          </div>
+                        <ui-icon-button
+                            style="width: var(--ui-dialog-header-height); height: 100%;"
+                            ghost
+                        >
+                            ${svgClose}
+                        </ui-icon-button>
+                    </div>
 
-          <div class="content">
-            <slot></slot>
-          </div>
+                    <div class="content">
+                        <slot></slot>
+                    </div>
 
-          <div class="footer">
-            <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
-              <slot name="actions"></slot>
-            </ui-flex-grid-row>
-          </div>
-        </div>
-      </dialog>
-    `;
+                    <div class="footer">
+                        <ui-flex-grid-row gap="calc(var(--ui-spacing) / 2)">
+                            <slot name="actions"></slot>
+                        </ui-flex-grid-row>
+                    </div>
+                </div>
+            </dialog>
+        `;
 
-    this.ui.title = this._title;
+        this.ui.title = this._title;
 
-    // Close button
-    const button = this.shadowRoot.querySelector(".header ui-icon-button");
-    const onClick = () => this.ui.close();
-    button.addEventListener("click", onClick);
+        // Close button
+        const button = this.shadowRoot.querySelector(".header ui-icon-button");
+        const onClick = () => this.ui.close();
+        button.addEventListener("click", onClick);
 
-    // Dialog - Disable escape key action
-    const dialog = this.shadowRoot.querySelector("dialog");
-    const onCancel = (/** @type {Event} */ ev) => ev.preventDefault();
-    dialog.addEventListener("cancel", onCancel);
+        // Dialog - Disable escape key action
+        const dialog = this.shadowRoot.querySelector("dialog");
+        const onCancel = (/** @type {Event} */ ev) => ev.preventDefault();
+        dialog.addEventListener("cancel", onCancel);
 
-    this.shadowRenderCleanUp.add(() => {
-      button.removeEventListener("click", onClick);
-      dialog.removeEventListener("cancel", onCancel);
-    });
-  }
-
-  connectedCallback() {}
-  disconnectedCallback() {}
-
-  /**
-   * @param {string} name
-   * @param {string | null} _oldValue
-   * @param {string | null} newValue
-   */
-  attributeChangedCallback(name, _oldValue, newValue) {
-    switch (name) {
-      case "title":
-        this.ui.title = newValue;
-        break;
-    }
-  }
-
-  /**
-   * @param {object} options
-   * @param {string} [options.variant]
-   * @param {string} [options.color]
-   * @param {string} [options.flex]
-   * @param {(() => void|Promise<void>) | null} [options.onClick]
-   */
-  static createAction({
-    variant = "full",
-    color = "primary",
-    flex = "0",
-    onClick = null,
-  }) {
-    const item = new UIFlexGridItem();
-
-    item.ui.flex = flex;
-    item.slot = "actions";
-
-    item.innerHTML = html`
-      <ui-button variant="${variant}" color="${color}"></ui-button>
-    `;
-
-    /** @type {import("../ui-button").UIButton} */
-    let button;
-    if (!!onClick) {
-      button = item.querySelector("ui-button");
-      button.ui.events.on("click", onClick);
+        this.shadowRenderCleanUp.add(() => {
+            button.removeEventListener("click", onClick);
+            dialog.removeEventListener("cancel", onCancel);
+        });
     }
 
-    return {
-      container: item,
-      action: button,
-    };
-  }
+    connectedCallback() {}
+    disconnectedCallback() {}
+
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "title":
+                this.ui.title = newValue;
+                break;
+        }
+    }
+
+    /**
+     * @param {object} options
+     * @param {string} [options.variant]
+     * @param {string} [options.color]
+     * @param {string} [options.flex]
+     * @param {(() => void|Promise<void>) | null} [options.onClick]
+     */
+    static createAction({
+        variant = "full",
+        color = "primary",
+        flex = "0",
+        onClick = null,
+    }) {
+        const item = new UIFlexGridItem();
+
+        item.ui.flex = flex;
+        item.slot = "actions";
+
+        item.innerHTML = html`
+            <ui-button variant="${variant}" color="${color}"></ui-button>
+        `;
+
+        /** @type {import("../ui-button").UIButton} */
+        let button;
+        if (!!onClick) {
+            button = item.querySelector("ui-button");
+            button.ui.events.on("click", onClick);
+        }
+
+        return {
+            container: item,
+            action: button,
+        };
+    }
 }
