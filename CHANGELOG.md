@@ -15,6 +15,7 @@
 **Fixed**:
 
 - Fixed `UISelect` missing `--items-length` if childrends was added with javascript
+- Fixed `UILang` storing data at the wrong place
 - Missing `UITextarea` exports
 
 ## v0.2.16 — 2024-08-12
