@@ -4,6 +4,7 @@
 
 **General**:
 
+- Removes `has-save-area` from css utils
 - Changed `styles` parameter type
 - Added helper method for `UIDialog` create action buttons
 - Added "refresh" SVG
