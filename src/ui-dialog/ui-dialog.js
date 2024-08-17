@@ -1,6 +1,6 @@
-import { CleanUp, Events, html } from "../utils";
 import svgClose from "../svg/smoothie-line-icons/close";
-import { UIFlexGrid, UIFlexGridItem } from "../ui-flex-grid";
+import { UIFlexGridItem } from "../ui-flex-grid";
+import { CleanUp, Events, html } from "../utils";
 
 /**
  * @typedef UIDialog_Events
