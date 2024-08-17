@@ -31,6 +31,8 @@ export class UISelect extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
 
+        this.open = false;
+
         this.ui = {
             root: this,
 
@@ -40,16 +42,16 @@ export class UISelect extends HTMLElement {
             events: new Events(),
 
             get open() {
-                return this.root.hasAttribute("open");
+                return this.root.open;
             },
 
             set open(state) {
-                if (!state) {
-                    this.root.removeAttribute("open");
-                    return;
-                }
+                this.root.open = state;
 
-                this.root.setAttribute("open", "");
+                this.root.style.setProperty(
+                    "--items-length",
+                    `${this.root.children.length}`,
+                );
             },
 
             /**
@@ -142,7 +144,7 @@ export class UISelect extends HTMLElement {
                 :host(.open) {
                     height: calc(
                         (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
-                            var(--items-length, 0)
+                            var(--items-length)
                     );
                 }
 
@@ -225,7 +227,7 @@ export class UISelect extends HTMLElement {
     attributeChangedCallback(n, _oV, nV) {
         switch (n) {
             case "open":
-                this.setAttribute("--items-length", `${this.children.length}`);
+                this.ui.open = nV !== null;
                 break;
         }
     }

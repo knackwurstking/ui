@@ -16,6 +16,7 @@
 export class UISelect extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
+    open: boolean;
     ui: {
         root: this;
         /**
