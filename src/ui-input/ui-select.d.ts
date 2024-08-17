@@ -15,6 +15,7 @@
  */
 export class UISelect extends HTMLElement {
     static register: () => void;
+    static observedAttributes: string[];
     ui: {
         root: this;
         /**
@@ -34,6 +35,12 @@ export class UISelect extends HTMLElement {
     shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    /**
+     * @param {string} n
+     * @param {string | null} _oV
+     * @param {string | null} nV
+     */
+    attributeChangedCallback(n: string, _oV: string | null, nV: string | null): void;
 }
 /**
  * UISelectEvents
