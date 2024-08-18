@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.17 — [unreleased]
+## v0.2.17 — 2024-08-18
 
 **General**:
 
