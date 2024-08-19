@@ -50,7 +50,7 @@ export class UISelect extends HTMLElement {
 
                 this.root.style.setProperty(
                     "--items-length",
-                    `${this.root.children.length}`,
+                    `${this.root.children.length || 1}`,
                 );
             },
 
@@ -144,7 +144,7 @@ export class UISelect extends HTMLElement {
                 :host(.open) {
                     height: calc(
                         (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
-                            var(--items-length)
+                            var(--items-length, 1)
                     );
                 }
 
