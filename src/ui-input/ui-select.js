@@ -48,6 +48,12 @@ export class UISelect extends HTMLElement {
             set open(state) {
                 this.root.open = state;
 
+                if (!state) {
+                    this.root.removeAttribute("open");
+                } else {
+                    this.root.setAttribute("open", "");
+                }
+
                 this.root.style.setProperty(
                     "--items-length",
                     `${this.root.children.length || 1}`,
@@ -141,36 +147,38 @@ export class UISelect extends HTMLElement {
                     display: flex;
                 }
 
-                :host(.open) {
+                :host([open]) {
                     height: calc(
                         (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
                             var(--items-length)
                     );
                 }
 
-                :host(.open) .options {
+                :host([open]) .options {
                     display: block;
                 }
 
-                :host(.open) .icon {
+                :host([open]) .icon {
                     display: none;
                 }
 
-                :host(.open) ::slotted(ui-select-option[selected]) {
+                :host([open]) ::slotted(ui-select-option[selected]) {
                     background-color: var(--ui-primary-bgColor);
                     color: var(--ui-primary-color);
                 }
 
-                :host(.open) ::slotted(ui-select-option:not([selected]):hover) {
+                :host([open])
+                    ::slotted(ui-select-option:not([selected]):hover) {
                     background-color: hsla(var(--ui-color-hsl), 0.1);
                 }
 
-                :host(:not(.open))
+                :host(:not([open]))
                     .options:has(> ::slotted(ui-select-option[selected])) {
                     display: block;
                 }
 
-                :host(:not(.open)) ::slotted(ui-select-option:not([selected])) {
+                :host(:not([open]))
+                    ::slotted(ui-select-option:not([selected])) {
                     display: none;
                 }
             </style>
@@ -202,7 +210,8 @@ export class UISelect extends HTMLElement {
                 });
             };
 
-            if (this.classList.toggle("open")) {
+            this.ui.open = !this.ui.open;
+            if (this.ui.open) {
                 ev.stopPropagation();
                 this.addEventListener("click", onClickOption);
             } else {
@@ -214,8 +223,6 @@ export class UISelect extends HTMLElement {
 
         const options = this.shadowRoot.querySelector(".options");
         options.addEventListener("click", onClick);
-
-        this.ui.open = this.ui.open; // NOTE: This will initially set the style prop "--items-length"
     }
 
     connectedCallback() {}
@@ -229,7 +236,10 @@ export class UISelect extends HTMLElement {
     attributeChangedCallback(n, _oV, nV) {
         switch (n) {
             case "open":
-                this.ui.open = nV !== null;
+                const state = nV !== null;
+                if (state !== this.ui.open) {
+                    this.ui.open = state;
+                }
                 break;
         }
     }
