@@ -144,7 +144,7 @@ export class UISelect extends HTMLElement {
                 :host(.open) {
                     height: calc(
                         (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
-                            var(--items-length, 1)
+                            var(--items-length)
                     );
                 }
 
@@ -214,6 +214,8 @@ export class UISelect extends HTMLElement {
 
         const options = this.shadowRoot.querySelector(".options");
         options.addEventListener("click", onClick);
+
+        this.ui.open = this.ui.open; // NOTE: This will initially set the style prop "--items-length"
     }
 
     connectedCallback() {}
