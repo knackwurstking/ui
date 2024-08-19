@@ -19,14 +19,14 @@
 
 /** @type {Ripple_Options} */
 export const defaultOptions = {
-  color: "var(--ui-ripple-color, currentColor)",
-  opacity: "var(--ui-ripple-opacity, 0.2)",
-  centered: false,
-  spreadDuration: ".4s",
-  spreadTiming: "linear",
-  clearDuration: "1s",
-  clearTiming: "ease-in-out",
-  useClick: false,
+    color: "var(--ui-ripple-color, currentColor)",
+    opacity: "var(--ui-ripple-opacity, 0.2)",
+    centered: false,
+    spreadDuration: ".4s",
+    spreadTiming: "linear",
+    clearDuration: "1s",
+    clearTiming: "ease-in-out",
+    useClick: true,
 };
 
 /**
@@ -35,59 +35,59 @@ export const defaultOptions = {
  * @returns {Ripple}
  */
 export function create(el, options = {}) {
-  options = { ...defaultOptions, ...options };
+    options = { ...defaultOptions, ...options };
 
-  /** @type {HTMLElement} */
-  let ripple;
+    /** @type {HTMLElement} */
+    let ripple;
 
-  /** @param {PointerEvent & { currentTarget: HTMLElement }} ev */
-  const _start = (ev) => {
-    ripple = start(ev, options);
-  };
-
-  const _stop = () => {
-    stop(ripple);
-  };
-
-  const setup = () => {
-    el.classList.add("ripple-container");
-    // @ts-expect-error
-    el.style.overflow = "hidden";
-
-    if (options.useClick === true) {
-      el.addEventListener("click", (ev) => {
-        // @ts-ignore
+    /** @param {PointerEvent & { currentTarget: HTMLElement }} ev */
+    const _start = (ev) => {
         ripple = start(ev, options);
+    };
+
+    const _stop = () => {
         stop(ripple);
-      });
-    } else {
-      el.addEventListener("pointerdown", _start);
-      el.addEventListener("pointerup", _stop);
-      el.addEventListener("pointerleave", _stop);
-    }
-  };
+    };
 
-  const destroy = () => {
-    el.classList.remove("ripple-container");
+    const setup = () => {
+        el.classList.add("ripple-container");
+        // @ts-expect-error
+        el.style.overflow = "hidden";
 
-    el.removeEventListener("pointerdown", _start);
-    el.removeEventListener("pointerup", _stop);
-    el.removeEventListener("pointerleave", _stop);
-  };
+        if (options.useClick === true) {
+            el.addEventListener("click", (ev) => {
+                // @ts-ignore
+                ripple = start(ev, options);
+                stop(ripple);
+            });
+        } else {
+            el.addEventListener("pointerdown", _start);
+            el.addEventListener("pointerup", _stop);
+            el.addEventListener("pointerleave", _stop);
+        }
+    };
 
-  setup();
+    const destroy = () => {
+        el.classList.remove("ripple-container");
 
-  return {
-    update: (_options) => {
-      options = {
-        ...options,
-        ..._options,
-      };
-      destroy();
-      setup();
-    },
-    destroy,
-  };
+        el.removeEventListener("pointerdown", _start);
+        el.removeEventListener("pointerup", _stop);
+        el.removeEventListener("pointerleave", _stop);
+    };
+
+    setup();
+
+    return {
+        update: (_options) => {
+            options = {
+                ...options,
+                ..._options,
+            };
+            destroy();
+            setup();
+        },
+        destroy,
+    };
 }
 
 /**
@@ -96,54 +96,54 @@ export function create(el, options = {}) {
  * @returns {HTMLElement}
  */
 export function start(ev, options) {
-  const ripple = document.createElement("div");
+    const ripple = document.createElement("div");
 
-  ripple.classList.add("ripple");
-  ripple.style.position = "absolute";
-  ripple.style.color = "inherit";
-  ripple.style.borderRadius = "50%";
-  ripple.style.pointerEvents = "none";
-  ripple.style.width = "100px";
-  ripple.style.height = "100px";
-  ripple.style.marginTop = "-50px";
-  ripple.style.marginLeft = "-50px";
-  ripple.style.opacity = `${options.opacity}`;
-  ripple.style.backgroundColor = options.color;
-  ripple.style.transform = `scale(0) translate(0, 0)`;
-  ripple.style.transition =
-    `transform ${options.spreadDuration} ${options.spreadTiming} 0s,` +
-    `opacity ${options.clearDuration} ${options.clearTiming} 0s`;
+    ripple.classList.add("ripple");
+    ripple.style.position = "absolute";
+    ripple.style.color = "inherit";
+    ripple.style.borderRadius = "50%";
+    ripple.style.pointerEvents = "none";
+    ripple.style.width = "100px";
+    ripple.style.height = "100px";
+    ripple.style.marginTop = "-50px";
+    ripple.style.marginLeft = "-50px";
+    ripple.style.opacity = `${options.opacity}`;
+    ripple.style.backgroundColor = options.color;
+    ripple.style.transform = `scale(0) translate(0, 0)`;
+    ripple.style.transition =
+        `transform ${options.spreadDuration} ${options.spreadTiming} 0s,` +
+        `opacity ${options.clearDuration} ${options.clearTiming} 0s`;
 
-  ev.currentTarget.appendChild(ripple);
+    ev.currentTarget.appendChild(ripple);
 
-  const tR = ev.currentTarget.getBoundingClientRect();
-  if (options.centered) {
-    ripple.style.top = `${tR.height / 2}px`;
-    ripple.style.left = `${tR.width / 2}px`;
-  } else {
-    // @ts-ignore
-    const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
-    ripple.style.top = `${pos.clientY - tR.top}px`;
-    ripple.style.left = `${pos.clientX - tR.left}px`;
-  }
+    const tR = ev.currentTarget.getBoundingClientRect();
+    if (options.centered) {
+        ripple.style.top = `${tR.height / 2}px`;
+        ripple.style.left = `${tR.width / 2}px`;
+    } else {
+        // @ts-ignore
+        const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
+        ripple.style.top = `${pos.clientY - tR.top}px`;
+        ripple.style.left = `${pos.clientX - tR.left}px`;
+    }
 
-  const scale = Math.max(tR.width, tR.height) * 0.02;
-  ripple.style.transform = `scale(${scale}) translate(0, 0)`;
+    const scale = Math.max(tR.width, tR.height) * 0.02;
+    ripple.style.transform = `scale(${scale}) translate(0, 0)`;
 
-  return ripple;
+    return ripple;
 }
 
 /**
  * @param {HTMLElement} ripple
  */
 export function stop(ripple) {
-  if (ripple) {
-    ripple.addEventListener("transitionend", (ev) => {
-      if (ev.propertyName === "opacity") {
-        ripple.remove();
-      }
-    });
+    if (ripple) {
+        ripple.addEventListener("transitionend", (ev) => {
+            if (ev.propertyName === "opacity") {
+                ripple.remove();
+            }
+        });
 
-    ripple.style.opacity = "0";
-  }
+        ripple.style.opacity = "0";
+    }
 }
