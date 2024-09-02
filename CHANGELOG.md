@@ -7,6 +7,10 @@
 - Added "power" svg icon
 - Added "more-options" svg icon
 
+**Fixed**:
+
+- Fixed ripple destroy not working if `useClick` was set to `true`
+
 ## v0.2.17 — 2024-08-19
 
 **General**:
