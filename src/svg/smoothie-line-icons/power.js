@@ -2,8 +2,9 @@ import { html } from "../../utils";
 
 export default html`
     <svg
+        style="color: inherit;"
         viewBox="0 0 64 64"
-        fill="currentColor"
+        fill="transparent"
         xmlns="http://www.w3.org/2000/svg"
     >
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -25,7 +26,7 @@ export default html`
                 }
                 .st3 {
                     fill: none;
-                    stroke: #ffffff;
+                    stroke: currentColor;
                     stroke-width: 4;
                     stroke-linecap: round;
                     stroke-miterlimit: 10;
