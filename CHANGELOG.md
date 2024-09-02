@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.2.18 — [unreleased]
+
+**General**:
+
+- Added "power" svg icon
+- Added "more-options" svg icon
+
 ## v0.2.17 — 2024-08-19
 
 **General**:
