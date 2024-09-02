@@ -10,9 +10,9 @@
  * Slots:
  *  - * from type `UIStackLayoutPage`
  *
- * @template {UIStackLayout_Pages} T
+ * @template {string} T
  */
-export class UIStackLayout<T extends UIStackLayout_Pages> extends HTMLElement {
+export class UIStackLayout<T extends string> extends HTMLElement {
     static register: () => void;
     constructor();
     /** @type {Pages} */

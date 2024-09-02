@@ -14,7 +14,7 @@ import { UIStackLayoutPage } from "./ui-stack-layout-page";
  * Slots:
  *  - * from type `UIStackLayoutPage`
  *
- * @template {UIStackLayout_Pages} T
+ * @template {string} T
  */
 export class UIStackLayout extends HTMLElement {
     static register = () => {
