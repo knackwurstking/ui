@@ -35,7 +35,6 @@ export class UIIconButton extends HTMLElement {
         disabled: boolean;
     };
     shadowRender(): void;
-    removeRippleCallback: ripple.Ripple;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -50,4 +49,3 @@ export type UIIconButton_Events = {
     click: UIIconButton;
 };
 import { Events } from "../utils";
-import { ripple } from "../utils";

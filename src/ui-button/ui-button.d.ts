@@ -47,7 +47,6 @@ export class UIButton extends HTMLElement {
         disabled: boolean;
     };
     shadowRender(): void;
-    removeRippleCallback: ripple.Ripple;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -63,4 +62,3 @@ export type UIButton_Events = {
     click: UIButton;
 };
 import { Events } from "../utils";
-import { ripple } from "../utils";
