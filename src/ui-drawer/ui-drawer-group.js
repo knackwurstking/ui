@@ -4,6 +4,9 @@ import { html, ripple } from "../utils";
 /**
  * HTML: `ui-drawer-group`
  *
+ * Attributes:
+ *  - title: string
+ *
  * Slots:
  *  - *
  */

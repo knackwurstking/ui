@@ -1,6 +1,9 @@
 /**
  * HTML: `ui-drawer-group`
  *
+ * Attributes:
+ *  - title: string
+ *
  * Slots:
  *  - *
  */
