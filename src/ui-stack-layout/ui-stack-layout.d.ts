@@ -9,9 +9,12 @@
  *
  * Slots:
  *  - * from type `UIStackLayoutPage`
+ *
+ * @template {UIStackLayout_Pages} T
  */
-export class UIStackLayout extends HTMLElement {
+export class UIStackLayout<T extends UIStackLayout_Pages> extends HTMLElement {
     static register: () => void;
+    constructor();
     /** @type {Pages} */
     pages: Pages;
     /** @type {UIStackLayoutPage[]} */
@@ -38,20 +41,20 @@ export class UIStackLayout extends HTMLElement {
         clear(): void;
         goBack(): void;
         /**
-         * @param {string} pageName
+         * @param {T} pageName
          * @param {() => (UIStackLayoutPage)} cb
          */
-        register(pageName: string, cb: () => (UIStackLayoutPage)): void;
+        register(pageName: T, cb: () => (UIStackLayoutPage)): void;
         /**
-         * @param {string} pageName
+         * @param {T} pageName
          */
-        unregister(pageName: string): void;
+        unregister(pageName: T): void;
         /**
-         * @param {string} pageName
+         * @param {T} pageName
          * @param {((page: UIStackLayoutPage) => void|Promise<void>) | null} [cb]
          * @param {boolean} [keepOldPage]
          */
-        set(pageName: string, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): void;
+        set(pageName: T, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): void;
     };
     shadowRender(): void;
     connectedCallback(): void;
