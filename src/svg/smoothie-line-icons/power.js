@@ -16,17 +16,17 @@ export default html`
         <g id="SVGRepo_iconCarrier">
             <style type="text/css">
                 .st0 {
-                    fill: #c75c5c;
+                    fill: var(--ui-svg-bgColor, var(--ui-destructive-bgColor));
                 }
                 .st1 {
                     opacity: 0.2;
                 }
                 .st2 {
-                    fill: #231f20;
+                    fill: var(--ui-svg-bgColor, var(--ui-destructive-bgColor));
                 }
                 .st3 {
                     fill: none;
-                    stroke: currentColor;
+                    stroke: var(--ui-svg-color, var(--ui-destructive-color));
                     stroke-width: 4;
                     stroke-linecap: round;
                     stroke-miterlimit: 10;
