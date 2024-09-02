@@ -49,17 +49,22 @@ export function create(el, options = {}) {
         stop(ripple);
     };
 
+    /**
+     * @param {Event} ev
+     */
+    const _click = (ev) => {
+        // @ts-ignore
+        ripple = start(ev, options);
+        stop(ripple);
+    };
+
     const setup = () => {
         el.classList.add("ripple-container");
         // @ts-expect-error
         el.style.overflow = "hidden";
 
         if (options.useClick === true) {
-            el.addEventListener("click", (ev) => {
-                // @ts-ignore
-                ripple = start(ev, options);
-                stop(ripple);
-            });
+            el.addEventListener("click", _click);
         } else {
             el.addEventListener("pointerdown", _start);
             el.addEventListener("pointerup", _stop);
@@ -70,9 +75,13 @@ export function create(el, options = {}) {
     const destroy = () => {
         el.classList.remove("ripple-container");
 
-        el.removeEventListener("pointerdown", _start);
-        el.removeEventListener("pointerup", _stop);
-        el.removeEventListener("pointerleave", _stop);
+        if (options.useClick === true) {
+            el.removeEventListener("click", _click);
+        } else {
+            el.removeEventListener("pointerdown", _start);
+            el.removeEventListener("pointerup", _stop);
+            el.removeEventListener("pointerleave", _stop);
+        }
     };
 
     setup();

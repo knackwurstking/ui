@@ -46,20 +46,20 @@ export class UIIconButton extends HTMLElement {
             events: new Events(),
 
             get noripple() {
-                return !this.root.removeRippleCallback;
+                return !this.root.ripple;
             },
 
             set noripple(state) {
                 if (!state) {
-                    if (!!this.root.removeRippleCallback) return;
-
-                    this.root.removeRippleCallback = ripple.create(this.root);
+                    if (!!this.root.ripple) this.root.ripple.destroy();
+                    this.root.ripple = ripple.create(this.root);
+                    return;
                 }
 
-                if (!this.root.removeRippleCallback) return;
-
-                this.root.ripple.destroy();
-                this.root.removeRippleCallback = null;
+                if (!!this.root.ripple) {
+                    this.root.ripple.destroy();
+                    this.root.ripple = null;
+                }
             },
 
             get color() {
@@ -174,8 +174,8 @@ export class UIIconButton extends HTMLElement {
             </ui-svg>
         `;
 
-        if (typeof this.removeRippleCallback !== "function") {
-            this.removeRippleCallback = ripple.create(this, { centered: true });
+        if (typeof this.ripple !== "function") {
+            this.ripple = ripple.create(this, { centered: true });
         }
 
         this.addEventListener("click", () => {
