@@ -16,20 +16,23 @@ export default html`
         <g id="SVGRepo_iconCarrier">
             <style type="text/css">
                 .st0 {
-                    fill: var(--ui-svg-bgColor, var(--ui-destructive-bgColor));
+                    fill: var(--ui-svg-bgColor, red);
+                    transition: fill 0.25s linear;
                 }
                 .st1 {
                     opacity: 0.2;
                 }
                 .st2 {
-                    fill: var(--ui-svg-bgColor, var(--ui-destructive-bgColor));
+                    fill: var(--ui-svg-bgColor, red);
+                    transition: fill 0.25s linear;
                 }
                 .st3 {
                     fill: none;
-                    stroke: var(--ui-svg-color, var(--ui-destructive-color));
+                    stroke: var(--ui-svg-color, currentColor);
                     stroke-width: 4;
                     stroke-linecap: round;
                     stroke-miterlimit: 10;
+                    transition: fill 0.25s linear;
                 }
             </style>
             <circle class="st0" cx="32" cy="32" r="32"></circle>
