@@ -6,6 +6,7 @@
 
 - Added "power" svg icon
 - Added "more-options" svg icon
+- Removed "ui-drawer-group" bottom border
 
 **Fixed**:
 
