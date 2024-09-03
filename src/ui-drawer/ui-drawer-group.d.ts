@@ -3,6 +3,8 @@
  *
  * Attributes:
  *  - title: string
+ *  - fold
+ *  - nofold
  *
  * Slots:
  *  - *
@@ -14,6 +16,7 @@ export class UIDrawerGroup extends HTMLElement {
         root: this;
         title: string;
         fold: boolean;
+        nofold: boolean;
     };
     shadowRender(): void;
     connectedCallback(): void;
