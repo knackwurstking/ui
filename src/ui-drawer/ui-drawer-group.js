@@ -25,7 +25,6 @@ export class UIDrawerGroup extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
 
-        // TODO: Add attribute: "nofold"
         this.ui = {
             root: this,
 
@@ -97,7 +96,6 @@ export class UIDrawerGroup extends HTMLElement {
                     list-style: none;
                     padding: var(--ui-spacing);
                     overflow: hidden;
-                    border-bottom: 1px solid var(--ui-borderColor);
                 }
 
                 ui-drawer-group-item {
