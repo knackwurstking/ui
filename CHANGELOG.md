@@ -4,6 +4,8 @@
 
 **General**:
 
+- Added ".is-muted" to css utils
+- Changed primary theme color (original)
 - Added "power" svg icon
 - Added "more-options" svg icon
 - Removed "ui-drawer-group" bottom border
