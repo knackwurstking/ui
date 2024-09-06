@@ -32,7 +32,7 @@
     --ui-color-hsl: 240, 10%, 10%;
     --ui-color: hsla(var(--ui-color-hsl), 1);
 
-    --ui-primary-bgColor: hsla(240, 10%, 3.9%, 1);
+    --ui-primary-bgColor: hsla(240, 10%, 25%, 1);
     --ui-primary-color: hsla(240, 10%, 98%, 1);
 
     --ui-secondary-bgColor: hsla(240, 10%, 75%, 1);
@@ -46,7 +46,7 @@
     --ui-ripple-color: currentColor;
     --ui-ripple-opacity: 0.2;
 
-    --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), .2);
+    --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
@@ -56,7 +56,6 @@
     --ui-muted-bgColor: hsla(240, 10%, 84.1%, 1);
     --ui-muted-color: hsla(240, 10%, 36.1%, 1);
     --ui-muted-borderColor: var(--ui-borderColor);
-    --ui-muted-radius: var(--ui-radius);
     --ui-muted-fontFamily: var(--ui-fontFamily);
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
 
@@ -84,7 +83,7 @@
     --ui-color-hsl: 240, 10%, 90%;
     --ui-color: hsla(var(--ui-color-hsl), 1);
 
-    --ui-primary-bgColor: hsla(240, 10%, 98%, 1);
+    --ui-primary-bgColor: hsla(240, 10%, 75%, 1);
     --ui-primary-color: hsla(240, 10%, 10%, 1);
 
     --ui-secondary-bgColor: hsla(240, 10%, 25%, 1);
@@ -98,7 +97,7 @@
     --ui-ripple-color: currentColor;
     --ui-ripple-opacity: 0.2;
 
-    --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), .2);
+    --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
@@ -108,7 +107,6 @@
     --ui-muted-bgColor: hsla(240, 10%, 15.9%, 1);
     --ui-muted-color: hsla(240, 10%, 64.9%, 1);
     --ui-muted-borderColor: var(--ui-borderColor);
-    --ui-muted-radius: var(--ui-radius);
     --ui-muted-fontFamily: var(--ui-fontFamily);
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
 
