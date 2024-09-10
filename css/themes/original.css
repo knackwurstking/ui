@@ -21,6 +21,9 @@
     --ui-dialog-header-height: 2.5rem;
     --ui-dialog-footer-height: 3rem;
     --ui-drawer-width: 20rem;
+
+    --ui-ripple-color: currentColor;
+    --ui-ripple-opacity: 0.2;
 }
 
 [data-theme="light"] {
@@ -42,9 +45,6 @@
     --ui-destructive-color: hsla(0, 0%, 98%, 1);
 
     --ui-borderColor: hsla(240, 10%, 82%, 1);
-
-    --ui-ripple-color: currentColor;
-    --ui-ripple-opacity: 0.2;
 
     --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), 0.2);
     --ui-backdropFilter: blur(5px);
@@ -93,9 +93,6 @@
     --ui-destructive-color: hsla(0, 0%, 98%, 1);
 
     --ui-borderColor: hsla(240, 10%, 18%, 1);
-
-    --ui-ripple-color: currentColor;
-    --ui-ripple-opacity: 0.2;
 
     --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), 0.2);
     --ui-backdropFilter: blur(5px);
