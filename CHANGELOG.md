@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.2.19 — [unreleased]
+
+**General**:
+
+- Simplified all exports
+
 ## v0.2.18 — 2024-09-06
 
 **General**:
