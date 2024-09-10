@@ -6,8 +6,8 @@ export { UISelectOption } from "./ui-select-option";
 export { UITextarea } from "./ui-textarea";
 
 /**
- * @typedef {import("./ui-input").UIInputEvents} UIInputEvents
- * @typedef {import("./ui-search").UISearchEvents} UISearchEvents
- * @typedef {import("./ui-select").UISelectEvents} UISelectEvents
+ * @typedef {import("./ui-input").UIInputEvents} UIInput_Events
+ * @typedef {import("./ui-search").UISearchEvents} UISearch_Events
+ * @typedef {import("./ui-select").UISelectEvents} UISelect_Events
  * @typedef {import("./ui-textarea").UITextarea_Events} UITextarea_Events
  */
