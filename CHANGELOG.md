@@ -2,9 +2,15 @@
 
 ## v0.2.19 — [unreleased]
 
+- [ ] Improve documentation, use "@slot <name>" and "@event <name>"
+
 **General**:
 
 - Simplified all exports
+
+**Fixed**:
+
+- Fixed `ui-store` "get" and "update" methods ignoring the local storage, if set was not called first
 
 ## v0.2.18 — 2024-09-06
 
