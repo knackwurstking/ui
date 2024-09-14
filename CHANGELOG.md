@@ -2,23 +2,31 @@
 
 ## v0.3.0 — [unreleased]
 
-- [ ] Improve documentation, use "@slot <name>" and "@event <name>"
+**Changed**:
 
-**General**:
-
-- Renamed `*-color*` to `*-fg*`
-- Removed `*-bg*` from "primary", "secondary", "destructive", "muted" and "card" vars
-- Renamed `--ui-svg-color` to `--ui-svg-fg`
 - Changed secondary theme color
 - Changed css theme vars for: "secondary", "primary"
 - Changed css theme vars, `--ui-color-hsl` replaced with `--ui-color-(h|s|l)`
 - Changed css theme vars, `--ui-bgColor-hsl` replaced with `--ui-bg-(h|s|l)`
-- Renamed css vars `*bgColor*` to `*bg*`
-- Simplified all exports
 
 **Fixed**:
 
 - Fixed `ui-store` "get" and "update" methods ignoring the local storage, if set was not called first
+
+**General**:
+
+- [ ] Improve documentation, use "@slot <name>" and "@event <name>"
+- Simplified all exports
+
+**Removed**:
+
+- Removed `*-bg*` from "primary", "secondary", "destructive", "muted" and "card" vars
+
+**Renamed**:
+
+- Renamed `*-color*` to `*-fg*`
+- Renamed `--ui-svg-color` to `--ui-svg-fg`
+- Renamed css vars `*bgColor*` to `*bg*`
 
 ## v0.2.18 — 2024-09-06
 
