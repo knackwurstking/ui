@@ -30,11 +30,23 @@
     /*
      * Basics
      */
-    --ui-bgColor-hsl: 240, 10%, 96.1%;
-    --ui-bgColor: hsla(var(--ui-bgColor-hsl), 1);
-    --ui-color-hsl: 240, 10%, 10%;
-    --ui-color: hsla(var(--ui-color-hsl), 1);
 
+    --ui-bg-h: 240;
+    --ui-bg-s: 10%;
+    --ui-bg-l: 96%;
+    --ui-bgColor: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+
+    --ui-color-h: 240;
+    --ui-color-s: 10%;
+    --ui-color-l: 10%;
+    --ui-color: hsla(
+        var(--ui-color-h),
+        var(--ui-color-s),
+        var(--ui-color-l),
+        1
+    );
+
+    /* TODO: ... */
     --ui-primary-bgColor: hsla(240, 10%, 25%, 1);
     --ui-primary-color: hsla(240, 10%, 98%, 1);
 
@@ -46,7 +58,12 @@
 
     --ui-borderColor: hsla(240, 10%, 82%, 1);
 
-    --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), 0.2);
+    --ui-backdrop-bgColor: hsla(
+        var(--ui-bg-h),
+        var(--ui-bg-s),
+        var(--ui-bg-l),
+        0.2
+    );
     --ui-backdropFilter: blur(5px);
 
     /*
@@ -78,10 +95,20 @@
      * Basics
      */
 
-    --ui-bgColor-hsl: 240, 10%, 3.9%;
-    --ui-bgColor: hsla(var(--ui-bgColor-hsl), 1);
-    --ui-color-hsl: 240, 10%, 90%;
-    --ui-color: hsla(var(--ui-color-hsl), 1);
+    --ui-bg-h: 240;
+    --ui-bg-s: 10%;
+    --ui-bg-l: 4%;
+    --ui-bgColor: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+
+    --ui-color-h: 240;
+    --ui-color-s: 10%;
+    --ui-color-l: 90%;
+    --ui-color: hsla(
+        var(--ui-color-h),
+        var(--ui-color-s),
+        var(--ui-color-l),
+        1
+    );
 
     --ui-primary-bgColor: hsla(240, 10%, 75%, 1);
     --ui-primary-color: hsla(240, 10%, 10%, 1);
@@ -94,7 +121,12 @@
 
     --ui-borderColor: hsla(240, 10%, 18%, 1);
 
-    --ui-backdrop-bgColor: hsla(var(--ui-bgColor-hsl), 0.2);
+    --ui-backdrop-bgColor: hsla(
+        var(--ui-bg-h),
+        var(--ui-bg-s),
+        var(--ui-bg-l),
+        0.2
+    );
     --ui-backdropFilter: blur(5px);
 
     /*

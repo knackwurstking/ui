@@ -6,6 +6,9 @@
 
 **General**:
 
+- Changed css theme vars, `--ui-color-hsl` replaced with `--ui-color-(h|s|l)`
+- Changed css theme vars, `--ui-bgColor-hsl` replaced with `--ui-bg-(h|s|l)`
+- Renamed css vars `*bgColor*` to `*bg*`
 - Simplified all exports
 
 **Fixed**:
