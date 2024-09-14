@@ -16,14 +16,14 @@ export default html`
         <g id="SVGRepo_iconCarrier">
             <style type="text/css">
                 .st0 {
-                    fill: var(--ui-svg-bgColor, red);
+                    fill: var(--ui-svg-bg, red);
                     transition: fill 0.25s linear;
                 }
                 .st1 {
                     opacity: 0.2;
                 }
                 .st2 {
-                    fill: var(--ui-svg-bgColor, red);
+                    fill: var(--ui-svg-bg, red);
                     transition: fill 0.25s linear;
                 }
                 .st3 {

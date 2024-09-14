@@ -148,17 +148,17 @@ export class UIButton extends HTMLElement {
                 }
 
                 :host([variant="full"][color="primary"]) {
-                    background-color: var(--ui-primary-bgColor);
+                    background-color: var(--ui-primary-bg);
                     color: var(--ui-primary-color);
                 }
 
                 :host([variant="full"][color="secondary"]) {
-                    background-color: var(--ui-secondary-bgColor);
+                    background-color: var(--ui-secondary-bg);
                     color: var(--ui-secondary-color);
                 }
 
                 :host([variant="full"][color="destructive"]) {
-                    background-color: var(--ui-destructive-bgColor);
+                    background-color: var(--ui-destructive-bg);
                     color: var(--ui-destructive-color);
                 }
 
@@ -168,15 +168,15 @@ export class UIButton extends HTMLElement {
                 }
 
                 :host([variant="outline"][color="primary"]) {
-                    color: var(--ui-primary-bgColor);
+                    color: var(--ui-primary-bg);
                 }
 
                 :host([variant="outline"][color="secondary"]) {
-                    color: var(--ui-secondary-bgColor);
+                    color: var(--ui-secondary-bg);
                 }
 
                 :host([variant="outline"][color="destructive"]) {
-                    color: var(--ui-destructive-bgColor);
+                    color: var(--ui-destructive-bg);
                 }
 
                 :host([variant="ghost"]) {
@@ -186,15 +186,15 @@ export class UIButton extends HTMLElement {
                 }
 
                 :host([variant="ghost"][color="primary"]) {
-                    color: var(--ui-primary-bgColor);
+                    color: var(--ui-primary-bg);
                 }
 
                 :host([variant="ghost"][color="secondary"]) {
-                    color: var(--ui-secondary-bgColor);
+                    color: var(--ui-secondary-bg);
                 }
 
                 :host([variant="ghost"][color="destructive"]) {
-                    color: var(--ui-destructive-bgColor);
+                    color: var(--ui-destructive-bg);
                 }
 
                 :host([disabled]),

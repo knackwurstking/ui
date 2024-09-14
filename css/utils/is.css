@@ -7,7 +7,7 @@
 }
 
 .is-card {
-    background-color: var(--ui-card-bgColor);
+    background-color: var(--ui-card-bg);
     color: var(--ui-card-color);
     border: 1px solid var(--ui-card-borderColor);
     border-radius: var(--ui-card-radius);
@@ -15,7 +15,7 @@
 }
 
 .is-muted {
-    background-color: var(--ui-muted-bgColor);
+    background-color: var(--ui-muted-bg);
     color: var(--ui-muted-color);
     border: 1px solid var(--ui-muted-borderColor);
     border-radius: var(--ui-radius);
