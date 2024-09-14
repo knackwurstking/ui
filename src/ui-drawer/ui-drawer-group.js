@@ -41,17 +41,7 @@ export class UIDrawerGroup extends HTMLElement {
                 }
 
                 item.classList.add("visible");
-                item.innerHTML = html`
-                    <span
-                        style="
-              font-size: 1.5rem;
-              font-weight: 600;
-              font-variation-settings: var(--ui-heading-fontVariation);
-            "
-                    >
-                        ${value}
-                    </span>
-                `;
+                item.innerHTML = html` <h3>${value}</h3> `;
             },
 
             get fold() {
@@ -101,10 +91,6 @@ export class UIDrawerGroup extends HTMLElement {
                 ui-drawer-group-item {
                     display: flex;
                     cursor: pointer;
-                }
-
-                .title {
-                    color: var(--ui-secondary-bg);
                 }
 
                 .title:not(.visible) {
