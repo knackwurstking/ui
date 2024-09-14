@@ -67,7 +67,7 @@
     );
 
     --ui-secondary-bg-h: 240;
-    --ui-secondary-bg-s: 10%;
+    --ui-secondary-bg-s: 15%;
     --ui-secondary-bg-l: 75%;
     --ui-secondary-bg: hsla(
         var(--ui-secondary-bg-h),
@@ -176,7 +176,7 @@
     );
 
     --ui-secondary-bg-h: 240;
-    --ui-secondary-bg-s: 10%;
+    --ui-secondary-bg-s: 15%;
     --ui-secondary-bg-l: 25%;
     --ui-secondary-bg: hsla(
         var(--ui-secondary-bg-h),

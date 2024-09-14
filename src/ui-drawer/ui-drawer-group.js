@@ -103,6 +103,10 @@ export class UIDrawerGroup extends HTMLElement {
                     cursor: pointer;
                 }
 
+                .title {
+                    color: var(--ui-secondary-bg);
+                }
+
                 .title:not(.visible) {
                     display: none;
                 }
