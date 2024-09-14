@@ -224,7 +224,6 @@ export class UIDialog extends HTMLElement {
 
                 .header [name="title"] {
                     margin: auto 0;
-                    color: var(--ui-secondary-bg);
                 }
 
                 :host([fullscreen]) .header {
