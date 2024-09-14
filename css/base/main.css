@@ -53,6 +53,7 @@ h6 {
     font-family: "RecVar";
     font-weight: 600;
     font-variation-settings: var(--ui-heading-fontVariation);
+    color: var(--ui-secondary-bg);
 }
 
 h1 {
