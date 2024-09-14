@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.2.19 — [unreleased]
+## v0.3.0 — [unreleased]
 
 - [ ] Improve documentation, use "@slot <name>" and "@event <name>"
 
