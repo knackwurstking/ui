@@ -160,7 +160,7 @@ export class UIDialog extends HTMLElement {
                 }
 
                 dialog::backdrop {
-                    background-color: var(--ui-backdrop-bg);
+                    background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
                 }

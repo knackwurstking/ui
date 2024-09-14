@@ -3,14 +3,14 @@
  */
 
 ::selection {
-    background-color: var(--ui-primary-bg);
-    color: var(--ui-primary-color);
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-fg);
 }
 
 html {
     font-size: var(--ui-font-size);
     background-color: var(--ui-bg);
-    color: var(--ui-color);
+    color: var(--ui-fg);
 }
 
 body {
@@ -86,8 +86,8 @@ h6 {
 
 code,
 pre {
-    background-color: var(--ui-muted-bg);
-    color: var(--ui-muted-color);
+    background-color: var(--ui-muted);
+    color: var(--ui-muted-fg);
     border: 1px solid var(--ui-muted-borderColor);
     border-radius: var(--ui-radius);
     padding: var(--ui-spacing);
@@ -131,7 +131,7 @@ textarea {
     transition: border-color 0.25s linear;
 
     background-color: var(--ui-bg);
-    color: var(--ui-color);
+    color: var(--ui-fg);
 
     box-shadow: none;
     outline: none;
@@ -142,7 +142,7 @@ textarea {
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-    accent-color: var(--ui-primary-bg);
+    accent-color: var(--ui-primary);
 }
 
 select {
@@ -155,7 +155,7 @@ select {
     transition: border-color 0.25s linear;
 
     background-color: var(--ui-bg);
-    color: var(--ui-color);
+    color: var(--ui-fg);
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
@@ -192,11 +192,11 @@ input[type="color"] {
 
 input:focus:not([type="checkbox"]),
 textarea:focus {
-    border-color: var(--ui-primary-bg);
+    border-color: var(--ui-primary);
 }
 
 input[aria-invalid] {
-    border-color: var(--ui-destructive-bg) !important;
+    border-color: var(--ui-destructive) !important;
 }
 
 input:disabled {

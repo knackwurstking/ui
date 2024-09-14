@@ -163,7 +163,7 @@ export class UITextarea extends HTMLElement {
                     font-size: 0.9rem;
                     font-family: var(--ui-fontFamily);
                     font-variation-settings: var(--ui-input-fontVariation);
-                    accent-color: var(--ui-primary-bg);
+                    accent-color: var(--ui-primary);
                     background-color: transparent !important;
                 }
 
@@ -177,11 +177,11 @@ export class UITextarea extends HTMLElement {
                 }
 
                 .container:has(textarea:focus) {
-                    border-color: var(--ui-primary-bg);
+                    border-color: var(--ui-primary);
                 }
 
                 :host([invalid]) .container {
-                    border-color: var(--ui-destructive-bg);
+                    border-color: var(--ui-destructive);
                 }
 
                 ::slotted([slot="title"]) {

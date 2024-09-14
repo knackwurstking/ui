@@ -22,7 +22,7 @@
     --ui-dialog-footer-height: 3rem;
     --ui-drawer-width: 20rem;
 
-    --ui-ripple-color: currentColor;
+    --ui-ripple-fg: currentColor;
     --ui-ripple-opacity: 0.2;
 }
 
@@ -36,87 +36,82 @@
     --ui-bg-l: 96%;
     --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
 
-    --ui-color-h: 240;
-    --ui-color-s: 10%;
-    --ui-color-l: 10%;
-    --ui-color: hsla(
-        var(--ui-color-h),
-        var(--ui-color-s),
-        var(--ui-color-l),
+    --ui-fg-h: 240;
+    --ui-fg-s: 10%;
+    --ui-fg-l: 10%;
+    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+
+    --ui-primary-h: 240;
+    --ui-primary-s: 10%;
+    --ui-primary-l: 25%;
+    --ui-primary: hsla(
+        var(--ui-primary-h),
+        var(--ui-primary-s),
+        var(--ui-primary-l),
         1
     );
 
-    --ui-primary-bg-h: 240;
-    --ui-primary-bg-s: 10%;
-    --ui-primary-bg-l: 25%;
-    --ui-primary-bg: hsla(
-        var(--ui-primary-bg-h),
-        var(--ui-primary-bg-s),
-        var(--ui-primary-bg-l),
+    --ui-primary-fg-h: 240;
+    --ui-primary-fg-s: 10%;
+    --ui-primary-fg-l: 98%;
+    --ui-primary-fg: hsla(
+        var(--ui-primary-fg-h),
+        var(--ui-primary-fg-s),
+        var(--ui-primary-fg-l),
         1
     );
 
-    --ui-primary-color-h: 240;
-    --ui-primary-color-s: 10%;
-    --ui-primary-color-l: 98%;
-    --ui-primary-color: hsla(
-        var(--ui-primary-color-h),
-        var(--ui-primary-color-s),
-        var(--ui-primary-color-l),
+    --ui-secondary-h: 240;
+    --ui-secondary-s: 15%;
+    --ui-secondary-l: 75%;
+    --ui-secondary: hsla(
+        var(--ui-secondary-h),
+        var(--ui-secondary-s),
+        var(--ui-secondary-l),
         1
     );
 
-    --ui-secondary-bg-h: 240;
-    --ui-secondary-bg-s: 15%;
-    --ui-secondary-bg-l: 75%;
-    --ui-secondary-bg: hsla(
-        var(--ui-secondary-bg-h),
-        var(--ui-secondary-bg-s),
-        var(--ui-secondary-bg-l),
+    --ui-secondary-fg-h: 240;
+    --ui-secondary-fg-s: 10%;
+    --ui-secondary-fg-l: 10%;
+    --ui-secondary-fg: hsla(
+        var(--ui-secondary-fg-h),
+        var(--ui-secondary-fg-s),
+        var(--ui-secondary-fg-l),
         1
     );
 
-    --ui-secondary-color-h: 240;
-    --ui-secondary-color-s: 10%;
-    --ui-secondary-color-l: 10%;
-    --ui-secondary-color: hsla(
-        var(--ui-secondary-color-h),
-        var(--ui-secondary-color-s),
-        var(--ui-secondary-color-l),
+    --ui-destructive-h: 0;
+    --ui-destructive-s: 72%;
+    --ui-destructive-l: 51%;
+    --ui-destructive: hsla(
+        var(--ui-destructive-h),
+        var(--ui-destructive-s),
+        var(--ui-destructive-l),
         1
     );
 
-    --ui-destructive-bg-h: 0;
-    --ui-destructive-bg-s: 72%;
-    --ui-destructive-bg-l: 51%;
-    --ui-destructive-bg: hsla(
-        var(--ui-destructive-bg-h),
-        var(--ui-destructive-bg-s),
-        var(--ui-destructive-bg-l),
-        1
-    );
-
-    --ui-destructive-color-h: 0;
-    --ui-destructive-color-s: 0%;
-    --ui-destructive-color-l: 98%;
-    --ui-destructive-color: hsla(
-        var(--ui-destructive-color-h),
-        var(--ui-destructive-color-s),
-        var(--ui-destructive-color-l),
+    --ui-destructive--h: 0;
+    --ui-destructive--s: 0%;
+    --ui-destructive--l: 98%;
+    --ui-destructive-: hsla(
+        var(--ui-destructive-fg-h),
+        var(--ui-destructive-fg-s),
+        var(--ui-destructive-fg-l),
         1
     );
 
     --ui-borderColor: hsla(240, 10%, 82%, 1);
 
-    --ui-backdrop-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
      * Muted: code, pre
      */
 
-    --ui-muted-bg: hsla(240, 10%, 84%, 1);
-    --ui-muted-color: hsla(240, 10%, 36%, 1);
+    --ui-muted: hsla(240, 10%, 84%, 1);
+    --ui-muted-fg: hsla(240, 10%, 36%, 1);
     --ui-muted-borderColor: var(--ui-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
@@ -125,13 +120,13 @@
      * ui-card
      */
 
-    --ui-card-bg: hsla(240, 10%, 92%, 1);
-    --ui-card-color: hsla(240, 10%, 4%, 1);
+    --ui-card: hsla(240, 10%, 92%, 1);
+    --ui-card-fg: hsla(240, 10%, 4%, 1);
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
 
     background-color: var(--ui-bg);
-    color: var(--ui-color);
+    color: var(--ui-fg);
     color-scheme: light;
 }
 
@@ -145,87 +140,82 @@
     --ui-bg-l: 4%;
     --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
 
-    --ui-color-h: 240;
-    --ui-color-s: 10%;
-    --ui-color-l: 90%;
-    --ui-color: hsla(
-        var(--ui-color-h),
-        var(--ui-color-s),
-        var(--ui-color-l),
+    --ui-fg-h: 240;
+    --ui-fg-s: 10%;
+    --ui-fg-l: 90%;
+    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+
+    --ui-primary-h: 240;
+    --ui-primary-s: 10%;
+    --ui-primary-l: 75%;
+    --ui-primary: hsla(
+        var(--ui-primary-h),
+        var(--ui-primary-s),
+        var(--ui-primary-l),
         1
     );
 
-    --ui-primary-bg-h: 240;
-    --ui-primary-bg-s: 10%;
-    --ui-primary-bg-l: 75%;
-    --ui-primary-bg: hsla(
-        var(--ui-primary-bg-h),
-        var(--ui-primary-bg-s),
-        var(--ui-primary-bg-l),
+    --ui-primary-fg-h: 240;
+    --ui-primary-fg-s: 10%;
+    --ui-primary-fg-l: 10%;
+    --ui-primary-fg: hsla(
+        var(--ui-primary-fg-h),
+        var(--ui-primary-fg-s),
+        var(--ui-primary-fg-l),
         1
     );
 
-    --ui-primary-color-h: 240;
-    --ui-primary-color-s: 10%;
-    --ui-primary-color-l: 10%;
-    --ui-primary-color: hsla(
-        var(--ui-primary-color-h),
-        var(--ui-primary-color-s),
-        var(--ui-primary-color-l),
+    --ui-secondary-h: 240;
+    --ui-secondary-s: 15%;
+    --ui-secondary-l: 25%;
+    --ui-secondary: hsla(
+        var(--ui-secondary-h),
+        var(--ui-secondary-s),
+        var(--ui-secondary-l),
         1
     );
 
-    --ui-secondary-bg-h: 240;
-    --ui-secondary-bg-s: 15%;
-    --ui-secondary-bg-l: 25%;
-    --ui-secondary-bg: hsla(
-        var(--ui-secondary-bg-h),
-        var(--ui-secondary-bg-s),
-        var(--ui-secondary-bg-l),
+    --ui-secondary-fg-h: 240;
+    --ui-secondary-fg-s: 10%;
+    --ui-secondary-fg-l: 98%;
+    --ui-secondary-fg: hsla(
+        var(--ui-secondary-fg-h),
+        var(--ui-secondary-fg-s),
+        var(--ui-secondary-fg-l),
         1
     );
 
-    --ui-secondary-color-h: 240;
-    --ui-secondary-color-s: 10%;
-    --ui-secondary-color-l: 98%;
-    --ui-secondary-color: hsla(
-        var(--ui-secondary-color-h),
-        var(--ui-secondary-color-s),
-        var(--ui-secondary-color-l),
+    --ui-destructive-h: 0;
+    --ui-destructive-s: 63%;
+    --ui-destructive-l: 31%;
+    --ui-destructive: hsla(
+        var(--ui-destructive-h),
+        var(--ui-destructive-s),
+        var(--ui-destructive-l),
         1
     );
 
-    --ui-destructive-bg-h: 0;
-    --ui-destructive-bg-s: 63%;
-    --ui-destructive-bg-l: 31%;
-    --ui-destructive-bg: hsla(
-        var(--ui-destructive-bg-h),
-        var(--ui-destructive-bg-s),
-        var(--ui-destructive-bg-l),
-        1
-    );
-
-    --ui-destructive-color-h: 0;
-    --ui-destructive-color-s: 0%;
-    --ui-destructive-color-l: 98%;
-    --ui-destructive-color: hsla(
-        var(--ui-destructive-color-h),
-        var(--ui-destructive-color-s),
-        var(--ui-destructive-color-l),
+    --ui-destructive-fg-h: 0;
+    --ui-destructive-fg-s: 0%;
+    --ui-destructive-fg-l: 98%;
+    --ui-destructive-fg: hsla(
+        var(--ui-destructive-fg-h),
+        var(--ui-destructive-fg-s),
+        var(--ui-destructive-fg-l),
         1
     );
 
     --ui-borderColor: hsla(240, 10%, 18%, 1);
 
-    --ui-backdrop-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
      * Muted: code, pre
      */
 
-    --ui-muted-bg: hsla(240, 10%, 16%, 1);
-    --ui-muted-color: hsla(240, 10%, 65%, 1);
+    --ui-muted: hsla(240, 10%, 16%, 1);
+    --ui-muted-fg: hsla(240, 10%, 65%, 1);
     --ui-muted-borderColor: var(--ui-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
@@ -234,12 +224,12 @@
      * ui-card
      */
 
-    --ui-card-bg: hsla(240, 10%, 8%, 1);
-    --ui-card-color: hsla(240, 10%, 98%, 1);
+    --ui-card: hsla(240, 10%, 8%, 1);
+    --ui-card-fg: hsla(240, 10%, 98%, 1);
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
 
     background-color: var(--ui-bg);
-    color: var(--ui-color);
+    color: var(--ui-fg);
     color-scheme: dark;
 }

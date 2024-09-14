@@ -6,6 +6,10 @@
 
 **General**:
 
+- Renamed `*-color*` to `*-fg*`
+- Removed `*-bg*` from "primary", "secondary", "destructive", "muted" and "card" vars
+- Renamed `--ui-svg-color` to `--ui-svg-fg`
+- Changed secondary theme color
 - Changed css theme vars for: "secondary", "primary"
 - Changed css theme vars, `--ui-color-hsl` replaced with `--ui-color-(h|s|l)`
 - Changed css theme vars, `--ui-bgColor-hsl` replaced with `--ui-bg-(h|s|l)`

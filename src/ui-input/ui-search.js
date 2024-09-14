@@ -211,7 +211,7 @@ export class UISearch extends HTMLElement {
                     font-size: 0.9rem;
                     font-family: var(--ui-fontFamily);
                     font-variation-settings: var(--ui-input-fontVariation);
-                    accent-color: var(--ui-primary-bg);
+                    accent-color: var(--ui-primary);
                     background-color: transparent !important;
                 }
 
@@ -226,17 +226,17 @@ export class UISearch extends HTMLElement {
                     border: 1px solid var(--ui-borderColor);
                     border-radius: var(--ui-radius);
                     transition: border-color 0.25s linear;
-                    background-color: var(--ui-backdrop-bg);
+                    background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
                 }
 
                 .container:has(input:focus) {
-                    border-color: var(--ui-primary-bg);
+                    border-color: var(--ui-primary);
                 }
 
                 :host([invalid]) .container {
-                    border-color: var(--ui-destructive-bg);
+                    border-color: var(--ui-destructive);
                 }
 
                 ::slotted([slot="title"]) {

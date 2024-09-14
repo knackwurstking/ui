@@ -65,7 +65,7 @@ export class UIAppBar extends HTMLElement {
                     display: flex !important;
                     position: absolute !important;
                     z-index: 100;
-                    background-color: var(--ui-backdrop-bg);
+                    background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
                     overflow: hidden;

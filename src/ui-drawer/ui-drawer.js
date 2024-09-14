@@ -78,7 +78,7 @@ export class UIDrawer extends HTMLElement {
                 }
 
                 :host([open]) {
-                    background-color: var(--ui-backdrop-bg);
+                    background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
 
@@ -103,11 +103,11 @@ export class UIDrawer extends HTMLElement {
                     -ms-overflow-style: none;
                     scrollbar-width: none;
 
-                    background-color: var(--ui-card-bg);
-                    color: var(--ui-card-color);
+                    background-color: var(--ui-card);
+                    color: var(--ui-card-fg);
 
                     /*
-                    background-color: var(--ui-backdrop-bg);
+                    background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
                     */

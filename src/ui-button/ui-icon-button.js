@@ -138,18 +138,18 @@ export class UIIconButton extends HTMLElement {
                 }
 
                 :host([color="primary"]) {
-                    color: var(--ui-primary-bg);
-                    border-color: var(--ui-primary-bg);
+                    color: var(--ui-primary);
+                    border-color: var(--ui-primary);
                 }
 
                 :host([color="secondary"]) {
-                    color: var(--ui-secondary-bg);
-                    border-color: var(--ui-secondary-bg);
+                    color: var(--ui-secondary);
+                    border-color: var(--ui-secondary);
                 }
 
                 :host([color="destructive"]) {
-                    color: var(--ui-destructive-bg);
-                    border-color: var(--ui-destructive-bg);
+                    color: var(--ui-destructive);
+                    border-color: var(--ui-destructive);
                 }
 
                 /* :disabled */

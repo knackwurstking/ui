@@ -40,8 +40,8 @@ export default function createNative(
             [...container.children].forEach(
                 (/** @type {HTMLElement} */ c, ci) => {
                     if (ci === childIndex) {
-                        c.style.background = "var(--ui-primary-bg)";
-                        c.style.color = "var(--ui-primary-color)";
+                        c.style.background = "var(--ui-primary)";
+                        c.style.color = "var(--ui-primary-fg)";
 
                         return;
                     }

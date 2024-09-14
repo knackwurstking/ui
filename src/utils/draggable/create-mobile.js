@@ -46,8 +46,8 @@ export default function createMobile(
                 backupColor = originTarget.style.color;
                 backupBGColor = originTarget.style.backgroundColor;
 
-                originTarget.style.color = "var(--ui-primary-color)";
-                originTarget.style.backgroundColor = "var(--ui-primary-bg)";
+                originTarget.style.color = "var(--ui-primary-fg)";
+                originTarget.style.backgroundColor = "var(--ui-primary)";
 
                 container.classList.add("dragging");
 

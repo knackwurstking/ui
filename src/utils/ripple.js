@@ -19,7 +19,7 @@
 
 /** @type {Ripple_Options} */
 export const defaultOptions = {
-    color: "var(--ui-ripple-color, currentColor)",
+    color: "var(--ui-ripple-fg, currentColor)",
     opacity: "var(--ui-ripple-opacity, 0.2)",
     centered: false,
     spreadDuration: ".4s",

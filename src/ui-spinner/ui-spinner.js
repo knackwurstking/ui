@@ -60,7 +60,7 @@ export class UISpinner extends HTMLElement {
                     right: 0;
                     bottom: 0;
                     left: 0;
-                    background-color: var(--ui-backdrop-bg);
+                    background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
                 }
@@ -78,7 +78,7 @@ export class UISpinner extends HTMLElement {
                     margin-left: -1.25rem;
                     border-radius: 50%;
                     border: 2px solid var(--ui-borderColor);
-                    border-top-color: var(--ui-primary-bg);
+                    border-top-color: var(--ui-primary);
                     animation: spinner 0.6s linear infinite;
                 }
 

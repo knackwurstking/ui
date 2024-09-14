@@ -28,7 +28,7 @@ export default html`
                 }
                 .st3 {
                     fill: none;
-                    stroke: var(--ui-svg-color, currentColor);
+                    stroke: var(--ui-svg-fg, currentColor);
                     stroke-width: 4;
                     stroke-linecap: round;
                     stroke-miterlimit: 10;

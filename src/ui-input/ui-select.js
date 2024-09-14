@@ -109,7 +109,7 @@ export class UISelect extends HTMLElement {
                     transition: height 0.25s ease;
 
                     background-color: var(--ui-bg);
-                    color: var(--ui-color);
+                    color: var(--ui-fg);
 
                     border: 1px solid var(--ui-borderColor);
                     border-radius: var(--ui-radius);
@@ -140,7 +140,7 @@ export class UISelect extends HTMLElement {
                     right: 0;
                     width: 2.5rem;
                     height: 100%;
-                    color: var(--ui-primary-bg);
+                    color: var(--ui-primary);
                 }
 
                 ::slotted(ui-select-option) {
@@ -163,16 +163,16 @@ export class UISelect extends HTMLElement {
                 }
 
                 :host([open]) ::slotted(ui-select-option[selected]) {
-                    background-color: var(--ui-primary-bg);
-                    color: var(--ui-primary-color);
+                    background-color: var(--ui-primary);
+                    color: var(--ui-primary-fg);
                 }
 
                 :host([open])
                     ::slotted(ui-select-option:not([selected]):hover) {
                     background-color: hsla(
-                        var(--ui-color-h),
-                        var(--ui-color-s),
-                        var(--ui-color-l),
+                        var(--ui-fg-h),
+                        var(--ui-fg-s),
+                        var(--ui-fg-l),
                         0.1
                     );
                 }
