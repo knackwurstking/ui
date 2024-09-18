@@ -17,9 +17,9 @@
  *  - **actions**
  *  - \*
  *
- * @template {UIDialog_Events} T
+ * @template {UIDialog_Events} [T=UIDialog_Events]
  */
-export class UIDialog<T extends UIDialog_Events> extends HTMLElement {
+export class UIDialog<T extends UIDialog_Events = UIDialog_Events> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     /**

@@ -20,10 +20,9 @@
  * Slots:
  *  - **title**
  *
- * @template {UIInputEvents} E
- * @extends {HTMLElement}
+ * @template {UIInputEvents} [E=UIInputEvents]
  */
-export class UIInput<E extends UIInputEvents> extends HTMLElement {
+export class UIInput<E extends UIInputEvents = UIInputEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();

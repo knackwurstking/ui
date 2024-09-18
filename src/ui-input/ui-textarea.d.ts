@@ -19,10 +19,9 @@
  * Slots:
  *  - **title**
  *
- * @template {UITextarea_Events} E
- * @extends {HTMLElement}
+ * @template {UITextarea_Events} [E=UITextarea_Events]
  */
-export class UITextarea<E extends UITextarea_Events> extends HTMLElement {
+export class UITextarea<E extends UITextarea_Events = UITextarea_Events> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();

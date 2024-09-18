@@ -6,7 +6,6 @@
  *  - **storage**: `boolean`
  *
  * @template {{ [key: string]: any }} T
- * @extends {HTMLElement}
  */
 export class UIStore<T extends {
     [key: string]: any;

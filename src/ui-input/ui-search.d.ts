@@ -22,10 +22,9 @@
  * Slots:
  *  - **title**
  *
- * @template {UISearchEvents} E
- * @extends {HTMLElement}
+ * @template {UISearchEvents} [E=UISearchEvents]
  */
-export class UISearch<E extends UISearchEvents> extends HTMLElement {
+export class UISearch<E extends UISearchEvents = UISearchEvents> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
