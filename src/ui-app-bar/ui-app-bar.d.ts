@@ -2,12 +2,12 @@
  * HTML: `ui-app-bar`
  *
  * Attributes:
- *  - position: "top"
+ *  - **position**: `"top"`
  *
  * Slots:
- *  - left
- *  - center
- *  - right
+ *  - **left**
+ *  - **center**
+ *  - **right**
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;

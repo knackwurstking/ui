@@ -6,8 +6,8 @@
  * HTML: `ui-theme-handler`
  *
  * Attributes:
- *  - mode: "dark" | "light"
- *  - auto
+ *  - **mode**: "dark" | "light"
+ *  - **auto**: `boolean`
  */
 export class UIThemeHandler extends HTMLElement {
     static register: () => void;

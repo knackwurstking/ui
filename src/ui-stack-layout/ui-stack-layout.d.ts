@@ -8,7 +8,7 @@
  * HTML: `ui-stack-layout`
  *
  * Slots:
- *  - * from type `UIStackLayoutPage`
+ *  - \* from type `UIStackLayoutPage`
  *
  * @template {string} T
  */

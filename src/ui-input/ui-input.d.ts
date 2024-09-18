@@ -9,16 +9,16 @@
  * HTML: `ui-input`
  *
  * Attributes:
- *  - title: string
- *  - type: string
- *  - value: string
- *  - placeholder: string
- *  - min: string
- *  - max: string
- *  - invalid
+ *  - **title**: `string`
+ *  - **type**: `string`
+ *  - **value**: `string`
+ *  - **placeholder**: `string`
+ *  - **min**: `string`
+ *  - **max**: `string`
+ *  - **invalid**: `boolean`
  *
  * Slots:
- *  - title
+ *  - **title**
  *
  * @template {UIInputEvents} E
  * @extends {HTMLElement}

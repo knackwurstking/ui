@@ -9,15 +9,15 @@
  * HTML: `ui-textarea`
  *
  * Attributes:
- *  - title: string
- *  - value: string
- *  - palceholder: string
- *  - rows: number
- *  - cols: number
- *  - invalid
+ *  - **title**: `string`
+ *  - **value**: `string`
+ *  - **palceholder**: `string`
+ *  - **rows**: `number`
+ *  - **cols**: `number`
+ *  - **invalid**: `boolean`
  *
  * Slots:
- *  - title
+ *  - **title**
  *
  * @template {UITextarea_Events} E
  * @extends {HTMLElement}

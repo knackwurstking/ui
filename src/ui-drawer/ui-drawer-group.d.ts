@@ -2,12 +2,12 @@
  * HTML: `ui-drawer-group`
  *
  * Attributes:
- *  - title: string
- *  - fold
- *  - nofold
+ *  - **title**: `string`
+ *  - **fold**: `boolean`
+ *  - **nofold**: `boolean`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIDrawerGroup extends HTMLElement {
     static register: () => void;

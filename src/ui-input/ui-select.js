@@ -13,10 +13,10 @@ import { UISelectOption } from "./ui-select-option";
  * HTML: `ui-select`
  *
  * Attributes:
- *  - open
+ *  - **open**: `boolean`
  *
  * Slots:
- *  - * from type `UISelectOption`
+ *  - \* - from type `UISelectOption`
  */
 export class UISelect extends HTMLElement {
     static register = () => {

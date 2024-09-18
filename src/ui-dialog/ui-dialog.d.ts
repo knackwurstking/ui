@@ -9,13 +9,13 @@
  * HTML: `ui-dialog`
  *
  * Attributes:
- *  - title: string
- *  - fullscreen
- *  - nofooter
+ *  - **title**: `string`
+ *  - **fullscreen**: `boolean`
+ *  - **nofooter**: `boolean`
  *
  * Slots:
- *  - actions
- *  - *
+ *  - **actions**
+ *  - \*
  *
  * @template {UIDialog_Events} T
  */

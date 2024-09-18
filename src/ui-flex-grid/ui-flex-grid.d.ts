@@ -2,10 +2,10 @@
  * HTML: `ui-flex-grid`
  *
  * Attributes:
- *  - gap: string
+ *  - **gap**: `string`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIFlexGrid extends HTMLElement {
     static register: () => void;

@@ -25,13 +25,13 @@ import { Events, html, ripple } from "../utils";
  * HTML: `ui-button`
  *
  * Attribute:
- *  - variant: "ghost" | "outline" | "full"
- *  - color: "primary" | "secondary" | "destructive"
- *  - noripple
- *  - disabled
+ *  - **variant**: `"ghost" | "outline" | "full"`
+ *  - **color**: `"primary" | "secondary" | "destructive"`
+ *  - **noripple**: `boolean`
+ *  - **disabled**: `boolean`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIButton extends HTMLElement {
     static register = () => {

@@ -13,13 +13,13 @@ import { Events, html, ripple } from "../utils";
  * HTML: `ui-icon-button`
  *
  * Attribute:
- *  - color: "primary" | "secondary" | "destructive"
- *  - ghost
- *  - noripple
- *  - disabled
+ *  - **color**: `"primary" | "secondary" | "destructive"`
+ *  - **ghost**: `boolean`
+ *  - **noripple**: `boolean`
+ *  - **disabled**: `boolean`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIIconButton extends HTMLElement {
     static register = () => {

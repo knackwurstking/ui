@@ -2,7 +2,7 @@
  * HTML: `ui-app-bar-item`
  *
  * Slots:
- *  - *
+ *  - \*
  *
  * @template {HTMLElement} T
  */

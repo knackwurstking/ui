@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-spinner`
  *
  * Attributes:
- *  - nobg
+ *  - **nobg**: `boolean`
  */
 export class UISpinner extends HTMLElement {
     static register = () => {

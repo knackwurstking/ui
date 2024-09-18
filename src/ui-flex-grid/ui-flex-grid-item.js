@@ -4,83 +4,84 @@ import { css, html } from "../utils";
  * HTML: `ui-flex-grid-item`
  *
  * Attributes:
- *  - flex: string
+ *  - **flex**: `string`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIFlexGridItem extends HTMLElement {
-  static register = () => {
-    if (!customElements.get("ui-flex-grid-item")) {
-      customElements.define("ui-flex-grid-item", UIFlexGridItem);
-    }
-  };
-
-  static observedAttributes = ["flex"];
-
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-
-    /** @private */
-    this.flex = "1";
-
-    this.ui = {
-      root: this,
-
-      get flex() {
-        return this.root.flex;
-      },
-
-      set flex(value) {
-        this.root.flex = value || "1";
-        const style = this.root.shadowRoot.querySelector(`style[name="flex"]`);
-        style.textContent = css`
-          :host {
-            flex: ${this.root.flex};
-          }
-        `;
-      },
+    static register = () => {
+        if (!customElements.get("ui-flex-grid-item")) {
+            customElements.define("ui-flex-grid-item", UIFlexGridItem);
+        }
     };
 
-    this.shadowRender();
-  }
+    static observedAttributes = ["flex"];
 
-  shadowRender() {
-    this.shadowRoot.innerHTML = html`
-      <style>
-        * {
-          box-sizing: border-box;
-        }
+    constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
 
-        :host {
-          display: block;
-        }
-      </style>
+        /** @private */
+        this.flex = "1";
 
-      <style name="flex">
-        :host {
-          flex: 1;
-        }
-      </style>
+        this.ui = {
+            root: this,
 
-      <slot></slot>
-    `;
-  }
+            get flex() {
+                return this.root.flex;
+            },
 
-  connectedCallback() {}
-  disconnectedCallback() {}
+            set flex(value) {
+                this.root.flex = value || "1";
+                const style =
+                    this.root.shadowRoot.querySelector(`style[name="flex"]`);
+                style.textContent = css`
+                    :host {
+                        flex: ${this.root.flex};
+                    }
+                `;
+            },
+        };
 
-  /**
-   * @param {string} name
-   * @param {string | null} _oldValue
-   * @param {string | null} newValue
-   */
-  attributeChangedCallback(name, _oldValue, newValue) {
-    switch (name) {
-      case "flex":
-        this.ui.flex = newValue;
-        break;
+        this.shadowRender();
     }
-  }
+
+    shadowRender() {
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: block;
+                }
+            </style>
+
+            <style name="flex">
+                :host {
+                    flex: 1;
+                }
+            </style>
+
+            <slot></slot>
+        `;
+    }
+
+    connectedCallback() {}
+    disconnectedCallback() {}
+
+    /**
+     * @param {string} name
+     * @param {string | null} _oldValue
+     * @param {string | null} newValue
+     */
+    attributeChangedCallback(name, _oldValue, newValue) {
+        switch (name) {
+            case "flex":
+                this.ui.flex = newValue;
+                break;
+        }
+    }
 }

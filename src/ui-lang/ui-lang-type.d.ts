@@ -2,9 +2,9 @@
  * HTML: `ui-lang-type`
  *
  * Attributes:
- *  - name: string
- *  - href: string
- *  - fallback
+ *  - **name**: `string`
+ *  - **href**: `string`
+ *  - **fallback**: `boolean`
  */
 export class UILangType extends HTMLElement {
     static register: () => void;

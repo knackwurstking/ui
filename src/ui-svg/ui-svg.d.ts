@@ -2,7 +2,7 @@
  * HTML: `ui-svg`
  *
  * Slots:
- *  - * from type svg
+ *  - \* from type svg
  */
 export class UISvg extends HTMLElement {
     static register: () => void;

@@ -2,8 +2,8 @@
  * HTML: `ui-store`
  *
  * Attributes:
- *  - storageprefix: string
- *  - storage
+ *  - **storageprefix**: `string`
+ *  - **storage**: `boolean`
  *
  * @template {{ [key: string]: any }} T
  * @extends {HTMLElement}

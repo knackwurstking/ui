@@ -9,10 +9,10 @@
  * HTML: `ui-drawer`
  *
  * Attributes:
- *  - open
+ *  - **open**: `boolean`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIDrawer extends HTMLElement {
     static register: () => void;

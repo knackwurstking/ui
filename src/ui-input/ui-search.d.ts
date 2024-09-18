@@ -10,17 +10,17 @@
  * HTML: `ui-search`
  *
  * Attributes:
- *  - title: string
- *  - value: string
- *  - placeholder: string
- *  - invalid
- *  - nosubmit
- *  - storage
- *  - storageprefix
- *  - storagekey
+ *  - **title**: `string`
+ *  - **value**: `string`
+ *  - **placeholder**: `string`
+ *  - **invalid**: `boolean`
+ *  - **nosubmit**: `boolean`
+ *  - **storage**: `boolean`
+ *  - **storageprefix**: `string`
+ *  - **storagekey**: `string`
  *
  * Slots:
- *  - title
+ *  - **title**
  *
  * @template {UISearchEvents} E
  * @extends {HTMLElement}

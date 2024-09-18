@@ -4,10 +4,10 @@ import { Events } from "../utils";
  * HTML: `ui-lang`
  *
  * Attributes:
- *  - current: string
+ *  - **current**: `string`
  *
  * Slots:
- *  - * from type `UILangType`
+ *  - \* from type `UILangType`
  */
 export class UILang extends HTMLElement {
     static register = () => {

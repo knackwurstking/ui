@@ -2,13 +2,13 @@
  * HTML: `ui-label`
  *
  * Attributes:
- *  - primary: string
- *  - secondary: string
- *  - ripple -- this enables click forwarding
+ *  - **primary**: `string`
+ *  - **secondary**: `string`
+ *  - **ripple**: `boolean` - this enables click forwarding
  *
  * Slots:
- *  - input -- input slot get click forwarding
- *  - *
+ *  - **input** - input slot get click forwarding
+ *  - \*
  */
 export class UILabel extends HTMLElement {
     static register: () => void;

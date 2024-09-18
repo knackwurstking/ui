@@ -2,10 +2,10 @@
  * HTML: `ui-check`
  *
  * Attributes:
- *  - primary: string
- *  - secondary: string
- *  - value: string
- *  - checked
+ *  - **primary**: `string`
+ *  - **secondary**: `string`
+ *  - **value**: `string`
+ *  - **checked**: `boolean`
  */
 export class UICheck extends HTMLElement {
     static register: () => void;

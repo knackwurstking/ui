@@ -2,7 +2,7 @@
  * HTML: `ui-primary`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIPrimary extends HTMLElement {
     static register: () => void;

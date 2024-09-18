@@ -2,10 +2,10 @@
  * HTML: `ui-stack-layout-page`
  *
  * Attributes:
- *  - name: string
+ *  - **name**: `string`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UIStackLayoutPage extends HTMLElement {
     static register: () => void;

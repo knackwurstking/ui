@@ -4,64 +4,64 @@ import { html } from "../utils";
  * HTML: `ui-app-bar-item`
  *
  * Slots:
- *  - *
+ *  - \*
  *
  * @template {HTMLElement} T
  */
 export class UIAppBarItem extends HTMLElement {
-  static register = () => {
-    if (!customElements.get("ui-app-bar-item"))
-      customElements.define("ui-app-bar-item", UIAppBarItem);
-  };
-
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-
-    this.ui = {
-      root: this,
-
-      /**
-       * @returns {T}
-       */
-      get child() {
-        return this.root.querySelector("*");
-      },
-
-      /**
-       * @param {string | null} [value]
-       */
-      show(value = null) {
-        this.root.style.display = value;
-      },
-
-      hide() {
-        this.root.style.display = "none";
-      },
+    static register = () => {
+        if (!customElements.get("ui-app-bar-item"))
+            customElements.define("ui-app-bar-item", UIAppBarItem);
     };
 
-    this.shadowRender();
-  }
+    constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
 
-  shadowRender() {
-    this.shadowRoot.innerHTML = html`
-      <style>
-        * {
-          box-sizing: border-box;
-        }
+        this.ui = {
+            root: this,
 
-        :host {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 1;
-        }
-      </style>
+            /**
+             * @returns {T}
+             */
+            get child() {
+                return this.root.querySelector("*");
+            },
 
-      <slot></slot>
-    `;
-  }
+            /**
+             * @param {string | null} [value]
+             */
+            show(value = null) {
+                this.root.style.display = value;
+            },
 
-  connectedCallback() {}
-  disconnectedCallback() {}
+            hide() {
+                this.root.style.display = "none";
+            },
+        };
+
+        this.shadowRender();
+    }
+
+    shadowRender() {
+        this.shadowRoot.innerHTML = html`
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                :host {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex: 1;
+                }
+            </style>
+
+            <slot></slot>
+        `;
+    }
+
+    connectedCallback() {}
+    disconnectedCallback() {}
 }

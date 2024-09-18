@@ -4,86 +4,88 @@ import { html } from "../utils";
  * HTML: `ui-select-option`
  *
  * Attributes:
- *  - value: string
- *  - selected
+ *  - **value**: `string`
+ *  - **selected**: `boolean`
  *
  * Slots:
- *  - *
+ *  - \*
  */
 export class UISelectOption extends HTMLElement {
-  static register = () => {
-    if (!customElements.get("ui-select-option")) {
-      customElements.define("ui-select-option", UISelectOption);
-    }
-  };
-
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-
-    this.ui = {
-      root: this,
-
-      get value() {
-        return this.root.getAttribute("value");
-      },
-
-      set value(value) {
-        if (!value) {
-          this.root.removeAttribute("value");
-          return;
+    static register = () => {
+        if (!customElements.get("ui-select-option")) {
+            customElements.define("ui-select-option", UISelectOption);
         }
-
-        this.root.setAttribute("value", value);
-      },
-
-      get selected() {
-        return this.root.hasAttribute("selected");
-      },
-
-      set selected(value) {
-        if (!value) {
-          this.root.removeAttribute("selected");
-          return;
-        }
-
-        this.root.setAttribute("selected", "");
-      },
     };
 
-    this.shadowRender();
-  }
+    constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
 
-  shadowRender() {
-    this.shadowRoot.innerHTML = html`
-      <style>
-        :host {
-          display: none;
-          align-items: center;
+        this.ui = {
+            root: this,
 
-          padding: var(--ui-spacing);
-          padding-right: 2.5rem;
+            get value() {
+                return this.root.getAttribute("value");
+            },
 
-          height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
+            set value(value) {
+                if (!value) {
+                    this.root.removeAttribute("value");
+                    return;
+                }
 
-          white-space: nowrap;
-          text-overflow: ellipsis;
+                this.root.setAttribute("value", value);
+            },
 
-          transition:
-            background-color 0.25s linear,
-            color 0.25s linear;
+            get selected() {
+                return this.root.hasAttribute("selected");
+            },
 
-          overflow: hidden;
-        }
-      </style>
+            set selected(value) {
+                if (!value) {
+                    this.root.removeAttribute("selected");
+                    return;
+                }
 
-      <slot></slot>
-    `;
-  }
+                this.root.setAttribute("selected", "");
+            },
+        };
 
-  connectedCallback() {
-    this.setAttribute("role", "button");
-  }
+        this.shadowRender();
+    }
 
-  disconnectedCallback() {}
+    shadowRender() {
+        this.shadowRoot.innerHTML = html`
+            <style>
+                :host {
+                    display: none;
+                    align-items: center;
+
+                    padding: var(--ui-spacing);
+                    padding-right: 2.5rem;
+
+                    height: calc(
+                        1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
+                    );
+
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
+                    transition:
+                        background-color 0.25s linear,
+                        color 0.25s linear;
+
+                    overflow: hidden;
+                }
+            </style>
+
+            <slot></slot>
+        `;
+    }
+
+    connectedCallback() {
+        this.setAttribute("role", "button");
+    }
+
+    disconnectedCallback() {}
 }
