@@ -4,6 +4,7 @@
 
 **Changed**:
 
+- Changed coponents doc
 - Changed secondary theme color
 - Changed css theme vars for: "secondary", "primary"
 - Changed css theme vars, `--ui-color-hsl` replaced with `--ui-color-(h|s|l)`
@@ -20,6 +21,7 @@
 
 **Removed**:
 
+- Removed atribute "value" from `UICheck` component
 - Removed `*-bg*` from "primary", "secondary", "destructive", "muted" and "card" vars
 
 **Renamed**:
