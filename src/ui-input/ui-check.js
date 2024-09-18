@@ -4,8 +4,6 @@ import { html } from "../utils";
  * HTML: `ui-check`
  *
  * Attributes:
- *  - **primary**: `string`
- *  - **secondary**: `string`
  *  - **checked**: `boolean`
  */
 export class UICheck extends HTMLElement {
@@ -15,37 +13,16 @@ export class UICheck extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["primary", "secondary", "value", "checked"];
+    static observedAttributes = ["checked"];
 
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
         this.ui = {
             /**
-             * @type {import("../ui-text").UILabel | null}
-             */
-            label: null,
-
-            /**
              * @type {HTMLInputElement | null}
              */
             input: null,
-
-            get primary() {
-                return this.label.ui.primary;
-            },
-
-            set primary(value) {
-                this.label.ui.primary = value;
-            },
-
-            get secondary() {
-                return this.label.ui.secondary;
-            },
-
-            set secondary(value) {
-                this.label.ui.secondary = value;
-            },
 
             get checked() {
                 return this.input.checked;
@@ -61,12 +38,9 @@ export class UICheck extends HTMLElement {
 
     shadowRender() {
         this.shadowRoot.innerHTML = html`
-      <ui-label ripple>
-        <input slot="input" type="checkbox"></input>
-      </ui-label>
-    `;
+            <input slot="input" type="checkbox"></input>
+        `;
 
-        this.ui.label = this.shadowRoot.querySelector("ui-label");
         this.ui.input = this.shadowRoot.querySelector("input");
     }
 
@@ -80,14 +54,6 @@ export class UICheck extends HTMLElement {
      */
     attributeChangedCallback(name, _oV, nV) {
         switch (name) {
-            case "primary":
-                this.ui.primary = nV;
-                break;
-
-            case "secondary":
-                this.ui.primary = nV;
-                break;
-
             case "checked":
                 this.ui.checked = nV !== null;
                 break;

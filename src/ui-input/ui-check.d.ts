@@ -2,8 +2,6 @@
  * HTML: `ui-check`
  *
  * Attributes:
- *  - **primary**: `string`
- *  - **secondary**: `string`
  *  - **checked**: `boolean`
  */
 export class UICheck extends HTMLElement {
@@ -11,15 +9,9 @@ export class UICheck extends HTMLElement {
     static observedAttributes: string[];
     ui: {
         /**
-         * @type {import("../ui-text").UILabel | null}
-         */
-        label: import("../ui-text").UILabel | null;
-        /**
          * @type {HTMLInputElement | null}
          */
         input: HTMLInputElement | null;
-        primary: string;
-        secondary: string;
         checked: boolean;
     };
     shadowRender(): void;

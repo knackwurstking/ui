@@ -21,6 +21,7 @@
 
 **Removed**:
 
+- Removed `UILabel` from `UICheck` component
 - Removed atribute "value" from `UICheck` component
 - Removed `*-bg*` from "primary", "secondary", "destructive", "muted" and "card" vars
 
