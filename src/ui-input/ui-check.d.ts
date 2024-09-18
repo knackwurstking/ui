@@ -23,4 +23,5 @@ export class UICheck extends HTMLElement {
      * @param {string | null} nV
      */
     attributeChangedCallback(name: string, _oV: string | null, nV: string | null): void;
+    #private;
 }
