@@ -1,16 +1,22 @@
-import { html } from "../utils";
+import { Events, html } from "../utils";
+
+/**
+ * @typedef UICheck_Events
+ * @type {{
+ *  change: boolean;
+ *  input: boolean;
+ * }}
+ */
 
 /**
  * HTML: `ui-check`
  *
  * Attributes:
  *  - **checked**: `boolean`
+ *
+ * @template {UICheck_Events} [E=UICheck_Events]
  */
 export class UICheck extends HTMLElement {
-    #clickHandler = () => {
-        this.ui.checked = !this.ui.checked;
-    };
-
     static register = () => {
         if (!customElements.get("ui-check")) {
             customElements.define("ui-check", UICheck);
@@ -23,6 +29,9 @@ export class UICheck extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.ui = {
+            /** @type {Events<E>} */
+            events: new Events(),
+
             /**
              * @type {HTMLInputElement | null}
              */
@@ -73,7 +82,13 @@ export class UICheck extends HTMLElement {
 
         this.ui.input = this.shadowRoot.querySelector("input");
 
-        this.addEventListener("click", this.#clickHandler);
+        this.ui.input.onchange = () => {
+            this.ui.events.dispatch("change", this.ui.checked);
+        };
+
+        this.ui.input.oninput = () => {
+            this.ui.events.dispatch("input", this.ui.checked);
+        };
     }
 
     connectedCallback() {}
@@ -90,5 +105,9 @@ export class UICheck extends HTMLElement {
                 this.ui.checked = nV !== null;
                 break;
         }
+    }
+
+    click() {
+        this.ui.input.click();
     }
 }
