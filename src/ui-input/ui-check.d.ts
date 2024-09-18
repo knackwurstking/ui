@@ -4,7 +4,6 @@
  * Attributes:
  *  - **primary**: `string`
  *  - **secondary**: `string`
- *  - **value**: `string`
  *  - **checked**: `boolean`
  */
 export class UICheck extends HTMLElement {
@@ -21,7 +20,6 @@ export class UICheck extends HTMLElement {
         input: HTMLInputElement | null;
         primary: string;
         secondary: string;
-        value: string;
         checked: boolean;
     };
     shadowRender(): void;

@@ -6,7 +6,6 @@ import { html } from "../utils";
  * Attributes:
  *  - **primary**: `string`
  *  - **secondary**: `string`
- *  - **value**: `string`
  *  - **checked**: `boolean`
  */
 export class UICheck extends HTMLElement {
@@ -48,14 +47,6 @@ export class UICheck extends HTMLElement {
                 this.label.ui.secondary = value;
             },
 
-            get value() {
-                return this.input.value;
-            },
-
-            set value(value) {
-                this.input.value = value;
-            },
-
             get checked() {
                 return this.input.checked;
             },
@@ -95,10 +86,6 @@ export class UICheck extends HTMLElement {
 
             case "secondary":
                 this.ui.primary = nV;
-                break;
-
-            case "value":
-                this.ui.value = nV;
                 break;
 
             case "checked":
