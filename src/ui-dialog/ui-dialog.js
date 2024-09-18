@@ -22,7 +22,7 @@ import { CleanUp, Events, html } from "../utils";
  *  - **actions**
  *  - \*
  *
- * @template {UIDialog_Events} T
+ * @template {UIDialog_Events} [T=UIDialog_Events]
  */
 export class UIDialog extends HTMLElement {
     static register = () => {

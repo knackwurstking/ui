@@ -23,8 +23,7 @@ import { UISecondary } from "../ui-text";
  * Slots:
  *  - **title**
  *
- * @template {UITextarea_Events} E
- * @extends {HTMLElement}
+ * @template {UITextarea_Events} [E=UITextarea_Events]
  */
 export class UITextarea extends HTMLElement {
     static register = () => {

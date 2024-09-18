@@ -8,7 +8,6 @@ import { Events } from "../utils";
  *  - **storage**: `boolean`
  *
  * @template {{ [key: string]: any }} T
- * @extends {HTMLElement}
  */
 export class UIStore extends HTMLElement {
     static register = () => {

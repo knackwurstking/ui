@@ -27,8 +27,7 @@ import { UISecondary } from "../ui-text";
  * Slots:
  *  - **title**
  *
- * @template {UISearchEvents} E
- * @extends {HTMLElement}
+ * @template {UISearchEvents} [E=UISearchEvents]
  */
 export class UISearch extends HTMLElement {
     static register = () => {

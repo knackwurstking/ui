@@ -24,8 +24,7 @@ import { UISecondary } from "../ui-text";
  * Slots:
  *  - **title**
  *
- * @template {UIInputEvents} E
- * @extends {HTMLElement}
+ * @template {UIInputEvents} [E=UIInputEvents]
  */
 export class UIInput extends HTMLElement {
     static register = () => {
