@@ -2,7 +2,7 @@ import { Events, html } from "../utils";
 import { UISecondary } from "../ui-text";
 
 /**
- * @typedef UIInputEvents
+ * @typedef UIInput_Events
  * @type {{
  *  input: string;
  *  change: string;
@@ -24,7 +24,7 @@ import { UISecondary } from "../ui-text";
  * Slots:
  *  - **title**
  *
- * @template {UIInputEvents} [E=UIInputEvents]
+ * @template {UIInput_Events} [E=UIInput_Events]
  */
 export class UIInput extends HTMLElement {
     static register = () => {

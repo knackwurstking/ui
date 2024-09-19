@@ -3,10 +3,10 @@ import svgChevronDown from "../svg/smoothie-line-icons/chevron-down";
 import { UISelectOption } from "./ui-select-option";
 
 /**
- * @typedef UISelectEvents
+ * @typedef UISelect_Events
  * @type {{
  *  "change": UISelectOption;
- * }} UISelectEvents
+ * }} UISelect_Events
  */
 
 /**
@@ -37,7 +37,7 @@ export class UISelect extends HTMLElement {
             root: this,
 
             /**
-             *  @type {Events<UISelectEvents>}
+             *  @type {Events<UISelect_Events>}
              */
             events: new Events(),
 

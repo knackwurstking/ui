@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.4.0 - [unreleased]
+
+**General**:
+
+- Clean up exports (code clean up)
+
+**Added**:
+
+- [ ] Added new Alerts components
+
 ## v0.3.0 - 2024-09-18
 
 **Changed**:

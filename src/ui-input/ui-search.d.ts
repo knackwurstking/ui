@@ -1,5 +1,5 @@
 /**
- * @typedef UISearchEvents
+ * @typedef UISearch_Events
  * @type {{
  *  input: string;
  *  storage: string;
@@ -22,9 +22,9 @@
  * Slots:
  *  - **title**
  *
- * @template {UISearchEvents} [E=UISearchEvents]
+ * @template {UISearch_Events} [E=UISearch_Events]
  */
-export class UISearch<E extends UISearchEvents = UISearchEvents> extends HTMLElement {
+export class UISearch<E extends UISearch_Events = UISearch_Events> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
@@ -61,7 +61,7 @@ export class UISearch<E extends UISearchEvents = UISearchEvents> extends HTMLEle
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UISearchEvents = {
+export type UISearch_Events = {
     input: string;
     storage: string;
     submit: string;

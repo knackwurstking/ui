@@ -1,5 +1,5 @@
 /**
- * @typedef UIInputEvents
+ * @typedef UIInput_Events
  * @type {{
  *  input: string;
  *  change: string;
@@ -20,9 +20,9 @@
  * Slots:
  *  - **title**
  *
- * @template {UIInputEvents} [E=UIInputEvents]
+ * @template {UIInput_Events} [E=UIInput_Events]
  */
-export class UIInput<E extends UIInputEvents = UIInputEvents> extends HTMLElement {
+export class UIInput<E extends UIInput_Events = UIInput_Events> extends HTMLElement {
     static register: () => void;
     static observedAttributes: string[];
     constructor();
@@ -55,7 +55,7 @@ export class UIInput<E extends UIInputEvents = UIInputEvents> extends HTMLElemen
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
 }
-export type UIInputEvents = {
+export type UIInput_Events = {
     input: string;
     change: string;
 };

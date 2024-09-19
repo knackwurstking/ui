@@ -3,7 +3,7 @@ import svgSearch from "../svg/smoothie-line-icons/search";
 import { UISecondary } from "../ui-text";
 
 /**
- * @typedef UISearchEvents
+ * @typedef UISearch_Events
  * @type {{
  *  input: string;
  *  storage: string;
@@ -27,7 +27,7 @@ import { UISecondary } from "../ui-text";
  * Slots:
  *  - **title**
  *
- * @template {UISearchEvents} [E=UISearchEvents]
+ * @template {UISearch_Events} [E=UISearch_Events]
  */
 export class UISearch extends HTMLElement {
     static register = () => {

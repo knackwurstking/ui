@@ -1,8 +1,8 @@
 /**
- * @typedef UISelectEvents
+ * @typedef UISelect_Events
  * @type {{
  *  "change": UISelectOption;
- * }} UISelectEvents
+ * }} UISelect_Events
  */
 /**
  * HTML: `ui-select`
@@ -20,9 +20,9 @@ export class UISelect extends HTMLElement {
     ui: {
         root: this;
         /**
-         *  @type {Events<UISelectEvents>}
+         *  @type {Events<UISelect_Events>}
          */
-        events: Events<UISelectEvents>;
+        events: Events<UISelect_Events>;
         open: boolean;
         /**
          * @returns {UISelectOption[]}
@@ -44,9 +44,9 @@ export class UISelect extends HTMLElement {
     attributeChangedCallback(n: string, _oV: string | null, nV: string | null): void;
 }
 /**
- * UISelectEvents
+ * UISelect_Events
  */
-export type UISelectEvents = {
+export type UISelect_Events = {
     "change": UISelectOption;
 };
 import { Events } from "../utils";
