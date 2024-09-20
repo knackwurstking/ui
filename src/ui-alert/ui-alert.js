@@ -104,12 +104,15 @@ export class UIAlert extends UIFlexGridItem {
                     border-radius: var(--ui-radius);
                     border: 1px solid var(--ui-borderColor);
                     padding: var(--ui-spacing);
+
+                    width: 28rem;
+                    max-width: calc(100% - var(--ui-spacing) * 2);
                 }
             </style>
 
             <style class="variant"></style>
 
-            <ui-primary></ui-primary>
+            <ui-primary style="font-size: 0.9rem;"></ui-primary>
         `;
     }
 
