@@ -8,7 +8,7 @@
 
 **Added**:
 
-- [ ] Added new Alert components
+- [ ] Added new Alert components [work-in-progress]
 
 ## v0.3.0 - 2024-09-18
 
