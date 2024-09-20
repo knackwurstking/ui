@@ -61,8 +61,8 @@ export class UIAlerts extends HTMLElement {
 
             <style class="position">
                 :host {
-                    top: 0;
                     right: 0;
+                    bottom: 0;
                 }
             </style>
 
