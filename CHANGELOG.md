@@ -4,11 +4,11 @@
 
 **General**:
 
-- Clean up exports (code clean up)
+- Code clean up (exports)
 
 **Added**:
 
-- [ ] Added new Alerts components
+- [ ] Added new Alert components
 
 ## v0.3.0 - 2024-09-18
 

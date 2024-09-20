@@ -1,3 +1,4 @@
+import { UIAlerts, UIAlert } from "./ui-alert";
 import { UIAppBar, UIAppBarItem } from "./ui-app-bar";
 import { UIButton, UIIconButton } from "./ui-button";
 import { UIContainer } from "./ui-container";
@@ -5,12 +6,12 @@ import { UIDialog } from "./ui-dialog";
 import { UIDrawer, UIDrawerGroup, UIDrawerGroupItem } from "./ui-drawer";
 import { UIFlexGrid, UIFlexGridItem, UIFlexGridRow } from "./ui-flex-grid";
 import {
-  UICheck,
-  UIInput,
-  UISearch,
-  UISelect,
-  UISelectOption,
-  UITextarea,
+    UICheck,
+    UIInput,
+    UISearch,
+    UISelect,
+    UISelectOption,
+    UITextarea,
 } from "./ui-input";
 import { UILang } from "./ui-lang";
 import { UILangType } from "./ui-lang/ui-lang-type";
@@ -24,46 +25,49 @@ import { UISecondary } from "./ui-text/ui-secondary";
 import { UIThemeHandler } from "./ui-theme-handler";
 
 export function register() {
-  UIAppBarItem.register();
-  UIAppBar.register();
+    UIAlerts.register();
+    UIAlert.register();
 
-  UIButton.register();
-  UIIconButton.register();
+    UIAppBarItem.register();
+    UIAppBar.register();
 
-  UIContainer.register();
+    UIButton.register();
+    UIIconButton.register();
 
-  UIDialog.register();
+    UIContainer.register();
 
-  UIDrawerGroupItem.register();
-  UIDrawerGroup.register();
-  UIDrawer.register();
+    UIDialog.register();
 
-  UIFlexGridItem.register();
-  UIFlexGridRow.register();
-  UIFlexGrid.register();
+    UIDrawerGroupItem.register();
+    UIDrawerGroup.register();
+    UIDrawer.register();
 
-  UICheck.register();
-  UIInput.register();
-  UISearch.register();
-  UISelectOption.register();
-  UISelect.register();
-  UITextarea.register();
+    UIFlexGridItem.register();
+    UIFlexGridRow.register();
+    UIFlexGrid.register();
 
-  UILangType.register();
-  UILang.register();
+    UICheck.register();
+    UIInput.register();
+    UISearch.register();
+    UISelectOption.register();
+    UISelect.register();
+    UITextarea.register();
 
-  UISpinner.register();
+    UILangType.register();
+    UILang.register();
 
-  UIStackLayout.register();
-  UIStackLayoutPage.register();
+    UISpinner.register();
 
-  UIStore.register();
+    UIStackLayout.register();
+    UIStackLayoutPage.register();
 
-  UISvg.register();
+    UIStore.register();
 
-  UILabel.register();
-  UIPrimary.register();
-  UISecondary.register();
+    UISvg.register();
 
-  UIThemeHandler.register();
+    UILabel.register();
+    UIPrimary.register();
+    UISecondary.register();
+
+    UIThemeHandler.register();
 }
