@@ -61,6 +61,10 @@ export class UIAlerts extends HTMLElement {
                 }
 
                 ui-flex-grid {
+                    padding: 0;
+                }
+
+                ui-flex-grid:has(> *) {
                     padding: var(--ui-spacing);
                 }
             </style>
