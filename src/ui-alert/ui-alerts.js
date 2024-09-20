@@ -28,10 +28,6 @@ export class UIAlerts extends HTMLElement {
     }
 
     shadowRender() {
-        // TODO: Add some more styles and make background ignore
-        //       (touch and pointer) actions or whatever
-        // TODO: flex container, column, top right position (check attributes to change)
-        // TODO: Add height (default: 100%) and width (default: 100%) attributes
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
