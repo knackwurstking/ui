@@ -23,7 +23,7 @@
         var(--ui-destructive-s),
         var(--ui-destructive-l),
         1
-    );--ui-destructive--h:0;--ui-destructive--s:0%;--ui-destructive--l:98%;--ui-destructive-:hsla(
+    );--ui-destructive--h:0;--ui-destructive--s:0%;--ui-destructive--l:98%;--ui-destructive-fg:hsla(
         var(--ui-destructive-fg-h),
         var(--ui-destructive-fg-s),
         var(--ui-destructive-fg-l),

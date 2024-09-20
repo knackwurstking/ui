@@ -5,7 +5,11 @@ export class UIAlerts extends HTMLElement {
         /**
          * @param {import("./ui-alert").UIAlert} alert
          */
-        add(alert: import("./ui-alert").UIAlert): void;
+        add(alert: import("./ui-alert").UIAlert): () => void;
+        /**
+         * @param {import("./ui-alert").UIAlert} alert
+         */
+        remove(alert: import("./ui-alert").UIAlert): void;
     };
     shadowRender(): void;
     connectedCallback(): void;
