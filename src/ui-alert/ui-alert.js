@@ -34,8 +34,8 @@ export class UIAlert extends UIFlexGridItem {
         this.styleVariants = {
             info: css`
                 :host {
-                    color: var(--ui-primary-fg);
-                    background-color: var(--ui-primary);
+                    color: var(--ui-card-fg);
+                    background-color: var(--ui-card);
                 }
             `,
 
@@ -100,6 +100,7 @@ export class UIAlert extends UIFlexGridItem {
         this.shadowRoot.innerHTML += html`
             <style>
                 :host {
+                    position: relative !important;
                     padding: var(--ui-spacing);
                     border-radius: var(--ui-radius);
                     border: 1px solid var(--ui-borderColor);
