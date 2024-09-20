@@ -21,6 +21,18 @@ export class UIAlerts extends HTMLElement {
                     this.root.shadowRoot.querySelector(".alerts-container");
 
                 container.append(alert);
+
+                return () => this.remove(alert);
+            },
+
+            /**
+             * @param {import("./ui-alert").UIAlert} alert
+             */
+            remove(alert) {
+                const alertContainer = alert.parentElement;
+                if (!alertContainer) return;
+                if (!alertContainer.parentElement) return;
+                alertContainer.parentElement.removeChild(alertContainer);
             },
         };
 
@@ -74,33 +86,8 @@ export class UIAlerts extends HTMLElement {
             <ui-flex-grid class="alerts-container" gap="0.25rem">
                 <!-- TODO: Just debugging here... -->
                 <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert"></ui-alert>
+                <ui-alert message="Test Alert" variant="info"></ui-alert>
+                <ui-alert message="Test Alert" variant="error"></ui-alert>
             </ui-flex-grid>
         `;
     }
