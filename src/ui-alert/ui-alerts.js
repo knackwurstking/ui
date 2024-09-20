@@ -69,6 +69,7 @@ export class UIAlerts extends HTMLElement {
             <style class="size">
                 :host {
                     width: fit-content;
+                    max-width: 100%;
                     height: fit-content;
                     max-height: 100%;
                 }
