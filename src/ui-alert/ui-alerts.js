@@ -50,8 +50,6 @@ export class UIAlerts extends HTMLElement {
 
                     background: none !important;
 
-                    padding: var(--ui-spacing);
-
                     overflow: auto;
                     -ms-overflow-style: none;
                     scrollbar-width: none;
@@ -63,7 +61,7 @@ export class UIAlerts extends HTMLElement {
                 }
 
                 ui-flex-grid {
-                    align-items: flex-end;
+                    padding: var(--ui-spacing);
                 }
             </style>
 
@@ -84,10 +82,6 @@ export class UIAlerts extends HTMLElement {
             </style>
 
             <ui-flex-grid class="alerts-container" gap="0.25rem">
-                <!-- TODO: Just debugging here... -->
-                <ui-alert message="Test Alert"></ui-alert>
-                <ui-alert message="Test Alert" variant="info"></ui-alert>
-                <ui-alert message="Test Alert" variant="error"></ui-alert>
             </ui-flex-grid>
         `;
     }
