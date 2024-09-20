@@ -1,6 +1,7 @@
 export * from "./utils";
 
 // UI Exports
+export * from "./ui-alert";
 export * from "./ui-app-bar";
 export * from "./ui-button";
 export * from "./ui-container";
