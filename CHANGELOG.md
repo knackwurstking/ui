@@ -4,7 +4,7 @@
 
 **Added**:
 
-- [ ] Added `UIText` component
+- [x] Added `UIText` component
 
 **Changed**:
 
@@ -12,7 +12,7 @@
 
 **General**:
 
-- [ ] Let `UIPrimary` and `UISecondary` extend from `UIText`
+- [x] Let `UIPrimary` and `UISecondary` extend from `UIText`
 
 ## v0.4.0 - 2024-09-21
 
