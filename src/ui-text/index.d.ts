@@ -1,3 +1,4 @@
-export { UILabel } from "./ui-label";
-export { UIPrimary } from "./ui-primary";
-export { UISecondary } from "./ui-secondary";
+export * from "./ui-text";
+export * from "./ui-label";
+export * from "./ui-primary";
+export * from "./ui-secondary";

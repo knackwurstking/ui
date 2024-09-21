@@ -4,10 +4,7 @@
  * Slots:
  *  - __\*__
  */
-export class UIPrimary extends HTMLElement {
-    static register: () => void;
-    ui: {};
-    connectedCallback(): void;
-    disconnectedCallback(): void;
+export class UIPrimary extends UIText {
     #private;
 }
+import { UIText } from "./ui-text";

@@ -1,4 +1,5 @@
 import { html } from "../utils";
+import { UIText } from "./ui-text";
 
 /**
  * HTML: `ui-primary`
@@ -6,7 +7,7 @@ import { html } from "../utils";
  * Slots:
  *  - __\*__
  */
-export class UIPrimary extends HTMLElement {
+export class UIPrimary extends UIText {
     static register = () => {
         if (!customElements.get("ui-primary")) {
             customElements.define("ui-primary", UIPrimary);
@@ -15,27 +16,17 @@ export class UIPrimary extends HTMLElement {
 
     constructor() {
         super();
-        this.ui = {};
+        this.ui = {
+            ...this.ui,
+        };
         this.#renderUIPrimary();
     }
 
     #renderUIPrimary() {
-        this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = html`
-            <style>
-                :host {
-                    display: inline-block;
-                    font-size: 1.1rem;
-                    font-family: var(--ui-fontFamily);
-                    font-variation-settings: var(
-                        --ui-text-primary-fontVariation
-                    );
-                    overflow-wrap: anywhere;
-                }
-            </style>
-
-            <slot></slot>
-        `;
+        this.ui.size = "1.1rem";
+        this.ui.casl = 1;
+        this.ui.mono = 0;
+        this.ui.slnt = 0;
     }
 
     connectedCallback() {}
