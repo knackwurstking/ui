@@ -2,13 +2,18 @@
 
 ## v0.4.0 - [unreleased]
 
-**General**:
-
-- Code clean up (exports)
-
 **Added**:
 
 - Added new Alert components
+
+**General**:
+
+- Changed component docs
+- Code clean up (exports)
+
+**Removed**:
+
+- Removed `shadowRender` method, replaced with a privat method
 
 ## v0.3.0 - 2024-09-18
 
