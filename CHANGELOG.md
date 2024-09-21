@@ -1,18 +1,18 @@
 # Changelog
 
-## v0.5.0 - [unreleased]
+## v0.5.0 - 2024-09-21
 
 **Added**:
 
-- [x] Added `UIText` component
+- Added `UIText` component
 
 **Changed**:
 
-- [x] Changed display for `UIPrimary` and `UISecondary` text components to "inline-block"
+- Changed display for `UIPrimary` and `UISecondary` text components to "inline-block"
 
 **General**:
 
-- [x] Let `UIPrimary` and `UISecondary` extend from `UIText`
+- Let `UIPrimary` and `UISecondary` extend from `UIText`
 
 ## v0.4.0 - 2024-09-21
 
