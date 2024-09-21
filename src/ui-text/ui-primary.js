@@ -24,6 +24,7 @@ export class UIPrimary extends HTMLElement {
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {
+                    display: inline-block;
                     font-size: 1.1rem;
                     font-family: var(--ui-fontFamily);
                     font-variation-settings: var(
