@@ -4,6 +4,20 @@
 
 **Added**:
 
+- [ ] Added `UIText` component
+
+**Changed**:
+
+- [x] Changed display for `UIPrimary` and `UISecondary` text components to "inline-block"
+
+**General**:
+
+- [ ] Let `UIPrimary` and `UISecondary` extend from `UIText`
+
+## v0.4.0 - 2024-09-21
+
+**Added**:
+
 - Added new Alert components
 
 **General**:
