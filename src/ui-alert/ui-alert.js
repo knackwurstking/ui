@@ -110,7 +110,7 @@ export class UIAlert extends UIFlexGridItem {
                     padding: var(--ui-spacing);
 
                     width: 28rem;
-                    max-width: calc(100% - var(--ui-spacing) * 2);
+                    max-width: calc(100% - var(--ui-spacing) * 4);
                 }
             </style>
 
