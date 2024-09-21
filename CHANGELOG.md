@@ -154,8 +154,6 @@ New standard methods for all ui components:
 
     - constructor()
         - this.ui = { ... }
-        - this.shadowRender()
-    - shadowRender()
     - connectedCallback()
     - disconnectedCallback()
 
