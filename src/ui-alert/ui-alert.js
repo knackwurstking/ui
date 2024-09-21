@@ -26,11 +26,6 @@ export class UIAlert extends UIFlexGridItem {
     constructor(options = null) {
         super();
 
-        /**
-         * @type {HTMLElement}
-         */
-        this.messageContainer = null;
-
         this.styleVariants = {
             info: css`
                 :host {
@@ -52,11 +47,11 @@ export class UIAlert extends UIFlexGridItem {
             ...this.ui,
 
             /**
-             * @param {object} options
-             * @param {string} options.message
+             * @param {{ message: string; } | null} options
              */
-            set({ message }) {
-                this.root.messageContainer.innerHTML = message;
+            set(options) {
+                if (!options) return;
+                this.message = options.message;
             },
 
             get message() {
