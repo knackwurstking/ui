@@ -32,10 +32,10 @@ export class UIAlerts extends HTMLElement {
              * @param {import("./ui-alert").UIAlert} alert
              */
             remove(alert) {
-                const alertContainer = alert.parentElement;
-                if (!alertContainer) return;
-                if (!alertContainer.parentElement) return;
-                alertContainer.parentElement.removeChild(alertContainer);
+                const container =
+                    this.root.shadowRoot.querySelector(".alerts-container");
+
+                container.removeChild(alert);
             },
         };
 
