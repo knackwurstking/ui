@@ -9,15 +9,15 @@
  * HTML: `ui-textarea`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **value**: `string`
- *  - **palceholder**: `string`
- *  - **rows**: `number`
- *  - **cols**: `number`
- *  - **invalid**: `boolean`
+ *  - __title__: *string*
+ *  - __value__: *string*
+ *  - __palceholder__: *string*
+ *  - __rows__: *number*
+ *  - __cols__: *number*
+ *  - __invalid__: *boolean*
  *
  * Slots:
- *  - **title**
+ *  - __title__
  *
  * @template {UITextarea_Events} [E=UITextarea_Events]
  */
@@ -43,7 +43,6 @@ export class UITextarea<E extends UITextarea_Events = UITextarea_Events> extends
         focus(options?: FocusOptions | null): void;
         blur(): void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -52,6 +51,7 @@ export class UITextarea<E extends UITextarea_Events = UITextarea_Events> extends
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }
 export type UITextarea_Events = {
     input: string;

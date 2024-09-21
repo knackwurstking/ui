@@ -2,12 +2,12 @@
  * HTML: `ui-app-bar`
  *
  * Attributes:
- *  - **position**: `"top"`
+ *  - __position__: *"top"*
  *
  * Slots:
- *  - **left**
- *  - **center**
- *  - **right**
+ *  - __left__
+ *  - __center__
+ *  - __right__
  */
 export class UIAppBar extends HTMLElement {
     static register: () => void;
@@ -18,7 +18,7 @@ export class UIAppBar extends HTMLElement {
         readonly rightSlot: any[];
         position: string;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }

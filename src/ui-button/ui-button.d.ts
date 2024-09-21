@@ -22,13 +22,13 @@
  * HTML: `ui-button`
  *
  * Attribute:
- *  - **variant**: `"ghost" | "outline" | "full"`
- *  - **color**: `"primary" | "secondary" | "destructive"`
- *  - **noripple**: `boolean`
- *  - **disabled**: `boolean`
+ *  - __variant__: *"ghost" | "outline" | "full"*
+ *  - __color__: *"primary" | "secondary" | "destructive"*
+ *  - __noripple__: *boolean*
+ *  - __disabled__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIButton extends HTMLElement {
     static register: () => void;
@@ -46,7 +46,6 @@ export class UIButton extends HTMLElement {
         variant: string;
         disabled: boolean;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -55,6 +54,7 @@ export class UIButton extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }
 export type UIButton_Color = ("primary" | "secondary" | "destructive");
 export type UIButton_Variant = ("full" | "outline" | "ghost");

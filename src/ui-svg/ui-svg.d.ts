@@ -2,12 +2,12 @@
  * HTML: `ui-svg`
  *
  * Slots:
- *  - \* from type svg
+ *  - __\*__ from type svg
  */
 export class UISvg extends HTMLElement {
     static register: () => void;
     ui: {};
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }

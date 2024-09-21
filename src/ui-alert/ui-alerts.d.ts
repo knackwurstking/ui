@@ -1,3 +1,6 @@
+/**
+ * HTML: `ui-alerts`
+ */
 export class UIAlerts extends HTMLElement {
     static register: () => void;
     ui: {
@@ -11,7 +14,7 @@ export class UIAlerts extends HTMLElement {
          */
         remove(alert: import("./ui-alert").UIAlert): void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }

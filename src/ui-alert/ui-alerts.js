@@ -1,5 +1,8 @@
 import { html } from "../utils";
 
+/**
+ * HTML: `ui-alerts`
+ */
 export class UIAlerts extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-alerts")) {
@@ -36,10 +39,10 @@ export class UIAlerts extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIAlerts();
     }
 
-    shadowRender() {
+    #renderUIAlerts() {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>

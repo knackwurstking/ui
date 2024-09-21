@@ -10,13 +10,13 @@
  * HTML: `ui-icon-button`
  *
  * Attribute:
- *  - **color**: `"primary" | "secondary" | "destructive"`
- *  - **ghost**: `boolean`
- *  - **noripple**: `boolean`
- *  - **disabled**: `boolean`
+ *  - __color__: *"primary" | "secondary" | "destructive"*
+ *  - __ghost__: *boolean*
+ *  - __noripple__: *boolean*
+ *  - __disabled__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIIconButton extends HTMLElement {
     static register: () => void;
@@ -34,7 +34,6 @@ export class UIIconButton extends HTMLElement {
         ghost: boolean;
         disabled: boolean;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -43,6 +42,7 @@ export class UIIconButton extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }
 export type UIIconButton_Color = import("./ui-button").UIButton_Color;
 export type UIIconButton_Events = {

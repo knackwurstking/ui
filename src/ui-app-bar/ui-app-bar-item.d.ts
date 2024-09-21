@@ -2,7 +2,7 @@
  * HTML: `ui-app-bar-item`
  *
  * Slots:
- *  - \*
+ *  - __\*__
  *
  * @template {HTMLElement} T
  */
@@ -21,7 +21,7 @@ export class UIAppBarItem<T extends HTMLElement> extends HTMLElement {
         show(value?: string | null): void;
         hide(): void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }

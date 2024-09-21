@@ -9,16 +9,16 @@
  * HTML: `ui-input`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **type**: `string`
- *  - **value**: `string`
- *  - **placeholder**: `string`
- *  - **min**: `string`
- *  - **max**: `string`
- *  - **invalid**: `boolean`
+ *  - __title__: *string*
+ *  - __type__: *string*
+ *  - __value__: *string*
+ *  - __placeholder__: *string*
+ *  - __min__: *string*
+ *  - __max__: *string*
+ *  - __invalid__: *boolean*
  *
  * Slots:
- *  - **title**
+ *  - __title__
  *
  * @template {UIInput_Events} [E=UIInput_Events]
  */
@@ -45,7 +45,6 @@ export class UIInput<E extends UIInput_Events = UIInput_Events> extends HTMLElem
         focus(options?: FocusOptions | null): void;
         blur(): void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -54,6 +53,7 @@ export class UIInput<E extends UIInput_Events = UIInput_Events> extends HTMLElem
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }
 export type UIInput_Events = {
     input: string;

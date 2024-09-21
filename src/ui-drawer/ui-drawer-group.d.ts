@@ -2,12 +2,12 @@
  * HTML: `ui-drawer-group`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **fold**: `boolean`
- *  - **nofold**: `boolean`
+ *  - __title__: *string*
+ *  - __fold__: *boolean*
+ *  - __nofold__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIDrawerGroup extends HTMLElement {
     static register: () => void;
@@ -18,7 +18,6 @@ export class UIDrawerGroup extends HTMLElement {
         fold: boolean;
         nofold: boolean;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -27,4 +26,5 @@ export class UIDrawerGroup extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }

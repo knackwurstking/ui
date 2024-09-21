@@ -2,8 +2,8 @@
  * HTML: `ui-alert`
  *
  * Attributes:
- *  - **message**: `string`
- *  - **variant**: `info` | `error`
+ *  - __message__: *string*
+ *  - __variant__: *info | error*
  */
 export class UIAlert extends UIFlexGridItem {
     static get observedAttributes(): string[];
@@ -35,5 +35,6 @@ export class UIAlert extends UIFlexGridItem {
         root: UIFlexGridItem;
         flex: string;
     };
+    #private;
 }
 import { UIFlexGridItem } from "../ui-flex-grid";

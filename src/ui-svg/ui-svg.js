@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-svg`
  *
  * Slots:
- *  - \* from type svg
+ *  - __\*__ from type svg
  */
 export class UISvg extends HTMLElement {
     static register = () => {
@@ -15,14 +15,12 @@ export class UISvg extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
-
         this.ui = {};
-
-        this.shadowRender();
+        this.#renderUISvg();
     }
 
-    shadowRender() {
+    #renderUISvg() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {

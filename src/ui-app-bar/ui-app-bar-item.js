@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-app-bar-item`
  *
  * Slots:
- *  - \*
+ *  - __\*__
  *
  * @template {HTMLElement} T
  */
@@ -16,7 +16,6 @@ export class UIAppBarItem extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -40,10 +39,11 @@ export class UIAppBarItem extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIAppBarItem();
     }
 
-    shadowRender() {
+    #renderUIAppBarItem() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

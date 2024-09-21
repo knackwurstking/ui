@@ -4,12 +4,12 @@ import { css, html } from "../utils";
  * HTML: `ui-flex-grid-row`
  *
  * Attributes:
- *  - **gap**: `string`
- *  - **justify**: `string`
- *  - **align**: `string`
+ *  - __gap__: *string*
+ *  - __justify__: *string*
+ *  - __align__: *string*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIFlexGridRow extends HTMLElement {
     static register = () => {
@@ -22,7 +22,6 @@ export class UIFlexGridRow extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         /** @private */
         this.gap = "0";
@@ -62,10 +61,11 @@ export class UIFlexGridRow extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIFlexGridRow();
     }
 
-    shadowRender() {
+    #renderUIFlexGridRow() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

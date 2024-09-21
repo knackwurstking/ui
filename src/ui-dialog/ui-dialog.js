@@ -1,4 +1,5 @@
 import svgClose from "../svg/smoothie-line-icons/close";
+
 import { UIFlexGridItem } from "../ui-flex-grid";
 import { CleanUp, Events, html } from "../utils";
 
@@ -14,13 +15,13 @@ import { CleanUp, Events, html } from "../utils";
  * HTML: `ui-dialog`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **fullscreen**: `boolean`
- *  - **nofooter**: `boolean`
+ *  - __title__: *string*
+ *  - __fullscreen__: *boolean*
+ *  - __nofooter__: *boolean*
  *
  * Slots:
- *  - **actions**
- *  - \*
+ *  - __actions__
+ *  - __\*__
  *
  * @template {UIDialog_Events} [T=UIDialog_Events]
  */
@@ -38,9 +39,6 @@ export class UIDialog extends HTMLElement {
      */
     constructor(title) {
         super();
-        this.attachShadow({ mode: "open" });
-
-        this.shadowRenderCleanUp = new CleanUp();
 
         this._title = title || "";
 
@@ -115,12 +113,11 @@ export class UIDialog extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIDialog();
     }
 
-    shadowRender() {
-        this.shadowRenderCleanUp.run();
-
+    #renderUIDialog() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -207,8 +204,8 @@ export class UIDialog extends HTMLElement {
                 }
 
                 /*
-         * Header Styles
-         */
+                 * Header Styles
+                 */
 
                 .header {
                     display: flex;
@@ -236,8 +233,8 @@ export class UIDialog extends HTMLElement {
                 }
 
                 /*
-         * Content Styles
-         */
+                 * Content Styles
+                 */
 
                 .content {
                     padding: var(--ui-spacing);
@@ -268,8 +265,8 @@ export class UIDialog extends HTMLElement {
                 }
 
                 /*
-         * Footer Styles
-         */
+                 * Footer Styles
+                 */
 
                 .footer {
                     margin-top: var(--ui-spacing);
@@ -340,11 +337,6 @@ export class UIDialog extends HTMLElement {
         const dialog = this.shadowRoot.querySelector("dialog");
         const onCancel = (/** @type {Event} */ ev) => ev.preventDefault();
         dialog.addEventListener("cancel", onCancel);
-
-        this.shadowRenderCleanUp.add(() => {
-            button.removeEventListener("click", onClick);
-            dialog.removeEventListener("cancel", onCancel);
-        });
     }
 
     connectedCallback() {}

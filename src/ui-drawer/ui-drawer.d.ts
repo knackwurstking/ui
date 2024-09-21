@@ -9,10 +9,10 @@
  * HTML: `ui-drawer`
  *
  * Attributes:
- *  - **open**: `boolean`
+ *  - __open__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIDrawer extends HTMLElement {
     static register: () => void;
@@ -24,9 +24,9 @@ export class UIDrawer extends HTMLElement {
         events: Events<UIDrawer_Events>;
         open: boolean;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }
 export type UIDrawer_Events = {
     open: UIDrawer;

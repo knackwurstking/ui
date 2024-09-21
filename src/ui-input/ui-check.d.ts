@@ -9,7 +9,7 @@
  * HTML: `ui-check`
  *
  * Attributes:
- *  - **checked**: `boolean`
+ *  - __checked__: *boolean*
  *
  * @template {UICheck_Events} [E=UICheck_Events]
  */
@@ -26,7 +26,6 @@ export class UICheck<E extends UICheck_Events = UICheck_Events> extends HTMLElem
         input: HTMLInputElement | null;
         checked: boolean;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -35,6 +34,7 @@ export class UICheck<E extends UICheck_Events = UICheck_Events> extends HTMLElem
      * @param {string | null} nV
      */
     attributeChangedCallback(name: string, _oV: string | null, nV: string | null): void;
+    #private;
 }
 export type UICheck_Events = {
     change: boolean;

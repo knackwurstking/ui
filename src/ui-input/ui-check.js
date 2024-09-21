@@ -12,7 +12,7 @@ import { Events, html } from "../utils";
  * HTML: `ui-check`
  *
  * Attributes:
- *  - **checked**: `boolean`
+ *  - __checked__: *boolean*
  *
  * @template {UICheck_Events} [E=UICheck_Events]
  */
@@ -27,7 +27,7 @@ export class UICheck extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
+
         this.ui = {
             /** @type {Events<E>} */
             events: new Events(),
@@ -46,10 +46,11 @@ export class UICheck extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUICheck();
     }
 
-    shadowRender() {
+    #renderUICheck() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 input {

@@ -2,12 +2,12 @@
  * HTML: `ui-drawer-group-item`
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIDrawerGroupItem extends HTMLElement {
     static register: () => void;
     ui: {};
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }

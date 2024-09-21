@@ -12,10 +12,10 @@ import { Events, html } from "../utils";
  * HTML: `ui-drawer`
  *
  * Attributes:
- *  - **open**: `boolean`
+ *  - __open__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIDrawer extends HTMLElement {
     static register = () => {
@@ -26,7 +26,6 @@ export class UIDrawer extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -52,10 +51,11 @@ export class UIDrawer extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIDrawer();
     }
 
-    shadowRender() {
+    #renderUIDrawer() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

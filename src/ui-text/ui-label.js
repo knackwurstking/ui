@@ -4,13 +4,13 @@ import { ripple, html } from "../utils";
  * HTML: `ui-label`
  *
  * Attributes:
- *  - **primary**: `string`
- *  - **secondary**: `string`
- *  - **ripple**: `boolean` - this enables click forwarding
+ *  - __primary__: *string*
+ *  - __secondary__: *string*
+ *  - __ripple__: *boolean* - this enables click forwarding
  *
  * Slots:
- *  - **input** - input slot get click forwarding
- *  - \*
+ *  - __input__ - input slot get click forwarding
+ *  - __\*__
  */
 export class UILabel extends HTMLElement {
     static register = () => {
@@ -23,7 +23,6 @@ export class UILabel extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         /**
          * @type {import("../utils").Ripple | null}
@@ -88,10 +87,11 @@ export class UILabel extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUILabel();
     }
 
-    shadowRender() {
+    #renderUILabel() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

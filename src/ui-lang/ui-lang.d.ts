@@ -2,10 +2,10 @@
  * HTML: `ui-lang`
  *
  * Attributes:
- *  - **current**: `string`
+ *  - __current__: *string*
  *
  * Slots:
- *  - \* from type `UILangType`
+ *  - __\*__ from type `UILangType`
  */
 export class UILang extends HTMLElement {
     static register: () => void;
@@ -39,7 +39,6 @@ export class UILang extends HTMLElement {
          */
         get(group: string, key: string): string;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**

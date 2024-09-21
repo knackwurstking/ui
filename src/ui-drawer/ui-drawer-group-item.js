@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-drawer-group-item`
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIDrawerGroupItem extends HTMLElement {
     static register = () => {
@@ -15,14 +15,12 @@ export class UIDrawerGroupItem extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
-
         this.ui = {};
-
-        this.shadowRender();
+        this.#renderUIDrawerGroupItem();
     }
 
-    shadowRender() {
+    #renderUIDrawerGroupItem() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

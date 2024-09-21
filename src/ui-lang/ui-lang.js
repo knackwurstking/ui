@@ -4,10 +4,10 @@ import { Events } from "../utils";
  * HTML: `ui-lang`
  *
  * Attributes:
- *  - **current**: `string`
+ *  - __current__: *string*
  *
  * Slots:
- *  - \* from type `UILangType`
+ *  - __\*__ from type `UILangType`
  */
 export class UILang extends HTMLElement {
     static register = () => {
@@ -59,11 +59,8 @@ export class UILang extends HTMLElement {
                 return this.data?.[group]?.[key] || null;
             },
         };
-
-        this.shadowRender();
     }
 
-    shadowRender() {}
     connectedCallback() {}
     disconnectedCallback() {}
 

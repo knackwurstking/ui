@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-secondary`
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UISecondary extends HTMLElement {
     static register = () => {
@@ -15,14 +15,12 @@ export class UISecondary extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
-
         this.ui = {};
-
-        this.shadowRender();
+        this.#renderUISecondary();
     }
 
-    shadowRender() {
+    #renderUISecondary() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {

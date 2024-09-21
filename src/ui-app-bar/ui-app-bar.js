@@ -4,12 +4,12 @@ import { html } from "../utils";
  * HTML: `ui-app-bar`
  *
  * Attributes:
- *  - **position**: `"top"`
+ *  - __position__: *"top"*
  *
  * Slots:
- *  - **left**
- *  - **center**
- *  - **right**
+ *  - __left__
+ *  - __center__
+ *  - __right__
  */
 export class UIAppBar extends HTMLElement {
     static register = () => {
@@ -20,7 +20,6 @@ export class UIAppBar extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -51,10 +50,11 @@ export class UIAppBar extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIAppBar();
     }
 
-    shadowRender() {
+    #renderUIAppBar() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

@@ -2,10 +2,10 @@
  * HTML: `ui-flex-grid`
  *
  * Attributes:
- *  - **gap**: `string`
+ *  - __gap__: *string*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIFlexGrid extends HTMLElement {
     static register: () => void;
@@ -16,7 +16,6 @@ export class UIFlexGrid extends HTMLElement {
         root: this;
         gap: string;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -25,4 +24,5 @@ export class UIFlexGrid extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }

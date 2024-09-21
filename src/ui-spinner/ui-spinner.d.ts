@@ -2,7 +2,7 @@
  * HTML: `ui-spinner`
  *
  * Attributes:
- *  - **nobg**: `boolean`
+ *  - __nobg__: *boolean*
  */
 export class UISpinner extends HTMLElement {
     static register: () => void;
@@ -11,7 +11,6 @@ export class UISpinner extends HTMLElement {
         root: this;
         nobg: boolean;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -20,4 +19,5 @@ export class UISpinner extends HTMLElement {
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }

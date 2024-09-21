@@ -2,12 +2,12 @@
  * HTML: `ui-secondary`
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UISecondary extends HTMLElement {
     static register: () => void;
     ui: {};
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }

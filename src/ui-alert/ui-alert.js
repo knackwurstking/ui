@@ -5,8 +5,8 @@ import { css, html } from "../utils";
  * HTML: `ui-alert`
  *
  * Attributes:
- *  - **message**: `string`
- *  - **variant**: `info` | `error`
+ *  - __message__: *string*
+ *  - __variant__: *info | error*
  */
 export class UIAlert extends UIFlexGridItem {
     static register = () => {
@@ -90,12 +90,11 @@ export class UIAlert extends UIFlexGridItem {
             },
         };
 
+        this.#renderUIAlert();
         if (!!options) this.ui.set(options);
     }
 
-    shadowRender() {
-        super.shadowRender();
-
+    #renderUIAlert() {
         this.shadowRoot.removeChild(this.shadowRoot.querySelector("slot"));
         this.shadowRoot.innerHTML += html`
             <style>

@@ -13,10 +13,10 @@ import { UISelectOption } from "./ui-select-option";
  * HTML: `ui-select`
  *
  * Attributes:
- *  - **open**: `boolean`
+ *  - __open__: *boolean*
  *
  * Slots:
- *  - \* - from type `UISelectOption`
+ *  - __\*__ - from type `UISelectOption`
  */
 export class UISelect extends HTMLElement {
     static register = () => {
@@ -29,7 +29,6 @@ export class UISelect extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.open = false;
 
@@ -86,10 +85,11 @@ export class UISelect extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUISelect();
     }
 
-    shadowRender() {
+    #renderUISelect() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

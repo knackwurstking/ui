@@ -5,12 +5,12 @@ import { html, ripple } from "../utils";
  * HTML: `ui-drawer-group`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **fold**: `boolean`
- *  - **nofold**: `boolean`
+ *  - __title__: *string*
+ *  - __fold__: *boolean*
+ *  - __nofold__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIDrawerGroup extends HTMLElement {
     static register = () => {
@@ -23,7 +23,6 @@ export class UIDrawerGroup extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -71,10 +70,11 @@ export class UIDrawerGroup extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIDrawerGroup();
     }
 
-    shadowRender() {
+    #renderUIDrawerGroup() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

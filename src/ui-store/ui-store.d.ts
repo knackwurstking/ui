@@ -2,8 +2,8 @@
  * HTML: `ui-store`
  *
  * Attributes:
- *  - **storageprefix**: `string`
- *  - **storage**: `boolean`
+ *  - __storageprefix__: *string*
+ *  - __storage__: *boolean*
  *
  * @template {{ [key: string]: any }} T
  */
@@ -53,7 +53,6 @@ export class UIStore<T extends {
          */
         on<K extends keyof T>(key: K, callback: (data: T[K]) => void | Promise<void>, trigger?: boolean): () => void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
 }

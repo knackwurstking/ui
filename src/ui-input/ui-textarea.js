@@ -13,15 +13,15 @@ import { UISecondary } from "../ui-text";
  * HTML: `ui-textarea`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **value**: `string`
- *  - **palceholder**: `string`
- *  - **rows**: `number`
- *  - **cols**: `number`
- *  - **invalid**: `boolean`
+ *  - __title__: *string*
+ *  - __value__: *string*
+ *  - __palceholder__: *string*
+ *  - __rows__: *number*
+ *  - __cols__: *number*
+ *  - __invalid__: *boolean*
  *
  * Slots:
- *  - **title**
+ *  - __title__
  *
  * @template {UITextarea_Events} [E=UITextarea_Events]
  */
@@ -43,7 +43,6 @@ export class UITextarea extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -133,10 +132,11 @@ export class UITextarea extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUITextarea();
     }
 
-    shadowRender() {
+    #renderUITextarea() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

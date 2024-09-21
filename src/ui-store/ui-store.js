@@ -4,8 +4,8 @@ import { Events } from "../utils";
  * HTML: `ui-store`
  *
  * Attributes:
- *  - **storageprefix**: `string`
- *  - **storage**: `boolean`
+ *  - __storageprefix__: *string*
+ *  - __storage__: *boolean*
  *
  * @template {{ [key: string]: any }} T
  */
@@ -148,11 +148,8 @@ export class UIStore extends HTMLElement {
                 return this.events.on(key, callback);
             },
         };
-
-        this.shadowRender();
     }
 
-    shadowRender() {}
     connectedCallback() {}
     disconnectedCallback() {}
 }

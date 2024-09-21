@@ -13,13 +13,13 @@ import { Events, html, ripple } from "../utils";
  * HTML: `ui-icon-button`
  *
  * Attribute:
- *  - **color**: `"primary" | "secondary" | "destructive"`
- *  - **ghost**: `boolean`
- *  - **noripple**: `boolean`
- *  - **disabled**: `boolean`
+ *  - __color__: *"primary" | "secondary" | "destructive"*
+ *  - __ghost__: *boolean*
+ *  - __noripple__: *boolean*
+ *  - __disabled__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIIconButton extends HTMLElement {
     static register = () => {
@@ -32,7 +32,6 @@ export class UIIconButton extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         /** @type {import("../utils").Ripple | null} */
         this.ripple = null;
@@ -102,10 +101,11 @@ export class UIIconButton extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIIconButton();
     }
 
-    shadowRender() {
+    #renderUIIconButton() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

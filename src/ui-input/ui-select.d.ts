@@ -8,10 +8,10 @@
  * HTML: `ui-select`
  *
  * Attributes:
- *  - **open**: `boolean`
+ *  - __open__: *boolean*
  *
  * Slots:
- *  - \* - from type `UISelectOption`
+ *  - __\*__ - from type `UISelectOption`
  */
 export class UISelect extends HTMLElement {
     static register: () => void;
@@ -33,7 +33,6 @@ export class UISelect extends HTMLElement {
          */
         selected(): UISelectOption | null;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -42,6 +41,7 @@ export class UISelect extends HTMLElement {
      * @param {string | null} nV
      */
     attributeChangedCallback(n: string, _oV: string | null, nV: string | null): void;
+    #private;
 }
 /**
  * UISelect_Events

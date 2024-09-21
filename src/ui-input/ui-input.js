@@ -13,16 +13,16 @@ import { UISecondary } from "../ui-text";
  * HTML: `ui-input`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **type**: `string`
- *  - **value**: `string`
- *  - **placeholder**: `string`
- *  - **min**: `string`
- *  - **max**: `string`
- *  - **invalid**: `boolean`
+ *  - __title__: *string*
+ *  - __type__: *string*
+ *  - __value__: *string*
+ *  - __placeholder__: *string*
+ *  - __min__: *string*
+ *  - __max__: *string*
+ *  - __invalid__: *boolean*
  *
  * Slots:
- *  - **title**
+ *  - __title__
  *
  * @template {UIInput_Events} [E=UIInput_Events]
  */
@@ -45,7 +45,6 @@ export class UIInput extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -143,10 +142,11 @@ export class UIInput extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIInput();
     }
 
-    shadowRender() {
+    #renderUIInput() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

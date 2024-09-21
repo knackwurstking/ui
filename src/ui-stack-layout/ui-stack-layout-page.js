@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-stack-layout-page`
  *
  * Attributes:
- *  - **name**: `string`
+ *  - __name__: *string*
  *
  * Slots:
  *  - \*
@@ -23,7 +23,6 @@ export class UIStackLayoutPage extends HTMLElement {
      */
     constructor(name) {
         super();
-        this.attachShadow({ mode: "open" });
 
         this._name = name;
 
@@ -39,10 +38,11 @@ export class UIStackLayoutPage extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIStackLayoutPage();
     }
 
-    shadowRender() {
+    #renderUIStackLayoutPage() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {

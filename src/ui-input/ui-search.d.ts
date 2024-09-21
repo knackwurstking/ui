@@ -10,17 +10,17 @@
  * HTML: `ui-search`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **value**: `string`
- *  - **placeholder**: `string`
- *  - **invalid**: `boolean`
- *  - **nosubmit**: `boolean`
- *  - **storage**: `boolean`
- *  - **storageprefix**: `string`
- *  - **storagekey**: `string`
+ *  - __title__: *string*
+ *  - __value__: *string*
+ *  - __placeholder__: *string*
+ *  - __invalid__: *boolean*
+ *  - __nosubmit__: *boolean*
+ *  - __storage__: *boolean*
+ *  - __storageprefix__: *string*
+ *  - __storagekey__: *string*
  *
  * Slots:
- *  - **title**
+ *  - __title__
  *
  * @template {UISearch_Events} [E=UISearch_Events]
  */
@@ -51,7 +51,6 @@ export class UISearch<E extends UISearch_Events = UISearch_Events> extends HTMLE
         focus(options?: FocusOptions | null): void;
         blur(): void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -60,6 +59,7 @@ export class UISearch<E extends UISearch_Events = UISearch_Events> extends HTMLE
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }
 export type UISearch_Events = {
     input: string;

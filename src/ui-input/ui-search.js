@@ -15,17 +15,17 @@ import { UISecondary } from "../ui-text";
  * HTML: `ui-search`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **value**: `string`
- *  - **placeholder**: `string`
- *  - **invalid**: `boolean`
- *  - **nosubmit**: `boolean`
- *  - **storage**: `boolean`
- *  - **storageprefix**: `string`
- *  - **storagekey**: `string`
+ *  - __title__: *string*
+ *  - __value__: *string*
+ *  - __placeholder__: *string*
+ *  - __invalid__: *boolean*
+ *  - __nosubmit__: *boolean*
+ *  - __storage__: *boolean*
+ *  - __storageprefix__: *string*
+ *  - __storagekey__: *string*
  *
  * Slots:
- *  - **title**
+ *  - __title__
  *
  * @template {UISearch_Events} [E=UISearch_Events]
  */
@@ -47,7 +47,6 @@ export class UISearch extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.storagekey = "";
 
@@ -182,10 +181,11 @@ export class UISearch extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUISearch();
     }
 
-    shadowRender() {
+    #renderUISearch() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

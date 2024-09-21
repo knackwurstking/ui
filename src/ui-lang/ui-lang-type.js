@@ -2,9 +2,9 @@
  * HTML: `ui-lang-type`
  *
  * Attributes:
- *  - **name**: `string`
- *  - **href**: `string`
- *  - **fallback**: `boolean`
+ *  - __name__: *string*
+ *  - __href__: *string*
+ *  - __fallback__: *boolean*
  */
 export class UILangType extends HTMLElement {
     static register = () => {
@@ -58,11 +58,8 @@ export class UILangType extends HTMLElement {
                 this.root.setAttribute("fallback", "");
             },
         };
-
-        this.shadowRender();
     }
 
-    shadowRender() {}
     connectedCallback() {}
     disconnectedCallback() {}
 }

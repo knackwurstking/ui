@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-container`
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIContainer extends HTMLElement {
     static register = () => {
@@ -15,14 +15,12 @@ export class UIContainer extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
-
         this.ui = {};
-
-        this.shadowRender();
+        this.#renderUIContainer();
     }
 
-    shadowRender() {
+    #renderUIContainer() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

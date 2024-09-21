@@ -25,13 +25,13 @@ import { Events, html, ripple } from "../utils";
  * HTML: `ui-button`
  *
  * Attribute:
- *  - **variant**: `"ghost" | "outline" | "full"`
- *  - **color**: `"primary" | "secondary" | "destructive"`
- *  - **noripple**: `boolean`
- *  - **disabled**: `boolean`
+ *  - __variant__: *"ghost" | "outline" | "full"*
+ *  - __color__: *"primary" | "secondary" | "destructive"*
+ *  - __noripple__: *boolean*
+ *  - __disabled__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIButton extends HTMLElement {
     static register = () => {
@@ -44,7 +44,6 @@ export class UIButton extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         /** @type {import("../utils").Ripple | null} */
         this.ripple = null;
@@ -114,10 +113,11 @@ export class UIButton extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIButton();
     }
 
-    shadowRender() {
+    #renderUIButton() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

@@ -4,11 +4,11 @@ import { html } from "../utils";
  * HTML: `ui-select-option`
  *
  * Attributes:
- *  - **value**: `string`
- *  - **selected**: `boolean`
+ *  - __value__: *string*
+ *  - __selected__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UISelectOption extends HTMLElement {
     static register = () => {
@@ -19,7 +19,6 @@ export class UISelectOption extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -51,10 +50,11 @@ export class UISelectOption extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUISelectOption();
     }
 
-    shadowRender() {
+    #renderUISelectOption() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {

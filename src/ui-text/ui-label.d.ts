@@ -2,13 +2,13 @@
  * HTML: `ui-label`
  *
  * Attributes:
- *  - **primary**: `string`
- *  - **secondary**: `string`
- *  - **ripple**: `boolean` - this enables click forwarding
+ *  - __primary__: *string*
+ *  - __secondary__: *string*
+ *  - __ripple__: *boolean* - this enables click forwarding
  *
  * Slots:
- *  - **input** - input slot get click forwarding
- *  - \*
+ *  - __input__ - input slot get click forwarding
+ *  - __\*__
  */
 export class UILabel extends HTMLElement {
     static register: () => void;
@@ -30,7 +30,6 @@ export class UILabel extends HTMLElement {
         secondary: string;
         readonly inputSlot: any[];
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -41,4 +40,5 @@ export class UILabel extends HTMLElement {
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
     enableRipple(): void;
     disableRipple(): void;
+    #private;
 }

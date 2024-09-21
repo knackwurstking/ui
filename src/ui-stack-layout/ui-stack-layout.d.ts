@@ -8,7 +8,7 @@
  * HTML: `ui-stack-layout`
  *
  * Slots:
- *  - \* from type `UIStackLayoutPage`
+ *  - __\*__ from type `UIStackLayoutPage`
  *
  * @template {string} T
  */
@@ -56,7 +56,6 @@ export class UIStackLayout<T extends string> extends HTMLElement {
          */
         set(pageName: T, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     goBack(): void;
@@ -64,6 +63,7 @@ export class UIStackLayout<T extends string> extends HTMLElement {
      * @param {UIStackLayoutPage} oldChild
      */
     dispatchChangeEvent(oldChild: UIStackLayoutPage): Promise<void>;
+    #private;
 }
 export type Pages = {
     [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);

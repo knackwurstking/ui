@@ -4,7 +4,7 @@ import { html } from "../utils";
  * HTML: `ui-spinner`
  *
  * Attributes:
- *  - **nobg**: `boolean`
+ *  - __nobg__: *boolean*
  */
 export class UISpinner extends HTMLElement {
     static register = () => {
@@ -17,7 +17,6 @@ export class UISpinner extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         this.ui = {
             root: this,
@@ -39,10 +38,11 @@ export class UISpinner extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUISpinner();
     }
 
-    shadowRender() {
+    #renderUISpinner() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {

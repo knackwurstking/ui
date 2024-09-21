@@ -2,7 +2,7 @@
  * HTML: `ui-stack-layout-page`
  *
  * Attributes:
- *  - **name**: `string`
+ *  - __name__: *string*
  *
  * Slots:
  *  - \*
@@ -19,7 +19,6 @@ export class UIStackLayoutPage extends HTMLElement {
         root: this;
         name: string;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -28,4 +27,5 @@ export class UIStackLayoutPage extends HTMLElement {
      * @param {string | null} nV
      */
     attributeChangedCallback(n: string, _oV: string | null, nV: string | null): void;
+    #private;
 }

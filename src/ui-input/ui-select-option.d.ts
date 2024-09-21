@@ -2,11 +2,11 @@
  * HTML: `ui-select-option`
  *
  * Attributes:
- *  - **value**: `string`
- *  - **selected**: `boolean`
+ *  - __value__: *string*
+ *  - __selected__: *boolean*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UISelectOption extends HTMLElement {
     static register: () => void;
@@ -15,7 +15,7 @@ export class UISelectOption extends HTMLElement {
         value: string;
         selected: boolean;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
+    #private;
 }

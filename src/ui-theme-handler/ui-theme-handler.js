@@ -7,8 +7,8 @@
  * HTML: `ui-theme-handler`
  *
  * Attributes:
- *  - **mode**: "dark" | "light"
- *  - **auto**: `boolean`
+ *  - __mode__: *"dark" | "light"*
+ *  - __auto__: *boolean*
  */
 export class UIThemeHandler extends HTMLElement {
     static register = () => {
@@ -100,11 +100,7 @@ export class UIThemeHandler extends HTMLElement {
                 };
             },
         };
-
-        this.shadowRender();
     }
-
-    shadowRender() {}
 
     /**
      * @param {string} name

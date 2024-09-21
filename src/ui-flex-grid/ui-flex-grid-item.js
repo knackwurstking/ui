@@ -4,10 +4,10 @@ import { css, html } from "../utils";
  * HTML: `ui-flex-grid-item`
  *
  * Attributes:
- *  - **flex**: `string`
+ *  - __flex__: *string*
  *
  * Slots:
- *  - \*
+ *  - __\*__
  */
 export class UIFlexGridItem extends HTMLElement {
     static register = () => {
@@ -20,7 +20,6 @@ export class UIFlexGridItem extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         /** @private */
         this.flex = "1";
@@ -44,10 +43,11 @@ export class UIFlexGridItem extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderUIFlexGridItem();
     }
 
-    shadowRender() {
+    #renderUIFlexGridItem() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

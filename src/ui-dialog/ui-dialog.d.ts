@@ -9,13 +9,13 @@
  * HTML: `ui-dialog`
  *
  * Attributes:
- *  - **title**: `string`
- *  - **fullscreen**: `boolean`
- *  - **nofooter**: `boolean`
+ *  - __title__: *string*
+ *  - __fullscreen__: *boolean*
+ *  - __nofooter__: *boolean*
  *
  * Slots:
- *  - **actions**
- *  - \*
+ *  - __actions__
+ *  - __\*__
  *
  * @template {UIDialog_Events} [T=UIDialog_Events]
  */
@@ -42,7 +42,6 @@ export class UIDialog<T extends UIDialog_Events = UIDialog_Events> extends HTMLE
      * @param {string} title
      */
     constructor(title: string);
-    shadowRenderCleanUp: CleanUp;
     _title: string;
     ui: {
         root: this;
@@ -58,7 +57,6 @@ export class UIDialog<T extends UIDialog_Events = UIDialog_Events> extends HTMLE
         open(modal?: boolean, inert?: boolean): void;
         close(): void;
     };
-    shadowRender(): void;
     connectedCallback(): void;
     disconnectedCallback(): void;
     /**
@@ -67,11 +65,11 @@ export class UIDialog<T extends UIDialog_Events = UIDialog_Events> extends HTMLE
      * @param {string | null} newValue
      */
     attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null): void;
+    #private;
 }
 export type UIDialog_Events = {
     open: null;
     close: null;
 };
-import { CleanUp } from "../utils";
 import { Events } from "../utils";
 import { UIFlexGridItem } from "../ui-flex-grid";

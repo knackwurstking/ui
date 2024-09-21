@@ -12,7 +12,7 @@ import { UIStackLayoutPage } from "./ui-stack-layout-page";
  * HTML: `ui-stack-layout`
  *
  * Slots:
- *  - \* from type `UIStackLayoutPage`
+ *  - __\*__ from type `UIStackLayoutPage`
  *
  * @template {string} T
  */
@@ -25,7 +25,6 @@ export class UIStackLayout extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
 
         /** @type {Pages} */
         this.pages = {};
@@ -112,10 +111,11 @@ export class UIStackLayout extends HTMLElement {
             },
         };
 
-        this.shadowRender();
+        this.#renderStackLayout();
     }
 
-    shadowRender() {
+    #renderStackLayout() {
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {
