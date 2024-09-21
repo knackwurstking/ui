@@ -1,4 +1,12 @@
 /**
+ * @typedef {"info" | "error"} UIAlert_Variants
+ *
+ * @typedef {{
+ *  message: string;
+ *  variant: UIAlert_Variants;
+ * }} UIAlert_Options
+ */
+/**
  * HTML: `ui-alert`
  *
  * Attributes:
@@ -8,28 +16,28 @@
 export class UIAlert extends UIFlexGridItem {
     static get observedAttributes(): string[];
     /**
-     * @param {object} [options]
-     * @param {string} options.message
+     * @param {UIAlert_Options} [options]
      */
-    constructor(options?: {
-        message: string;
-    });
+    constructor(options?: UIAlert_Options);
     styleVariants: {
         info: any;
         error: any;
     };
     ui: {
         /**
-         * @param {{ message: string; } | null} options
+         * @param {UIAlert_Options | null} options
          */
-        set(options: {
-            message: string;
-        } | null): void;
+        set(options: UIAlert_Options | null): void;
         message: string;
-        variant: "error" | "info";
+        variant: UIAlert_Variants;
         root: UIFlexGridItem;
         flex: string;
     };
     #private;
 }
+export type UIAlert_Variants = "info" | "error";
+export type UIAlert_Options = {
+    message: string;
+    variant: UIAlert_Variants;
+};
 import { UIFlexGridItem } from "../ui-flex-grid";
