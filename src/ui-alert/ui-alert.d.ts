@@ -14,22 +14,17 @@ export class UIAlert extends UIFlexGridItem {
     constructor(options?: {
         message: string;
     });
-    /**
-     * @type {HTMLElement}
-     */
-    messageContainer: HTMLElement;
     styleVariants: {
         info: any;
         error: any;
     };
     ui: {
         /**
-         * @param {object} options
-         * @param {string} options.message
+         * @param {{ message: string; } | null} options
          */
-        set({ message }: {
+        set(options: {
             message: string;
-        }): void;
+        } | null): void;
         message: string;
         variant: "error" | "info";
         root: UIFlexGridItem;
