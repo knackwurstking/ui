@@ -93,7 +93,7 @@ export class UIDrawer extends HTMLElement {
                     top: 0;
                     left: -100%;
                     width: var(--ui-drawer-width, fit-content);
-                    max-width: 100%;
+                    max-width: calc(100% - 2.5rem);
                     height: 100%;
 
                     overflow-x: hidden;
@@ -103,14 +103,14 @@ export class UIDrawer extends HTMLElement {
                     -ms-overflow-style: none;
                     scrollbar-width: none;
 
+                    /*
                     background-color: var(--ui-card);
                     color: var(--ui-card-fg);
+                    */
 
-                    /*
                     background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
-                    */
 
                     border-right: 1px solid var(--ui-card-borderColor);
 
