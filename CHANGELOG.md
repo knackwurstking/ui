@@ -11,6 +11,10 @@
 -  Changed ripple to use pointerevents per default, but cancel if pointermove was recognized before pointerup
 - Changed `UIDrawer` (aside) background color
 
+**Removed**:
+
+- Removed CSS util `is-scroll`
+
 ## v0.5.0 - 2024-09-21
 
 **Added**:

@@ -29,8 +29,3 @@
     -webkit-text-stroke-color: var(--ui-fg);
     color: transparent;
 }
-
-.is-scroll,
-.is-scroll * {
-    pointer-events: none;
-}
