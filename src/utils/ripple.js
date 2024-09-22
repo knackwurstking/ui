@@ -26,7 +26,7 @@ export const defaultOptions = {
     spreadTiming: "linear",
     clearDuration: "1s",
     clearTiming: "ease-in-out",
-    useClick: true,
+    useClick: false,
 };
 
 /**
@@ -37,8 +37,8 @@ export const defaultOptions = {
 export function create(el, options = {}) {
     options = { ...defaultOptions, ...options };
 
-    /** @type {HTMLElement} */
-    let ripple;
+    /** @type {HTMLElement | null} */
+    let ripple = null;
 
     /** @param {PointerEvent & { currentTarget: HTMLElement }} ev */
     const _start = (ev) => {
@@ -47,6 +47,12 @@ export function create(el, options = {}) {
 
     const _stop = () => {
         stop(ripple);
+        ripple = null;
+    };
+
+    const _move = () => {
+        if (!ripple) return;
+        _stop();
     };
 
     /**
@@ -69,6 +75,7 @@ export function create(el, options = {}) {
             el.addEventListener("pointerdown", _start);
             el.addEventListener("pointerup", _stop);
             el.addEventListener("pointerleave", _stop);
+            el.addEventListener("pointermove", _move);
         }
     };
 
@@ -81,6 +88,7 @@ export function create(el, options = {}) {
             el.removeEventListener("pointerdown", _start);
             el.removeEventListener("pointerup", _stop);
             el.removeEventListener("pointerleave", _stop);
+            el.removeEventListener("pointermove", _move);
         }
     };
 
@@ -146,13 +154,13 @@ export function start(ev, options) {
  * @param {HTMLElement} ripple
  */
 export function stop(ripple) {
-    if (ripple) {
-        ripple.addEventListener("transitionend", (ev) => {
-            if (ev.propertyName === "opacity") {
-                ripple.remove();
-            }
-        });
+    if (!ripple) return;
 
-        ripple.style.opacity = "0";
-    }
+    ripple.addEventListener("transitionend", (ev) => {
+        if (ev.propertyName === "opacity") {
+            ripple.remove();
+        }
+    });
+
+    ripple.style.opacity = "0";
 }
