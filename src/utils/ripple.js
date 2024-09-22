@@ -43,17 +43,16 @@ export function create(el, options = {}) {
     /** @param {PointerEvent & { currentTarget: HTMLElement }} ev */
     const _start = (ev) => {
         ripple = start(ev, options);
+        el.addEventListener("pointermove", _move);
     };
 
     const _stop = () => {
+        el.removeEventListener("pointermove", _move);
         stop(ripple);
         ripple = null;
     };
 
-    const _move = () => {
-        if (!ripple) return;
-        _stop();
-    };
+    const _move = () => _stop();
 
     /**
      * @param {Event} ev
@@ -62,6 +61,7 @@ export function create(el, options = {}) {
         // @ts-ignore
         ripple = start(ev, options);
         stop(ripple);
+        ripple = null;
     };
 
     const setup = () => {
@@ -75,7 +75,6 @@ export function create(el, options = {}) {
             el.addEventListener("pointerdown", _start);
             el.addEventListener("pointerup", _stop);
             el.addEventListener("pointerleave", _stop);
-            el.addEventListener("pointermove", _move);
         }
     };
 
