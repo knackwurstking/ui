@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.6.0 - [unreleasesd]
+
+**Added**:
+
+-  Added max-width settings to drawer (useful for small screens)
+
+**Changed**:
+
+-  Changed ripple to use pointerevents per default, but cancel if pointermove was recognized before pointerup
+- Changed `UIDrawer` (aside) background color
+
 ## v0.5.0 - 2024-09-21
 
 **Added**:
