@@ -1,21 +1,28 @@
 # Changelog
 
-## v0.6.0 - [unreleasesd]
+## v0.6.0 — 2024-09-25
 
 **Added**:
 
--  Added max-width settings to drawer (useful for small screens)
+- Added history handling for the `UIDrawer`, push state to history if open
+- Added max-width settings to drawer (useful for small screens)
 
 **Changed**:
 
--  Changed ripple to use pointerevents per default, but cancel if pointermove was recognized before pointerup
+- Changed ripple to use pointerevents per default, but cancel if pointermove
+    was recognized before pointerup
 - Changed `UIDrawer` (aside) background color
 
 **Removed**:
 
 - Removed CSS util `is-scroll`
 
-## v0.5.0 - 2024-09-21
+**Fixed**:
+
+- Fixed an error while try to navigate back in the stack (`UIStackLayout`)
+    if stack is empty
+
+## v0.5.0 — 2024-09-21
 
 **Added**:
 
@@ -29,7 +36,7 @@
 
 - Let `UIPrimary` and `UISecondary` extend from `UIText`
 
-## v0.4.0 - 2024-09-21
+## v0.4.0 — 2024-09-21
 
 **Added**:
 
@@ -44,11 +51,11 @@
 
 - Removed `shadowRender` method, replaced with a privat method
 
-## v0.3.0 - 2024-09-18
+## v0.3.0 — 2024-09-18
 
 **Changed**:
 
-- Changed coponents doc
+- Changed components doc
 - Changed secondary theme color
 - Changed css theme vars for: "secondary", "primary"
 - Changed css theme vars, `--ui-color-hsl` replaced with `--ui-color-(h|s|l)`
@@ -56,18 +63,19 @@
 
 **Fixed**:
 
-- Fixed `ui-store` "get" and "update" methods ignoring the local storage, if set was not called first
+- Fixed `ui-store` "get" and "update" methods ignoring the local storage, if
+    set was not called first
 
 **General**:
 
-- [ ] Improve documentation, use "@slot <name>" and "@event <name>"
 - Simplified all exports
 
 **Removed**:
 
 - Removed `UILabel` from `UICheck` component
-- Removed atribute "value" from `UICheck` component
-- Removed `*-bg*` from "primary", "secondary", "destructive", "muted" and "card" vars
+- Removed attribute "value" from `UICheck` component
+- Removed `*-bg*` from "primary", "secondary", "destructive", "muted" and
+    "card" vars
 
 **Renamed**:
 
@@ -104,7 +112,7 @@
 
 **Fixed**:
 
-- Fixed `UISelect` missing `--items-length` if childrends was added with javascript
+- Fixed `UISelect` missing `--items-length` if childrens was added with javascript
 - Fixed `UILang` storing data at the wrong place
 - Missing `UITextarea` exports
 
@@ -171,7 +179,7 @@
 - `UISpinner`: Attribute "nobg" (removes background)
 - `UIDrawerGroup`: Fold and Unfold
 
-**Changed**
+**Changed**:
 
 - `UISvg`: Host display to "block"
 - `UIDrawerGroupItem`: Host display to "block" with 100% width
