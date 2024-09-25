@@ -139,6 +139,11 @@ export class UIStackLayout extends HTMLElement {
     }
 
     goBack() {
+        if (this.ui.size() === 0) {
+            this.dispatchChangeEvent(null);
+            return;
+        }
+
         const removedChild = this.removeChild(this.stack.pop());
 
         if (this.stack.length > 0) {
