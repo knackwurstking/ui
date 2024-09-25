@@ -46,6 +46,7 @@ export class UIDrawer extends HTMLElement {
                     return;
                 }
 
+                history.pushState(null, "ui-drawer", location.href);
                 this.root.setAttribute("open", "");
                 this.events.dispatch("open", this.root);
             },
