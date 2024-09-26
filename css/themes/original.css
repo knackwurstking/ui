@@ -1,0 +1,235 @@
+:root {
+    --ui-lineHeight: 1.5;
+
+    --ui-radius: 0.25rem;
+    --ui-spacing: 0.5rem;
+
+    --ui-fontFamily: "RecVar";
+    --ui-fontSize: 16px;
+
+    --ui-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-heading-fontVariation: "CASL" 1, "MONO" 0, "slnt" -9;
+    --ui-button-fontVariation: "CASL" 1, "MONO" 0, "slnt" -6;
+    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
+    --ui-text-primary-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-text-secondary-fontVariation: "CASL" 1, "MONO" 0, "slnt" -15;
+    --ui-select-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
+    --ui-thead-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-tbody-fontVariation: "CASL" 1, "MONO" 0, "slnt" -3;
+
+    --ui-app-bar-height: 3rem;
+    --ui-dialog-header-height: 2.5rem;
+    --ui-dialog-footer-height: 3rem;
+    --ui-drawer-width: 20rem;
+
+    --ui-ripple-fg: currentColor;
+    --ui-ripple-opacity: 0.2;
+}
+
+[data-theme="light"] {
+    /*
+     * Basics
+     */
+
+    --ui-bg-h: 240;
+    --ui-bg-s: 10%;
+    --ui-bg-l: 96%;
+    --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+
+    --ui-fg-h: 240;
+    --ui-fg-s: 10%;
+    --ui-fg-l: 10%;
+    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+
+    --ui-primary-h: 240;
+    --ui-primary-s: 10%;
+    --ui-primary-l: 25%;
+    --ui-primary: hsla(
+        var(--ui-primary-h),
+        var(--ui-primary-s),
+        var(--ui-primary-l),
+        1
+    );
+
+    --ui-primary-fg-h: 240;
+    --ui-primary-fg-s: 10%;
+    --ui-primary-fg-l: 98%;
+    --ui-primary-fg: hsla(
+        var(--ui-primary-fg-h),
+        var(--ui-primary-fg-s),
+        var(--ui-primary-fg-l),
+        1
+    );
+
+    --ui-secondary-h: 240;
+    --ui-secondary-s: 15%;
+    --ui-secondary-l: 75%;
+    --ui-secondary: hsla(
+        var(--ui-secondary-h),
+        var(--ui-secondary-s),
+        var(--ui-secondary-l),
+        1
+    );
+
+    --ui-secondary-fg-h: 240;
+    --ui-secondary-fg-s: 10%;
+    --ui-secondary-fg-l: 10%;
+    --ui-secondary-fg: hsla(
+        var(--ui-secondary-fg-h),
+        var(--ui-secondary-fg-s),
+        var(--ui-secondary-fg-l),
+        1
+    );
+
+    --ui-destructive-h: 0;
+    --ui-destructive-s: 72%;
+    --ui-destructive-l: 51%;
+    --ui-destructive: hsla(
+        var(--ui-destructive-h),
+        var(--ui-destructive-s),
+        var(--ui-destructive-l),
+        1
+    );
+
+    --ui-destructive--h: 0;
+    --ui-destructive--s: 0%;
+    --ui-destructive--l: 98%;
+    --ui-destructive-fg: hsla(
+        var(--ui-destructive-fg-h),
+        var(--ui-destructive-fg-s),
+        var(--ui-destructive-fg-l),
+        1
+    );
+
+    --ui-borderColor: hsla(240, 10%, 82%, 1);
+
+    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdropFilter: blur(5px);
+
+    /*
+     * Muted: code, pre
+     */
+
+    --ui-muted: hsla(240, 10%, 84%, 1);
+    --ui-muted-fg: hsla(240, 10%, 36%, 1);
+    --ui-muted-borderColor: var(--ui-borderColor);
+    --ui-muted-fontFamily: var(--ui-fontFamily);
+    --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
+
+    /*
+     * ui-card
+     */
+
+    --ui-card: hsla(240, 10%, 92%, 1);
+    --ui-card-fg: hsla(240, 10%, 4%, 1);
+    --ui-card-borderColor: var(--ui-borderColor);
+    --ui-card-radius: var(--ui-radius);
+
+    background-color: var(--ui-bg);
+    color: var(--ui-fg);
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    /*
+     * Basics
+     */
+
+    --ui-bg-h: 240;
+    --ui-bg-s: 10%;
+    --ui-bg-l: 4%;
+    --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+
+    --ui-fg-h: 240;
+    --ui-fg-s: 10%;
+    --ui-fg-l: 90%;
+    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+
+    --ui-primary-h: 240;
+    --ui-primary-s: 10%;
+    --ui-primary-l: 75%;
+    --ui-primary: hsla(
+        var(--ui-primary-h),
+        var(--ui-primary-s),
+        var(--ui-primary-l),
+        1
+    );
+
+    --ui-primary-fg-h: 240;
+    --ui-primary-fg-s: 10%;
+    --ui-primary-fg-l: 10%;
+    --ui-primary-fg: hsla(
+        var(--ui-primary-fg-h),
+        var(--ui-primary-fg-s),
+        var(--ui-primary-fg-l),
+        1
+    );
+
+    --ui-secondary-h: 240;
+    --ui-secondary-s: 15%;
+    --ui-secondary-l: 25%;
+    --ui-secondary: hsla(
+        var(--ui-secondary-h),
+        var(--ui-secondary-s),
+        var(--ui-secondary-l),
+        1
+    );
+
+    --ui-secondary-fg-h: 240;
+    --ui-secondary-fg-s: 10%;
+    --ui-secondary-fg-l: 98%;
+    --ui-secondary-fg: hsla(
+        var(--ui-secondary-fg-h),
+        var(--ui-secondary-fg-s),
+        var(--ui-secondary-fg-l),
+        1
+    );
+
+    --ui-destructive-h: 0;
+    --ui-destructive-s: 63%;
+    --ui-destructive-l: 31%;
+    --ui-destructive: hsla(
+        var(--ui-destructive-h),
+        var(--ui-destructive-s),
+        var(--ui-destructive-l),
+        1
+    );
+
+    --ui-destructive-fg-h: 0;
+    --ui-destructive-fg-s: 0%;
+    --ui-destructive-fg-l: 98%;
+    --ui-destructive-fg: hsla(
+        var(--ui-destructive-fg-h),
+        var(--ui-destructive-fg-s),
+        var(--ui-destructive-fg-l),
+        1
+    );
+
+    --ui-borderColor: hsla(240, 10%, 18%, 1);
+
+    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdropFilter: blur(5px);
+
+    /*
+     * Muted: code, pre
+     */
+
+    --ui-muted: hsla(240, 10%, 16%, 1);
+    --ui-muted-fg: hsla(240, 10%, 65%, 1);
+    --ui-muted-borderColor: var(--ui-borderColor);
+    --ui-muted-fontFamily: var(--ui-fontFamily);
+    --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
+
+    /*
+     * ui-card
+     */
+
+    --ui-card: hsla(240, 10%, 8%, 1);
+    --ui-card-fg: hsla(240, 10%, 98%, 1);
+    --ui-card-borderColor: var(--ui-borderColor);
+    --ui-card-radius: var(--ui-radius);
+
+    background-color: var(--ui-bg);
+    color: var(--ui-fg);
+    color-scheme: dark;
+}
