@@ -14,7 +14,6 @@ import { html } from "../utils";
 export class UIAppBar extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-app-bar")) {
-            console.debug(`[ui] Register "ui-app-bar" component`);
             customElements.define("ui-app-bar", UIAppBar);
         }
     };
