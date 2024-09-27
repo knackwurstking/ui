@@ -1,8 +1,8 @@
 export { default as CleanUp } from "./cleanup";
 export * as draggable from "./draggable";
 export { default as Events } from "./events";
-export * as ripple from "./ripple";
 export * from "./global-styles";
+export * as ripple from "./ripple";
 
 /**
  * @returns {boolean}
