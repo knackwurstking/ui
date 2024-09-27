@@ -3,7 +3,7 @@
  *
  * @typedef UIIconButton_Events
  * @type {{
- *  click: UIIconButton;
+ *  click: MouseEvent & { currentTarget: UIIconButton };
  * }}
  */
 /**
@@ -46,6 +46,8 @@ export class UIIconButton extends HTMLElement {
 }
 export type UIIconButton_Color = import("./ui-button").UIButton_Color;
 export type UIIconButton_Events = {
-    click: UIIconButton;
+    click: MouseEvent & {
+        currentTarget: UIIconButton;
+    };
 };
 import { Events } from "../utils";

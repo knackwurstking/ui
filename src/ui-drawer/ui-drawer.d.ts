@@ -1,8 +1,8 @@
 /**
  * @typedef UIDrawer_Events
  * @type {{
- *  open: UIDrawer,
- *  close: UIDrawer,
+ *  open: null,
+ *  close: null,
  * }}
  */
 /**
@@ -29,7 +29,7 @@ export class UIDrawer extends HTMLElement {
     #private;
 }
 export type UIDrawer_Events = {
-    open: UIDrawer;
-    close: UIDrawer;
+    open: null;
+    close: null;
 };
 import { Events } from "../utils";

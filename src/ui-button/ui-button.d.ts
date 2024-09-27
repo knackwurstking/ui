@@ -15,7 +15,7 @@
  *
  * @typedef UIButton_Events
  * @type {{
- *  click: UIButton;
+ *  click: MouseEvent & { currentTarget: UIButton };
  * }}
  */
 /**
@@ -59,6 +59,8 @@ export class UIButton extends HTMLElement {
 export type UIButton_Color = ("primary" | "secondary" | "destructive");
 export type UIButton_Variant = ("full" | "outline" | "ghost");
 export type UIButton_Events = {
-    click: UIButton;
+    click: MouseEvent & {
+        currentTarget: UIButton;
+    };
 };
 import { Events } from "../utils";
