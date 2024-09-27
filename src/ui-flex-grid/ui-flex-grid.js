@@ -1,4 +1,4 @@
-import { css, html } from "../utils";
+import { css, globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-flex-grid`
@@ -48,6 +48,8 @@ export class UIFlexGrid extends HTMLElement {
 
     #renderUIFlexGrid() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -57,7 +59,8 @@ export class UIFlexGrid extends HTMLElement {
                 :host {
                     display: flex !important;
                     flex-flow: column nowrap;
-                    position: relative !important;
+
+                    position: relative;
                     width: 100%;
                     height: fit-content;
                 }
