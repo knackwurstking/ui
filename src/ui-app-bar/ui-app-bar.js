@@ -54,6 +54,8 @@ export class UIAppBar extends HTMLElement {
     }
 
     #renderUIAppBar() {
+        this.classList.add("has-backdrop-blur");
+
         this.attachShadow({ mode: "open" });
         globalStylesToShadowRoot(this.shadowRoot);
 
@@ -68,22 +70,25 @@ export class UIAppBar extends HTMLElement {
                     width: 100%;
                     overflow: hidden;
                     padding: calc(var(--ui-spacing) / 2);
-
-                    /* TODO: Using global styles ".has-backdrop-blur" */
-                    background-color: var(--ui-backdrop);
-                    -webkit-backdrop-filter: var(--ui-backdropFilter);
-                    backdrop-filter: var(--ui-backdropFilter);
                 }
 
-                /* TODO: Add bottom styles */
-                :host([position="top"]) {
-                    position: absolute !important;
+                :host([position="top"]),
+                :host([position="bottom"]) {
                     z-index: 100;
-                    top: 0;
+                    position: absolute !important;
                     left: 0;
                     right: 0;
                     height: var(--ui-app-bar-height);
+                }
+
+                :host([position="top"]) {
+                    top: 0;
                     border-bottom: 1px solid var(--ui-borderColor);
+                }
+
+                :host([position="bottom"]) {
+                    bottom: 0;
+                    border-top: 1px solid var(--ui-borderColor);
                 }
 
                 :host > ui-flex-grid-row {
