@@ -3,8 +3,8 @@ import { Events, globalStylesToShadowRoot, html } from "../utils";
 /**
  * @typedef UIDrawer_Events
  * @type {{
- *  open: UIDrawer,
- *  close: UIDrawer,
+ *  open: null,
+ *  close: null,
  * }}
  */
 
@@ -42,13 +42,13 @@ export class UIDrawer extends HTMLElement {
             set open(state) {
                 if (!state) {
                     this.root.removeAttribute("open");
-                    this.events.dispatch("close", this.root);
+                    this.events.dispatch("close", null);
                     return;
                 }
 
                 history.pushState(null, "ui-drawer", location.href);
                 this.root.setAttribute("open", "");
-                this.events.dispatch("open", this.root);
+                this.events.dispatch("open", null);
             },
         };
 
