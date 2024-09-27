@@ -1,22 +1,28 @@
-// TODO: Use this for web components and export in "./index.js"
-// TODO: Rename this crappy functions
-let globalSheets = null;
+/**
+ * @type {CSSStyleSheet[] | null}
+ */
+let _globalStyleSheets = null;
 
-export function getGlobalStyleSheets() {
-    if (globalSheets === null) {
-        globalSheets = Array.from(document.styleSheets).map((x) => {
+export function globalStyleSheets() {
+    if (_globalStyleSheets === null) {
+        _globalStyleSheets = Array.from(document.styleSheets).map((x) => {
             const sheet = new CSSStyleSheet();
+
             const css = Array.from(x.cssRules)
                 .map((rule) => rule.cssText)
                 .join(" ");
+
             sheet.replaceSync(css);
             return sheet;
         });
     }
 
-    return globalSheets;
+    return _globalStyleSheets;
 }
 
-export function addGlobalStylesToShadowRoot(shadowRoot) {
-    shadowRoot.adoptedStyleSheets.push(...getGlobalStyleSheets());
+/**
+ * @param {ShadowRoot} shadowRoot
+ */
+export function globalStylesToShadowRoot(shadowRoot) {
+    shadowRoot.adoptedStyleSheets.push(...globalStyleSheets());
 }
