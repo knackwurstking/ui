@@ -63,19 +63,21 @@ export class UIAppBar extends HTMLElement {
                 }
 
                 :host {
-                    display: flex !important;
-                    position: absolute !important;
-                    z-index: 100;
+                    display: block;
+                    width: 100%;
+                    overflow: hidden;
+                    padding: calc(var(--ui-spacing) / 2);
+
+                    /* TODO: Using global styles ".has-backdrop-blur" */
                     background-color: var(--ui-backdrop);
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
-                    overflow: hidden;
-                    width: 100%;
-                    user-select: none;
-                    padding: calc(var(--ui-spacing) / 2);
                 }
 
+                /* TODO: Add bottom styles */
                 :host([position="top"]) {
+                    position: absolute !important;
+                    z-index: 100;
                     top: 0;
                     left: 0;
                     right: 0;
