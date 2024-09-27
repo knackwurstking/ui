@@ -1,10 +1,10 @@
-import { css, html } from "../utils";
+import { css, globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-flex-grid-item`
  *
  * Attributes:
- *  - __flex__: *string*
+ *  - __flex__: *string* [default: 1]
  *
  * Slots:
  *  - __\*__
@@ -48,6 +48,8 @@ export class UIFlexGridItem extends HTMLElement {
 
     #renderUIFlexGridItem() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
