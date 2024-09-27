@@ -1,4 +1,4 @@
-import { html } from "../utils";
+import { globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-alerts`
@@ -43,24 +43,21 @@ export class UIAlerts extends HTMLElement {
     }
 
     #renderUIAlerts() {
+        this.classList.add("no-scrollbar");
+
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {
                     display: block;
                     position: fixed !important;
                     z-index: 999;
-
-                    background: none !important;
+                    background: transparent;
 
                     overflow: auto;
                     -ms-overflow-style: none;
-                    scrollbar-width: none;
-                    scroll-behavior: smooth;
-                }
-
-                :host(::-webkit-scrollbar) {
-                    display: none;
                 }
 
                 ui-flex-grid {
