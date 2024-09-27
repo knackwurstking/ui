@@ -38,6 +38,11 @@
   - [x] `UIText`
   - [ ] ~`UIThemeHandler`~
 
+ **Changed**:
+
+ - Changed `UIButton` "click" event data, now `MouseEvent` and the current target
+ - Changed `UIIconButton` "click" event data, now `MouseEvent` and the current target
+
 ## v0.6.0 — 2024-09-25
 
 **Added**:
