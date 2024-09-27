@@ -5,7 +5,7 @@ import { Events, globalStylesToShadowRoot, html, ripple } from "../utils";
  *
  * @typedef UIIconButton_Events
  * @type {{
- *  click: UIIconButton;
+ *  click: MouseEvent & { currentTarget: UIIconButton };
  * }}
  */
 
@@ -184,8 +184,9 @@ export class UIIconButton extends HTMLElement {
             this.ripple = ripple.create(this, { centered: true });
         }
 
-        this.addEventListener("click", () => {
-            this.ui.events.dispatch("click", this);
+        this.addEventListener("click", (ev) => {
+            // @ts-expect-error
+            this.ui.events.dispatch("click", ev);
         });
     }
 

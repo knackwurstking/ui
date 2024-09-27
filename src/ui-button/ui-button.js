@@ -17,7 +17,7 @@ import { Events, globalStylesToShadowRoot, html, ripple } from "../utils";
  *
  * @typedef UIButton_Events
  * @type {{
- *  click: UIButton;
+ *  click: MouseEvent & { currentTarget: UIButton };
  * }}
  */
 
@@ -229,8 +229,9 @@ export class UIButton extends HTMLElement {
             this.ripple = ripple.create(this);
         }
 
-        this.addEventListener("click", () => {
-            this.ui.events.dispatch("click", this);
+        this.addEventListener("click", (ev) => {
+            // @ts-expect-error
+            this.ui.events.dispatch("click", ev);
         });
     }
 
