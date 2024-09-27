@@ -4,7 +4,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
  * HTML: `ui-app-bar`
  *
  * Attributes:
- *  - __position__: *"top"*
+ *  - __position__: *"top" | "bottom"*
  *
  * Slots:
  *  - __left__
