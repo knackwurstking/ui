@@ -1,7 +1,7 @@
 import svgClose from "../../svg/smoothie-line-icons/close";
 
 import { UIFlexGridItem } from "../ui-flex-grid";
-import { CleanUp, Events, globalStylesToShadowRoot, html } from "../utils";
+import { Events, globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * @typedef UIDialog_Events
