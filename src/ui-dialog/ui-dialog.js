@@ -1,7 +1,7 @@
 import svgClose from "../../svg/smoothie-line-icons/close";
 
 import { UIFlexGridItem } from "../ui-flex-grid";
-import { CleanUp, Events, html } from "../utils";
+import { CleanUp, Events, globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * @typedef UIDialog_Events
@@ -118,22 +118,20 @@ export class UIDialog extends HTMLElement {
 
     #renderUIDialog() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
                     box-sizing: border-box;
                 }
 
-                :host dialog * {
-                    box-sizing: border-box;
-                }
-
                 dialog {
-                    position: fixed !important;
+                    z-index: 998; /* UIAlerts z-index is 999 */
 
+                    position: fixed !important;
                     top: 50%;
                     left: 50%;
-                    transform: translate(-50%, -50%);
 
                     max-width: 100%;
                     max-height: 100%;
@@ -146,14 +144,7 @@ export class UIDialog extends HTMLElement {
 
                     background-color: transparent;
 
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-
-                    z-index: 999;
-                }
-
-                dialog::-webkit-scrollbar {
-                    display: none;
+                    transform: translate(-50%, -50%);
                 }
 
                 dialog::backdrop {
@@ -298,7 +289,7 @@ export class UIDialog extends HTMLElement {
                 }
             </style>
 
-            <dialog>
+            <dialog class="no-scrollbar">
                 <div class="container">
                     <div class="header">
                         <span style="white-space: nowrap;">

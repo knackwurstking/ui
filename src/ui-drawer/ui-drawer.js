@@ -1,4 +1,4 @@
-import { Events, html } from "../utils";
+import { Events, globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * @typedef UIDrawer_Events
@@ -56,7 +56,11 @@ export class UIDrawer extends HTMLElement {
     }
 
     #renderUIDrawer() {
+        this.classList.add("has-backdrop-blur");
+
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -79,12 +83,7 @@ export class UIDrawer extends HTMLElement {
                 }
 
                 :host([open]) {
-                    background-color: var(--ui-backdrop);
-                    -webkit-backdrop-filter: var(--ui-backdropFilter);
-                    backdrop-filter: var(--ui-backdropFilter);
-
                     left: 0;
-
                     transition: none;
                 }
 
@@ -99,27 +98,10 @@ export class UIDrawer extends HTMLElement {
 
                     overflow-x: hidden;
                     overflow-y: auto;
-                    scroll-behavior: smooth;
-
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-
-                    /*
-                    background-color: var(--ui-card);
-                    color: var(--ui-card-fg);
-                    */
-
-                    background-color: var(--ui-backdrop);
-                    -webkit-backdrop-filter: var(--ui-backdropFilter);
-                    backdrop-filter: var(--ui-backdropFilter);
 
                     border-right: 1px solid var(--ui-card-borderColor);
 
                     transition: left 0.5s ease;
-                }
-
-                aside::-webkit-scrollbar {
-                    display: none;
                 }
 
                 :host([open]) aside {
@@ -127,7 +109,7 @@ export class UIDrawer extends HTMLElement {
                 }
             </style>
 
-            <aside>
+            <aside class="has-backdrop-blur no-scrollbar">
                 <slot></slot>
             </aside>
         `;

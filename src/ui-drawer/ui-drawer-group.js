@@ -1,5 +1,5 @@
 import chevronDown from "../../svg/smoothie-line-icons/chevron-down";
-import { html, ripple } from "../utils";
+import { globalStylesToShadowRoot, html, ripple } from "../utils";
 
 /**
  * HTML: `ui-drawer-group`
@@ -75,6 +75,8 @@ export class UIDrawerGroup extends HTMLElement {
 
     #renderUIDrawerGroup() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

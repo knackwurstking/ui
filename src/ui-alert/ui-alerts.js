@@ -57,7 +57,6 @@ export class UIAlerts extends HTMLElement {
                     background: transparent;
 
                     overflow: auto;
-                    -ms-overflow-style: none;
                 }
 
                 ui-flex-grid {

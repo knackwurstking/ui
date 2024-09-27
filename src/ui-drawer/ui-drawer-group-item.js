@@ -1,4 +1,4 @@
-import { html } from "../utils";
+import { globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-drawer-group-item`
@@ -21,6 +21,8 @@ export class UIDrawerGroupItem extends HTMLElement {
 
     #renderUIDrawerGroupItem() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -33,11 +35,13 @@ export class UIDrawerGroupItem extends HTMLElement {
                 }
 
                 li {
-                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
                     display: flex;
                     flex-direction: row;
                     flex-wrap: nowrap;
+
                     width: 100%;
+
+                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
                 }
 
                 ::slotted(*) {

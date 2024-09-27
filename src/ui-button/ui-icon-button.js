@@ -1,4 +1,4 @@
-import { Events, html, ripple } from "../utils";
+import { Events, globalStylesToShadowRoot, html, ripple } from "../utils";
 
 /**
  * @typedef {import("./ui-button").UIButton_Color} UIIconButton_Color
@@ -62,9 +62,13 @@ export class UIIconButton extends HTMLElement {
             },
 
             get color() {
+                // @ts-expect-error
                 return this.root.getAttribute("color");
             },
 
+            /**
+             * @param {UIIconButton_Color} value
+             */
             set color(value) {
                 if (!value) {
                     this.root.removeAttribute("color");
@@ -106,6 +110,8 @@ export class UIIconButton extends HTMLElement {
 
     #renderUIIconButton() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

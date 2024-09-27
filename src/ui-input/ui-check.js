@@ -1,4 +1,4 @@
-import { Events, html } from "../utils";
+import { Events, globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * @typedef UICheck_Events
@@ -51,25 +51,32 @@ export class UICheck extends HTMLElement {
 
     #renderUICheck() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 input {
                     --ui-bg: "transparent";
 
                     display: inline-block;
+
                     height: 1.5rem;
                     width: 1.5rem;
+
+                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
                     border: 1px solid var(--ui-primary);
                     border-radius: var(--ui-radius);
-                    transition: border-color 0.25s linear;
-                    background-color: var(--ui-bg);
+
+                    accent-color: var(--ui-primary);
                     color: var(--ui-fg);
+                    background-color: var(--ui-bg);
+
                     box-shadow: none;
                     outline: none;
-                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-                    accent-color: var(--ui-primary);
                     cursor: pointer;
-                    accent-color: var(--ui-primary);
+
+                    transition: border-color 0.25s linear;
                 }
 
                 input:disabled {

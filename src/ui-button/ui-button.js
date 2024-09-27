@@ -1,4 +1,4 @@
-import { Events, html, ripple } from "../utils";
+import { Events, globalStylesToShadowRoot, html, ripple } from "../utils";
 
 /**
  * @typedef UIButton_Color
@@ -74,9 +74,13 @@ export class UIButton extends HTMLElement {
             },
 
             get color() {
+                // @ts-expect-error
                 return this.root.getAttribute("color");
             },
 
+            /**
+             * @param {UIButton_Color} value
+             */
             set color(value) {
                 if (!value) {
                     this.root.removeAttribute("color");
@@ -87,9 +91,13 @@ export class UIButton extends HTMLElement {
             },
 
             get variant() {
+                // @ts-expect-error
                 return this.root.getAttribute("variant");
             },
 
+            /**
+             * @param {UIButton_Variant} value
+             */
             set variant(value) {
                 if (!value) {
                     this.root.removeAttribute("variant");
@@ -118,6 +126,8 @@ export class UIButton extends HTMLElement {
 
     #renderUIButton() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -128,15 +138,20 @@ export class UIButton extends HTMLElement {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    position: relative !important;
+
+                    position: relative;
+
                     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
+
+                    outline: none;
                     border: 1px solid currentColor;
                     border-radius: var(--ui-radius);
-                    overflow: hidden;
-                    text-transform: capitalize;
-                    cursor: pointer;
-                    outline: none;
+
                     user-select: none;
+                    overflow: hidden;
+                    cursor: pointer;
+
+                    text-transform: capitalize;
                     font-size: 1.1rem;
                     font-weight: 450;
                     font-family: var(--ui-fontFamily);
