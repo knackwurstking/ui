@@ -37,9 +37,13 @@ export class UIAppBar extends HTMLElement {
             },
 
             get position() {
+                // @ts-expect-error
                 return this.root.getAttribute("position");
             },
 
+            /**
+             * @param {"top" | "bottom"} value
+             */
             set position(value) {
                 if (!value) {
                     this.root.removeAttribute("position");

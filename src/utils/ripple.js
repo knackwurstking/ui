@@ -55,10 +55,9 @@ export function create(el, options = {}) {
     const _move = () => _stop();
 
     /**
-     * @param {Event} ev
+     * @param {Event & { currentTarget: HTMLElement }} ev
      */
     const _click = (ev) => {
-        // @ts-ignore
         ripple = start(ev, options);
         stop(ripple);
         ripple = null;
@@ -137,7 +136,7 @@ export function start(ev, options) {
         ripple.style.top = `${tR.height / 2}px`;
         ripple.style.left = `${tR.width / 2}px`;
     } else {
-        // @ts-ignore
+        // @ts-expect-error
         const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
         ripple.style.top = `${pos.clientY - tR.top}px`;
         ripple.style.left = `${pos.clientX - tR.left}px`;

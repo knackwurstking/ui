@@ -34,6 +34,12 @@ export class UIAlert extends UIFlexGridItem {
     constructor(options = null) {
         super();
 
+        /**
+         * @type {{
+         *  info: string;
+         *  error: string;
+         * }}
+         */
         this.styleVariants = {
             info: css`
                 :host {
@@ -51,8 +57,8 @@ export class UIAlert extends UIFlexGridItem {
         };
 
         this.ui = {
-            root: this,
             ...this.ui,
+            root: this,
 
             /**
              * @param {UIAlert_Options | null} options
@@ -78,6 +84,7 @@ export class UIAlert extends UIFlexGridItem {
             },
 
             get variant() {
+                // @ts-expect-error
                 return this.root.getAttribute("variant");
             },
 
@@ -140,8 +147,8 @@ export class UIAlert extends UIFlexGridItem {
                 break;
 
             case "variant":
+                if (newValue !== "info" && newValue !== "error") return;
                 this.shadowRoot.querySelector("style.variant").innerHTML =
-                    // @ts-ignore
                     this.styleVariants[newValue] || "";
         }
     }
