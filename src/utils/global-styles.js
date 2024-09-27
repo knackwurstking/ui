@@ -1,4 +1,5 @@
 // TODO: Use this for web components and export in "./index.js"
+// TODO: Rename this crappy functions
 let globalSheets = null;
 
 export function getGlobalStyleSheets() {
