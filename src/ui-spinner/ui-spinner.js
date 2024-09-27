@@ -1,4 +1,4 @@
-import { html } from "../utils";
+import { globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-spinner`
@@ -43,6 +43,8 @@ export class UISpinner extends HTMLElement {
 
     #renderUISpinner() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {
@@ -60,25 +62,26 @@ export class UISpinner extends HTMLElement {
                     right: 0;
                     bottom: 0;
                     left: 0;
-                    background-color: var(--ui-backdrop);
-                    -webkit-backdrop-filter: var(--ui-backdropFilter);
-                    backdrop-filter: var(--ui-backdropFilter);
                 }
 
                 .spinner {
-                    z-index: 1000;
                     content: "";
                     box-sizing: border-box;
+
+                    z-index: 1000;
                     position: absolute !important;
                     top: 50%;
                     left: 50%;
                     width: 2.5rem;
                     height: 2.5rem;
+
                     margin-top: -1.25rem;
                     margin-left: -1.25rem;
-                    border-radius: 50%;
+
                     border: 2px solid var(--ui-borderColor);
                     border-top-color: var(--ui-primary);
+                    border-radius: 50%;
+
                     animation: spinner 0.6s linear infinite;
                 }
 
@@ -89,7 +92,7 @@ export class UISpinner extends HTMLElement {
                 }
             </style>
 
-            <div class="background"></div>
+            <div class="background has-backdrop-blur"></div>
             <div class="spinner"></div>
         `;
     }

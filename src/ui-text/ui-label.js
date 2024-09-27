@@ -1,4 +1,4 @@
-import { ripple, html } from "../utils";
+import { ripple, html, globalStylesToShadowRoot } from "../utils";
 
 /**
  * HTML: `ui-label`
@@ -92,6 +92,8 @@ export class UILabel extends HTMLElement {
 
     #renderUILabel() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -99,35 +101,30 @@ export class UILabel extends HTMLElement {
                 }
 
                 :host {
-                    position: relative !important;
                     display: flex !important;
                     flex-direction: row;
+
+                    position: relative;
                     width: 100%;
+
                     padding: var(--ui-spacing);
+
                     border-radius: var(--ui-radius);
                 }
 
                 :host > .text {
-                    display: flex;
                     flex: 1;
-                    flex-direction: column;
-                    justify-content: center;
-                    margin-right: var(--ui-spacing);
-                }
 
-                :host > .input {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
+                    margin-right: var(--ui-spacing);
                 }
             </style>
 
-            <span class="text">
+            <span class="text flex column justify-center">
                 <ui-primary></ui-primary>
                 <ui-secondary></ui-secondary>
             </span>
 
-            <span class="input">
+            <span class="input flex align-center justify-end">
                 <slot name="input"></slot>
                 <slot></slot>
             </span>

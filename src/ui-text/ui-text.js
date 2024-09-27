@@ -1,4 +1,4 @@
-import { css, html } from "../utils";
+import { css, globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-text`
@@ -96,6 +96,8 @@ export class UIText extends HTMLElement {
 
     #renderUIText() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {
@@ -108,6 +110,7 @@ export class UIText extends HTMLElement {
 
             <slot></slot>
         `;
+
         this.#renderCSS();
     }
 

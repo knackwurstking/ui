@@ -1,4 +1,4 @@
-import { Events, html } from "../utils";
+import { Events, globalStylesToShadowRoot, html } from "../utils";
 import { UISecondary } from "../ui-text";
 
 /**
@@ -15,7 +15,7 @@ import { UISecondary } from "../ui-text";
  * Attributes:
  *  - __title__: *string*
  *  - __value__: *string*
- *  - __palceholder__: *string*
+ *  - __placeholder__: *string*
  *  - __rows__: *number*
  *  - __cols__: *number*
  *  - __invalid__: *boolean*
@@ -137,6 +137,8 @@ export class UITextarea extends HTMLElement {
 
     #renderUITextarea() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

@@ -1,4 +1,4 @@
-import { Events, html } from "../utils";
+import { Events, globalStylesToShadowRoot, html } from "../utils";
 import { UISecondary } from "../ui-text";
 
 /**
@@ -147,6 +147,8 @@ export class UIInput extends HTMLElement {
 
     #renderUIInput() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -155,31 +157,38 @@ export class UIInput extends HTMLElement {
 
                 :host {
                     display: block;
+
                     position: relative;
                     width: 100%;
                     height: fit-content;
                 }
 
                 input {
-                    width: 100%;
                     display: block;
+
+                    width: 100%;
+
                     margin: 0;
                     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
+                    accent-color: var(--ui-primary);
+                    background-color: transparent;
+
+                    outline: none !important;
                     border: none !important;
                     border-radius: inherit;
-                    outline: none !important;
+
                     font-size: 0.9rem;
                     font-family: var(--ui-fontFamily);
                     font-variation-settings: var(--ui-input-fontVariation);
-                    accent-color: var(--ui-primary);
-                    background-color: transparent !important;
                 }
 
                 .container {
                     width: 100%;
-                    border: none;
+
                     border: 1px solid var(--ui-borderColor);
                     border-radius: var(--ui-radius);
+
                     transition: border-color 0.25s linear;
                 }
 

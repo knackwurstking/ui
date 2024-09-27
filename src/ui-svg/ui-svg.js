@@ -1,4 +1,4 @@
-import { html } from "../utils";
+import { globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-svg`
@@ -21,12 +21,17 @@ export class UISvg extends HTMLElement {
 
     #renderUISvg() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {
                     display: block;
+
+                    position: relative;
                     width: 100%;
                     height: 100%;
+
                     color: inherit;
                 }
 

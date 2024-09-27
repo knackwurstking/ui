@@ -1,6 +1,6 @@
 import svgChevronDown from "../../svg/smoothie-line-icons/chevron-down";
 
-import { Events, html } from "../utils";
+import { Events, globalStylesToShadowRoot, html } from "../utils";
 import { UISelectOption } from "./ui-select-option";
 
 /**
@@ -64,6 +64,7 @@ export class UISelect extends HTMLElement {
              * @returns {UISelectOption[]}
              */
             options() {
+                // @ts-ignore
                 return [...this.root.children].filter(
                     (child) => child instanceof UISelectOption,
                 );
@@ -91,6 +92,8 @@ export class UISelect extends HTMLElement {
 
     #renderUISelect() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {

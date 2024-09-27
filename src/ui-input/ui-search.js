@@ -1,6 +1,6 @@
 import svgSearch from "../../svg/smoothie-line-icons/search";
 
-import { Events, html } from "../utils";
+import { Events, globalStylesToShadowRoot, html } from "../utils";
 import { UISecondary } from "../ui-text";
 
 /**
@@ -187,6 +187,8 @@ export class UISearch extends HTMLElement {
 
     #renderUISearch() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
@@ -195,24 +197,30 @@ export class UISearch extends HTMLElement {
 
                 :host {
                     display: block;
+
                     position: relative;
                     width: 100%;
                     height: fit-content;
                 }
 
                 input {
-                    width: 100%;
                     display: block;
+
+                    width: 100%;
+
                     margin: 0;
                     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-                    border: none !important;
+
+                    accent-color: var(--ui-primary);
+                    background-color: transparent;
+
+                    outline: none;
+                    border: none;
                     border-radius: inherit;
-                    outline: none !important;
+
                     font-size: 0.9rem;
                     font-family: var(--ui-fontFamily);
                     font-variation-settings: var(--ui-input-fontVariation);
-                    accent-color: var(--ui-primary);
-                    background-color: transparent !important;
                 }
 
                 :host(:not([nosubmit])) input {
@@ -222,13 +230,12 @@ export class UISearch extends HTMLElement {
                 .container {
                     position: relative;
                     width: 100%;
+
                     border: none;
                     border: 1px solid var(--ui-borderColor);
                     border-radius: var(--ui-radius);
+
                     transition: border-color 0.25s linear;
-                    background-color: var(--ui-backdrop);
-                    -webkit-backdrop-filter: var(--ui-backdropFilter);
-                    backdrop-filter: var(--ui-backdropFilter);
                 }
 
                 .container:has(input:focus) {
@@ -251,12 +258,13 @@ export class UISearch extends HTMLElement {
                     top: 0;
                     right: 0;
                     height: 100%;
+
                     border-top-left-radius: 0;
                     border-bottom-left-radius: 0;
                 }
             </style>
 
-            <div class="container">
+            <div class="container has-backdrop-blur">
                 <slot name="title"></slot>
                 <input type="search" />
                 <ui-icon-button name="submit" ghost
@@ -278,6 +286,7 @@ export class UISearch extends HTMLElement {
             }
         });
 
+        // @ts-ignore
         /** @type {NodeJS.Timeout | null} */
         let timeout = null;
         this.ui.input.addEventListener("input", async () => {

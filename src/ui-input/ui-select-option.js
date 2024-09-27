@@ -1,4 +1,4 @@
-import { html } from "../utils";
+import { globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-select-option`
@@ -55,6 +55,8 @@ export class UISelectOption extends HTMLElement {
 
     #renderUISelectOption() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 :host {
@@ -71,11 +73,11 @@ export class UISelectOption extends HTMLElement {
                     white-space: nowrap;
                     text-overflow: ellipsis;
 
+                    overflow: hidden;
+
                     transition:
                         background-color 0.25s linear,
                         color 0.25s linear;
-
-                    overflow: hidden;
                 }
             </style>
 

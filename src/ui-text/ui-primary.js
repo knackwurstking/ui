@@ -1,4 +1,3 @@
-import { html } from "../utils";
 import { UIText } from "./ui-text";
 
 /**
@@ -16,9 +15,6 @@ export class UIPrimary extends UIText {
 
     constructor() {
         super();
-        this.ui = {
-            ...this.ui,
-        };
         this.#renderUIPrimary();
     }
 
