@@ -7,5 +7,6 @@
 
 @import "./utils/drag.css";
 @import "./utils/flex.css";
+@import "./utils/has.css";
 @import "./utils/is.css";
 @import "./utils/no.css";

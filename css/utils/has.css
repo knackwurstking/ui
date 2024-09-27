@@ -1,0 +1,5 @@
+.has-backdrop-blur {
+    background-color: var(--ui-backdrop);
+    -webkit-backdrop-filter: var(--ui-backdropFilter);
+    backdrop-filter: var(--ui-backdropFilter);
+}
