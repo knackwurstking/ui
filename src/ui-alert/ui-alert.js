@@ -111,9 +111,10 @@ export class UIAlert extends UIFlexGridItem {
             <style>
                 :host {
                     position: relative !important;
-                    padding: var(--ui-spacing);
+
                     border-radius: var(--ui-radius);
                     border: 1px solid var(--ui-borderColor);
+
                     padding: var(--ui-spacing);
 
                     width: 28rem;
