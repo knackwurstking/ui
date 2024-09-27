@@ -1,4 +1,4 @@
-import { html } from "../utils";
+import { globalStylesToShadowRoot, html } from "../utils";
 
 /**
  * HTML: `ui-app-bar`
@@ -55,6 +55,8 @@ export class UIAppBar extends HTMLElement {
 
     #renderUIAppBar() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
+
         this.shadowRoot.innerHTML = html`
             <style>
                 * {
