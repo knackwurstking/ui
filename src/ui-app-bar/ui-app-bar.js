@@ -14,6 +14,7 @@ import { html } from "../utils";
 export class UIAppBar extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-app-bar")) {
+            console.debug(`[ui] Register "ui-app-bar" component`);
             customElements.define("ui-app-bar", UIAppBar);
         }
     };
@@ -69,7 +70,9 @@ export class UIAppBar extends HTMLElement {
                     -webkit-backdrop-filter: var(--ui-backdropFilter);
                     backdrop-filter: var(--ui-backdropFilter);
                     overflow: hidden;
+                    width: 100%;
                     user-select: none;
+                    padding: calc(var(--ui-spacing) / 2);
                 }
 
                 :host([position="top"]) {
@@ -78,8 +81,6 @@ export class UIAppBar extends HTMLElement {
                     right: 0;
                     height: var(--ui-app-bar-height);
                     border-bottom: 1px solid var(--ui-borderColor);
-                    padding-left: var(--ui-spacing);
-                    padding-right: var(--ui-spacing);
                 }
 
                 :host > ui-flex-grid-row {

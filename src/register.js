@@ -1,4 +1,5 @@
 import { UIAlerts, UIAlert } from "./ui-alert";
+import { UIAppBar, UIAppBarItem } from "./ui-app-bar";
 import { UIButton, UIIconButton } from "./ui-button";
 import { UIContainer } from "./ui-container";
 import { UIDialog } from "./ui-dialog";
@@ -26,6 +27,9 @@ import { UIThemeHandler } from "./ui-theme-handler";
 export function register() {
     UIAlerts.register();
     UIAlert.register();
+
+    UIAppBarItem.register();
+    UIAppBar.register();
 
     UIButton.register();
     UIIconButton.register();
