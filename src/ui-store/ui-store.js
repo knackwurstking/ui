@@ -12,6 +12,7 @@ import { Events } from "../utils";
 export class UIStore extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-store")) {
+            console.debug(`[ui] Register "ui-store" component`);
             customElements.define("ui-store", UIStore);
         }
     };
@@ -153,3 +154,5 @@ export class UIStore extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+UIStore.register();

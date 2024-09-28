@@ -28,6 +28,7 @@ import { Events, globalStylesToShadowRoot, html } from "../utils";
 export class UIDialog extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-dialog")) {
+            console.debug(`[ui] Register "ui-dialog" component`);
             customElements.define("ui-dialog", UIDialog);
         }
     };
@@ -381,3 +382,5 @@ export class UIDialog extends HTMLElement {
         };
     }
 }
+
+UIDialog.register();

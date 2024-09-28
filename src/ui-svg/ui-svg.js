@@ -9,6 +9,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
 export class UISvg extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-svg")) {
+            console.debug(`[ui] Register "ui-svg" component`);
             customElements.define("ui-svg", UISvg);
         }
     };
@@ -48,3 +49,5 @@ export class UISvg extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+UISvg.register();

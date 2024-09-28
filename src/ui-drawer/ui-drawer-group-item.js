@@ -9,6 +9,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
 export class UIDrawerGroupItem extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-drawer-group-item")) {
+            console.debug(`[ui] Register "ui-drawer-group-item" component`);
             customElements.define("ui-drawer-group-item", UIDrawerGroupItem);
         }
     };
@@ -58,3 +59,5 @@ export class UIDrawerGroupItem extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+UIDrawerGroupItem.register();

@@ -9,6 +9,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
 export class UISpinner extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-spinner")) {
+            console.debug(`[ui] Register "ui-spinner" component`);
             customElements.define("ui-spinner", UISpinner);
         }
     };
@@ -113,3 +114,5 @@ export class UISpinner extends HTMLElement {
         }
     }
 }
+
+UISpinner.register();

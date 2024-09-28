@@ -20,6 +20,7 @@ import { Events, html } from "../utils";
 export class UIStackLayout extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-stack-layout")) {
+            console.debug(`[ui] Register "ui-stack-layout" component`);
             customElements.define("ui-stack-layout", UIStackLayout);
         }
     };
@@ -166,3 +167,5 @@ export class UIStackLayout extends HTMLElement {
         });
     }
 }
+
+UIStackLayout.register();

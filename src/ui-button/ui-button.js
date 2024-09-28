@@ -36,6 +36,7 @@ import { Events, globalStylesToShadowRoot, html, ripple } from "../utils";
 export class UIButton extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-button")) {
+            console.debug(`[ui] Register "ui-button" component`);
             customElements.define("ui-button", UIButton);
         }
     };
@@ -254,3 +255,5 @@ export class UIButton extends HTMLElement {
         }
     }
 }
+
+UIButton.register();

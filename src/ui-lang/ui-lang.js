@@ -12,6 +12,7 @@ import { Events } from "../utils";
 export class UILang extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-lang")) {
+            console.debug(`[ui] Register "ui-lang" component`);
             customElements.define("ui-lang", UILang);
         }
     };
@@ -99,3 +100,5 @@ export class UILang extends HTMLElement {
         this.ui.events.dispatch("change", l);
     }
 }
+
+UILang.register();

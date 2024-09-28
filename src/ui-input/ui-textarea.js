@@ -28,6 +28,7 @@ import { UISecondary } from "../ui-text";
 export class UITextarea extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-textarea")) {
+            console.debug(`[ui] Register "ui-textarea" component`);
             customElements.define("ui-textarea", UITextarea);
         }
     };
@@ -246,3 +247,5 @@ export class UITextarea extends HTMLElement {
         }
     }
 }
+
+UITextarea.register();

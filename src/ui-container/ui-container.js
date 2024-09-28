@@ -9,6 +9,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
 export class UIContainer extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-container")) {
+            console.debug(`[ui] Register "ui-container" component`);
             customElements.define("ui-container", UIContainer);
         }
     };
@@ -45,3 +46,5 @@ export class UIContainer extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+UIContainer.register();

@@ -15,6 +15,7 @@ import { globalStylesToShadowRoot, html, ripple } from "../utils";
 export class UIDrawerGroup extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-drawer-group")) {
+            console.debug(`[ui] Register "ui-drawer-group" component`);
             customElements.define("ui-drawer-group", UIDrawerGroup);
         }
     };
@@ -160,3 +161,5 @@ export class UIDrawerGroup extends HTMLElement {
         }
     }
 }
+
+UIDrawerGroup.register();

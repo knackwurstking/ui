@@ -6,6 +6,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
 export class UIAlerts extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-alerts")) {
+            console.debug(`[ui] Register "ui-alerts" component`);
             customElements.define("ui-alerts", UIAlerts);
         }
     };
@@ -92,3 +93,5 @@ export class UIAlerts extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+UIAlerts.register();

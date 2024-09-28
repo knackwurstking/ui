@@ -28,6 +28,7 @@ export class UIText extends HTMLElement {
 
     static register = () => {
         if (!customElements.get("ui-text")) {
+            console.debug(`[ui] Register "ui-text" component`);
             customElements.define("ui-text", UIText);
         }
     };
@@ -160,3 +161,5 @@ export class UIText extends HTMLElement {
         }
     }
 }
+
+UIText.register();

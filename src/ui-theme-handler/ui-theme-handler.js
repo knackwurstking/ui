@@ -13,6 +13,7 @@
 export class UIThemeHandler extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-theme-handler")) {
+            console.debug(`[ui] Register "ui-theme-handler" component`);
             customElements.define("ui-theme-handler", UIThemeHandler);
         }
     };
@@ -170,3 +171,5 @@ export class UIThemeHandler extends HTMLElement {
         }
     }
 }
+
+UIThemeHandler.register();

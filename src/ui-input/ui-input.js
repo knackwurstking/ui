@@ -29,6 +29,7 @@ import { UISecondary } from "../ui-text";
 export class UIInput extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-input")) {
+            console.debug(`[ui] Register "ui-input" component`);
             customElements.define("ui-input", UIInput);
         }
     };
@@ -266,3 +267,5 @@ export class UIInput extends HTMLElement {
         }
     }
 }
+
+UIInput.register();

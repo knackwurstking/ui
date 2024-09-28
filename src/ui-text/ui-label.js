@@ -15,6 +15,7 @@ import { ripple, html, globalStylesToShadowRoot } from "../utils";
 export class UILabel extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-label")) {
+            console.debug(`[ui] Register "ui-label" component`);
             customElements.define("ui-label", UILabel);
         }
     };
@@ -187,3 +188,5 @@ export class UILabel extends HTMLElement {
         this.running = false;
     }
 }
+
+UILabel.register();

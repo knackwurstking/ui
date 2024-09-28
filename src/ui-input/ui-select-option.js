@@ -13,6 +13,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
 export class UISelectOption extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-select-option")) {
+            console.debug(`[ui] Register "ui-select-option" component`);
             customElements.define("ui-select-option", UISelectOption);
         }
     };
@@ -91,3 +92,5 @@ export class UISelectOption extends HTMLElement {
 
     disconnectedCallback() {}
 }
+
+UISelectOption.register();

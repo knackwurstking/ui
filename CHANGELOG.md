@@ -40,6 +40,7 @@
 
  **Changed**:
 
+ - Autoregister all web components
  - Changed `UIButton` "click" event data, now `MouseEvent` and the current target
  - Changed `UIIconButton` "click" event data, now `MouseEvent` and the current target
 

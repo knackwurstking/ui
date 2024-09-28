@@ -20,6 +20,7 @@ import { css, html } from "../utils";
 export class UIAlert extends UIFlexGridItem {
     static register = () => {
         if (!customElements.get("ui-alert")) {
+            console.debug(`[ui] Register "ui-alert" component`);
             customElements.define("ui-alert", UIAlert);
         }
     };
@@ -154,3 +155,5 @@ export class UIAlert extends UIFlexGridItem {
         }
     }
 }
+
+UIAlert.register();

@@ -12,6 +12,7 @@ import { html } from "../utils";
 export class UIStackLayoutPage extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-stack-layout-page")) {
+            console.debug(`[ui] Register "ui-stack-layout-page" component`);
             customElements.define("ui-stack-layout-page", UIStackLayoutPage);
         }
     };
@@ -91,3 +92,5 @@ export class UIStackLayoutPage extends HTMLElement {
         }
     }
 }
+
+UIStackLayoutPage.register();

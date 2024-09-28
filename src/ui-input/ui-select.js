@@ -22,6 +22,7 @@ import { UISelectOption } from "./ui-select-option";
 export class UISelect extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-select")) {
+            console.debug(`[ui] Register "ui-select" component`);
             customElements.define("ui-select", UISelect);
         }
     };
@@ -253,3 +254,5 @@ export class UISelect extends HTMLElement {
         }
     }
 }
+
+UISelect.register();

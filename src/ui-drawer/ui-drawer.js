@@ -20,6 +20,7 @@ import { Events, globalStylesToShadowRoot, html } from "../utils";
 export class UIDrawer extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-drawer")) {
+            console.debug(`[ui] Register "ui-drawer" component`);
             customElements.define("ui-drawer", UIDrawer);
         }
     };
@@ -127,3 +128,5 @@ export class UIDrawer extends HTMLElement {
 
     disconnectedCallback() {}
 }
+
+UIDrawer.register();

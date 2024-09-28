@@ -9,6 +9,7 @@
 export class UILangType extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-lang-type")) {
+            console.debug(`[ui] Register "ui-lang-type" component`);
             customElements.define("ui-lang-type", UILangType);
         }
     };
@@ -63,3 +64,5 @@ export class UILangType extends HTMLElement {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+UILangType.register();

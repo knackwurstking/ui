@@ -9,6 +9,7 @@ import { UIText } from "./ui-text";
 export class UISecondary extends UIText {
     static register = () => {
         if (!customElements.get("ui-secondary")) {
+            console.debug(`[ui] Register "ui-secondary" component`);
             customElements.define("ui-secondary", UISecondary);
         }
     };
@@ -28,3 +29,5 @@ export class UISecondary extends UIText {
     connectedCallback() {}
     disconnectedCallback() {}
 }
+
+UISecondary.register();

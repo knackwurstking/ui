@@ -24,6 +24,7 @@ import { Events, globalStylesToShadowRoot, html, ripple } from "../utils";
 export class UIIconButton extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-icon-button")) {
+            console.debug(`[ui] Register "ui-icon-button" component`);
             customElements.define("ui-icon-button", UIIconButton);
         }
     };
@@ -209,3 +210,5 @@ export class UIIconButton extends HTMLElement {
         }
     }
 }
+
+UIIconButton.register();

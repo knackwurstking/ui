@@ -12,6 +12,7 @@ import { css, globalStylesToShadowRoot, html } from "../utils";
 export class UIFlexGrid extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-flex-grid")) {
+            console.debug(`[ui] Register "ui-flex-grid" component`);
             customElements.define("ui-flex-grid", UIFlexGrid);
         }
     };
@@ -102,3 +103,5 @@ export class UIFlexGrid extends HTMLElement {
         }
     }
 }
+
+UIFlexGrid.register();

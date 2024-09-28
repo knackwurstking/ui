@@ -33,6 +33,7 @@ import { UISecondary } from "../ui-text";
 export class UISearch extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-search")) {
+            console.debug(`[ui] Register "ui-search" component`);
             customElements.define("ui-search", UISearch);
         }
     };
@@ -350,3 +351,5 @@ export class UISearch extends HTMLElement {
         }
     }
 }
+
+UISearch.register();

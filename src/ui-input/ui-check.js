@@ -19,6 +19,7 @@ import { Events, globalStylesToShadowRoot, html } from "../utils";
 export class UICheck extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-check")) {
+            console.debug(`[ui] Register "ui-check" component`);
             customElements.define("ui-check", UICheck);
         }
     };
@@ -119,3 +120,5 @@ export class UICheck extends HTMLElement {
         this.ui.input.click();
     }
 }
+
+UICheck.register();
