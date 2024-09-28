@@ -13,5 +13,4 @@ export * from "./ui-stack-layout";
 export * from "./ui-store";
 export * from "./ui-text";
 export * from "./ui-theme-handler";
-export * from "./register";
 export * as svg from "../svg";
