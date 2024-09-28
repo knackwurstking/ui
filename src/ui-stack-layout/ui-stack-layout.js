@@ -1,10 +1,11 @@
 import { Events, html } from "../utils";
-import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**
+ * @typedef {import("./ui-stack-layout-page").UIStackLayoutPage} UIStackLayoutPage
+ *
  * @typedef Pages
  * @type {{
- *  [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
+ *  [key: string]: () => (UIStackLayoutPage|Promise<UIStackLayoutPage>);
  * }}
  */
 
@@ -72,7 +73,7 @@ export class UIStackLayout extends HTMLElement {
 
             /**
              * @param {T} pageName
-             * @param {() => (UIStackLayoutPage)} cb
+             * @param {(() => UIStackLayoutPage|Promise<UIStackLayoutPage>)} cb
              */
             register(pageName, cb) {
                 this.root.pages[pageName] = cb;
@@ -90,10 +91,10 @@ export class UIStackLayout extends HTMLElement {
              * @param {((page: UIStackLayoutPage) => void|Promise<void>) | null} [cb]
              * @param {boolean} [keepOldPage]
              */
-            set(pageName, cb = null, keepOldPage = false) {
+            async set(pageName, cb = null, keepOldPage = false) {
                 if (this.lock) return;
 
-                const page = this.root.pages[pageName]();
+                const page = await this.root.pages[pageName]();
                 this.root.stack.push(this.root.appendChild(page));
                 if (typeof cb === "function") cb(page);
 

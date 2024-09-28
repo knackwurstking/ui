@@ -1,7 +1,9 @@
 /**
+ * @typedef {import("./ui-stack-layout-page").UIStackLayoutPage} UIStackLayoutPage
+ *
  * @typedef Pages
  * @type {{
- *  [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
+ *  [key: string]: () => (UIStackLayoutPage|Promise<UIStackLayoutPage>);
  * }}
  */
 /**
@@ -42,9 +44,9 @@ export class UIStackLayout<T extends string> extends HTMLElement {
         goBack(): void;
         /**
          * @param {T} pageName
-         * @param {() => (UIStackLayoutPage)} cb
+         * @param {(() => UIStackLayoutPage|Promise<UIStackLayoutPage>)} cb
          */
-        register(pageName: T, cb: () => (UIStackLayoutPage)): void;
+        register(pageName: T, cb: (() => UIStackLayoutPage | Promise<UIStackLayoutPage>)): void;
         /**
          * @param {T} pageName
          */
@@ -54,7 +56,7 @@ export class UIStackLayout<T extends string> extends HTMLElement {
          * @param {((page: UIStackLayoutPage) => void|Promise<void>) | null} [cb]
          * @param {boolean} [keepOldPage]
          */
-        set(pageName: T, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): void;
+        set(pageName: T, cb?: ((page: UIStackLayoutPage) => void | Promise<void>) | null, keepOldPage?: boolean): Promise<void>;
     };
     connectedCallback(): void;
     disconnectedCallback(): void;
@@ -65,8 +67,8 @@ export class UIStackLayout<T extends string> extends HTMLElement {
     dispatchChangeEvent(oldChild: UIStackLayoutPage): Promise<void>;
     #private;
 }
+export type UIStackLayoutPage = import("./ui-stack-layout-page").UIStackLayoutPage;
 export type Pages = {
-    [key: string]: () => (import("./ui-stack-layout-page").UIStackLayoutPage);
+    [key: string]: () => (UIStackLayoutPage | Promise<UIStackLayoutPage>);
 };
-import { UIStackLayoutPage } from "./ui-stack-layout-page";
 import { Events } from "../utils";
