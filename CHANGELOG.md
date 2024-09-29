@@ -39,7 +39,7 @@
   - [x] `UIText`
   - [ ] ~`UIThemeHandler`~
 
-    **Changed**:
+**Changed**:
 
 - Autoregister all web components
 - Changed `UIButton` "click" event data, now `MouseEvent` and the current target
