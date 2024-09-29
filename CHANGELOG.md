@@ -1,10 +1,11 @@
 # Changelog
 
-## v0.7.0 — [unreleased]
+## v0.7.0 — 2024-09-29
 
 **Added**:
 
 - Added global style sheets to JS utils
+
   - [x] `UIAlert`
   - [x] `UIAlerts`
   - [x] `UIAppBarItem`
@@ -38,15 +39,15 @@
   - [x] `UIText`
   - [ ] ~`UIThemeHandler`~
 
- **Changed**:
+    **Changed**:
 
- - Autoregister all web components
- - Changed `UIButton` "click" event data, now `MouseEvent` and the current target
- - Changed `UIIconButton` "click" event data, now `MouseEvent` and the current target
+- Autoregister all web components
+- Changed `UIButton` "click" event data, now `MouseEvent` and the current target
+- Changed `UIIconButton` "click" event data, now `MouseEvent` and the current target
 
- **Removed**:
+**Removed**:
 
- - Removed `register` function
+- Removed `register` function
 
 ## v0.6.0 — 2024-09-25
 
