@@ -55,10 +55,12 @@ export class UIAppBarItem extends HTMLElement {
                 }
 
                 :host {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    display: content;
                     flex: 1;
+                }
+
+                ::slotted(*) {
+                    flex-grow: 1;
                 }
             </style>
 

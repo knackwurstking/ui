@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.7.1 — [unreleased]
+
+**Changed**:
+
+- Changed align to center for `UIAppBar` `ui-flex-grid-row` container (left/center/right)
+- Changed display to "content" for `UIFlexGridItem`
+- Changed display to "content" for `UIAppBarItem`
+
 ## v0.7.0 — 2024-09-29
 
 **Added**:

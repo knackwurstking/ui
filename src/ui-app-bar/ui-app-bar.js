@@ -127,15 +127,19 @@ export class UIAppBar extends HTMLElement {
             </style>
 
             <ui-flex-grid-row gap="0.25rem">
-                <ui-flex-grid-row gap="0.25rem">
+                <ui-flex-grid-row gap="0.25rem" align="center">
                     <slot name="left"></slot>
                 </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;">
+                <ui-flex-grid-row
+                    gap="0.25rem"
+                    style="overflow: hidden;"
+                    align="center"
+                >
                     <slot name="center"></slot>
                 </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem">
+                <ui-flex-grid-row gap="0.25rem" align="center">
                     <slot name="right"></slot>
                 </ui-flex-grid-row>
             </ui-flex-grid-row>

@@ -58,7 +58,11 @@ export class UIFlexGridItem extends HTMLElement {
                 }
 
                 :host {
-                    display: block;
+                    display: content;
+                }
+
+                ::slotted(*) {
+                    flex-grow: 1;
                 }
             </style>
 
