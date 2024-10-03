@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.7.2 — [unreleased]
+
+**Fixed**:
+
+- Fixed max-width for `UIAlert` component
+
 ## v0.7.1 — 2024-09-30
 
 **Changed**:
