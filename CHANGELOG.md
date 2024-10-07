@@ -8,6 +8,7 @@
 - [ ] Add theme attribute to `UIThemeHandler` with possible values:
         "original" (default), "gruvbox"
 - [ ] Fix `UILabel` ripple, effect only going from right to mouse position?
+- [x] Fix wrong color var in use `var(--ui-color)`, should be `var(--ui-fg)`
 
 ## v0.7.2 — 2024-10-07
 
