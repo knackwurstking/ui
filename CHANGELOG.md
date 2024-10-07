@@ -4,7 +4,7 @@
 
 **TODO**:
 
-- [ ] Add gruvbox theme to [css/themes/](css/themes)
+- [x] Add gruvbox theme to [css/themes/](css/themes)
 - [ ] Add theme attribute to `UIThemeHandler` with possible values:
         "original" (default), "gruvbox"
 
