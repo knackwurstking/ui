@@ -156,7 +156,7 @@ export class UIDialog extends HTMLElement {
 
                 dialog > .container {
                     background-color: var(--ui-bg);
-                    color: var(--ui-color);
+                    color: var(--ui-fg);
 
                     border: 1px solid var(--ui-borderColor);
                     border-radius: var(--ui-radius);
