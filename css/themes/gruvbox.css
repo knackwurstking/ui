@@ -133,7 +133,7 @@
     /* Hard Background */
     --ui-bg-h: 195;
     --ui-bg-s: 6%;
-    --ui-bg-l: 12%;
+    --ui-bg-l: 9%;
     --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
 
     /* Foreground */
