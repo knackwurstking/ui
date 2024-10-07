@@ -1,6 +1,9 @@
 /**
  * @typedef UIThemeHandler_Mode
  * @type {"dark" | "light" | null}
+ *
+ * @typedef UIThemeHandler_Theme
+ * @type {"original" | "gruvbox"}
  */
 /**
  * HTML: `ui-theme-handler`
@@ -29,12 +32,21 @@ export class UIThemeHandler extends HTMLElement {
         name: string;
         href: string;
     } | null;
-    /** @private */
+    /**
+     * @private
+     * @type {UIThemeHandler_Mode}
+     */
     private mode;
+    /**
+     * @private
+     * @type {UIThemeHandler_Theme}
+     */
+    private theme;
     ui: {
         root: this;
         auto: boolean;
-        mode: string;
+        mode: UIThemeHandler_Mode;
+        theme: UIThemeHandler_Theme;
         /**
          * @param {string} themeName
          * @param {string} href
@@ -58,9 +70,15 @@ export class UIThemeHandler extends HTMLElement {
     setAuto(state: boolean, target?: HTMLElement): void;
     media: MediaQueryList;
     /**
-     * @param {string | null} value
+     * @param {UIThemeHandler_Mode} value
      * @param {HTMLElement} target
      */
-    setMode(value: string | null, target?: HTMLElement): void;
+    setMode(value: UIThemeHandler_Mode, target?: HTMLElement): void;
+    /**
+     * @param {UIThemeHandler_Theme} value
+     * @param {HTMLElement} target
+     */
+    setTheme(value: UIThemeHandler_Theme, target?: HTMLElement): void;
 }
 export type UIThemeHandler_Mode = "dark" | "light" | null;
+export type UIThemeHandler_Theme = "original" | "gruvbox";
