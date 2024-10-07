@@ -8,7 +8,7 @@
 - [ ] Add theme attribute to `UIThemeHandler` with possible values:
         "original" (default), "gruvbox"
 
-## v0.7.2 — [unreleased]
+## v0.7.2 — 2024-10-07
 
 **Fixed**:
 
