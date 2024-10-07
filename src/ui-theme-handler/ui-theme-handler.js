@@ -208,7 +208,7 @@ export class UIThemeHandler extends HTMLElement {
      * @param {HTMLElement} target
      */
     setTheme(value, target = document.head) {
-        // TODO: Import theme and add to target styles
+        // TODO: Import theme and add to target
     }
 }
 
