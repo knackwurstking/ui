@@ -1,6 +1,9 @@
 /**
  * @typedef UIThemeHandler_Mode
  * @type {"dark" | "light" | null}
+ *
+ * @typedef UIThemeHandler_Theme
+ * @type {"original" | "gruvbox"}
  */
 
 /**
@@ -18,7 +21,7 @@ export class UIThemeHandler extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["auto", "mode"];
+    static observedAttributes = ["auto", "mode", "theme"];
 
     constructor() {
         super();
@@ -38,8 +41,17 @@ export class UIThemeHandler extends HTMLElement {
          */
         this.currentTheme = null;
 
-        /** @private */
-        this.mode = "";
+        /**
+         * @private
+         * @type {UIThemeHandler_Mode}
+         */
+        this.mode = null;
+
+        /**
+         * @private
+         * @type {UIThemeHandler_Theme}
+         */
+        this.theme = "original";
 
         this.ui = {
             root: this,
@@ -56,8 +68,22 @@ export class UIThemeHandler extends HTMLElement {
                 return this.root.mode;
             },
 
+            /**
+             * @param {UIThemeHandler_Mode} value
+             */
             set mode(value) {
                 this.root.setMode(value);
+            },
+
+            get theme() {
+                return this.root.theme;
+            },
+
+            /**
+             * @param {UIThemeHandler_Theme} value
+             */
+            set theme(value) {
+                this.root.setTheme(value || "original");
             },
 
             /**
@@ -115,7 +141,13 @@ export class UIThemeHandler extends HTMLElement {
                 break;
 
             case "mode":
+                // @ts-expect-error
                 this.ui.mode = newValue;
+                break;
+
+            case "theme":
+                // @ts-expect-error
+                this.ui.theme = newValue;
                 break;
         }
     }
@@ -159,7 +191,7 @@ export class UIThemeHandler extends HTMLElement {
     }
 
     /**
-     * @param {string | null} value
+     * @param {UIThemeHandler_Mode} value
      * @param {HTMLElement} target
      */
     setMode(value, target = document.body) {
@@ -169,6 +201,14 @@ export class UIThemeHandler extends HTMLElement {
         } else {
             target.setAttribute("data-theme", value);
         }
+    }
+
+    /**
+     * @param {UIThemeHandler_Theme} value
+     * @param {HTMLElement} target
+     */
+    setTheme(value, target = document.head) {
+        // TODO: Import theme and add to target styles
     }
 }
 
