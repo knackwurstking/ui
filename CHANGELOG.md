@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.8.0 — [unreleased]
+
+**TODO**:
+
+- [ ] Add gruvbox theme to [css/themes/](css/themes)
+- [ ] Add theme attribute to `UIThemeHandler` with possible values:
+        "original" (default), "gruvbox"
+
 ## v0.7.2 — [unreleased]
 
 **Fixed**:
