@@ -1,6 +1,6 @@
 @import "./base/reset.css";
 
-@import "./themes/original.css";
+@import "./themes/gruvbox.css";
 
 @import "./base/recursive.css";
 @import "./base/main.css";

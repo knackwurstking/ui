@@ -5,10 +5,10 @@
      * Basics
      */
 
-    /* Hard Background */
-    --ui-bg-h: 53;
-    --ui-bg-s: 75%;
-    --ui-bg-l: 91%;
+    /* Medium Background */
+    --ui-bg-h: 48;
+    --ui-bg-s: 87%;
+    --ui-bg-l: 88%;
     --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
 
     /* Foreground */
@@ -17,11 +17,6 @@
     --ui-fg-l: 16%;
     --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
 
-    /* Orange
-    --ui-primary-h: 16;
-    --ui-primary-s: 97%;
-    --ui-primary-l: 35%;
-    */
     /* Green */
     --ui-primary-h: 57;
     --ui-primary-s: 79%;
@@ -44,11 +39,6 @@
         1
     );
 
-    /* Green
-    --ui-secondary-h: 57;
-    --ui-secondary-s: 79%;
-    --ui-secondary-l: 26%;
-    */
     /* Gray */
     --ui-secondary-h: 30;
     --ui-secondary-s: 12%;
@@ -114,8 +104,6 @@
      */
 
     --ui-card: hsla(43, 59%, 81%, 1); /* Background 1 */
-    --ui-card: hsla(46, 67%, 84%, 1); /* Soft Background */
-    --ui-card: hsla(48, 87%, 88%, 1); /* Medium Background */
     --ui-card-fg: var(--ui-fg); /* Foreground */
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
@@ -130,10 +118,10 @@
      * Basics
      */
 
-    /* Hard Background */
-    --ui-bg-h: 195;
-    --ui-bg-s: 6%;
-    --ui-bg-l: 9%;
+    /* Medium Background */
+    --ui-bg-h: 0;
+    --ui-bg-s: 0%;
+    --ui-bg-l: 16%;
     --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
 
     /* Foreground */
@@ -142,11 +130,6 @@
     --ui-fg-l: 88%;
     --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
 
-    /* Orange
-    --ui-primary-h: 27;
-    --ui-primary-s: 99%;
-    --ui-primary-l: 55%;
-    */
     /* Green */
     --ui-primary-h: 61;
     --ui-primary-s: 66%;
@@ -169,16 +152,10 @@
         1
     );
 
-    /** Green
-    --ui-secondary-h: 61;
-    --ui-secondary-s: 66%;
-    --ui-secondary-l: 44%;
-    */
     /** Gray */
     --ui-secondary-h: 30;
     --ui-secondary-s: 12%;
     --ui-secondary-l: 51%;
-
     --ui-secondary: hsla(
         var(--ui-secondary-h),
         var(--ui-secondary-s),
@@ -240,8 +217,6 @@
      */
 
     --ui-card: hsla(20, 5%, 22%, 1); /* Background 1 */
-    --ui-card: hsla(49, 12%, 17%, 1); /* Soft Background */
-    --ui-card: hsla(0, 0%, 16%, 1); /* Medium Background */
     --ui-card-fg: var(--ui-fg); /* Foreground */
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
