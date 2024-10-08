@@ -2,6 +2,8 @@
 
 ## v0.8.0 — [unreleased]
 
+- [ ] Add `UIDropdown` component
+
 **Added**:
 
 - Added "gruvbox" theme to [css/themes/](css/themes)
