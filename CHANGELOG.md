@@ -4,11 +4,17 @@
 
 **TODO**:
 
-- [x] Add gruvbox theme to [css/themes/](css/themes)
-- [x] Add theme attribute to `UIThemeHandler` with possible values:
-        "original" (default), "gruvbox"
 - [ ] Fix `UILabel` ripple, effect only going from right to mouse position?
-- [x] Fix wrong color var in use `var(--ui-color)`, should be `var(--ui-fg)`
+
+**Added**:
+
+- Added "gruvbox" theme to [css/themes/](css/themes)
+- Added "theme" attribute to `UIThemeHandler` web component,
+    possible values: "original", "gruvbox"
+
+**Fixed**:
+
+- Fixed wrong color CSS variable `var(--ui-color)`, should be `var(--ui-fg)`
 
 ## v0.7.2 — 2024-10-07
 
