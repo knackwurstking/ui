@@ -204,11 +204,28 @@ export class UIThemeHandler extends HTMLElement {
     }
 
     /**
-     * @param {UIThemeHandler_Theme} value
-     * @param {HTMLElement} target
+     * @param {UIThemeHandler_Theme | null} value
+     * @param {object} options
+     * @param {HTMLElement} [options.target]
+     * @param {string} [options.prefixPath]
      */
-    setTheme(value, target = document.head) {
-        // TODO: Import theme and add to target
+    setTheme(value, options = null) {
+        options = {
+            target: document.head,
+            prefixPath: "/themes",
+            ...(options || {}),
+        };
+
+        options.target
+            .querySelectorAll(`link.theme`)
+            .forEach((child) => options.target.removeChild(child));
+
+        const link = document.createElement("link");
+        link.classList.add("theme");
+        link.rel = "stylesheet";
+        link.href = `${options.prefixPath}/${value || "original"}.css`;
+
+        options.target.appendChild(link);
     }
 }
 
