@@ -35,9 +35,9 @@ export class UILabel extends HTMLElement {
 
         /** @private */
         this.onClick = async () => {
-            this.ui.inputSlot.forEach((/**@type {HTMLElement}*/ child) =>
-                child.click(),
-            );
+            this.ui.inputSlot.forEach((/**@type {HTMLElement}*/ child) => {
+                child.click();
+            });
         };
 
         /** @private */
@@ -118,15 +118,6 @@ export class UILabel extends HTMLElement {
 
                     margin-right: var(--ui-spacing);
                 }
-
-                .background {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    border-radius: inherit;
-                }
             </style>
 
             <span class="text flex column justify-center">
@@ -138,8 +129,6 @@ export class UILabel extends HTMLElement {
                 <slot name="input"></slot>
                 <slot></slot>
             </span>
-
-            <div class="background"></div>
         `;
     }
 
@@ -169,9 +158,7 @@ export class UILabel extends HTMLElement {
 
     enableRipple() {
         if (!!this.ripple) return;
-        this.ripple = ripple.create(
-            this.shadowRoot.querySelector(`.background`),
-        );
+        this.ripple = ripple.create(this);
         this.style.cursor = "pointer";
 
         // Enable input handler
