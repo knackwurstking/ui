@@ -17,7 +17,7 @@ export class UIFlexGrid extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["gap"];
+    static observedAttributes = ["gap", "justify", "align"];
 
     constructor() {
         super();
@@ -41,6 +41,22 @@ export class UIFlexGrid extends HTMLElement {
                         margin: ${this.root.gap} 0 !important;
                     }
                 `;
+            },
+
+            get justify() {
+                return this.root.style.justifyContent;
+            },
+
+            set justify(value) {
+                this.root.style.justifyContent = value;
+            },
+
+            get align() {
+                return this.root.style.alignItems;
+            },
+
+            set align(value) {
+                this.root.style.alignItems = value;
             },
         };
 
@@ -99,6 +115,14 @@ export class UIFlexGrid extends HTMLElement {
         switch (name) {
             case "gap":
                 this.ui.gap = newValue;
+                break;
+
+            case "justify":
+                this.ui.justify = newValue;
+                break;
+
+            case "align":
+                this.ui.align = newValue;
                 break;
         }
     }
