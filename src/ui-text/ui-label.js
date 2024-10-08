@@ -93,6 +93,7 @@ export class UILabel extends HTMLElement {
 
     #renderUILabel() {
         this.attachShadow({ mode: "open" });
+        globalStylesToShadowRoot(this.shadowRoot);
 
         this.shadowRoot.innerHTML = html`
             <style>
@@ -101,6 +102,10 @@ export class UILabel extends HTMLElement {
                 }
 
                 :host {
+                    display: block;
+                }
+
+                .container {
                     display: flex !important;
                     flex-direction: row;
 
@@ -112,32 +117,24 @@ export class UILabel extends HTMLElement {
                     border-radius: var(--ui-radius);
                 }
 
-                :host > .text {
+                .container > .text {
                     flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
 
                     margin-right: var(--ui-spacing);
                 }
-
-                :host > .input {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: flex-end;
-                    align-items: center;
-                }
             </style>
 
-            <span class="text">
-                <ui-primary></ui-primary>
-                <ui-secondary></ui-secondary>
-            </span>
+            <div class="container">
+                <span class="text flex column justify-center">
+                    <ui-primary></ui-primary>
+                    <ui-secondary></ui-secondary>
+                </span>
 
-            <span class="input">
-                <slot name="input"></slot>
-                <slot></slot>
-            </span>
+                <span class="flex row justify-end align-center">
+                    <slot name="input"></slot>
+                    <slot></slot>
+                </span>
+            </div>
         `;
     }
 
@@ -167,7 +164,9 @@ export class UILabel extends HTMLElement {
 
     enableRipple() {
         if (!!this.ripple) return;
-        this.ripple = ripple.create(this);
+        this.ripple = ripple.create(
+            this.shadowRoot.querySelector(`.container`),
+        );
         this.style.cursor = "pointer";
 
         // Enable input handler
