@@ -93,7 +93,6 @@ export class UILabel extends HTMLElement {
 
     #renderUILabel() {
         this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
 
         this.shadowRoot.innerHTML = html`
             <style>
@@ -115,17 +114,27 @@ export class UILabel extends HTMLElement {
 
                 :host > .text {
                     flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
 
                     margin-right: var(--ui-spacing);
                 }
+
+                :host > .input {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: center;
+                }
             </style>
 
-            <span class="text flex column justify-center">
+            <span class="text">
                 <ui-primary></ui-primary>
                 <ui-secondary></ui-secondary>
             </span>
 
-            <span class="input flex align-center justify-end">
+            <span class="input">
                 <slot name="input"></slot>
                 <slot></slot>
             </span>
