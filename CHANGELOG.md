@@ -2,10 +2,6 @@
 
 ## v0.8.0 — [unreleased]
 
-**TODO**:
-
-- [ ] Fix `UILabel` ripple, effect only going from right to mouse position?
-
 **Added**:
 
 - Added "gruvbox" theme to [css/themes/](css/themes)
@@ -14,6 +10,7 @@
 
 **Fixed**:
 
+- Fixed `UILabel` ripple, effect only going from right to mouse position?
 - Fixed wrong color CSS variable `var(--ui-color)`, should be `var(--ui-fg)`
 
 ## v0.7.2 — 2024-10-07
