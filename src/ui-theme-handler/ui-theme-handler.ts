@@ -81,12 +81,10 @@ export class UIThemeHandler extends LitElement {
     private handleMode(): void {
         const target: HTMLElement = document.body;
 
-        // TODO: Set mode
-        this.mode = value;
         if (!this.mode) {
             target.removeAttribute("data-theme");
         } else {
-            target.setAttribute("data-theme", value);
+            target.setAttribute("data-theme", this.mode);
         }
     }
 
