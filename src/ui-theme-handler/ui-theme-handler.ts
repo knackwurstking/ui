@@ -1,5 +1,3 @@
-// TODO: Convert to typescript and rewrite to Lit component
-
 import { LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
@@ -10,6 +8,20 @@ export type UIThemeHandlerModes = "dark" | "light" | null;
 
 @customElement("ui-theme-handler")
 export class UIThemeHandler extends LitElement {
+    private get target(): HTMLElement {
+        return document.body;
+    }
+
+    private media: MediaQueryList | null = null;
+
+    private mediaHandler = (ev: MediaQueryListEvent | MediaQueryList) => {
+        if (ev.matches) {
+            this.target.setAttribute("data-theme", "dark");
+        } else {
+            this.target.setAttribute("data-theme", "light");
+        }
+    };
+
     @property()
     auto: boolean = false;
 
@@ -42,36 +54,20 @@ export class UIThemeHandler extends LitElement {
     }
 
     private handleAuto(): void {
-        const target: HTMLElement = document.body;
-
-        // TODO: Enable/Disable auto mode
-        if (!state) {
+        if (!this.auto) {
             if (!this.media) return;
-
             this.media.removeEventListener("change", this.mediaHandler);
-
             this.media = null;
             this.mediaHandler = null;
             return;
         }
 
-        this.setMode(null, target);
+        this.mode = null;
 
         if (!!this.media) {
             this.mediaHandler(this.media);
             return;
         }
-
-        /**
-         * @param {MediaQueryListEvent | MediaQueryList} ev
-         */
-        this.mediaHandler = (ev) => {
-            if (ev.matches) {
-                target.setAttribute("data-theme", "dark");
-            } else {
-                target.setAttribute("data-theme", "light");
-            }
-        };
 
         this.media = window.matchMedia("(prefers-color-scheme: dark)");
         this.media.addEventListener("change", this.mediaHandler);
@@ -79,12 +75,10 @@ export class UIThemeHandler extends LitElement {
     }
 
     private handleMode(): void {
-        const target: HTMLElement = document.body;
-
         if (!this.mode) {
-            target.removeAttribute("data-theme");
+            this.target.removeAttribute("data-theme");
         } else {
-            target.setAttribute("data-theme", this.mode);
+            this.target.setAttribute("data-theme", this.mode);
         }
     }
 
