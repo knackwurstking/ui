@@ -1,5 +1,3 @@
-@import "./root.css";
-
 [data-theme="light"] {
     --bg-hard: #f9f5d7;
     --bg: #fbf1c7;
