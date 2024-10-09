@@ -14,13 +14,15 @@ export class UIThemeHandler extends LitElement {
 
     private media: MediaQueryList | null = null;
 
-    private mediaHandler = (ev: MediaQueryListEvent | MediaQueryList) => {
-        if (ev.matches) {
-            this.target.setAttribute("data-theme", "dark");
-        } else {
-            this.target.setAttribute("data-theme", "light");
-        }
-    };
+    private get mediaHandler() {
+        return (ev: MediaQueryListEvent | MediaQueryList) => {
+            if (ev.matches) {
+                this.target.setAttribute("data-theme", "dark");
+            } else {
+                this.target.setAttribute("data-theme", "light");
+            }
+        };
+    }
 
     @property()
     auto: boolean = false;
