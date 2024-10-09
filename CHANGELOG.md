@@ -3,8 +3,9 @@
 ## v0.9.0 — [unreleased]
 
 - [ ] Convert this lib into an native typescript lib
+- [ ] Use lit web components
 
-## v0.8.0 — [unreleased]
+## v0.8.0 — 2024-10-09
 
 **Added**:
 
