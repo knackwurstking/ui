@@ -9,7 +9,7 @@ import { ripple, html, globalStylesToShadowRoot } from "../utils";
  *  - __ripple__: *boolean* - this enables click forwarding
  *
  * Slots:
- *  - __input__ - input slot get click forwarding
+ *  - __inputs__ - inputs slot items get click forwarding if ripple is set
  *  - __\*__
  */
 export class UILabel extends HTMLElement {
@@ -84,7 +84,7 @@ export class UILabel extends HTMLElement {
             },
 
             get inputSlot() {
-                return [...this.root.querySelectorAll(`[slot="input"]`)];
+                return [...this.root.querySelectorAll(`[slot="inputs"]`)];
             },
         };
 
@@ -131,7 +131,7 @@ export class UILabel extends HTMLElement {
                 </span>
 
                 <span class="flex row justify-end align-center">
-                    <slot name="input"></slot>
+                    <slot name="inputs"></slot>
                     <slot></slot>
                 </span>
             </div>
@@ -174,7 +174,7 @@ export class UILabel extends HTMLElement {
 
         this.addEventListener("click", this.onClick);
 
-        const inputSlot = [...this.querySelectorAll(`[slot="input"]`)];
+        const inputSlot = [...this.querySelectorAll(`[slot="inputs"]`)];
         inputSlot.forEach((el) => {
             el.addEventListener("click", this.onInputClick);
         });
