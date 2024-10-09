@@ -1,11 +1,4 @@
 /**
- * @typedef UIThemeHandler_Mode
- * @type {"dark" | "light" | null}
- *
- * @typedef UIThemeHandler_Theme
- * @type {"original" | "gruvbox"}
- */
-/**
  * HTML: `ui-theme-handler`
  *
  * Attributes:
@@ -19,12 +12,6 @@ export class UIThemeHandler extends HTMLElement {
      * @type {((ev: MediaQueryListEvent | MediaQueryList) => void|Promise<void>) | null}
      */
     mediaHandler: ((ev: MediaQueryListEvent | MediaQueryList) => void | Promise<void>) | null;
-    /**
-     * @type {{ [key: string]: string }}
-     */
-    themes: {
-        [key: string]: string;
-    };
     /**
      * @type {{ name: string; href: string } | null}
      */
@@ -47,15 +34,6 @@ export class UIThemeHandler extends HTMLElement {
         auto: boolean;
         mode: UIThemeHandler_Mode;
         theme: UIThemeHandler_Theme;
-        /**
-         * @param {string} themeName
-         * @param {string} href
-         */
-        add(themeName: string, href: string): void;
-        /**
-         * @param {string} themeName
-         */
-        set(themeName: string): void;
     };
     /**
      * @param {string} name

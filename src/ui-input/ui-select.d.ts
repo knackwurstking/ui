@@ -24,6 +24,7 @@ export class UISelect extends HTMLElement {
          */
         events: Events<UISelect_Events>;
         open: boolean;
+        keepOpen: boolean;
         /**
          * @returns {UISelectOption[]}
          */
