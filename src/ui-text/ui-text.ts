@@ -1,166 +1,71 @@
-// TODO: Continue here...
-import { css, globalStylesToShadowRoot, html } from "../utils";
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-/**
- * HTML: `ui-text`
- *
- * Attributes:
- *   - __casl__: *number* between __0__ and __1__ [default: 1]
- *   - __mono__: *number* between __0__ and __1__ [default: 0]
- *   - __slnt__: *number* between __0__ and __-15__ [default: 0]
- *   - __size__: *string* [default: var(--ui-fontSize)]
- *   - __family__: *string*  [default: var(--ui-fontFamily)]
- */
-export class UIText extends HTMLElement {
-    #defaultCASL = 1;
-    #casl = this.#defaultCASL;
+@customElement("ui-text")
+export class UIText extends LitElement {
+    /**
+     * Range between 0 - 1
+     */
+    @property()
+    casl: number = 1;
 
-    #defaultMONO = 0;
-    #mono = this.#defaultMONO;
+    /**
+     * Range between 0 - 1
+     */
+    @property()
+    mono: number = 0;
 
-    #defaultSLNT = 0;
-    #slnt = this.#defaultSLNT;
+    /**
+     * Range between -15 - 0
+     */
+    @property()
+    slnt: number = 0;
 
-    #defaultSize = "var(--ui-fontSize)";
-    #size = this.#defaultSize;
+    @property()
+    size: string = "var(--ui-fontSize)";
 
-    #defaultFamily = "var(--ui-fontFamily)";
-    #family = this.#defaultFamily;
+    @property()
+    family: string = "var(--ui-fontFamily)";
 
-    static register = () => {
-        if (!customElements.get("ui-text")) {
-            console.debug(`[ui] Register "ui-text" component`);
-            customElements.define("ui-text", UIText);
-        }
-    };
-
-    static observedAttributes = ["casl", "mono", "slnt", "size", "family"];
-
-    constructor() {
-        super();
-
-        this.ui = {
-            root: this,
-
-            get casl() {
-                return this.root.#casl;
-            },
-
-            set casl(value) {
-                if (value === null) value = this.root.#defaultCASL;
-                this.root.#casl = value;
-                this.root.#renderCSS();
-            },
-
-            get mono() {
-                return this.root.#mono;
-            },
-
-            set mono(value) {
-                if (value === null) value = this.root.#defaultMONO;
-                this.root.#mono = value;
-                this.root.#renderCSS();
-            },
-
-            get slnt() {
-                return this.root.#slnt;
-            },
-
-            set slnt(value) {
-                if (value === null) value = this.root.#defaultSLNT;
-                this.root.#slnt = value;
-                this.root.#renderCSS();
-            },
-
-            get size() {
-                return this.root.#size;
-            },
-
-            set size(value) {
-                if (value === null) value = this.root.#defaultSize;
-                this.root.#size = value;
-                this.root.#renderCSS();
-            },
-
-            get family() {
-                return this.root.#family;
-            },
-
-            set family(value) {
-                if (value === null) value = this.root.#defaultFamily;
-                this.root.#family = value;
-                this.root.#renderCSS();
-            },
-        };
-
-        this.#renderUIText();
-    }
-
-    #renderUIText() {
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
-
-        this.shadowRoot.innerHTML = html`
-            <style>
-                :host {
-                    display: inline-block;
-                    overflow-wrap: anywhere;
-                }
-            </style>
-
-            <style class="custom"></style>
-
-            <slot></slot>
-        `;
-
-        this.#renderCSS();
-    }
-
-    #renderCSS() {
-        const style = this.shadowRoot.querySelector(`style.custom`);
-        style.innerHTML = css`
+    static get styles() {
+        return css`
             :host {
-                font-size: ${this.ui.size};
-                font-family: ${this.ui.family};
+                display: inline-block;
+                overflow-wrap: anywhere;
+
+                font-size: var(--ui-text-size, var(--ui-fontSize));
+                font-family: var(--ui-text-family, var(--ui-fontFamily));
                 font-variation-settings:
-                    "CASL" ${this.ui.casl},
-                    "MONO" ${this.ui.mono},
-                    "slnt" ${this.ui.slnt};
+                    "CASL" var(--ui-text-casl, 1),
+                    "MONO" var(--ui-text-mono, 0),
+                    "slnt" var(--ui-text-slnt, 0);
             }
         `;
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {}
+    render() {
+        return html` <slot></slot> `;
+    }
 
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
+    attributeChangedCallback(
+        name: string,
+        _old: string | null,
+        value: string | null,
+    ): void {
+        super.attributeChangedCallback(name, _old, value);
+
         switch (name) {
             case "casl":
-                this.ui.casl = parseInt(newValue, 10);
-                break;
-
             case "mono":
-                this.ui.mono = parseInt(newValue, 10);
-                break;
-
             case "slnt":
-                this.ui.slnt = parseInt(newValue, 10);
-                break;
-
             case "size":
-                this.ui.size = newValue;
-                break;
-
             case "family":
-                this.ui.family = newValue;
+                if (value === null) {
+                    this.style.removeProperty(`--${name}`);
+                    return;
+                }
+                this.style.setProperty(`--${name}`, value);
                 break;
         }
     }
 }
-
-UIText.register();
