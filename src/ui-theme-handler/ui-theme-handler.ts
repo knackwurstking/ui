@@ -58,7 +58,6 @@ export class UIThemeHandler extends LitElement {
             if (!this.media) return;
             this.media.removeEventListener("change", this.mediaHandler);
             this.media = null;
-            this.mediaHandler = null;
             return;
         }
 
