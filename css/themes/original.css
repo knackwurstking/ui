@@ -11,55 +11,18 @@
     --ui-fg--hsl: 240, 10%, 10%;
     --ui-fg: hsla(var(--ui-fg--hsl), 1);
 
-    --ui-primary--hsl: 240, 10%, 25%;
-    --ui-primary: hsla(var(--ui-primary--hsl), 1);
+    --ui-primary: hsla(240, 10%, 25%, 1);
+    --ui-primary-fg: hsla(240, 10%, 98%, 1);
 
-    --ui-primary-fg--hsl: 240, 10%, 98%;
-    --ui-primary-fg: hsla(var(--ui-primary-fg--hsl), 1);
+    --ui-secondary: hsla(240, 15%, 75%, 1);
+    --ui-secondary-fg: hsla(240, 10%, 10%, 1);
 
-    --ui-secondary-h: 240;
-    --ui-secondary-s: 15%;
-    --ui-secondary-l: 75%;
-    --ui-secondary: hsla(
-        var(--ui-secondary-h),
-        var(--ui-secondary-s),
-        var(--ui-secondary-l),
-        1
-    );
-
-    --ui-secondary-fg-h: 240;
-    --ui-secondary-fg-s: 10%;
-    --ui-secondary-fg-l: 10%;
-    --ui-secondary-fg: hsla(
-        var(--ui-secondary-fg-h),
-        var(--ui-secondary-fg-s),
-        var(--ui-secondary-fg-l),
-        1
-    );
-
-    --ui-destructive-h: 0;
-    --ui-destructive-s: 72%;
-    --ui-destructive-l: 51%;
-    --ui-destructive: hsla(
-        var(--ui-destructive-h),
-        var(--ui-destructive-s),
-        var(--ui-destructive-l),
-        1
-    );
-
-    --ui-destructive--h: 0;
-    --ui-destructive--s: 0%;
-    --ui-destructive--l: 98%;
-    --ui-destructive-fg: hsla(
-        var(--ui-destructive-fg-h),
-        var(--ui-destructive-fg-s),
-        var(--ui-destructive-fg-l),
-        1
-    );
+    --ui-destructive: hsla(0, 72%, 51%, 1);
+    --ui-destructive-fg: hsla(0, 0%, 98%, 1);
 
     --ui-borderColor: hsla(240, 10%, 82%, 1);
 
-    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdrop: hsla(var(--ui-bg--hsl), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
@@ -97,55 +60,18 @@
     --ui-fg--hsl: 240, 10%, 90%;
     --ui-fg: hsla(var(--ui-fg--hsl), 1);
 
-    --ui-primary--hsl: 240, 10%, 75%;
-    --ui-primary: hsla(var(--ui-primary--hsl), 1);
+    --ui-primary: hsla(240, 10%, 75%, 1);
+    --ui-primary-fg: hsla(240, 10%, 10%, 1);
 
-    --ui-primary-fg--hsl: 240, 10%, 10%;
-    --ui-primary-fg: hsla(var(--ui-primary-fg--hsl), 1);
+    --ui-secondary: hsla(240, 15%, 25%, 1);
+    --ui-secondary-fg: hsla(240, 10%, 98%, 1);
 
-    --ui-secondary-h: 240;
-    --ui-secondary-s: 15%;
-    --ui-secondary-l: 25%;
-    --ui-secondary: hsla(
-        var(--ui-secondary-h),
-        var(--ui-secondary-s),
-        var(--ui-secondary-l),
-        1
-    );
-
-    --ui-secondary-fg-h: 240;
-    --ui-secondary-fg-s: 10%;
-    --ui-secondary-fg-l: 98%;
-    --ui-secondary-fg: hsla(
-        var(--ui-secondary-fg-h),
-        var(--ui-secondary-fg-s),
-        var(--ui-secondary-fg-l),
-        1
-    );
-
-    --ui-destructive-h: 0;
-    --ui-destructive-s: 63%;
-    --ui-destructive-l: 31%;
-    --ui-destructive: hsla(
-        var(--ui-destructive-h),
-        var(--ui-destructive-s),
-        var(--ui-destructive-l),
-        1
-    );
-
-    --ui-destructive-fg-h: 0;
-    --ui-destructive-fg-s: 0%;
-    --ui-destructive-fg-l: 98%;
-    --ui-destructive-fg: hsla(
-        var(--ui-destructive-fg-h),
-        var(--ui-destructive-fg-s),
-        var(--ui-destructive-fg-l),
-        1
-    );
+    --ui-destructive: hsla(0, 63%, 31%, 1);
+    --ui-destructive-fg: hsla(0, 0%, 98%, 1);
 
     --ui-borderColor: hsla(240, 10%, 18%, 1);
 
-    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdrop: hsla(var(--ui-bg--hsl), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
