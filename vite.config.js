@@ -1,8 +1,6 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    plugins: [],
-    clearScreen: false,
     build: {
         outDir: "dist",
         lib: {
@@ -11,4 +9,6 @@ export default defineConfig({
             formats: ["es"],
         },
     },
+    clearScreen: false,
+    plugins: [],
 });
