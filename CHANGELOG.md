@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.9.0 — [unreleased]
+
+- [ ] Convert this lib into an native typescript lib
+
 ## v0.8.0 — [unreleased]
 
 **Added**:
