@@ -118,7 +118,7 @@ export function start(
     return ripple;
 }
 
-export function stop(ripple: HTMLElement | null) {
+export function stop(ripple: HTMLElement | null): void {
     if (!ripple) return;
 
     ripple.addEventListener("transitionend", (ev) => {
