@@ -1,7 +1,9 @@
-export { default as CleanUp } from "./cleanup";
-export * as draggable from "./draggable";
-export { default as Events } from "./events";
 export * from "./global-styles";
+
+export { default as CleanUp } from "./cleanup";
+export { default as Events } from "./events";
+
+export * as draggable from "./draggable";
 export * as ripple from "./ripple";
 
 export function isAndroid(): boolean {
@@ -21,10 +23,3 @@ export function styles(style: { [key: string]: string }): string {
             .join(";") + ";"
     );
 }
-
-/**
- * @typedef {import("./draggable").DraggableNative_Options} DraggableNative_Options
- * @typedef {import("./draggable").DraggableMobile_Options} DraggableMobile_Options
- * @typedef {import("./ripple").Ripple_Options} Ripple_Options
- * @typedef {import("./ripple").Ripple} Ripple
- */
