@@ -1,3 +1,5 @@
+export * from "./global";
+
 export * from "./utils";
 export * as svg from "../svg";
 

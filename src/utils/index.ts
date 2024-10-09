@@ -4,20 +4,14 @@ export { default as Events } from "./events";
 export * from "./global-styles";
 export * as ripple from "./ripple";
 
-/**
- * @returns {boolean}
- */
-export function isAndroid() {
+export function isAndroid(): boolean {
     return /(android)/i.test(navigator.userAgent);
 }
 
 export const html = String.raw;
 export const css = String.raw;
 
-/**
- * @param {{ [key: string]: string }} style
- */
-export function styles(style) {
+export function styles(style: { [key: string]: string }): string {
     return (
         Object.entries(style)
             .map(
