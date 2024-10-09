@@ -11,6 +11,18 @@ export class UIDropdownOption extends HTMLLIElement {
     constructor() {
         super();
 
+        this.ui = {
+            root: this,
+
+            get value() {
+                return this.root.getAttribute("value");
+            },
+
+            set value(value) {
+                this.root.setAttribute("value", value);
+            },
+        };
+
         this.#renderUIDropdownOption();
     }
 
