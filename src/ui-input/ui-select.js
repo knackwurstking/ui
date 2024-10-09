@@ -187,12 +187,7 @@ export class UISelect extends HTMLElement {
 
                 :host([open])
                     ::slotted(ui-select-option:not([selected]):hover) {
-                    background-color: hsla(
-                        var(--ui-fg-h),
-                        var(--ui-fg-s),
-                        var(--ui-fg-l),
-                        0.1
-                    );
+                    background-color: hsla(var(--ui-fg--hsl), 0.1);
                 }
 
                 :host(:not([open]))
