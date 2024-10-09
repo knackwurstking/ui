@@ -19,7 +19,27 @@ export class UIThemeHandler extends LitElement {
     @property()
     theme: UIThemeHandlerThemes = defaultTheme;
 
-    // TODO: Do somethings on "mode", "auto" and "theme" change
+    attributeChangedCallback(
+        name: string,
+        _old: string | null,
+        value: string | null,
+    ): void {
+        super.attributeChangedCallback(name, _old, value);
+
+        switch (name) {
+            case "auto":
+                // TODO: Enable/Disable auto mode
+                break;
+
+            case "mode":
+                // TODO: Set mode
+                break;
+
+            case "theme":
+                // TODO: Set theme
+                break;
+        }
+    }
 }
 
 /**
