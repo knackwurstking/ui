@@ -75,10 +75,15 @@ export class UIThemeHandler extends HTMLElement {
      */
     setMode(value: UIThemeHandler_Mode, target?: HTMLElement): void;
     /**
-     * @param {UIThemeHandler_Theme} value
-     * @param {HTMLElement} target
+     * @param {UIThemeHandler_Theme | null} value
+     * @param {object} options
+     * @param {HTMLElement} [options.target]
+     * @param {string} [options.prefixPath]
      */
-    setTheme(value: UIThemeHandler_Theme, target?: HTMLElement): void;
+    setTheme(value: UIThemeHandler_Theme | null, options?: {
+        target?: HTMLElement;
+        prefixPath?: string;
+    }): void;
 }
 export type UIThemeHandler_Mode = "dark" | "light" | null;
 export type UIThemeHandler_Theme = "original" | "gruvbox";

@@ -1,25 +1,11 @@
-/**
- * HTML: `ui-flex-grid`
- *
- * Attributes:
- *  - __gap__: *string*
- *
- * Slots:
- *  - __\*__
- */
-export class UIFlexGrid extends HTMLElement {
+export class UIDropdown extends HTMLDetailsElement {
     static register: () => void;
     static observedAttributes: string[];
-    /** @private */
-    private gap;
     ui: {
         root: this;
-        gap: string;
-        justify: string;
-        align: string;
+        title: string;
+        options(): NodeListOf<Element>;
     };
-    connectedCallback(): void;
-    disconnectedCallback(): void;
     /**
      * @param {string} name
      * @param {string | null} _oldValue

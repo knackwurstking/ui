@@ -7,7 +7,7 @@
  *  - __ripple__: *boolean* - this enables click forwarding
  *
  * Slots:
- *  - __input__ - input slot get click forwarding
+ *  - __inputs__ - inputs slot items get click forwarding if ripple is set
  *  - __\*__
  */
 export class UILabel extends HTMLElement {
