@@ -1,7 +1,6 @@
 export * from "./global-styles";
-
-export { default as CleanUp } from "./cleanup";
-export { default as Events } from "./events";
+export * from "./events";
+export * from "./cleanup";
 
 export * as draggable from "./draggable";
 export * as ripple from "./ripple";

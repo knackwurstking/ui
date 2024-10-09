@@ -1,6 +1,6 @@
 import type { CleanUpFunction } from "../global";
 
-export default class Events<T extends { [key: string]: any }> {
+export class Events<T extends { [key: string]: any }> {
     private listeners: {
         [key: string]: ((e: any) => void | Promise<void>)[];
     } = {};
