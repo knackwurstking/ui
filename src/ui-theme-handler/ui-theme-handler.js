@@ -6,6 +6,9 @@
  * @type {"original" | "gruvbox"}
  */
 
+/** @type {UIThemeHandler_Theme} */
+const defaultTheme = "gruvbox";
+
 /**
  * HTML: `ui-theme-handler`
  *
@@ -32,11 +35,6 @@ export class UIThemeHandler extends HTMLElement {
         this.mediaHandler = null;
 
         /**
-         * @type {{ [key: string]: string }}
-         */
-        this.themes = {};
-
-        /**
          * @type {{ name: string; href: string } | null}
          */
         this.currentTheme = null;
@@ -51,7 +49,7 @@ export class UIThemeHandler extends HTMLElement {
          * @private
          * @type {UIThemeHandler_Theme}
          */
-        this.theme = "original";
+        this.theme = defaultTheme;
 
         this.ui = {
             root: this,
@@ -83,48 +81,8 @@ export class UIThemeHandler extends HTMLElement {
              * @param {UIThemeHandler_Theme} value
              */
             set theme(value) {
-                this.root.setTheme(value || "original");
-            },
-
-            /**
-             * @param {string} themeName
-             * @param {string} href
-             */
-            add(themeName, href) {
-                this.root.themes[themeName] = href;
-            },
-
-            /**
-             * @param {string} themeName
-             */
-            set(themeName) {
-                if (!this.root.themes[themeName]) {
-                    throw `theme "${themeName}" is missing in this.themes`;
-                }
-
-                if (this.root.currentTheme?.name == themeName) {
-                    return;
-                }
-
-                {
-                    const link = document.getElementById("theme");
-                    if (!!link) {
-                        document.head.removeChild(link);
-                        this.root.currentTheme = null;
-                    }
-                }
-
-                const link = document.createElement("link");
-
-                link.id = "theme";
-                link.rel = "stylesheet";
-                link.href = this.root.themes[themeName];
-
-                document.head.appendChild(link);
-                this.root.currentTheme = {
-                    name: themeName,
-                    href: this.root.themes[themeName],
-                };
+                this.root.theme = value;
+                this.root.setTheme(value || defaultTheme);
             },
         };
     }
@@ -223,7 +181,7 @@ export class UIThemeHandler extends HTMLElement {
         const link = document.createElement("link");
         link.classList.add("theme");
         link.rel = "stylesheet";
-        link.href = `${options.prefixPath}/${value || "original"}.css`;
+        link.href = `${options.prefixPath}/${value || defaultTheme}.css`;
 
         options.target.appendChild(link);
     }
