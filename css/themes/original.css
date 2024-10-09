@@ -5,35 +5,17 @@
      * Basics
      */
 
-    --ui-bg-h: 240;
-    --ui-bg-s: 10%;
-    --ui-bg-l: 96%;
-    --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+    --ui-bg--hsl: 240, 10%, 96%;
+    --ui-bg: hsla(var(--ui-bg--hsl), 1);
 
-    --ui-fg-h: 240;
-    --ui-fg-s: 10%;
-    --ui-fg-l: 10%;
-    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+    --ui-fg--hsl: 240, 10%, 10%;
+    --ui-fg: hsla(var(--ui-fg--hsl), 1);
 
-    --ui-primary-h: 240;
-    --ui-primary-s: 10%;
-    --ui-primary-l: 25%;
-    --ui-primary: hsla(
-        var(--ui-primary-h),
-        var(--ui-primary-s),
-        var(--ui-primary-l),
-        1
-    );
+    --ui-primary--hsl: 240, 10%, 25%;
+    --ui-primary: hsla(var(--ui-primary--hsl), 1);
 
-    --ui-primary-fg-h: 240;
-    --ui-primary-fg-s: 10%;
-    --ui-primary-fg-l: 98%;
-    --ui-primary-fg: hsla(
-        var(--ui-primary-fg-h),
-        var(--ui-primary-fg-s),
-        var(--ui-primary-fg-l),
-        1
-    );
+    --ui-primary-fg--hsl: 240, 10%, 98%;
+    --ui-primary-fg: hsla(var(--ui-primary-fg--hsl), 1);
 
     --ui-secondary-h: 240;
     --ui-secondary-s: 15%;
@@ -109,35 +91,17 @@
      * Basics
      */
 
-    --ui-bg-h: 240;
-    --ui-bg-s: 10%;
-    --ui-bg-l: 4%;
-    --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+    --ui-bg--hsl: 240, 10%, 4%;
+    --ui-bg: hsla(var(--ui-bg--hsl), 1);
 
-    --ui-fg-h: 240;
-    --ui-fg-s: 10%;
-    --ui-fg-l: 90%;
-    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+    --ui-fg--hsl: 240, 10%, 90%;
+    --ui-fg: hsla(var(--ui-fg--hsl), 1);
 
-    --ui-primary-h: 240;
-    --ui-primary-s: 10%;
-    --ui-primary-l: 75%;
-    --ui-primary: hsla(
-        var(--ui-primary-h),
-        var(--ui-primary-s),
-        var(--ui-primary-l),
-        1
-    );
+    --ui-primary--hsl: 240, 10%, 75%;
+    --ui-primary: hsla(var(--ui-primary--hsl), 1);
 
-    --ui-primary-fg-h: 240;
-    --ui-primary-fg-s: 10%;
-    --ui-primary-fg-l: 10%;
-    --ui-primary-fg: hsla(
-        var(--ui-primary-fg-h),
-        var(--ui-primary-fg-s),
-        var(--ui-primary-fg-l),
-        1
-    );
+    --ui-primary-fg--hsl: 240, 10%, 10%;
+    --ui-primary-fg: hsla(var(--ui-primary-fg--hsl), 1);
 
     --ui-secondary-h: 240;
     --ui-secondary-s: 15%;

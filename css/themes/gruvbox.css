@@ -1,100 +1,73 @@
 @import "./root.css";
 
 [data-theme="light"] {
+    :root {
+        --bg-hard: #f9f5d7;
+        --bg: #fbf1c7;
+        --bg--hsl: 48, 87%, 88%;
+        --bg-soft: #f2e5bc;
+        --bg1: #ebdbb2;
+        --bg2: #d5c4a1;
+        --bg3: #bdae93;
+        --bg4: #a89984;
+
+        --fg: #282828;
+        --fg--hsl: 0, 0%, 16%;
+        --fg1: #3c3836;
+        --fg2: #504945;
+        --fg3: #665c54;
+        --fg4: #7c6f64;
+
+        --red: #9d0006;
+        --green: #79740e;
+        --yellow: #b57614;
+        --blue: #076678;
+        --purple: #8f3f71;
+        --aqua: #427b58;
+        --orange: #af3a03;
+        --gray: #928374;
+
+        --red-dim: #cc2412;
+        --green-dim: #98971a;
+        --yellow-dim: #d79921;
+        --blue-dim: #458598;
+        --purple-dim: #b16286;
+        --aqua-dim: #689d6a;
+        --orange-dim: #d65d0e;
+        --gray-dim: #7c6f64;
+    }
+
     /*
      * Basics
      */
 
-    /* Medium Background */
-    --ui-bg-h: 48;
-    --ui-bg-s: 87%;
-    --ui-bg-l: 88%;
-    --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+    --ui-bg: var(--bg);
+    --ui-bg--hsl: var(--bg--hsl);
 
-    /* Foreground */
-    --ui-fg-h: 0;
-    --ui-fg-s: 0%;
-    --ui-fg-l: 16%;
-    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+    --ui-fg: var(--fg);
+    --ui-fg--hsl: var(--fg--hsl);
 
-    /* Green */
-    --ui-primary-h: 57;
-    --ui-primary-s: 79%;
-    --ui-primary-l: 26%;
-    --ui-primary: hsla(
-        var(--ui-primary-h),
-        var(--ui-primary-s),
-        var(--ui-primary-l),
-        1
-    );
+    --ui-primary: var(--green);
+    --ui-primary-fg: var(--bg-hard);
 
-    /* Hard Background */
-    --ui-primary-fg-h: var(--ui-bg-h);
-    --ui-primary-fg-s: var(--ui-bg-s);
-    --ui-primary-fg-l: var(--ui-bg-l);
-    --ui-primary-fg: hsla(
-        var(--ui-primary-fg-h),
-        var(--ui-primary-fg-s),
-        var(--ui-primary-fg-l),
-        1
-    );
+    --ui-secondary: var(--gray);
+    --ui-secondary-fg: var(--bg-hard);
 
-    /* Gray */
-    --ui-secondary-h: 30;
-    --ui-secondary-s: 12%;
-    --ui-secondary-l: 51%;
-    --ui-secondary: hsla(
-        var(--ui-secondary-h),
-        var(--ui-secondary-s),
-        var(--ui-secondary-l),
-        1
-    );
+    --ui-destructive: var(--red);
+    --ui-destructive-fg: var(--bg-hard);
 
-    /* Hard Background */
-    --ui-secondary-fg-h: var(--ui-bg-h);
-    --ui-secondary-fg-s: var(--ui-bg-s);
-    --ui-secondary-fg-l: var(--ui-bg-l);
-    --ui-secondary-fg: hsla(
-        var(--ui-secondary-fg-h),
-        var(--ui-secondary-fg-s),
-        var(--ui-secondary-fg-l),
-        1
-    );
+    --ui-borderColor: var(--gray);
+    --ui-borderColor: var(--bg4);
 
-    /* Red */
-    --ui-destructive-h: 358;
-    --ui-destructive-s: 100%;
-    --ui-destructive-l: 31%;
-    --ui-destructive: hsla(
-        var(--ui-destructive-h),
-        var(--ui-destructive-s),
-        var(--ui-destructive-l),
-        1
-    );
-
-    /* Hard Background */
-    --ui-destructive-fg-h: var(--ui-bg-h);
-    --ui-destructive-fg-s: var(--ui-bg-s);
-    --ui-destructive-fg-l: var(--ui-bg-l);
-    --ui-destructive-fg: hsla(
-        var(--ui-destructive-fg-h),
-        var(--ui-destructive-fg-s),
-        var(--ui-destructive-fg-l),
-        1
-    );
-
-    --ui-borderColor: hsla(30, 12%, 51%, 1); /* Gray */
-    --ui-borderColor: hsla(35, 17%, 59%, 1); /* Background 4 */
-
-    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdrop: hsla(var(--ui-bg--hsl), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
      * Muted: code, pre
      */
 
-    --ui-muted: hsla(35, 17%, 59%, 1); /* Background 4 */
-    --ui-muted-fg: hsla(20, 5%, 22%, 1); /* Foreground 1 */
+    --ui-muted: var(--bg4);
+    --ui-muted-fg: var(--fg1);
     --ui-muted-borderColor: var(--ui-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
@@ -103,8 +76,8 @@
      * ui-card
      */
 
-    --ui-card: hsla(43, 59%, 81%, 1); /* Background 1 */
-    --ui-card-fg: var(--ui-fg); /* Foreground */
+    --ui-card: var(--bg1);
+    --ui-card-fg: var(--fg);
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
 
@@ -114,100 +87,73 @@
 }
 
 [data-theme="dark"] {
+    :root {
+        --bg-hard: #1d2021;
+        --bg: #282828;
+        --bg--hsl: 0, 0%, 16%;
+        --bg-soft: #32302f;
+        --bg1: #3c3836;
+        --bg2: #504945;
+        --bg3: #665c54;
+        --bg4: #7c6f64;
+
+        --fg: #fbf1c7;
+        --fg--hsl: 48, 87%, 88%;
+        --fg1: #ebdbb2;
+        --fg2: #d5c4a1;
+        --fg3: #bdae93;
+        --fg4: #a89984;
+
+        --red: #fb4934;
+        --green: #b8bb26;
+        --yellow: #fabd2f;
+        --blue: #83a598;
+        --purple: #d3869b;
+        --aqua: #8ec07c;
+        --gray: #928374;
+        --orange: #fe8019;
+
+        --red-dim: #cc2412;
+        --green-dim: #98971a;
+        --yellow-dim: #d79921;
+        --blue-dim: #458588;
+        --purple-dim: #b16286;
+        --aqua-dim: #689d6a;
+        --gray-dim: #a89984;
+        --orange-dim: #d65d0e;
+    }
+
     /*
      * Basics
      */
 
-    /* Medium Background */
-    --ui-bg-h: 0;
-    --ui-bg-s: 0%;
-    --ui-bg-l: 16%;
-    --ui-bg: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 1);
+    --ui-bg: var(--bg);
+    --ui-bg--hsl: var(--bg--hsl);
 
-    /* Foreground */
-    --ui-fg-h: 48;
-    --ui-fg-s: 87%;
-    --ui-fg-l: 88%;
-    --ui-fg: hsla(var(--ui-fg-h), var(--ui-fg-s), var(--ui-fg-l), 1);
+    --ui-fg: var(--fg);
+    --ui-fg--hsl: var(--fg--hsl);
 
-    /* Green */
-    --ui-primary-h: 61;
-    --ui-primary-s: 66%;
-    --ui-primary-l: 44%;
-    --ui-primary: hsla(
-        var(--ui-primary-h),
-        var(--ui-primary-s),
-        var(--ui-primary-l),
-        1
-    );
+    --ui-primary: var(--green);
+    --ui-primary-fg: var(--bg-hard);
 
-    /* Hard Background */
-    --ui-primary-fg-h: var(--ui-bg-h);
-    --ui-primary-fg-s: var(--ui-bg-s);
-    --ui-primary-fg-l: var(--ui-bg-l);
-    --ui-primary-fg: hsla(
-        var(--ui-primary-fg-h),
-        var(--ui-primary-fg-s),
-        var(--ui-primary-fg-l),
-        1
-    );
+    --ui-secondary: var(--gray);
+    --ui-secondary-fg: var(--bg-hard);
 
-    /** Gray */
-    --ui-secondary-h: 30;
-    --ui-secondary-s: 12%;
-    --ui-secondary-l: 51%;
-    --ui-secondary: hsla(
-        var(--ui-secondary-h),
-        var(--ui-secondary-s),
-        var(--ui-secondary-l),
-        1
-    );
+    --ui-destructive: var(--red);
+    --ui-destructive-fg: var(--bg-hard);
 
-    /* Hard Background */
-    --ui-secondary-fg-h: var(--ui-bg-h);
-    --ui-secondary-fg-s: var(--ui-bg-s);
-    --ui-secondary-fg-l: var(--ui-bg-l);
-    --ui-secondary-fg: hsla(
-        var(--ui-secondary-fg-h),
-        var(--ui-secondary-fg-s),
-        var(--ui-secondary-fg-l),
-        1
-    );
+    --ui-borderColor: var(--gray);
+    --ui-borderColor: var(--bg4);
 
-    /* Red */
-    --ui-destructive-h: 6;
-    --ui-destructive-s: 96%;
-    --ui-destructive-l: 59%;
-    --ui-destructive: hsla(
-        var(--ui-destructive-h),
-        var(--ui-destructive-s),
-        var(--ui-destructive-l),
-        1
-    );
-
-    /* Hard Background */
-    --ui-destructive-fg-h: var(--ui-bg-h);
-    --ui-destructive-fg-s: var(--ui-bg-s);
-    --ui-destructive-fg-l: var(--ui-bg-l);
-    --ui-destructive-fg: hsla(
-        var(--ui-destructive-fg-h),
-        var(--ui-destructive-fg-s),
-        var(--ui-destructive-fg-l),
-        1
-    );
-
-    --ui-borderColor: hsla(30, 12%, 51%, 1); /* Gray */
-    --ui-borderColor: hsla(8, 11%, 44%, 1); /* Background 4 */
-
-    --ui-backdrop: hsla(var(--ui-bg-h), var(--ui-bg-s), var(--ui-bg-l), 0.2);
+    --ui-backdrop: hsla(var(--ui-bg--hsl), 0.2);
     --ui-backdropFilter: blur(5px);
 
     /*
      * Muted: code, pre
      */
 
-    --ui-muted: hsla(8, 11%, 44%, 1); /* Background 4 */
-    --ui-muted-fg: hsla(43, 59%, 81%, 1); /* Foreground 1 */
+    --ui-muted: var(--bg4);
+    --ui-muted-fg: var(--fg1);
     --ui-muted-borderColor: var(--ui-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
@@ -216,8 +162,8 @@
      * ui-card
      */
 
-    --ui-card: hsla(20, 5%, 22%, 1); /* Background 1 */
-    --ui-card-fg: var(--ui-fg); /* Foreground */
+    --ui-card: var(--bg1);
+    --ui-card-fg: var(--fg);
     --ui-card-borderColor: var(--ui-borderColor);
     --ui-card-radius: var(--ui-radius);
 
