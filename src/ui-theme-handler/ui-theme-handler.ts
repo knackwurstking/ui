@@ -1,13 +1,26 @@
-/**
- * @typedef UIThemeHandler_Mode
- * @type {"dark" | "light" | null}
- *
- * @typedef UIThemeHandler_Theme
- * @type {"original" | "gruvbox"}
- */
+// TODO: Convert to typescript and rewrite to Lit component
 
-/** @type {UIThemeHandler_Theme} */
-const defaultTheme = "gruvbox";
+import { LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
+
+const defaultTheme: UIThemeHandlerThemes = "gruvbox";
+
+export type UIThemeHandlerThemes = "original" | "gruvbox";
+export type UIThemeHandlerModes = "dark" | "light" | null;
+
+@customElement("ui-theme-handler")
+export class UIThemeHandler extends LitElement {
+    @property()
+    auto: boolean = false;
+
+    @property()
+    mode: UIThemeHandlerModes | null = null;
+
+    @property()
+    theme: UIThemeHandlerThemes = defaultTheme;
+
+    // TODO: Do somethings on "mode", "auto" and "theme" change
+}
 
 /**
  * HTML: `ui-theme-handler`
@@ -16,7 +29,7 @@ const defaultTheme = "gruvbox";
  *  - __mode__: *"dark" | "light"*
  *  - __auto__: *boolean*
  */
-export class UIThemeHandler extends HTMLElement {
+export class _UIThemeHandler extends HTMLElement {
     static register = () => {
         if (!customElements.get("ui-theme-handler")) {
             console.debug(`[ui] Register "ui-theme-handler" component`);
@@ -186,5 +199,3 @@ export class UIThemeHandler extends HTMLElement {
         options.target.appendChild(link);
     }
 }
-
-UIThemeHandler.register();
