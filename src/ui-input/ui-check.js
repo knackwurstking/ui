@@ -86,7 +86,7 @@ export class UICheck extends HTMLElement {
                 }
             </style>
 
-            <input slot="input" type="checkbox"></input>
+            <input type="checkbox"></input>
         `;
 
         this.ui.input = this.shadowRoot.querySelector("input");
