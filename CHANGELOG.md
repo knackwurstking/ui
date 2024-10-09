@@ -2,10 +2,9 @@
 
 ## v0.8.0 — [unreleased]
 
-- [ ] Add `UIDropdown` component
-
 **Added**:
 
+- Added "keep-open" option to `UISelect`
 - Added "gruvbox" theme to [css/themes/](css/themes)
 - Added "theme" attribute to `UIThemeHandler` web component,
     possible values: "original", "gruvbox"
