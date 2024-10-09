@@ -1,0 +1,82 @@
+import type { CleanUpFunction } from "../../global";
+
+const defaultOptions: DraggableNativeOptions = {
+    onDragStart: null,
+    onDragging: null,
+    onDragEnd: null,
+};
+
+export interface DraggableNativeOptions {
+    onDragging?: (index: number) => void | Promise<void>;
+    onDragStart?: (index: number) => void | Promise<void>;
+    onDragEnd?: (index: number) => void | Promise<void>;
+}
+
+export function createNative(
+    container: HTMLElement,
+    child: HTMLElement,
+    options?: DraggableNativeOptions,
+): CleanUpFunction {
+    options = { ...defaultOptions, ...options };
+
+    // ----- //
+    // Setup //
+    // ----- //
+
+    const childIndex: number = (
+        [...container.children] as HTMLElement[]
+    ).indexOf(child);
+
+    child.draggable = true;
+
+    child.ondragstart = (ev) => {
+        ev.dataTransfer.effectAllowed = "move";
+        ev.dataTransfer.dropEffect = "move";
+        if (!!options.onDragStart) options.onDragStart(childIndex);
+    };
+
+    child.ondragover = (ev) => {
+        ev.preventDefault();
+        return false;
+    };
+
+    child.ondragenter = (ev) => {
+        ev.preventDefault();
+
+        ([...container.children] as HTMLElement[]).forEach((c, ci) => {
+            if (ci === childIndex) {
+                c.style.background = "var(--ui-primary)";
+                c.style.color = "var(--ui-primary-fg)";
+
+                return;
+            }
+
+            c.style.background = "inherit";
+            c.style.color = "inherit";
+        });
+
+        if (!!options.onDragging) options.onDragging(childIndex);
+    };
+
+    child.ondrop = (ev) => {
+        ev.preventDefault();
+        ev.dataTransfer.dropEffect = "move";
+        if (!!options.onDragEnd) options.onDragEnd(childIndex);
+
+        ([...container.children] as HTMLElement[]).forEach((c) => {
+            c.style.background = "inherit";
+            c.style.color = "inherit";
+            return;
+        });
+    };
+
+    // Return a cleanup function
+    return () => {
+        child.draggable = false;
+
+        child.ondragstart = null;
+        child.ondragover = null;
+        child.ondragenter = null;
+        child.ondrop = null;
+    };
+}
