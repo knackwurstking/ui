@@ -10,9 +10,7 @@
     "scripts": {
         "build": "npm run build:lib && npm run build:css",
         "build:lib": "vite build --minify -c vite.config.js",
-        "build:css": "cleancss -o dist/main.min.css css/main.css",
-        "build:types": "npm run build:types:rm && npx -p typescript tsc src/*.js src/*/*.js svg/*/*.js --emitDeclarationOnly --declaration --allowJs",
-        "build:types:rm": "find src svg | grep -e \".d.ts$\" | xargs rm"
+        "build:css": "cleancss -o dist/main.min.css css/main.css"
     },
     "license": "MIT",
     "devDependencies": {
