@@ -20,6 +20,8 @@ import { UISelectOption } from "./ui-select-option";
  *  - __\*__ - from type `UISelectOption`
  */
 export class UISelect extends HTMLElement {
+    #keepOpen = false;
+
     static register = () => {
         if (!customElements.get("ui-select")) {
             console.debug(`[ui] Register "ui-select" component`);
@@ -27,7 +29,7 @@ export class UISelect extends HTMLElement {
         }
     };
 
-    static observedAttributes = ["open"];
+    static observedAttributes = ["open", "keep-open"];
 
     constructor() {
         super();
@@ -43,10 +45,12 @@ export class UISelect extends HTMLElement {
             events: new Events(),
 
             get open() {
-                return this.root.open;
+                return this.root.open || this.root.#keepOpen;
             },
 
             set open(state) {
+                if (this.keepOpen) state = this.root.#keepOpen;
+
                 this.root.open = state;
 
                 if (!state) {
@@ -59,6 +63,15 @@ export class UISelect extends HTMLElement {
                     "--items-length",
                     `${this.root.children.length || 1}`,
                 );
+            },
+
+            get keepOpen() {
+                return this.root.#keepOpen;
+            },
+
+            set keepOpen(state) {
+                this.root.#keepOpen = !!state;
+                this.open = this.open;
             },
 
             /**
@@ -203,22 +216,27 @@ export class UISelect extends HTMLElement {
         /**
          * @param {Event} ev
          */
-        const onClick = (ev) => {
-            /**
-             * @param {MouseEvent | PointerEvent} ev
-             */
-            const onClickOption = async (ev) => {
-                (ev.composedPath() || []).forEach((child) => {
-                    if (child instanceof UISelectOption) {
-                        [...this.querySelectorAll("ui-select-option")].forEach(
-                            (c) => c.removeAttribute("selected"),
-                        );
+        const onClickOption = async (ev) => {
+            (ev.composedPath() || []).forEach((child) => {
+                if (child instanceof UISelectOption) {
+                    [...this.querySelectorAll("ui-select-option")].forEach(
+                        (c) => c.removeAttribute("selected"),
+                    );
 
-                        child.setAttribute("selected", "");
-                        this.ui.events.dispatch("change", child);
-                    }
-                });
-            };
+                    child.setAttribute("selected", "");
+                    this.ui.events.dispatch("change", child);
+                }
+            });
+        };
+
+        /**
+         * @param {Event} ev
+         */
+        const onClick = async (ev) => {
+            if (this.ui.keepOpen) {
+                await onClickOption(ev);
+                return;
+            }
 
             this.ui.open = !this.ui.open;
             if (this.ui.open) {
@@ -250,6 +268,10 @@ export class UISelect extends HTMLElement {
                 if (state !== this.ui.open) {
                     this.ui.open = state;
                 }
+                break;
+
+            case "keep-open":
+                this.ui.keepOpen = true;
                 break;
         }
     }
