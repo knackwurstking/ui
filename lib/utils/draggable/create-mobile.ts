@@ -6,8 +6,8 @@ const defaultOptions: DraggableMobileOptions = {
 };
 
 export interface DraggableMobileOptions {
-    onDragStart?: () => void | Promise<void>;
-    onDragEnd?: () => void | Promise<void>;
+    onDragStart?: (() => void | Promise<void>) | null;
+    onDragEnd?: (() => void | Promise<void>) | null;
 }
 
 /**
@@ -22,27 +22,36 @@ export function createMobile(
 
     let originTarget: HTMLElement | null = null;
     let startTime: number | null = null;
-    let startX: number | null = null;
-    let startY: number | null = null;
+    let startX: number;
+    let startY: number;
     let timeout: NodeJS.Timeout | null = null;
     let dragRunning: boolean = false;
-    let backupColor: string | null = null;
-    let backupBGColor: string | null = null;
+    let backupColor: string = "";
+    let backupBGColor: string = "";
 
-    const moveStart = (
-        ev: Event & TouchEvent & MouseEvent & { currentTarget: HTMLElement },
-    ) => {
+    function handleStart(ev: Event & (TouchEvent | MouseEvent)) {
+        const target = ev.currentTarget as HTMLElement;
+
         if (
             !originTarget &&
-            Array.from(ev.currentTarget.classList).includes("draggable")
+            Array.from(target.classList).includes("draggable")
         ) {
-            startX = ev.clientX;
-            startY = ev.clientY;
-            startTime = new Date().getTime();
-            originTarget = ev.currentTarget;
+            if (ev instanceof TouchEvent) {
+                const touch = ev.targetTouches[0];
+                startX = touch.clientX;
+                startY = touch.clientY;
+            } else {
+                startX = ev.clientX;
+                startY = ev.clientY;
+            }
 
-            if (!timeout) clearTimeout(timeout);
+            startTime = new Date().getTime();
+            originTarget = target;
+
+            if (!!timeout) clearTimeout(timeout);
             timeout = setTimeout(() => {
+                if (!originTarget) return;
+
                 backupColor = originTarget.style.color;
                 backupBGColor = originTarget.style.backgroundColor;
 
@@ -52,26 +61,33 @@ export function createMobile(
                 container.classList.add("dragging");
 
                 dragRunning = true;
-                if (!!options.onDragStart) options.onDragStart();
+                if (!!options?.onDragStart) options.onDragStart();
             }, 200);
         }
-    };
+    }
 
-    const move = (
-        ev: TouchEvent & MouseEvent & { currentTarget: HTMLElement },
-    ) => {
+    function handleMove(ev: Event & (TouchEvent | MouseEvent)) {
         if (!startTime || !originTarget) return;
 
         if (!dragRunning) {
             if (new Date().getTime() - startTime < 200) {
-                const diffX = Math.abs(startX - ev.clientX);
-                const diffY = Math.abs(startY - ev.clientY);
+                let diffX: number;
+                let diffY: number;
+                if (ev instanceof TouchEvent) {
+                    const touch = ev.targetTouches[0];
+                    diffX = Math.abs(startX - touch.clientX);
+                    diffY = Math.abs(startY - touch.clientY);
+                } else {
+                    diffX = Math.abs(startX - ev.clientX);
+                    diffY = Math.abs(startY - ev.clientY);
+                }
+
                 const diff = diffX > diffY ? diffX : diffY;
                 if (diff < 24) {
                     return;
                 }
 
-                moveEnd();
+                handleEnd();
                 return;
             }
         }
@@ -80,37 +96,55 @@ export function createMobile(
 
         if (!dragRunning) {
             dragRunning = true;
-            if (!!options.onDragStart) options.onDragStart();
+            if (!!options?.onDragStart) options.onDragStart();
         }
 
-        const pos = (!!ev.targetTouches && ev.targetTouches[0]) || ev;
-        let target = document.elementFromPoint(pos.clientX, pos.clientY);
-        while (!target.classList.contains("draggable")) {
-            if (!target.parentElement) break;
-            target = target.parentElement;
-        }
-
-        if (target.classList.contains("draggable")) {
-            const isBefore = () => {
-                let sibling = originTarget.previousElementSibling;
-                while (!!sibling) {
-                    if (sibling === target) {
-                        return true;
-                    }
-                    sibling = sibling.previousElementSibling;
-                }
-                return false;
+        let pos: { clientX: number; clientY: number };
+        if (ev instanceof TouchEvent) {
+            const touch = ev.targetTouches[0];
+            pos = {
+                clientX: touch.clientX,
+                clientY: touch.clientY,
             };
+        } else {
+            pos = {
+                clientX: ev.clientX,
+                clientY: ev.clientY,
+            };
+        }
 
-            if (isBefore()) {
-                container.insertBefore(originTarget, target);
-            } else {
-                container.insertBefore(originTarget, target.nextElementSibling);
+        let target = document.elementFromPoint(pos.clientX, pos.clientY);
+        if (!!target) {
+            while (!target.classList.contains("draggable")) {
+                if (!target.parentElement) break;
+                target = target.parentElement;
+            }
+
+            if (target.classList.contains("draggable")) {
+                const isBefore = () => {
+                    let sibling = originTarget?.previousElementSibling;
+                    while (!!sibling) {
+                        if (sibling === target) {
+                            return true;
+                        }
+                        sibling = sibling.previousElementSibling;
+                    }
+                    return false;
+                };
+
+                if (isBefore()) {
+                    container.insertBefore(originTarget, target);
+                } else {
+                    container.insertBefore(
+                        originTarget,
+                        target.nextElementSibling,
+                    );
+                }
             }
         }
-    };
+    }
 
-    const moveEnd = () => {
+    function handleEnd() {
         if (timeout !== null) {
             clearTimeout(timeout);
             timeout = null;
@@ -128,39 +162,41 @@ export function createMobile(
         if (!dragRunning) return;
 
         dragRunning = false;
-        if (!!options.onDragEnd) options.onDragEnd();
-    };
+        if (!!options?.onDragEnd) options.onDragEnd();
+    }
 
     // ----- //
     // Setup //
     // ----- //
 
-    Array.from(container.children).forEach((child: HTMLElement) => {
+    ([...container.children] as HTMLElement[]).forEach((child) => {
         child.classList.add("draggable");
 
-        child.onmousedown = moveStart;
-        child.ontouchstart = moveStart;
+        child.onmousedown = handleStart;
+        child.ontouchstart = handleStart;
 
-        child.onmousemove = move;
-        child.ontouchmove = move;
+        child.onmousemove = handleMove;
+        child.ontouchmove = handleMove;
 
-        child.onmouseup = moveEnd;
-        child.ontouchend = moveEnd;
+        child.onmouseup = handleEnd;
+        child.ontouchend = handleEnd;
     });
 
     // Return a cleanup function
     return () => {
-        Array.from(container.children).forEach((child: HTMLElement) => {
-            child.classList.remove("draggable");
+        ([...container.children] as HTMLElement[]).forEach(
+            (child: HTMLElement) => {
+                child.classList.remove("draggable");
 
-            child.onmousedown = null;
-            child.ontouchstart = null;
+                child.onmousedown = null;
+                child.ontouchstart = null;
 
-            child.onmousemove = null;
-            child.ontouchmove = null;
+                child.onmousemove = null;
+                child.ontouchmove = null;
 
-            child.onmouseup = null;
-            child.ontouchend = null;
-        });
+                child.onmouseup = null;
+                child.ontouchend = null;
+            },
+        );
     };
 }
