@@ -1,4 +1,4 @@
-import { html } from "../../src";
+import { html } from "../..";
 
 export default html`
     <svg
