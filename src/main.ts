@@ -7,17 +7,19 @@ function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
     app.innerHTML = html`
-        <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
+        <section>
+            <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
 
-        <ui-text>UIText Element</ui-text>
+            <ui-text>UIText Element</ui-text>
 
-        <br />
+            <br />
 
-        <ui-secondary>UISecondary Element</ui-secondary>
+            <ui-secondary>UISecondary Element</ui-secondary>
 
-        <br />
+            <br />
 
-        <ui-primary>UIPrimary Element</ui-primary>
+            <ui-primary>UIPrimary Element</ui-primary>
+        </section>
     `;
 }
 
