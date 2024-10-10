@@ -24,13 +24,13 @@ export class UIThemeHandler extends LitElement {
         };
     }
 
-    @property()
-    auto: boolean = false;
+    @property({ type: Boolean, attribute: "auto" })
+    auto?: boolean;
 
-    @property()
+    @property({ type: String, attribute: "mode" })
     mode: UIThemeHandlerModes | null = null;
 
-    @property()
+    @property({ type: String, attribute: "theme" })
     theme: UIThemeHandlerThemes = defaultTheme;
 
     attributeChangedCallback(
@@ -38,6 +38,7 @@ export class UIThemeHandler extends LitElement {
         _old: string | null,
         value: string | null,
     ): void {
+        console.debug({ name, value, this: this });
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {
@@ -57,6 +58,7 @@ export class UIThemeHandler extends LitElement {
 
     private handleAuto(): void {
         if (!this.auto) {
+            console.debug(`[ui][ui-theme-handler] Disable auto mode`);
             if (!this.media) return;
             this.media.removeEventListener("change", this.mediaHandler);
             this.media = null;
@@ -64,6 +66,7 @@ export class UIThemeHandler extends LitElement {
         }
 
         this.mode = null;
+        console.debug(`[ui][ui-theme-handler] Enable auto mode`);
 
         if (!!this.media) {
             this.mediaHandler(this.media);
@@ -76,6 +79,8 @@ export class UIThemeHandler extends LitElement {
     }
 
     private handleMode(): void {
+        console.debug(`[ui][ui-theme-handler] Set mode ${this.mode}`);
+
         if (!this.mode) {
             this.target.removeAttribute("data-theme");
         } else {
@@ -86,6 +91,10 @@ export class UIThemeHandler extends LitElement {
     private handleTheme(): void {
         const target: HTMLElement = document.head;
         const themesPath: string = "/themes"; // TODO: Add @property for this "themes-path"
+
+        console.debug(
+            `[ui][ui-theme-handler] Load them from "${themesPath}/${this.theme}"`,
+        );
 
         target.querySelectorAll(`link.theme`).forEach((child) => {
             target.removeChild(child);

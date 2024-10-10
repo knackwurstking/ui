@@ -21,10 +21,10 @@ export class UIText extends LitElement {
     @property({ type: Number, attribute: "slnt" })
     slnt: number = 0;
 
-    @property({ type: String, attribute: "size" })
+    @property({ type: Number, attribute: "size" })
     size: string = "var(--ui-fontSize)";
 
-    @property({ type: String, attribute: "family" })
+    @property({ type: Number, attribute: "family" })
     family: string = "var(--ui-fontFamily)";
 
     static get styles() {
