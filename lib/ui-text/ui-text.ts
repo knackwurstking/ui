@@ -6,25 +6,25 @@ export class UIText extends LitElement {
     /**
      * Range between 0 - 1
      */
-    @property()
+    @property({ type: Number, attribute: "casl" })
     casl: number = 1;
 
     /**
      * Range between 0 - 1
      */
-    @property()
+    @property({ type: Number, attribute: "mono" })
     mono: number = 0;
 
     /**
      * Range between -15 - 0
      */
-    @property()
+    @property({ type: Number, attribute: "slnt" })
     slnt: number = 0;
 
-    @property()
+    @property({ type: String, attribute: "size" })
     size: string = "var(--ui-fontSize)";
 
-    @property()
+    @property({ type: String, attribute: "family" })
     family: string = "var(--ui-fontFamily)";
 
     static get styles() {
