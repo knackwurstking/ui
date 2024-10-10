@@ -4,8 +4,8 @@ export default defineConfig({
     build: {
         outDir: "dist",
         lib: {
-            entry: "src/index.js",
-            fileName: "main.min",
+            entry: "lib/index.ts",
+            fileName: "ui.min",
             formats: ["es"],
         },
     },

@@ -5,7 +5,6 @@
     "type": "module",
     "main": "src/index.js",
     "style": "css/main.css",
-    "types": "src/index.d.ts",
     "repository": "knackwurstking/ui",
     "scripts": {
         "build": "npm run build:lib && npm run build:css",
@@ -15,7 +14,8 @@
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^22.7.5",
-        "clean-css-cli": "^5.6.3"
+        "clean-css-cli": "^5.6.3",
+        "typescript": "^5.6.3"
     },
     "dependencies": {
         "lit": "^3.2.1",

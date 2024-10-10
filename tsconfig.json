@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Bundler",
+        "target": "ESNext",
+        "module": "ESNext",
+        "verbatimModuleSyntax": true,
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "checkJs": true,
+        "experimentalDecorators": true
+    },
+    "include": ["src", "lib"]
+}
