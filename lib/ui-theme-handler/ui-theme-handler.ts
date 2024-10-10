@@ -25,7 +25,7 @@ export class UIThemeHandler extends LitElement {
     }
 
     @property({ type: Boolean, attribute: "auto" })
-    auto?: boolean;
+    auto: boolean = false;
 
     @property({ type: String, attribute: "mode" })
     mode: UIThemeHandlerModes | null = null;
