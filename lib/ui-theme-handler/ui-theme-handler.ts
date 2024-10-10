@@ -85,7 +85,7 @@ export class UIThemeHandler extends LitElement {
 
     private handleTheme(): void {
         const target: HTMLElement = document.head;
-        const prefixPath: string = "/themes";
+        const themesPath: string = "/themes"; // TODO: Add @property for this "themes-path"
 
         target.querySelectorAll(`link.theme`).forEach((child) => {
             target.removeChild(child);
@@ -95,7 +95,7 @@ export class UIThemeHandler extends LitElement {
         {
             link.classList.add("theme");
             link.rel = "stylesheet";
-            link.href = `${prefixPath}/${this.theme || defaultTheme}.css`;
+            link.href = `${themesPath}/${this.theme || defaultTheme}.css`;
         }
         target.appendChild(link);
     }

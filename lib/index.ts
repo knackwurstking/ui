@@ -1,3 +1,5 @@
+import "./css/main.css";
+
 export * as svg from "./svg";
 
 export * from "./global";

@@ -31,7 +31,6 @@
     --ui-muted-fg: hsla(240, 10%, 36%, 1);
     --ui-muted-borderColor: var(--ui-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
-    --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
 
     /*
      * ui-card
@@ -80,7 +79,6 @@
     --ui-muted-fg: hsla(240, 10%, 65%, 1);
     --ui-muted-borderColor: var(--ui-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
-    --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
 
     /*
      * ui-card

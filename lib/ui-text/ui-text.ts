@@ -61,10 +61,10 @@ export class UIText extends LitElement {
             case "size":
             case "family":
                 if (value === null) {
-                    this.style.removeProperty(`--${name}`);
+                    this.style.removeProperty(`--ui-text-${name}`);
                     return;
                 }
-                this.style.setProperty(`--${name}`, value);
+                this.style.setProperty(`--ui-text-${name}`, value);
                 break;
         }
     }

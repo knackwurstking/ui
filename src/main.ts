@@ -1,6 +1,7 @@
-import "../css/main.css";
-import "../lib";
-import { html } from "../lib/utils";
+//import "../dist/style.css";
+//import "../dist/ui.min.js";
+//import "../lib";
+import { html } from "../lib";
 
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;

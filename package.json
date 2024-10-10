@@ -4,13 +4,10 @@
     "description": "Just an ui lib for my projects.",
     "type": "module",
     "main": "src/index.js",
-    "style": "css/main.css",
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "vite --host",
-        "build": "npm run build-lib && npm run build-css",
-        "build-lib": "tsc && vite build --minify -c vite.config.js",
-        "build-css": "cleancss -o dist/ui.min.css css/main.css"
+        "build": "tsc && vite build --minify -c vite.config.js"
     },
     "license": "MIT",
     "devDependencies": {
