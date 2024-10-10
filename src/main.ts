@@ -10,8 +10,14 @@ function main() {
         <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
 
         <ui-text>UIText Element</ui-text>
+
         <br />
+
         <ui-secondary>UISecondary Element</ui-secondary>
+
+        <br />
+
+        <ui-primary>UIPrimary Element</ui-primary>
     `;
 }
 
