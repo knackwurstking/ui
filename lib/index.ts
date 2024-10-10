@@ -1,9 +1,12 @@
 import "./css/main.css";
 
-export * as svg from "./svg";
-
 export * from "./global";
 export * from "./utils";
+
+export * as svg from "./svg";
+
+export * from "./ui-text";
+export * from "./ui-theme-handler";
 
 //export * from "./ui-alert";
 //export * from "./ui-app-bar";
@@ -17,5 +20,3 @@ export * from "./utils";
 //export * from "./ui-spinner";
 //export * from "./ui-stack-layout";
 //export * from "./ui-store";
-export * from "./ui-text";
-export * from "./ui-theme-handler";
