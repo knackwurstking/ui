@@ -38,7 +38,6 @@ export class UIThemeHandler extends LitElement {
         _old: string | null,
         value: string | null,
     ): void {
-        console.debug({ name, value, this: this });
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {
