@@ -7,7 +7,7 @@ function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
     app.innerHTML = html`
-        <ui-theme-handler auto></ui-theme-handler>
+        <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
 
         <ui-text>UIText Element</ui-text>
         <br />
