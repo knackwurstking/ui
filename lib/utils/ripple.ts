@@ -30,7 +30,7 @@ export function create(
 
     let ripple: HTMLElement | null = null;
 
-    const handleStart = (ev: PointerEvent & { currentTarget: HTMLElement }) => {
+    const handleStart = (ev: PointerEvent) => {
         ripple = start(ev, options);
         target.addEventListener("pointermove", handleMove);
     };
@@ -43,7 +43,7 @@ export function create(
 
     const handleMove = () => handleStop();
 
-    const handleClick = (ev: MouseEvent & { currentTarget: HTMLElement }) => {
+    const handleClick = (ev: MouseEvent) => {
         ripple = start(ev, options);
         stop(ripple);
         ripple = null;
@@ -80,11 +80,12 @@ export function create(
 }
 
 export function start(
-    ev: (MouseEvent | PointerEvent) & { currentTarget: HTMLElement },
+    ev: MouseEvent | PointerEvent,
     options: RippleOptions,
 ): HTMLElement {
     const ripple = document.createElement("div");
-    ev.currentTarget.appendChild(ripple);
+    const target = ev.currentTarget as HTMLElement;
+    target.appendChild(ripple);
 
     ripple.classList.add("ripple");
 
@@ -97,13 +98,13 @@ export function start(
     ripple.style.marginTop = "-50px";
     ripple.style.marginLeft = "-50px";
     ripple.style.opacity = `${options.opacity}`;
-    ripple.style.backgroundColor = options.color;
+    ripple.style.backgroundColor = `${options.color}`;
     ripple.style.transform = `scale(0) translate(0, 0)`;
     ripple.style.transition =
         `transform ${options.spreadDuration} ${options.spreadTiming} 0s,` +
         `opacity ${options.clearDuration} ${options.clearTiming} 0s`;
 
-    const tR = ev.currentTarget.getBoundingClientRect();
+    const tR = target.getBoundingClientRect();
     if (options.centered) {
         ripple.style.top = `${tR.height / 2}px`;
         ripple.style.left = `${tR.width / 2}px`;
