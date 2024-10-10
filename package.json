@@ -10,7 +10,7 @@
         "dev": "vite --host",
         "build": "npm run build-lib && npm run build-css",
         "build-lib": "tsc && vite build --minify -c vite.config.js",
-        "build-css": "cleancss -o dist/main.min.css css/main.css"
+        "build-css": "cleancss -o dist/ui.min.css css/main.css"
     },
     "license": "MIT",
     "devDependencies": {
