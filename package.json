@@ -7,9 +7,10 @@
     "style": "css/main.css",
     "repository": "knackwurstking/ui",
     "scripts": {
-        "build": "npm run build:lib && npm run build:css",
-        "build:lib": "vite build --minify -c vite.config.js",
-        "build:css": "cleancss -o dist/main.min.css css/main.css"
+        "dev": "vite --host",
+        "build": "npm run build-lib && npm run build-css",
+        "build-lib": "vite build --minify -c vite.config.js",
+        "build-css": "cleancss -o dist/main.min.css css/main.css"
     },
     "license": "MIT",
     "devDependencies": {
