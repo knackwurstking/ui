@@ -10,10 +10,6 @@ export interface DraggableMobileOptions {
     onDragEnd?: (() => void | Promise<void>) | null;
 }
 
-/**
- * @param {HTMLElement} container
- * @param {DraggableMobile_Options} options
- */
 export function createMobile(
     container: HTMLElement,
     options?: DraggableMobileOptions,
@@ -29,7 +25,7 @@ export function createMobile(
     let backupColor: string = "";
     let backupBGColor: string = "";
 
-    function handleStart(ev: Event & (TouchEvent | MouseEvent)) {
+    const handleStart = (ev: Event & (TouchEvent | MouseEvent)) => {
         const target = ev.currentTarget as HTMLElement;
 
         if (
@@ -64,9 +60,9 @@ export function createMobile(
                 if (!!options?.onDragStart) options.onDragStart();
             }, 200);
         }
-    }
+    };
 
-    function handleMove(ev: Event & (TouchEvent | MouseEvent)) {
+    const handleMove = (ev: Event & (TouchEvent | MouseEvent)) => {
         if (!startTime || !originTarget) return;
 
         if (!dragRunning) {
@@ -142,9 +138,9 @@ export function createMobile(
                 }
             }
         }
-    }
+    };
 
-    function handleEnd() {
+    const handleEnd = () => {
         if (timeout !== null) {
             clearTimeout(timeout);
             timeout = null;
@@ -163,7 +159,7 @@ export function createMobile(
 
         dragRunning = false;
         if (!!options?.onDragEnd) options.onDragEnd();
-    }
+    };
 
     // ----- //
     // Setup //

@@ -7,9 +7,9 @@ const defaultOptions: DraggableNativeOptions = {
 };
 
 export interface DraggableNativeOptions {
-    onDragging?: (index: number) => void | Promise<void>;
-    onDragStart?: (index: number) => void | Promise<void>;
-    onDragEnd?: (index: number) => void | Promise<void>;
+    onDragging?: ((index: number) => void | Promise<void>) | null;
+    onDragStart?: ((index: number) => void | Promise<void>) | null;
+    onDragEnd?: ((index: number) => void | Promise<void>) | null;
 }
 
 export function createNative(
@@ -30,8 +30,11 @@ export function createNative(
     child.draggable = true;
 
     child.ondragstart = (ev) => {
-        ev.dataTransfer.effectAllowed = "move";
-        ev.dataTransfer.dropEffect = "move";
+        if (!!ev.dataTransfer) {
+            ev.dataTransfer.effectAllowed = "move";
+            ev.dataTransfer.dropEffect = "move";
+        }
+
         if (!!options.onDragStart) options.onDragStart(childIndex);
     };
 
@@ -60,7 +63,11 @@ export function createNative(
 
     child.ondrop = (ev) => {
         ev.preventDefault();
-        ev.dataTransfer.dropEffect = "move";
+
+        if (!!ev.dataTransfer) {
+            ev.dataTransfer.dropEffect = "move";
+        }
+
         if (!!options.onDragEnd) options.onDragEnd(childIndex);
 
         ([...container.children] as HTMLElement[]).forEach((c) => {
