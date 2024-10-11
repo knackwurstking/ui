@@ -10,6 +10,7 @@ function main() {
 
     app.innerHTML = html`
         <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
+        <ui-store storage-prefix storage></ui-store>
 
         <section class="has-border">
             <h1><u>Text Components</u></h1>
