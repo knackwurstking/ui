@@ -104,7 +104,7 @@ export class UILabel extends LitElement {
 
         const container = this.shadowRoot?.querySelector<HTMLElement>(`div`);
         if (!container) {
-            console.debug("[ui][ui-label] Component isn't rendered yet!");
+            // Component isn't rendered yet!
             return;
         }
 
