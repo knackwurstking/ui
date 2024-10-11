@@ -43,7 +43,7 @@ export class UIText extends LitElement {
         `;
     }
 
-    render() {
+    protected render() {
         return html` <slot></slot> `;
     }
 
