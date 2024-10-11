@@ -33,12 +33,12 @@ export class UIText extends LitElement {
                 display: inline-block;
                 overflow-wrap: anywhere;
 
-                font-size: var(--ui-text-size, var(--ui-fontSize));
-                font-family: var(--ui-text-family, var(--ui-fontFamily));
+                font-size: var(--ui-text_size, var(--ui-fontSize));
+                font-family: var(--ui-text_family, var(--ui-fontFamily));
                 font-variation-settings:
-                    "CASL" var(--ui-text-casl, 1),
-                    "MONO" var(--ui-text-mono, 0),
-                    "slnt" var(--ui-text-slnt, 0);
+                    "CASL" var(--ui-text_casl, 1),
+                    "MONO" var(--ui-text_mono, 0),
+                    "slnt" var(--ui-text_slnt, 0);
             }
         `;
     }
@@ -61,10 +61,10 @@ export class UIText extends LitElement {
             case "size":
             case "family":
                 if (value === null) {
-                    this.style.removeProperty(`--ui-text-${name}`);
+                    this.style.removeProperty(`--ui-text_${name}`);
                     return;
                 }
-                this.style.setProperty(`--ui-text-${name}`, value);
+                this.style.setProperty(`--ui-text_${name}`, value);
                 break;
         }
     }
