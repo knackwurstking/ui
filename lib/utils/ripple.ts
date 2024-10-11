@@ -8,7 +8,7 @@ export interface RippleOptions {
     spreadTiming?: string;
     clearDuration?: string;
     clearTiming?: string;
-    useClick?: boolean;
+    usePointer?: boolean;
 }
 
 export const defaultOptions: RippleOptions = {
@@ -19,7 +19,7 @@ export const defaultOptions: RippleOptions = {
     spreadTiming: "linear",
     clearDuration: "1s",
     clearTiming: "ease-in-out",
-    useClick: false,
+    usePointer: false,
 };
 
 export function create(
@@ -30,18 +30,18 @@ export function create(
 
     let ripple: HTMLElement | null = null;
 
-    const handleStart = (ev: PointerEvent) => {
+    const handlePointerStart = (ev: PointerEvent) => {
         ripple = start(ev, options);
-        target.addEventListener("pointermove", handleMove);
+        target.addEventListener("pointermove", handlePointerMove);
     };
 
-    const handleStop = () => {
-        target.removeEventListener("pointermove", handleMove);
+    const handlePointerStop = () => {
+        target.removeEventListener("pointermove", handlePointerMove);
         stop(ripple);
         ripple = null;
     };
 
-    const handleMove = () => handleStop();
+    const handlePointerMove = () => handlePointerStop();
 
     const handleClick = (ev: MouseEvent) => {
         ripple = start(ev, options);
@@ -56,26 +56,26 @@ export function create(
     target.classList.add("ripple-container");
     target.style.overflow = "hidden";
 
-    if (options.useClick === true) {
-        target.addEventListener("click", handleClick);
+    if (options.usePointer) {
+        target.addEventListener("pointerdown", handlePointerStart);
+        target.addEventListener("pointerup", handlePointerStop);
+        target.addEventListener("pointerleave", handlePointerStop);
     } else {
-        target.addEventListener("pointerdown", handleStart);
-        target.addEventListener("pointerup", handleStop);
-        target.addEventListener("pointerleave", handleStop);
+        target.addEventListener("click", handleClick);
     }
 
     return () => {
         target.classList.remove("ripple-container");
 
-        if (options.useClick === true) {
-            target.removeEventListener("click", handleClick);
+        if (options.usePointer) {
+            target.removeEventListener("pointerdown", handlePointerStart);
+            target.removeEventListener("pointerup", handlePointerStop);
+            target.removeEventListener("pointerleave", handlePointerStop);
+            target.removeEventListener("pointermove", handlePointerMove);
             return;
         }
 
-        target.removeEventListener("pointerdown", handleStart);
-        target.removeEventListener("pointerup", handleStop);
-        target.removeEventListener("pointerleave", handleStop);
-        target.removeEventListener("pointermove", handleMove);
+        target.removeEventListener("click", handleClick);
     };
 }
 
