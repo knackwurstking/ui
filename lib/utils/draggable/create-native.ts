@@ -35,6 +35,7 @@ export function createNative(
             ev.dataTransfer.dropEffect = "move";
         }
 
+        container.classList.add("dragging");
         if (!!options.onDragStart) options.onDragStart(childIndex);
     };
 
@@ -68,6 +69,7 @@ export function createNative(
             ev.dataTransfer.dropEffect = "move";
         }
 
+        container.classList.remove("dragging");
         if (!!options.onDragEnd) options.onDragEnd(childIndex);
 
         ([...container.children] as HTMLElement[]).forEach((c) => {
