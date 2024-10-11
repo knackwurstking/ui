@@ -46,7 +46,7 @@
     --ui-fg: var(--fg);
     --ui-fg--hsl: var(--fg--hsl);
 
-    --ui-primary: var(--green);
+    --ui-primary: var(--aqua);
     --ui-primary-fg: var(--bg-hard);
 
     --ui-secondary: var(--gray);
@@ -132,7 +132,7 @@
     --ui-fg: var(--fg);
     --ui-fg--hsl: var(--fg--hsl);
 
-    --ui-primary: var(--green);
+    --ui-primary: var(--aqua);
     --ui-primary-fg: var(--bg-hard);
 
     --ui-secondary: var(--gray);
