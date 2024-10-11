@@ -6,7 +6,8 @@ import { html, svg, UISvg } from "../lib";
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
-    app.style.padding = "var(--ui-spacing)";
+    app.classList.add("is-container");
+    //app.classList.add("fluid");
 
     app.innerHTML = html`
         <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
