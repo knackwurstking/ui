@@ -5,6 +5,7 @@ export * from "./utils";
 
 export * as svg from "./svg";
 
+export * from "./ui-svg";
 export * from "./ui-text";
 export * from "./ui-theme-handler";
 
