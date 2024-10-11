@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-@customElement("ui-stack-layout")
+@customElement("ui-stack-layout-page")
 export class UIStackLayoutPage extends LitElement {
     @property({ type: String, attribute: "name" })
     name: string = "";
