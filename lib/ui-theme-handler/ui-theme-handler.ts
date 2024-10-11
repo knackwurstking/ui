@@ -92,7 +92,7 @@ export class UIThemeHandler extends LitElement {
         const themesPath: string = "/themes"; // TODO: Add @property for this "themes-path"
 
         console.debug(
-            `[ui][ui-theme-handler] Load them from "${themesPath}/${this.theme}"`,
+            `[ui][ui-theme-handler] Load theme from "${themesPath}/${this.theme}"`,
         );
 
         target.querySelectorAll(`link.theme`).forEach((child) => {
