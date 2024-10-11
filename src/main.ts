@@ -25,7 +25,26 @@ function main() {
                     UISecondary Component - "ui-secondary"
                 </ui-secondary>
 
-                <!-- TODO: Add label component example here -->
+                <br />
+
+                <ui-label
+                    primary="The primary Label text"
+                    secondary="Some secondary Label text"
+                >
+                    <ui-text>
+                        @TODO: Replace this with an checkbox component
+                    </ui-text>
+                </ui-label>
+
+                <ui-label
+                    primary="Ripple Label"
+                    secondary="A Label with ripple attribute set"
+                    ripple
+                >
+                    <ui-text>
+                        @TODO: Replace this with an checkbox component
+                    </ui-text>
+                </ui-label>
             </section>
         </section>
     `;
