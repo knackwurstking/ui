@@ -62,6 +62,19 @@ function main() {
                 <h2><u>Smoothie Line Icons</u></h2>
             </section>
         </section>
+
+        <section class="has-border" style="margin-top: var(--ui-spacing);">
+            <h1><u>Stack Layout</u></h1>
+
+            <!-- TODO: Add nav buttons: "Add a page", "Go back one page" -->
+
+            <ui-stack-layout>
+                <ui-stack-layout-page name="page 1"></ui-stack-layout-page>
+                <ui-stack-layout-page name="page 2"></ui-stack-layout-page>
+                <ui-stack-layout-page name="page 3"></ui-stack-layout-page>
+                <ui-stack-layout-page name="page 4"></ui-stack-layout-page>
+            </ui-stack-layout>
+        </section>
     `;
 
     renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
