@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { CleanUpFunction, ripple } from "..";
 
@@ -60,12 +60,12 @@ export class UILabel extends LitElement {
         `;
     }
 
-    render() {
+    protected render() {
         return html`
             <div>
                 <span>
-                    <ui-primary></ui-primary>
-                    <ui-secondary></ui-secondary>
+                    <ui-primary>${this.primary}</ui-primary>
+                    <ui-secondary>${this.secondary}</ui-secondary>
                 </span>
 
                 <span>
@@ -75,12 +75,20 @@ export class UILabel extends LitElement {
         `;
     }
 
+    protected firstUpdated(_changedProperties: PropertyValues): void {
+        super.firstUpdated(_changedProperties);
+
+        if (this.ripple) this.enableRipple();
+        else this.disableRipple();
+    }
+
     attributeChangedCallback(
         name: string,
         _old: string | null,
         value: string | null,
     ): void {
         super.attributeChangedCallback(name, _old, value);
+
         switch (name) {
             case "ripple":
                 if (this.ripple) {
@@ -91,10 +99,15 @@ export class UILabel extends LitElement {
         }
     }
 
-    private enableRipple() {
+    private async enableRipple() {
         if (!!this.rippleCleanUp) return;
 
-        const container = this.shadowRoot?.querySelector<HTMLElement>(`> div`)!;
+        const container = this.shadowRoot?.querySelector<HTMLElement>(`div`);
+        if (!container) {
+            console.debug("[ui][ui-label] Component isn't rendered yet!");
+            return;
+        }
+
         this.rippleCleanUp = ripple.create(container);
 
         this.style.cursor = "pointer";
@@ -105,7 +118,7 @@ export class UILabel extends LitElement {
         });
     }
 
-    private disableRipple() {
+    private async disableRipple() {
         if (!this.rippleCleanUp) return;
 
         this.rippleCleanUp();
