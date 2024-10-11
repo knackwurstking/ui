@@ -7,18 +7,26 @@ function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
     app.innerHTML = html`
-        <section>
-            <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
+        <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
 
-            <ui-text>UIText Element</ui-text>
+        <section class="has-border">
+            <h1><u>Text Components</u></h1>
 
-            <br />
+            <section>
+                <ui-text>UIText Component - "ui-text"</ui-text>
 
-            <ui-secondary>UISecondary Element</ui-secondary>
+                <br />
 
-            <br />
+                <ui-primary>UIPrimary Component - "ui-primary"</ui-primary>
 
-            <ui-primary>UIPrimary Element</ui-primary>
+                <br />
+
+                <ui-secondary>
+                    UISecondary Component - "ui-secondary"
+                </ui-secondary>
+
+                <!-- TODO: Add label component example here -->
+            </section>
         </section>
     `;
 }
