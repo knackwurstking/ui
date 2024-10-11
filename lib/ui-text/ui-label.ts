@@ -30,6 +30,11 @@ export class UILabel extends LitElement {
 
     static get styles() {
         return css`
+            ::selection {
+                background-color: var(--ui-primary);
+                color: var(--ui-primary-fg);
+            }
+
             :host > div {
                 display: flex;
                 flex-direction: row;
