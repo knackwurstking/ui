@@ -1,10 +1,12 @@
 //import "../dist/style.css";
 //import "../dist/ui.min.js";
 //import "../lib";
-import { html } from "../lib";
+import { html, svg, UISvg } from "../lib";
 
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
+
+    app.style.padding = "var(--ui-spacing)";
 
     app.innerHTML = html`
         <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
@@ -47,7 +49,36 @@ function main() {
                 </ui-label>
             </section>
         </section>
+
+        <section
+            id="svgs"
+            class="has-border"
+            style="margin-top: var(--ui-spacing);"
+        >
+            <h1><u>Svg's</u></h1>
+
+            <section id="smoothieLineIcons">
+                <h2><u>Smoothie Line Icons</u></h2>
+            </section>
+        </section>
     `;
+
+    renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
+}
+
+function renderSvgs(container: HTMLElement) {
+    let uiSvg: UISvg;
+    for (const [name, value] of Object.entries(svg.smoothieLineIcons)) {
+        uiSvg = new UISvg();
+        container.appendChild(uiSvg);
+
+        uiSvg.setAttribute("name", name);
+
+        uiSvg.style.width = "2.5rem";
+        uiSvg.style.height = "2.5rem";
+
+        uiSvg.innerHTML = value;
+    }
 }
 
 main();
