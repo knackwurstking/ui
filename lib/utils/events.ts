@@ -5,7 +5,7 @@ export class Events<T extends { [key: string]: any }> {
         [key: string]: ((e: any) => void | Promise<void>)[];
     } = {};
 
-    add<K extends keyof T>(
+    addListener<K extends keyof T>(
         key: K,
         listener: (data: T[K]) => void | Promise<void>,
     ): CleanUpFunction {
@@ -15,10 +15,10 @@ export class Events<T extends { [key: string]: any }> {
 
         this.listeners[key as string].push(listener);
 
-        return () => this.remove(key, listener);
+        return () => this.removeListener(key, listener);
     }
 
-    remove<K extends keyof T>(
+    removeListener<K extends keyof T>(
         key: K,
         listener: (data: T[K]) => void | Promise<void>,
     ): void {
