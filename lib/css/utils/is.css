@@ -6,6 +6,19 @@
     border: 1px solid red;
 }
 
+.is-container {
+    display: block;
+    width: 100%;
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: var(--ui-spacing);
+}
+
+.is-container.fluid {
+    width: 100%;
+    max-width: 100%;
+}
+
 .is-card {
     background-color: var(--ui-card);
     color: var(--ui-card-fg);
