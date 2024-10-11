@@ -1,132 +1,72 @@
-// TODO: Convert to typescript
-import { css, globalStylesToShadowRoot, html } from "../utils";
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-/**
- * HTML: `ui-flex-grid`
- *
- * Attributes:
- *  - __gap__: *string*
- *
- * Slots:
- *  - __\*__
- */
-export class UIFlexGrid extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-flex-grid")) {
-            console.debug(`[ui] Register "ui-flex-grid" component`);
-            customElements.define("ui-flex-grid", UIFlexGrid);
-        }
-    };
+const defaultGap = "0";
 
-    static observedAttributes = ["gap", "justify", "align"];
+@customElement("ui-flex-grid")
+export class UIFlexGrid extends LitElement {
+    @property({ type: String, attribute: "gap" })
+    gap: string = defaultGap;
 
-    constructor() {
-        super();
+    @property({ type: String, attribute: "justify" })
+    justify?: string;
 
-        /** @private */
-        this.gap = "0";
+    @property({ type: String, attribute: "align" })
+    align?: string;
 
-        this.ui = {
-            root: this,
+    static get styles() {
+        return css`
+            :host {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: var(--ui-flex-grid_justify);
+                align-items: var(--ui-flex-grid_align);
 
-            get gap() {
-                return this.root.gap;
-            },
+                position: relative;
+                width: 100%;
+                height: fit-content;
+            }
 
-            set gap(value) {
-                this.root.gap = value || "0";
-                const style =
-                    this.root.shadowRoot.querySelector(`style[name="gap"]`);
-                style.textContent = css`
-                    :host > ::slotted(*) {
-                        margin: ${this.root.gap} 0 !important;
-                    }
-                `;
-            },
+            :host > ::slotted(*) {
+                margin: var(--ui-flex-grid_gap, 0) 0 !important;
+            }
 
-            get justify() {
-                return this.root.style.justifyContent;
-            },
+            :host > ::slotted(*:first-child) {
+                margin-top: 0 !important;
+            }
 
-            set justify(value) {
-                this.root.style.justifyContent = value;
-            },
-
-            get align() {
-                return this.root.style.alignItems;
-            },
-
-            set align(value) {
-                this.root.style.alignItems = value;
-            },
-        };
-
-        this.#renderUIFlexGrid();
-    }
-
-    #renderUIFlexGrid() {
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
-
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
-
-                :host {
-                    display: flex !important;
-                    flex-flow: column nowrap;
-
-                    position: relative;
-                    width: 100%;
-                    height: fit-content;
-                }
-            </style>
-
-            <style name="gap">
-                :host > ::slotted(*) {
-                    margin: 0 0 !important;
-                }
-            </style>
-
-            <style>
-                :host > ::slotted(*:first-child) {
-                    margin-top: 0 !important;
-                }
-
-                :host > ::slotted(*:last-child) {
-                    margin-bottom: 0 !important;
-                }
-            </style>
-
-            <slot></slot>
+            :host > ::slotted(*:last-child) {
+                margin-bottom: 0 !important;
+            }
         `;
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {}
+    protected render() {
+        return html`<slot></slot>`; // TODO: ...
+    }
 
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
+    attributeChangedCallback(
+        name: string,
+        _old: string | null,
+        value: string | null,
+    ): void {
+        super.attributeChangedCallback(name, _old, value);
+
         switch (name) {
             case "gap":
-                this.ui.gap = newValue;
+                this.style.setProperty(
+                    `--ui-flex-grid_gap`,
+                    value || defaultGap,
+                );
                 break;
 
             case "justify":
-                this.ui.justify = newValue;
+                this.style.setProperty(`--ui-flex-grid_justify`, value || "");
                 break;
 
             case "align":
-                this.ui.align = newValue;
+                this.style.setProperty(`--ui-flex-grid_align`, value || "");
                 break;
         }
     }
 }
-
-UIFlexGrid.register();
