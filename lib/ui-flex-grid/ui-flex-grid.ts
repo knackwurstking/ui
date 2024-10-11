@@ -19,8 +19,8 @@ export class UIFlexGrid extends LitElement {
             :host {
                 display: flex;
                 flex-flow: column nowrap;
-                justify-content: var(--ui-flex-grid_justify);
-                align-items: var(--ui-flex-grid_align);
+                justify-content: var(--_justify);
+                align-items: var(--_align);
 
                 position: relative;
                 width: 100%;
@@ -28,7 +28,7 @@ export class UIFlexGrid extends LitElement {
             }
 
             :host > ::slotted(*) {
-                margin: var(--ui-flex-grid_gap, 0) 0 !important;
+                margin: var(--_gap, 0) 0 !important;
             }
 
             :host > ::slotted(*:first-child) {
@@ -42,7 +42,7 @@ export class UIFlexGrid extends LitElement {
     }
 
     protected render() {
-        return html`<slot></slot>`; // TODO: ...
+        return html`<slot></slot>`;
     }
 
     attributeChangedCallback(
@@ -54,18 +54,15 @@ export class UIFlexGrid extends LitElement {
 
         switch (name) {
             case "gap":
-                this.style.setProperty(
-                    `--ui-flex-grid_gap`,
-                    value || defaultGap,
-                );
+                this.style.setProperty(`--_gap`, value || defaultGap);
                 break;
 
             case "justify":
-                this.style.setProperty(`--ui-flex-grid_justify`, value || "");
+                this.style.setProperty(`--_justify`, value || "");
                 break;
 
             case "align":
-                this.style.setProperty(`--ui-flex-grid_align`, value || "");
+                this.style.setProperty(`--_align`, value || "");
                 break;
         }
     }

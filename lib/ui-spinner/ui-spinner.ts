@@ -17,7 +17,7 @@ export class UISpinner extends LitElement {
             }
 
             .background {
-                display: var(--ui-spinner_bgDisplay, "block");
+                display: var(--_bgDisplay, "block");
 
                 z-index: 999;
                 position: absolute;
@@ -77,7 +77,7 @@ export class UISpinner extends LitElement {
         switch (name) {
             case "nobg":
                 this.style.setProperty(
-                    `--ui-spinner_bgDisplay`,
+                    `--_bgDisplay`,
                     value !== null ? "none" : "block",
                 );
                 break;

@@ -11,7 +11,7 @@ export class UIFlexGridItem extends LitElement {
     static get styles() {
         return css`
             :host {
-                flex: var(--ui-flex-grid-item_flex, ${defaultFlex});
+                flex: var(--_flex, ${defaultFlex});
                 display: content;
             }
 
@@ -35,7 +35,7 @@ export class UIFlexGridItem extends LitElement {
         switch (name) {
             case "flex":
                 this.style.setProperty(
-                    `--ui-flex-grid-item_flex`,
+                    `--_flex`,
                     value || defaultFlex.toString(),
                 );
                 break;

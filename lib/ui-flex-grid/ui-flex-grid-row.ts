@@ -19,14 +19,14 @@ export class UIFlexGridRow extends LitElement {
             :host {
                 display: flex;
                 flex-flow: row nowrap;
-                justify-content: var(--ui-flex-grid-row_justify);
-                align-items: var(--ui-flex-grid-row_align);
+                justify-content: var(--_justify);
+                align-items: var(--_align);
 
                 width: 100%;
             }
 
             :host > ::slotted(*) {
-                margin: 0 var(--ui-flex-grid-row_gap, 0) !important;
+                margin: 0 var(--_gap, 0) !important;
             }
 
             :host > ::slotted(*:first-child) {
@@ -52,21 +52,15 @@ export class UIFlexGridRow extends LitElement {
 
         switch (name) {
             case "gap":
-                this.style.setProperty(
-                    `--ui-flex-grid-row_gap`,
-                    value || defaultGap,
-                );
+                this.style.setProperty(`--_gap`, value || defaultGap);
                 break;
 
             case "justify":
-                this.style.setProperty(
-                    `--ui-flex-grid-row_justify`,
-                    value || "",
-                );
+                this.style.setProperty(`--_justify`, value || "");
                 break;
 
             case "align":
-                this.style.setProperty(`--ui-flex-grid-row_align`, value || "");
+                this.style.setProperty(`--_align`, value || "");
                 break;
         }
     }
