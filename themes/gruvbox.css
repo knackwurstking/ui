@@ -157,7 +157,7 @@
      * ui-card
      */
 
-    --ui-hsl-card: hsl(var(--hsl-bg1));
+    --ui-hsl-card: var(--hsl-bg1);
     --ui-hsl-card-fg: var(--hsl-fg);
     --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
 
