@@ -1,7 +1,7 @@
 //import "../dist/style.css";
 //import "../dist/ui.min.js";
 //import "../lib";
-import { html, svg, UISvg } from "../lib";
+import { html, svg, UIButton, UISvg } from "../lib";
 
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
@@ -64,19 +64,33 @@ function main() {
             </section>
         </section>
 
-        <section class="has-border" style="margin-top: var(--ui-spacing);">
+        <section
+            id="stackLayout"
+            class="has-border"
+            style="margin-top: var(--ui-spacing);"
+        >
             <h1><u>Stack Layout</u></h1>
 
             <ui-flex-grid gap="0.25rem">
                 <ui-flex-grid-row gap="0.25rem">
                     <ui-flex-grid-item>
-                        <ui-button name="add" class="primary">
+                        <ui-button
+                            name="add"
+                            color="primary"
+                            variant="full"
+                            ripple
+                        >
                             Add one page
                         </ui-button>
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
-                        <ui-button name="back" color="secondary">
+                        <ui-button
+                            name="back"
+                            color="secondary"
+                            variant="full"
+                            ripple
+                        >
                             Go back one page
                         </ui-button>
                     </ui-flex-grid-item>
@@ -108,6 +122,17 @@ function main() {
     // TODO: Adding buttons to the stack layout section and testing property
     //       changes (ex.: Changing color attribute inside an intervall
     //       of 1 or 2 seconds)
+    const testButton = app.querySelector<UIButton>(
+        `section#stackLayout ui-button`,
+    )!;
+
+    setInterval(() => {
+        if (testButton.color === "primary") {
+            testButton.color = "secondary";
+        } else {
+            testButton.color = "primary";
+        }
+    }, 2500);
 
     renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
 }
