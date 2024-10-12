@@ -27,4 +27,13 @@
     --ui-hsl-backdrop: var(--ui-hsl-bg);
     --ui-backdrop-alpha: 0.2;
     --ui-backdropFilter: blur(5px);
+
+    --ui-hsl-info: ;
+    --ui-hsl-info-fg: ;
+
+    --ui-hsl-warning: ;
+    --ui-hsl-warning-fg: ;
+
+    --ui-hsl-error: ;
+    --ui-hsl-error-fg: ;
 }

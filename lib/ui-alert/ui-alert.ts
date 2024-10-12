@@ -27,39 +27,26 @@ export class UIAlert extends LitElement {
                 width: 28rem;
                 max-width: 100%;
 
-                background-color: hsl(var(--ui-hsl-card));
-                color: hsl(var(--ui-hsl-card-fg));
-
                 cursor: pointer;
             }
 
             :host([variant="info"]) {
-                background-color: hsla(
-                    var(--ui-hsl-backdrop),
-                    var(--ui-backdrop-alpha)
-                );
-
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
+                background-color: hsl(var(--ui-hsl-info));
+                color: hsl(var(--ui-hsl-info-fg));
             }
 
             :host([variant="warning"]) {
-                background-color: hsla(48, 100%, 25%, var(--ui-backdrop-alpha));
-                color: hsl(48, 100%, 65%);
-
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
+                background-color: hsl(48, 100%, 50%);
+                background-color: hsl(var(--ui-hsl-warning));
+                color: hsl(var(--ui-hsl-warning-fg));
             }
 
             :host([variant="error"]) {
-                background-color: hsl(var(--ui-hsl-destructive));
-                color: hsl(var(--ui-hsl-destructive-fg));
-
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
+                background-color: hsl(var(--ui-hsl-error));
+                color: hsl(var(--ui-hsl-error-fg));
             }
 
-            ui-primary {
+            ui-text {
                 flex-grow: 1;
             }
         `;
@@ -67,7 +54,7 @@ export class UIAlert extends LitElement {
 
     protected render() {
         return html`
-            <ui-primary style="font-size: 0.9rem;">${this.message}</ui-primary>
+            <ui-text style="font-size: 0.9rem;">${this.message}</ui-text>
         `;
     }
 

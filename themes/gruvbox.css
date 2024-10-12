@@ -45,10 +45,18 @@
     --ui-hsl-secondary-fg: var(--hsl-bg-hard);
 
     --ui-hsl-destructive: var(--hsl-red);
-    --ui-hsl-destructive-fg: var(--hsl-bg-hard);
+    --ui-hsl-destructive-fg: 6, 96%, 82%;
 
-    --ui-hsl-borderColor: var(--hsl-gray);
     --ui-hsl-borderColor: var(--hsl-bg4);
+
+    --ui-hsl-info: var(--ui-hsl-card); /* --hsl-bg1 */
+    --ui-hsl-info-fg: var(--ui-hsl-card-fg); /* --hsl-fg */
+
+    --ui-hsl-warning: 37, 80%, 39%; /* --hsl-yellow */
+    --ui-hsl-warning-fg: 27, 80%, 84%;
+
+    --ui-hsl-error: var(--ui-hsl-destructive);
+    --ui-hsl-error-fg: var(--ui-hsl-destructive-fg);
 
     /*
      * Muted: code, pre
@@ -122,10 +130,18 @@
     --ui-hsl-secondary-fg: var(--hsl-bg-hard);
 
     --ui-hsl-destructive: var(--hsl-red);
-    --ui-hsl-destructive-fg: var(--hsl-bg-hard);
+    --ui-hsl-destructive-fg: 6, 96%, 18%;
 
-    --ui-hsl-borderColor: var(--hsl-gray);
     --ui-hsl-borderColor: var(--hsl-bg4);
+
+    --ui-hsl-info: var(--ui-hsl-card); /* --hsl-bg1 */
+    --ui-hsl-info-fg: var(--ui-hsl-card-fg); /* --hsl-fg */
+
+    --ui-hsl-warning: 42, 95%, 58%; /* --hsl-yellow */
+    --ui-hsl-warning-fg: 42, 95%, 16%;
+
+    --ui-hsl-error: var(--ui-hsl-destructive);
+    --ui-hsl-error-fg: var(--ui-hsl-destructive-fg);
 
     /*
      * Muted: code, pre
