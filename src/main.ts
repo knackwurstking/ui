@@ -118,6 +118,14 @@ function main() {
             </ui-flex-grid>
         </section>
 
+        <section
+            id="inputs"
+            class="has-border"
+            style="margin-top: var(--ui-spacing)"
+        >
+            <!-- TODO: Add "ui-check" element for testing -->
+        </section>
+
         <ui-alerts>
             <ui-alert variant="info" message="Info alert message"></ui-alert>
 
