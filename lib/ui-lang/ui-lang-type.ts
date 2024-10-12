@@ -1,4 +1,4 @@
-import { LitElement } from "lit";
+import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("ui-lang-type")
@@ -11,4 +11,12 @@ export class UILangType extends LitElement {
 
     @property({ type: Boolean, attribute: "fallback", reflect: true })
     fallback: boolean = false;
+
+    static get styles() {
+        return css`
+            :host {
+                display: none;
+            }
+        `;
+    }
 }

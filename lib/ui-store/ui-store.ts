@@ -1,4 +1,4 @@
-import { LitElement } from "lit";
+import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Events } from "../utils";
 import { CleanUpFunction } from "../global";
@@ -13,6 +13,14 @@ export class UIStore<T extends { [key: string]: any }> extends LitElement {
 
     @property({ type: String, attribute: "storage-prefix", reflect: true })
     storagePrefix: string = "";
+
+    static get styles() {
+        return css`
+            :host {
+                display: none;
+            }
+        `;
+    }
 
     public getData<K extends keyof T>(key: K): T[K] | undefined {
         if (this.storage) {

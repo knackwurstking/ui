@@ -1,4 +1,4 @@
-import { LitElement } from "lit";
+import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { UILangType } from "./ui-lang-type";
 import { Events } from "../utils";
@@ -11,6 +11,14 @@ export class UILang extends LitElement {
 
     @property({ type: String, attribute: "current", reflect: true })
     current: string = "";
+
+    static get styles() {
+        return css`
+            :host {
+                display: none;
+            }
+        `;
+    }
 
     attributeChangedCallback(
         name: string,

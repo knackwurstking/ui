@@ -1,4 +1,4 @@
-import { LitElement } from "lit";
+import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 const defaultTheme: UIThemeHandlerThemes = "gruvbox";
@@ -32,6 +32,14 @@ export class UIThemeHandler extends LitElement {
 
     @property({ type: String, attribute: "theme", reflect: true })
     theme: UIThemeHandlerThemes = defaultTheme;
+
+    static get styles() {
+        return css`
+            :host {
+                display: none;
+            }
+        `;
+    }
 
     attributeChangedCallback(
         name: string,
