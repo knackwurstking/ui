@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 
 @customElement("ui-check")
 export class UICheck extends LitElement {
-    @property({ type: Boolean, attribute: "checked" })
+    @property({ type: Boolean, attribute: "checked", reflect: true })
     checked: boolean = false;
 
     static get styles() {
@@ -41,11 +41,22 @@ export class UICheck extends LitElement {
         this.setAttribute("role", "checkbox");
 
         return html`
-            <input type="checkbox" checked></input>
+            <input
+                type="checkbox"
+                checked=${this.checked}
+
+                @input=${() => {
+                    this.checked = !this.checked;
+                }}
+
+                @change=${() => {
+                    this.dispatchEvent(new Event("change", {}));
+                }}
+            ></input>
         `;
     }
 
     click() {
-        this.shadowRoot?.querySelector("input")!.click();
+        this.checked = !this.checked;
     }
 }
