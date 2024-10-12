@@ -119,21 +119,6 @@ function main() {
         </section>
     `;
 
-    // TODO: Adding buttons to the stack layout section and testing property
-    //       changes (ex.: Changing color attribute inside an intervall
-    //       of 1 or 2 seconds)
-    const testButton = app.querySelector<UIButton>(
-        `section#stackLayout ui-button`,
-    )!;
-
-    setInterval(() => {
-        if (testButton.color === "primary") {
-            testButton.color = "secondary";
-        } else {
-            testButton.color = "primary";
-        }
-    }, 2500);
-
     renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
 }
 
