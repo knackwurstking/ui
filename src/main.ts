@@ -6,6 +6,7 @@ import { html, svg, UISvg } from "../lib";
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
+    //app.classList.add("is-debug");
     app.classList.add("is-container");
     //app.classList.add("fluid");
 
@@ -125,7 +126,9 @@ function main() {
         >
             <h1><u>Inputs</u></h1>
 
-            <!-- TODO: Add "ui-check" element for testing -->
+            <ui-label primary="Checkbox Example">
+                <ui-check checked></ui-check>
+            </ui-label>
         </section>
 
         <ui-alerts>
