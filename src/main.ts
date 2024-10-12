@@ -1,7 +1,7 @@
 //import "../dist/style.css";
 //import "../dist/ui.min.js";
 //import "../lib";
-import { html, svg, UIButton, UISvg } from "../lib";
+import { html, svg, UISvg } from "../lib";
 
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
