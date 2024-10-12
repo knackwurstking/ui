@@ -5,8 +5,8 @@ import { ripple } from "../utils";
 
 export type UIIconButtonColor = "primary" | "secondary" | "destructive";
 
-@customElement("ui-button")
-export class UIButton extends LitElement {
+@customElement("ui-icon-button")
+export class UIIconButton extends LitElement {
     private rippleCleanUp: CleanUpFunction | null = null;
 
     @property({ type: String, attribute: "color" })
