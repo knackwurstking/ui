@@ -44,7 +44,8 @@ export class UIAlert extends LitElement {
             }
 
             :host([variant="warning"]) {
-                background-color: hsl(48, 100%, 50%);
+                background-color: hsla(48, 100%, 25%, var(--ui-backdrop-alpha));
+                color: hsl(48, 100%, 65%);
 
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
