@@ -30,9 +30,17 @@ export class UILabel extends LitElement {
 
     static get styles() {
         return css`
+            * {
+                box-sizing: border-box;
+            }
+
             ::selection {
                 background-color: hsl(var(--ui-hsl-primary));
                 color: hsl(var(--ui-hsl-primary-fg));
+            }
+
+            :host {
+                display: block;
             }
 
             :host > div {
@@ -69,8 +77,12 @@ export class UILabel extends LitElement {
         return html`
             <div>
                 <span>
-                    <ui-primary>${this.primary}</ui-primary>
-                    <ui-secondary>${this.secondary}</ui-secondary>
+                    ${!!this.primary
+                        ? html`<ui-primary>${this.primary}</ui-primary>`
+                        : ``}
+                    ${!!this.secondary
+                        ? html`<ui-secondary>${this.secondary}</ui-secondary>`
+                        : ``}
                 </span>
 
                 <span>
