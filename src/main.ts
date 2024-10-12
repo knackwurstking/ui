@@ -67,16 +67,47 @@ function main() {
         <section class="has-border" style="margin-top: var(--ui-spacing);">
             <h1><u>Stack Layout</u></h1>
 
-            <!-- TODO: Add nav buttons: "Add a page", "Go back one page" -->
+            <ui-flex-grid gap="0.25rem">
+                <ui-flex-grid-row gap="0.25rem">
+                    <ui-flex-grid-item>
+                        <ui-button name="add" class="primary">
+                            Add one page
+                        </ui-button>
+                    </ui-flex-grid-item>
 
-            <ui-stack-layout>
-                <ui-stack-layout-page name="page 1"></ui-stack-layout-page>
-                <ui-stack-layout-page name="page 2"></ui-stack-layout-page>
-                <ui-stack-layout-page name="page 3"></ui-stack-layout-page>
-                <ui-stack-layout-page name="page 4"></ui-stack-layout-page>
-            </ui-stack-layout>
+                    <ui-flex-grid-item>
+                        <ui-button name="back" color="secondary">
+                            Go back one page
+                        </ui-button>
+                    </ui-flex-grid-item>
+                </ui-flex-grid-row>
+
+                <ui-flex-grid-row gap="0.25rem">
+                    <ui-stack-layout
+                        class="has-border"
+                        style="width: 100%; min-height: 7.5rem;"
+                    >
+                        <ui-stack-layout-page
+                            name="page 1"
+                        ></ui-stack-layout-page>
+                        <ui-stack-layout-page
+                            name="page 2"
+                        ></ui-stack-layout-page>
+                        <ui-stack-layout-page
+                            name="page 3"
+                        ></ui-stack-layout-page>
+                        <ui-stack-layout-page
+                            name="page 4"
+                        ></ui-stack-layout-page>
+                    </ui-stack-layout>
+                </ui-flex-grid-row>
+            </ui-flex-grid>
         </section>
     `;
+
+    // TODO: Adding buttons to the stack layout section and testing property
+    //       changes (ex.: Changing color attribute inside an intervall
+    //       of 1 or 2 seconds)
 
     renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
 }
