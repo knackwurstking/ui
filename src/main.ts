@@ -119,6 +119,8 @@ function main() {
         </section>
     `;
 
+    // TODO: Initialize the stack layout and nav buttons
+
     renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
 }
 
