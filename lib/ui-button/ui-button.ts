@@ -10,6 +10,15 @@ export type UIButtonVariant = "full" | "outline" | "ghost";
 export class UIButton extends LitElement {
     private rippleCleanUp: CleanUpFunction | null = null;
 
+    @property({ type: String, attribute: "color", reflect: true })
+    color?: UIButtonColor;
+
+    @property({ type: String, attribute: "variant", reflect: true })
+    variant?: UIButtonVariant;
+
+    @property({ type: Boolean, attribute: "disabled" })
+    disabled: Boolean = false;
+
     @property({ type: Boolean, attribute: "ripple" })
     ripple: Boolean = false;
 
@@ -129,45 +138,5 @@ export class UIButton extends LitElement {
 
                 break;
         }
-    }
-
-    // TODO: Find out how to do this with lit
-    public get color(): string | null {
-        return this.getAttribute("color") || null;
-    }
-
-    public set color(value: UIButtonColor | null) {
-        if (!value) {
-            this.removeAttribute("color");
-            return;
-        }
-
-        this.setAttribute("color", value);
-    }
-
-    public get variant(): string | null {
-        return this.getAttribute("variant") || null;
-    }
-
-    public set variant(value: UIButtonVariant | null) {
-        if (!value) {
-            this.removeAttribute("variant");
-            return;
-        }
-
-        this.setAttribute("variant", value);
-    }
-
-    public get disabled() {
-        return this.hasAttribute("disabled");
-    }
-
-    public set disabled(state: boolean) {
-        if (!state) {
-            this.removeAttribute("disabled");
-            return;
-        }
-
-        this.setAttribute("disabled", "");
     }
 }

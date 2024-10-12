@@ -9,6 +9,15 @@ export type UIIconButtonColor = "primary" | "secondary" | "destructive";
 export class UIIconButton extends LitElement {
     private rippleCleanUp: CleanUpFunction | null = null;
 
+    @property({ type: String, attribute: "color", reflect: true })
+    color?: UIIconButtonColor;
+
+    @property({ type: Boolean, attribute: "ghost" })
+    ghost: Boolean = false;
+
+    @property({ type: Boolean, attribute: "disabled" })
+    disabled: Boolean = false;
+
     @property({ type: Boolean, attribute: "ripple" })
     ripple: Boolean = false;
 
@@ -97,45 +106,5 @@ export class UIIconButton extends LitElement {
 
                 break;
         }
-    }
-
-    // TODO: Find out how to do this with lit
-    public get color(): string | null {
-        return this.getAttribute("color") || null;
-    }
-
-    public set color(value: UIIconButtonColor | null) {
-        if (!value) {
-            this.removeAttribute("color");
-            return;
-        }
-
-        this.setAttribute("color", value);
-    }
-
-    public get ghost(): boolean {
-        return this.hasAttribute("ghost");
-    }
-
-    public set ghost(state: boolean) {
-        if (!state) {
-            this.removeAttribute("ghost");
-            return;
-        }
-
-        this.setAttribute("ghost", "");
-    }
-
-    public get disabled() {
-        return this.hasAttribute("disabled");
-    }
-
-    public set disabled(state: boolean) {
-        if (!state) {
-            this.removeAttribute("disabled");
-            return;
-        }
-
-        this.setAttribute("disabled", "");
     }
 }
