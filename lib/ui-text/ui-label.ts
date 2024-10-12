@@ -19,13 +19,13 @@ export class UILabel extends LitElement {
         ev.stopPropagation();
     };
 
-    @property({ type: String, attribute: "primary" })
+    @property({ type: String, attribute: "primary", reflect: true })
     primary?: string;
 
-    @property({ type: String, attribute: "secondary" })
+    @property({ type: String, attribute: "secondary", reflect: true })
     secondary?: string;
 
-    @property({ type: Boolean, attribute: "ripple" })
+    @property({ type: Boolean, attribute: "ripple", reflect: true })
     ripple: boolean = false;
 
     static get styles() {

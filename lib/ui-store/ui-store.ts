@@ -8,10 +8,10 @@ export class UIStore<T extends { [key: string]: any }> extends LitElement {
     private data: { [key: string]: any } = {};
     public events: Events<T> = new Events();
 
-    @property({ type: Boolean, attribute: "storage" })
+    @property({ type: Boolean, attribute: "storage", reflect: true })
     storage: boolean = false;
 
-    @property({ type: String, attribute: "storage-prefix" })
+    @property({ type: String, attribute: "storage-prefix", reflect: true })
     storagePrefix: string = "";
 
     public getData<K extends keyof T>(key: K): T[K] | undefined {

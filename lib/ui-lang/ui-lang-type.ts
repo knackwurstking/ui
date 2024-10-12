@@ -3,12 +3,12 @@ import { customElement, property } from "lit/decorators.js";
 
 @customElement("ui-lang-type")
 export class UILangType extends LitElement {
-    @property({ type: String, attribute: "name" })
+    @property({ type: String, attribute: "name", reflect: true })
     name: string = "";
 
-    @property({ type: String, attribute: "href" })
+    @property({ type: String, attribute: "href", reflect: true })
     href: string = "";
 
-    @property({ type: Boolean, attribute: "fallback" })
+    @property({ type: Boolean, attribute: "fallback", reflect: true })
     fallback: boolean = false;
 }

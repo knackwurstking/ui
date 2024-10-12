@@ -24,13 +24,13 @@ export class UIThemeHandler extends LitElement {
         };
     }
 
-    @property({ type: Boolean, attribute: "auto" })
+    @property({ type: Boolean, attribute: "auto", reflect: true })
     auto: boolean = false;
 
-    @property({ type: String, attribute: "mode" })
+    @property({ type: String, attribute: "mode", reflect: true })
     mode: UIThemeHandlerModes | null = null;
 
-    @property({ type: String, attribute: "theme" })
+    @property({ type: String, attribute: "theme", reflect: true })
     theme: UIThemeHandlerThemes = defaultTheme;
 
     attributeChangedCallback(

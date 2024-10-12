@@ -9,7 +9,7 @@ export class UILang extends LitElement {
 
     public events: Events<{ change: UILangType }> = new Events();
 
-    @property({ type: String, attribute: "current" })
+    @property({ type: String, attribute: "current", reflect: true })
     current: string = "";
 
     attributeChangedCallback(
