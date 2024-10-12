@@ -1,8 +1,8 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
-import { UIAlert } from "./ui-alert";
 import { CleanUpFunction } from "../global";
 import { UIFlexGrid } from "../ui-flex-grid";
+import { UIAlert } from "./ui-alert";
 
 @customElement("ui-alerts")
 export class UIAlerts extends LitElement {
@@ -15,6 +15,7 @@ export class UIAlerts extends LitElement {
                 position: fixed !important;
                 right: 0;
                 bottom: 0;
+
                 width: fit-content;
                 max-width: 100%;
                 height: fit-content;
@@ -22,15 +23,27 @@ export class UIAlerts extends LitElement {
 
                 background: transparent;
 
+                border-radius: var(--ui-radius);
+
                 overflow: auto;
+
+                /* Disable touch actions and pointer events */
+
+                pointer-events: none;
+
+                -ms-touch-action: none;
+                touch-action: none;
             }
 
             ui-flex-grid {
-                padding: 0;
+                padding: var(--ui-spacing);
             }
 
-            ui-flex-grid:has(> *) {
-                padding: var(--ui-spacing);
+            ::slotted(*) {
+                pointer-events: auto;
+
+                -ms-touch-action: auto;
+                touch-action: auto;
             }
         `;
     }
@@ -43,7 +56,7 @@ export class UIAlerts extends LitElement {
         `;
     }
 
-    addAlert(alert: UIAlert): CleanUpFunction {
+    public addAlert(alert: UIAlert): CleanUpFunction {
         const container =
             this.shadowRoot?.querySelector<UIFlexGrid>(".container");
 
@@ -52,7 +65,7 @@ export class UIAlerts extends LitElement {
         return () => this.removeAlert(alert);
     }
 
-    removeAlert(alert: UIAlert) {
+    public removeAlert(alert: UIAlert) {
         const container =
             this.shadowRoot?.querySelector<UIFlexGrid>(".container");
 
