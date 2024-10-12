@@ -26,7 +26,10 @@ export class UISpinner extends LitElement {
                 bottom: 0;
                 left: 0;
 
-                background-color: hsl(var(--ui-hsl-backdrop), var(--ui-hsl-backdrop-alpha);
+                background-color: hsla(
+                    var(--ui-hsl-backdrop),
+                    var(--ui-hsl-backdrop-alpha)
+                );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
