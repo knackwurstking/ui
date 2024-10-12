@@ -117,6 +117,17 @@ function main() {
                 </ui-flex-grid-row>
             </ui-flex-grid>
         </section>
+
+        <ui-alerts>
+            <ui-alert variant="info" message="Info alert message"></ui-alert>
+
+            <ui-alert
+                variant="warning"
+                message="Warning alert message"
+            ></ui-alert>
+
+            <ui-alert variant="error" message="Error alert message"></ui-alert>
+        </ui-alerts>
     `;
 
     // TODO: Initialize the stack layout and nav buttons
