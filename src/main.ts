@@ -1,12 +1,12 @@
 //import "../dist/style.css";
 //import "../dist/ui.min.js";
 //import "../lib";
-import { html, svg, UISvg } from "../lib";
+import { html, svg, UICheck, UISvg } from "../lib";
 
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
-    //app.classList.add("is-debug");
+    app.classList.add("is-debug");
     app.classList.add("is-container");
     //app.classList.add("fluid");
 
@@ -143,9 +143,16 @@ function main() {
         </ui-alerts>
     `;
 
+    renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
+
     // TODO: Initialize the stack layout and nav buttons
 
-    renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
+    // Testing the checkbox input component
+    const check = app.querySelector<UICheck>(`ui-check`)!;
+    check.oninput = (ev) =>
+        console.debug("input:", check.checked, ev.currentTarget);
+    check.onchange = (ev) =>
+        console.debug("change:", check.checked, ev.currentTarget);
 }
 
 function renderSvgs(container: HTMLElement) {
