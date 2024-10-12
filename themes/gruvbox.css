@@ -112,8 +112,8 @@
      * Basics
      */
 
-    --ui-bg: var(--hsl-bg);
-    --ui-fg: var(--hsl-fg);
+    --ui-hsl-bg: var(--hsl-bg);
+    --ui-hsl-fg: var(--hsl-fg);
 
     --ui-hsl-primary: var(--hsl-aqua);
     --ui-hsl-primary-fg: var(--hsl-bg-hard);
