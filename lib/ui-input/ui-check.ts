@@ -41,25 +41,8 @@ export class UICheck extends LitElement {
         this.setAttribute("role", "checkbox");
 
         return html`
-            <input type="checkbox"></input>
+            <input type="checkbox" checked></input>
         `;
-    }
-
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
-        super.attributeChangedCallback(name, _old, value);
-
-        switch (name) {
-            case "checked":
-                if (this.shadowRoot) {
-                    this.shadowRoot.querySelector("input")!.checked =
-                        value !== null;
-                }
-                break;
-        }
     }
 
     click() {
