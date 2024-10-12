@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 
 @customElement("ui-spinner")
 export class UISpinner extends LitElement {
-    @property({ type: Boolean, attribute: "nobg" })
+    @property({ type: Boolean, attribute: "nobg", reflect: true })
     nobg: boolean = false;
 
     static get styles() {
@@ -17,7 +17,7 @@ export class UISpinner extends LitElement {
             }
 
             .background {
-                display: var(--_bgDisplay, "block");
+                display: "block";
 
                 z-index: 999;
                 position: absolute;
@@ -29,6 +29,10 @@ export class UISpinner extends LitElement {
                 background-color: var(--ui-backdrop);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
+            }
+
+            :host([nobg]) .background {
+                display: none;
             }
 
             .spinner {
@@ -65,22 +69,5 @@ export class UISpinner extends LitElement {
             <div class="background"></div>
             <div class="spinner"></div>
         `;
-    }
-
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
-        super.attributeChangedCallback(name, _old, value);
-
-        switch (name) {
-            case "nobg":
-                this.style.setProperty(
-                    `--_bgDisplay`,
-                    value !== null ? "none" : "block",
-                );
-                break;
-        }
     }
 }
