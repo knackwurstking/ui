@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 export type UIAlertVariant = "info" | "warning" | "error";
@@ -29,24 +29,29 @@ export class UIAlert extends LitElement {
 
                 background-color: hsl(var(--ui-hsl-card));
                 color: hsl(var(--ui-hsl-card-fg));
+
+                cursor: pointer;
             }
 
-            :host[variant="info"] {
-                background-color: hsl(var(--ui-hsl-backdrop), var(--ui-backdrop-alpha);
+            :host([variant="info"]) {
+                background-color: hsla(
+                    var(--ui-hsl-backdrop),
+                    var(--ui-backdrop-alpha)
+                );
 
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
 
-            :host[variant="warning"] {
-                background-color: hsla(48, 100%, 50%, 0.2);
+            :host([variant="warning"]) {
+                background-color: hsl(48, 100%, 50%);
 
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
 
-            :host[variant="error"] {
-                background-color: hsla(var(--ui-hsl-destructive), 0.2);
+            :host([variant="error"]) {
+                background-color: hsl(var(--ui-hsl-destructive));
                 color: hsl(var(--ui-hsl-destructive-fg));
 
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
@@ -63,5 +68,13 @@ export class UIAlert extends LitElement {
         return html`
             <ui-primary style="font-size: 0.9rem;">${this.message}</ui-primary>
         `;
+    }
+
+    protected firstUpdated(_changedProperties: PropertyValues): void {
+        super.firstUpdated(_changedProperties);
+        this.addEventListener("click", () => {
+            if (!this.parentElement) return;
+            this.parentElement.removeChild(this);
+        });
     }
 }
