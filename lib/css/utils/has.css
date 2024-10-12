@@ -1,10 +1,10 @@
 .has-backdrop-blur {
-    background-color: var(--ui-backdrop);
+    background-color: hsl(var(--ui-hsl-backdrop), var(--ui-hsl-backdrop-alpha));
     -webkit-backdrop-filter: var(--ui-backdropFilter);
     backdrop-filter: var(--ui-backdropFilter);
 }
 
 .has-border {
-    border: 1px solid var(--ui-borderColor);
+    border: 1px solid hsl(var(--ui-hsl-borderColor));
     border-radius: var(--ui-radius);
 }

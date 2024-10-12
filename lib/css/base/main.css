@@ -3,14 +3,14 @@
  */
 
 ::selection {
-    background-color: var(--ui-primary);
-    color: var(--ui-primary-fg);
+    background-color: hsl(var(--ui-hsl-primary));
+    color: hsl(var(--ui-hsl-primary-fg));
 }
 
 html {
     font-size: var(--ui-font-size);
-    background-color: var(--ui-bg);
-    color: var(--ui-fg);
+    background-color: hsl(var(--ui-hsl-bg));
+    color: hsl(var(--ui-hsl-fg));
 }
 
 body {
@@ -36,7 +36,7 @@ hr {
     border: none;
     height: 1px;
     margin: var(--ui-spacing) 0;
-    background-color: var(--ui-borderColor);
+    background-color: hsl(var(--ui-hsl-borderColor));
 }
 
 /*
@@ -86,9 +86,9 @@ h6 {
 
 code,
 pre {
-    background-color: var(--ui-muted);
-    color: var(--ui-muted-fg);
-    border: 1px solid var(--ui-muted-borderColor);
+    background-color: hsl(var(--ui-hsl-muted));
+    color: hsl(var(--ui-hsl-muted-fg));
+    border: 1px solid hsl(var(--ui-hsl-muted-borderColor));
     border-radius: var(--ui-radius);
     padding: var(--ui-spacing);
     font-family: var(--ui-muted-fontFamily);
@@ -122,16 +122,14 @@ button {
 
 input,
 textarea {
-    --ui-bg: "transparent";
-
     display: block;
 
-    border: 1px solid var(--ui-borderColor);
+    border: 1px solid var(--ui-hsl-borderColor);
     border-radius: var(--ui-radius);
     transition: border-color 0.25s linear;
 
-    background-color: var(--ui-bg);
-    color: var(--ui-fg);
+    background-color: transparent;
+    color: var(--ui-hsl-fg);
 
     box-shadow: none;
     outline: none;
@@ -142,20 +140,18 @@ textarea {
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-    accent-color: var(--ui-primary);
+    accent-color: var(--ui-hsl-primary);
 }
 
 select {
-    --ui-bg: "transparent";
-
     display: block;
 
-    border: 1px solid var(--ui-borderColor);
+    border: 1px solid var(--ui-hsl-borderColor);
     border-radius: var(--ui-radius);
     transition: border-color 0.25s linear;
 
-    background-color: var(--ui-bg);
-    color: var(--ui-fg);
+    background-color: transparent;
+    color: var(--ui-hsl-fg);
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
@@ -192,11 +188,11 @@ input[type="color"] {
 
 input:focus:not([type="checkbox"]),
 textarea:focus {
-    border-color: var(--ui-primary);
+    border-color: var(--ui-hsl-primary);
 }
 
 input[aria-invalid] {
-    border-color: var(--ui-destructive) !important;
+    border-color: var(--ui-hsl-destructive) !important;
 }
 
 input:disabled {
@@ -232,7 +228,7 @@ table {
     user-select: none;
 
     border-collapse: collapse;
-    border: 1px solid var(--ui-borderColor);
+    border: 1px solid var(--ui-hsl-borderColor);
 }
 
 thead {
@@ -248,7 +244,7 @@ tbody {
 th,
 td {
     padding: var(--ui-spacing);
-    border: 1px solid var(--ui-borderColor);
+    border: 1px solid var(--ui-hsl-borderColor);
     word-break: auto-phrase;
 }
 
@@ -261,7 +257,7 @@ td {
  */
 
 blockquote {
-    border-left: 1px solid var(--ui-borderColor);
+    border-left: 1px solid var(--ui-hsl-borderColor);
     margin: 0;
     padding-left: 1rem;
 }

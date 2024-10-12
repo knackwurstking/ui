@@ -26,7 +26,7 @@ export class UISpinner extends LitElement {
                 bottom: 0;
                 left: 0;
 
-                background-color: var(--ui-backdrop);
+                background-color: hsl(var(--ui-hsl-backdrop), var(--ui-hsl-backdrop-alpha);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -49,8 +49,8 @@ export class UISpinner extends LitElement {
                 margin-top: -1.25rem;
                 margin-left: -1.25rem;
 
-                border: 2px solid var(--ui-borderColor);
-                border-top-color: var(--ui-primary);
+                border: 2px solid hsl(var(--ui-hsl-borderColor));
+                border-top-color: hsl(var(--ui-hsl-primary));
                 border-radius: 50%;
 
                 animation: spinner 0.6s linear infinite;

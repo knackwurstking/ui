@@ -31,8 +31,8 @@ export class UILabel extends LitElement {
     static get styles() {
         return css`
             ::selection {
-                background-color: var(--ui-primary);
-                color: var(--ui-primary-fg);
+                background-color: hsl(var(--ui-hsl-primary));
+                color: hsl(var(--ui-hsl-primary-fg));
             }
 
             :host > div {

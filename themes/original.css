@@ -3,46 +3,41 @@
      * Basics
      */
 
-    --ui-bg--hsl: 240, 10%, 96%;
-    --ui-bg: hsla(var(--ui-bg--hsl), 1);
+    --ui-hsl-bg: 240, 10%, 96%;
+    --ui-hsl-fg: 240, 10%, 10%;
 
-    --ui-fg--hsl: 240, 10%, 10%;
-    --ui-fg: hsla(var(--ui-fg--hsl), 1);
+    --ui-hsl-primary: 240, 10%, 25%;
+    --ui-hsl-primary-fg: 240, 10%, 98%;
 
-    --ui-primary: hsla(240, 10%, 25%, 1);
-    --ui-primary-fg: hsla(240, 10%, 98%, 1);
+    --ui-hsl-secondary: 240, 15%, 75%;
+    --ui-hsl-secondary-fg: 240, 10%, 10%;
 
-    --ui-secondary: hsla(240, 15%, 75%, 1);
-    --ui-secondary-fg: hsla(240, 10%, 10%, 1);
+    --ui-hsl-destructive: 0, 72%, 51%;
+    --ui-hsl-destructive-fg: 0, 0%, 98%;
 
-    --ui-destructive: hsla(0, 72%, 51%, 1);
-    --ui-destructive-fg: hsla(0, 0%, 98%, 1);
-
-    --ui-borderColor: hsla(240, 10%, 82%, 1);
-
-    --ui-backdrop: hsla(var(--ui-bg--hsl), 0.2);
-    --ui-backdropFilter: blur(5px);
+    --ui-hsl-borderColor: 240, 10%, 82%;
 
     /*
      * Muted: code, pre
      */
 
-    --ui-muted: hsla(240, 10%, 84%, 1);
-    --ui-muted-fg: hsla(240, 10%, 36%, 1);
-    --ui-muted-borderColor: var(--ui-borderColor);
+    --ui-hsl-muted: 240, 10%, 84%;
+    --ui-hsl-muted-fg: 240, 10%, 36%;
+    --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
 
     /*
      * ui-card
      */
 
-    --ui-card: hsla(240, 10%, 92%, 1);
-    --ui-card-fg: hsla(240, 10%, 4%, 1);
-    --ui-card-borderColor: var(--ui-borderColor);
+    --ui-hsl-card: 240, 10%, 92%;
+    --ui-hsl-card-fg: 240, 10%, 4%;
+    --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
     --ui-card-radius: var(--ui-radius);
 
-    background-color: var(--ui-bg);
-    color: var(--ui-fg);
+    background-color: hsl(var(--ui-hsl-bg));
+    color: hsl(var(--ui-hsl-fg));
+
     color-scheme: light;
 }
 
@@ -51,45 +46,42 @@
      * Basics
      */
 
-    --ui-bg--hsl: 240, 10%, 4%;
-    --ui-bg: hsla(var(--ui-bg--hsl), 1);
+    --ui-hsl-bg: 240, 10%, 4%;
+    --ui-hsl-fg: 240, 10%, 90%;
 
-    --ui-fg--hsl: 240, 10%, 90%;
-    --ui-fg: hsla(var(--ui-fg--hsl), 1);
+    --ui-hsl-primary: 240, 10%, 75%;
+    --ui-hsl-primary-fg: 240, 10%, 10%;
 
-    --ui-primary: hsla(240, 10%, 75%, 1);
-    --ui-primary-fg: hsla(240, 10%, 10%, 1);
+    --ui-hsl-secondary: 240, 15%, 25%;
+    --ui-hsl-secondary-fg: 240, 10%, 98%;
 
-    --ui-secondary: hsla(240, 15%, 25%, 1);
-    --ui-secondary-fg: hsla(240, 10%, 98%, 1);
+    --ui-hsl-destructive: 0, 63%, 31%;
+    --ui-hsl-destructive-fg: 0, 0%, 98%;
 
-    --ui-destructive: hsla(0, 63%, 31%, 1);
-    --ui-destructive-fg: hsla(0, 0%, 98%, 1);
-
-    --ui-borderColor: hsla(240, 10%, 18%, 1);
-
-    --ui-backdrop: hsla(var(--ui-bg--hsl), 0.2);
-    --ui-backdropFilter: blur(5px);
+    --ui-hsl-borderColor: 240, 10%, 18%;
 
     /*
      * Muted: code, pre
      */
 
-    --ui-muted: hsla(240, 10%, 16%, 1);
-    --ui-muted-fg: hsla(240, 10%, 65%, 1);
-    --ui-muted-borderColor: var(--ui-borderColor);
+    --ui-hsl-muted: 240, 10%, 16%;
+    --ui-hsl-muted-fg: 240, 10%, 65%;
+    --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
+
     --ui-muted-fontFamily: var(--ui-fontFamily);
 
     /*
      * ui-card
      */
 
-    --ui-card: hsla(240, 10%, 8%, 1);
-    --ui-card-fg: hsla(240, 10%, 98%, 1);
-    --ui-card-borderColor: var(--ui-borderColor);
+    --ui-hsl-card: 240, 10%, 8%;
+    --ui-hsl-card-fg: 240, 10%, 98%;
+    --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
+
     --ui-card-radius: var(--ui-radius);
 
-    background-color: var(--ui-bg);
-    color: var(--ui-fg);
+    background-color: hsl(var(--ui-hsl-bg));
+    color: hsl(var(--ui-hsl-fg));
+
     color-scheme: dark;
 }

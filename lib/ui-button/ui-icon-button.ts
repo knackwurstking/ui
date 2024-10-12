@@ -49,18 +49,18 @@ export class UIIconButton extends LitElement {
             }
 
             :host([color="primary"]) {
-                color: var(--ui-primary);
-                border-color: var(--ui-primary);
+                color: hsl(var(--ui-hsl-primary));
+                border-color: hsl(var(--ui-hsl-primary));
             }
 
             :host([color="secondary"]) {
-                color: var(--ui-secondary);
-                border-color: var(--ui-secondary);
+                color: hsl(var(--ui-hsl-secondary));
+                border-color: hsl(var(--ui-hsl-secondary));
             }
 
             :host([color="destructive"]) {
-                color: var(--ui-destructive);
-                border-color: var(--ui-destructive);
+                color: hsl(var(--ui-hsl-destructive));
+                border-color: hsl(var(--ui-hsl-destructive));
             }
 
             /* :disabled */

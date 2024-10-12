@@ -23,4 +23,8 @@
 
     --ui-ripple-fg: currentColor;
     --ui-ripple-opacity: 0.2;
+
+    --ui-hsl-backdrop: var(--ui-hsl-bg);
+    --ui-backdrop-alpha: 0.2;
+    --ui-backdropFilter: blur(5px);
 }

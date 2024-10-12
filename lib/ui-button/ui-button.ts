@@ -53,18 +53,18 @@ export class UIButton extends LitElement {
             }
 
             :host([variant="full"][color="primary"]) {
-                background-color: var(--ui-primary);
-                color: var(--ui-primary-fg);
+                background-color: hsl(var(--ui-hsl-primary));
+                color: hsl(var(--ui-hsl-primary-fg));
             }
 
             :host([variant="full"][color="secondary"]) {
-                background-color: var(--ui-secondary);
-                color: var(--ui-secondary-fg);
+                background-color: hsl(var(--ui-hsl-secondary));
+                color: hsl(var(--ui-hsl-secondary-fg));
             }
 
             :host([variant="full"][color="destructive"]) {
-                background-color: var(--ui-destructive);
-                color: var(--ui-destructive-fg);
+                background-color: hsl(var(--ui-hsl-destructive));
+                color: hsl(var(--ui-hsl-destructive-fg));
             }
 
             :host([variant="outline"]) {
@@ -73,15 +73,15 @@ export class UIButton extends LitElement {
             }
 
             :host([variant="outline"][color="primary"]) {
-                color: var(--ui-primary);
+                color: hsl(var(--ui-hsl-primary));
             }
 
             :host([variant="outline"][color="secondary"]) {
-                color: var(--ui-secondary);
+                color: hsl(var(--ui-hsl-secondary));
             }
 
             :host([variant="outline"][color="destructive"]) {
-                color: var(--ui-destructive);
+                color: hsl(var(--ui-hsl-destructive));
             }
 
             :host([variant="ghost"]) {
@@ -91,15 +91,15 @@ export class UIButton extends LitElement {
             }
 
             :host([variant="ghost"][color="primary"]) {
-                color: var(--ui-primary);
+                color: hsl(var(--ui-hsl-primary));
             }
 
             :host([variant="ghost"][color="secondary"]) {
-                color: var(--ui-secondary);
+                color: hsl(var(--ui-hsl-secondary));
             }
 
             :host([variant="ghost"][color="destructive"]) {
-                color: var(--ui-destructive);
+                color: hsl(var(--ui-hsl-destructive));
             }
 
             :host([disabled]),
