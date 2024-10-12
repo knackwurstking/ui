@@ -37,7 +37,9 @@ export class UIAlerts extends LitElement {
 
     protected render() {
         return html`
-            <ui-flex-grid class="container" gap="0.25rem"> </ui-flex-grid>
+            <ui-flex-grid class="container" gap="0.25rem">
+                <slot></slot>
+            </ui-flex-grid>
         `;
     }
 
