@@ -5,7 +5,7 @@ export * from "./utils";
 
 export * as svg from "./svg";
 
-//export * from "./ui-alert";
+export * from "./ui-alert";
 export * from "./ui-button";
 export * from "./ui-flex-grid";
 export * from "./ui-lang";
