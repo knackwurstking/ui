@@ -123,6 +123,8 @@ function main() {
             class="has-border"
             style="margin-top: var(--ui-spacing)"
         >
+            <h1><u>Inputs</u></h1>
+
             <!-- TODO: Add "ui-check" element for testing -->
         </section>
 
