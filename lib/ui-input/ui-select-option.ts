@@ -35,7 +35,7 @@ export class UISelectOption extends LitElement {
     }
 
     protected render() {
-        this.setAttribute("role", "option");
+        this.setAttribute("role", "button");
         return html`<slot></slot>`;
     }
 }
