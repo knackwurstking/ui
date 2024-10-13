@@ -7,7 +7,7 @@ import { UIInput } from "../lib/ui-input/ui-input";
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
-    app.classList.add("is-debug");
+    //app.classList.add("is-debug");
     app.classList.add("is-container");
     //app.classList.add("fluid");
 
