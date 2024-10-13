@@ -1,97 +1,41 @@
-// TODO: Convert to typescript
-import { globalStylesToShadowRoot, html } from "../utils";
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-/**
- * HTML: `ui-select-option`
- *
- * Attributes:
- *  - __value__: *string*
- *  - __selected__: *boolean*
- *
- * Slots:
- *  - __\*__
- */
-export class UISelectOption extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-select-option")) {
-            console.debug(`[ui] Register "ui-select-option" component`);
-            customElements.define("ui-select-option", UISelectOption);
-        }
-    };
+@customElement("ui-select-option")
+export class UISelectOption extends LitElement {
+    @property({ type: String, attribute: "value", reflect: true })
+    value: string = "";
 
-    constructor() {
-        super();
+    @property({ type: Boolean, attribute: "selected", reflect: true })
+    selected: boolean = false;
 
-        this.ui = {
-            root: this,
+    static get styles() {
+        return css`
+            :host {
+                display: none;
+                align-items: center;
 
-            get value() {
-                return this.root.getAttribute("value");
-            },
+                padding: var(--ui-spacing);
+                padding-right: 2.5rem;
 
-            set value(value) {
-                if (!value) {
-                    this.root.removeAttribute("value");
-                    return;
-                }
+                height: calc(
+                    1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
+                );
 
-                this.root.setAttribute("value", value);
-            },
+                white-space: nowrap;
+                text-overflow: ellipsis;
 
-            get selected() {
-                return this.root.hasAttribute("selected");
-            },
+                overflow: hidden;
 
-            set selected(value) {
-                if (!value) {
-                    this.root.removeAttribute("selected");
-                    return;
-                }
-
-                this.root.setAttribute("selected", "");
-            },
-        };
-
-        this.#renderUISelectOption();
-    }
-
-    #renderUISelectOption() {
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
-
-        this.shadowRoot.innerHTML = html`
-            <style>
-                :host {
-                    display: none;
-                    align-items: center;
-
-                    padding: var(--ui-spacing);
-                    padding-right: 2.5rem;
-
-                    height: calc(
-                        1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
-                    );
-
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-
-                    overflow: hidden;
-
-                    transition:
-                        background-color 0.25s linear,
-                        color 0.25s linear;
-                }
-            </style>
-
-            <slot></slot>
+                transition:
+                    background-color 0.25s linear,
+                    color 0.25s linear;
+            }
         `;
     }
 
-    connectedCallback() {
-        this.setAttribute("role", "button");
+    protected render() {
+        this.setAttribute("role", "option");
+        return html`<slot></slot>`;
     }
-
-    disconnectedCallback() {}
 }
-
-UISelectOption.register();

@@ -1,276 +1,163 @@
-// TODO: Convert to typescript
-import svgChevronDown from "../svg/smoothie-line-icons/chevron-down";
-
-import { Events, globalStylesToShadowRoot, html } from "../utils";
-import { UISelectOption } from "./ui-select-option";
+import { svg, UISelectOption } from "..";
+import { customElement, property } from "lit/decorators.js";
+import { css, html, LitElement } from "lit";
 
 /**
- * @typedef UISelect_Events
- * @type {{
- *  "change": UISelectOption;
- * }} UISelect_Events
+ * @event change
  */
+@customElement("ui-select")
+export class UISelect extends LitElement {
+    @property({ type: Boolean, attribute: "open", reflect: true })
+    open: boolean = false;
 
-/**
- * HTML: `ui-select`
- *
- * Attributes:
- *  - __open__: *boolean*
- *
- * Slots:
- *  - __\*__ - from type `UISelectOption`
- */
-export class UISelect extends HTMLElement {
-    #keepOpen = false;
+    @property({ type: Boolean, attribute: "keep-open", reflect: true })
+    keepOpen: boolean = false;
 
-    static register = () => {
-        if (!customElements.get("ui-select")) {
-            console.debug(`[ui] Register "ui-select" component`);
-            customElements.define("ui-select", UISelect);
-        }
-    };
+    static get styles() {
+        return css`
+            * {
+                box-sizing: border-box;
+            }
 
-    static observedAttributes = ["open", "keep-open"];
+            :host {
+                --ui-bg: "transparent";
 
-    constructor() {
-        super();
+                position: relative;
+                display: block;
 
-        this.open = false;
-
-        this.ui = {
-            root: this,
-
-            /**
-             *  @type {Events<UISelect_Events>}
-             */
-            events: new Events(),
-
-            get open() {
-                return this.root.open || this.root.#keepOpen;
-            },
-
-            set open(state) {
-                if (this.keepOpen) state = this.root.#keepOpen;
-
-                this.root.open = state;
-
-                if (!state) {
-                    this.root.removeAttribute("open");
-                } else {
-                    this.root.setAttribute("open", "");
-                }
-
-                this.root.style.setProperty(
-                    "--items-length",
-                    `${this.root.children.length || 1}`,
+                width: 100%;
+                height: calc(
+                    1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
                 );
-            },
+                transition: height 0.25s ease;
 
-            get keepOpen() {
-                return this.root.#keepOpen;
-            },
+                background-color: hsl(var(--ui-hsl-bg));
+                color: hsl(var(--ui-hsl-input-text));
 
-            set keepOpen(state) {
-                this.root.#keepOpen = !!state;
-                this.open = this.open;
-            },
+                border: 1px solid hsl(var(--ui-hsl-borderColor));
+                border-radius: var(--ui-radius);
 
-            /**
-             * @returns {UISelectOption[]}
-             */
-            options() {
-                // @ts-ignore
-                return [...this.root.children].filter(
-                    (child) => child instanceof UISelectOption,
+                line-height: 1.15;
+
+                overflow: hidden;
+
+                font-size: 0.9rem;
+                font-family: var(--ui-fontFamily);
+                font-variation-settings: var(--ui-select-fontVariation);
+            }
+
+            :host([open]) {
+                height: calc(
+                    (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
+                        var(--items-length)
                 );
-            },
+            }
 
-            /**
-             * @returns {UISelectOption | null}
-             */
-            selected() {
-                try {
-                    return (
-                        this.options().find(
-                            (/** @type {UISelectOption} */ option) =>
-                                option.ui.selected,
-                        ) || null
-                    );
-                } catch {
-                    return null;
-                }
-            },
-        };
+            :host(:not([open]))
+                .options:has(> ::slotted(ui-select-option[selected])) {
+                display: block;
+            }
 
-        this.#renderUISelect();
+            .options {
+                cursor: pointer;
+                display: none;
+                display: flex;
+                flex-direction: column;
+                min-height: 100%;
+            }
+
+            :host([open]) .options {
+                display: block;
+            }
+
+            .icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 2.5rem;
+                height: 100%;
+                color: hsl(var(--ui-hsl-primary));
+            }
+
+            :host([open]) .icon {
+                display: none;
+            }
+
+            ::slotted(ui-select-option) {
+                display: flex;
+            }
+
+            :host([open]) ::slotted(ui-select-option[selected]) {
+                background-color: hsl(var(--ui-hsl-primary));
+                color: hsl(var(--ui-hsl-primary-text));
+            }
+
+            :host([open]) ::slotted(ui-select-option:not([selected]):hover) {
+                background-color: hsla(var(--ui-hsl-text), 0.1);
+            }
+
+            :host(:not([open])) ::slotted(ui-select-option:not([selected])) {
+                display: none;
+            }
+        `;
     }
 
-    #renderUISelect() {
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
+    protected render() {
+        const optionsClickHandler = this.optionsClickHandler.bind(this);
 
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
+        return html`
+            <div
+                class="options"
+                @click=${async (ev: Event) => {
+                    if (this.keepOpen) {
+                        await optionsClickHandler(ev);
+                        return;
+                    }
 
-                :host {
-                    --ui-bg: "transparent";
-
-                    position: relative !important;
-                    display: block !important;
-
-                    width: 100%;
-                    height: calc(
-                        1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
-                    );
-                    transition: height 0.25s ease;
-
-                    background-color: var(--ui-bg);
-                    color: var(--ui-fg);
-
-                    border: 1px solid var(--ui-borderColor);
-                    border-radius: var(--ui-radius);
-
-                    line-height: 1.15;
-
-                    overflow: hidden;
-
-                    font-size: 0.9rem;
-                    font-family: var(--ui-fontFamily);
-                    font-variation-settings: var(--ui-select-fontVariation);
-                }
-
-                .options {
-                    cursor: pointer;
-                    display: none;
-                    display: flex;
-                    flex-direction: column;
-                    min-height: 100%;
-                }
-
-                .icon {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: 2.5rem;
-                    height: 100%;
-                    color: var(--ui-primary);
-                }
-
-                ::slotted(ui-select-option) {
-                    display: flex;
-                }
-
-                :host([open]) {
-                    height: calc(
-                        (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
-                            var(--items-length)
-                    );
-                }
-
-                :host([open]) .options {
-                    display: block;
-                }
-
-                :host([open]) .icon {
-                    display: none;
-                }
-
-                :host([open]) ::slotted(ui-select-option[selected]) {
-                    background-color: var(--ui-primary);
-                    color: var(--ui-primary-fg);
-                }
-
-                :host([open])
-                    ::slotted(ui-select-option:not([selected]):hover) {
-                    background-color: hsla(var(--ui-fg--hsl), 0.1);
-                }
-
-                :host(:not([open]))
-                    .options:has(> ::slotted(ui-select-option[selected])) {
-                    display: block;
-                }
-
-                :host(:not([open]))
-                    ::slotted(ui-select-option:not([selected])) {
-                    display: none;
-                }
-            </style>
-
-            <div class="options">
-                <div class="icon"><ui-svg>${svgChevronDown}</ui-svg></div>
+                    this.open = !this.open;
+                    if (this.open) {
+                        ev.stopPropagation();
+                        this.addEventListener("click", optionsClickHandler);
+                    } else {
+                        this.removeEventListener("click", optionsClickHandler);
+                    }
+                }}
+            >
+                <div class="icon">
+                    <ui-svg>${svg.smoothieLineIcons.chevronDown}</ui-svg>
+                </div>
 
                 <slot></slot>
             </div>
         `;
-
-        /**
-         * @param {Event} ev
-         */
-        const onClickOption = async (ev) => {
-            (ev.composedPath() || []).forEach((child) => {
-                if (child instanceof UISelectOption) {
-                    [...this.querySelectorAll("ui-select-option")].forEach(
-                        (c) => c.removeAttribute("selected"),
-                    );
-
-                    child.setAttribute("selected", "");
-                    this.ui.events.dispatch("change", child);
-                }
-            });
-        };
-
-        /**
-         * @param {Event} ev
-         */
-        const onClick = async (ev) => {
-            if (this.ui.keepOpen) {
-                await onClickOption(ev);
-                return;
-            }
-
-            this.ui.open = !this.ui.open;
-            if (this.ui.open) {
-                ev.stopPropagation();
-                this.addEventListener("click", onClickOption);
-            } else {
-                setTimeout(() =>
-                    this.removeEventListener("click", onClickOption),
-                );
-            }
-        };
-
-        const options = this.shadowRoot.querySelector(".options");
-        options.addEventListener("click", onClick);
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {}
+    private async optionsClickHandler(ev: Event) {
+        (ev.composedPath() || []).forEach((child) => {
+            if (child instanceof UISelectOption) {
+                [...this.querySelectorAll("ui-select-option")].forEach((c) =>
+                    c.removeAttribute("selected"),
+                );
 
-    /**
-     * @param {string} n
-     * @param {string | null} _oV
-     * @param {string | null} nV
-     */
-    attributeChangedCallback(n, _oV, nV) {
-        switch (n) {
-            case "open":
-                const state = nV !== null;
-                if (state !== this.ui.open) {
-                    this.ui.open = state;
-                }
-                break;
+                child.setAttribute("selected", "");
+                this.dispatchEvent(new Event("change"));
+            }
+        });
+    }
 
-            case "keep-open":
-                this.ui.keepOpen = true;
-                break;
+    public options(): UISelectOption[] {
+        return [...this.children].filter((c) => c instanceof UISelectOption);
+    }
+
+    public selected(): UISelectOption | null {
+        let child: UISelectOption;
+        for (child of this.options()) {
+            if (child.selected) return child;
         }
+
+        return null;
     }
 }
-
-UISelect.register();
