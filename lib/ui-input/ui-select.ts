@@ -1,6 +1,6 @@
-import { svg, UISelectOption } from "..";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { css, html, LitElement } from "lit";
+import { svg, UISelectOption } from "..";
 
 /**
  * @event change
@@ -46,14 +46,17 @@ export class UISelect extends LitElement {
                 font-variation-settings: var(--ui-select-fontVariation);
             }
 
-            :host([open]) {
+            :host([open]),
+            :host([keep-open]) {
                 height: calc(
                     (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
-                        var(--items-length)
+                        var(--_items)
                 );
             }
 
             :host(:not([open]))
+                .options:has(> ::slotted(ui-select-option[selected])),
+            :host(:not([keep-open]))
                 .options:has(> ::slotted(ui-select-option[selected])) {
                 display: block;
             }
@@ -66,7 +69,8 @@ export class UISelect extends LitElement {
                 min-height: 100%;
             }
 
-            :host([open]) .options {
+            :host([open]) .options,
+            :host([keep-open]) .options {
                 display: block;
             }
 
@@ -79,10 +83,17 @@ export class UISelect extends LitElement {
                 right: 0;
                 width: 2.5rem;
                 height: 100%;
+                padding: 0.25rem;
                 color: hsl(var(--ui-hsl-primary));
             }
 
-            :host([open]) .icon {
+            .icon > * {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            :host([open]) .icon,
+            :host([keep-open]) .icon {
                 display: none;
             }
 
@@ -90,22 +101,29 @@ export class UISelect extends LitElement {
                 display: flex;
             }
 
-            :host([open]) ::slotted(ui-select-option[selected]) {
+            :host([open]) ::slotted(ui-select-option[selected]),
+            :host([keep-open]) ::slotted(ui-select-option[selected]) {
                 background-color: hsl(var(--ui-hsl-primary));
                 color: hsl(var(--ui-hsl-primary-text));
             }
 
-            :host([open]) ::slotted(ui-select-option:not([selected]):hover) {
+            :host([open]) ::slotted(ui-select-option:not([selected]):hover),
+            :host([keep-open])
+                ::slotted(ui-select-option:not([selected]):hover) {
                 background-color: hsla(var(--ui-hsl-text), 0.1);
             }
 
-            :host(:not([open])) ::slotted(ui-select-option:not([selected])) {
+            :host(:not([open], [keep-open]))
+                ::slotted(ui-select-option:not([selected])) {
                 display: none;
             }
         `;
     }
 
     protected render() {
+        if (!this.open && !this.keepOpen) this.setAttribute("role", "button");
+        else this.removeAttribute("role");
+
         const optionsClickHandler = this.optionsClickHandler.bind(this);
 
         return html`
@@ -134,6 +152,11 @@ export class UISelect extends LitElement {
                 <slot></slot>
             </div>
         `;
+    }
+
+    protected updated(_changedProperties: PropertyValues): void {
+        console.debug("[ui][ui-select] updated", this.children.length); // TOOD: Remove this
+        this.style.setProperty("--_items", `${this.children.length}`);
     }
 
     private async optionsClickHandler(ev: Event) {
