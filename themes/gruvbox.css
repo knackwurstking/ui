@@ -35,15 +35,15 @@
      * Basics
      */
 
-    --ui-hsl-bg: var(--hsl-bg-hard);
+    --ui-hsl-bg: var(--hsl-bg);
     --ui-hsl-primary: var(--hsl-aqua);
     --ui-hsl-secondary: var(--hsl-gray);
     --ui-hsl-destructive: var(--hsl-red);
 
     --ui-hsl-text: var(--hsl-fg);
     --ui-hsl-input-text: var(--hsl-fg1);
-    --ui-hsl-primary-text: var(--hsl-bg-hard);
-    --ui-hsl-secondary-text: var(--hsl-bg-hard);
+    --ui-hsl-primary-text: var(--hsl-bg);
+    --ui-hsl-secondary-text: var(--hsl-bg);
     --ui-hsl-destructive-text: 6, 96%, 82%;
 
     --ui-hsl-borderColor: var(--hsl-bg4);
@@ -119,15 +119,15 @@
      * Basics
      */
 
-    --ui-hsl-bg: var(--hsl-bg-hard);
+    --ui-hsl-bg: var(--hsl-bg);
     --ui-hsl-primary: var(--hsl-aqua);
     --ui-hsl-secondary: var(--hsl-gray);
     --ui-hsl-destructive: var(--hsl-red);
 
     --ui-hsl-text: var(--hsl-fg);
     --ui-hsl-input-text: var(--hsl-fg1);
-    --ui-hsl-primary-text: var(--hsl-bg-hard);
-    --ui-hsl-secondary-text: var(--hsl-bg-hard);
+    --ui-hsl-primary-text: var(--hsl-bg);
+    --ui-hsl-secondary-text: var(--hsl-bg);
     --ui-hsl-destructive-text: 6, 96%, 18%;
 
     --ui-hsl-borderColor: var(--hsl-bg4);
