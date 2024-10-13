@@ -27,7 +27,6 @@ export class UISearch extends LitElement {
 
     @property({ type: Boolean, attribute: "storage", reflect: true })
     storage: boolean = false;
-
     @property({ type: String, attribute: "storagePrefix", reflect: true })
     storagePrefix: string = "";
 
@@ -129,6 +128,8 @@ export class UISearch extends LitElement {
     }
 
     protected render() {
+        this.setAttribute("role", "input");
+
         console.debug(
             `[ui][ui-search] Render component with value "${this.value}"`,
         );

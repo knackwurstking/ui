@@ -100,6 +100,8 @@ export class UIInput extends LitElement {
     }
 
     protected render() {
+        this.setAttribute("role", "checkbox");
+
         return html`
             <div class="container">
                 ${!!this.title
