@@ -4,6 +4,8 @@
 import { svg, UICheck, UISearch, UISvg } from "../lib";
 import { UIInput } from "../lib/ui-input/ui-input";
 
+const html = String.raw;
+
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
 
@@ -11,7 +13,7 @@ function main() {
     app.classList.add("is-container");
     //app.classList.add("fluid");
 
-    app.innerHTML = `
+    app.innerHTML = html`
         <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
         <ui-store storage-prefix storage></ui-store>
 
@@ -19,38 +21,46 @@ function main() {
             <h1><u>Text Components</u></h1>
 
             <section>
-                <ui-text>UIText Component - "ui-text"</ui-text>
+                <ui-flex-grid gap="0.25rem">
+                    <ui-flex-grid-item>
+                        <ui-text>UIText Component - "ui-text"</ui-text>
+                    </ui-flex-grid-item>
 
-                <br />
+                    <ui-flex-grid-item>
+                        <ui-primary>
+                            UIPrimary Component - "ui-primary"
+                        </ui-primary>
+                    </ui-flex-grid-item>
 
-                <ui-primary>UIPrimary Component - "ui-primary"</ui-primary>
+                    <ui-flex-grid-item>
+                        <ui-secondary>
+                            UISecondary Component - "ui-secondary"
+                        </ui-secondary>
+                    </ui-flex-grid-item>
 
-                <br />
+                    <ui-flex-grid-item>
+                        <ui-label
+                            primary="The primary Label text"
+                            secondary="Some secondary Label text"
+                        >
+                            <ui-text>
+                                @TODO: Replace this with an checkbox component
+                            </ui-text>
+                        </ui-label>
+                    </ui-flex-grid-item>
 
-                <ui-secondary>
-                    UISecondary Component - "ui-secondary"
-                </ui-secondary>
-
-                <br />
-
-                <ui-label
-                    primary="The primary Label text"
-                    secondary="Some secondary Label text"
-                >
-                    <ui-text>
-                        @TODO: Replace this with an checkbox component
-                    </ui-text>
-                </ui-label>
-
-                <ui-label
-                    primary="Ripple Label"
-                    secondary="A Label with ripple attribute set"
-                    ripple
-                >
-                    <ui-text>
-                        @TODO: Replace this with an checkbox component
-                    </ui-text>
-                </ui-label>
+                    <ui-flex-grid-item>
+                        <ui-label
+                            primary="Ripple Label"
+                            secondary="A Label with ripple attribute set"
+                            ripple
+                        >
+                            <ui-text>
+                                @TODO: Replace this with an checkbox component
+                            </ui-text>
+                        </ui-label>
+                    </ui-flex-grid-item>
+                </ui-flex-grid>
             </section>
         </section>
 
@@ -63,6 +73,12 @@ function main() {
 
             <section id="smoothieLineIcons">
                 <h2>Smoothie Line Icons</h2>
+
+                <ui-flex-grid-row
+                    class="container"
+                    wrap="wrap"
+                    gap="0.25rem"
+                ></ui-flex-grid-row>
             </section>
         </section>
 
@@ -73,51 +89,57 @@ function main() {
         >
             <h1><u>Stack Layout</u></h1>
 
-            <ui-flex-grid gap="0.25rem">
-                <ui-flex-grid-row gap="0.25rem">
-                    <ui-flex-grid-item>
-                        <ui-button
-                            name="add"
-                            color="primary"
-                            variant="full"
-                            ripple
-                        >
-                            Add one page
-                        </ui-button>
-                    </ui-flex-grid-item>
+            <section>
+                <ui-flex-grid gap="0.25rem">
+                    <ui-flex-grid-row gap="0.25rem">
+                        <ui-flex-grid-item>
+                            <ui-button
+                                name="add"
+                                color="primary"
+                                variant="full"
+                                ripple
+                            >
+                                Add one page
+                            </ui-button>
+                        </ui-flex-grid-item>
 
-                    <ui-flex-grid-item>
-                        <ui-button
-                            name="back"
-                            color="secondary"
-                            variant="full"
-                            ripple
-                        >
-                            Go back one page
-                        </ui-button>
-                    </ui-flex-grid-item>
-                </ui-flex-grid-row>
+                        <ui-flex-grid-item>
+                            <ui-button
+                                name="back"
+                                color="secondary"
+                                variant="full"
+                                ripple
+                            >
+                                Go back one page
+                            </ui-button>
+                        </ui-flex-grid-item>
+                    </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem">
-                    <ui-stack-layout
-                        class="has-border"
-                        style="width: 100%; min-height: 7.5rem;"
-                    >
-                        <ui-stack-layout-page
-                            name="page 1"
-                        ></ui-stack-layout-page>
-                        <ui-stack-layout-page
-                            name="page 2"
-                        ></ui-stack-layout-page>
-                        <ui-stack-layout-page
-                            name="page 3"
-                        ></ui-stack-layout-page>
-                        <ui-stack-layout-page
-                            name="page 4"
-                        ></ui-stack-layout-page>
-                    </ui-stack-layout>
-                </ui-flex-grid-row>
-            </ui-flex-grid>
+                    <ui-flex-grid-row gap="0.25rem">
+                        <ui-stack-layout
+                            class="has-border"
+                            style="width: 100%; min-height: 7.5rem;"
+                        >
+                            <!-- TODO: Fill this pages with content -->
+                            <ui-stack-layout-page
+                                name="page 1"
+                            ></ui-stack-layout-page>
+
+                            <ui-stack-layout-page
+                                name="page 2"
+                            ></ui-stack-layout-page>
+
+                            <ui-stack-layout-page
+                                name="page 3"
+                            ></ui-stack-layout-page>
+
+                            <ui-stack-layout-page
+                                name="page 4"
+                            ></ui-stack-layout-page>
+                        </ui-stack-layout>
+                    </ui-flex-grid-row>
+                </ui-flex-grid>
+            </section>
         </section>
 
         <section
@@ -127,28 +149,36 @@ function main() {
         >
             <h1><u>Inputs</u></h1>
 
-            <ui-label primary="UICheck Example" ripple>
-                <ui-check checked></ui-check>
-            </ui-label>
+            <ui-flex-grid gap="0.25rem">
+                <ui-flex-grid-item>
+                    <ui-label primary="UICheck Example" ripple>
+                        <ui-check checked></ui-check>
+                    </ui-label>
+                </ui-flex-grid-item>
 
-            <ui-label primary="UIInput Example" ripple>
-                <ui-input
-                    title="Input title here..."
-                    type="text"
-                    value="knackwurstking"
-                    placeholder="Enter your name here..."
-                ></ui-input>
-            </ui-label>
+                <ui-flex-grid-item>
+                    <ui-label primary="UIInput Example" ripple>
+                        <ui-input
+                            title="Input title here..."
+                            type="text"
+                            value="knackwurstking"
+                            placeholder="Enter your name here..."
+                        ></ui-input>
+                    </ui-label>
+                </ui-flex-grid-item>
 
-            <ui-label primary="UISearch Example" ripple>
-                <ui-search
-                    title=""
-                    placeholder="Search..."
-                    storage
-                    storage-prefix="ui:search:"
-                    storage-key="test:"
-                ></ui-search>
-            </ui-label>
+                <ui-flex-grid-item>
+                    <ui-label primary="UISearch Example" ripple>
+                        <ui-search
+                            title=""
+                            placeholder="Search..."
+                            storage
+                            storage-prefix="ui:search:"
+                            storage-key="test:"
+                        ></ui-search>
+                    </ui-label>
+                </ui-flex-grid-item>
+            </ui-flex-grid>
         </section>
 
         <ui-alerts>
@@ -163,7 +193,11 @@ function main() {
         </ui-alerts>
     `;
 
-    renderSvgs(app.querySelector(`section#svgs > section#smoothieLineIcons`)!);
+    renderSvgs(
+        app.querySelector(
+            `section#svgs > section#smoothieLineIcons .container`,
+        )!,
+    );
 
     // TODO: Initialize the stack layout and nav buttons
 
