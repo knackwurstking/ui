@@ -180,9 +180,10 @@ export class UISearch extends LitElement {
         super.firstUpdated(_changedProperties);
 
         if (!this.value && this.storage) {
-            this.value =
+            const value =
                 localStorage.getItem(this.storagePrefix + this.storageKey) ||
                 "";
+            this.value = value;
             this.dispatchEvent(new CustomEvent("storage", { detail: this }));
         }
     }
