@@ -32,18 +32,18 @@ export class UIAlert extends LitElement {
 
             :host([variant="info"]) {
                 background-color: hsl(var(--ui-hsl-info));
-                color: hsl(var(--ui-hsl-info-fg));
+                color: hsl(var(--ui-hsl-info-text));
             }
 
             :host([variant="warning"]) {
                 background-color: hsl(48, 100%, 50%);
                 background-color: hsl(var(--ui-hsl-warning));
-                color: hsl(var(--ui-hsl-warning-fg));
+                color: hsl(var(--ui-hsl-warning-text));
             }
 
             :host([variant="error"]) {
                 background-color: hsl(var(--ui-hsl-error));
-                color: hsl(var(--ui-hsl-error-fg));
+                color: hsl(var(--ui-hsl-error-text));
             }
 
             ui-text {

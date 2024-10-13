@@ -32,7 +32,7 @@ export class UIInput extends LitElement {
 
             ::selection {
                 background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-fg));
+                color: hsl(var(--ui-hsl-primary-text));
             }
 
             :host {
@@ -79,7 +79,7 @@ export class UIInput extends LitElement {
 
                 accent-color: hsl(var(--ui-hsl-primary));
                 background-color: transparent;
-                color: hsl(var(--ui-hsl-fg));
+                color: hsl(var(--ui-hsl-input-text));
 
                 outline: none;
                 border: none;

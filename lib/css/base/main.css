@@ -4,13 +4,13 @@
 
 ::selection {
     background-color: hsl(var(--ui-hsl-primary));
-    color: hsl(var(--ui-hsl-primary-fg));
+    color: hsl(var(--ui-hsl-primary-text));
 }
 
 html {
     font-size: var(--ui-font-size);
     background-color: hsl(var(--ui-hsl-bg));
-    color: hsl(var(--ui-hsl-fg));
+    color: hsl(var(--ui-hsl-text));
 }
 
 body {
@@ -87,7 +87,7 @@ h6 {
 code,
 pre {
     background-color: hsl(var(--ui-hsl-muted));
-    color: hsl(var(--ui-hsl-muted-fg));
+    color: hsl(var(--ui-hsl-muted-text));
     border: 1px solid hsl(var(--ui-hsl-muted-borderColor));
     border-radius: var(--ui-radius);
     padding: var(--ui-spacing);
@@ -129,7 +129,7 @@ textarea {
     transition: border-color 0.25s linear;
 
     background-color: transparent;
-    color: var(--ui-hsl-fg);
+    color: var(--ui-hsl-text);
 
     box-shadow: none;
     outline: none;
@@ -151,7 +151,7 @@ select {
     transition: border-color 0.25s linear;
 
     background-color: transparent;
-    color: var(--ui-hsl-fg);
+    color: var(--ui-hsl-text);
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 

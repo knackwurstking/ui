@@ -54,17 +54,17 @@ export class UIButton extends LitElement {
 
             :host([variant="full"][color="primary"]) {
                 background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-fg));
+                color: hsl(var(--ui-hsl-primary-text));
             }
 
             :host([variant="full"][color="secondary"]) {
                 background-color: hsl(var(--ui-hsl-secondary));
-                color: hsl(var(--ui-hsl-secondary-fg));
+                color: hsl(var(--ui-hsl-secondary-text));
             }
 
             :host([variant="full"][color="destructive"]) {
                 background-color: hsl(var(--ui-hsl-destructive));
-                color: hsl(var(--ui-hsl-destructive-fg));
+                color: hsl(var(--ui-hsl-destructive-text));
             }
 
             :host([variant="outline"]) {

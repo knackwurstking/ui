@@ -21,7 +21,7 @@
 
 .is-card {
     background-color: hsl(var(--ui-hsl-card));
-    color: hsl(var(--ui-hsl-card-fg));
+    color: hsl(var(--ui-hsl-card-text));
     border: 1px solid hsl(var(--ui-hsl-card-borderColor));
     border-radius: var(--ui-card-radius);
     padding: var(--ui-spacing);
@@ -29,7 +29,7 @@
 
 .is-muted {
     background-color: hsl(var(--ui-hsl-muted));
-    color: hsl(var(--ui-hsl-muted-fg));
+    color: hsl(var(--ui-hsl-muted-text));
     border: 1px solid hsl(var(--ui-hsl-muted-borderColor));
     border-radius: var(--ui-radius);
     padding: var(--ui-spacing);
@@ -39,6 +39,6 @@
 
 .is-outline-text {
     -webkit-text-stroke-width: 0.05rem;
-    -webkit-text-stroke-color: hsl(var(--ui-hsl-fg));
+    -webkit-text-stroke-color: hsl(var(--ui-hsl-text));
     color: transparent;
 }

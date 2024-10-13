@@ -36,34 +36,33 @@
      */
 
     --ui-hsl-bg: var(--hsl-bg);
-    --ui-hsl-fg: var(--hsl-fg);
-
     --ui-hsl-primary: var(--hsl-aqua);
-    --ui-hsl-primary-fg: var(--hsl-bg-hard);
-
     --ui-hsl-secondary: var(--hsl-gray);
-    --ui-hsl-secondary-fg: var(--hsl-bg-hard);
-
     --ui-hsl-destructive: var(--hsl-red);
-    --ui-hsl-destructive-fg: 6, 96%, 82%;
+
+    --ui-hsl-text: var(--hsl-fg);
+    --ui-hsl-input-text: var(--hsl-fg1);
+    --ui-hsl-primary-text: var(--hsl-bg-hard);
+    --ui-hsl-secondary-text: var(--hsl-bg-hard);
+    --ui-hsl-destructive-text: 6, 96%, 82%;
 
     --ui-hsl-borderColor: var(--hsl-bg4);
 
-    --ui-hsl-info: var(--ui-hsl-card); /* --hsl-bg1 */
-    --ui-hsl-info-fg: var(--ui-hsl-card-fg); /* --hsl-fg */
+    --ui-hsl-info: var(--ui-hsl-card);
+    --ui-hsl-info-text: var(--ui-hsl-card-text);
 
     --ui-hsl-warning: 37, 80%, 39%; /* --hsl-yellow */
-    --ui-hsl-warning-fg: 27, 80%, 84%;
+    --ui-hsl-warning-text: 27, 80%, 84%;
 
     --ui-hsl-error: var(--ui-hsl-destructive);
-    --ui-hsl-error-fg: var(--ui-hsl-destructive-fg);
+    --ui-hsl-error-text: var(--ui-hsl-destructive-text);
 
     /*
      * Muted: code, pre
      */
 
     --ui-hsl-muted: var(--hsl-bg4);
-    --ui-hsl-muted-fg: var(--hsl-fg1);
+    --ui-hsl-muted-text: var(--hsl-fg1);
     --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
 
     --ui-muted-fontFamily: var(--ui-fontFamily);
@@ -73,13 +72,13 @@
      */
 
     --ui-hsl-card: var(--hsl-bg1);
-    --ui-hsl-card-fg: var(--hsl-fg);
+    --ui-hsl-card-text: var(--hsl-fg);
     --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
 
     --ui-card-radius: var(--ui-radius);
 
     background-color: hsl(var(--ui-hsl-bg));
-    color: hsl(var(--ui-hsl-fg));
+    color: hsl(var(--ui-hsl-text));
     color-scheme: light;
 }
 
@@ -120,35 +119,40 @@
      * Basics
      */
 
+    /* TODO:
+     *  - [x] Replace `-fg` with `-text`
+     *  - [ ] Add special `-text` vars
+     *      - [ ] `--ui-hsl-input`
+     */
+
     --ui-hsl-bg: var(--hsl-bg);
-    --ui-hsl-fg: var(--hsl-fg);
-
     --ui-hsl-primary: var(--hsl-aqua);
-    --ui-hsl-primary-fg: var(--hsl-bg-hard);
-
     --ui-hsl-secondary: var(--hsl-gray);
-    --ui-hsl-secondary-fg: var(--hsl-bg-hard);
-
     --ui-hsl-destructive: var(--hsl-red);
-    --ui-hsl-destructive-fg: 6, 96%, 18%;
+
+    --ui-hsl-text: var(--hsl-fg);
+    --ui-hsl-input-text: var(--hsl-fg1);
+    --ui-hsl-primary-text: var(--hsl-bg-hard);
+    --ui-hsl-secondary-text: var(--hsl-bg-hard);
+    --ui-hsl-destructive-text: 6, 96%, 18%;
 
     --ui-hsl-borderColor: var(--hsl-bg4);
 
-    --ui-hsl-info: var(--ui-hsl-card); /* --hsl-bg1 */
-    --ui-hsl-info-fg: var(--ui-hsl-card-fg); /* --hsl-fg */
+    --ui-hsl-info: var(--ui-hsl-card);
+    --ui-hsl-info-text: var(--ui-hsl-card-text);
 
     --ui-hsl-warning: 42, 95%, 58%; /* --hsl-yellow */
-    --ui-hsl-warning-fg: 42, 95%, 16%;
+    --ui-hsl-warning-text: 42, 95%, 16%;
 
     --ui-hsl-error: var(--ui-hsl-destructive);
-    --ui-hsl-error-fg: var(--ui-hsl-destructive-fg);
+    --ui-hsl-error-text: var(--ui-hsl-destructive-text);
 
     /*
      * Muted: code, pre
      */
 
     --ui-hsl-muted: var(--hsl-bg4);
-    --ui-hsl-muted-fg: var(--hsl-fg1);
+    --ui-hsl-muted-text: var(--hsl-fg1);
     --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
 
     --ui-muted-fontFamily: var(--ui-fontFamily);
@@ -158,12 +162,12 @@
      */
 
     --ui-hsl-card: var(--hsl-bg1);
-    --ui-hsl-card-fg: var(--hsl-fg);
+    --ui-hsl-card-text: var(--hsl-fg);
     --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
 
     --ui-card-radius: var(--ui-radius);
 
     background-color: hsl(var(--ui-hsl-bg));
-    color: hsl(var(--ui-hsl-fg));
+    color: hsl(var(--ui-hsl-text));
     color-scheme: dark;
 }

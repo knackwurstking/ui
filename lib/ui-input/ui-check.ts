@@ -24,7 +24,7 @@ export class UICheck extends LitElement {
                 border-radius: var(--ui-radius);
 
                 accent-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-fg));
+                color: hsl(var(--ui-hsl-text));
                 background-color: transparent;
 
                 box-shadow: none;
