@@ -47,7 +47,7 @@ export class UICheck extends LitElement {
         return html`
             <input
                 type="checkbox"
-                checked=${this.checked}
+                ?checked=${this.checked}
 
                 @input=${() => {
                     this.checked = !this.checked;
@@ -61,6 +61,7 @@ export class UICheck extends LitElement {
     }
 
     click() {
-        this.checked = !this.checked;
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.checked =
+            this.checked = !this.checked;
     }
 }
