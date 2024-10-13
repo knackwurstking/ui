@@ -65,6 +65,7 @@ export class UIInput extends LitElement {
             ui-secondary.title {
                 display: block;
                 padding: 0 var(--ui-spacing);
+                font-size: 0.85rem;
                 user-select: none;
             }
 
@@ -75,7 +76,6 @@ export class UIInput extends LitElement {
 
                 margin: 0;
                 padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-                padding-top: calc(var(--ui-spacing) / 2);
 
                 accent-color: hsl(var(--ui-hsl-primary));
                 background-color: transparent;
@@ -85,9 +85,13 @@ export class UIInput extends LitElement {
                 border: none;
                 border-radius: inherit;
 
-                font-size: 0.9rem;
+                font-size: 0.95rem;
                 font-family: var(--ui-fontFamily);
                 font-variation-settings: var(--ui-input-fontVariation);
+            }
+
+            ui-secondary.title ~ input {
+                padding-top: 0;
             }
         `;
     }
