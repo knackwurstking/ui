@@ -1,272 +1,133 @@
-// TODO: Convert to typescript
-import { Events, globalStylesToShadowRoot, html } from "../utils";
-import { UISecondary } from "../ui-text";
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-/**
- * @typedef UIInput_Events
- * @type {{
- *  input: string;
- *  change: string;
- * }}
- */
+@customElement("ui-input")
+export class UIInput extends LitElement {
+    @property({ type: String, attribute: "title", reflect: true })
+    title: string = "";
 
-/**
- * HTML: `ui-input`
- *
- * Attributes:
- *  - __title__: *string*
- *  - __type__: *string*
- *  - __value__: *string*
- *  - __placeholder__: *string*
- *  - __min__: *string*
- *  - __max__: *string*
- *  - __invalid__: *boolean*
- *
- * Slots:
- *  - __title__
- *
- * @template {UIInput_Events} [E=UIInput_Events]
- */
-export class UIInput extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-input")) {
-            console.debug(`[ui] Register "ui-input" component`);
-            customElements.define("ui-input", UIInput);
-        }
-    };
+    @property({ type: String, attribute: "type", reflect: true })
+    type: string = "";
 
-    static observedAttributes = [
-        "title",
-        "type",
-        "value",
-        "placeholder",
-        "invalid",
-        "min",
-        "max",
-    ];
+    @property({ type: String, attribute: "value" })
+    value: string = "";
 
-    constructor() {
-        super();
+    @property({ type: String, attribute: "placeholder", reflect: true })
+    placeholder: string = "";
 
-        this.ui = {
-            root: this,
+    @property({ type: Boolean, attribute: "invalid", reflect: true })
+    invalid: boolean = false;
 
-            /** @type {Events<E>} */
-            events: new Events(),
+    @property({ type: String, attribute: "min", reflect: true })
+    min: string = "";
 
-            /** @type {HTMLInputElement | null} */
-            input: null,
+    @property({ type: String, attribute: "max", reflect: true })
+    max: string = "";
 
-            get title() {
-                return this.root.getAttribute("title");
-            },
+    static get styles() {
+        return css`
+            * {
+                box-sizing: border-box;
+            }
 
-            set title(value) {
-                let el = this.root.querySelector(`[slot="title"]`);
+            ::selection {
+                background-color: hsl(var(--ui-hsl-primary));
+                color: hsl(var(--ui-hsl-primary-fg));
+            }
 
-                if (!value && !!el) {
-                    this.root.removeChild(el);
-                }
+            :host {
+                display: block;
 
-                if (!value) return;
+                position: relative;
+                width: 100%;
+                height: fit-content;
+            }
 
-                if (!el) {
-                    el = new UISecondary();
-                    el.slot = "title";
-                    this.root.appendChild(el);
-                }
+            .container {
+                width: 100%;
 
-                el.innerHTML = value;
-            },
+                border: 1px solid var(--ui-borderColor);
+                border-radius: var(--ui-radius);
 
-            get type() {
-                return this.input.type;
-            },
+                transition: border-color 0.25s linear;
+            }
 
-            set type(value) {
-                this.input.type = value || "";
-            },
+            .container:has(input:focus) {
+                border-color: var(--ui-primary);
+            }
 
-            get value() {
-                return this.input.value;
-            },
+            :host([invalid]) .container {
+                border-color: var(--ui-destructive);
+            }
 
-            set value(value) {
-                this.input.value = value;
-            },
+            ui-secondary.title {
+                display: block;
+                padding: 0 var(--ui-spacing);
+                user-select: none;
+            }
 
-            get placeholder() {
-                return this.input.placeholder;
-            },
+            input {
+                display: block;
 
-            set placeholder(value) {
-                this.input.placeholder = value || "";
-            },
+                width: 100%;
 
-            get invalid() {
-                return this.root.hasAttribute("invalid");
-            },
+                margin: 0;
+                padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+                padding-top: calc(var(--ui-spacing) / 2);
 
-            set invalid(state) {
-                if (!state) {
-                    this.root.removeAttribute("invalid");
-                    return;
-                }
+                accent-color: hsl(var(--ui-hsl-primary));
+                background-color: transparent;
+                color: hsl(var(--ui-hsl-fg));
 
-                this.root.setAttribute("invalid", "");
-            },
+                outline: none;
+                border: none;
+                border-radius: inherit;
 
-            get min() {
-                return this.input.min;
-            },
-
-            set min(value) {
-                this.input.min = value;
-            },
-
-            get max() {
-                return this.input.max;
-            },
-
-            set max(value) {
-                this.input.max = value;
-            },
-
-            /**
-             * @param {FocusOptions | null} [options]
-             */
-            focus(options = null) {
-                this.root.shadowRoot.querySelector("input").focus(options);
-            },
-
-            blur() {
-                this.root.shadowRoot.querySelector("input").blur();
-            },
-        };
-
-        this.#renderUIInput();
+                font-size: 0.9rem;
+                font-family: var(--ui-fontFamily);
+                font-variation-settings: var(--ui-input-fontVariation);
+            }
+        `;
     }
 
-    #renderUIInput() {
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
-
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
-
-                :host {
-                    display: block;
-
-                    position: relative;
-                    width: 100%;
-                    height: fit-content;
-                }
-
-                input {
-                    display: block;
-
-                    width: 100%;
-
-                    margin: 0;
-                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-
-                    accent-color: var(--ui-primary);
-                    background-color: transparent;
-
-                    outline: none !important;
-                    border: none !important;
-                    border-radius: inherit;
-
-                    font-size: 0.9rem;
-                    font-family: var(--ui-fontFamily);
-                    font-variation-settings: var(--ui-input-fontVariation);
-                }
-
-                .container {
-                    width: 100%;
-
-                    border: 1px solid var(--ui-borderColor);
-                    border-radius: var(--ui-radius);
-
-                    transition: border-color 0.25s linear;
-                }
-
-                .container:has(input:focus) {
-                    border-color: var(--ui-primary);
-                }
-
-                :host([invalid]) .container {
-                    border-color: var(--ui-destructive);
-                }
-
-                ::slotted([slot="title"]) {
-                    display: block;
-                    padding: 0 var(--ui-spacing);
-                    user-select: none;
-                    transform: translateY(calc(var(--ui-spacing) / 2));
-                }
-            </style>
-
+    protected render() {
+        return html`
             <div class="container">
-                <slot name="title"></slot>
-                <input />
+                ${!!this.title
+                    ? html`
+                          <ui-secondary class="title">
+                              ${this.title}
+                          </ui-secondary>
+                      `
+                    : ``}
+                <input
+                    type="${this.type}"
+                    value="${this.value}"
+                    placeholder="${this.placeholder}"
+                    min="${this.min}"
+                    max="${this.max}"
+                    @input=${(ev: Event) => {
+                        this.value = (
+                            ev.currentTarget as HTMLInputElement
+                        ).value;
+                    }}
+                    @change=${() => {
+                        this.dispatchEvent(new Event("change"));
+                    }}
+                />
             </div>
         `;
-
-        this.ui.input = this.shadowRoot.querySelector("input");
-        this.ui.input.type = this.getAttribute("type") || "text";
-
-        this.ui.input.oninput = () => {
-            this.ui.events.dispatch("input", this.ui.input.value);
-        };
-
-        this.ui.input.onchange = () => {
-            this.ui.events.dispatch("change", this.ui.input.value);
-        };
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {}
+    focus(options?: FocusOptions): void {
+        super.focus(options);
+        this.shadowRoot
+            ?.querySelector<HTMLInputElement>(`input`)
+            ?.focus(options);
+    }
 
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "title":
-                this.ui.title = newValue;
-                break;
-
-            case "type":
-                this.ui.type = newValue;
-                break;
-
-            case "value":
-                this.ui.value = newValue;
-                break;
-
-            case "placeholder":
-                this.ui.placeholder = newValue;
-                break;
-
-            case "invalid":
-                this.ui.input.ariaInvalid = newValue !== null ? "" : null;
-                break;
-
-            case "min":
-                this.ui.min = newValue;
-                break;
-
-            case "max":
-                this.ui.max = newValue;
-                break;
-        }
+    blur(): void {
+        super.blur();
+        this.shadowRoot?.querySelector(`input`)?.blur();
     }
 }
-
-UIInput.register();
