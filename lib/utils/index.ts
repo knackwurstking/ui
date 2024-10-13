@@ -1,6 +1,7 @@
 export * from "./global-styles";
 export * from "./events";
 export * from "./cleanup";
+export { html, css } from "lit";
 
 export * as draggable from "./draggable";
 export * as ripple from "./ripple";
@@ -8,9 +9,6 @@ export * as ripple from "./ripple";
 export function isAndroid(): boolean {
     return /(android)/i.test(navigator.userAgent);
 }
-
-export const html = String.raw;
-export const css = String.raw;
 
 export function styles(style: { [key: string]: string }): string {
     return (
