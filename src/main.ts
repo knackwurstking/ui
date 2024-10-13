@@ -1,7 +1,14 @@
 //import "../dist/style.css";
 //import "../dist/ui.min.js";
 //import "../lib";
-import { svg, UICheck, UISearch, UISvg } from "../lib";
+import {
+    svg,
+    UICheck,
+    UISearch,
+    UISelect,
+    UISelectOption,
+    UISvg,
+} from "../lib";
 import { UIInput } from "../lib/ui-input/ui-input";
 
 const html = String.raw;
@@ -178,6 +185,40 @@ function main() {
                         ></ui-search>
                     </ui-label>
                 </ui-flex-grid-item>
+
+                <ui-flex-grid-item>
+                    <ui-label
+                        primary="UISelect Example"
+                        secondary="keep-open flag enabled"
+                    >
+                        <ui-select keep-open>
+                            <ui-select-option value="o1" selected>
+                                Option 1
+                            </ui-select-option>
+
+                            <ui-select-option value="o2">
+                                Option 2
+                            </ui-select-option>
+
+                            <ui-select-option value="o3">
+                                Option 3
+                            </ui-select-option>
+
+                            <ui-select-option value="o4">
+                                Option 4
+                            </ui-select-option>
+                        </ui-select>
+                    </ui-label>
+                </ui-flex-grid-item>
+
+                <ui-flex-grid-item>
+                    <ui-label
+                        primary="UISelect Example 2"
+                        secondary="Options added via javascript"
+                    >
+                        <ui-select id="selectExample2"></ui-select>
+                    </ui-label>
+                </ui-flex-grid-item>
             </ui-flex-grid>
         </section>
 
@@ -193,93 +234,18 @@ function main() {
         </ui-alerts>
     `;
 
-    renderSvgs(
-        app.querySelector(
-            `section#svgs > section#smoothieLineIcons .container`,
-        )!,
-    );
-
-    // TODO: Initialize the stack layout and nav buttons
-
-    //
-    // Testing the checkbox input component
-    //
-
-    {
-        const check = app.querySelector<UICheck>(`ui-check`)!;
-
-        check.oninput = (ev) =>
-            console.debug(
-                "ui-check - event - input:",
-                check.checked,
-                ev.currentTarget,
-            );
-
-        check.onchange = (ev) =>
-            console.debug(
-                "ui-check - event - change:",
-                check.checked,
-                ev.currentTarget,
-            );
-    }
-
-    //
-    // Testing the text input component
-    //
-
-    {
-        const input = app.querySelector<UIInput>(`ui-input`)!;
-
-        input.oninput = (ev) =>
-            console.debug(
-                "ui-check - event - input:",
-                input.value,
-                ev.currentTarget,
-            );
-
-        input.onchange = (ev) =>
-            console.debug(
-                "ui-input - event - change:",
-                input.value,
-                ev.currentTarget,
-            );
-    }
-
-    //
-    // Testing the search component
-    //
-
-    {
-        const search = app.querySelector<UISearch>(`ui-search`)!;
-
-        search.oninput = (ev) =>
-            console.debug("ui-search - input:", search.value, ev.currentTarget);
-
-        search.onchange = (ev) =>
-            console.debug(
-                "ui-search - event - change:",
-                search.value,
-                ev.currentTarget,
-            );
-
-        search.onsubmit = (ev) =>
-            console.debug(
-                "ui-search - event - submit:",
-                search.value,
-                ev.currentTarget,
-            );
-
-        search.addEventListener("storage", (ev: Event) => {
-            console.debug(
-                "ui-search - event - storage:",
-                search.value,
-                ev.currentTarget,
-            );
-        });
-    }
+    renderSvgs(app);
+    debugUICheck(app.querySelector<UICheck>(`ui-check`)!);
+    debugUIInput(app.querySelector<UIInput>(`ui-input`)!);
+    debugUISearch(app.querySelector<UISearch>(`ui-search`)!);
+    debugUISelect(app.querySelector<UISelect>(`ui-select#selectExample2`)!);
 }
 
-function renderSvgs(container: HTMLElement) {
+function renderSvgs(app: HTMLElement) {
+    const container = app.querySelector(
+        `section#svgs > section#smoothieLineIcons .container`,
+    )!;
+
     let uiSvg: UISvg;
     for (const [name, value] of Object.entries(svg.smoothieLineIcons)) {
         uiSvg = new UISvg();
@@ -292,6 +258,83 @@ function renderSvgs(container: HTMLElement) {
 
         uiSvg.innerHTML = value.strings[0];
     }
+}
+
+function debugUICheck(el: UICheck) {
+    el.oninput = (ev) =>
+        console.debug(
+            "ui-check - event - input:",
+            el.checked,
+            ev.currentTarget,
+        );
+
+    el.onchange = (ev) =>
+        console.debug(
+            "ui-check - event - change:",
+            el.checked,
+            ev.currentTarget,
+        );
+}
+
+function debugUIInput(el: UIInput) {
+    el.oninput = (ev) =>
+        console.debug("ui-input - event - input:", el.value, ev.currentTarget);
+
+    el.onchange = (ev) =>
+        console.debug("ui-input - event - change:", el.value, ev.currentTarget);
+}
+
+function debugUISearch(el: UISearch) {
+    el.oninput = (ev) =>
+        console.debug("ui-search - input:", el.value, ev.currentTarget);
+
+    el.onchange = (ev) =>
+        console.debug(
+            "ui-search - event - change:",
+            el.value,
+            ev.currentTarget,
+        );
+
+    el.onsubmit = (ev) =>
+        console.debug(
+            "ui-search - event - submit:",
+            el.value,
+            ev.currentTarget,
+        );
+
+    el.addEventListener("storage", (ev: Event) => {
+        console.debug(
+            "ui-search - event - storage:",
+            el.value,
+            ev.currentTarget,
+        );
+    });
+}
+
+function debugUISelect(el: UISelect) {
+    let option = new UISelectOption();
+    option.value = "o1";
+    option.selected = false;
+    option.textContent = "Option 1";
+    el.appendChild(option);
+
+    option = new UISelectOption();
+    option.value = "o2";
+    option.selected = true;
+    option.textContent = "Option 2";
+    el.appendChild(option);
+
+    option = new UISelectOption();
+    option.value = "o3";
+    option.selected = false;
+    option.textContent = "Option 3";
+    el.appendChild(option);
+
+    option = new UISelectOption();
+    option.value = "o4";
+    option.selected = false;
+    option.textContent = "Option 4";
+    el.appendChild(option);
 }
 
 main();
