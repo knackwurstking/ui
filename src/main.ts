@@ -127,7 +127,7 @@ function main() {
         >
             <h1><u>Inputs</u></h1>
 
-            <ui-label primary="UICheck Example">
+            <ui-label primary="UICheck Example" ripple>
                 <ui-check checked></ui-check>
             </ui-label>
 
