@@ -4,15 +4,14 @@
      */
 
     --ui-hsl-bg: 240, 10%, 96%;
-    --ui-hsl-text: 240, 10%, 10%;
-
     --ui-hsl-primary: 240, 10%, 25%;
-    --ui-hsl-primary-text: 240, 10%, 98%;
-
     --ui-hsl-secondary: 240, 15%, 75%;
-    --ui-hsl-secondary-text: 240, 10%, 10%;
-
     --ui-hsl-destructive: 0, 72%, 51%;
+
+    --ui-hsl-text: 240, 10%, 10%;
+    --ui-hsl-input-text: 240, 10%, 15%;
+    --ui-hsl-primary-text: 240, 10%, 98%;
+    --ui-hsl-secondary-text: 240, 10%, 10%;
     --ui-hsl-destructive-text: 0, 72%, 92%;
 
     --ui-hsl-borderColor: 240, 10%, 82%;
@@ -56,15 +55,14 @@
      */
 
     --ui-hsl-bg: 240, 10%, 4%;
-    --ui-hsl-text: 240, 10%, 90%;
-
     --ui-hsl-primary: 240, 10%, 75%;
-    --ui-hsl-primary-text: 240, 10%, 10%;
-
     --ui-hsl-secondary: 240, 15%, 25%;
-    --ui-hsl-secondary-text: 240, 10%, 98%;
-
     --ui-hsl-destructive: 0, 63%, 31%;
+
+    --ui-hsl-text: 240, 10%, 90%;
+    --ui-hsl-input-text: 240, 10%, 85%;
+    --ui-hsl-primary-text: 240, 10%, 10%;
+    --ui-hsl-secondary-text: 240, 10%, 98%;
     --ui-hsl-destructive-text: 0, 63%, 92%;
 
     --ui-hsl-borderColor: 240, 10%, 18%;
