@@ -48,18 +48,18 @@ export class UIInput extends LitElement {
             .container {
                 width: 100%;
 
-                border: 1px solid var(--ui-borderColor);
+                border: 1px solid hsl(var(--ui-hsl-borderColor));
                 border-radius: var(--ui-radius);
 
                 transition: border-color 0.25s linear;
             }
 
             .container:has(input:focus) {
-                border-color: var(--ui-primary);
+                border-color: hsl(var(--ui-hsl-primary));
             }
 
             :host([invalid]) .container {
-                border-color: var(--ui-destructive);
+                border-color: hsl(var(--ui-hsl-destructive));
             }
 
             ui-secondary.title {
