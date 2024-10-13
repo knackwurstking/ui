@@ -183,4 +183,9 @@ export class UISelect extends LitElement {
     public selected(): UISelectOption | null {
         return this.options().find((options) => options.selected) || null;
     }
+
+    public click(): void {
+        super.click();
+        this.shadowRoot!.querySelector<HTMLElement>(`div.options`)!.click();
+    }
 }
