@@ -62,7 +62,7 @@ function main() {
             <h1><u>Svg's</u></h1>
 
             <section id="smoothieLineIcons">
-                <h2><u>Smoothie Line Icons</u></h2>
+                <h2>Smoothie Line Icons</h2>
             </section>
         </section>
 
