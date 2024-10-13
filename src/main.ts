@@ -167,25 +167,54 @@ function main() {
 
     // TODO: Initialize the stack layout and nav buttons
 
+    //
     // Testing the checkbox input component
+    //
+
     {
         const check = app.querySelector<UICheck>(`ui-check`)!;
+
         check.oninput = (ev) =>
-            console.debug("input:", check.checked, ev.currentTarget);
+            console.debug(
+                "ui-check - event - input:",
+                check.checked,
+                ev.currentTarget,
+            );
+
         check.onchange = (ev) =>
-            console.debug("change:", check.checked, ev.currentTarget);
+            console.debug(
+                "ui-check - event - change:",
+                check.checked,
+                ev.currentTarget,
+            );
     }
 
+    //
     // Testing the text input component
+    //
+
     {
         const input = app.querySelector<UIInput>(`ui-input`)!;
+
         input.oninput = (ev) =>
-            console.debug("ui-check - input:", input.value, ev.currentTarget);
+            console.debug(
+                "ui-check - event - input:",
+                input.value,
+                ev.currentTarget,
+            );
+
         input.onchange = (ev) =>
-            console.debug("ui-input - change:", input.value, ev.currentTarget);
+            console.debug(
+                "ui-input - event - change:",
+                input.value,
+                ev.currentTarget,
+            );
     }
 
-    // Testing search component
+    //
+    // Testing the search component
+    //
+
     {
         const search = app.querySelector<UISearch>(`ui-search`)!;
 
@@ -194,22 +223,24 @@ function main() {
 
         search.onchange = (ev) =>
             console.debug(
-                "ui-search - change:",
+                "ui-search - event - change:",
                 search.value,
                 ev.currentTarget,
             );
 
         search.onsubmit = (ev) =>
             console.debug(
-                "ui-search - submit:",
+                "ui-search - event - submit:",
                 search.value,
                 ev.currentTarget,
             );
 
-        // FIXME: Custom event "storage" missing
-        // @ts-expect-error - Event "storage" is a customEvent
-        search.addEventListener("storage", (ev: CustomEvent<UISearch>) => {
-            console.debug("ui-search - storage:", search.value, ev.detail);
+        search.addEventListener("storage", (ev: Event) => {
+            console.debug(
+                "ui-search - event - storage:",
+                search.value,
+                ev.currentTarget,
+            );
         });
     }
 }
