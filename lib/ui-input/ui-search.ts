@@ -202,7 +202,7 @@ export class UISearch extends LitElement {
                 localStorage.getItem(this.storagePrefix + this.storageKey) ||
                 "";
             this.value = value;
-            this.dispatchEvent(new CustomEvent("storage", { detail: this }));
+            this.dispatchEvent(new Event("storage"));
         }
     }
 
