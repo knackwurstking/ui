@@ -41,6 +41,8 @@ export class UIInput extends LitElement {
                 position: relative;
                 width: 100%;
                 height: fit-content;
+
+                border-radius: var(--ui-radius);
             }
 
             .container {
