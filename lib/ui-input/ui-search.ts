@@ -165,9 +165,7 @@ export class UISearch extends LitElement {
                     for="search"
                     ghost
                     @click=${() => {
-                        this.dispatchEvent(
-                            new CustomEvent("submit", { detail: this }),
-                        );
+                        this.dispatchEvent(new Event("submit"));
                     }}
                 >
                     ${svg.smoothieLineIcons}
