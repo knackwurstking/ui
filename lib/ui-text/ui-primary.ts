@@ -1,13 +1,15 @@
-import { html, LitElement } from "lit";
+import { html } from "lit";
 import { customElement } from "lit/decorators.js";
+import { UIText } from "./ui-text";
 
 @customElement("ui-primary")
-export class UIPrimary extends LitElement {
+export class UIPrimary extends UIText {
+    size: string = "1.1rem";
+    casl: number = 1;
+    mono: number = 0;
+    slnt: number = 0;
+
     protected render() {
-        return html`
-            <ui-text size="1.1rem" casl="1" mono="0" slnt="0">
-                <slot></slot>
-            </ui-text>
-        `;
+        return html`${super.render()}`;
     }
 }
