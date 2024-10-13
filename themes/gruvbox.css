@@ -36,7 +36,7 @@
      */
 
     --ui-hsl-bg: var(--hsl-bg);
-    --ui-hsl-primary: var(--hsl-aqua);
+    --ui-hsl-primary: var(--hsl-green);
     --ui-hsl-secondary: var(--hsl-gray);
     --ui-hsl-destructive: var(--hsl-red);
 
@@ -120,7 +120,7 @@
      */
 
     --ui-hsl-bg: var(--hsl-bg);
-    --ui-hsl-primary: var(--hsl-aqua);
+    --ui-hsl-primary: var(--hsl-green);
     --ui-hsl-secondary: var(--hsl-gray);
     --ui-hsl-destructive: var(--hsl-red);
 
