@@ -51,7 +51,7 @@ export function createMobile(
                 backupColor = originTarget.style.color;
                 backupBGColor = originTarget.style.backgroundColor;
 
-                originTarget.style.color = "hsl(var(--ui-hsl-primary-fg))";
+                originTarget.style.color = "hsl(var(--ui-hsl-primary-text))";
                 originTarget.style.backgroundColor =
                     "hsl(var(--ui-hsl-primary))";
 

@@ -50,7 +50,7 @@ export function createNative(
         ([...container.children] as HTMLElement[]).forEach((c, ci) => {
             if (ci === childIndex) {
                 c.style.background = "hsl(var(--ui-hsl-primary))";
-                c.style.color = "hsl(var(--ui-hsl-primary-fg))";
+                c.style.color = "hsl(var(--ui-hsl-primary-text))";
 
                 return;
             }
