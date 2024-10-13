@@ -2,6 +2,7 @@
 //import "../dist/ui.min.js";
 //import "../lib";
 import { html, svg, UICheck, UISvg } from "../lib";
+import { UIInput } from "../lib/ui-input/ui-input";
 
 function main() {
     const app = document.querySelector<HTMLElement>(`#app`)!;
@@ -126,8 +127,17 @@ function main() {
         >
             <h1><u>Inputs</u></h1>
 
-            <ui-label primary="Checkbox Example">
+            <ui-label primary="UICheck Example">
                 <ui-check checked></ui-check>
+            </ui-label>
+
+            <ui-label primary="UIInput Example">
+                <ui-input
+                    title="Input title here..."
+                    type="text"
+                    value="knackwurstking"
+                    placeholder="Enter your name here..."
+                ></ui-input>
             </ui-label>
         </section>
 
@@ -153,6 +163,13 @@ function main() {
         console.debug("input:", check.checked, ev.currentTarget);
     check.onchange = (ev) =>
         console.debug("change:", check.checked, ev.currentTarget);
+
+    // Testing the text input component
+    const input = app.querySelector<UIInput>(`ui-input`)!;
+    input.oninput = (ev) =>
+        console.debug("ui-check - input:", input.value, ev.currentTarget);
+    input.onchange = (ev) =>
+        console.debug("ui-input - change:", input.value, ev.currentTarget);
 }
 
 function renderSvgs(container: HTMLElement) {
