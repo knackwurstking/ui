@@ -35,7 +35,7 @@
      * Basics
      */
 
-    --ui-hsl-bg: var(--hsl-bg);
+    --ui-hsl-bg: var(--hsl-bg-hard);
     --ui-hsl-primary: var(--hsl-aqua);
     --ui-hsl-secondary: var(--hsl-gray);
     --ui-hsl-destructive: var(--hsl-red);
@@ -119,13 +119,7 @@
      * Basics
      */
 
-    /* TODO:
-     *  - [x] Replace `-fg` with `-text`
-     *  - [ ] Add special `-text` vars
-     *      - [ ] `--ui-hsl-input`
-     */
-
-    --ui-hsl-bg: var(--hsl-bg);
+    --ui-hsl-bg: var(--hsl-bg-hard);
     --ui-hsl-primary: var(--hsl-aqua);
     --ui-hsl-secondary: var(--hsl-gray);
     --ui-hsl-destructive: var(--hsl-red);
