@@ -215,6 +215,7 @@ function main() {
                     <ui-label
                         primary="UISelect Example 2"
                         secondary="Options added via javascript"
+                        ripple
                     >
                         <ui-select id="selectExample2"></ui-select>
                     </ui-label>
