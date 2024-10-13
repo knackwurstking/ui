@@ -8,6 +8,10 @@ export class UICheck extends LitElement {
 
     static get styles() {
         return css`
+            :host {
+                border-radius: var(--ui-radius);
+            }
+
             input {
                 display: inline-block;
 
