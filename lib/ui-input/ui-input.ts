@@ -121,19 +121,19 @@ export class UIInput extends LitElement {
         `;
     }
 
-    focus(options?: FocusOptions): void {
+    public focus(options?: FocusOptions): void {
         super.focus(options);
         this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(
             options,
         );
     }
 
-    blur(): void {
+    public blur(): void {
         super.blur();
         this.shadowRoot!.querySelector(`input`)!.blur();
     }
 
-    click(): void {
+    public click(): void {
         super.click();
         this.focus();
     }
