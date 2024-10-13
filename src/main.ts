@@ -1,7 +1,7 @@
 //import "../dist/style.css";
 //import "../dist/ui.min.js";
 //import "../lib";
-import { html, svg, UICheck, UISvg } from "../lib";
+import { svg, UICheck, UISearch, UISvg } from "../lib";
 import { UIInput } from "../lib/ui-input/ui-input";
 
 function main() {
@@ -11,7 +11,7 @@ function main() {
     app.classList.add("is-container");
     //app.classList.add("fluid");
 
-    app.innerHTML = html`
+    app.innerHTML = `
         <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
         <ui-store storage-prefix storage></ui-store>
 
@@ -139,17 +139,27 @@ function main() {
                     placeholder="Enter your name here..."
                 ></ui-input>
             </ui-label>
+
+            <ui-label primary="UISearch Example" ripple>
+                <ui-search
+                    title=""
+                    placeholder="Search..."
+                    storage
+                    storage-prefix="ui:search:"
+                    storage-key="test:"
+                ></ui-search>
+            </ui-label>
         </section>
 
         <ui-alerts>
-            <ui-alert variant="info" message="Info alert message"></ui-alert>
+            <!--ui-alert variant="info" message="Info alert message"></ui-alert>
 
             <ui-alert
                 variant="warning"
                 message="Warning alert message"
             ></ui-alert>
 
-            <ui-alert variant="error" message="Error alert message"></ui-alert>
+            <ui-alert variant="error" message="Error alert message"></ui-alert-->
         </ui-alerts>
     `;
 
@@ -158,18 +168,50 @@ function main() {
     // TODO: Initialize the stack layout and nav buttons
 
     // Testing the checkbox input component
-    const check = app.querySelector<UICheck>(`ui-check`)!;
-    check.oninput = (ev) =>
-        console.debug("input:", check.checked, ev.currentTarget);
-    check.onchange = (ev) =>
-        console.debug("change:", check.checked, ev.currentTarget);
+    {
+        const check = app.querySelector<UICheck>(`ui-check`)!;
+        check.oninput = (ev) =>
+            console.debug("input:", check.checked, ev.currentTarget);
+        check.onchange = (ev) =>
+            console.debug("change:", check.checked, ev.currentTarget);
+    }
 
     // Testing the text input component
-    const input = app.querySelector<UIInput>(`ui-input`)!;
-    input.oninput = (ev) =>
-        console.debug("ui-check - input:", input.value, ev.currentTarget);
-    input.onchange = (ev) =>
-        console.debug("ui-input - change:", input.value, ev.currentTarget);
+    {
+        const input = app.querySelector<UIInput>(`ui-input`)!;
+        input.oninput = (ev) =>
+            console.debug("ui-check - input:", input.value, ev.currentTarget);
+        input.onchange = (ev) =>
+            console.debug("ui-input - change:", input.value, ev.currentTarget);
+    }
+
+    // Testing search component
+    {
+        const search = app.querySelector<UISearch>(`ui-search`)!;
+
+        search.oninput = (ev) =>
+            console.debug("ui-search - input:", search.value, ev.currentTarget);
+
+        search.onchange = (ev) =>
+            console.debug(
+                "ui-search - change:",
+                search.value,
+                ev.currentTarget,
+            );
+
+        search.onsubmit = (ev) =>
+            console.debug(
+                "ui-search - submit:",
+                search.value,
+                ev.currentTarget,
+            );
+
+        // FIXME: Custom event "storage" missing
+        // @ts-expect-error - Event "storage" is a customEvent
+        search.addEventListener("storage", (ev: CustomEvent<UISearch>) => {
+            console.debug("ui-search - storage:", search.value, ev.detail);
+        });
+    }
 }
 
 function renderSvgs(container: HTMLElement) {
@@ -183,7 +225,7 @@ function renderSvgs(container: HTMLElement) {
         uiSvg.style.width = "2.5rem";
         uiSvg.style.height = "2.5rem";
 
-        uiSvg.innerHTML = value;
+        uiSvg.innerHTML = value.strings[0];
     }
 }
 
