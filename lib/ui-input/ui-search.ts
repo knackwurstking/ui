@@ -38,6 +38,11 @@ export class UISearch extends LitElement {
                 box-sizing: border-box;
             }
 
+            ::selection {
+                background-color: hsl(var(--ui-hsl-primary));
+                color: hsl(var(--ui-hsl-primary-text));
+            }
+
             :host {
                 display: block;
 
@@ -51,25 +56,26 @@ export class UISearch extends LitElement {
                 width: 100%;
 
                 border: none;
-                border: 1px solid var(--ui-borderColor);
+                border: 1px solid hsl(var(--ui-hsl-borderColor));
                 border-radius: var(--ui-radius);
 
                 transition: border-color 0.25s linear;
             }
 
             .container:has(input:focus) {
-                border-color: var(--ui-primary);
+                border-color: hsl(var(--ui-hsl-primary));
             }
 
             :host([invalid]) .container {
-                border-color: var(--ui-destructive);
+                border-color: hsl(var(--ui-hsl-destructive));
             }
 
             ui-secondary.title {
                 display: block;
+                margin-right: 2.5rem;
                 padding: 0 var(--ui-spacing);
+                font-size: 0.85rem;
                 user-select: none;
-                transform: translateY(calc(var(--ui-spacing) / 2));
             }
 
             input {
@@ -80,8 +86,9 @@ export class UISearch extends LitElement {
                 margin: 0;
                 padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-                accent-color: var(--ui-primary);
+                accent-color: hsl(var(--ui-hsl-primary));
                 background-color: transparent;
+                color: hsl(var(--ui-hsl-input-text));
 
                 outline: none;
                 border: none;
@@ -90,6 +97,10 @@ export class UISearch extends LitElement {
                 font-size: 0.9rem;
                 font-family: var(--ui-fontFamily);
                 font-variation-settings: var(--ui-input-fontVariation);
+            }
+
+            ui-secondary.title ~ input {
+                padding-top: 0;
             }
 
             :host(:not([no-submit])) input {
@@ -101,6 +112,10 @@ export class UISearch extends LitElement {
                 top: 0;
                 right: 0;
                 height: 100%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 border-top-left-radius: 0;
                 border-bottom-left-radius: 0;
@@ -121,7 +136,11 @@ export class UISearch extends LitElement {
 
         return html`
             <div class="container has-backdrop-blur">
-                <ui-secondary class="title"></ui-secondary>
+                ${!!this.title
+                    ? html`<ui-secondary class="title">
+                          ${this.title}
+                      </ui-secondary>`
+                    : ``}
 
                 <input
                     name="search"
@@ -164,11 +183,12 @@ export class UISearch extends LitElement {
                     name="submit"
                     for="search"
                     ghost
+                    ripple
                     @click=${() => {
                         this.dispatchEvent(new Event("submit"));
                     }}
                 >
-                    ${svg.smoothieLineIcons}
+                    ${svg.smoothieLineIcons.search}
                 </ui-icon-button>
             </div>
         `;
