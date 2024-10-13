@@ -77,7 +77,6 @@ export class UISearch extends LitElement {
                 margin-right: 2.5rem;
                 padding: 0 var(--ui-spacing);
                 font-size: 0.85rem;
-                user-select: none;
             }
 
             input {

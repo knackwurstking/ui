@@ -70,7 +70,6 @@ export class UIInput extends LitElement {
                 display: block;
                 padding: 0 var(--ui-spacing);
                 font-size: 0.85rem;
-                user-select: none;
             }
 
             input {
