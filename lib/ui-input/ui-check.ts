@@ -1,6 +1,10 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
+/**
+ * @event input
+ * @event change
+ */
 @customElement("ui-check")
 export class UICheck extends LitElement {
     @property({ type: Boolean, attribute: "checked", reflect: true })

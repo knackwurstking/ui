@@ -1,6 +1,10 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
+/**
+ * @event input
+ * @event change
+ */
 @customElement("ui-input")
 export class UIInput extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
