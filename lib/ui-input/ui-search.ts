@@ -1,356 +1,206 @@
-// TODO: Convert to typescript
-import svgSearch from "../svg/smoothie-line-icons/search";
-
-import { Events, globalStylesToShadowRoot, html } from "../utils";
-import { UISecondary } from "../ui-text";
+import { svg, UIIconButton } from "..";
+import { css, html, LitElement, PropertyValues } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
 /**
- * @typedef UISearch_Events
- * @type {{
- *  input: string;
- *  storage: string;
- *  submit: string;
- * }}
+ * @event {UISearch} storage - Triggered after storage data loaded
+ * @event {UISearch} submit - Triggered if submit button clicked (if "no-submit" property not set)
  */
+@customElement("ui-search")
+export class UISearch extends LitElement {
+    @property({ type: String, attribute: "title", reflect: true })
+    title: string = "";
 
-/**
- * HTML: `ui-search`
- *
- * Attributes:
- *  - __title__: *string*
- *  - __value__: *string*
- *  - __placeholder__: *string*
- *  - __invalid__: *boolean*
- *  - __nosubmit__: *boolean*
- *  - __storage__: *boolean*
- *  - __storageprefix__: *string*
- *  - __storagekey__: *string*
- *
- * Slots:
- *  - __title__
- *
- * @template {UISearch_Events} [E=UISearch_Events]
- */
-export class UISearch extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-search")) {
-            console.debug(`[ui] Register "ui-search" component`);
-            customElements.define("ui-search", UISearch);
-        }
-    };
+    @property({ type: String, attribute: "value" })
+    value: string = "";
 
-    static observedAttributes = [
-        "title",
-        "value",
-        "placeholder",
-        "invalid",
-        "nosubmit",
-        "storagekey",
-    ];
+    @property({ type: String, attribute: "placeholder", reflect: true })
+    placeholder: string = "";
 
-    constructor() {
-        super();
+    @property({ type: Boolean, attribute: "invalid", reflect: true })
+    invalid: boolean = false;
 
-        this.storagekey = "";
+    @property({ type: Boolean, attribute: "no-submit", reflect: true })
+    noSubmit: boolean = false;
 
-        this.ui = {
-            root: this,
+    @property({ type: Boolean, attribute: "storage", reflect: true })
+    storage: boolean = false;
 
-            /** @type {Events<E>} */
-            events: new Events(),
+    @property({ type: String, attribute: "storagePrefix", reflect: true })
+    storagePrefix: string = "";
 
-            /** @type {HTMLInputElement | null} */
-            input: null,
+    @property({ type: String, attribute: "storageKey", reflect: true })
+    storageKey: string = "";
 
-            /** @type {import("../ui-button").UIIconButton} */
-            submit: this.querySelector(`[name="submit"]`),
+    static get styles() {
+        return css`
+            * {
+                box-sizing: border-box;
+            }
 
-            get title() {
-                return this.root.querySelector(`[slot="title"]`).innerHTML;
-            },
+            :host {
+                display: block;
 
-            set title(value) {
-                let el = this.root.querySelector(`[slot="title"]`);
+                position: relative;
+                width: 100%;
+                height: fit-content;
+            }
 
-                if (!value && !!el) {
-                    this.root.removeChild(el);
-                }
+            .container {
+                position: relative;
+                width: 100%;
 
-                if (!value) return;
+                border: none;
+                border: 1px solid var(--ui-borderColor);
+                border-radius: var(--ui-radius);
 
-                if (!el) {
-                    el = new UISecondary();
-                    el.slot = "title";
-                    this.root.appendChild(el);
-                }
+                transition: border-color 0.25s linear;
+            }
 
-                el.innerHTML = value;
-            },
+            .container:has(input:focus) {
+                border-color: var(--ui-primary);
+            }
 
-            get value() {
-                return this.input.value;
-            },
+            :host([invalid]) .container {
+                border-color: var(--ui-destructive);
+            }
 
-            set value(value) {
-                this.input.value = value;
-            },
+            ui-secondary.title {
+                display: block;
+                padding: 0 var(--ui-spacing);
+                user-select: none;
+                transform: translateY(calc(var(--ui-spacing) / 2));
+            }
 
-            get placeholder() {
-                return this.input.placeholder;
-            },
+            input {
+                display: block;
 
-            set placeholder(value) {
-                this.input.placeholder = value || "";
-            },
+                width: 100%;
 
-            get invalid() {
-                return this.root.hasAttribute("invalid");
-            },
+                margin: 0;
+                padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-            set invalid(state) {
-                if (!state) {
-                    this.root.removeAttribute("invalid");
-                    return;
-                }
+                accent-color: var(--ui-primary);
+                background-color: transparent;
 
-                this.root.setAttribute("invalid", "");
-            },
+                outline: none;
+                border: none;
+                border-radius: inherit;
 
-            get nosubmit() {
-                return this.submit.style.display === "none";
-            },
+                font-size: 0.9rem;
+                font-family: var(--ui-fontFamily);
+                font-variation-settings: var(--ui-input-fontVariation);
+            }
 
-            set nosubmit(state) {
-                if (!state) {
-                    this.submit.style.display = null;
-                    return;
-                }
+            :host(:not([no-submit])) input {
+                width: calc(100% - 2rem);
+            }
 
-                this.submit.style.display = "none";
-            },
+            ui-icon-button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
 
-            get storage() {
-                return this.root.hasAttribute("storage");
-            },
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
 
-            set storage(state) {
-                if (!state) {
-                    this.root.removeAttribute("storage");
-                    return;
-                }
-
-                this.root.setAttribute("storage", "");
-            },
-
-            get storageprefix() {
-                return this.root.getAttribute("storageprefix");
-            },
-
-            set storageprefix(value) {
-                if (!value) {
-                    this.root.removeAttribute("storageprefix");
-                    return;
-                }
-
-                this.root.setAttribute("storageprefix", value);
-            },
-
-            get storagekey() {
-                return this.root.storagekey;
-            },
-
-            set storagekey(value) {
-                this.root.storagekey = value;
-
-                if (!this.storage) return;
-
-                this.value =
-                    localStorage.getItem(
-                        this.storageprefix + this.root.storagekey,
-                    ) || "";
-
-                this.events.dispatch("storage", this.value);
-            },
-
-            /**
-             * @param {FocusOptions | null} [options]
-             */
-            focus(options = null) {
-                this.root.shadowRoot.querySelector("input").focus(options);
-            },
-
-            blur() {
-                this.root.shadowRoot.querySelector("input").blur();
-            },
-        };
-
-        this.#renderUISearch();
+            :host([no-submit]) ui-icon-button {
+                display: none;
+            }
+        `;
     }
 
-    #renderUISearch() {
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
+    protected render() {
+        console.debug(
+            `[ui][ui-search] Render component with value "${this.value}"`,
+        );
 
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
+        let timeout: NodeJS.Timeout | null = null;
 
-                :host {
-                    display: block;
-
-                    position: relative;
-                    width: 100%;
-                    height: fit-content;
-                }
-
-                input {
-                    display: block;
-
-                    width: 100%;
-
-                    margin: 0;
-                    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-
-                    accent-color: var(--ui-primary);
-                    background-color: transparent;
-
-                    outline: none;
-                    border: none;
-                    border-radius: inherit;
-
-                    font-size: 0.9rem;
-                    font-family: var(--ui-fontFamily);
-                    font-variation-settings: var(--ui-input-fontVariation);
-                }
-
-                :host(:not([nosubmit])) input {
-                    width: calc(100% - 2rem);
-                }
-
-                .container {
-                    position: relative;
-                    width: 100%;
-
-                    border: none;
-                    border: 1px solid var(--ui-borderColor);
-                    border-radius: var(--ui-radius);
-
-                    transition: border-color 0.25s linear;
-                }
-
-                .container:has(input:focus) {
-                    border-color: var(--ui-primary);
-                }
-
-                :host([invalid]) .container {
-                    border-color: var(--ui-destructive);
-                }
-
-                ::slotted([slot="title"]) {
-                    display: block;
-                    padding: 0 var(--ui-spacing);
-                    user-select: none;
-                    transform: translateY(calc(var(--ui-spacing) / 2));
-                }
-
-                ui-icon-button {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    height: 100%;
-
-                    border-top-left-radius: 0;
-                    border-bottom-left-radius: 0;
-                }
-            </style>
-
+        return html`
             <div class="container has-backdrop-blur">
-                <slot name="title"></slot>
-                <input type="search" />
-                <ui-icon-button name="submit" ghost
-                    >${svgSearch}</ui-icon-button
+                <ui-secondary class="title"></ui-secondary>
+
+                <input
+                    name="search"
+                    type="search"
+                    ?value="${this.value}"
+                    @keydown=${(ev: KeyboardEvent) => {
+                        if (this.noSubmit || ev.key !== "Enter") return;
+                        // Trigger submit button click
+                        this.shadowRoot
+                            ?.querySelector<UIIconButton>(
+                                `ui-icon-button[name="submit"]`,
+                            )
+                            ?.click();
+                    }}
+                    @input=${(ev: Event) => {
+                        // Pass value down to the LitElement
+                        this.value = (
+                            ev.currentTarget as HTMLInputElement
+                        ).value;
+
+                        // Store value to localStorage
+                        if (!this.storage) return;
+
+                        if (timeout !== null) clearTimeout(timeout);
+                        timeout = setTimeout(() => {
+                            localStorage.setItem(
+                                this.storagePrefix + this.storageKey,
+                                this.value,
+                            );
+                            timeout = null;
+                        }, 250);
+                    }}
+                    @change=${() => {
+                        // Forward the "change" event to the LitElement
+                        this.dispatchEvent(new Event("change"));
+                    }}
+                />
+
+                <ui-icon-button
+                    name="submit"
+                    for="search"
+                    ghost
+                    @click=${() => {
+                        this.dispatchEvent(
+                            new CustomEvent("submit", { detail: this }),
+                        );
+                    }}
                 >
+                    ${svg.smoothieLineIcons}
+                </ui-icon-button>
             </div>
         `;
-
-        /** @type {import("../ui-button").UIIconButton} */
-        this.ui.submit = this.shadowRoot.querySelector(`[name="submit"]`);
-        this.ui.input = this.shadowRoot.querySelector("input");
-        this.ui.input.type = "search";
-
-        this.ui.input.addEventListener("keydown", async (ev) => {
-            if (this.ui.nosubmit) return;
-
-            if (ev.key === "Enter") {
-                this.ui.submit.click();
-            }
-        });
-
-        // @ts-ignore
-        /** @type {NodeJS.Timeout | null} */
-        let timeout = null;
-        this.ui.input.addEventListener("input", async () => {
-            if (this.ui.storage) {
-                if (timeout !== null) {
-                    clearTimeout(timeout);
-                }
-
-                timeout = setTimeout(() => {
-                    localStorage.setItem(
-                        this.ui.storageprefix + this.ui.storagekey,
-                        this.ui.input.value,
-                    );
-                    timeout = null;
-                }, 250);
-            }
-
-            this.ui.events.dispatch("input", this.ui.input.value);
-        });
-
-        this.shadowRoot
-            .querySelector("ui-icon-button")
-            .addEventListener("click", () => {
-                this.ui.events.dispatch("submit", this.ui.input.value);
-            });
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {}
+    protected firstUpdated(_changedProperties: PropertyValues): void {
+        super.firstUpdated(_changedProperties);
 
-    /**
-     * @param {string} name
-     * @param {string | null} _oldValue
-     * @param {string | null} newValue
-     */
-    attributeChangedCallback(name, _oldValue, newValue) {
-        switch (name) {
-            case "title":
-                this.ui.title = newValue;
-                break;
-
-            case "value":
-                this.ui.value = newValue;
-                break;
-
-            case "placeholder":
-                this.ui.placeholder = newValue;
-                break;
-
-            case "invalid":
-                this.ui.input.ariaInvalid = newValue !== null ? "" : null;
-                break;
-
-            case "nosubmit":
-                this.ui.nosubmit = newValue !== null;
-                break;
-
-            case "storagekey":
-                this.ui.storagekey = newValue;
-                break;
+        if (!this.value && this.storage) {
+            this.value =
+                localStorage.getItem(this.storagePrefix + this.storageKey) ||
+                "";
+            this.dispatchEvent(new CustomEvent("storage", { detail: this }));
         }
     }
-}
 
-UISearch.register();
+    public focus(options?: FocusOptions): void {
+        super.focus(options);
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(
+            options,
+        );
+    }
+
+    public blur(): void {
+        super.blur();
+        this.shadowRoot!.querySelector(`input`)!.blur();
+    }
+
+    public click(): void {
+        super.click();
+        this.focus();
+    }
+}
