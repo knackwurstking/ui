@@ -112,16 +112,17 @@ export class UISelect extends LitElement {
             <div
                 class="options"
                 @click=${async (ev: Event) => {
-                    if (this.keepOpen) {
-                        await optionsClickHandler(ev);
-                        return;
-                    }
+                    if (this.keepOpen) return await optionsClickHandler(ev);
 
+                    // Toggle open
                     this.open = !this.open;
+
                     if (this.open) {
+                        // Handle open
                         ev.stopPropagation();
                         this.addEventListener("click", optionsClickHandler);
                     } else {
+                        // Handle close
                         this.removeEventListener("click", optionsClickHandler);
                     }
                 }}
@@ -136,15 +137,19 @@ export class UISelect extends LitElement {
     }
 
     private async optionsClickHandler(ev: Event) {
-        (ev.composedPath() || []).forEach((child) => {
-            if (child instanceof UISelectOption) {
-                [...this.querySelectorAll("ui-select-option")].forEach((c) =>
-                    c.removeAttribute("selected"),
-                );
+        ev.composedPath().forEach((child) => {
+            if (!(child instanceof UISelectOption)) return;
 
-                child.setAttribute("selected", "");
-                this.dispatchEvent(new Event("change"));
-            }
+            // Deselect all opitons
+            [...this.querySelectorAll("ui-select-option")].forEach((c) =>
+                c.removeAttribute("selected"),
+            );
+
+            // Finally select the cicked option
+            child.setAttribute("selected", "");
+
+            // And dispatch a "change" event
+            this.dispatchEvent(new Event("change"));
         });
     }
 
@@ -153,11 +158,6 @@ export class UISelect extends LitElement {
     }
 
     public selected(): UISelectOption | null {
-        let child: UISelectOption;
-        for (child of this.options()) {
-            if (child.selected) return child;
-        }
-
-        return null;
+        return this.options().find((options) => options.selected) || null;
     }
 }
