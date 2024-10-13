@@ -14,11 +14,14 @@ export class UIFlexGridRow extends LitElement {
     @property({ type: String, attribute: "align" })
     align?: string;
 
+    @property({ type: String, attribute: "wrap" })
+    wrap?: string;
+
     static get styles() {
         return css`
             :host {
                 display: flex;
-                flex-flow: row nowrap;
+                flex-flow: row var(--_wrap, nowrap);
                 justify-content: var(--_justify);
                 align-items: var(--_align);
 
@@ -52,15 +55,23 @@ export class UIFlexGridRow extends LitElement {
 
         switch (name) {
             case "gap":
-                this.style.setProperty(`--_gap`, value || defaultGap);
+                if (!value) this.style.removeProperty("--_gap");
+                else this.style.setProperty(`--_gap`, value || defaultGap);
                 break;
 
             case "justify":
-                this.style.setProperty(`--_justify`, value || "");
+                if (!value) this.style.removeProperty("--_justify");
+                else this.style.setProperty(`--_justify`, value || "");
                 break;
 
             case "align":
-                this.style.setProperty(`--_align`, value || "");
+                if (!value) this.style.removeProperty("--_align");
+                else this.style.setProperty(`--_align`, value || "");
+                break;
+
+            case "wrap":
+                if (!value) this.style.removeProperty("--_wrap");
+                else this.style.setProperty(`--_wrap`, value || "");
                 break;
         }
     }
