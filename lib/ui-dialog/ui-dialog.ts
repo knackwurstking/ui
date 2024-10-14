@@ -66,6 +66,11 @@ export class UIDialog extends LitElement {
                 backdrop-filter: var(--ui-backdropFilter);
             }
 
+            :host([fullscreen]) dialog {
+                width: 100%;
+                height: 100%;
+            }
+
             dialog > .container {
                 background-color: hsl(var(--ui-hsl-bg));
                 color: hsl(var(--ui-hsl-fg));
@@ -80,11 +85,6 @@ export class UIDialog extends LitElement {
                 justify-content: space-between;
 
                 position: relative;
-            }
-
-            :host([fullscreen]) dialog {
-                width: 100%;
-                height: 100%;
             }
 
             :host([fullscreen]) dialog > .container {
@@ -175,15 +175,15 @@ export class UIDialog extends LitElement {
                 width: calc(100% - var(--ui-spacing) * 2);
             }
 
+            :host([nofooter]) .footer {
+                display: none;
+            }
+
             .footer ui-flex-grid-row {
                 height: 100%;
                 flex-wrap: nowrap;
                 justify-content: flex-end;
                 align-items: center;
-            }
-
-            :host([nofooter]) .footer {
-                display: none;
             }
         `;
     }
@@ -218,6 +218,9 @@ export class UIDialog extends LitElement {
             </dialog>
         `;
     }
+
+    // TODO: Add public methods: "close", "open" - dispatch "close", "open" events
+    // TODO: Add static method create action, or a public method add action?
 }
 
 /**
