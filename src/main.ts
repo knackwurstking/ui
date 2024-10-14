@@ -7,10 +7,16 @@ import {
     UISearch,
     UISelect,
     UISelectOption,
+    UIStore,
     UISvg,
     UITextarea,
 } from "../lib";
 import { UIInput } from "../lib/ui-input/ui-input";
+
+type MainStore = UIStore<{
+    test: number;
+    foo: boolean;
+}>;
 
 const html = String.raw;
 
@@ -23,7 +29,7 @@ function main() {
 
     app.innerHTML = html`
         <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
-        <ui-store storage-prefix storage></ui-store>
+        <ui-store storage-prefix="ui:" storage></ui-store>
 
         <section class="has-border">
             <h1><u>Text Components</u></h1>
@@ -246,12 +252,20 @@ function main() {
         </ui-alerts>
     `;
 
+    debugUIStore(app.querySelector(`ui-store`)!);
+
     renderSvgs(app);
+
     debugUICheck(app.querySelector<UICheck>(`ui-check`)!);
     debugUIInput(app.querySelector<UIInput>(`ui-input`)!);
     debugUISearch(app.querySelector<UISearch>(`ui-search`)!);
     debugUISelect(app.querySelector<UISelect>(`ui-select#selectExample2`)!);
     debugUITextarea(app.querySelector<UITextarea>(`ui-textarea`)!);
+}
+
+function debugUIStore(store: MainStore): void {
+    store.setData("test", 0, true);
+    store.setData("foo", false, true);
 }
 
 function renderSvgs(app: HTMLElement): void {
