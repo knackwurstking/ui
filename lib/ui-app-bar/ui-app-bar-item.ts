@@ -1,7 +1,8 @@
 import { css, html, LitElement } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 
 /**
+ * @attribute {string} name
  * @public content()
  * @public contentAt(...)
  * @public show()
@@ -9,6 +10,9 @@ import { customElement } from "lit/decorators.js";
  */
 @customElement("ui-app-bar-item")
 export class UIAppBarItem extends LitElement {
+    @property({ type: String, attribute: "name", reflect: true })
+    name: string = "";
+
     static get styles() {
         return css`
             * {

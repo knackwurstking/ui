@@ -1,132 +1,95 @@
-// TODO: Convert to typescript
-import { globalStylesToShadowRoot, html } from "../utils";
+import { css, html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { UIAppBarItem } from "./ui-app-bar-item";
+
+export type UIAppBarPosition = "top" | "bottom";
+export type UIAppBarSlots = "left" | "center" | "right";
 
 /**
- * HTML: `ui-app-bar`
- *
- * Attributes:
- *  - __position__: *"top" | "bottom"*
- *
- * Slots:
- *  - __left__
- *  - __center__
- *  - __right__
+ * @attribute {"top" | "bottom"} position
+ * @public content(...)
+ * @public contentName(...)
+ * @slot left
+ * @slot center
+ * @slot right
  */
-export class UIAppBar extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-app-bar")) {
-            console.debug(`[ui] Register "ui-app-bar" component`);
-            customElements.define("ui-app-bar", UIAppBar);
-        }
-    };
+@customElement("ui-app-bar")
+export class UIAppBar extends LitElement {
+    @property({ type: Boolean, attribute: "position", reflect: true })
+    position: UIAppBarPosition = "top";
 
-    constructor() {
-        super();
+    static get styles() {
+        return css`
+            * {
+                box-sizing: border-box;
+            }
 
-        this.ui = {
-            root: this,
+            :host {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                padding: calc(var(--ui-spacing) / 2);
 
-            get leftSlot() {
-                return [...this.root.querySelectorAll(`[slot="left"]`)];
-            },
+                background-color: hsla(
+                    var(--ui-hsl-backdrop),
+                    var(--ui-hsl-backdrop-alpha)
+                );
+                -webkit-backdrop-filter: var(--ui-backdropFilter);
+                backdrop-filter: var(--ui-backdropFilter);
+            }
 
-            get centerSlot() {
-                return [...this.root.querySelectorAll(`[slot="center"]`)];
-            },
+            :host([position="top"]),
+            :host([position="bottom"]) {
+                z-index: 100;
+                position: absolute !important;
+                left: 0;
+                right: 0;
+                height: var(--ui-app-bar-height);
+            }
 
-            get rightSlot() {
-                return [...this.root.querySelectorAll(`[slot="right"]`)];
-            },
+            :host([position="top"]) {
+                top: 0;
+                border-bottom: 1px solid hsl(var(--ui-borderColor));
+            }
 
-            get position() {
-                // @ts-expect-error
-                return this.root.getAttribute("position");
-            },
+            :host([position="bottom"]) {
+                bottom: 0;
+                border-top: 1px solid hsl(var(--ui-borderColor));
+            }
 
-            /**
-             * @param {"top" | "bottom"} value
-             */
-            set position(value) {
-                if (!value) {
-                    this.root.removeAttribute("position");
-                    return;
-                }
+            :host > ui-flex-grid-row {
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                justify-content: space-between;
+            }
 
-                this.root.setAttribute("position", value);
-            },
-        };
+            :host > ui-flex-grid-row > * {
+                height: 100%;
+            }
 
-        this.#renderUIAppBar();
+            :host > ui-flex-grid-row > *:nth-child(1),
+            :host > ui-flex-grid-row > *:nth-child(3) {
+                width: fit-content;
+            }
+
+            :host > ui-flex-grid-row > [slot="left"] {
+                margin-left: 0 !important;
+            }
+
+            :host > ui-flex-grid-row > [slot="center"] {
+                width: 100%;
+            }
+
+            :host > ui-flex-grid-row > [slot="right"] {
+                margin-right: 0 !important;
+                justify-content: flex-end;
+            }
+        `;
     }
 
-    #renderUIAppBar() {
-        this.classList.add("has-backdrop-blur");
-
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
-
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
-
-                :host {
-                    display: block;
-                    width: 100%;
-                    overflow: hidden;
-                    padding: calc(var(--ui-spacing) / 2);
-                }
-
-                :host([position="top"]),
-                :host([position="bottom"]) {
-                    z-index: 100;
-                    position: absolute !important;
-                    left: 0;
-                    right: 0;
-                    height: var(--ui-app-bar-height);
-                }
-
-                :host([position="top"]) {
-                    top: 0;
-                    border-bottom: 1px solid var(--ui-borderColor);
-                }
-
-                :host([position="bottom"]) {
-                    bottom: 0;
-                    border-top: 1px solid var(--ui-borderColor);
-                }
-
-                :host > ui-flex-grid-row {
-                    width: 100%;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: space-between;
-                }
-
-                :host > ui-flex-grid-row > * {
-                    height: 100%;
-                }
-
-                :host > ui-flex-grid-row > *:nth-child(1),
-                :host > ui-flex-grid-row > *:nth-child(3) {
-                    width: fit-content;
-                }
-
-                :host > ui-flex-grid-row > [slot="left"] {
-                    margin-left: 0 !important;
-                }
-
-                :host > ui-flex-grid-row > [slot="center"] {
-                    width: 100%;
-                }
-
-                :host > ui-flex-grid-row > [slot="right"] {
-                    margin-right: 0 !important;
-                    justify-content: flex-end;
-                }
-            </style>
-
+    protected render() {
+        return html`
             <ui-flex-grid-row gap="0.25rem">
                 <ui-flex-grid-row gap="0.25rem" align="center">
                     <slot name="left"></slot>
@@ -147,8 +110,11 @@ export class UIAppBar extends HTMLElement {
         `;
     }
 
-    connectedCallback() {}
-    disconnectedCallback() {}
-}
+    content<T extends UIAppBarItem>(slot: UIAppBarSlots): T[] {
+        return [...this.querySelectorAll<T>(`[slot="${slot}"]`)];
+    }
 
-UIAppBar.register();
+    contentName<T extends UIAppBarItem>(name: string): T | null {
+        return this.querySelector<T>(`[name="${name}"]`);
+    }
+}
