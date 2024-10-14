@@ -10,7 +10,7 @@
     --ui-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
     --ui-button-fontVariation: "CASL" 1, "MONO" 0, "slnt" -6;
     --ui-heading-fontVariation: "CASL" 0, "MONO" 0, "slnt" -15;
-    --ui-input-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
+    --ui-input-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
     --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
     --ui-select-fontVariation: "CASL" 1, "MONO" 1, "slnt" 0;
     --ui-tbody-fontVariation: "CASL" 1, "MONO" 0, "slnt" -3;
