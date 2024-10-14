@@ -7,6 +7,7 @@ export type UIAppBarSlots = "left" | "center" | "right";
 
 /**
  * @attribute {"top" | "bottom"} position
+ * @attribute {boolean} fixed
  * @public content(...)
  * @public contentName(...)
  * @slot left
@@ -15,8 +16,11 @@ export type UIAppBarSlots = "left" | "center" | "right";
  */
 @customElement("ui-app-bar")
 export class UIAppBar extends LitElement {
-    @property({ type: Boolean, attribute: "position", reflect: true })
+    @property({ type: String, attribute: "position", reflect: true })
     position: UIAppBarPosition = "top";
+
+    @property({ type: Boolean, attribute: "fixed", reflect: true })
+    fixed: boolean = false;
 
     static get styles() {
         return css`
@@ -45,6 +49,11 @@ export class UIAppBar extends LitElement {
                 left: 0;
                 right: 0;
                 height: var(--ui-app-bar-height);
+            }
+
+            :host([position="top"]):host([fixed]),
+            :host([position="bottom"]):host([fixed]) {
+                position: fixed !important;
             }
 
             :host([position="top"]) {
