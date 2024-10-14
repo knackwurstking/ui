@@ -1,5 +1,16 @@
-// TODO: Convert to typescript
-import { globalStylesToShadowRoot, html } from "../utils";
+import { css, html, LitElement } from "lit";
+import { customElement } from "lit/decorators.js";
+
+@customElement("ui-app-bar-item")
+export class UIAppBarItem extends LitElement {
+    static get styles() {
+        return css``; // TODO: ...
+    }
+
+    protected render() {
+        return html`<slot></slot>`;
+    }
+}
 
 /**
  * HTML: `ui-app-bar-item`
@@ -9,14 +20,7 @@ import { globalStylesToShadowRoot, html } from "../utils";
  *
  * @template {HTMLElement} T
  */
-export class UIAppBarItem extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-app-bar-item")) {
-            console.debug(`[ui] Register "ui-app-bar-item" component`);
-            customElements.define("ui-app-bar-item", UIAppBarItem);
-        }
-    };
-
+export class _UIAppBarItem extends HTMLElement {
     constructor() {
         super();
 
@@ -64,13 +68,6 @@ export class UIAppBarItem extends HTMLElement {
                     flex-grow: 1;
                 }
             </style>
-
-            <slot></slot>
         `;
     }
-
-    connectedCallback() {}
-    disconnectedCallback() {}
 }
-
-UIAppBarItem.register();
