@@ -399,8 +399,6 @@ export class MainApp extends LitElement {
         // Set multiline text to ui-textarea
         const textarea =
             this.shadowRoot!.querySelector<UITextarea>(`ui-textarea`)!;
-        {
-            textarea.value = `Multiline text box\n\n\nHi, whats up!`;
-        }
+        textarea.value = `Multiline text box\n\n\nHi, whats up!`;
     }
 }
