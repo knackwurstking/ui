@@ -127,6 +127,8 @@ export class UISelect extends LitElement {
 
         const optionsClickHandler = this.optionsClickHandler.bind(this);
 
+        // TODO: Handle "absolute" property, Create a dialog, append to dom until closed
+
         return html`
             <div
                 class="options"
