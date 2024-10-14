@@ -41,7 +41,7 @@
     --ui-hsl-destructive: var(--hsl-red);
 
     --ui-hsl-text: var(--hsl-fg);
-    --ui-hsl-input-text: var(--hsl-fg1);
+    --ui-hsl-input-text: var(--hsl-fg3);
     --ui-hsl-primary-text: var(--hsl-bg);
     --ui-hsl-secondary-text: var(--hsl-bg);
     --ui-hsl-destructive-text: 6, 96%, 82%;
@@ -125,7 +125,7 @@
     --ui-hsl-destructive: var(--hsl-red);
 
     --ui-hsl-text: var(--hsl-fg);
-    --ui-hsl-input-text: var(--hsl-fg1);
+    --ui-hsl-input-text: var(--hsl-fg3);
     --ui-hsl-primary-text: var(--hsl-bg);
     --ui-hsl-secondary-text: var(--hsl-bg);
     --ui-hsl-destructive-text: 6, 96%, 18%;
