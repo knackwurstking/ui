@@ -1,73 +1,48 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 
+/**
+ * @public `content<T extends HTMLElement[]>(): T`
+ * @public `contentAt<T extends HTMLElement>(index: number = 0): T`
+ * @public `show(): void`
+ * @public `hide(): void`
+ */
 @customElement("ui-app-bar-item")
 export class UIAppBarItem extends LitElement {
     static get styles() {
-        return css``; // TODO: ...
+        return css`
+            * {
+                box-sizing: border-box;
+            }
+
+            :host {
+                display: var(--_display, content);
+                flex: 1;
+            }
+
+            ::slotted(*) {
+                flex-grow: 1;
+            }
+        `;
     }
 
     protected render() {
         return html`<slot></slot>`;
     }
-}
 
-/**
- * HTML: `ui-app-bar-item`
- *
- * Slots:
- *  - __\*__
- *
- * @template {HTMLElement} T
- */
-export class _UIAppBarItem extends HTMLElement {
-    constructor() {
-        super();
-
-        this.ui = {
-            root: this,
-
-            /**
-             * @returns {T}
-             */
-            get child() {
-                return this.root.querySelector("*");
-            },
-
-            /**
-             * @param {string | null} [value]
-             */
-            show(value = null) {
-                this.root.style.display = value;
-            },
-
-            hide() {
-                this.root.style.display = "none";
-            },
-        };
-
-        this.#renderUIAppBarItem();
+    public content<T extends HTMLElement[]>(): T {
+        return [...this.children] as T;
     }
 
-    #renderUIAppBarItem() {
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
+    public contentAt<T extends HTMLElement>(index: number = 0): T {
+        return this.children[index] as T;
+    }
 
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
+    public show(): void {
+        this.style.removeProperty("--_display");
+    }
 
-                :host {
-                    display: content;
-                    flex: 1;
-                }
-
-                ::slotted(*) {
-                    flex-grow: 1;
-                }
-            </style>
-        `;
+    public hide(): void {
+        this.style.setProperty("--_display", "none");
     }
 }
