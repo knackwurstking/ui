@@ -13,6 +13,8 @@ export class UISelect extends LitElement {
     @property({ type: Boolean, attribute: "keep-open", reflect: true })
     keepOpen: boolean = false;
 
+    // TODO: Add some absolute position option ("..."), this will open to a fixed position, just like a dialog
+
     static get styles() {
         return css`
             * {
