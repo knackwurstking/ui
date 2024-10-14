@@ -3,6 +3,8 @@ import { customElement } from "lit/decorators.js";
 import {
     globalStylesToShadowRoot,
     svg,
+    UIAppBar,
+    UIAppBarPosition,
     UICheck,
     UIInput,
     UISearch,
@@ -14,9 +16,27 @@ import {
 } from "../lib";
 import { MainStore } from "./types";
 
+@customElement("main-app-bar")
+class MainAppBar extends UIAppBar {
+    position = "top" as UIAppBarPosition;
+    fixed = true;
+
+    protected firstUpdated(_changedProperties: PropertyValues): void {
+        super.firstUpdated(_changedProperties);
+        console.debug(`Adding "main-app-bar" items now...`);
+        const html = String.raw;
+        this.innerHTML = html`
+            <ui-app-bar-item slot="center" name="title">
+                <h3>App Bar Title</h3>
+            </ui-app-bar-item>
+        `;
+    }
+}
+
 @customElement("main-app")
 export class MainApp extends LitElement {
     public store: MainStore = new UIStore();
+    public appBar: MainAppBar = new MainAppBar();
 
     protected render() {
         console.debug(`Render main application`);
@@ -29,49 +49,16 @@ export class MainApp extends LitElement {
             <!--ui-store storage-prefix="ui:" storage></ui-store-->
             ${this.store} ${this.renderTextComponentsSection()}
             ${this.renderSvgSection()} ${this.renderStackLayoutSection()}
-            ${this.renderInputsSection()} ${this.renderAppBar()}
-            ${this.renderAlerts()}
-        `;
-    }
-
-    protected renderSvgSection() {
-        const svgs: LitElement[] = [];
-
-        let uiSvg: UISvg;
-        for (const [name, value] of Object.entries(svg.smoothieLineIcons)) {
-            uiSvg = new UISvg();
-            svgs.push(uiSvg);
-
-            uiSvg.setAttribute("name", name);
-
-            uiSvg.style.width = "2.5rem";
-            uiSvg.style.height = "2.5rem";
-
-            uiSvg.innerHTML = value.strings[0];
-        }
-
-        return html`
-            <section
-                id="svgs"
-                class="has-border"
-                style="margin-top: var(--ui-spacing);"
-            >
-                <h1><u>Svg's</u></h1>
-
-                <section id="smoothieLineIcons">
-                    <h2>Smoothie Line Icons</h2>
-
-                    <ui-flex-grid-row wrap="wrap" gap="0.25rem">
-                        ${svgs}
-                    </ui-flex-grid-row>
-                </section>
-            </section>
+            ${this.renderInputsSection()} ${this.appBar} ${this.renderAlerts()}
         `;
     }
 
     protected renderTextComponentsSection() {
         return html`
-            <section class="has-border">
+            <section
+                class="has-border"
+                style="margin-top: var(--ui-app-bar-height);"
+            >
                 <h1><u>Text Components</u></h1>
 
                 <section>
@@ -117,6 +104,41 @@ export class MainApp extends LitElement {
                             </ui-label>
                         </ui-flex-grid-item>
                     </ui-flex-grid>
+                </section>
+            </section>
+        `;
+    }
+
+    protected renderSvgSection() {
+        const svgs: LitElement[] = [];
+
+        let uiSvg: UISvg;
+        for (const [name, value] of Object.entries(svg.smoothieLineIcons)) {
+            uiSvg = new UISvg();
+            svgs.push(uiSvg);
+
+            uiSvg.setAttribute("name", name);
+
+            uiSvg.style.width = "2.5rem";
+            uiSvg.style.height = "2.5rem";
+
+            uiSvg.innerHTML = value.strings[0];
+        }
+
+        return html`
+            <section
+                id="svgs"
+                class="has-border"
+                style="margin-top: var(--ui-spacing);"
+            >
+                <h1><u>Svg's</u></h1>
+
+                <section id="smoothieLineIcons">
+                    <h2>Smoothie Line Icons</h2>
+
+                    <ui-flex-grid-row wrap="wrap" gap="0.25rem">
+                        ${svgs}
+                    </ui-flex-grid-row>
                 </section>
             </section>
         `;
@@ -336,11 +358,6 @@ export class MainApp extends LitElement {
         `;
     }
 
-    protected renderAppBar() {
-        // TODO: Add app-bar, position top
-        return html``;
-    }
-
     protected renderAlerts() {
         return html`
             <ui-alerts>
@@ -357,6 +374,8 @@ export class MainApp extends LitElement {
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
+        super.firstUpdated(_changedProperties);
+
         //app.classList.add("is-debug");
         this.classList.add("is-container");
         //app.classList.add("fluid");
@@ -403,5 +422,19 @@ export class MainApp extends LitElement {
         const textarea =
             this.shadowRoot!.querySelector<UITextarea>(`ui-textarea`)!;
         textarea.value = `Multiline text box\n\n\nHi, whats up!`;
+
+        // Testing AppBar methods
+        setTimeout(() => {
+            console.debug(
+                `Center slot AppBar items:`,
+                this.appBar.content("center"),
+            );
+
+            const titleItem = this.appBar.contentName("title")!;
+            console.debug(`AppBar item with the name "title": `, titleItem);
+
+            const title = titleItem.contentAt<HTMLElement>(0);
+            console.debug(`Title AppBar item:`, title);
+        });
     }
 }
