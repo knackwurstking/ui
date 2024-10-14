@@ -22,6 +22,9 @@ export class UISelectOption extends LitElement {
                     1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
                 );
 
+                font-variation-settings: var(--ui-input-fontVariation);
+                color: hsl(var(--ui-hsl-input-text));
+
                 white-space: nowrap;
                 text-overflow: ellipsis;
 

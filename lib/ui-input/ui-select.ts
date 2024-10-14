@@ -32,7 +32,6 @@ export class UISelect extends LitElement {
                 transition: height 0.25s ease;
 
                 background-color: transparent;
-                color: hsl(var(--ui-hsl-input-text));
 
                 border: 1px solid hsl(var(--ui-hsl-borderColor));
                 border-radius: var(--ui-radius);
