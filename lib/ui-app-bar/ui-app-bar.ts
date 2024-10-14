@@ -58,12 +58,12 @@ export class UIAppBar extends LitElement {
 
             :host([position="top"]) {
                 top: 0;
-                border-bottom: 1px solid hsl(var(--ui-borderColor));
+                border-bottom: 1px solid hsl(var(--ui-hsl-borderColor));
             }
 
             :host([position="bottom"]) {
                 bottom: 0;
-                border-top: 1px solid hsl(var(--ui-borderColor));
+                border-top: 1px solid hsl(var(--ui-hsl-borderColor));
             }
 
             :host > ui-flex-grid-row {
