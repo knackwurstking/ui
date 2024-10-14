@@ -14,9 +14,6 @@ import {
 } from "../lib";
 import { MainStore } from "./types";
 
-/**
- * TODO: Add app-bar, position top
- */
 @customElement("main-app")
 export class MainApp extends LitElement {
     public store: MainStore = new UIStore();
@@ -32,7 +29,8 @@ export class MainApp extends LitElement {
             <!--ui-store storage-prefix="ui:" storage></ui-store-->
             ${this.store} ${this.renderTextComponentsSection()}
             ${this.renderSvgSection()} ${this.renderStackLayoutSection()}
-            ${this.renderInputsSection()} ${this.renderAlerts()}
+            ${this.renderInputsSection()} ${this.renderAppBar()}
+            ${this.renderAlerts()}
         `;
     }
 
@@ -336,6 +334,11 @@ export class MainApp extends LitElement {
                 </ui-flex-grid>
             </section>
         `;
+    }
+
+    protected renderAppBar() {
+        // TODO: Add app-bar, position top
+        return html``;
     }
 
     protected renderAlerts() {
