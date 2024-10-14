@@ -28,6 +28,11 @@ export class UITextarea extends LitElement {
                 box-sizing: border-box;
             }
 
+            ::selection {
+                background-color: hsl(var(--ui-hsl-primary));
+                color: hsl(var(--ui-hsl-primary-text));
+            }
+
             :host {
                 display: block;
                 position: relative;
@@ -39,17 +44,17 @@ export class UITextarea extends LitElement {
                 width: 100%;
                 height: 100%;
                 border: none;
-                border: 1px solid var(--ui-borderColor);
+                border: 1px solid hsl(var(--ui-hsl-borderColor));
                 border-radius: var(--ui-radius);
                 transition: border-color 0.25s linear;
             }
 
             .container:has(textarea:focus) {
-                border-color: var(--ui-primary);
+                border-color: hsl(var(--ui-hsl-primary));
             }
 
             :host([invalid]) .container {
-                border-color: var(--ui-destructive);
+                border-color: hsl(var(--ui-hsl-destructive));
             }
 
             ui-secondary.title {
@@ -65,14 +70,15 @@ export class UITextarea extends LitElement {
                 display: block;
                 margin: 0;
                 padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-                border: none !important;
+                border: none;
                 border-radius: inherit;
-                outline: none !important;
+                outline: none;
                 font-size: 0.9rem;
                 font-family: var(--ui-fontFamily);
                 font-variation-settings: var(--ui-input-fontVariation);
-                accent-color: var(--ui-primary);
-                background-color: transparent !important;
+                accent-color: hsl(var(--ui-hsl-primary));
+                background-color: transparent;
+                color: hsl(var(--ui-hsl-input-text));
             }
         `;
     }
