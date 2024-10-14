@@ -14,6 +14,9 @@ import {
 } from "../lib";
 import { MainStore } from "./types";
 
+/**
+ * TODO: Add app-bar, position top
+ */
 @customElement("main-app")
 export class MainApp extends LitElement {
     public store: MainStore = new UIStore();
