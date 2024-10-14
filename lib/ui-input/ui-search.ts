@@ -3,6 +3,17 @@ import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
+ * @attribute {string} title
+ * @attribute {string} value
+ * @attribute {string} placeholder
+ * @attribute {boolean} invalid
+ * @attribute {boolean} no-submit
+ * @attribute {boolean} storage
+ * @attribute {string} storage-prefix
+ * @attribute {string} storage-key
+ * @public focus(...)
+ * @public blur()
+ * @public click()
  * @event input
  * @event change
  * @event storage - Triggered after storage data loaded
@@ -27,10 +38,11 @@ export class UISearch extends LitElement {
 
     @property({ type: Boolean, attribute: "storage", reflect: true })
     storage: boolean = false;
-    @property({ type: String, attribute: "storagePrefix", reflect: true })
+
+    @property({ type: String, attribute: "storage-prefix", reflect: true })
     storagePrefix: string = "";
 
-    @property({ type: String, attribute: "storageKey", reflect: true })
+    @property({ type: String, attribute: "storage-key", reflect: true })
     storageKey: string = "";
 
     static get styles() {

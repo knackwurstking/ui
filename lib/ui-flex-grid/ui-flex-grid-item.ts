@@ -3,6 +3,9 @@ import { customElement, property } from "lit/decorators.js";
 
 const defaultFlex = 1;
 
+/**
+ * @attribute {number} flex
+ */
 @customElement("ui-flex-grid-item")
 export class UIFlexGridItem extends LitElement {
     @property({ type: Number, attribute: "flex" })

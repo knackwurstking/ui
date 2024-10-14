@@ -3,6 +3,16 @@ import { customElement } from "lit/decorators.js";
 import { Events } from "../utils";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
+/**
+ * @public events
+ * @public stack
+ * @public stackSize()
+ * @public clear()
+ * @public goBack()
+ * @public register(...)
+ * @public unregister(...)
+ * @public async set(...)
+ */
 @customElement("ui-stack-layout")
 export class UIStackLayout<T extends string> extends LitElement {
     public events: Events<{
@@ -63,27 +73,27 @@ export class UIStackLayout<T extends string> extends LitElement {
         return this.stack.length;
     }
 
-    public async clear(): Promise<void> {
+    public clear(): void {
         while (this.stack.length > 0) {
             this.removeChild(this.stack.pop()!);
         }
     }
 
-    public async goBack(): Promise<void> {
+    public goBack(): void {
         if (this.stack.length === 0 || this.lockNavigation) return;
 
         history.back();
         return;
     }
 
-    public async register(
+    public register(
         pageName: T,
         cb: () => UIStackLayoutPage | Promise<UIStackLayoutPage>,
-    ): Promise<void> {
+    ): void {
         this.pages[pageName] = cb;
     }
 
-    public async unregister(pageName: T): Promise<void> {
+    public unregister(pageName: T): void {
         delete this.pages[pageName];
     }
 

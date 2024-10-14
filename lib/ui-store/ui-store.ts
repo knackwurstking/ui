@@ -3,6 +3,15 @@ import { customElement, property } from "lit/decorators.js";
 import { Events } from "../utils";
 import { CleanUpFunction } from "../global";
 
+/**
+ * @attribute {boolean} storage
+ * @attribute {string} storage-prefix
+ * @public events
+ * @public getData(...)
+ * @public setData(...)
+ * @public updateData(...)
+ * @public addListener(...)
+ */
 @customElement("ui-store")
 export class UIStore<T extends { [key: string]: any }> extends LitElement {
     private data: { [key: string]: any } = {};

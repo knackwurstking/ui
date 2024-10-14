@@ -6,6 +6,12 @@ import { ripple } from "../utils";
 export type UIButtonColor = "primary" | "secondary" | "destructive";
 export type UIButtonVariant = "full" | "outline" | "ghost";
 
+/**
+ * @attribute {"primary" | "secondary" | "destructive"} color
+ * @attribute {"full" | "outline" | "ghost"} variant
+ * @attribute {boolean} disabled
+ * @attribute {boolean} ripple
+ */
 @customElement("ui-button")
 export class UIButton extends LitElement {
     private rippleCleanUp: CleanUpFunction | null = null;

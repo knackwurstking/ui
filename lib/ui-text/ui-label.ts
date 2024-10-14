@@ -2,6 +2,11 @@ import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { CleanUpFunction, ripple } from "..";
 
+/**
+ * @attribute {string} primary
+ * @attribute {string} secondary
+ * @attribute {boolean} ripple
+ */
 @customElement("ui-label")
 export class UILabel extends LitElement {
     private rippleCleanUp: CleanUpFunction | null = null;

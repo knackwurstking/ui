@@ -1,6 +1,9 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
+/**
+ * @attribute {string} name
+ */
 @customElement("ui-stack-layout-page")
 export class UIStackLayoutPage extends LitElement {
     @property({ type: String, attribute: "name", reflect: true })

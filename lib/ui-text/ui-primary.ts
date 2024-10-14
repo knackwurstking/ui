@@ -2,6 +2,9 @@ import { html } from "lit";
 import { customElement } from "lit/decorators.js";
 import { UIText } from "./ui-text";
 
+/**
+ * @exteds {UIText}
+ */
 @customElement("ui-primary")
 export class UIPrimary extends UIText {
     size: string = "1.1rem";

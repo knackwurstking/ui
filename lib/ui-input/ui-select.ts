@@ -3,6 +3,11 @@ import { customElement, property } from "lit/decorators.js";
 import { svg, UISelectOption } from "..";
 
 /**
+ * @attribute {boolean} open
+ * @attribute {boolean} keep-open
+ * @public options()
+ * @public selected()
+ * @public click()
  * @event change
  */
 @customElement("ui-select")

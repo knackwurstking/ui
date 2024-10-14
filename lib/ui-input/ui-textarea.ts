@@ -2,6 +2,19 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 
+/**
+ * @attribute {string} title
+ * @attribute {string} value
+ * @attribute {string} placeholder
+ * @attribute {boolean} invalid
+ * @attribute {number} rows
+ * @attribute {number} cols
+ * @public focus(...)
+ * @public blur()
+ * @public click()
+ * @event input
+ * @event change
+ */
 @customElement("ui-textarea")
 export class UITextarea extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })

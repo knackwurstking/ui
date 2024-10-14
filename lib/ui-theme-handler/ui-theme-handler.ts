@@ -6,6 +6,11 @@ const defaultTheme: UIThemeHandlerThemes = "gruvbox";
 export type UIThemeHandlerThemes = "original" | "gruvbox";
 export type UIThemeHandlerModes = "dark" | "light" | null;
 
+/**
+ * @attribute {boolean} auto
+ * @attribute {"dark" | "light" | null} mode
+ * @attribute {"original" | "gruvbox"} theme - TODO: Use `T extends UIThemeHandlerThemes` here?
+ */
 @customElement("ui-theme-handler")
 export class UIThemeHandler extends LitElement {
     private get target(): HTMLElement {

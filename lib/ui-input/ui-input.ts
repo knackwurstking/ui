@@ -2,6 +2,16 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
+ * @attribute {string} title
+ * @attribute {string} type
+ * @attribute {string} value
+ * @attribute {string} placeholder
+ * @attribute {boolean} invalid
+ * @attribute {string} min
+ * @attribute {string} max
+ * @public focus(...)
+ * @public blur()
+ * @public click()
  * @event input
  * @event change
  */

@@ -3,6 +3,12 @@ import { customElement, property } from "lit/decorators.js";
 import { UILangType } from "./ui-lang-type";
 import { Events } from "../utils";
 
+/**
+ * @attribute {string} current
+ * @public events
+ * @public fallback()
+ * @public get(...)
+ */
 @customElement("ui-lang")
 export class UILang extends LitElement {
     private data: { [key: string]: { [key: string]: string } } = {};

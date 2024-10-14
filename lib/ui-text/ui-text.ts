@@ -1,6 +1,13 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
+/**
+ * @attribute {nubmer} casl
+ * @attribute {nubmer} mono
+ * @attribute {nubmer} slnt
+ * @attribute {string} size
+ * @attribute {string} family
+ */
 @customElement("ui-text")
 export class UIText extends LitElement {
     /**

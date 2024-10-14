@@ -1,6 +1,9 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
+/**
+ * @attribute {boolean} nobg
+ */
 @customElement("ui-spinner")
 export class UISpinner extends LitElement {
     @property({ type: Boolean, attribute: "nobg", reflect: true })

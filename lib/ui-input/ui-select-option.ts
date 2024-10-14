@@ -1,6 +1,10 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
+/**
+ * @attribute {string} value
+ * @attribute {boolean} selected
+ */
 @customElement("ui-select-option")
 export class UISelectOption extends LitElement {
     @property({ type: String, attribute: "value", reflect: true })
