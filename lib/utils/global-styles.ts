@@ -1,6 +1,6 @@
 let globalData: CSSStyleSheet[] | null = null;
 
-export function globalStyleSheets(): CSSStyleSheet[] {
+function globalStyleSheets(): CSSStyleSheet[] {
     if (globalData === null) {
         globalData = Array.from(document.styleSheets).map((x) => {
             const sheet = new CSSStyleSheet();
