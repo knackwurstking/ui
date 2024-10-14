@@ -8,6 +8,7 @@ import {
     UISelect,
     UISelectOption,
     UISvg,
+    UITextarea,
 } from "../lib";
 import { UIInput } from "../lib/ui-input/ui-input";
 
@@ -220,6 +221,16 @@ function main() {
                         <ui-select id="selectExample2"></ui-select>
                     </ui-label>
                 </ui-flex-grid-item>
+
+                <ui-flex-grid-item>
+                    <ui-label primary="UITextarea Example">
+                        <ui-textarea
+                            title="Textarea title here..."
+                            cols="25"
+                            rows="4"
+                        ></ui-textarea>
+                    </ui-label>
+                </ui-flex-grid-item>
             </ui-flex-grid>
         </section>
 
@@ -240,9 +251,10 @@ function main() {
     debugUIInput(app.querySelector<UIInput>(`ui-input`)!);
     debugUISearch(app.querySelector<UISearch>(`ui-search`)!);
     debugUISelect(app.querySelector<UISelect>(`ui-select#selectExample2`)!);
+    debugUITextarea(app.querySelector<UITextarea>(`ui-textarea`)!);
 }
 
-function renderSvgs(app: HTMLElement) {
+function renderSvgs(app: HTMLElement): void {
     const container = app.querySelector(
         `section#svgs > section#smoothieLineIcons .container`,
     )!;
@@ -261,7 +273,7 @@ function renderSvgs(app: HTMLElement) {
     }
 }
 
-function debugUICheck(el: UICheck) {
+function debugUICheck(el: UICheck): void {
     el.oninput = (ev) =>
         console.debug(
             "ui-check - event - input:",
@@ -277,7 +289,7 @@ function debugUICheck(el: UICheck) {
         );
 }
 
-function debugUIInput(el: UIInput) {
+function debugUIInput(el: UIInput): void {
     el.oninput = (ev) =>
         console.debug("ui-input - event - input:", el.value, ev.currentTarget);
 
@@ -285,7 +297,7 @@ function debugUIInput(el: UIInput) {
         console.debug("ui-input - event - change:", el.value, ev.currentTarget);
 }
 
-function debugUISearch(el: UISearch) {
+function debugUISearch(el: UISearch): void {
     el.oninput = (ev) =>
         console.debug("ui-search - input:", el.value, ev.currentTarget);
 
@@ -312,7 +324,7 @@ function debugUISearch(el: UISearch) {
     });
 }
 
-function debugUISelect(el: UISelect) {
+function debugUISelect(el: UISelect): void {
     let option = new UISelectOption();
     option.value = "o1";
     option.selected = false;
@@ -336,6 +348,10 @@ function debugUISelect(el: UISelect) {
     option.selected = false;
     option.textContent = "Option 4";
     el.appendChild(option);
+}
+
+function debugUITextarea(el: UITextarea): void {
+    el.value = `Multiline text box\n\n\nHi, whats up!`;
 }
 
 main();
