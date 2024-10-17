@@ -4,7 +4,13 @@ import { customElement, property } from "lit/decorators.js";
 const defaultFlex = 1;
 
 /**
- * @attribute {number} flex
+ * **Tag**: ui-flex-grid-item
+ *
+ * **Attributes**:
+ *  flex: `number` [default: 1]
+ *
+ * **Slots**:
+ *  \*
  */
 @customElement("ui-flex-grid-item")
 export class UIFlexGridItem extends LitElement {
