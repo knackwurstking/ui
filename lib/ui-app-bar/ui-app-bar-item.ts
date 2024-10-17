@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { css as CSS, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
@@ -22,13 +22,13 @@ export class UIAppBarItem extends LitElement {
     name: string = "";
 
     static get styles() {
-        return css`
+        return CSS`
             * {
                 box-sizing: border-box;
             }
 
             :host {
-                display: var(--_display, content);
+                display: var(--_display, contents);
                 flex: 1;
             }
 
