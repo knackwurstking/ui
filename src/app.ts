@@ -6,6 +6,7 @@ import {
     UIAppBar,
     UIAppBarPosition,
     UICheck,
+    UIDialog,
     UIInput,
     UISearch,
     UISelect,
@@ -44,13 +45,13 @@ export class MainApp extends LitElement {
         this.store.storagePrefix = "ui:";
         this.store.storage = true;
 
-        // TODO: Add a new dialog section (modal, non modal, fullscreen modal or non modal)
         return html`
             <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
             <!--ui-store storage-prefix="ui:" storage></ui-store-->
             ${this.store} ${this.renderTextComponentsSection()}
             ${this.renderSvgSection()} ${this.renderStackLayoutSection()}
-            ${this.renderInputsSection()} ${this.appBar} ${this.renderAlerts()}
+            ${this.renderInputsSection()} ${this.renderDialogsSection()}
+            ${this.appBar} ${this.renderAlerts()}
         `;
     }
 
@@ -355,6 +356,63 @@ export class MainApp extends LitElement {
                         </ui-label>
                     </ui-flex-grid-item>
                 </ui-flex-grid>
+            </section>
+        `;
+    }
+
+    protected renderDialogsSection() {
+        return html`
+            <section
+                id="inputs"
+                class="has-border"
+                style="margin-top: var(--ui-spacing)"
+            >
+                <h1><u>Dailogs</u></h1>
+
+                <ui-flex-grid gap="0.25rem">
+                    <ui-flex-grid-item flex="0">
+                        <ui-button
+                            @click=${() => {
+                                const dialog =
+                                    this.shadowRoot!.querySelector<UIDialog>(
+                                        `ui-dialog[name="dialog1"]`,
+                                    )!;
+                                dialog.open({ modal: true });
+                            }}
+                            >Dialog (Modal)</ui-button
+                        >
+                    </ui-flex-grid-item>
+
+                    <ui-flex-grid-item flex="0">
+                        <ui-button
+                            @click=${() => {
+                                const dialog =
+                                    this.shadowRoot!.querySelector<UIDialog>(
+                                        `ui-dialog[name="dialog2"]`,
+                                    )!;
+                                dialog.open({ modal: true });
+                            }}
+                            >Fullscreen Dialog (Modal)</ui-button
+                        >
+                    </ui-flex-grid-item>
+                </ui-flex-grid>
+
+                <ui-dialog name="dialog1" title="Dialog Title" no-footer>
+                    <div class="flex justify-center align-center">
+                        <ui-text>Dialog content here...</ui-text>
+                    </div>
+                </ui-dialog>
+
+                <ui-dialog
+                    name="dialog2"
+                    title="Dialog Title"
+                    fullscreen
+                    no-footer
+                >
+                    <div class="flex justify-center align-center">
+                        <ui-text>Dialog content here...</ui-text>
+                    </div>
+                </ui-dialog>
             </section>
         `;
     }
