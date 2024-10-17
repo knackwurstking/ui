@@ -1,13 +1,24 @@
-import { svg } from "..";
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import {
+    svg,
+    UIButton,
+    UIButtonColor,
+    UIButtonVariant,
+    UIFlexGridItem,
+} from "..";
 
 /**
  * @attribute {string} title
  * @attribute {boolean} fullscreen
  * @attribute {boolean} no-footer
+ * @event open
+ * @event close
  * @slot actions
  * @slot * - Will be added as ".content"
+ * @public open(...)
+ * @public close()
+ * @public addDailogActionButton(...)
  */
 @customElement("ui-dialog")
 export class UIDialog extends LitElement {
@@ -190,7 +201,12 @@ export class UIDialog extends LitElement {
 
     protected render() {
         return html`
-            <dialog>
+            <dialog
+                @cancel=${(ev: Event) => {
+                    // Disallow closing the dialog via Esc key
+                    ev.preventDefault();
+                }}
+            >
                 <div class="container">
                     <div class="header">
                         <span style="white-space: nowrap;">
@@ -200,6 +216,9 @@ export class UIDialog extends LitElement {
                         <ui-icon-button
                             style="width: var(--ui-dialog-header-height); height: 100%;"
                             ghost
+                            @click=${() => {
+                                this.close();
+                            }}
                         >
                             ${svg.smoothieLineIcons.close}
                         </ui-icon-button>
@@ -219,101 +238,52 @@ export class UIDialog extends LitElement {
         `;
     }
 
-    // TODO: Add public methods: "close", "open" - dispatch "close", "open" events
-    // TODO: Add static method create action, or a public method add action?
-}
-
-/**
- * @typedef UIDialog_Events
- * @type {{
- *  open: null;
- *  close: null;
- * }}
- */
-
-/**
- * Slots:
- *  - __actions__
- *  - __\*__
- *
- * @template {UIDialog_Events} [T=UIDialog_Events]
- */
-export class _UIDialog extends HTMLElement {
-    constructor() {
-        this.ui = {
-            /**
-             * @param {boolean} modal
-             * @param {boolean} [inert] - This will prevent the autofocus on input elements (default: true)
-             */
-            open(modal = false, inert = true) {
-                const dialog = this.root.shadowRoot.querySelector("dialog");
-
-                const inertBackup = dialog.inert;
-                dialog.inert = inert;
-
-                if (!!modal) {
-                    dialog.showModal();
-                } else {
-                    dialog.show();
-                }
-
-                this.events.dispatch("open", null);
-                dialog.inert = inertBackup;
-            },
-
-            close() {
-                this.events.dispatch("close", null);
-
-                const dialog = this.root.shadowRoot.querySelector("dialog");
-                dialog.close();
-            },
-        };
-    }
-
-    #renderUIDialog() {
-        // Close button
-        const button = this.shadowRoot.querySelector(".header ui-icon-button");
-        const onClick = () => this.ui.close();
-        button.addEventListener("click", onClick);
-
-        // Dialog - Disable escape key action
-        const dialog = this.shadowRoot.querySelector("dialog");
-        const onCancel = (/** @type {Event} */ ev) => ev.preventDefault();
-        dialog.addEventListener("cancel", onCancel);
-    }
-
-    /**
-     * @param {object} options
-     * @param {string} [options.variant]
-     * @param {string} [options.color]
-     * @param {string} [options.flex]
-     * @param {(() => void|Promise<void>) | null} [options.onClick]
-     */
-    static createAction({
-        variant = "full",
-        color = "primary",
-        flex = "0",
-        onClick = null,
+    open(options?: {
+        /** Defaults to false */
+        modal?: boolean;
+        /** Defaults to true */
+        inert?: boolean;
     }) {
-        const item = new UIFlexGridItem();
+        const dialog = this.shadowRoot!.querySelector(`dialog`)!;
 
-        item.ui.flex = flex;
-        item.slot = "actions";
+        dialog.inert = options?.inert === undefined ? true : options.inert;
 
-        item.innerHTML = html`
-            <ui-button variant="${variant}" color="${color}"></ui-button>
-        `;
-
-        /** @type {import("../ui-button").UIButton} */
-        let button;
-        if (!!onClick) {
-            button = item.querySelector("ui-button");
-            button.ui.events.on("click", onClick);
+        if (!!options?.modal) {
+            dialog.showModal();
+        } else {
+            dialog.show();
         }
 
-        return {
-            container: item,
-            action: button,
-        };
+        this.dispatchEvent(new Event("open"));
+    }
+
+    close() {
+        this.dispatchEvent(new Event("close"));
+        this.shadowRoot!.querySelector(`dialog`)!.close();
+    }
+
+    addDialogActionButton(
+        content: string,
+        options?: {
+            onClick?: (() => Promise<void> | void) | null;
+            variant?: UIButtonVariant;
+            color?: UIButtonColor;
+            flex?: number;
+        } | null,
+    ): UIButton {
+        const item = new UIFlexGridItem();
+
+        item.flex = options?.flex || 1;
+        item.slot = "actions";
+        this.appendChild(item);
+
+        let button = new UIButton();
+        button.innerHTML = content;
+        button.variant = options?.variant;
+        button.color = options?.color;
+        button.onclick = options?.onClick || null;
+        item.appendChild(button);
+
+        return button;
     }
 }
