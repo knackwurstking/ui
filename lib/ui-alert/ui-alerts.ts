@@ -4,6 +4,13 @@ import { CleanUpFunction } from "../global";
 import { UIFlexGrid } from "../ui-flex-grid";
 import { UIAlert } from "./ui-alert";
 
+/**
+ * **Tag**: ui-alerts
+ *
+ * **Public Methods**:
+ *  `addAlert(...)`
+ *  `removeAlert(...)`
+ */
 @customElement("ui-alerts")
 export class UIAlerts extends LitElement {
     static get styles() {
