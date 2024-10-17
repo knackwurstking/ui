@@ -20,14 +20,14 @@ import {
  *  open
  *  close
  *
- * **Slots**:
- *  actions
- *  \* - Will be added as ".content"
- *
  * **Public Methods**:
  *  `open(...)`
  *  `close()`
  *  `addDailogActionButton(...)`
+ *
+ * **Slots**:
+ *  actions
+ *  \* - Will be added as ".content"
  */
 @customElement("ui-dialog")
 export class UIDialog extends LitElement {

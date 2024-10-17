@@ -10,6 +10,9 @@ import { UIAlert } from "./ui-alert";
  * **Public Methods**:
  *  `addAlert(...)`
  *  `removeAlert(...)`
+ *
+ * **Slots**:
+ *  \*
  */
 @customElement("ui-alerts")
 export class UIAlerts extends LitElement {

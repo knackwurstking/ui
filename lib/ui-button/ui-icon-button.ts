@@ -6,10 +6,16 @@ import { ripple } from "../utils";
 export type UIIconButtonColor = "primary" | "secondary" | "destructive";
 
 /**
- * @attribute {"primary" | "secondary" | "destructive"} color
- * @attribute {boolean} ghost
- * @attribute {boolean} disabled
- * @attribute {boolean} ripple
+ * **Tag**: ui-button
+ *
+ * **Attributes**:
+ *  color: `"primary" | "secondary" | "destructive"`
+ *  ghost: `boolean`
+ *  disabled: `boolean`
+ *  ripple: `boolean`
+ *
+ * **Slots**:
+ *  \*
  */
 @customElement("ui-icon-button")
 export class UIIconButton extends LitElement {
