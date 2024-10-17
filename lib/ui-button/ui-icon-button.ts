@@ -30,7 +30,9 @@ export class UIIconButton extends LitElement {
     static get styles() {
         return css`
             :host {
-                display: block;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
                 position: relative;
                 width: 2.5rem;
                 height: 2.5rem;

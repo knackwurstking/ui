@@ -31,7 +31,7 @@ export class UIButton extends LitElement {
     static get styles() {
         return css`
             :host {
-                display: flex;
+                display: inline-flex;
                 align-items: center;
                 justify-content: center;
 
