@@ -123,6 +123,7 @@ export class UIDialog extends LitElement {
 
             .header [name="title"] {
                 margin: auto 0;
+                white-space: nowrap;
             }
 
             :host([fullscreen]) .header {
@@ -160,7 +161,7 @@ export class UIDialog extends LitElement {
                 min-width: unset;
             }
 
-            :host([nofooter]) .content {
+            :host([no-footer]) .content {
                 bottom: var(--ui-spacing);
             }
 
@@ -186,7 +187,7 @@ export class UIDialog extends LitElement {
                 width: calc(100% - var(--ui-spacing) * 2);
             }
 
-            :host([nofooter]) .footer {
+            :host([no-footer]) .footer {
                 display: none;
             }
 
@@ -209,9 +210,7 @@ export class UIDialog extends LitElement {
             >
                 <div class="container">
                     <div class="header">
-                        <span style="white-space: nowrap;">
-                            <h3>${this.title}</h3>
-                        </span>
+                        <h3 name="title">${this.title}</h3>
 
                         <ui-icon-button
                             style="width: var(--ui-dialog-header-height); height: 100%;"
@@ -246,6 +245,7 @@ export class UIDialog extends LitElement {
     }) {
         const dialog = this.shadowRoot!.querySelector(`dialog`)!;
 
+        const inertBackup = dialog.inert;
         dialog.inert = options?.inert === undefined ? true : options.inert;
 
         if (!!options?.modal) {
@@ -253,6 +253,8 @@ export class UIDialog extends LitElement {
         } else {
             dialog.show();
         }
+
+        dialog.inert = inertBackup;
 
         this.dispatchEvent(new Event("open"));
     }
