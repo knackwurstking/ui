@@ -9,7 +9,7 @@ export type UIThemeHandlerModes = "dark" | "light" | null;
 /**
  * @attribute {boolean} auto
  * @attribute {"dark" | "light" | null} mode
- * @attribute {"original" | "gruvbox"} theme - TODO: Use `T extends UIThemeHandlerThemes` here?
+ * @attribute {"original" | "gruvbox"} theme
  */
 @customElement("ui-theme-handler")
 export class UIThemeHandler extends LitElement {
