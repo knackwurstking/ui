@@ -379,6 +379,7 @@ export class MainApp extends LitElement {
                                     )!;
                                 dialog.open({ modal: true });
                             }}
+                            ripple
                             >Dialog (Modal)</ui-button
                         >
                     </ui-flex-grid-item>
@@ -392,6 +393,7 @@ export class MainApp extends LitElement {
                                     )!;
                                 dialog.open({ modal: true });
                             }}
+                            ripple
                             >Fullscreen Dialog (Modal)</ui-button
                         >
                     </ui-flex-grid-item>
