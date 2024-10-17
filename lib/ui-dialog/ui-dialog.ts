@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { css as CSS, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import {
     svg,
@@ -41,7 +41,7 @@ export class UIDialog extends LitElement {
     noFooter: string = "";
 
     static get styles() {
-        return css`
+        return CSS`
             * {
                 box-sizing: border-box;
             }
