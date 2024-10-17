@@ -44,6 +44,7 @@ export class MainApp extends LitElement {
         this.store.storagePrefix = "ui:";
         this.store.storage = true;
 
+        // TODO: Add a new dialog section (modal, non modal, fullscreen modal or non modal)
         return html`
             <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
             <!--ui-store storage-prefix="ui:" storage></ui-store-->
