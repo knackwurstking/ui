@@ -367,10 +367,10 @@ export class MainApp extends LitElement {
                 class="has-border"
                 style="margin-top: var(--ui-spacing)"
             >
-                <h1><u>Dailogs</u></h1>
+                <h1><u>Dialogs</u></h1>
 
                 <ui-flex-grid gap="0.25rem">
-                    <ui-flex-grid-item flex="0">
+                    <ui-flex-grid-item>
                         <ui-button
                             @click=${() => {
                                 const dialog =
@@ -384,7 +384,7 @@ export class MainApp extends LitElement {
                         >
                     </ui-flex-grid-item>
 
-                    <ui-flex-grid-item flex="0">
+                    <ui-flex-grid-item>
                         <ui-button
                             @click=${() => {
                                 const dialog =
