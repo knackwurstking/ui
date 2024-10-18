@@ -365,6 +365,18 @@ export class MainApp extends LitElement {
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
+                        <ui-label primary="Standard HTML Select">
+                            <select>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3" selected>
+                                    Option 3
+                                </option>
+                            </select>
+                        </ui-label>
+                    </ui-flex-grid-item>
+
+                    <ui-flex-grid-item>
                         <ui-label primary="UITextarea Example">
                             <ui-textarea
                                 title="Textarea title here..."

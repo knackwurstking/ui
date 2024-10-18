@@ -124,12 +124,12 @@ input,
 textarea {
     display: block;
 
-    border: 1px solid var(--ui-hsl-borderColor);
+    border: 1px solid hsl(var(--ui-hsl-borderColor));
     border-radius: var(--ui-radius);
     transition: border-color 0.25s linear;
 
     background-color: transparent;
-    color: var(--ui-hsl-text);
+    color: hsl(var(--ui-hsl-text));
 
     box-shadow: none;
     outline: none;
@@ -140,27 +140,34 @@ textarea {
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-    accent-color: var(--ui-hsl-primary);
+    accent-color: hsl(var(--ui-hsl-primary));
 }
 
 select {
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+
     display: block;
 
-    border: 1px solid var(--ui-hsl-borderColor);
+    border: 1px solid hsl(var(--ui-hsl-borderColor));
     border-radius: var(--ui-radius);
     transition: border-color 0.25s linear;
 
+    accent-color: hsl(var(--ui-hsl-primary));
     background-color: transparent;
-    color: var(--ui-hsl-text);
+    color: hsl(var(--ui-hsl-input-text));
 
-    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+    padding: var(--ui-spacing);
 
     box-shadow: none;
     outline: none;
 
     font-size: 0.9rem;
     font-family: var(--ui-fontFamily);
-    font-variation-settings: var(--ui-select-fontVariation);
+    font-variation-settings: var(--ui-input-fontVariation);
+
+    cursor: pointer;
 }
 
 input[type="number"] {
@@ -188,11 +195,11 @@ input[type="color"] {
 
 input:focus:not([type="checkbox"]),
 textarea:focus {
-    border-color: var(--ui-hsl-primary);
+    border-color: hsl(var(--ui-hsl-primary));
 }
 
 input[aria-invalid] {
-    border-color: var(--ui-hsl-destructive) !important;
+    border-color: hsl(var(--ui-hsl-destructive)) !important;
 }
 
 input:disabled {
@@ -228,7 +235,7 @@ table {
     user-select: none;
 
     border-collapse: collapse;
-    border: 1px solid var(--ui-hsl-borderColor);
+    border: 1px solid hsl(var(--ui-hsl-borderColor));
 }
 
 thead {
@@ -244,7 +251,7 @@ tbody {
 th,
 td {
     padding: var(--ui-spacing);
-    border: 1px solid var(--ui-hsl-borderColor);
+    border: 1px solid hsl(var(--ui-hsl-borderColor));
     word-break: auto-phrase;
 }
 
@@ -257,7 +264,7 @@ td {
  */
 
 blockquote {
-    border-left: 1px solid var(--ui-hsl-borderColor);
+    border-left: 1px solid hsl(var(--ui-hsl-borderColor));
     margin: 0;
     padding-left: 1rem;
 }

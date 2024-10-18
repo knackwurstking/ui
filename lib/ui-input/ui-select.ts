@@ -57,7 +57,7 @@ export class UISelect extends LitElement {
 
                 font-size: 0.9rem;
                 font-family: var(--ui-fontFamily);
-                font-variation-settings: var(--ui-select-fontVariation);
+                font-variation-settings: var(--ui-input-fontVariation);
             }
 
             :host([open]),
