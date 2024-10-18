@@ -1,10 +1,19 @@
 # Changelog
 
-## v0.9.0 — [unreleased]
+## v1.0.0 [unreleased]
+
+- [ ] Add a complete library documentation for github
+
+## v0.9.1 — [unreleased]
 
 - [ ] Need to add some tabindex stuff on lit components
-- [x] Convert this lib into an native typescript lib
-- [x] Use lit web components
+
+## v0.9.0 — 2024-10-18
+
+**General**:
+
+-  Converted this library into a typescript lib
+-  Converted all web components to lit components
 
 ## v0.8.0 — 2024-10-09
 
