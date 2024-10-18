@@ -2,9 +2,12 @@ import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * @attribute {string} name
- * @attribute {string} href
- * @attribute {boolean} fallback
+ * **Tag**: ui-lang-type
+ *
+ * **Attributes**:
+ *  - name: `string`
+ *  - href: `string`
+ *  - fallback: `boolean`
  */
 @customElement("ui-lang-type")
 export class UILangType extends LitElement {

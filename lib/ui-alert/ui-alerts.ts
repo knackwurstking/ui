@@ -8,11 +8,11 @@ import { UIAlert } from "./ui-alert";
  * **Tag**: ui-alerts
  *
  * **Public Methods**:
- *  `addAlert(...)`
- *  `removeAlert(...)`
+ *  - `addAlert(...)`
+ *  - `removeAlert(...)`
  *
  * **Slots**:
- *  \*
+ *  - \*
  */
 @customElement("ui-alerts")
 export class UIAlerts extends LitElement {

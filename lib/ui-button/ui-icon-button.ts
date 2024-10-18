@@ -9,13 +9,13 @@ export type UIIconButtonColor = "primary" | "secondary" | "destructive";
  * **Tag**: ui-button
  *
  * **Attributes**:
- *  color: `"primary" | "secondary" | "destructive"`
- *  ghost: `boolean`
- *  disabled: `boolean`
- *  ripple: `boolean`
+ *  - color: `"primary" | "secondary" | "destructive"`
+ *  - ghost: `boolean`
+ *  - disabled: `boolean`
+ *  - ripple: `boolean`
  *
  * **Slots**:
- *  \*
+ *  - \*
  */
 @customElement("ui-icon-button")
 export class UIIconButton extends LitElement {

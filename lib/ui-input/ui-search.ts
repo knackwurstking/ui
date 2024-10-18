@@ -1,23 +1,30 @@
 import { svg, UIIconButton } from "..";
-import { css, html, LitElement, PropertyValues } from "lit";
+import { css as CSS, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * @attribute {string} title
- * @attribute {string} value
- * @attribute {string} placeholder
- * @attribute {boolean} invalid
- * @attribute {boolean} no-submit
- * @attribute {boolean} storage
- * @attribute {string} storage-prefix
- * @attribute {string} storage-key
- * @public focus(...)
- * @public blur()
- * @public click()
- * @event input
- * @event change
- * @event storage - Triggered after storage data loaded
- * @event submit - Triggered if submit button clicked (if "no-submit" property not set)
+ * **Tag**: ui-search
+ *
+ * **Attributes**:
+ *  - title: `string`
+ *  - value: `string`
+ *  - placeholder: `string`
+ *  - invalid: `boolean`
+ *  - no-submit: `boolean`
+ *  - storage: `boolean`
+ *  - storage-prefix: `string`
+ *  - storage-key: `string`
+ *
+ * **Events**:
+ *  - input
+ *  - change
+ *  - storage - _Triggered after storage data loaded_
+ *  - submit - _Triggered if submit button clicked (if "no-submit" property not set)_
+ *
+ * **Public Methods**:
+ *  - `focus(...)`
+ *  - `blur()`
+ *  - `click()`
  */
 @customElement("ui-search")
 export class UISearch extends LitElement {
@@ -46,7 +53,7 @@ export class UISearch extends LitElement {
     storageKey: string = "";
 
     static get styles() {
-        return css`
+        return CSS`
             * {
                 box-sizing: border-box;
             }

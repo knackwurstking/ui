@@ -3,17 +3,24 @@ import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 
 /**
- * @attribute {string} title
- * @attribute {string} value
- * @attribute {string} placeholder
- * @attribute {boolean} invalid
- * @attribute {number} rows
- * @attribute {number} cols
- * @public focus(...)
- * @public blur()
- * @public click()
- * @event input
- * @event change
+ * **Tag**: ui-textarea
+ *
+ * **Attributes**:
+ *  - title: `string`
+ *  - vlaue: `string`
+ *  - placeholder: `string`
+ *  - invalid: `boolean`
+ *  - rows: `number`
+ *  - cols: `number`
+ *
+ * **Events**:
+ *  - input
+ *  - change
+ *
+ * **Public Mehtods**:
+ *  - `focus(...)`
+ *  - `blur()`
+ *  - `click()`
  */
 @customElement("ui-textarea")
 export class UITextarea extends LitElement {

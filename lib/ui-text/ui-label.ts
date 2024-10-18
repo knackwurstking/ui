@@ -1,11 +1,17 @@
-import { css, html, LitElement, PropertyValues } from "lit";
+import { css as CSS, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { CleanUpFunction, ripple } from "..";
 
 /**
- * @attribute {string} primary
- * @attribute {string} secondary
- * @attribute {boolean} ripple
+ * **Tag**: ui-label
+ *
+ * **Attributes**:
+ *  - primary: `string`
+ *  - secondary: `string`
+ *  - ripple: `boolean`
+ *
+ * **Slots**:
+ *  - \*
  */
 @customElement("ui-label")
 export class UILabel extends LitElement {
@@ -34,7 +40,7 @@ export class UILabel extends LitElement {
     ripple: boolean = false;
 
     static get styles() {
-        return css`
+        return CSS`
             * {
                 box-sizing: border-box;
             }

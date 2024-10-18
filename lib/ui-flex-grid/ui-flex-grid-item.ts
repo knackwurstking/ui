@@ -7,10 +7,10 @@ const defaultFlex = 1;
  * **Tag**: ui-flex-grid-item
  *
  * **Attributes**:
- *  flex: `number` [default: 1]
+ *  - flex: `number` [default: 1]
  *
  * **Slots**:
- *  \*
+ *  - \*
  */
 @customElement("ui-flex-grid-item")
 export class UIFlexGridItem extends LitElement {

@@ -12,22 +12,22 @@ import {
  * **Tag**: ui-dialog
  *
  * **Attributes**:
- *  title: `string`
- *  fullscreen: `boolean`
- *  no-footer: `boolean`
+ *  - title: `string`
+ *  - fullscreen: `boolean`
+ *  - no-footer: `boolean`
  *
  * **Events**:
- *  open
- *  close
+ *  - open
+ *  - close
  *
  * **Public Methods**:
- *  `open(...)`
- *  `close()`
- *  `addDailogActionButton(...)`
+ *  - `open(...)`
+ *  - `close()`
+ *  - `addDailogActionButton(...)`
  *
  * **Slots**:
- *  actions
- *  \* - Will be added as ".content"
+ *  - actions
+ *  - \* - Will be added as ".content"
  */
 @customElement("ui-dialog")
 export class UIDialog extends LitElement {

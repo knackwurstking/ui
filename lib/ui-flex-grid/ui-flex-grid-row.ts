@@ -7,13 +7,13 @@ const defaultGap = "0";
  * **Tag**: ui-flex-grid-row
  *
  * **Attributes**:
- *  gap: `string`
- *  justify: `string`
- *  align: `string`
- *  wrap: `string`
+ *  - gap: `string`
+ *  - justify: `string`
+ *  - align: `string`
+ *  - wrap: `string`
  *
  * **Slots**:
- *  \*
+ *  - \*
  */
 @customElement("ui-flex-grid-row")
 export class UIFlexGridRow extends LitElement {

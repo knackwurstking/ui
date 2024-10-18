@@ -1,11 +1,18 @@
-import { css, html, LitElement } from "lit";
+import { css as CSS, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * @attribute {boolean} checked
- * @public click()
- * @event input
- * @event change
+ * **Tag**: ui-check
+ *
+ * **Attributes**:
+ *  - checked: `boolean`
+ *
+ * **Events**:
+ *  - input
+ *  - change
+ *
+ * **Public Methods**:
+ *  - `click()`
  */
 @customElement("ui-check")
 export class UICheck extends LitElement {
@@ -13,7 +20,7 @@ export class UICheck extends LitElement {
     checked: boolean = false;
 
     static get styles() {
-        return css`
+        return CSS`
             :host {
                 border-radius: var(--ui-radius);
             }

@@ -9,17 +9,17 @@ export type UIAppBarSlots = "left" | "center" | "right";
  * **Tag**: ui-app-bar
  *
  * **Attributes**:
- *  position: `"top" | "bottom"`
- *  fixed: `boolean`
+ *  - position: `"top" | "bottom"`
+ *  - fixed: `boolean`
  *
  * **Public Methods**:
- *  `content(...)`
- *  `contentName(...)`
+ *  - `content(...)`
+ *  - `contentName(...)`
  *
  * **Slots**:
- *  left
- *  center
- *  right
+ *  - left
+ *  - center
+ *  - right
  */
 @customElement("ui-app-bar")
 export class UIAppBar extends LitElement {

@@ -10,13 +10,13 @@ export type UIButtonVariant = "full" | "outline" | "ghost";
  * **Tag**: ui-button
  *
  * **Attributes**:
- *  color: `"primary" | "secondary" | "destructive"`
- *  variant: `"full" | "outline" | "ghost"`
- *  disabled: `boolean`
- *  ripple: `boolean`
+ *  - color: `"primary" | "secondary" | "destructive"`
+ *  - variant: `"full" | "outline" | "ghost"`
+ *  - disabled: `boolean`
+ *  - ripple: `boolean`
  *
  * **Slots**:
- *  \*
+ *  - \*
  */
 @customElement("ui-button")
 export class UIButton extends LitElement {

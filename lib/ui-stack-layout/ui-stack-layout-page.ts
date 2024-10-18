@@ -1,8 +1,14 @@
-import { css, html, LitElement } from "lit";
+import { css as CSS, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * @attribute {string} name
+ * **Tag**: ui-stack-layout-page
+ *
+ * **Attributes**:
+ *  - name: `string`
+ *
+ * **Slots**:
+ *  - \*
  */
 @customElement("ui-stack-layout-page")
 export class UIStackLayoutPage extends LitElement {
@@ -10,7 +16,7 @@ export class UIStackLayoutPage extends LitElement {
     name: string = "";
 
     static get styles() {
-        return css`
+        return CSS`
             :host {
                 display: block;
 

@@ -1,9 +1,15 @@
-import { css, html, LitElement } from "lit";
+import { css as CSS, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * @attribute {string} value
- * @attribute {boolean} selected
+ * **Tag**: ui-select-option
+ *
+ * **Attributes**:
+ *  - value: `string`
+ *  - selected: `boolean`
+ *
+ * **Slots**:
+ *  - \*
  */
 @customElement("ui-select-option")
 export class UISelectOption extends LitElement {
@@ -14,7 +20,7 @@ export class UISelectOption extends LitElement {
     selected: boolean = false;
 
     static get styles() {
-        return css`
+        return CSS`
             :host {
                 display: none;
                 align-items: center;

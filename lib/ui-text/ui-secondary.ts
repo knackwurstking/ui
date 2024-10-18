@@ -3,7 +3,9 @@ import { customElement } from "lit/decorators.js";
 import { UIText } from "./ui-text";
 
 /**
- * @exteds {UIText}
+ * **Tag**: ui-secondary
+ *
+ * @extends {UIText}
  */
 @customElement("ui-secondary")
 export class UISecondary extends UIText {

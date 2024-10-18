@@ -1,13 +1,21 @@
-import { css, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { UILangType } from "./ui-lang-type";
 import { Events } from "../utils";
+import { UILangType } from "./ui-lang-type";
 
 /**
- * @attribute {string} current
- * @public events
- * @public fallback()
- * @public get(...)
+ * **Tag**: ui-lang
+ *
+ * **Attributes**:
+ *  - current: `string`
+ *
+ * **Public Methods**:
+ *  - `events`
+ *  - `fallback()`
+ *  - `get(...)`
+ *
+ * **Slots**:
+ *  - \*
  */
 @customElement("ui-lang")
 export class UILang extends LitElement {
@@ -24,6 +32,10 @@ export class UILang extends LitElement {
                 display: none;
             }
         `;
+    }
+
+    protected render() {
+        return html`<slot></slot>`;
     }
 
     attributeChangedCallback(

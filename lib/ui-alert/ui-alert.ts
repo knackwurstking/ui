@@ -7,8 +7,8 @@ export type UIAlertVariant = "info" | "warning" | "error";
  * **Tag**: ui-alert
  *
  * **Attributes**:
- *  variant: `"info" | "warning" | "error"`
- *  message: `string`
+ *  - variant: `"info" | "warning" | "error"`
+ *  - message: `string`
  */
 @customElement("ui-alert")
 export class UIAlert extends LitElement {

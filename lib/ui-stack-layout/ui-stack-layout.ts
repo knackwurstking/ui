@@ -4,14 +4,20 @@ import { Events } from "../utils";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**
- * @public events
- * @public stack
- * @public stackSize()
- * @public clear()
- * @public goBack()
- * @public register(...)
- * @public unregister(...)
- * @public async set(...)
+ * **Tag**: ui-stack-layout
+ *
+ * **Public Methods**:
+ *  - `events`
+ *  - `stack`
+ *  - `stackSize()`
+ *  - `clear()`
+ *  - `goBack()`
+ *  - `register(...)`
+ *  - `unregister(...)`
+ *  - `async set(...)`
+ *
+ * **Slots**:
+ *  - \*
  */
 @customElement("ui-stack-layout")
 export class UIStackLayout<T extends string> extends LitElement {

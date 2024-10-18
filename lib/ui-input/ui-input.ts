@@ -1,19 +1,26 @@
-import { css, html, LitElement } from "lit";
+import { css as CSS, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * @attribute {string} title
- * @attribute {string} type
- * @attribute {string} value
- * @attribute {string} placeholder
- * @attribute {boolean} invalid
- * @attribute {string} min
- * @attribute {string} max
- * @public focus(...)
- * @public blur()
- * @public click()
- * @event input
- * @event change
+ * **Tag**: ui-input
+ *
+ * **Attributes**:
+ *  - title: `string`
+ *  - type: `string`
+ *  - value: `string`
+ *  - placeholder: `string`
+ *  - invalid: `boolean`
+ *  - min: `string`
+ *  - max: `string`
+ *
+ * **Events**:
+ *  - input
+ *  - change
+ *
+ * **Public Methods**:
+ *  - `focus(...)`
+ *  - `blur()`
+ *  - `click()`
  */
 @customElement("ui-input")
 export class UIInput extends LitElement {
@@ -39,7 +46,7 @@ export class UIInput extends LitElement {
     max: string = "";
 
     static get styles() {
-        return css`
+        return CSS`
             * {
                 box-sizing: border-box;
             }
