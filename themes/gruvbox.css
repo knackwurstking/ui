@@ -48,6 +48,8 @@
 
     --ui-hsl-borderColor: var(--hsl-bg4);
 
+    --ui-hsl-backdrop: var(--ui-hsl-bg);
+
     --ui-hsl-info: var(--ui-hsl-card);
     --ui-hsl-info-text: var(--ui-hsl-card-text);
 
@@ -131,6 +133,8 @@
     --ui-hsl-destructive-text: 6, 96%, 18%;
 
     --ui-hsl-borderColor: var(--hsl-bg4);
+
+    --ui-hsl-backdrop: var(--ui-hsl-bg);
 
     --ui-hsl-info: var(--ui-hsl-card);
     --ui-hsl-info-text: var(--ui-hsl-card-text);
