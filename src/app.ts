@@ -7,6 +7,7 @@ import {
     UIAppBarPosition,
     UICheck,
     UIDialog,
+    UIDrawer,
     UIInput,
     UISearch,
     UISelect,
@@ -51,7 +52,7 @@ export class MainApp extends LitElement {
             ${this.store} ${this.renderTextComponentsSection()}
             ${this.renderSvgSection()} ${this.renderStackLayoutSection()}
             ${this.renderInputsSection()} ${this.renderDialogsSection()}
-            ${this.appBar} ${this.renderAlerts()}
+            ${this.appBar} ${this.renderDrawer()} ${this.renderAlerts()}
         `;
     }
 
@@ -363,7 +364,7 @@ export class MainApp extends LitElement {
     protected renderDialogsSection() {
         return html`
             <section
-                id="inputs"
+                id="dialogs"
                 class="has-border"
                 style="margin-top: var(--ui-spacing)"
             >
@@ -372,6 +373,8 @@ export class MainApp extends LitElement {
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
                         <ui-button
+                            variant="outline"
+                            ripple
                             @click=${() => {
                                 const dialog =
                                     this.shadowRoot!.querySelector<UIDialog>(
@@ -379,13 +382,14 @@ export class MainApp extends LitElement {
                                     )!;
                                 dialog.open({ modal: true });
                             }}
-                            ripple
                             >Dialog (Modal)</ui-button
                         >
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
                         <ui-button
+                            variant="outline"
+                            ripple
                             @click=${() => {
                                 const dialog =
                                     this.shadowRoot!.querySelector<UIDialog>(
@@ -393,7 +397,6 @@ export class MainApp extends LitElement {
                                     )!;
                                 dialog.open({ modal: true });
                             }}
-                            ripple
                             >Fullscreen Dialog (Modal)</ui-button
                         >
                     </ui-flex-grid-item>
@@ -416,6 +419,40 @@ export class MainApp extends LitElement {
                     </div>
                 </ui-dialog>
             </section>
+        `;
+    }
+
+    protected renderDrawer() {
+        return html`
+            <section
+                id="drawer"
+                class="has-border"
+                style="margin-top: var(--ui-spacing)"
+            >
+                <h1><u>Drawer</u></h1>
+
+                <ui-flex-grid>
+                    <ui-flex-grid-item>
+                        <ui-button
+                            variant="outline"
+                            @click=${() => {
+                                const drawer =
+                                    this.shadowRoot!.querySelector<UIDrawer>(
+                                        `ui-drawer`,
+                                    )!;
+
+                                drawer.open = true;
+                            }}
+                        >
+                            Open Drawer
+                        </ui-button>
+                    </ui-flex-grid-item>
+                </ui-flex-grid>
+            </section>
+
+            <ui-drawer>
+                <!-- TODO: Adding some foldable groups with dummy content for testing -->
+            </ui-drawer>
         `;
     }
 
