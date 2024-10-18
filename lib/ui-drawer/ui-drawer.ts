@@ -22,15 +22,16 @@ export class UIDrawer extends LitElement {
 
     private handleUnfold = (ev: Event) => {
         const target: UIDrawerGroup = ev.currentTarget as UIDrawerGroup;
-
-        console.debug(
-            `Triggered "unfold" event`,
-            target.getBoundingClientRect(),
-            target,
-        );
-
         //const container = this.shadowRoot!.querySelector(`aside`)!;
-        // TODO: Do auto scroll here....
+
+        //container.scrollTop = container.scrollHeight;
+
+        //container.scrollTo({
+        //    top: container.scrollHeight,
+        //    behavior: "smooth",
+        //});
+
+        target.scrollIntoView(true);
     };
 
     static get styles() {

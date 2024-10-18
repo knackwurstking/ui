@@ -77,8 +77,11 @@ export class UIDrawerGroup extends LitElement {
                     role="button"
                     @click=${async () => {
                         this.open = !this.open;
-                        if (this.open) this.dispatchEvent(new Event("unfold"));
-                        else this.dispatchEvent(new Event("fold"));
+                        setTimeout(() => {
+                            if (this.open)
+                                this.dispatchEvent(new Event("unfold"));
+                            else this.dispatchEvent(new Event("fold"));
+                        });
                     }}
                 >
                     <ui-flex-grid-row>
