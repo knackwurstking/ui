@@ -60,25 +60,18 @@ export class MainApp extends LitElement {
         this.store.storage = true;
 
         return html`
-            <ui-theme-handler
-                themes-path="/themes"
-                theme="gruvbox"
-                auto
-            ></ui-theme-handler>
+            <ui-theme-handler themes-path="/themes" theme="gruvbox" auto></ui-theme-handler>
             <!--ui-store storage-prefix="ui:" storage></ui-store-->
-            ${this.store} ${this.renderTextComponentsSection()}
-            ${this.renderSvgSection()} ${this.renderStackLayoutSection()}
-            ${this.renderInputsSection()} ${this.renderDialogsSection()}
-            ${this.appBar} ${this.renderDrawer()} ${this.renderAlerts()}
+            ${this.store} ${this.renderTextComponentsSection()} ${this.renderSvgSection()}
+            ${this.renderStackLayoutSection()} ${this.renderInputsSection()}
+            ${this.renderDialogsSection()} ${this.appBar} ${this.renderDrawer()}
+            ${this.renderAlerts()}
         `;
     }
 
     protected renderTextComponentsSection() {
         return html`
-            <section
-                class="has-border"
-                style="margin-top: var(--ui-app-bar-height);"
-            >
+            <section class="has-border" style="margin-top: var(--ui-app-bar-height);">
                 <h1><u>Text Components</u></h1>
 
                 <section>
@@ -88,15 +81,11 @@ export class MainApp extends LitElement {
                         </ui-flex-grid-item>
 
                         <ui-flex-grid-item>
-                            <ui-primary>
-                                UIPrimary Component - "ui-primary"
-                            </ui-primary>
+                            <ui-primary> UIPrimary Component - "ui-primary" </ui-primary>
                         </ui-flex-grid-item>
 
                         <ui-flex-grid-item>
-                            <ui-secondary>
-                                UISecondary Component - "ui-secondary"
-                            </ui-secondary>
+                            <ui-secondary> UISecondary Component - "ui-secondary" </ui-secondary>
                         </ui-flex-grid-item>
 
                         <ui-flex-grid-item>
@@ -104,10 +93,7 @@ export class MainApp extends LitElement {
                                 primary="The primary Label text"
                                 secondary="Some secondary Label text"
                             >
-                                <ui-text>
-                                    @TODO: Replace this with an checkbox
-                                    component
-                                </ui-text>
+                                <ui-text> @TODO: Replace this with an checkbox component </ui-text>
                             </ui-label>
                         </ui-flex-grid-item>
 
@@ -117,10 +103,7 @@ export class MainApp extends LitElement {
                                 secondary="A Label with ripple attribute set"
                                 ripple
                             >
-                                <ui-text>
-                                    @TODO: Replace this with an checkbox
-                                    component
-                                </ui-text>
+                                <ui-text> @TODO: Replace this with an checkbox component </ui-text>
                             </ui-label>
                         </ui-flex-grid-item>
                     </ui-flex-grid>
@@ -146,19 +129,13 @@ export class MainApp extends LitElement {
         }
 
         return html`
-            <section
-                id="svgs"
-                class="has-border"
-                style="margin-top: var(--ui-spacing);"
-            >
+            <section id="svgs" class="has-border" style="margin-top: var(--ui-spacing);">
                 <h1><u>Svg's</u></h1>
 
                 <section id="smoothieLineIcons">
                     <h2>Smoothie Line Icons</h2>
 
-                    <ui-flex-grid-row wrap="wrap" gap="0.25rem">
-                        ${svgs}
-                    </ui-flex-grid-row>
+                    <ui-flex-grid-row wrap="wrap" gap="0.25rem"> ${svgs} </ui-flex-grid-row>
                 </section>
             </section>
         `;
@@ -166,34 +143,20 @@ export class MainApp extends LitElement {
 
     protected renderStackLayoutSection() {
         return html`
-            <section
-                id="stackLayout"
-                class="has-border"
-                style="margin-top: var(--ui-spacing);"
-            >
+            <section id="stackLayout" class="has-border" style="margin-top: var(--ui-spacing);">
                 <h1><u>Stack Layout</u></h1>
 
                 <section>
                     <ui-flex-grid gap="0.25rem">
                         <ui-flex-grid-row gap="0.25rem">
                             <ui-flex-grid-item>
-                                <ui-button
-                                    name="add"
-                                    color="primary"
-                                    variant="full"
-                                    ripple
-                                >
+                                <ui-button name="add" color="primary" variant="full" ripple>
                                     Add one page
                                 </ui-button>
                             </ui-flex-grid-item>
 
                             <ui-flex-grid-item>
-                                <ui-button
-                                    name="back"
-                                    color="secondary"
-                                    variant="full"
-                                    ripple
-                                >
+                                <ui-button name="back" color="secondary" variant="full" ripple>
                                     Go back one page
                                 </ui-button>
                             </ui-flex-grid-item>
@@ -205,21 +168,13 @@ export class MainApp extends LitElement {
                                 style="width: 100%; min-height: 7.5rem;"
                             >
                                 <!-- TODO: Fill this pages with content -->
-                                <ui-stack-layout-page
-                                    name="page 1"
-                                ></ui-stack-layout-page>
+                                <ui-stack-layout-page name="page 1"></ui-stack-layout-page>
 
-                                <ui-stack-layout-page
-                                    name="page 2"
-                                ></ui-stack-layout-page>
+                                <ui-stack-layout-page name="page 2"></ui-stack-layout-page>
 
-                                <ui-stack-layout-page
-                                    name="page 3"
-                                ></ui-stack-layout-page>
+                                <ui-stack-layout-page name="page 3"></ui-stack-layout-page>
 
-                                <ui-stack-layout-page
-                                    name="page 4"
-                                ></ui-stack-layout-page>
+                                <ui-stack-layout-page name="page 4"></ui-stack-layout-page>
                             </ui-stack-layout>
                         </ui-flex-grid-row>
                     </ui-flex-grid>
@@ -230,11 +185,7 @@ export class MainApp extends LitElement {
 
     protected renderInputsSection() {
         return html`
-            <section
-                id="inputs"
-                class="has-border"
-                style="margin-top: var(--ui-spacing)"
-            >
+            <section id="inputs" class="has-border" style="margin-top: var(--ui-spacing)">
                 <h1><u>Inputs</u></h1>
 
                 <ui-flex-grid gap="0.25rem">
@@ -295,11 +246,7 @@ export class MainApp extends LitElement {
                                 storage-key="test:"
                                 @input=${(ev: Event) => {
                                     const target = ev.currentTarget as UISearch;
-                                    console.debug(
-                                        "ui-search - input:",
-                                        target.value,
-                                        target,
-                                    );
+                                    console.debug("ui-search - input:", target.value, target);
                                 }}
                                 @change=${(ev: Event) => {
                                     const target = ev.currentTarget as UISearch;
@@ -330,26 +277,15 @@ export class MainApp extends LitElement {
                     </ui-flex-grid-item>
 
                     <ui-flex-grid-item>
-                        <ui-label
-                            primary="UISelect Example"
-                            secondary="keep-open flag enabled"
-                        >
+                        <ui-label primary="UISelect Example" secondary="keep-open flag enabled">
                             <ui-select keep-open>
-                                <ui-select-option value="o1" selected>
-                                    Option 1
-                                </ui-select-option>
+                                <ui-select-option value="o1" selected> Option 1 </ui-select-option>
 
-                                <ui-select-option value="o2">
-                                    Option 2
-                                </ui-select-option>
+                                <ui-select-option value="o2"> Option 2 </ui-select-option>
 
-                                <ui-select-option value="o3">
-                                    Option 3
-                                </ui-select-option>
+                                <ui-select-option value="o3"> Option 3 </ui-select-option>
 
-                                <ui-select-option value="o4">
-                                    Option 4
-                                </ui-select-option>
+                                <ui-select-option value="o4"> Option 4 </ui-select-option>
                             </ui-select>
                         </ui-label>
                     </ui-flex-grid-item>
@@ -368,8 +304,7 @@ export class MainApp extends LitElement {
                         <ui-label primary="Standard HTML Select">
                             <select
                                 @change=${(ev: Event) => {
-                                    const target =
-                                        ev.currentTarget as HTMLSelectElement;
+                                    const target = ev.currentTarget as HTMLSelectElement;
                                     console.debug(
                                         "select - change:",
                                         target.children[target.selectedIndex],
@@ -378,9 +313,7 @@ export class MainApp extends LitElement {
                             >
                                 <option value="option1">Option 1</option>
                                 <option value="option2">Option 2</option>
-                                <option value="option3" selected>
-                                    Option 3
-                                </option>
+                                <option value="option3" selected>Option 3</option>
                             </select>
                         </ui-label>
                     </ui-flex-grid-item>
@@ -401,11 +334,7 @@ export class MainApp extends LitElement {
 
     protected renderDialogsSection() {
         return html`
-            <section
-                id="dialogs"
-                class="has-border"
-                style="margin-top: var(--ui-spacing)"
-            >
+            <section id="dialogs" class="has-border" style="margin-top: var(--ui-spacing)">
                 <h1><u>Dialogs</u></h1>
 
                 <ui-flex-grid gap="0.25rem">
@@ -446,12 +375,7 @@ export class MainApp extends LitElement {
                     </div>
                 </ui-dialog>
 
-                <ui-dialog
-                    name="dialog2"
-                    title="Dialog Title"
-                    fullscreen
-                    no-footer
-                >
+                <ui-dialog name="dialog2" title="Dialog Title" fullscreen no-footer>
                     <div class="flex justify-center align-center">
                         <ui-text>Dialog content here...</ui-text>
                     </div>
@@ -462,11 +386,7 @@ export class MainApp extends LitElement {
 
     protected renderDrawer() {
         return html`
-            <section
-                id="drawer"
-                class="has-border"
-                style="margin-top: var(--ui-spacing)"
-            >
+            <section id="drawer" class="has-border" style="margin-top: var(--ui-spacing)">
                 <h1><u>Drawer</u></h1>
 
                 <ui-flex-grid>
@@ -475,9 +395,7 @@ export class MainApp extends LitElement {
                             variant="outline"
                             @click=${() => {
                                 const drawer =
-                                    this.shadowRoot!.querySelector<UIDrawer>(
-                                        `ui-drawer`,
-                                    )!;
+                                    this.shadowRoot!.querySelector<UIDrawer>(`ui-drawer`)!;
 
                                 drawer.open = true;
                             }}
@@ -575,20 +493,11 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.</pre
     protected renderAlerts() {
         return html`
             <ui-alerts>
-                <ui-alert
-                    variant="info"
-                    message="Info alert message"
-                ></ui-alert>
+                <ui-alert variant="info" message="Info alert message"></ui-alert>
 
-                <ui-alert
-                    variant="warning"
-                    message="Warning alert message"
-                ></ui-alert>
+                <ui-alert variant="warning" message="Warning alert message"></ui-alert>
 
-                <ui-alert
-                    variant="error"
-                    message="Error alert message"
-                ></ui-alert>
+                <ui-alert variant="error" message="Error alert message"></ui-alert>
             </ui-alerts>
         `;
     }
@@ -611,8 +520,7 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.</pre
         }
 
         // Test UISelect "#selectExample2"
-        const select =
-            this.shadowRoot!.querySelector<UISelect>(`#selectExample2`)!;
+        const select = this.shadowRoot!.querySelector<UISelect>(`#selectExample2`)!;
         {
             let option = new UISelectOption();
             option.value = "o1";
@@ -640,16 +548,12 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.</pre
         }
 
         // Set multiline text to ui-textarea
-        const textarea =
-            this.shadowRoot!.querySelector<UITextarea>(`ui-textarea`)!;
+        const textarea = this.shadowRoot!.querySelector<UITextarea>(`ui-textarea`)!;
         textarea.value = `Multiline text box\n\n\nHi, whats up!`;
 
         // Testing AppBar methods
         setTimeout(() => {
-            console.debug(
-                `Center slot AppBar items:`,
-                this.appBar.content("center"),
-            );
+            console.debug(`Center slot AppBar items:`, this.appBar.content("center"));
 
             const titleItem = this.appBar.contentName("title")!;
             console.debug(`AppBar item with the name "title": `, titleItem);
