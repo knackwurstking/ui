@@ -22,15 +22,6 @@ export class UIDrawer extends LitElement {
 
     private handleUnfold = (ev: Event) => {
         const target: UIDrawerGroup = ev.currentTarget as UIDrawerGroup;
-        //const container = this.shadowRoot!.querySelector(`aside`)!;
-
-        //container.scrollTop = container.scrollHeight;
-
-        //container.scrollTo({
-        //    top: container.scrollHeight,
-        //    behavior: "smooth",
-        //});
-
         target.scrollIntoView(true);
     };
 

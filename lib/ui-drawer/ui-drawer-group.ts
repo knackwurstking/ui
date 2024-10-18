@@ -1,6 +1,6 @@
-import { css, html, LitElement, PropertyValues } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { ripple, svg, UIDrawer } from "..";
+import { svg } from "..";
 
 /**
  * **Tag**: ui-drawer-group
