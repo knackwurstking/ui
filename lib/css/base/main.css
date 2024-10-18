@@ -102,6 +102,7 @@ code {
 
 pre {
     display: block;
+    overflow: auto;
 }
 
 /*
