@@ -1,4 +1,4 @@
-import { html, LitElement, PropertyValues } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement } from "lit/decorators.js";
 import {
     globalStylesToShadowRoot,
@@ -39,6 +39,19 @@ class MainAppBar extends UIAppBar {
 export class MainApp extends LitElement {
     public store: MainStore = new UIStore();
     public appBar: MainAppBar = new MainAppBar();
+
+    static get styles() {
+        return css`
+            :host {
+                position: fixed !important;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                overflow: auto;
+            }
+        `;
+    }
 
     protected render() {
         console.debug(`Render main application`);
@@ -559,6 +572,7 @@ no sea takimata sanctus est Lorem ipsum dolor sit amet.</pre
         super.firstUpdated(_changedProperties);
 
         //app.classList.add("is-debug");
+        this.classList.add("no-scrollbar");
         this.classList.add("is-container");
         //app.classList.add("fluid");
 
