@@ -1,9 +1,11 @@
-// TODO: On unfold group, do auto scroll
-
-import { LitElement } from "lit";
-import { customElement } from "lit/decorators.js";
+import { css, html, LitElement, PropertyValues } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { ripple, svg } from "..";
 
 /**
+ * TODO:
+ *  - On unfold group, do auto scroll
+ *
  * **Tag**: ui-drawer-group
  *
  * **Attributes**:
@@ -16,115 +18,75 @@ import { customElement } from "lit/decorators.js";
  */
 @customElement("ui-drawer-group")
 export class UIDrawerGroup extends LitElement {
-    // TODO: Convert to typescript
-}
+    @property({ type: String, attribute: "title", reflect: true })
+    title: string = "";
 
-export class _UIDrawerGroup extends HTMLElement {
-    static observedAttributes = ["title"];
+    @property({ type: Boolean, attribute: "open", reflect: true })
+    open: boolean = false;
 
-    constructor() {
-        super();
+    @property({ type: Boolean, attribute: "no-fold", reflect: true })
+    noFold: boolean = false;
 
-        this.ui = {
-            root: this,
+    static get styles() {
+        return css`
+            * {
+                box-sizing: border-box;
+            }
 
-            get title() {
-                return this.root.shadowRoot.querySelector(`.title`).innerHTML;
-            },
+            ul {
+                margin: 0;
+                list-style: none;
+                padding: var(--ui-spacing);
+                overflow: hidden;
+            }
 
-            set title(value) {
-                let item = this.root.shadowRoot.querySelector(`.title`);
+            ul .fold {
+                display: flex;
+                position: relative;
+                border-radius: var(--ui-radius);
+                cursor: pointer;
+            }
 
-                if (!value) {
-                    item.classList.remove("visible");
-                    return;
-                }
+            ul :host([no-fold]) .fold {
+                display: none;
+            }
 
-                item.classList.add("visible");
-                item.innerHTML = html` <h3>${value}</h3> `;
-            },
+            ul .fold .title:not(.visible) {
+                display: none;
+            }
 
-            get fold() {
-                return this.root.hasAttribute("fold");
-            },
+            ul .fold .icon {
+                transition: transform 0.25s ease;
+            }
 
-            set fold(value) {
-                if (!value) {
-                    this.root.removeAttribute("fold");
-                    return;
-                }
+            :host(:not([open])) ul .fold .icon {
+                transform: rotate(-90deg);
+            }
 
-                this.root.setAttribute("fold", "");
-            },
-
-            get nofold() {
-                return this.root.hasAttribute("nofold");
-            },
-
-            set nofold(value) {
-                if (!value) {
-                    this.root.removeAttribute("nofold");
-                    return;
-                }
-
-                this.root.setAttribute("nofold", "");
-            },
-        };
-
-        this.#renderUIDrawerGroup();
+            :host(:not([open])):host(:not([no-fold])) ::slotted(*) {
+                display: none !important;
+            }
+        `;
     }
 
-    #renderUIDrawerGroup() {
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
-
-                ul {
-                    margin: 0;
-                    list-style: none;
-                    padding: var(--ui-spacing);
-                    overflow: hidden;
-                }
-
-                ui-drawer-group-item {
-                    display: flex;
-                    cursor: pointer;
-                }
-
-                .title:not(.visible) {
-                    display: none;
-                }
-
-                .icon {
-                    transition: transform 0.25s ease;
-                }
-
-                :host([fold]) .icon {
-                    transform: rotate(-90deg);
-                }
-
-                :host([fold]):host(:not([nofold])) ::slotted(*) {
-                    display: none !important;
-                }
-
-                :host([nofold]) ui-drawer-group-item:nth-child(1) {
-                    display: none;
-                }
-            </style>
-
+    protected render() {
+        return html`
             <ul>
                 <ui-drawer-group-item
-                    style="position: relative; border-radius: var(--ui-radius);"
+                    class="fold"
                     role="button"
+                    @click=${() => {
+                        this.open = !this.open;
+                    }}
                 >
                     <ui-flex-grid-row>
-                        <ui-flex-grid-item class="title"></ui-flex-grid-item>
+                        <ui-flex-grid-item class="title">
+                            <h3>${this.title}</h3>
+                        </ui-flex-grid-item>
 
                         <ui-flex-grid-item class="icon" flex="0">
                             <ui-svg style="width: 2.5rem; height: 2.5rem;">
-                                ${chevronDown}
+                                ${svg.smoothieLineIcons.chevronDown}
                             </ui-svg>
                         </ui-flex-grid-item>
                     </ui-flex-grid-row>
@@ -133,12 +95,9 @@ export class _UIDrawerGroup extends HTMLElement {
                 <slot></slot>
             </ul>
         `;
+    }
 
-        // Click handler for fold and unfold a group
-        const item = this.shadowRoot.querySelector("ui-drawer-group-item");
-        item.addEventListener("click", () => {
-            this.ui.fold = !this.ui.fold;
-        });
-        ripple.create(item);
+    protected updated(_changedProperties: PropertyValues): void {
+        ripple.create(this.shadowRoot!.querySelector(`.fold`)!);
     }
 }
