@@ -1,4 +1,4 @@
-import { css as CSS, html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 
 /**
@@ -10,7 +10,7 @@ import { customElement } from "lit/decorators.js";
 @customElement("ui-drawer-group-item")
 export class UIDrawerGroupItem extends LitElement {
     static get styles() {
-        return CSS`
+        return css`
             * {
                 box-sizing: border-box;
             }
