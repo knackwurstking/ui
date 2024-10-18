@@ -16,6 +16,18 @@ export type UIThemeHandlerModes = "dark" | "light" | null;
  */
 @customElement("ui-theme-handler")
 export class UIThemeHandler extends LitElement {
+    @property({ type: Boolean, attribute: "auto", reflect: true })
+    auto: boolean = false;
+
+    @property({ type: String, attribute: "mode", reflect: true })
+    mode: UIThemeHandlerModes | null = null;
+
+    @property({ type: String, attribute: "theme", reflect: true })
+    theme: UIThemeHandlerThemes = defaultTheme;
+
+    @property({ type: String, attribute: "themes-path", reflect: true })
+    themesPath: string = "/themes";
+
     private get target(): HTMLElement {
         return document.body;
     }
@@ -31,15 +43,6 @@ export class UIThemeHandler extends LitElement {
             }
         };
     }
-
-    @property({ type: Boolean, attribute: "auto", reflect: true })
-    auto: boolean = false;
-
-    @property({ type: String, attribute: "mode", reflect: true })
-    mode: UIThemeHandlerModes | null = null;
-
-    @property({ type: String, attribute: "theme", reflect: true })
-    theme: UIThemeHandlerThemes = defaultTheme;
 
     static get styles() {
         return css`
@@ -105,10 +108,9 @@ export class UIThemeHandler extends LitElement {
 
     private handleTheme(): void {
         const target: HTMLElement = document.head;
-        const themesPath: string = "/themes"; // TODO: Add @property for this "themes-path"
 
         console.debug(
-            `[ui][ui-theme-handler] Load theme from "${themesPath}/${this.theme}"`,
+            `[ui][ui-theme-handler] Load theme from "${this.themesPath}/${this.theme}"`,
         );
 
         target.querySelectorAll(`link.theme`).forEach((child) => {
@@ -119,7 +121,7 @@ export class UIThemeHandler extends LitElement {
         {
             link.classList.add("theme");
             link.rel = "stylesheet";
-            link.href = `${themesPath}/${this.theme || defaultTheme}.css`;
+            link.href = `${this.themesPath}/${this.theme || defaultTheme}.css`;
         }
         target.appendChild(link);
     }

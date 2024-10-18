@@ -60,7 +60,11 @@ export class MainApp extends LitElement {
         this.store.storage = true;
 
         return html`
-            <ui-theme-handler theme="gruvbox" auto></ui-theme-handler>
+            <ui-theme-handler
+                themes-path="/themes"
+                theme="gruvbox"
+                auto
+            ></ui-theme-handler>
             <!--ui-store storage-prefix="ui:" storage></ui-store-->
             ${this.store} ${this.renderTextComponentsSection()}
             ${this.renderSvgSection()} ${this.renderStackLayoutSection()}
