@@ -6,6 +6,7 @@ import { UIDrawerGroup } from "./ui-drawer-group";
  * **Tag**: ui-drawer
  *
  * **Attributes**:
+ *  - width: `string`
  *  - open: `boolean`
  *
  * **Events**:
