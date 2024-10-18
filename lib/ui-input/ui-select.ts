@@ -28,8 +28,6 @@ export class UISelect extends LitElement {
     @property({ type: Boolean, attribute: "keep-open", reflect: true })
     keepOpen: boolean = false;
 
-    // TODO: Add some absolute position option ("..."), this will open to a fixed position, just like a dialog
-
     static get styles() {
         return css`
             * {
@@ -141,8 +139,6 @@ export class UISelect extends LitElement {
         else this.removeAttribute("role");
 
         const optionsClickHandler = this.optionsClickHandler.bind(this);
-
-        // TODO: Handle "absolute" property, Create a dialog, append to dom until closed
 
         return html`
             <div
