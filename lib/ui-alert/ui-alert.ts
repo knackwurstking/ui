@@ -1,4 +1,4 @@
-import { css as CSS, html, LitElement, PropertyValues } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 export type UIAlertVariant = "info" | "warning" | "error";
@@ -19,7 +19,7 @@ export class UIAlert extends LitElement {
     message: string = "";
 
     static get styles() {
-        return CSS`
+        return css`
             :host {
                 position: relative;
 

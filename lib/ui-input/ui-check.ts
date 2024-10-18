@@ -1,4 +1,4 @@
-import { css as CSS, html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
@@ -20,7 +20,7 @@ export class UICheck extends LitElement {
     checked: boolean = false;
 
     static get styles() {
-        return CSS`
+        return css`
             :host {
                 border-radius: var(--ui-radius);
             }

@@ -1,5 +1,5 @@
 import { svg, UIIconButton } from "..";
-import { css as CSS, html, LitElement, PropertyValues } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
@@ -53,7 +53,7 @@ export class UISearch extends LitElement {
     storageKey: string = "";
 
     static get styles() {
-        return CSS`
+        return css`
             * {
                 box-sizing: border-box;
             }

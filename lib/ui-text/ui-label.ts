@@ -1,4 +1,4 @@
-import { css as CSS, html, LitElement, PropertyValues } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { CleanUpFunction, ripple } from "..";
 
@@ -40,7 +40,7 @@ export class UILabel extends LitElement {
     ripple: boolean = false;
 
     static get styles() {
-        return CSS`
+        return css`
             * {
                 box-sizing: border-box;
             }

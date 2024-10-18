@@ -1,4 +1,4 @@
-import { css as CSS, html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 const defaultGap = "0";
@@ -30,7 +30,7 @@ export class UIFlexGrid extends LitElement {
     wrap?: string;
 
     static get styles() {
-        return CSS`
+        return css`
             :host {
                 display: flex;
                 flex-flow: column var(--_wrap, nowrap);

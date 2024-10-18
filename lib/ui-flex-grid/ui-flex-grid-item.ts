@@ -1,4 +1,4 @@
-import { css as CSS, html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 const defaultFlex = 1;
@@ -18,7 +18,7 @@ export class UIFlexGridItem extends LitElement {
     flex: number = defaultFlex;
 
     static get styles() {
-        return CSS`
+        return css`
             :host {
                 flex: var(--_flex, ${defaultFlex});
                 display: flex;

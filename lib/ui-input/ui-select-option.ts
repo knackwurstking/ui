@@ -1,4 +1,4 @@
-import { css as CSS, html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
@@ -20,7 +20,7 @@ export class UISelectOption extends LitElement {
     selected: boolean = false;
 
     static get styles() {
-        return CSS`
+        return css`
             :host {
                 display: none;
                 align-items: center;
