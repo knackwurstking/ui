@@ -1,133 +1,116 @@
-// TODO: Convert to typescript
-import { Events, globalStylesToShadowRoot, html } from "../utils";
+import { css, html, LitElement, PropertyValues } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
 /**
- * @typedef UIDrawer_Events
- * @type {{
- *  open: null,
- *  close: null,
- * }}
- */
-
-/**
- * HTML: `ui-drawer`
+ * **Tag**: ui-drawer
  *
- * Attributes:
- *  - __open__: *boolean*
+ * **Attributes**:
+ *  - open: `boolean`
  *
- * Slots:
- *  - __\*__
+ * **Events**:
+ *  - open
+ *  - close
+ *
+ * **Slots**:
+ *  - \*
  */
-export class UIDrawer extends HTMLElement {
-    static register = () => {
-        if (!customElements.get("ui-drawer")) {
-            console.debug(`[ui] Register "ui-drawer" component`);
-            customElements.define("ui-drawer", UIDrawer);
-        }
-    };
+@customElement("ui-drawer")
+export class UIDrawer extends LitElement {
+    @property({ type: Boolean, attribute: "open", reflect: true })
+    open: boolean = false;
 
-    constructor() {
-        super();
+    static get styles() {
+        return css`
+            * {
+                box-sizing: border-box;
+            }
 
-        this.ui = {
-            root: this,
+            :host {
+                display: block;
 
-            /**
-             * @type {Events<UIDrawer_Events>}
-             */
-            events: new Events(),
+                position: absolute !important;
+                z-index: 150;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
 
-            get open() {
-                return this.root.hasAttribute("open");
-            },
+                overflow: hidden;
 
-            set open(state) {
-                if (!state) {
-                    this.root.removeAttribute("open");
-                    this.events.dispatch("close", null);
-                    return;
-                }
+                transition: left 0s ease 0.5s;
+            }
 
-                history.pushState(null, "ui-drawer", location.href);
-                this.root.setAttribute("open", "");
-                this.events.dispatch("open", null);
-            },
-        };
+            :host([open]) {
+                left: 0;
+                transition: none;
+            }
 
-        this.#renderUIDrawer();
+            aside {
+                position: absolute;
+                z-index: 150;
+                top: 0;
+                left: -100%;
+                width: var(--ui-drawer-width, fit-content);
+                max-width: calc(100% - 2.5rem);
+                height: 100%;
+
+                overflow-x: hidden;
+                overflow-y: auto;
+
+                border-right: 1px solid hsl(var(--ui-hsl-card-borderColor));
+
+                transition: left 0.5s ease;
+
+                /* Remove Scrollbar */
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                scroll-behavior: smooth;
+
+                /* Backdrop Blur */
+                background-color: hsla(
+                    var(--ui-hsl-backdrop),
+                    var(--ui-hsl-backdrop-alpha)
+                );
+                -webkit-backdrop-filter: var(--ui-backdropFilter);
+                backdrop-filter: var(--ui-backdropFilter);
+            }
+
+            aside::-webkit-scrollbar {
+                display: none;
+            }
+
+            :host([open]) aside {
+                left: 0;
+            }
+        `;
     }
 
-    #renderUIDrawer() {
-        this.classList.add("has-backdrop-blur");
-
-        this.attachShadow({ mode: "open" });
-        globalStylesToShadowRoot(this.shadowRoot);
-
-        this.shadowRoot.innerHTML = html`
-            <style>
-                * {
-                    box-sizing: border-box;
-                }
-
-                :host {
-                    display: block;
-
-                    position: absolute !important;
-                    z-index: 150;
-                    top: 0;
-                    left: -100%;
-                    width: 100%;
-                    height: 100%;
-
-                    overflow: hidden;
-
-                    transition: left 0s ease 0.5s;
-                }
-
-                :host([open]) {
-                    left: 0;
-                    transition: none;
-                }
-
-                aside {
-                    position: absolute;
-                    z-index: 150;
-                    top: 0;
-                    left: -100%;
-                    width: var(--ui-drawer-width, fit-content);
-                    max-width: calc(100% - 2.5rem);
-                    height: 100%;
-
-                    overflow-x: hidden;
-                    overflow-y: auto;
-
-                    border-right: 1px solid var(--ui-card-borderColor);
-
-                    transition: left 0.5s ease;
-                }
-
-                :host([open]) aside {
-                    left: 0;
-                }
-            </style>
-
-            <aside class="has-backdrop-blur no-scrollbar">
+    protected render() {
+        return html`
+            <aside
+                @click=${(ev: Event) => {
+                    ev.stopPropagation();
+                }}
+            >
                 <slot></slot>
             </aside>
         `;
-
-        this.shadowRoot
-            .querySelector("aside")
-            .addEventListener("click", (ev) => ev.stopPropagation());
-
-        this.addEventListener("click", () => (this.ui.open = false));
     }
 
-    connectedCallback() {
+    protected firstUpdated(_changedProperties: PropertyValues): void {
         this.setAttribute("role", "button");
+        this.classList.add("has-backdrop-blur");
+        this.addEventListener("click", () => {
+            this.open = false;
+        });
     }
 
-    disconnectedCallback() {}
+    protected updated(_changedProperties: PropertyValues): void {
+        if (this.open) {
+            history.pushState(null, "ui-drawer", location.href);
+            this.dispatchEvent(new Event("open"));
+        } else {
+            this.dispatchEvent(new Event("close"));
+        }
+    }
 }
-
-UIDrawer.register();
