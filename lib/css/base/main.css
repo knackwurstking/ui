@@ -7,6 +7,12 @@
     color: hsl(var(--ui-hsl-primary-text));
 }
 
+*:focus {
+    outline-offset: 1px;
+    outline: 1px solid hsl(var(--ui-hsl-primary)) !important;
+    border-radius: var(--ui-radius);
+}
+
 html {
     font-size: var(--ui-font-size);
     background-color: hsl(var(--ui-hsl-bg));
@@ -132,7 +138,6 @@ textarea {
     color: hsl(var(--ui-hsl-text));
 
     box-shadow: none;
-    outline: none;
 
     font-size: 0.9rem;
     font-family: var(--ui-fontFamily);
@@ -161,7 +166,6 @@ select {
     padding: var(--ui-spacing);
 
     box-shadow: none;
-    outline: none;
 
     font-size: 0.9rem;
     font-family: var(--ui-fontFamily);
@@ -193,15 +197,11 @@ input[type="color"] {
     cursor: pointer;
 }
 
-input:focus:not([type="checkbox"]),
-textarea:focus {
-    border-color: hsl(var(--ui-hsl-primary));
-}
-
 input[aria-invalid] {
     border-color: hsl(var(--ui-hsl-destructive)) !important;
 }
 
+select:disabled,
 input:disabled {
     cursor: default;
     user-select: none;
