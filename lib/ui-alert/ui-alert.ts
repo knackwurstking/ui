@@ -24,7 +24,7 @@ export class UIAlert extends LitElement {
                 position: relative;
 
                 flex: 1;
-                display: contents;
+                display: block;
 
                 border-radius: var(--ui-radius);
                 border: 1px solid hsl(var(--ui-hsl-borderColor));
