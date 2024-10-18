@@ -1,5 +1,6 @@
 import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { UIDrawerGroup } from "./ui-drawer-group";
 
 /**
  * **Tag**: ui-drawer
@@ -19,6 +20,19 @@ export class UIDrawer extends LitElement {
     @property({ type: Boolean, attribute: "open", reflect: true })
     open: boolean = false;
 
+    private handleUnfold = (ev: Event) => {
+        const target: UIDrawerGroup = ev.currentTarget as UIDrawerGroup;
+
+        console.debug(
+            `Triggered "unfold" event`,
+            target.getBoundingClientRect(),
+            target,
+        );
+
+        //const container = this.shadowRoot!.querySelector(`aside`)!;
+        // TODO: Do auto scroll here....
+    };
+
     static get styles() {
         return css`
             * {
@@ -28,7 +42,7 @@ export class UIDrawer extends LitElement {
             :host {
                 display: block;
 
-                position: absolute !important;
+                position: fixed !important;
                 z-index: 150;
                 top: 0;
                 left: -100%;
@@ -55,7 +69,7 @@ export class UIDrawer extends LitElement {
                 height: 100%;
 
                 overflow-x: hidden;
-                overflow-y: auto;
+                overflow-y: scroll;
 
                 border-right: 1px solid hsl(var(--ui-hsl-card-borderColor));
 
@@ -112,5 +126,11 @@ export class UIDrawer extends LitElement {
         } else {
             this.dispatchEvent(new Event("close"));
         }
+
+        [...this.children].forEach(async (child) => {
+            if (child instanceof UIDrawerGroup) {
+                child.addEventListener("unfold", this.handleUnfold);
+            }
+        });
     }
 }

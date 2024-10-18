@@ -1,6 +1,6 @@
 import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { ripple, svg } from "..";
+import { ripple, svg, UIDrawer } from "..";
 
 /**
  * **Tag**: ui-drawer-group
@@ -10,13 +10,17 @@ import { ripple, svg } from "..";
  *  - open: `boolean` - _Will be ignored if "no-fold" is set_
  *  - no-fold: `boolean`
  *
+ * **Events**:
+ *  - fold
+ *  - unfold
+ *
  * **Slots**:
  *  - \*
  */
 @customElement("ui-drawer-group")
 export class UIDrawerGroup extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
-    title: string = "";
+    title: string = "&nbsp;";
 
     @property({ type: Boolean, attribute: "open", reflect: true })
     open: boolean = false;
@@ -48,12 +52,11 @@ export class UIDrawerGroup extends LitElement {
                 display: none;
             }
 
-            ul .fold .title:not(.visible) {
-                display: none;
-            }
-
             ul .fold .icon {
                 transition: transform 0.25s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             :host(:not([open])) ul .fold .icon {
@@ -72,12 +75,14 @@ export class UIDrawerGroup extends LitElement {
                 <ui-drawer-group-item
                     class="fold"
                     role="button"
-                    @click=${() => {
+                    @click=${async () => {
                         this.open = !this.open;
+                        if (this.open) this.dispatchEvent(new Event("unfold"));
+                        else this.dispatchEvent(new Event("fold"));
                     }}
                 >
                     <ui-flex-grid-row>
-                        <ui-flex-grid-item class="title">
+                        <ui-flex-grid-item>
                             <h3>${this.title}</h3>
                         </ui-flex-grid-item>
 
@@ -92,9 +97,5 @@ export class UIDrawerGroup extends LitElement {
                 <slot></slot>
             </ul>
         `;
-    }
-
-    protected updated(_changedProperties: PropertyValues): void {
-        ripple.create(this.shadowRoot!.querySelector(`.fold`)!);
     }
 }
