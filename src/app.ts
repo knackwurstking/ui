@@ -459,14 +459,20 @@ export class MainApp extends LitElement {
     protected renderAlerts() {
         return html`
             <ui-alerts>
-                <!--ui-alert variant="info" message="Info alert message"></ui-alert>
+                <ui-alert
+                    variant="info"
+                    message="Info alert message"
+                ></ui-alert>
 
                 <ui-alert
                     variant="warning"
                     message="Warning alert message"
                 ></ui-alert>
 
-                <ui-alert variant="error" message="Error alert message"></ui-alert-->
+                <ui-alert
+                    variant="error"
+                    message="Error alert message"
+                ></ui-alert>
             </ui-alerts>
         `;
     }
