@@ -366,7 +366,16 @@ export class MainApp extends LitElement {
 
                     <ui-flex-grid-item>
                         <ui-label primary="Standard HTML Select">
-                            <select>
+                            <select
+                                @change=${(ev: Event) => {
+                                    const target =
+                                        ev.currentTarget as HTMLSelectElement;
+                                    console.debug(
+                                        "select - change:",
+                                        target.children[target.selectedIndex],
+                                    );
+                                }}
+                            >
                                 <option value="option1">Option 1</option>
                                 <option value="option2">Option 2</option>
                                 <option value="option3" selected>
