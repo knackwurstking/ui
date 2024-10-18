@@ -3,9 +3,6 @@ import { customElement, property } from "lit/decorators.js";
 import { ripple, svg } from "..";
 
 /**
- * TODO:
- *  - On unfold group, do auto scroll
- *
  * **Tag**: ui-drawer-group
  *
  * **Attributes**:
