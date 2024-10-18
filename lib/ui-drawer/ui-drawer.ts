@@ -17,6 +17,9 @@ import { UIDrawerGroup } from "./ui-drawer-group";
  */
 @customElement("ui-drawer")
 export class UIDrawer extends LitElement {
+    @property({ type: String, attribute: "width", reflect: true })
+    width?: string;
+
     @property({ type: Boolean, attribute: "open", reflect: true })
     open: boolean = false;
 
@@ -56,7 +59,7 @@ export class UIDrawer extends LitElement {
                 z-index: 150;
                 top: 0;
                 left: -100%;
-                width: var(--ui-drawer-width, fit-content);
+                width: var(--_width, fit-content);
                 max-width: calc(100% - 2.5rem);
                 height: 100%;
 
@@ -73,10 +76,7 @@ export class UIDrawer extends LitElement {
                 scroll-behavior: smooth;
 
                 /* Backdrop Blur */
-                background-color: hsla(
-                    var(--ui-hsl-backdrop),
-                    var(--ui-hsl-backdrop-alpha)
-                );
+                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-hsl-backdrop-alpha));
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -112,17 +112,33 @@ export class UIDrawer extends LitElement {
     }
 
     protected updated(_changedProperties: PropertyValues): void {
-        if (this.open) {
-            history.pushState(null, "ui-drawer", location.href);
-            this.dispatchEvent(new Event("open"));
-        } else {
-            this.dispatchEvent(new Event("close"));
-        }
-
         [...this.children].forEach(async (child) => {
             if (child instanceof UIDrawerGroup) {
                 child.addEventListener("unfold", this.handleUnfold);
             }
         });
+    }
+
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
+        super.attributeChangedCallback(name, _old, value);
+
+        switch (name) {
+            case "width":
+                if (value !== null) {
+                    this.style.setProperty("--_width", value);
+                } else {
+                    this.style.removeProperty("--_width");
+                }
+                break;
+
+            case "open":
+                if (value !== null) {
+                    history.pushState(null, "ui-drawer", location.href);
+                    this.dispatchEvent(new Event("open"));
+                } else {
+                    this.dispatchEvent(new Event("close"));
+                }
+                break;
+        }
     }
 }
