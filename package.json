@@ -3,7 +3,8 @@
     "version": "0.9.0",
     "description": "Just an ui lib for my projects.",
     "type": "module",
-    "main": "src/index.js",
+    "main": "lib/index.ts",
+    "module": "lib/index.ts",
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "vite --host",
