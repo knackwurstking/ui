@@ -8,12 +8,12 @@
 
 - [ ] Need to add some tabindex stuff on lit components
 
-## v0.9.0 — 2024-10-18
+## v0.9.0 — [unreleased]
 
 **General**:
 
--  Converted this library into a typescript lib
--  Converted all web components to lit components
+- Converted this library into a typescript lib
+- Converted all web components to lit components
 
 ## v0.8.0 — 2024-10-09
 
