@@ -3,7 +3,7 @@ import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-search
+ * **Tag**: `ui-search`
  *
  * **Attributes**:
  *  - title: `string`
@@ -16,15 +16,10 @@ import { customElement, property } from "lit/decorators.js";
  *  - storage-key: `string`
  *
  * **Events**:
- *  - input
- *  - change
- *  - storage - _Triggered after storage data loaded_
- *  - submit - _Triggered if submit button clicked (if "no-submit" property not set)_
- *
- * **Public Methods**:
- *  - `focus(...)`
- *  - `blur()`
- *  - `click()`
+ *  - "input"
+ *  - "change"
+ *  - "storage": _Triggered after storage data loaded_
+ *  - "submit": _Triggered if submit button clicked (if "no-submit" property not set)_
  */
 @customElement("ui-search")
 export class UISearch extends LitElement {
@@ -149,18 +144,14 @@ export class UISearch extends LitElement {
     protected render() {
         this.setAttribute("role", "input");
 
-        console.debug(
-            `[ui][ui-search] Render component with value "${this.value}"`,
-        );
+        console.debug(`[ui][ui-search] Render component with value "${this.value}"`);
 
         let timeout: NodeJS.Timeout | null = null;
 
         return html`
             <div class="container has-backdrop-blur">
                 ${!!this.title
-                    ? html`<ui-secondary class="title">
-                          ${this.title}
-                      </ui-secondary>`
+                    ? html`<ui-secondary class="title"> ${this.title} </ui-secondary>`
                     : ``}
 
                 <input
@@ -171,26 +162,19 @@ export class UISearch extends LitElement {
                         if (this.noSubmit || ev.key !== "Enter") return;
                         // Trigger submit button click
                         this.shadowRoot
-                            ?.querySelector<UIIconButton>(
-                                `ui-icon-button[name="submit"]`,
-                            )
+                            ?.querySelector<UIIconButton>(`ui-icon-button[name="submit"]`)
                             ?.click();
                     }}
                     @input=${(ev: Event) => {
                         // Pass value down to the LitElement
-                        this.value = (
-                            ev.currentTarget as HTMLInputElement
-                        ).value;
+                        this.value = (ev.currentTarget as HTMLInputElement).value;
 
                         // Store value to localStorage
                         if (!this.storage) return;
 
                         if (timeout !== null) clearTimeout(timeout);
                         timeout = setTimeout(() => {
-                            localStorage.setItem(
-                                this.storagePrefix + this.storageKey,
-                                this.value,
-                            );
+                            localStorage.setItem(this.storagePrefix + this.storageKey, this.value);
                             timeout = null;
                         }, 250);
                     }}
@@ -219,9 +203,7 @@ export class UISearch extends LitElement {
         super.firstUpdated(_changedProperties);
 
         if (!this.value && this.storage) {
-            const value =
-                localStorage.getItem(this.storagePrefix + this.storageKey) ||
-                "";
+            const value = localStorage.getItem(this.storagePrefix + this.storageKey) || "";
             this.value = value;
             this.dispatchEvent(new Event("storage"));
         }
@@ -229,9 +211,7 @@ export class UISearch extends LitElement {
 
     public focus(options?: FocusOptions): void {
         super.focus(options);
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(
-            options,
-        );
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(options);
     }
 
     public blur(): void {

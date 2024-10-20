@@ -2,17 +2,14 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-check
+ * **Tag**: `ui-check`
  *
  * **Attributes**:
  *  - checked: `boolean`
  *
  * **Events**:
- *  - input
- *  - change
- *
- * **Public Methods**:
- *  - `click()`
+ *  - "input"
+ *  - "change"
  */
 @customElement("ui-check")
 export class UICheck extends LitElement {
@@ -75,7 +72,7 @@ export class UICheck extends LitElement {
 
     public click(): void {
         super.click();
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.checked =
-            this.checked = !this.checked;
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.checked = this.checked =
+            !this.checked;
     }
 }

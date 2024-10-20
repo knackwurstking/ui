@@ -5,14 +5,10 @@ import { UIFlexGrid } from "../ui-flex-grid";
 import { UIAlert } from "./ui-alert";
 
 /**
- * **Tag**: ui-alerts
- *
- * **Public Methods**:
- *  - `addAlert(...)`
- *  - `removeAlert(...)`
+ * **Tag**: `ui-alerts`
  *
  * **Slots**:
- *  - \*
+ *  - "": Takes `ui-alert` components
  */
 @customElement("ui-alerts")
 export class UIAlerts extends LitElement {
@@ -67,8 +63,7 @@ export class UIAlerts extends LitElement {
     }
 
     public addAlert(alert: UIAlert): CleanUpFunction {
-        const container =
-            this.shadowRoot?.querySelector<UIFlexGrid>(".container");
+        const container = this.shadowRoot?.querySelector<UIFlexGrid>(".container");
 
         if (!!container) container.append(alert);
 
@@ -76,8 +71,7 @@ export class UIAlerts extends LitElement {
     }
 
     public removeAlert(alert: UIAlert) {
-        const container =
-            this.shadowRoot?.querySelector<UIFlexGrid>(".container");
+        const container = this.shadowRoot?.querySelector<UIFlexGrid>(".container");
 
         if (!!container) container.removeChild(alert);
     }

@@ -4,10 +4,10 @@ import { customElement, property } from "lit/decorators.js";
 export type UIAlertVariant = "info" | "warning" | "error";
 
 /**
- * **Tag**: ui-alert
+ * **Tag**: `ui-alert`
  *
  * **Attributes**:
- *  - variant: `"info" | "warning" | "error"`
+ *  - variant: `"info" | "warning" | "error"` [default: "info"]
  *  - message: `string`
  */
 @customElement("ui-alert")
@@ -60,9 +60,7 @@ export class UIAlert extends LitElement {
     }
 
     protected render() {
-        return html`
-            <ui-text style="font-size: 0.9rem;">${this.message}</ui-text>
-        `;
+        return html` <ui-text style="font-size: 0.9rem;">${this.message}</ui-text> `;
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {

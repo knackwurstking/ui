@@ -4,16 +4,16 @@ import { customElement, property } from "lit/decorators.js";
 const defaultGap = "0";
 
 /**
- * **Tag**: ui-flex-grid
+ * **Tag**: `ui-flex-grid`
  *
  * **Attributes**:
- *  - gap: `string`
+ *  - gap: `string` [default: "0"]
  *  - justify: `string`
  *  - align: `string`
  *  - wrap: `string`
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-flex-grid")
 export class UIFlexGrid extends LitElement {
@@ -60,11 +60,7 @@ export class UIFlexGrid extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

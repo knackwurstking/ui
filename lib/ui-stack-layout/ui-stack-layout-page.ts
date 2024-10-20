@@ -2,13 +2,13 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-stack-layout-page
+ * **Tag**: `ui-stack-layout-page`
  *
  * **Attributes**:
  *  - name: `string`
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-stack-layout-page")
 export class UIStackLayoutPage extends LitElement {

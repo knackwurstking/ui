@@ -7,7 +7,7 @@ export type UIButtonColor = "primary" | "secondary" | "destructive";
 export type UIButtonVariant = "full" | "outline" | "ghost";
 
 /**
- * **Tag**: ui-button
+ * **Tag**: `ui-button`
  *
  * **Attributes**:
  *  - color: `"primary" | "secondary" | "destructive"`
@@ -16,7 +16,7 @@ export type UIButtonVariant = "full" | "outline" | "ghost";
  *  - ripple: `boolean`
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-button")
 export class UIButton extends LitElement {
@@ -130,11 +130,7 @@ export class UIButton extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

@@ -2,10 +2,10 @@ import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-drawer-group-item
+ * **Tag**: `ui-drawer-group-item`
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-drawer-group-item")
 export class UIDrawerGroupItem extends LitElement {

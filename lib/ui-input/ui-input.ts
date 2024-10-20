@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-input
+ * **Tag**: `ui-input`
  *
  * **Attributes**:
  *  - title: `string`
@@ -14,13 +14,8 @@ import { customElement, property } from "lit/decorators.js";
  *  - max: `string`
  *
  * **Events**:
- *  - input
- *  - change
- *
- * **Public Methods**:
- *  - `focus(...)`
- *  - `blur()`
- *  - `click()`
+ *  - "input"
+ *  - "change"
  */
 @customElement("ui-input")
 export class UIInput extends LitElement {
@@ -122,11 +117,7 @@ export class UIInput extends LitElement {
         return html`
             <div class="container">
                 ${!!this.title
-                    ? html`
-                          <ui-secondary class="title">
-                              ${this.title}
-                          </ui-secondary>
-                      `
+                    ? html` <ui-secondary class="title"> ${this.title} </ui-secondary> `
                     : ``}
                 <input
                     type="${this.type}"
@@ -135,9 +126,7 @@ export class UIInput extends LitElement {
                     min="${this.min}"
                     max="${this.max}"
                     @input=${(ev: Event) => {
-                        this.value = (
-                            ev.currentTarget as HTMLInputElement
-                        ).value;
+                        this.value = (ev.currentTarget as HTMLInputElement).value;
                     }}
                     @change=${() => {
                         this.dispatchEvent(new Event("change"));
@@ -149,9 +138,7 @@ export class UIInput extends LitElement {
 
     public focus(options?: FocusOptions): void {
         super.focus(options);
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(
-            options,
-        );
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(options);
     }
 
     public blur(): void {

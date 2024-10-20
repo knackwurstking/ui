@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-spinner
+ * **Tag**: `ui-spinner`
  *
  * **Attributes**:
  *  - nobg: `boolean`
@@ -32,10 +32,7 @@ export class UISpinner extends LitElement {
                 bottom: 0;
                 left: 0;
 
-                background-color: hsla(
-                    var(--ui-hsl-backdrop),
-                    var(--ui-hsl-backdrop-alpha)
-                );
+                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-hsl-backdrop-alpha));
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }

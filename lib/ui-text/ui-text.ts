@@ -2,7 +2,7 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-text
+ * **Tag**: `ui-text`
  *
  * **Attributes**:
  *  - casl: `number`
@@ -12,7 +12,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - family: `string`
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-text")
 export class UIText extends LitElement {
@@ -60,11 +60,7 @@ export class UIText extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

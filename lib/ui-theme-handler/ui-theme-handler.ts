@@ -7,7 +7,7 @@ export type UIThemeHandlerThemes = "original" | "gruvbox";
 export type UIThemeHandlerModes = "dark" | "light" | null;
 
 /**
- * **Tag**: ui-theme-handler
+ * **Tag**: `ui-theme-handler`
  *
  * **Attributes**:
  *  - auto: `boolean`
@@ -52,11 +52,7 @@ export class UIThemeHandler extends LitElement {
         `;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {
@@ -109,9 +105,7 @@ export class UIThemeHandler extends LitElement {
     private handleTheme(): void {
         const target: HTMLElement = document.head;
 
-        console.debug(
-            `[ui][ui-theme-handler] Load theme from "${this.themesPath}/${this.theme}"`,
-        );
+        console.debug(`[ui][ui-theme-handler] Load theme from "${this.themesPath}/${this.theme}"`);
 
         target.querySelectorAll(`link.theme`).forEach((child) => {
             target.removeChild(child);

@@ -4,13 +4,13 @@ import { customElement, property } from "lit/decorators.js";
 const defaultFlex = 1;
 
 /**
- * **Tag**: ui-flex-grid-item
+ * **Tag**: `ui-flex-grid-item`
  *
  * **Attributes**:
  *  - flex: `number` [default: 1]
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-flex-grid-item")
 export class UIFlexGridItem extends LitElement {
@@ -34,19 +34,12 @@ export class UIFlexGridItem extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {
             case "flex":
-                this.style.setProperty(
-                    `--_flex`,
-                    value || defaultFlex.toString(),
-                );
+                this.style.setProperty(`--_flex`, value || defaultFlex.toString());
                 break;
         }
     }

@@ -2,7 +2,7 @@ import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-lang-type
+ * **Tag**: `ui-lang-type`
  *
  * **Attributes**:
  *  - name: `string`

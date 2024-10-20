@@ -4,20 +4,10 @@ import { Events } from "../utils";
 import { UIStackLayoutPage } from "./ui-stack-layout-page";
 
 /**
- * **Tag**: ui-stack-layout
- *
- * **Public Methods**:
- *  - `events`
- *  - `stack`
- *  - `stackSize()`
- *  - `clear()`
- *  - `goBack()`
- *  - `register(...)`
- *  - `unregister(...)`
- *  - `async set(...)`
+ * **Tag**: `ui-stack-layout`
  *
  * **Slots**:
- *  - \*
+ *  - "": Takes `ui-stack-layout-page` components
  */
 @customElement("ui-stack-layout")
 export class UIStackLayout<T extends string> extends LitElement {
@@ -92,10 +82,7 @@ export class UIStackLayout<T extends string> extends LitElement {
         return;
     }
 
-    public register(
-        pageName: T,
-        cb: () => UIStackLayoutPage | Promise<UIStackLayoutPage>,
-    ): void {
+    public register(pageName: T, cb: () => UIStackLayoutPage | Promise<UIStackLayoutPage>): void {
         this.pages[pageName] = cb;
     }
 
@@ -127,9 +114,7 @@ export class UIStackLayout<T extends string> extends LitElement {
         }
     }
 
-    private async dispatchChangeEvent(
-        old: UIStackLayoutPage | null,
-    ): Promise<void> {
+    private async dispatchChangeEvent(old: UIStackLayoutPage | null): Promise<void> {
         this.events.dispatch("change", {
             old: old || this.stack[this.stack.length - 2] || null,
             current: this.stack[this.stack.length - 1] || null,

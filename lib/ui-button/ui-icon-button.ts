@@ -6,7 +6,7 @@ import { ripple } from "../utils";
 export type UIIconButtonColor = "primary" | "secondary" | "destructive";
 
 /**
- * **Tag**: ui-button
+ * **Tag**: `ui-icon-button`
  *
  * **Attributes**:
  *  - color: `"primary" | "secondary" | "destructive"`
@@ -15,7 +15,7 @@ export type UIIconButtonColor = "primary" | "secondary" | "destructive";
  *  - ripple: `boolean`
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-icon-button")
 export class UIIconButton extends LitElement {
@@ -100,11 +100,7 @@ export class UIIconButton extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

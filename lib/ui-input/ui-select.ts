@@ -3,14 +3,14 @@ import { customElement, property } from "lit/decorators.js";
 import { svg, UISelectOption } from "..";
 
 /**
- * **Tag**: ui-select
+ * **Tag**: `ui-select`
  *
  * **Attributes**:
  *  - open: `boolean`
  *  - keep-open: `boolean`
  *
  * **Events**:
- *  - change
+ *  - "change"
  *
  * **Public Methods**:
  *  - `options()`
@@ -18,7 +18,7 @@ import { svg, UISelectOption } from "..";
  *  - `click()`
  *
  * **Slots**:
- *  - \*
+ *  - "": Takes `ui-select-option` components
  */
 @customElement("ui-select")
 export class UISelect extends LitElement {
@@ -160,7 +160,7 @@ export class UISelect extends LitElement {
     }
 
     protected updated(_changedProperties: PropertyValues): void {
-        console.debug("[ui][ui-select] updated", this.children.length); // TOOD: Remove this
+        console.debug("[ui][ui-select] updated", this.children.length); // TODO: Remove this
         this.style.setProperty("--_items", `${this.children.length}`);
     }
 
@@ -168,7 +168,7 @@ export class UISelect extends LitElement {
         ev.composedPath().forEach((child) => {
             if (!(child instanceof UISelectOption)) return;
 
-            // Deselect all opitons
+            // Deselect all options
             [...this.querySelectorAll("ui-select-option")].forEach((c) =>
                 c.removeAttribute("selected"),
             );

@@ -2,14 +2,14 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: ui-select-option
+ * **Tag**: `ui-select-option`
  *
  * **Attributes**:
  *  - value: `string`
  *  - selected: `boolean`
  *
  * **Slots**:
- *  - \*
+ *  - ""
  */
 @customElement("ui-select-option")
 export class UISelectOption extends LitElement {
@@ -28,9 +28,7 @@ export class UISelectOption extends LitElement {
                 padding: var(--ui-spacing);
                 padding-right: 2.5rem;
 
-                height: calc(
-                    1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
-                );
+                height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
 
                 font-variation-settings: var(--ui-input-fontVariation);
                 color: hsl(var(--ui-hsl-input-text));
