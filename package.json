@@ -8,12 +8,13 @@
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "vite --host",
-        "build": "tsc && vite build --minify -c vite.config.js"
+        "build": "tsc && vite build --minify -c vite.config.js && typedoc --out docs lib/index.ts"
     },
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^22.7.5",
         "clean-css-cli": "^5.6.3",
+        "typedoc": "^0.26.10",
         "typescript": "^5.6.3"
     },
     "dependencies": {
