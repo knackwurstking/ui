@@ -15,7 +15,7 @@
 **Added**:
 
 - Added "keep-open" option to `UISelect`
-- Added "gruvbox" theme to [css/themes/](css/themes)
+- Added "gruvbox" theme to [css/themes/](/themes)
 - Added "theme" attribute to `UIThemeHandler` web component,
     possible values: "original", "gruvbox"
 
