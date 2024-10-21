@@ -1,10 +1,10 @@
 import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-const defaultTheme: UIThemeHandlerThemes = "gruvbox";
+const defaultTheme: UIThemeHandlerTheme = "gruvbox";
 
-export type UIThemeHandlerThemes = "original" | "gruvbox";
-export type UIThemeHandlerModes = "dark" | "light" | null;
+export type UIThemeHandlerTheme = "original" | "gruvbox";
+export type UIThemeHandlerMode = "dark" | "light" | null;
 
 /**
  * **Tag**: `ui-theme-handler`
@@ -20,10 +20,10 @@ export class UIThemeHandler extends LitElement {
     auto: boolean = false;
 
     @property({ type: String, attribute: "mode", reflect: true })
-    mode: UIThemeHandlerModes | null = null;
+    mode: UIThemeHandlerMode | null = null;
 
     @property({ type: String, attribute: "theme", reflect: true })
-    theme: UIThemeHandlerThemes = defaultTheme;
+    theme: UIThemeHandlerTheme = defaultTheme;
 
     @property({ type: String, attribute: "themes-path", reflect: true })
     themesPath: string = "/themes";
