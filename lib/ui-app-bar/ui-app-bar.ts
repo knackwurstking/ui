@@ -47,7 +47,6 @@ export class UIAppBar extends LitElement {
 
             :host([position="top"]),
             :host([position="bottom"]) {
-                z-index: 100;
                 position: absolute !important;
                 left: 0;
                 right: 0;
