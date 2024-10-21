@@ -18,6 +18,8 @@ export class UIAlert extends LitElement {
     @property({ type: String, attribute: "message" })
     message: string = "";
 
+    role = "button";
+
     static get styles() {
         return css`
             :host {
