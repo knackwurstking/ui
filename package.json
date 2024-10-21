@@ -11,6 +11,9 @@
         "build": "tsc && vite build --minify -c vite.config.js && typedoc --out docs lib/index.ts"
     },
     "license": "MIT",
+    "peerDependencies": {
+        "lit": "^3.2.1"
+    },
     "devDependencies": {
         "@types/node": "^22.7.5",
         "clean-css-cli": "^5.6.3",
