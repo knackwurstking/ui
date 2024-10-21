@@ -35,23 +35,20 @@ export class UISelect extends LitElement {
             }
 
             :host {
-                --ui-bg: "transparent";
+                --_lineHeight: 1.15;
+                line-height: var(--_lineHeight) !important;
 
                 position: relative;
                 display: block;
 
                 width: 100%;
-                height: calc(
-                    1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
-                );
+                height: calc(1em * var(--_lineHeight) + var(--ui-spacing) * 2);
                 transition: height 0.25s ease;
 
                 background-color: transparent;
 
                 border: 1px solid hsl(var(--ui-hsl-borderColor));
                 border-radius: var(--ui-radius);
-
-                line-height: 1.15;
 
                 overflow: hidden;
 
@@ -63,7 +60,7 @@ export class UISelect extends LitElement {
             :host([open]),
             :host([keep-open]) {
                 height: calc(
-                    (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
+                    (1em * var(--_lineHeight) + var(--ui-spacing) * 2) *
                         var(--_items)
                 );
             }

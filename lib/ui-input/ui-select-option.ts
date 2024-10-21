@@ -24,15 +24,16 @@ export class UISelectOption extends LitElement {
     static get styles() {
         return css`
             :host {
+                --_lineHeight: var(--_lineHeight, 1.15);
+                line-height: var(--_lineHeight) !important;
+
                 display: none;
                 align-items: center;
 
                 padding: var(--ui-spacing);
                 padding-right: 2.5rem;
 
-                height: calc(
-                    1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
-                );
+                height: calc(1em * var(--_lineHeight) + var(--ui-spacing) * 2);
 
                 font-variation-settings: var(--ui-input-fontVariation);
                 color: hsl(var(--ui-hsl-input-text));
