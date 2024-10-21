@@ -130,6 +130,7 @@ export class UILabel extends LitElement {
 
         this.rippleCleanUp = ripple.create(container);
 
+        this.role = "button";
         this.style.cursor = "pointer";
 
         this.addEventListener("click", this.clickHandler);
@@ -140,6 +141,9 @@ export class UILabel extends LitElement {
 
     private async disableRipple() {
         if (!this.rippleCleanUp) return;
+
+        this.style.cursor = "default";
+        this.role = null;
 
         this.rippleCleanUp();
         this.rippleCleanUp = null;

@@ -37,6 +37,8 @@ export class UITextarea extends LitElement {
     @property({ type: Number, attribute: "cols", reflect: true })
     cols?: number;
 
+    role = "textbox";
+
     static get styles() {
         return css`
             * {

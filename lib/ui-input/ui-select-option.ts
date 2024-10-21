@@ -19,6 +19,8 @@ export class UISelectOption extends LitElement {
     @property({ type: Boolean, attribute: "selected", reflect: true })
     selected: boolean = false;
 
+    role = "button";
+
     static get styles() {
         return css`
             :host {
@@ -46,7 +48,6 @@ export class UISelectOption extends LitElement {
     }
 
     protected render() {
-        this.setAttribute("role", "button");
         return html`<slot></slot>`;
     }
 }

@@ -47,6 +47,8 @@ export class UISearch extends LitElement {
     @property({ type: String, attribute: "storage-key", reflect: true })
     storageKey: string = "";
 
+    role = "search";
+
     static get styles() {
         return css`
             * {
@@ -142,8 +144,6 @@ export class UISearch extends LitElement {
     }
 
     protected render() {
-        this.setAttribute("role", "input");
-
         console.debug(`[ui][ui-search] Render component with value "${this.value}"`);
 
         let timeout: NodeJS.Timeout | null = null;

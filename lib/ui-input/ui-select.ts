@@ -126,8 +126,8 @@ export class UISelect extends LitElement {
     }
 
     protected render() {
-        if (!this.open && !this.keepOpen) this.setAttribute("role", "button");
-        else this.removeAttribute("role");
+        if (!this.open && !this.keepOpen) this.role = "button";
+        else this.role = null;
 
         const optionsClickHandler = this.optionsClickHandler.bind(this);
 

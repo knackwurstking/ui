@@ -24,6 +24,8 @@ export class UIDrawer extends LitElement {
     @property({ type: Boolean, attribute: "open", reflect: true })
     open: boolean = false;
 
+    role = "button";
+
     private handleUnfold = (ev: Event) => {
         const target: UIDrawerGroup = ev.currentTarget as UIDrawerGroup;
         target.scrollIntoView(true);
@@ -105,7 +107,6 @@ export class UIDrawer extends LitElement {
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
-        this.setAttribute("role", "button");
         this.classList.add("has-backdrop-blur");
         this.addEventListener("click", () => {
             this.open = false;

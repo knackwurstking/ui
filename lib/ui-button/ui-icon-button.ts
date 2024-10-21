@@ -19,8 +19,6 @@ export type UIIconButtonColor = "primary" | "secondary" | "destructive";
  */
 @customElement("ui-icon-button")
 export class UIIconButton extends LitElement {
-    private rippleCleanUp: CleanUpFunction | null = null;
-
     @property({ type: String, attribute: "color", reflect: true })
     color?: UIIconButtonColor;
 
@@ -32,6 +30,11 @@ export class UIIconButton extends LitElement {
 
     @property({ type: Boolean, attribute: "ripple" })
     ripple: Boolean = false;
+
+    role: string | null = "button";
+    //tabIndex: number = 0;
+
+    private rippleCleanUp: CleanUpFunction | null = null;
 
     static get styles() {
         return css`
@@ -96,7 +99,6 @@ export class UIIconButton extends LitElement {
     }
 
     protected render() {
-        this.setAttribute("role", "button");
         return html`<slot></slot>`;
     }
 

@@ -16,6 +16,8 @@ export class UICheck extends LitElement {
     @property({ type: Boolean, attribute: "checked", reflect: true })
     checked: boolean = false;
 
+    role = "checkbox";
+
     static get styles() {
         return css`
             :host {
@@ -52,8 +54,6 @@ export class UICheck extends LitElement {
     }
 
     protected render() {
-        this.setAttribute("role", "checkbox");
-
         return html`
             <input
                 type="checkbox"

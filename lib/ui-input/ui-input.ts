@@ -40,6 +40,8 @@ export class UIInput extends LitElement {
     @property({ type: String, attribute: "max", reflect: true })
     max: string = "";
 
+    role = "input";
+
     static get styles() {
         return css`
             * {
@@ -112,8 +114,6 @@ export class UIInput extends LitElement {
     }
 
     protected render() {
-        this.setAttribute("role", "checkbox");
-
         return html`
             <div class="container">
                 ${!!this.title

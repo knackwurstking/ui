@@ -15,6 +15,7 @@
     --ui-tbody-fontVariation: "CASL" 1, "MONO" 0, "slnt" -3;
     --ui-thead-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
 
+    /* NOTE: Maybe i will remove these three variables here in future */
     --ui-app-bar-height: 3rem;
     --ui-dialog-header-height: 2.5rem;
     --ui-dialog-footer-height: 3rem;
@@ -22,6 +23,6 @@
     --ui-ripple-text: currentColor;
     --ui-ripple-opacity: 0.2;
 
-    --ui-backdrop-alpha: 0.2;
+    --ui-backdrop-alpha: 0.25;
     --ui-backdropFilter: blur(5px);
 }

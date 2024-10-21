@@ -20,8 +20,6 @@ export type UIButtonVariant = "full" | "outline" | "ghost";
  */
 @customElement("ui-button")
 export class UIButton extends LitElement {
-    private rippleCleanUp: CleanUpFunction | null = null;
-
     @property({ type: String, attribute: "color", reflect: true })
     color?: UIButtonColor;
 
@@ -33,6 +31,11 @@ export class UIButton extends LitElement {
 
     @property({ type: Boolean, attribute: "ripple" })
     ripple: Boolean = false;
+
+    role: string | null = "button";
+    //tabIndex: number = 0;
+
+    private rippleCleanUp: CleanUpFunction | null = null;
 
     static get styles() {
         return css`
@@ -126,7 +129,6 @@ export class UIButton extends LitElement {
     }
 
     protected render() {
-        this.setAttribute("role", "button");
         return html`<slot></slot>`;
     }
 
