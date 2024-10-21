@@ -77,6 +77,7 @@ export class UIAppBar extends LitElement {
 
             :host > ui-flex-grid-row > * {
                 height: 100%;
+                width: 100%;
             }
 
             :host > ui-flex-grid-row > *:nth-child(1),
@@ -84,15 +85,16 @@ export class UIAppBar extends LitElement {
                 width: fit-content;
             }
 
-            :host > ui-flex-grid-row > [slot="left"] {
+            ::slotted([slot="left"]) {
                 margin-left: 0 !important;
+                justify-content: flex-start;
             }
 
-            :host > ui-flex-grid-row > [slot="center"] {
+            ::slotted([slot="center"]) {
                 width: 100%;
             }
 
-            :host > ui-flex-grid-row > [slot="right"] {
+            ::slotted([slot="right"]) {
                 margin-right: 0 !important;
                 justify-content: flex-end;
             }
