@@ -2,8 +2,6 @@
 
 ## v1.0.0 — [unreleased]
 
-- [ ] Need to add some tabindex stuff on all lit components
-
 **General**:
 
 - Added a complete library documentation with "typedoc"
