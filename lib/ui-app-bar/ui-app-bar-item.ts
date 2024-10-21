@@ -6,6 +6,7 @@ import { customElement, property } from "lit/decorators.js";
  *
  * **Attributes**:
  *  - name: `string`
+ *  - hidden: `boolean`
  *
  * **Slots**:
  *  - ""
@@ -15,6 +16,9 @@ export class UIAppBarItem extends LitElement {
     @property({ type: String, attribute: "name", reflect: true })
     name: string = "";
 
+    @property({ type: Boolean, attribute: "hidden", reflect: true })
+    hidden: boolean = false;
+
     static get styles() {
         return css`
             * {
@@ -22,8 +26,12 @@ export class UIAppBarItem extends LitElement {
             }
 
             :host {
-                display: var(--_display, contents);
+                display: block;
                 flex: 1;
+            }
+
+            :host([hidden]) {
+                display: none;
             }
 
             ::slotted(*) {
@@ -45,10 +53,10 @@ export class UIAppBarItem extends LitElement {
     }
 
     public show(): void {
-        this.style.removeProperty("--_display");
+        this.hidden = false;
     }
 
     public hide(): void {
-        this.style.setProperty("--_display", "none");
+        this.hidden = true;
     }
 }
