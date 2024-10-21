@@ -78,7 +78,8 @@ export class UIDrawerGroup extends LitElement {
                     @click=${async () => {
                         this.open = !this.open;
                         setTimeout(() => {
-                            if (this.open) this.dispatchEvent(new Event("unfold"));
+                            if (this.open)
+                                this.dispatchEvent(new Event("unfold"));
                             else this.dispatchEvent(new Event("fold"));
                         });
                     }}

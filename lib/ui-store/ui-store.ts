@@ -31,7 +31,9 @@ export class UIStore<T extends { [key: string]: any }> extends LitElement {
 
     public getData<K extends keyof T>(key: K): T[K] | undefined {
         if (this.storage) {
-            const item = localStorage.getItem(`${this.storagePrefix}${key as string}`);
+            const item = localStorage.getItem(
+                `${this.storagePrefix}${key as string}`,
+            );
             if (item !== null) return JSON.parse(item);
         }
 
@@ -52,10 +54,13 @@ export class UIStore<T extends { [key: string]: any }> extends LitElement {
         useDataAsFallback: boolean = false,
     ): void {
         if (useDataAsFallback && this.storage) {
-            const storageItem = localStorage.getItem(`${this.storagePrefix}${key as string}`);
+            const storageItem = localStorage.getItem(
+                `${this.storagePrefix}${key as string}`,
+            );
             if (storageItem !== null) {
                 this.data[key as string] = JSON.parse(storageItem);
-            } else if (!this.data.hasOwnProperty(key)) this.data[key as string] = data;
+            } else if (!this.data.hasOwnProperty(key))
+                this.data[key as string] = data;
         } else {
             this.data[key as string] = data;
         }
@@ -70,7 +75,10 @@ export class UIStore<T extends { [key: string]: any }> extends LitElement {
         this.events.dispatch(key, this.data[key as string]);
     }
 
-    public updateData<K extends keyof T>(key: K, callback: (data: T[K]) => T[K]): void {
+    public updateData<K extends keyof T>(
+        key: K,
+        callback: (data: T[K]) => T[K],
+    ): void {
         const data = this.getData(key);
         if (data === undefined) {
             throw new Error(`"${key as string}" not found, use \`setData\``);

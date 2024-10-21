@@ -104,7 +104,11 @@ export class UITextarea extends LitElement {
         return html`
             <div class="container">
                 ${!!this.title
-                    ? html` <ui-secondary class="title"> ${this.title} </ui-secondary> `
+                    ? html`
+                          <ui-secondary class="title">
+                              ${this.title}
+                          </ui-secondary>
+                      `
                     : ``}
 
                 <textarea
@@ -113,7 +117,9 @@ export class UITextarea extends LitElement {
                     rows=${ifDefined(this.rows)}
                     cols=${ifDefined(this.cols)}
                     @input=${(ev: Event) => {
-                        this.value = (ev.currentTarget as HTMLTextAreaElement).value;
+                        this.value = (
+                            ev.currentTarget as HTMLTextAreaElement
+                        ).value;
                     }}
                     @change=${() => {
                         this.dispatchEvent(new Event("change"));
@@ -125,7 +131,9 @@ export class UITextarea extends LitElement {
 
     public focus(options?: FocusOptions): void {
         super.focus(options);
-        this.shadowRoot!.querySelector<HTMLInputElement>(`textarea`)!.focus(options);
+        this.shadowRoot!.querySelector<HTMLInputElement>(`textarea`)!.focus(
+            options,
+        );
     }
 
     public blur(): void {

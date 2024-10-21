@@ -88,8 +88,12 @@ export class UILabel extends LitElement {
         return html`
             <div>
                 <span>
-                    ${!!this.primary ? html`<ui-primary>${this.primary}</ui-primary>` : ``}
-                    ${!!this.secondary ? html`<ui-secondary>${this.secondary}</ui-secondary>` : ``}
+                    ${!!this.primary
+                        ? html`<ui-primary>${this.primary}</ui-primary>`
+                        : ``}
+                    ${!!this.secondary
+                        ? html`<ui-secondary>${this.secondary}</ui-secondary>`
+                        : ``}
                 </span>
 
                 <span>
@@ -106,7 +110,11 @@ export class UILabel extends LitElement {
         else this.disableRipple();
     }
 
-    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
+    attributeChangedCallback(
+        name: string,
+        _old: string | null,
+        value: string | null,
+    ): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

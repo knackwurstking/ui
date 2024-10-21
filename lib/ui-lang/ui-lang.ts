@@ -33,7 +33,11 @@ export class UILang extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
+    attributeChangedCallback(
+        name: string,
+        _old: string | null,
+        value: string | null,
+    ): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {
@@ -53,8 +57,9 @@ export class UILang extends LitElement {
 
     private async setCurrent(name: string | null) {
         const langType: UILangType | null =
-            (name !== "" ? this.querySelector(`ui-lang-type[name="${name}"]`) : this.fallback()) ||
-            this.fallback();
+            (name !== ""
+                ? this.querySelector(`ui-lang-type[name="${name}"]`)
+                : this.fallback()) || this.fallback();
 
         if (!langType) return;
         if (!langType.href) throw `Missing href attribute!`;

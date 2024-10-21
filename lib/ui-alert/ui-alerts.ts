@@ -63,7 +63,8 @@ export class UIAlerts extends LitElement {
     }
 
     public addAlert(alert: UIAlert): CleanUpFunction {
-        const container = this.shadowRoot?.querySelector<UIFlexGrid>(".container");
+        const container =
+            this.shadowRoot?.querySelector<UIFlexGrid>(".container");
 
         if (!!container) container.append(alert);
 
@@ -71,7 +72,8 @@ export class UIAlerts extends LitElement {
     }
 
     public removeAlert(alert: UIAlert) {
-        const container = this.shadowRoot?.querySelector<UIFlexGrid>(".container");
+        const container =
+            this.shadowRoot?.querySelector<UIFlexGrid>(".container");
 
         if (!!container) container.removeChild(alert);
     }

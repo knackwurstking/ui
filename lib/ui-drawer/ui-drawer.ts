@@ -79,7 +79,10 @@ export class UIDrawer extends LitElement {
                 scroll-behavior: smooth;
 
                 /* Backdrop Blur */
-                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-hsl-backdrop-alpha));
+                background-color: hsla(
+                    var(--ui-hsl-backdrop),
+                    var(--ui-hsl-backdrop-alpha)
+                );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -121,7 +124,11 @@ export class UIDrawer extends LitElement {
         });
     }
 
-    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
+    attributeChangedCallback(
+        name: string,
+        _old: string | null,
+        value: string | null,
+    ): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

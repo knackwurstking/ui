@@ -62,7 +62,9 @@ export class UIAlert extends LitElement {
     }
 
     protected render() {
-        return html` <ui-text style="font-size: 0.9rem;">${this.message}</ui-text> `;
+        return html`
+            <ui-text style="font-size: 0.9rem;">${this.message}</ui-text>
+        `;
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {

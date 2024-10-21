@@ -117,7 +117,11 @@ export class UIInput extends LitElement {
         return html`
             <div class="container">
                 ${!!this.title
-                    ? html` <ui-secondary class="title"> ${this.title} </ui-secondary> `
+                    ? html`
+                          <ui-secondary class="title">
+                              ${this.title}
+                          </ui-secondary>
+                      `
                     : ``}
                 <input
                     type="${this.type}"
@@ -126,7 +130,9 @@ export class UIInput extends LitElement {
                     min="${this.min}"
                     max="${this.max}"
                     @input=${(ev: Event) => {
-                        this.value = (ev.currentTarget as HTMLInputElement).value;
+                        this.value = (
+                            ev.currentTarget as HTMLInputElement
+                        ).value;
                     }}
                     @change=${() => {
                         this.dispatchEvent(new Event("change"));
@@ -138,7 +144,9 @@ export class UIInput extends LitElement {
 
     public focus(options?: FocusOptions): void {
         super.focus(options);
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(options);
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(
+            options,
+        );
     }
 
     public blur(): void {

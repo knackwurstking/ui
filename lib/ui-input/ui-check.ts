@@ -72,7 +72,7 @@ export class UICheck extends LitElement {
 
     public click(): void {
         super.click();
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.checked = this.checked =
-            !this.checked;
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.checked =
+            this.checked = !this.checked;
     }
 }

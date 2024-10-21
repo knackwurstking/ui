@@ -60,7 +60,11 @@ export class UIText extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
+    attributeChangedCallback(
+        name: string,
+        _old: string | null,
+        value: string | null,
+    ): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

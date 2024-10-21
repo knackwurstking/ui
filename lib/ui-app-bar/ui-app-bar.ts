@@ -37,7 +37,10 @@ export class UIAppBar extends LitElement {
                 overflow: hidden;
                 padding: calc(var(--ui-spacing) / 2);
 
-                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-hsl-backdrop-alpha));
+                background-color: hsla(
+                    var(--ui-hsl-backdrop),
+                    var(--ui-hsl-backdrop-alpha)
+                );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -104,7 +107,11 @@ export class UIAppBar extends LitElement {
                     <slot name="left"></slot>
                 </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;" align="center">
+                <ui-flex-grid-row
+                    gap="0.25rem"
+                    style="overflow: hidden;"
+                    align="center"
+                >
                     <slot name="center"></slot>
                 </ui-flex-grid-row>
 

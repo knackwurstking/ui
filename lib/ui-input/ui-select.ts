@@ -41,7 +41,9 @@ export class UISelect extends LitElement {
                 display: block;
 
                 width: 100%;
-                height: calc(1em * var(--ui-lineHeight) + var(--ui-spacing) * 2);
+                height: calc(
+                    1em * var(--ui-lineHeight) + var(--ui-spacing) * 2
+                );
                 transition: height 0.25s ease;
 
                 background-color: transparent;
@@ -60,11 +62,16 @@ export class UISelect extends LitElement {
 
             :host([open]),
             :host([keep-open]) {
-                height: calc((1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) * var(--_items));
+                height: calc(
+                    (1em * var(--ui-lineHeight) + var(--ui-spacing) * 2) *
+                        var(--_items)
+                );
             }
 
-            :host(:not([open])) .options:has(> ::slotted(ui-select-option[selected])),
-            :host(:not([keep-open])) .options:has(> ::slotted(ui-select-option[selected])) {
+            :host(:not([open]))
+                .options:has(> ::slotted(ui-select-option[selected])),
+            :host(:not([keep-open]))
+                .options:has(> ::slotted(ui-select-option[selected])) {
                 display: block;
             }
 
@@ -115,11 +122,13 @@ export class UISelect extends LitElement {
             }
 
             :host([open]) ::slotted(ui-select-option:not([selected]):hover),
-            :host([keep-open]) ::slotted(ui-select-option:not([selected]):hover) {
+            :host([keep-open])
+                ::slotted(ui-select-option:not([selected]):hover) {
                 background-color: hsla(var(--ui-hsl-text), 0.1);
             }
 
-            :host(:not([open], [keep-open])) ::slotted(ui-select-option:not([selected])) {
+            :host(:not([open], [keep-open]))
+                ::slotted(ui-select-option:not([selected])) {
                 display: none;
             }
         `;
