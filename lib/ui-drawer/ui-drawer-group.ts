@@ -20,7 +20,7 @@ import { svg } from "..";
 @customElement("ui-drawer-group")
 export class UIDrawerGroup extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
-    title: string = "&nbsp;";
+    title: string = "";
 
     @property({ type: Boolean, attribute: "open", reflect: true })
     open: boolean = false;
@@ -48,7 +48,7 @@ export class UIDrawerGroup extends LitElement {
                 cursor: pointer;
             }
 
-            ul :host([no-fold]) .fold {
+            :host([no-fold]) ul .fold {
                 display: none;
             }
 
