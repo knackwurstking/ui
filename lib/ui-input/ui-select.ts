@@ -35,7 +35,7 @@ export class UISelect extends LitElement {
             }
 
             :host {
-                --_lineHeight: 1.15;
+                --_lineHeight: 1.25;
                 line-height: var(--_lineHeight) !important;
 
                 position: relative;

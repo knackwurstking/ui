@@ -24,7 +24,7 @@ export class UISelectOption extends LitElement {
     static get styles() {
         return css`
             :host {
-                --_lineHeight: var(--_lineHeight, 1.15);
+                --_lineHeight: var(--_lineHeight, 1.25);
                 line-height: var(--_lineHeight) !important;
 
                 display: none;
