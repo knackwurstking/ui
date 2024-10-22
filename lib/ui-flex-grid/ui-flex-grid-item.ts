@@ -13,7 +13,7 @@ const defaultFlex = 1;
  *  - ""
  */
 @customElement("ui-flex-grid-item")
-export class UIFlexGridItem extends LitElement {
+class UIFlexGridItem extends LitElement {
     @property({ type: Number, attribute: "flex" })
     flex: number = defaultFlex;
 
@@ -51,3 +51,5 @@ export class UIFlexGridItem extends LitElement {
         }
     }
 }
+
+export { UIFlexGridItem };

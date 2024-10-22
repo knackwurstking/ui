@@ -18,7 +18,7 @@ import { svg } from "..";
  *  - ""
  */
 @customElement("ui-drawer-group")
-export class UIDrawerGroup extends LitElement {
+class UIDrawerGroup extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
     title: string = "";
 
@@ -102,3 +102,5 @@ export class UIDrawerGroup extends LitElement {
         `;
     }
 }
+
+export { UIDrawerGroup };

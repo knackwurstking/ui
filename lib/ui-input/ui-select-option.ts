@@ -12,7 +12,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - ""
  */
 @customElement("ui-select-option")
-export class UISelectOption extends LitElement {
+class UISelectOption extends LitElement {
     @property({ type: String, attribute: "value", reflect: true })
     value: string = "";
 
@@ -54,3 +54,5 @@ export class UISelectOption extends LitElement {
         return html`<slot></slot>`;
     }
 }
+
+export { UISelectOption };

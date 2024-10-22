@@ -15,7 +15,7 @@ export type UIThemeHandlerMode = "dark" | "light" | null;
  *  - theme: `"original" | "gruvbox"`
  */
 @customElement("ui-theme-handler")
-export class UIThemeHandler extends LitElement {
+class UIThemeHandler extends LitElement {
     @property({ type: Boolean, attribute: "auto", reflect: true })
     auto: boolean = false;
 
@@ -126,3 +126,5 @@ export class UIThemeHandler extends LitElement {
         target.appendChild(link);
     }
 }
+
+export { UIThemeHandler };

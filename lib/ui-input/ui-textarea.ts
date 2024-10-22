@@ -18,7 +18,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
  *  - "change"
  */
 @customElement("ui-textarea")
-export class UITextarea extends LitElement {
+class UITextarea extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
     title: string = "";
 
@@ -146,3 +146,5 @@ export class UITextarea extends LitElement {
         this.focus();
     }
 }
+
+export { UITextarea };

@@ -10,7 +10,7 @@ import { UIStackLayoutPage } from "./ui-stack-layout-page";
  *  - "": Takes `ui-stack-layout-page` components
  */
 @customElement("ui-stack-layout")
-export class UIStackLayout<T extends string> extends LitElement {
+class UIStackLayout<T extends string> extends LitElement {
     public events: Events<{
         change: { old: UIStackLayoutPage; current: UIStackLayoutPage };
     }> = new Events();
@@ -126,3 +126,5 @@ export class UIStackLayout<T extends string> extends LitElement {
         });
     }
 }
+
+export { UIStackLayout };

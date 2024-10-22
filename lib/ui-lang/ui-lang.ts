@@ -13,7 +13,7 @@ import { UILangType } from "./ui-lang-type";
  *  - "": Takes "ui-lang-type" components
  */
 @customElement("ui-lang")
-export class UILang extends LitElement {
+class UILang extends LitElement {
     private data: { [key: string]: { [key: string]: string } } = {};
 
     public events: Events<{ change: UILangType }> = new Events();
@@ -73,3 +73,5 @@ export class UILang extends LitElement {
         this.events.dispatch("change", langType);
     }
 }
+
+export { UILang };

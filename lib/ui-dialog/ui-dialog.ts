@@ -33,7 +33,7 @@ export interface UIDialogOpenOptions {
  *  - "": Will be added as ".content"
  */
 @customElement("ui-dialog")
-export class UIDialog extends LitElement {
+class UIDialog extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
     title: string = "";
 
@@ -313,3 +313,5 @@ export class UIDialog extends LitElement {
         return button;
     }
 }
+
+export { UIDialog };

@@ -8,7 +8,7 @@ import { UIText } from "./ui-text";
  * @extends {UIText}
  */
 @customElement("ui-secondary")
-export class UISecondary extends UIText {
+class UISecondary extends UIText {
     size: string = "0.9rem";
     casl: number = 1;
     mono: number = 0;
@@ -18,3 +18,5 @@ export class UISecondary extends UIText {
         return html`${super.render()}`;
     }
 }
+
+export { UISecondary };

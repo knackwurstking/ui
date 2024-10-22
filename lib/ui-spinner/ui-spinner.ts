@@ -8,7 +8,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - nobg: `boolean`
  */
 @customElement("ui-spinner")
-export class UISpinner extends LitElement {
+class UISpinner extends LitElement {
     @property({ type: Boolean, attribute: "nobg", reflect: true })
     nobg: boolean = false;
 
@@ -80,3 +80,5 @@ export class UISpinner extends LitElement {
         `;
     }
 }
+
+export { UISpinner };

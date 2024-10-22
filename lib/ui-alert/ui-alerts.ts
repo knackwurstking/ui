@@ -11,7 +11,7 @@ import { UIAlert } from "./ui-alert";
  *  - "": Takes `ui-alert` components
  */
 @customElement("ui-alerts")
-export class UIAlerts extends LitElement {
+class UIAlerts extends LitElement {
     static get styles() {
         return css`
             :host {
@@ -78,3 +78,5 @@ export class UIAlerts extends LitElement {
         if (!!container) container.removeChild(alert);
     }
 }
+
+export { UIAlerts };

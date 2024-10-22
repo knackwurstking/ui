@@ -18,7 +18,7 @@ export type UIAppBarSlots = "left" | "center" | "right";
  *  - "right"
  */
 @customElement("ui-app-bar")
-export class UIAppBar extends LitElement {
+class UIAppBar extends LitElement {
     @property({ type: String, attribute: "position", reflect: true })
     position: UIAppBarPosition = "top";
 
@@ -131,3 +131,5 @@ export class UIAppBar extends LitElement {
         return this.querySelector<T>(`[name="${name}"]`);
     }
 }
+
+export { UIAppBar };

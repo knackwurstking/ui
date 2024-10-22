@@ -15,7 +15,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - ""
  */
 @customElement("ui-text")
-export class UIText extends LitElement {
+class UIText extends LitElement {
     /**
      * Range between 0 - 1
      */
@@ -82,3 +82,5 @@ export class UIText extends LitElement {
         }
     }
 }
+
+export { UIText };

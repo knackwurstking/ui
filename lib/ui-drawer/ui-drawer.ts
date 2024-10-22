@@ -17,7 +17,7 @@ import { UIDrawerGroup } from "./ui-drawer-group";
  *  - ""
  */
 @customElement("ui-drawer")
-export class UIDrawer extends LitElement {
+class UIDrawer extends LitElement {
     @property({ type: String, attribute: "width", reflect: true })
     width?: string;
 
@@ -154,3 +154,5 @@ export class UIDrawer extends LitElement {
         }
     }
 }
+
+export { UIDrawer };

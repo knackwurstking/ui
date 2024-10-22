@@ -16,7 +16,7 @@ const defaultGap = "0";
  *  - ""
  */
 @customElement("ui-flex-grid-row")
-export class UIFlexGridRow extends LitElement {
+class UIFlexGridRow extends LitElement {
     @property({ type: String, attribute: "gap" })
     gap: string = defaultGap;
 
@@ -88,3 +88,5 @@ export class UIFlexGridRow extends LitElement {
         }
     }
 }
+
+export { UIFlexGridRow };

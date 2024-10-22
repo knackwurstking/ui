@@ -8,7 +8,7 @@ import { customElement } from "lit/decorators.js";
  *  - ""
  */
 @customElement("ui-drawer-group-item")
-export class UIDrawerGroupItem extends LitElement {
+class UIDrawerGroupItem extends LitElement {
     static get styles() {
         return css`
             * {
@@ -40,3 +40,5 @@ export class UIDrawerGroupItem extends LitElement {
         return html`<li><slot></slot></li>`;
     }
 }
+
+export { UIDrawerGroupItem };

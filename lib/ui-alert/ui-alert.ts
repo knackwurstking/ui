@@ -11,7 +11,7 @@ export type UIAlertVariant = "info" | "warning" | "error";
  *  - message: `string`
  */
 @customElement("ui-alert")
-export class UIAlert extends LitElement {
+class UIAlert extends LitElement {
     @property({ type: String, attribute: "variant", reflect: true })
     variant: UIAlertVariant = "info";
 
@@ -75,3 +75,5 @@ export class UIAlert extends LitElement {
         });
     }
 }
+
+export { UIAlert };

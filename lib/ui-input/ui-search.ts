@@ -22,7 +22,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - "submit": _Triggered if submit button clicked (if "no-submit" property not set)_
  */
 @customElement("ui-search")
-export class UISearch extends LitElement {
+class UISearch extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
     title: string = "";
 
@@ -239,3 +239,5 @@ export class UISearch extends LitElement {
         this.focus();
     }
 }
+
+export { UISearch };

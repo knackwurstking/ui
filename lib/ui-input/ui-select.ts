@@ -21,7 +21,7 @@ import { svg, UISelectOption } from "..";
  *  - "": Takes `ui-select-option` components
  */
 @customElement("ui-select")
-export class UISelect extends LitElement {
+class UISelect extends LitElement {
     @property({ type: Boolean, attribute: "open", reflect: true })
     open: boolean = false;
 
@@ -199,3 +199,5 @@ export class UISelect extends LitElement {
         this.shadowRoot!.querySelector<HTMLElement>(`div.options`)!.click();
     }
 }
+
+export { UISelect };

@@ -18,7 +18,7 @@ export type UIIconButtonColor = "primary" | "secondary" | "destructive";
  *  - ""
  */
 @customElement("ui-icon-button")
-export class UIIconButton extends LitElement {
+class UIIconButton extends LitElement {
     @property({ type: String, attribute: "color", reflect: true })
     color?: UIIconButtonColor;
 
@@ -124,3 +124,5 @@ export class UIIconButton extends LitElement {
         }
     }
 }
+
+export { UIIconButton };

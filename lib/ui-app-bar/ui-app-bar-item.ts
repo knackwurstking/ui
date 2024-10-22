@@ -12,7 +12,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - ""
  */
 @customElement("ui-app-bar-item")
-export class UIAppBarItem extends LitElement {
+class UIAppBarItem extends LitElement {
     @property({ type: String, attribute: "name", reflect: true })
     name: string = "";
 
@@ -60,3 +60,5 @@ export class UIAppBarItem extends LitElement {
         this.hidden = true;
     }
 }
+
+export { UIAppBarItem };

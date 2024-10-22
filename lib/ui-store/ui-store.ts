@@ -11,7 +11,7 @@ import { CleanUpFunction } from "../global";
  *  - storage-prefix: `string`
  */
 @customElement("ui-store")
-export class UIStore<T extends { [key: string]: any }> extends LitElement {
+class UIStore<T extends { [key: string]: any }> extends LitElement {
     private data: { [key: string]: any } = {};
     public events: Events<T> = new Events();
 
@@ -106,3 +106,5 @@ export class UIStore<T extends { [key: string]: any }> extends LitElement {
         return this.events.addListener(key, callback);
     }
 }
+
+export { UIStore };

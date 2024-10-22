@@ -18,7 +18,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - "change"
  */
 @customElement("ui-input")
-export class UIInput extends LitElement {
+class UIInput extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
     title: string = "";
 
@@ -159,3 +159,5 @@ export class UIInput extends LitElement {
         this.focus();
     }
 }
+
+export { UIInput };

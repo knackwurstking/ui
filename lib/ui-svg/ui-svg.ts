@@ -8,7 +8,7 @@ import { customElement } from "lit/decorators.js";
  *  - ""
  */
 @customElement("ui-svg")
-export class UISvg extends LitElement {
+class UISvg extends LitElement {
     static get styles() {
         return css`
             :host {
@@ -27,3 +27,5 @@ export class UISvg extends LitElement {
         return html` <slot></slot> `;
     }
 }
+
+export { UISvg };

@@ -11,7 +11,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - ""
  */
 @customElement("ui-stack-layout-page")
-export class UIStackLayoutPage extends LitElement {
+class UIStackLayoutPage extends LitElement {
     @property({ type: String, attribute: "name", reflect: true })
     name: string = "";
 
@@ -51,3 +51,5 @@ export class UIStackLayoutPage extends LitElement {
         return html`<slot></slot>`;
     }
 }
+
+export { UIStackLayoutPage };

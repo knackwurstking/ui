@@ -12,7 +12,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - "change"
  */
 @customElement("ui-check")
-export class UICheck extends LitElement {
+class UICheck extends LitElement {
     @property({ type: Boolean, attribute: "checked", reflect: true })
     checked: boolean = false;
 
@@ -76,3 +76,5 @@ export class UICheck extends LitElement {
             this.checked = !this.checked;
     }
 }
+
+export { UICheck };

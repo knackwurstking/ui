@@ -10,7 +10,7 @@ import { customElement, property } from "lit/decorators.js";
  *  - fallback: `boolean`
  */
 @customElement("ui-lang-type")
-export class UILangType extends LitElement {
+class UILangType extends LitElement {
     @property({ type: String, attribute: "name", reflect: true })
     name: string = "";
 
@@ -28,3 +28,5 @@ export class UILangType extends LitElement {
         `;
     }
 }
+
+export { UILangType };

@@ -14,7 +14,7 @@ import { CleanUpFunction, ripple } from "..";
  *  - ""
  */
 @customElement("ui-label")
-export class UILabel extends LitElement {
+class UILabel extends LitElement {
     private rippleCleanUp: CleanUpFunction | null = null;
 
     private clickHandler = async (ev: Event) => {
@@ -162,3 +162,5 @@ export class UILabel extends LitElement {
         });
     }
 }
+
+export { UILabel };

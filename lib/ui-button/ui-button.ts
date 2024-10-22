@@ -19,7 +19,7 @@ export type UIButtonVariant = "full" | "outline" | "ghost";
  *  - ""
  */
 @customElement("ui-button")
-export class UIButton extends LitElement {
+class UIButton extends LitElement {
     @property({ type: String, attribute: "color", reflect: true })
     color?: UIButtonColor;
 
@@ -154,3 +154,5 @@ export class UIButton extends LitElement {
         }
     }
 }
+
+export { UIButton };
