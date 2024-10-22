@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0.0 — [unreleased]
+## v0.9.0 — 2024-10-22
 
 **General**:
 
