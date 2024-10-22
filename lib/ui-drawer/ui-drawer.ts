@@ -49,7 +49,7 @@ export class UIDrawer extends LitElement {
 
                 overflow: hidden;
 
-                transition: left 0.25s ease 0s;
+                transition: left 0s ease 0.25s;
             }
 
             :host([open]) {
