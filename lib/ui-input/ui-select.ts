@@ -166,7 +166,6 @@ export class UISelect extends LitElement {
     }
 
     protected updated(_changedProperties: PropertyValues): void {
-        console.debug("[ui][ui-select] updated", this.children.length); // TODO: Remove this
         this.style.setProperty("--_items", `${this.children.length}`);
     }
 
