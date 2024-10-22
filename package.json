@@ -8,7 +8,8 @@
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "vite --host",
-        "build": "tsc && vite build --minify -c vite.config.js && typedoc --out docs lib/index.ts"
+        "build": "tsc && vite build --minify -c vite.config.js",
+        "build-docs": "typedoc --out docs lib/index.ts"
     },
     "license": "MIT",
     "peerDependencies": {
