@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import {
     svg,
@@ -8,6 +8,11 @@ import {
     UIFlexGridItem,
 } from "..";
 
+export interface UIDialogOpenOptions {
+    modal?: boolean;
+    inert?: boolean;
+}
+
 /**
  * **Tag**: `ui-dialog`
  *
@@ -15,6 +20,9 @@ import {
  *  - title: `string`
  *  - fullscreen: `boolean`
  *  - no-footer: `boolean`
+ *  - open: `boolean`
+ *  - modal: `boolean`
+ *  - inert: `boolean` - Disables the auto focus on an input element if set
  *
  * **Events**:
  *  - "open"
@@ -34,6 +42,15 @@ export class UIDialog extends LitElement {
 
     @property({ type: Boolean, attribute: "no-footer", reflect: true })
     noFooter: string = "";
+
+    @property({ type: Boolean, attribute: "open", reflect: true })
+    open: boolean = false;
+
+    @property({ type: Boolean, attribute: "modal", reflect: true })
+    modal: boolean = false;
+
+    @property({ type: Boolean, attribute: "inert", reflect: true })
+    inert: boolean = false;
 
     static get styles() {
         return css`
@@ -241,13 +258,20 @@ export class UIDialog extends LitElement {
         `;
     }
 
-    open(options?: {
-        /** Defaults to false */
-        modal?: boolean;
-        /** Defaults to true */
-        inert?: boolean;
-    }) {
-        const dialog = this.shadowRoot!.querySelector(`dialog`)!;
+    protected updated(_changedProperties: PropertyValues): void {
+        if (this.open) this.show({ modal: this.modal, inert: this.inert });
+        else this.close();
+    }
+
+    public show(options?: UIDialogOpenOptions) {
+        const isModal = !!options?.modal;
+        if (isModal !== this.modal) this.modal = isModal;
+
+        const isInert = !!options?.inert;
+        if (isInert !== this.inert) this.inert = isInert;
+
+        const dialog = this.shadowRoot!.querySelector(`dialog`);
+        if (dialog === null) return;
 
         const inertBackup = dialog.inert;
         dialog.inert = options?.inert === undefined ? true : options.inert;
@@ -263,12 +287,12 @@ export class UIDialog extends LitElement {
         this.dispatchEvent(new Event("open"));
     }
 
-    close() {
+    public close() {
         this.dispatchEvent(new Event("close"));
         this.shadowRoot!.querySelector(`dialog`)!.close();
     }
 
-    addDialogActionButton(
+    public addDialogActionButton(
         content: string,
         options?: {
             onClick?: ((ev: MouseEvent) => Promise<void> | void) | null;
