@@ -2,8 +2,6 @@
 
 ## v0.9.0 — [unreleased]
 
-- [ ] Fix: "Using the export keyword between a decorator and a class is not allowed."
-
 **General**:
 
 - Added a complete library documentation with "typedoc"
