@@ -4,7 +4,7 @@
     "description": "Just an ui lib for my projects.",
     "type": "module",
     "main": "lib/index.ts",
-    "module": "lib/index.ts",
+    "module": "dist/ui.min.js",
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "vite --host",
