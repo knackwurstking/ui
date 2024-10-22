@@ -1,8 +1,6 @@
 import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-const defaultTheme: UIThemeHandlerTheme = "gruvbox";
-
 export type UIThemeHandlerTheme = "original" | "gruvbox";
 export type UIThemeHandlerMode = "dark" | "light" | null;
 
@@ -23,7 +21,7 @@ class UIThemeHandler extends LitElement {
     mode: UIThemeHandlerMode | null = null;
 
     @property({ type: String, attribute: "theme", reflect: true })
-    theme: UIThemeHandlerTheme = defaultTheme;
+    theme?: UIThemeHandlerTheme;
 
     @property({ type: String, attribute: "themes-path", reflect: true })
     themesPath: string = "/themes";
@@ -121,7 +119,7 @@ class UIThemeHandler extends LitElement {
         {
             link.classList.add("theme");
             link.rel = "stylesheet";
-            link.href = `${this.themesPath}/${this.theme || defaultTheme}.css`;
+            link.href = `${this.themesPath}/${this.theme}.css`;
         }
         target.appendChild(link);
     }
