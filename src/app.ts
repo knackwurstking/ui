@@ -418,7 +418,7 @@ export class MainApp extends LitElement {
                                     this.shadowRoot!.querySelector<UIDialog>(
                                         `ui-dialog[name="dialog1"]`,
                                     )!;
-                                dialog.open({ modal: true });
+                                dialog.show();
                             }}
                             >Dialog (Modal)</ui-button
                         >
@@ -433,14 +433,20 @@ export class MainApp extends LitElement {
                                     this.shadowRoot!.querySelector<UIDialog>(
                                         `ui-dialog[name="dialog2"]`,
                                     )!;
-                                dialog.open({ modal: true });
+                                dialog.show();
                             }}
                             >Fullscreen Dialog (Modal)</ui-button
                         >
                     </ui-flex-grid-item>
                 </ui-flex-grid>
 
-                <ui-dialog name="dialog1" title="Dialog Title" no-footer>
+                <ui-dialog
+                    name="dialog1"
+                    title="Dialog Title"
+                    no-footer
+                    modal
+                    inert
+                >
                     <div class="flex justify-center align-center">
                         <ui-text>Dialog content here...</ui-text>
                     </div>
@@ -451,6 +457,8 @@ export class MainApp extends LitElement {
                     title="Dialog Title"
                     fullscreen
                     no-footer
+                    modal
+                    inert
                 >
                     <div class="flex justify-center align-center">
                         <ui-text>Dialog content here...</ui-text>
