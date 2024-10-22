@@ -259,24 +259,20 @@ export class UIDialog extends LitElement {
     }
 
     protected updated(_changedProperties: PropertyValues): void {
-        if (this.open) this.show({ modal: this.modal, inert: this.inert });
+        if (this.open) this.show();
         else this.close();
     }
 
-    public show(options?: UIDialogOpenOptions) {
-        const isModal = !!options?.modal;
-        if (isModal !== this.modal) this.modal = isModal;
-
-        const isInert = !!options?.inert;
-        if (isInert !== this.inert) this.inert = isInert;
+    public show() {
+        if (!this.open) this.open = true;
 
         const dialog = this.shadowRoot!.querySelector(`dialog`);
         if (dialog === null) return;
 
         const inertBackup = dialog.inert;
-        dialog.inert = options?.inert === undefined ? true : options.inert;
+        dialog.inert = this.inert;
 
-        if (!!options?.modal) {
+        if (this.modal) {
             dialog.showModal();
         } else {
             dialog.show();
