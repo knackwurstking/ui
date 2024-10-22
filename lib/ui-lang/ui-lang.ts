@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Events } from "../utils";
-import { UILangType } from "./ui-lang-type";
+import UILangType from "./ui-lang-type";
 
 /**
  * **Tag**: `ui-lang`
@@ -74,4 +74,4 @@ class UILang extends LitElement {
     }
 }
 
-export { UILang };
+export default UILang;

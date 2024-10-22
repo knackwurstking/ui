@@ -163,4 +163,4 @@ class UILabel extends LitElement {
     }
 }
 
-export { UILabel };
+export default UILabel;

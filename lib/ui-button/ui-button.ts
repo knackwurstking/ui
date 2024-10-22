@@ -155,4 +155,4 @@ class UIButton extends LitElement {
     }
 }
 
-export { UIButton };
+export default UIButton;

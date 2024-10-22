@@ -127,4 +127,4 @@ class UIThemeHandler extends LitElement {
     }
 }
 
-export { UIThemeHandler };
+export default UIThemeHandler;

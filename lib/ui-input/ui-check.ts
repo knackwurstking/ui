@@ -77,4 +77,4 @@ class UICheck extends LitElement {
     }
 }
 
-export { UICheck };
+export default UICheck;

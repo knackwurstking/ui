@@ -1,1 +1,1 @@
-export * from "./ui-spinner";
+export { default as UISpinner } from "./ui-spinner";

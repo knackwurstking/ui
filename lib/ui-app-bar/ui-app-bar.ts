@@ -1,6 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { UIAppBarItem } from "./ui-app-bar-item";
+import UIAppBarItem from "./ui-app-bar-item";
 
 export type UIAppBarPosition = "top" | "bottom";
 export type UIAppBarSlots = "left" | "center" | "right";
@@ -132,4 +132,4 @@ class UIAppBar extends LitElement {
     }
 }
 
-export { UIAppBar };
+export default UIAppBar;

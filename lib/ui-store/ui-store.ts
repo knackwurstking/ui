@@ -107,4 +107,4 @@ class UIStore<T extends { [key: string]: any }> extends LitElement {
     }
 }
 
-export { UIStore };
+export default UIStore;

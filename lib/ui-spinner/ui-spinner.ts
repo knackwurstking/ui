@@ -81,4 +81,4 @@ class UISpinner extends LitElement {
     }
 }
 
-export { UISpinner };
+export default UISpinner;

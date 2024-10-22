@@ -1,2 +1,2 @@
-export * from "./ui-stack-layout";
-export * from "./ui-stack-layout-page";
+export { default as UIStackLayout } from "./ui-stack-layout";
+export { default as UIStackLayoutPage } from "./ui-stack-layout-page";

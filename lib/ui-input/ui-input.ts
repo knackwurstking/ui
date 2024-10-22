@@ -160,4 +160,4 @@ class UIInput extends LitElement {
     }
 }
 
-export { UIInput };
+export default UIInput;

@@ -240,4 +240,4 @@ class UISearch extends LitElement {
     }
 }
 
-export { UISearch };
+export default UISearch;

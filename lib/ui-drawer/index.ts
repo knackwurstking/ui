@@ -1,3 +1,3 @@
-export * from "./ui-drawer";
-export * from "./ui-drawer-group";
-export * from "./ui-drawer-group-item";
+export { default as UIDrawer } from "./ui-drawer";
+export { default as UIDrawerGroup } from "./ui-drawer-group";
+export { default as UIDrawerGroupItem } from "./ui-drawer-group-item";

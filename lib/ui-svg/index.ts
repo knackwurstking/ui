@@ -1,1 +1,1 @@
-export * from "./ui-svg";
+export { default as UISvg } from "./ui-svg";

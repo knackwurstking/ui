@@ -89,4 +89,4 @@ class UIFlexGridRow extends LitElement {
     }
 }
 
-export { UIFlexGridRow };
+export default UIFlexGridRow;

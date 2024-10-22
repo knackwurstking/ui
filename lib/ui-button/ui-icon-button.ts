@@ -125,4 +125,4 @@ class UIIconButton extends LitElement {
     }
 }
 
-export { UIIconButton };
+export default UIIconButton;

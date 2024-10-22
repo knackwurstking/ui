@@ -91,4 +91,4 @@ class UIFlexGrid extends LitElement {
     }
 }
 
-export { UIFlexGrid };
+export default UIFlexGrid;

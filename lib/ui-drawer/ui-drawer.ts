@@ -1,6 +1,6 @@
 import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { UIDrawerGroup } from "./ui-drawer-group";
+import UIDrawerGroup from "./ui-drawer-group";
 
 /**
  * **Tag**: `ui-drawer`
@@ -155,4 +155,4 @@ class UIDrawer extends LitElement {
     }
 }
 
-export { UIDrawer };
+export default UIDrawer;

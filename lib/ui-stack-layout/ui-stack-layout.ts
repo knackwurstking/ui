@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { Events } from "../utils";
-import { UIStackLayoutPage } from "./ui-stack-layout-page";
+import UIStackLayoutPage from "./ui-stack-layout-page";
 
 /**
  * **Tag**: `ui-stack-layout`
@@ -127,4 +127,4 @@ class UIStackLayout<T extends string> extends LitElement {
     }
 }
 
-export { UIStackLayout };
+export default UIStackLayout;

@@ -29,4 +29,4 @@ class UILangType extends LitElement {
     }
 }
 
-export { UILangType };
+export default UILangType;

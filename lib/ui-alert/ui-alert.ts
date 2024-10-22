@@ -76,4 +76,4 @@ class UIAlert extends LitElement {
     }
 }
 
-export { UIAlert };
+export default UIAlert;

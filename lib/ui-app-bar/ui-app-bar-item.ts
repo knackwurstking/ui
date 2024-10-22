@@ -61,4 +61,4 @@ class UIAppBarItem extends LitElement {
     }
 }
 
-export { UIAppBarItem };
+export default UIAppBarItem;

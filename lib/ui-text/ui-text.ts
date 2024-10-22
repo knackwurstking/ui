@@ -83,4 +83,4 @@ class UIText extends LitElement {
     }
 }
 
-export { UIText };
+export default UIText;

@@ -41,4 +41,4 @@ class UIDrawerGroupItem extends LitElement {
     }
 }
 
-export { UIDrawerGroupItem };
+export default UIDrawerGroupItem;

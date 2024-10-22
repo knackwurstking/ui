@@ -55,4 +55,4 @@ class UISelectOption extends LitElement {
     }
 }
 
-export { UISelectOption };
+export default UISelectOption;

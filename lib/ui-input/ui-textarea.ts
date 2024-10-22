@@ -147,4 +147,4 @@ class UITextarea extends LitElement {
     }
 }
 
-export { UITextarea };
+export default UITextarea;

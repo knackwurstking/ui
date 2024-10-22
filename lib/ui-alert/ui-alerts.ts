@@ -2,7 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 import { CleanUpFunction } from "../global";
 import { UIFlexGrid } from "../ui-flex-grid";
-import { UIAlert } from "./ui-alert";
+import UIAlert from "./ui-alert";
 
 /**
  * **Tag**: `ui-alerts`
@@ -79,4 +79,4 @@ class UIAlerts extends LitElement {
     }
 }
 
-export { UIAlerts };
+export default UIAlerts;

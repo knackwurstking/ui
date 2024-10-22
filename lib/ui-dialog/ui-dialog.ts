@@ -314,4 +314,4 @@ class UIDialog extends LitElement {
     }
 }
 
-export { UIDialog };
+export default UIDialog;

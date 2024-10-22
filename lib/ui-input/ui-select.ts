@@ -200,4 +200,4 @@ class UISelect extends LitElement {
     }
 }
 
-export { UISelect };
+export default UISelect;

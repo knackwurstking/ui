@@ -52,4 +52,4 @@ class UIStackLayoutPage extends LitElement {
     }
 }
 
-export { UIStackLayoutPage };
+export default UIStackLayoutPage;

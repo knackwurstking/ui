@@ -1,6 +1,6 @@
 import { html } from "lit";
 import { customElement } from "lit/decorators.js";
-import { UIText } from "./ui-text";
+import UIText from "./ui-text";
 
 /**
  * **Tag**: `ui-secondary`
@@ -19,4 +19,4 @@ class UISecondary extends UIText {
     }
 }
 
-export { UISecondary };
+export default UISecondary;

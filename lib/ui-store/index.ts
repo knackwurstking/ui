@@ -1,1 +1,1 @@
-export * from "./ui-store";
+export { default as UIStore } from "./ui-store";

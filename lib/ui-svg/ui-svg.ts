@@ -28,4 +28,4 @@ class UISvg extends LitElement {
     }
 }
 
-export { UISvg };
+export default UISvg;

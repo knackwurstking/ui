@@ -103,4 +103,4 @@ class UIDrawerGroup extends LitElement {
     }
 }
 
-export { UIDrawerGroup };
+export default UIDrawerGroup;

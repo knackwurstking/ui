@@ -1,2 +1,6 @@
-export * from "./ui-app-bar";
-export * from "./ui-app-bar-item";
+export {
+    default as UIAppBar,
+    type UIAppBarPosition,
+    type UIAppBarSlots,
+} from "./ui-app-bar";
+export { default as UIAppBarItem } from "./ui-app-bar-item";

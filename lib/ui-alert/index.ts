@@ -1,2 +1,2 @@
-export * from "./ui-alerts";
-export * from "./ui-alert";
+export { default as UIAlert } from "./ui-alert";
+export { default as UIAlerts } from "./ui-alerts";
