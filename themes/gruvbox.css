@@ -1,59 +1,59 @@
 [data-theme="light"] {
-    --hsl-bg-hard: 53, 74%, 91%;
-    --hsl-bg: 48, 87%, 88%;
-    --hsl-bg-soft: 46, 67%, 84%;
-    --hsl-bg1: 43, 59%, 81%;
-    --hsl-bg2: 40, 38%, 73%;
-    --hsl-bg3: 39, 24%, 66%;
-    --hsl-bg4: 35, 17%, 59%;
+    --_bg-hard: 53, 74%, 91%;
+    --_bg: 48, 87%, 88%;
+    --_bg-soft: 46, 67%, 84%;
+    --_bg1: 43, 59%, 81%;
+    --_bg2: 40, 38%, 73%;
+    --_bg3: 39, 24%, 66%;
+    --_bg4: 35, 17%, 59%;
 
-    --hsl-fg: 0, 0%, 16%;
-    --hsl-fg1: 20, 5%, 22%;
-    --hsl-fg2: 22, 7%, 29%;
-    --hsl-fg3: 27, 10%, 36%;
-    --hsl-fg4: 28, 11%, 44%;
+    --_fg: 0, 0%, 16%;
+    --_fg1: 20, 5%, 22%;
+    --_fg2: 22, 7%, 29%;
+    --_fg3: 27, 10%, 36%;
+    --_fg4: 28, 11%, 44%;
 
-    --hsl-red: 358, 100%, 31%;
-    --hsl-green: 57, 79%, 26%;
-    --hsl-yellow: 37, 80%, 39%;
-    --hsl-blue: 190, 89%, 25%;
-    --hsl-purple: 323, 39%, 40%;
-    --hsl-aqua: 143, 30%, 37%;
-    --hsl-orange: 19, 97%, 35%;
-    --hsl-gray: 30, 12%, 51%;
+    --_red: 358, 100%, 31%;
+    --_green: 57, 79%, 26%;
+    --_yellow: 37, 80%, 39%;
+    --_blue: 190, 89%, 25%;
+    --_purple: 323, 39%, 40%;
+    --_aqua: 143, 30%, 37%;
+    --_orange: 19, 97%, 35%;
+    --_gray: 30, 12%, 51%;
 
-    --hsl-red-dim: 6, 84%, 44%;
-    --hsl-green-dim: 60, 71%, 35%;
-    --hsl-yellow-dim: 40, 73%, 49%;
-    --hsl-blue-dim: 194, 38%, 43%;
-    --hsl-purple-dim: 333, 34%, 54%;
-    --hsl-aqua-dim: 122, 21%, 51%;
-    --hsl-orange-dim: 24, 88%, 45%;
-    --hsl-gray-dim: 28, 11%, 44%;
+    --_red-dim: 6, 84%, 44%;
+    --_green-dim: 60, 71%, 35%;
+    --_yellow-dim: 40, 73%, 49%;
+    --_blue-dim: 194, 38%, 43%;
+    --_purple-dim: 333, 34%, 54%;
+    --_aqua-dim: 122, 21%, 51%;
+    --_orange-dim: 24, 88%, 45%;
+    --_gray-dim: 28, 11%, 44%;
 
     /*
      * Basics
      */
 
-    --ui-hsl-bg: var(--hsl-bg);
-    --ui-hsl-primary: var(--hsl-green);
-    --ui-hsl-secondary: var(--hsl-gray);
-    --ui-hsl-destructive: var(--hsl-red);
+    --ui-hsl-bg: var(--_bg);
+    --ui-hsl-primary: var(--_green);
+    --ui-hsl-secondary: var(--_gray);
+    --ui-hsl-destructive: var(--_red);
 
-    --ui-hsl-text: var(--hsl-fg);
-    --ui-hsl-input-text: var(--hsl-fg3);
-    --ui-hsl-primary-text: var(--hsl-bg);
-    --ui-hsl-secondary-text: var(--hsl-bg);
+    --ui-hsl-text: var(--_fg);
+    --ui-hsl-input-text: var(--_fg3);
+    --ui-hsl-primary-text: var(--_bg);
+    --ui-hsl-secondary-text: var(--_bg);
     --ui-hsl-destructive-text: 6, 96%, 82%;
 
-    --ui-hsl-borderColor: var(--hsl-bg4);
+    --ui-hsl-borderColor: var(--_bg4);
 
     --ui-hsl-backdrop: var(--ui-hsl-bg);
 
     --ui-hsl-info: var(--ui-hsl-card);
     --ui-hsl-info-text: var(--ui-hsl-card-text);
 
-    --ui-hsl-warning: 37, 80%, 39%; /* --hsl-yellow */
+    --ui-hsl-warning: var(--_yellow);
     --ui-hsl-warning-text: 27, 80%, 84%;
 
     --ui-hsl-error: var(--ui-hsl-destructive);
@@ -63,8 +63,8 @@
      * Muted: code, pre
      */
 
-    --ui-hsl-muted: var(--hsl-bg4);
-    --ui-hsl-muted-text: var(--hsl-fg1);
+    --ui-hsl-muted: var(--_bg4);
+    --ui-hsl-muted-text: var(--_fg1);
     --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
 
     --ui-muted-fontFamily: var(--ui-fontFamily);
@@ -73,8 +73,8 @@
      * ui-card
      */
 
-    --ui-hsl-card: var(--hsl-bg1);
-    --ui-hsl-card-text: var(--hsl-fg);
+    --ui-hsl-card: var(--_bg1);
+    --ui-hsl-card-text: var(--_fg);
     --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
 
     --ui-card-radius: var(--ui-radius);
@@ -85,61 +85,61 @@
 }
 
 [data-theme="dark"] {
-    --hsl-bg-hard: 195, 6%, 12%;
-    --hsl-bg: 0, 0%, 16%;
-    --hsl-bg-soft: 20, 3%, 19%;
-    --hsl-bg1: 20, 5%, 22%;
-    --hsl-bg2: 22, 7%, 29%;
-    --hsl-bg3: 27, 10%, 36%;
-    --hsl-bg4: 28, 11%, 44%;
+    --_bg-hard: 195, 6%, 12%;
+    --_bg: 0, 0%, 16%;
+    --_bg-soft: 20, 3%, 19%;
+    --_bg1: 20, 5%, 22%;
+    --_bg2: 22, 7%, 29%;
+    --_bg3: 27, 10%, 36%;
+    --_bg4: 28, 11%, 44%;
 
-    --hsl-fg: 48, 87%, 88%;
-    --hsl-fg1: 43, 59%, 81%;
-    --hsl-fg2: 40, 38%, 73%;
-    --hsl-fg3: 39, 24%, 66%;
-    --hsl-fg4: 35, 17%, 59%;
+    --_fg: 48, 87%, 88%;
+    --_fg1: 43, 59%, 81%;
+    --_fg2: 40, 38%, 73%;
+    --_fg3: 39, 24%, 66%;
+    --_fg4: 35, 17%, 59%;
 
-    --hsl-red: 6, 96%, 59%;
-    --hsl-green: 61, 66%, 44%;
-    --hsl-yellow: 42, 95%, 58%;
-    --hsl-blue: 157, 16%, 58%;
-    --hsl-purple: 344, 47%, 68%;
-    --hsl-aqua: 104, 35%, 62%;
-    --hsl-gray: 30, 12%, 51%;
-    --hsl-orange: 27, 99%, 55%;
+    --_red: 6, 96%, 59%;
+    --_green: 61, 66%, 44%;
+    --_yellow: 42, 95%, 58%;
+    --_blue: 157, 16%, 58%;
+    --_purple: 344, 47%, 68%;
+    --_aqua: 104, 35%, 62%;
+    --_gray: 30, 12%, 51%;
+    --_orange: 27, 99%, 55%;
 
-    --hsl-red-dim: 6, 84%, 44%;
-    --hsl-green-dim: 60, 71%, 35%;
-    --hsl-yellow-dim: 40, 73%, 49%;
-    --hsl-blue-dim: 183, 33%, 40%;
-    --hsl-purple-dim: 333, 34%, 54%;
-    --hsl-aqua-dim: 122, 21%, 51%;
-    --hsl-gray-dim: 35, 17%, 59%;
-    --hsl-orange-dim: 24, 88%, 45%;
+    --_red-dim: 6, 84%, 44%;
+    --_green-dim: 60, 71%, 35%;
+    --_yellow-dim: 40, 73%, 49%;
+    --_blue-dim: 183, 33%, 40%;
+    --_purple-dim: 333, 34%, 54%;
+    --_aqua-dim: 122, 21%, 51%;
+    --_gray-dim: 35, 17%, 59%;
+    --_orange-dim: 24, 88%, 45%;
 
     /*
      * Basics
      */
 
-    --ui-hsl-bg: var(--hsl-bg);
-    --ui-hsl-primary: var(--hsl-green);
-    --ui-hsl-secondary: var(--hsl-gray);
-    --ui-hsl-destructive: var(--hsl-red);
+    --ui-hsl-bg: var(--_bg);
+    --ui-hsl-primary: var(--_green);
+    --ui-hsl-secondary: var(--_gray);
+    --ui-hsl-destructive: var(--_red);
 
-    --ui-hsl-text: var(--hsl-fg);
-    --ui-hsl-input-text: var(--hsl-fg3);
-    --ui-hsl-primary-text: var(--hsl-bg);
-    --ui-hsl-secondary-text: var(--hsl-bg);
+    --ui-hsl-text: var(--_fg);
+    --ui-hsl-input-text: var(--_fg3);
+    --ui-hsl-primary-text: var(--_bg);
+    --ui-hsl-secondary-text: var(--_bg);
     --ui-hsl-destructive-text: 6, 96%, 18%;
 
-    --ui-hsl-borderColor: var(--hsl-bg4);
+    --ui-hsl-borderColor: var(--_bg4);
 
     --ui-hsl-backdrop: var(--ui-hsl-bg);
 
     --ui-hsl-info: var(--ui-hsl-card);
     --ui-hsl-info-text: var(--ui-hsl-card-text);
 
-    --ui-hsl-warning: 42, 95%, 58%; /* --hsl-yellow */
+    --ui-hsl-warning: var(--_yellow);
     --ui-hsl-warning-text: 42, 95%, 16%;
 
     --ui-hsl-error: var(--ui-hsl-destructive);
@@ -149,8 +149,8 @@
      * Muted: code, pre
      */
 
-    --ui-hsl-muted: var(--hsl-bg4);
-    --ui-hsl-muted-text: var(--hsl-fg1);
+    --ui-hsl-muted: var(--_bg4);
+    --ui-hsl-muted-text: var(--_fg1);
     --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
 
     --ui-muted-fontFamily: var(--ui-fontFamily);
@@ -159,8 +159,8 @@
      * ui-card
      */
 
-    --ui-hsl-card: var(--hsl-bg1);
-    --ui-hsl-card-text: var(--hsl-fg);
+    --ui-hsl-card: var(--_bg1);
+    --ui-hsl-card-text: var(--_fg);
     --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
 
     --ui-card-radius: var(--ui-radius);
