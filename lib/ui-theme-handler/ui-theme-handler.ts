@@ -18,7 +18,7 @@ class UIThemeHandler extends LitElement {
     auto: boolean = false;
 
     @property({ type: String, attribute: "mode", reflect: true })
-    mode: UIThemeHandlerMode | null = null;
+    mode?: UIThemeHandlerMode;
 
     @property({ type: String, attribute: "theme", reflect: true })
     theme: UIThemeHandlerTheme = "original";
@@ -51,6 +51,7 @@ class UIThemeHandler extends LitElement {
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
+        // Set default theme if undefined
         if (!this.hasAttribute("theme")) this.handleTheme();
     }
 
@@ -60,6 +61,7 @@ class UIThemeHandler extends LitElement {
         value: string | null,
     ): void {
         super.attributeChangedCallback(name, _old, value);
+        console.debug("attributeChangedCallback:", name, value);
 
         switch (name) {
             case "auto":
