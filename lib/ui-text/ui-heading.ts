@@ -1,6 +1,6 @@
+import { TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import UIText from "./ui-text";
-import { PropertyValues, TemplateResult } from "lit";
 
 /**
  * **Tag**: `ui-heading`
