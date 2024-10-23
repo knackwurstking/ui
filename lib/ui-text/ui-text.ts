@@ -2,19 +2,17 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: `ui-text`
+ * @element ui-text
  *
- * **Attributes**:
- *  - family: `string`
- *  - size: `string`
- *  - mono: `number`
- *  - casl: `number`
- *  - wght: `number`
- *  - slnt: `number`
- *  - crsv: `number`
+ * @attr {string} family
+ * @attr {string} string
+ * @attr {number} mono
+ * @attr {number} casl
+ * @attr {number} wght
+ * @attr {number} slnt
+ * @attr {number} crsv
  *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-text")
 class UIText extends LitElement {

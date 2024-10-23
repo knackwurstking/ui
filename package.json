@@ -9,7 +9,8 @@
     "scripts": {
         "dev": "vite --host",
         "build": "tsc && vite build --minify -c vite.config.js",
-        "build-docs": "typedoc --out docs lib/index.ts"
+        "build-docs": "typedoc --out docs lib/index.ts",
+        "build-wcr": "web-component-analyzer lib"
     },
     "license": "MIT",
     "peerDependencies": {
@@ -19,7 +20,8 @@
         "@types/node": "^22.7.5",
         "clean-css-cli": "^5.6.3",
         "typedoc": "^0.26.10",
-        "typescript": "^5.6.3"
+        "typescript": "^5.6.3",
+        "web-component-analyzer": "^2.0.0"
     },
     "dependencies": {
         "lit": "^3.2.1",
