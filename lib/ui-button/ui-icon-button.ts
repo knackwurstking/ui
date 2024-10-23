@@ -53,7 +53,6 @@ class UIIconButton extends LitElement {
                 cursor: pointer;
                 user-select: none;
                 font-size: 1.1rem;
-                font-weight: 450;
                 font-family: var(--ui-fontFamily);
                 font-variation-settings: var(--ui-button-fontVariation);
                 transition: color 0.5s linear;
@@ -62,7 +61,6 @@ class UIIconButton extends LitElement {
             :host([ghost]) {
                 border-color: transparent !important;
                 box-shadow: none;
-                font-weight: 900;
             }
 
             :host([color="primary"]) {

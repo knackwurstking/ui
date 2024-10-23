@@ -1,4 +1,3 @@
-import { html } from "lit";
 import { customElement } from "lit/decorators.js";
 import UIText from "./ui-text";
 
@@ -10,13 +9,7 @@ import UIText from "./ui-text";
 @customElement("ui-primary")
 class UIPrimary extends UIText {
     size: string = "1.1rem";
-    casl: number = 1;
-    mono: number = 0;
-    slnt: number = 0;
-
-    protected render() {
-        return html`${super.render()}`;
-    }
+    wght: number = 425;
 }
 
 export default UIPrimary;

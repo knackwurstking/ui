@@ -29,7 +29,7 @@ class MainAppBar extends UIAppBar {
         const html = String.raw;
         this.innerHTML = html`
             <ui-app-bar-item slot="center" name="title">
-                <h3>App Bar Title</h3>
+                <ui-heading level="3">App Bar Title</ui-heading>
             </ui-app-bar-item>
         `;
     }
@@ -79,7 +79,7 @@ export class MainApp extends LitElement {
                 class="has-border"
                 style="margin-top: var(--ui-app-bar-height);"
             >
-                <h1><u>Text Components</u></h1>
+                <ui-heading level="1"><u>Text Components</u></ui-heading>
 
                 <section>
                     <ui-flex-grid gap="0.25rem">
@@ -151,10 +151,10 @@ export class MainApp extends LitElement {
                 class="has-border"
                 style="margin-top: var(--ui-spacing);"
             >
-                <h1><u>Svg's</u></h1>
+                <ui-heading level="1"><u>Svg's</u></ui-heading>
 
                 <section id="smoothieLineIcons">
-                    <h2>Smoothie Line Icons</h2>
+                    <ui-heading level="2">Smoothie Line Icons</ui-heading>
 
                     <ui-flex-grid-row wrap="wrap" gap="0.25rem">
                         ${svgs}
@@ -171,7 +171,7 @@ export class MainApp extends LitElement {
                 class="has-border"
                 style="margin-top: var(--ui-spacing);"
             >
-                <h1><u>Stack Layout</u></h1>
+                <ui-heading level="1"><u>Stack Layout</u></ui-heading>
 
                 <section>
                     <ui-flex-grid gap="0.25rem">
@@ -235,7 +235,7 @@ export class MainApp extends LitElement {
                 class="has-border"
                 style="margin-top: var(--ui-spacing)"
             >
-                <h1><u>Inputs</u></h1>
+                <ui-heading level="1"><u>Inputs</u></ui-heading>
 
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
@@ -406,7 +406,7 @@ export class MainApp extends LitElement {
                 class="has-border"
                 style="margin-top: var(--ui-spacing)"
             >
-                <h1><u>Dialogs</u></h1>
+                <ui-heading level="1"><u>Dialogs</u></ui-heading>
 
                 <ui-flex-grid gap="0.25rem">
                     <ui-flex-grid-item>
@@ -475,7 +475,7 @@ export class MainApp extends LitElement {
                 class="has-border"
                 style="margin-top: var(--ui-spacing)"
             >
-                <h1><u>Drawer</u></h1>
+                <ui-heading level="1"><u>Drawer</u></ui-heading>
 
                 <ui-flex-grid>
                     <ui-flex-grid-item>

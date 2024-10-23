@@ -85,11 +85,14 @@ class UIDrawerGroup extends LitElement {
                     }}
                 >
                     <ui-flex-grid-row>
-                        <ui-flex-grid-item>
-                            <h3>${this.title}</h3>
+                        <ui-flex-grid-item
+                            align="center"
+                            style="padding-right: var(--ui-spacing);"
+                        >
+                            <ui-heading level="4">${this.title}</ui-heading>
                         </ui-flex-grid-item>
 
-                        <ui-flex-grid-item class="icon" flex="0">
+                        <ui-flex-grid-item class="icon" align="center" flex="0">
                             <ui-svg style="width: 2.5rem; height: 2.5rem;">
                                 ${svg.smoothieLineIcons.chevronDown}
                             </ui-svg>

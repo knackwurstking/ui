@@ -7,13 +7,25 @@
     --ui-fontFamily: "RecVar";
     --ui-fontSize: 1rem;
 
-    --ui-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
-    --ui-button-fontVariation: "CASL" 1, "MONO" 0, "slnt" -6;
-    --ui-heading-fontVariation: "CASL" 0, "MONO" 0, "slnt" -15;
-    --ui-input-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
-    --ui-muted-fontVariation: "CASL" 0, "MONO" 1, "slnt" 0;
-    --ui-tbody-fontVariation: "CASL" 1, "MONO" 0, "slnt" -3;
-    --ui-thead-fontVariation: "CASL" 1, "MONO" 0, "slnt" 0;
+    --ui-fontVariation: "MONO" 0, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 0.5;
+
+    --ui-button-fontVariation: "MONO" 0, "CASL" 1, "wght" 450, "slnt" 0,
+        "CRSV" 0.5;
+
+    --ui-heading-fontVariation: "MONO" 0.25, "CASL" 1, "wght" 750, "slnt" 0,
+        "CRSV" 0.5;
+
+    --ui-input-fontVariation: "MONO" 1, "CASL" 1, "wght" 375, "slnt" 0,
+        "CRSV" 0.5;
+
+    --ui-muted-fontVariation: "MONO" 1, "CASL" 1, "wght" 400, "slnt" 0,
+        "CRSV" 0.5;
+
+    --ui-thead-fontVariation: "MONO" 0.25, "CASL" 1, "wght" 350, "slnt" 0,
+        "CRSV" 0.5;
+
+    --ui-tbody-fontVariation: "MONO" 0, "CASL" 1, "wght" 450, "slnt" 0,
+        "CRSV" 0.5;
 
     /* NOTE: Maybe i will remove these three variables here in future */
     --ui-app-bar-height: 3rem;

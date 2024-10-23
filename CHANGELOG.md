@@ -2,6 +2,10 @@
 
 ## v1.0.0 — [unreleased]
 
+- [ ] Fix h1-6 font variation
+- [ ] Fix dialog title font variation and styles, h3 not working
+        with global styles
+
 **General**:
 
 - Added a complete library documentation with "typedoc"

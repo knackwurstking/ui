@@ -142,11 +142,6 @@ class UIDialog extends LitElement {
                 height: var(--ui-dialog-header-height);
             }
 
-            .header [name="title"] {
-                margin: auto 0;
-                white-space: nowrap;
-            }
-
             :host([fullscreen]) .header {
                 z-index: 15;
                 position: absolute;
@@ -231,7 +226,7 @@ class UIDialog extends LitElement {
             >
                 <div class="container">
                     <div class="header">
-                        <h3 name="title">${this.title}</h3>
+                        <ui-heading level="4">${this.title}</ui-heading>
 
                         <ui-icon-button
                             style="width: var(--ui-dialog-header-height); height: 100%;"

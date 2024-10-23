@@ -8,6 +8,8 @@ const defaultFlex = 1;
  *
  * **Attributes**:
  *  - flex: `number` [default: 1]
+ *  - justify: `string`
+ *  - align: `string`
  *
  * **Slots**:
  *  - ""
@@ -17,11 +19,19 @@ class UIFlexGridItem extends LitElement {
     @property({ type: Number, attribute: "flex" })
     flex: number = defaultFlex;
 
+    @property({ type: String, attribute: "justify" })
+    justify?: string;
+
+    @property({ type: String, attribute: "align" })
+    align?: string;
+
     static get styles() {
         return css`
             :host {
                 flex: var(--_flex, ${defaultFlex});
                 display: flex;
+                justify-content: var(--_justify);
+                align-items: var(--_align);
             }
 
             ::slotted(*) {
@@ -48,8 +58,17 @@ class UIFlexGridItem extends LitElement {
                     value || defaultFlex.toString(),
                 );
                 break;
+
+            case "justify":
+                if (!value) this.style.removeProperty("--_justify");
+                else this.style.setProperty(`--_justify`, value || "");
+                break;
+
+            case "align":
+                if (!value) this.style.removeProperty("--_align");
+                else this.style.setProperty(`--_align`, value || "");
+                break;
         }
     }
 }
-
 export default UIFlexGridItem;

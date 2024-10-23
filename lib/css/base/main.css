@@ -56,8 +56,6 @@ h4,
 h5,
 h6 {
     font-family: "RecVar";
-    font-weight: bolder;
-    font-weight: 750;
     font-variation-settings: var(--ui-heading-fontVariation);
 }
 
@@ -82,7 +80,7 @@ h5 {
 }
 
 h6 {
-    font-size: 7.5rem;
+    font-size: 0.75rem;
 }
 
 /*
@@ -117,7 +115,6 @@ pre {
 
 button {
     font-size: 1.1rem;
-    font-weight: 450;
     font-family: var(--ui-fontFamily);
     font-variation-settings: var(--ui-button-fontVariation);
 }
@@ -239,12 +236,10 @@ table {
 }
 
 thead {
-    font-weight: 450;
     font-variation-settings: var(--ui-thead-fontVariation);
 }
 
 tbody {
-    font-weight: 350;
     font-variation-settings: var(--ui-tbody-fontVariation);
 }
 

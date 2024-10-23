@@ -58,7 +58,6 @@ class UIButton extends LitElement {
 
                 text-transform: capitalize;
                 font-size: 1.1rem;
-                font-weight: 450;
                 font-family: var(--ui-fontFamily);
                 font-variation-settings: var(--ui-button-fontVariation);
             }
@@ -102,7 +101,6 @@ class UIButton extends LitElement {
             :host([variant="ghost"]) {
                 border-color: transparent;
                 background-color: transparent;
-                font-weight: 900;
             }
 
             :host([variant="ghost"][color="primary"]) {
