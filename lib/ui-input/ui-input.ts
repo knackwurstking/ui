@@ -2,20 +2,10 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: `ui-input`
+ * @element ui-input
  *
- * **Attributes**:
- *  - title: `string`
- *  - type: `string`
- *  - value: `string`
- *  - placeholder: `string`
- *  - invalid: `boolean`
- *  - min: `string`
- *  - max: `string`
- *
- * **Events**:
- *  - "input"
- *  - "change"
+ * @fires input
+ * @fires change
  */
 @customElement("ui-input")
 class UIInput extends LitElement {

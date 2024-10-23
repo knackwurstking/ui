@@ -3,18 +3,12 @@ import { customElement, property } from "lit/decorators.js";
 import UIDrawerGroup from "./ui-drawer-group";
 
 /**
- * **Tag**: `ui-drawer`
+ * @element ui-drawer
  *
- * **Attributes**:
- *  - width: `string`
- *  - open: `boolean`
+ * @fires open
+ * @fires close
  *
- * **Events**:
- *  - "open"
- *  - "close"
- *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-drawer")
 class UIDrawer extends LitElement {

@@ -4,10 +4,9 @@ import { Events } from "../utils";
 import UIStackLayoutPage from "./ui-stack-layout-page";
 
 /**
- * **Tag**: `ui-stack-layout`
+ * @element ui-stack-layout
  *
- * **Slots**:
- *  - "": Takes `ui-stack-layout-page` components
+ * @slot - Takes `ui-stack-layout-page` components
  */
 @customElement("ui-stack-layout")
 class UIStackLayout<T extends string> extends LitElement {

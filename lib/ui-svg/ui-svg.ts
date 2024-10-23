@@ -2,10 +2,9 @@ import { css, html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 
 /**
- * **Tag**: `ui-svg`
+ * @element ui-svg
  *
- * **Slots**:
- *  - ""
+ * @slot - An svg element
  */
 @customElement("ui-svg")
 class UISvg extends LitElement {

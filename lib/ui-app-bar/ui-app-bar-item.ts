@@ -2,14 +2,9 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: `ui-app-bar-item`
+ * @element ui-app-bar-item
  *
- * **Attributes**:
- *  - name: `string`
- *  - hidden: `boolean`
- *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-app-bar-item")
 class UIAppBarItem extends LitElement {

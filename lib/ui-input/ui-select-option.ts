@@ -2,14 +2,9 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: `ui-select-option`
+ * @element ui-select-option
  *
- * **Attributes**:
- *  - value: `string`
- *  - selected: `boolean`
- *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-select-option")
 class UISelectOption extends LitElement {

@@ -5,10 +5,9 @@ import { UIFlexGrid } from "../ui-flex-grid";
 import UIAlert from "./ui-alert";
 
 /**
- * **Tag**: `ui-alerts`
+ * @element ui-alerts
  *
- * **Slots**:
- *  - "": Takes `ui-alert` components
+ * @slot Takes `ui-alert` components
  */
 @customElement("ui-alerts")
 class UIAlerts extends LitElement {

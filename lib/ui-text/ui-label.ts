@@ -3,15 +3,9 @@ import { customElement, property } from "lit/decorators.js";
 import { CleanUpFunction, ripple } from "..";
 
 /**
- * **Tag**: `ui-label`
+ * @element ui-label
  *
- * **Attributes**:
- *  - primary: `string`
- *  - secondary: `string`
- *  - ripple: `boolean`
- *
- * **Slots**:
- *  - ""
+ * @slot - An input elements
  */
 @customElement("ui-label")
 class UILabel extends LitElement {
@@ -36,6 +30,9 @@ class UILabel extends LitElement {
     @property({ type: String, attribute: "secondary", reflect: true })
     secondary?: string;
 
+    /**
+     * All slotted elements will be clicked once if ripple was set to true
+     */
     @property({ type: Boolean, attribute: "ripple", reflect: true })
     ripple: boolean = false;
 

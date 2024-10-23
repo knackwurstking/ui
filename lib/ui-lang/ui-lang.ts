@@ -4,13 +4,9 @@ import { Events } from "../utils";
 import UILangType from "./ui-lang-type";
 
 /**
- * **Tag**: `ui-lang`
+ * @element ui-lang
  *
- * **Attributes**:
- *  - current: `string`
- *
- * **Slots**:
- *  - "": Takes "ui-lang-type" components
+ * @slot - Takes "ui-lang-type" components
  */
 @customElement("ui-lang")
 class UILang extends LitElement {

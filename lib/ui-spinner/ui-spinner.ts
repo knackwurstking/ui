@@ -2,10 +2,7 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: `ui-spinner`
- *
- * **Attributes**:
- *  - nobg: `boolean`
+ * @element ui-spinner
  */
 @customElement("ui-spinner")
 class UISpinner extends LitElement {

@@ -3,10 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 import UIText from "./ui-text";
 
 /**
- * **Tag**: `ui-heading`
- *
- * **Attributes**:
- *  - level: `number` - Range between 1 - 6
+ * @element ui-heading
  *
  * @extends {UIText}
  */

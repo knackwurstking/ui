@@ -9,8 +9,7 @@
     "scripts": {
         "dev": "vite --host",
         "build": "tsc && vite build --minify -c vite.config.js",
-        "build-docs": "typedoc --out docs lib/index.ts",
-        "build-wcr": "web-component-analyzer lib"
+        "build-wca": "wca analyze lib --outFile DOCUMENTATION.md"
     },
     "license": "MIT",
     "peerDependencies": {

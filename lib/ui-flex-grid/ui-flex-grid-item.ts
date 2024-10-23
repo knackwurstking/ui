@@ -4,15 +4,9 @@ import { customElement, property } from "lit/decorators.js";
 const defaultFlex = 1;
 
 /**
- * **Tag**: `ui-flex-grid-item`
+ * @element ui-flex-grid-item
  *
- * **Attributes**:
- *  - flex: `number` [default: 1]
- *  - justify: `string`
- *  - align: `string`
- *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-flex-grid-item")
 class UIFlexGridItem extends LitElement {

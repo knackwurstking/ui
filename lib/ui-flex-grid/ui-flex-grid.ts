@@ -4,16 +4,9 @@ import { customElement, property } from "lit/decorators.js";
 const defaultGap = "0";
 
 /**
- * **Tag**: `ui-flex-grid`
+ * @element ui-flex-grid
  *
- * **Attributes**:
- *  - gap: `string` [default: "0"]
- *  - justify: `string`
- *  - align: `string`
- *  - wrap: `string`
- *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-flex-grid")
 class UIFlexGrid extends LitElement {

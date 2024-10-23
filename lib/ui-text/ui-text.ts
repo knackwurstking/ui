@@ -4,15 +4,7 @@ import { customElement, property } from "lit/decorators.js";
 /**
  * @element ui-text
  *
- * @attr {string} family
- * @attr {string} string
- * @attr {number} mono
- * @attr {number} casl
- * @attr {number} wght
- * @attr {number} slnt
- * @attr {number} crsv
- *
- * @slot
+ * @slot - Any kind of text
  */
 @customElement("ui-text")
 class UIText extends LitElement {

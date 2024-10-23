@@ -7,16 +7,9 @@ export type UIButtonColor = "primary" | "secondary" | "destructive";
 export type UIButtonVariant = "full" | "outline" | "ghost";
 
 /**
- * **Tag**: `ui-button`
+ * @element ui-button
  *
- * **Attributes**:
- *  - color: `"primary" | "secondary" | "destructive"`
- *  - variant: `"full" | "outline" | "ghost"`
- *  - disabled: `boolean`
- *  - ripple: `boolean`
- *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-button")
 class UIButton extends LitElement {

@@ -4,11 +4,7 @@ import { Events } from "../utils";
 import { CleanUpFunction } from "../global";
 
 /**
- * **Tag**: `ui-store`
- *
- * **Attributes**:
- *  - storage: `boolean`
- *  - storage-prefix: `string`
+ * @element ui-store
  */
 @customElement("ui-store")
 class UIStore<T extends { [key: string]: any }> extends LitElement {

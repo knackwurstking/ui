@@ -3,22 +3,11 @@ import { customElement, property } from "lit/decorators.js";
 import { svg, UISelectOption } from "..";
 
 /**
- * **Tag**: `ui-select`
+ * @element ui-select
  *
- * **Attributes**:
- *  - open: `boolean`
- *  - keep-open: `boolean`
+ * @fires change
  *
- * **Events**:
- *  - "change"
- *
- * **Public Methods**:
- *  - `options()`
- *  - `selected()`
- *  - `click()`
- *
- * **Slots**:
- *  - "": Takes `ui-select-option` components
+ * @slot - Takes `ui-select-option` components
  */
 @customElement("ui-select")
 class UISelect extends LitElement {

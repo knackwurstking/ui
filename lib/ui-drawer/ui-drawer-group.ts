@@ -3,19 +3,12 @@ import { customElement, property } from "lit/decorators.js";
 import { svg } from "..";
 
 /**
- * **Tag**: `ui-drawer-group`
+ * @element ui-drawer-group
  *
- * **Attributes**:
- *  - title: `string`
- *  - open: `boolean` - _Will be ignored if "no-fold" is set_
- *  - no-fold: `boolean`
+ * @fires fold
+ * @fires unfold
  *
- * **Events**:
- *  - "fold"
- *  - "unfold"
- *
- * **Slots**:
- *  - ""
+ * @slot
  */
 @customElement("ui-drawer-group")
 class UIDrawerGroup extends LitElement {

@@ -14,23 +14,13 @@ export interface UIDialogOpenOptions {
 }
 
 /**
- * **Tag**: `ui-dialog`
+ * @element ui-dialog
  *
- * **Attributes**:
- *  - title: `string`
- *  - fullscreen: `boolean`
- *  - no-footer: `boolean`
- *  - open: `boolean`
- *  - modal: `boolean`
- *  - inert: `boolean` - Disables the auto focus on an input element if set
+ * @fires open
+ * @fires close
  *
- * **Events**:
- *  - "open"
- *  - "close"
- *
- * **Slots**:
- *  - "actions"
- *  - "": Will be added as ".content"
+ * @slot - Will be added as ".content"
+ * @slot actions - Buttons like "Submit", "Cancel", ...
  */
 @customElement("ui-dialog")
 class UIDialog extends LitElement {

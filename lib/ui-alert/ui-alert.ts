@@ -4,11 +4,7 @@ import { customElement, property } from "lit/decorators.js";
 export type UIAlertVariant = "info" | "warning" | "error";
 
 /**
- * **Tag**: `ui-alert`
- *
- * **Attributes**:
- *  - variant: `"info" | "warning" | "error"` [default: "info"]
- *  - message: `string`
+ * @element ui-alert
  */
 @customElement("ui-alert")
 class UIAlert extends LitElement {

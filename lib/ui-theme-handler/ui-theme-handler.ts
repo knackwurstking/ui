@@ -5,12 +5,7 @@ export type UIThemeHandlerTheme = "original" | "gruvbox";
 export type UIThemeHandlerMode = "dark" | "light" | null;
 
 /**
- * **Tag**: `ui-theme-handler`
- *
- * **Attributes**:
- *  - auto: `boolean`
- *  - mode: `"dark" | "light"`
- *  - theme: `"original" | "gruvbox"`
+ * @element ui-theme-handler
  */
 @customElement("ui-theme-handler")
 class UIThemeHandler extends LitElement {

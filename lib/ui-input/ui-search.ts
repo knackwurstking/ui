@@ -3,23 +3,12 @@ import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 /**
- * **Tag**: `ui-search`
+ * @element ui-search
  *
- * **Attributes**:
- *  - title: `string`
- *  - value: `string`
- *  - placeholder: `string`
- *  - invalid: `boolean`
- *  - no-submit: `boolean`
- *  - storage: `boolean`
- *  - storage-prefix: `string`
- *  - storage-key: `string`
- *
- * **Events**:
- *  - "input"
- *  - "change"
- *  - "storage": _Triggered after storage data loaded_
- *  - "submit": _Triggered if submit button clicked (if "no-submit" property not set)_
+ * @fires input
+ * @fires change
+ * @fires storage Triggered after storage data loaded
+ * @fires submit Triggered if submit button clicked (if "no-submit" property not set)
  */
 @customElement("ui-search")
 class UISearch extends LitElement {
