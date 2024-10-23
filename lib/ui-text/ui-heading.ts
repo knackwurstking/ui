@@ -1,6 +1,6 @@
 import { customElement, property } from "lit/decorators.js";
 import UIText from "./ui-text";
-import { PropertyValues } from "lit";
+import { PropertyValues, TemplateResult } from "lit";
 
 /**
  * **Tag**: `ui-heading`
@@ -20,9 +20,7 @@ class UIHeading extends UIText {
     wght = 750;
     slnt = 0;
 
-    protected update(changedProperties: PropertyValues): void {
-        super.update(changedProperties);
-
+    protected render(): TemplateResult<1> {
         switch (this.level) {
             case 6:
                 this.size = "0.75rem";
@@ -45,6 +43,8 @@ class UIHeading extends UIText {
             default:
                 break;
         }
+
+        return super.render();
     }
 }
 
