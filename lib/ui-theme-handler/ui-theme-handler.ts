@@ -19,7 +19,7 @@ class UIThemeHandler extends LitElement {
     theme?: UIThemeHandlerTheme;
 
     @property({ type: String, attribute: "themes-path", reflect: true })
-    themesPath: string = "/themes";
+    themesPath: string = "themes";
 
     private get target(): HTMLElement {
         return document.body;
