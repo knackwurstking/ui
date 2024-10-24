@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1 — [unreleased]
+
+**Removed**:
+
+- Removed old debug logs in "ui-theme-handler"
+
 ## v1.0.0 — [2024-10-24]
 
 **General**:
