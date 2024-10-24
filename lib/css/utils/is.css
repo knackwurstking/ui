@@ -12,6 +12,7 @@
     max-width: 65rem;
     margin: 0 auto;
     padding: var(--ui-spacing);
+    overflow: auto;
 }
 
 .is-container.fluid {
