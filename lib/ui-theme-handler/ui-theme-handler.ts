@@ -10,13 +10,13 @@ export type UIThemeHandlerMode = "dark" | "light" | null;
 @customElement("ui-theme-handler")
 class UIThemeHandler extends LitElement {
     @property({ type: Boolean, attribute: "auto", reflect: true })
-    auto: boolean = false;
+    auto?: boolean;
 
     @property({ type: String, attribute: "mode", reflect: true })
     mode?: UIThemeHandlerMode;
 
     @property({ type: String, attribute: "theme", reflect: true })
-    theme: UIThemeHandlerTheme = "original";
+    theme?: UIThemeHandlerTheme;
 
     @property({ type: String, attribute: "themes-path", reflect: true })
     themesPath: string = "/themes";
