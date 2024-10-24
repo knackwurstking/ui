@@ -56,7 +56,6 @@ class UIThemeHandler extends LitElement {
         value: string | null,
     ): void {
         super.attributeChangedCallback(name, _old, value);
-        console.debug("attributeChangedCallback:", name, value);
 
         switch (name) {
             case "auto":
