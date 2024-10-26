@@ -10,7 +10,7 @@ export function isAndroid(): boolean {
     return /(android)/i.test(navigator.userAgent);
 }
 
-export function styles(style: { [key: string]: string }): string {
+export function styles(style: CSSStyleDeclaration): string {
     return (
         Object.entries(style)
             .map(
