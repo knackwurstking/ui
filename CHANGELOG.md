@@ -2,6 +2,10 @@
 
 ## v1.1.0 — [unreleased]
 
+**General**:
+
+- Updated types for `styles` JS utils
+
 **Changed**:
 
 - Added auto overflow to ui-container css util
