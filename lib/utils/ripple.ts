@@ -12,7 +12,7 @@ export interface RippleOptions {
 }
 
 export const defaultOptions: RippleOptions = {
-    color: "var(--ui-ripple-fg, currentColor)",
+    color: "var(--ui-ripple-text, currentColor)",
     opacity: "var(--ui-ripple-opacity, 0.2)",
     centered: false,
     spreadDuration: ".4s",
