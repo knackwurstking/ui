@@ -9,14 +9,14 @@
 
 ## Methods
 
-| Method       | Type                                             |
-|--------------|--------------------------------------------------|
-| `clear`      | `(): void`                                       |
-| `goBack`     | `(): void`                                       |
-| `register`   | `(pageName: T, cb: (): UIStackLayoutPage \| Promise<UIStackLayoutPage>) => void` |
-| `set`        | `(pageName: T, cb?: ((page: UIStackLayoutPage): void \| Promise<void>) \| null, keepOldPage?: boolean) => Promise<void>` |
-| `stackSize`  | `(): number`                                     |
-| `unregister` | `(pageName: T): void`                            |
+| Method           | Type                                             |
+|------------------|--------------------------------------------------|
+| `clearStack`     | `(): void`                                       |
+| `goBack`         | `(): void`                                       |
+| `registerPage`   | `(name: T, cb: (): UIStackLayoutPage \| Promise<UIStackLayoutPage>) => void` |
+| `setPage`        | `(name: T, cb?: ((page: UIStackLayoutPage): void \| Promise<void>) \| null, keepOldPage?: boolean) => Promise<void>` |
+| `stackSize`      | `(): number`                                     |
+| `unregisterPage` | `(name: T): void`                                |
 
 ## Slots
 

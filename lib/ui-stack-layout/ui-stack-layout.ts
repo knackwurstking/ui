@@ -68,7 +68,7 @@ class UIStackLayout<T extends string> extends LitElement {
         return this.stack.length;
     }
 
-    public clear(): void {
+    public clearStack(): void {
         while (this.stack.length > 0) {
             this.removeChild(this.stack.pop()!);
         }
@@ -81,25 +81,29 @@ class UIStackLayout<T extends string> extends LitElement {
         return;
     }
 
-    public register(
-        pageName: T,
+    public registerPage(
+        name: T,
         cb: () => UIStackLayoutPage | Promise<UIStackLayoutPage>,
     ): void {
-        this.pages[pageName] = cb;
+        this.pages[name] = cb;
     }
 
-    public unregister(pageName: T): void {
-        delete this.pages[pageName];
+    public unregisterPage(name: T): void {
+        delete this.pages[name];
     }
 
-    public async set(
-        pageName: T,
+    public async setPage(
+        name: T,
         cb: ((page: UIStackLayoutPage) => void | Promise<void>) | null = null,
         keepOldPage: boolean = false,
     ): Promise<void> {
         if (this.lockNavigation) return;
 
-        const page = await this.pages[pageName]();
+        if (!(name in this.pages)) {
+            throw new Error(`page ${name} not found`);
+        }
+
+        const page = await this.pages[name]();
         this.stack.push(this.appendChild(page));
         if (typeof cb === "function") cb(page);
 
