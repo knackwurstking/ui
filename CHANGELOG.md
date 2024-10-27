@@ -17,6 +17,7 @@
 **Changed**:
 
 - Added auto overflow to ui-container css util
+- Fixed some minor issues
 
 **Removed**:
 
