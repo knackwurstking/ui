@@ -100,7 +100,7 @@ class UIStackLayout<T extends string> extends LitElement {
         if (this.lockNavigation) return;
 
         if (!(name in this.pages)) {
-            throw new Error(`page ${name} not found`);
+            throw new Error(`page "${name}" not found`);
         }
 
         const page = await this.pages[name]();
