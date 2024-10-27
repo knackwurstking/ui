@@ -2,6 +2,14 @@
 
 ## v1.1.0 — [unreleased]
 
+**Breaking Changes**:
+
+- Changed some `UIStackLayout` method names:
+  - `clear(` -> `clearStack(`
+  - `register(` -> `registerPage(`
+  - `unregister(` -> `unregisterPage(`
+  - `set(` -> `setPage(`
+
 **General**:
 
 - Updated types for `styles` JS utils
