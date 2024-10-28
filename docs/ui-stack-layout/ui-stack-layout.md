@@ -4,7 +4,7 @@
 
 | Property | Type                                             | Default        |
 |----------|--------------------------------------------------|----------------|
-| `events` | `Events<{ change: { old: UIStackLayoutPage; current: UIStackLayoutPage; }; }>` | "new Events()" |
+| `events` | `Events<{ change: { old: UIStackLayoutPage \| null; current: UIStackLayoutPage \| null; }; }>` | "new Events()" |
 | `stack`  | `UIStackLayoutPage[]`                            | []             |
 
 ## Methods

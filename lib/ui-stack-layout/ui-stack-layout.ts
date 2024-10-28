@@ -11,7 +11,10 @@ import UIStackLayoutPage from "./ui-stack-layout-page";
 @customElement("ui-stack-layout")
 class UIStackLayout<T extends string> extends LitElement {
     public events: Events<{
-        change: { old: UIStackLayoutPage; current: UIStackLayoutPage };
+        change: {
+            old: UIStackLayoutPage | null;
+            current: UIStackLayoutPage | null;
+        };
     }> = new Events();
 
     public stack: UIStackLayoutPage[] = [];
