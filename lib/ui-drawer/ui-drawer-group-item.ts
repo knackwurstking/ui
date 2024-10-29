@@ -15,16 +15,11 @@ class UIDrawerGroupItem extends LitElement {
             }
 
             :host {
-                display: block;
                 width: 100%;
-            }
 
-            li {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
-
-                width: 100%;
 
                 padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
             }
@@ -36,7 +31,7 @@ class UIDrawerGroupItem extends LitElement {
     }
 
     protected render(): unknown {
-        return html`<li><slot></slot></li>`;
+        return html`<slot></slot>`;
     }
 }
 

@@ -2,6 +2,8 @@ import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { svg } from "..";
 
+const defaultGap = "0";
+
 /**
  * @element ui-drawer-group
  *
@@ -15,6 +17,9 @@ class UIDrawerGroup extends LitElement {
     @property({ type: String, attribute: "title", reflect: true })
     title: string = "";
 
+    @property({ type: String, attribute: "gap" })
+    gap: string = defaultGap;
+
     @property({ type: Boolean, attribute: "open", reflect: true })
     open: boolean = false;
 
@@ -27,32 +32,33 @@ class UIDrawerGroup extends LitElement {
                 box-sizing: border-box;
             }
 
-            ul {
+            :host {
+                display: block;
                 margin: 0;
                 list-style: none;
                 padding: var(--ui-spacing);
                 overflow: hidden;
             }
 
-            ul .fold {
+            .fold {
                 display: flex;
                 position: relative;
                 border-radius: var(--ui-radius);
                 cursor: pointer;
             }
 
-            :host([no-fold]) ul .fold {
+            :host([no-fold]) .fold {
                 display: none;
             }
 
-            ul .fold .icon {
+            .fold .icon {
                 transition: transform 0.25s ease;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
 
-            :host(:not([open])) ul .fold .icon {
+            :host(:not([open])) .fold .icon {
                 transform: rotate(-90deg);
             }
 
@@ -64,7 +70,7 @@ class UIDrawerGroup extends LitElement {
 
     protected render() {
         return html`
-            <ul>
+            <ui-flex-grid gap="${this.gap}">
                 <ui-drawer-group-item
                     class="fold"
                     role="button"
@@ -94,7 +100,7 @@ class UIDrawerGroup extends LitElement {
                 </ui-drawer-group-item>
 
                 <slot></slot>
-            </ul>
+            </ui-flex-grid>
         `;
     }
 }
