@@ -12,11 +12,10 @@
 
 **General**:
 
+- Added `::selection` styles to "ui-drawer-group"
+- Added `gap` attribute to "ui-drawer-group"
+- Added `overflow: auto;` to "is-container" css util
 - Updated types for `styles` JS utils
-
-**Changed**:
-
-- Added auto overflow to ui-container css util
 - Fixed some minor issues
 
 **Removed**:
