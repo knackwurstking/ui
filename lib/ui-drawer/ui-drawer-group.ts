@@ -32,6 +32,11 @@ class UIDrawerGroup extends LitElement {
                 box-sizing: border-box;
             }
 
+            ::selection {
+                background-color: hsl(var(--ui-hsl-primary));
+                color: hsl(var(--ui-hsl-primary-text));
+            }
+
             :host {
                 display: block;
                 margin: 0;
