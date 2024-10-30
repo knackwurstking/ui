@@ -136,8 +136,6 @@ class UISearch extends LitElement {
             `[ui][ui-search] Render component with value "${this.value}"`,
         );
 
-        let timeout: NodeJS.Timeout | null = null;
-
         return html`
             <div class="container has-backdrop-blur">
                 ${!!this.title
@@ -168,18 +166,13 @@ class UISearch extends LitElement {
                         // Store value to localStorage
                         if (!this.storage) return;
 
-                        if (timeout !== null) clearTimeout(timeout);
-                        timeout = setTimeout(() => {
-                            localStorage.setItem(
-                                this.storagePrefix + this.storageKey,
-                                this.value,
-                            );
+                        localStorage.setItem(
+                            this.storagePrefix + this.storageKey,
+                            this.value,
+                        );
 
-                            if (this.noSubmit)
-                                this.dispatchEvent(new Event("change"));
-
-                            timeout = null;
-                        }, 250);
+                        if (this.noSubmit)
+                            this.dispatchEvent(new Event("change"));
                     }}
                 />
 

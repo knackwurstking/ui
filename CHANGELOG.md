@@ -20,6 +20,7 @@
 
 **Removed**:
 
+- Removed "submit" event and timeout handler from "ui-search" component
 - Removed default attributes, "auto" and "theme", for ui-theme-handler
 - Removed old debug logs in "ui-theme-handler"
 
