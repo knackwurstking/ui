@@ -132,10 +132,6 @@ class UISearch extends LitElement {
     }
 
     protected render() {
-        console.debug(
-            `[ui][ui-search] Render component with value "${this.value}"`,
-        );
-
         return html`
             <div class="container has-backdrop-blur">
                 ${!!this.title
@@ -147,7 +143,7 @@ class UISearch extends LitElement {
                 <input
                     name="search"
                     type="search"
-                    ?value="${this.value}"
+                    value="${this.value}"
                     @keydown=${(ev: KeyboardEvent) => {
                         if (this.noSubmit || ev.key !== "Enter") return;
                         // Trigger submit button click
@@ -194,10 +190,11 @@ class UISearch extends LitElement {
     protected firstUpdated(_changedProperties: PropertyValues): void {
         super.firstUpdated(_changedProperties);
 
-        if (!this.value && this.storage) {
+        if (this.storage) {
             const value =
                 localStorage.getItem(this.storagePrefix + this.storageKey) ||
-                "";
+                this.value;
+
             this.value = value;
             this.dispatchEvent(new Event("storage"));
         }
