@@ -13,6 +13,9 @@ class UIFlexGridItem extends LitElement {
     @property({ type: Number, attribute: "flex" })
     flex: number = defaultFlex;
 
+    @property({ type: String, attribute: "direction", reflect: true })
+    direction?: string;
+
     @property({ type: String, attribute: "justify" })
     justify?: string;
 
@@ -24,6 +27,7 @@ class UIFlexGridItem extends LitElement {
             :host {
                 flex: var(--_flex, ${defaultFlex});
                 display: flex;
+                flex-direction: var(--_direction, row);
                 justify-content: var(--_justify);
                 align-items: var(--_align);
             }
@@ -53,14 +57,19 @@ class UIFlexGridItem extends LitElement {
                 );
                 break;
 
+            case "direction":
+                if (!value) this.style.removeProperty("--_direction");
+                else this.style.setProperty(`--_direction`, value);
+                break;
+
             case "justify":
                 if (!value) this.style.removeProperty("--_justify");
-                else this.style.setProperty(`--_justify`, value || "");
+                else this.style.setProperty(`--_justify`, value);
                 break;
 
             case "align":
                 if (!value) this.style.removeProperty("--_align");
-                else this.style.setProperty(`--_align`, value || "");
+                else this.style.setProperty(`--_align`, value);
                 break;
         }
     }
