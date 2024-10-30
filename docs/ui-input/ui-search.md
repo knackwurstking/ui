@@ -24,9 +24,8 @@
 
 ## Events
 
-| Event     | Description                                      |
-|-----------|--------------------------------------------------|
-| `change`  |                                                  |
-| `input`   |                                                  |
-| `storage` | Triggered after storage data loaded              |
-| `submit`  | Triggered if submit button clicked (if "no-submit" property not set) |
+| Event     | Description                         |
+|-----------|-------------------------------------|
+| `change`  |                                     |
+| `input`   |                                     |
+| `storage` | Triggered after storage data loaded |

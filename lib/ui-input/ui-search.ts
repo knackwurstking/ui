@@ -8,7 +8,6 @@ import { customElement, property } from "lit/decorators.js";
  * @fires input
  * @fires change
  * @fires storage Triggered after storage data loaded
- * @fires submit Triggered if submit button clicked (if "no-submit" property not set)
  */
 @customElement("ui-search")
 class UISearch extends LitElement {
@@ -175,12 +174,12 @@ class UISearch extends LitElement {
                                 this.storagePrefix + this.storageKey,
                                 this.value,
                             );
+
+                            if (this.noSubmit)
+                                this.dispatchEvent(new Event("change"));
+
                             timeout = null;
                         }, 250);
-                    }}
-                    @change=${() => {
-                        // Forward the "change" event to the LitElement
-                        this.dispatchEvent(new Event("change"));
                     }}
                 />
 
@@ -190,7 +189,7 @@ class UISearch extends LitElement {
                     ghost
                     ripple
                     @click=${() => {
-                        this.dispatchEvent(new Event("submit"));
+                        this.dispatchEvent(new Event("change"));
                     }}
                 >
                     ${svg.smoothieLineIcons.search}
