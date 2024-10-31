@@ -8,10 +8,10 @@ import { customElement, property } from "lit/decorators.js";
  */
 @customElement("ui-text")
 class UIText extends LitElement {
-    @property({ type: Number, attribute: "family", reflect: true })
+    @property({ type: String, attribute: "family", reflect: true })
     family: string = "var(--ui-fontFamily)";
 
-    @property({ type: Number, attribute: "size", reflect: true })
+    @property({ type: String, attribute: "size", reflect: true })
     size: string = "var(--ui-fontSize)";
 
     /**
