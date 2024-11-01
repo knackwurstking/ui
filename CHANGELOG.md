@@ -12,6 +12,7 @@
 
 **General**:
 
+- Added "direction" attribute to "ui-flex-grid-item"
 - Added `::selection` styles to "ui-drawer-group"
 - Added `gap` attribute to "ui-drawer-group"
 - Added `overflow: auto;` to "is-container" css util
