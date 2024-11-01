@@ -18,8 +18,6 @@ export function createMobile(
 
     let originTarget: HTMLElement | null = null;
     let startTime: number | null = null;
-    let startX: number;
-    let startY: number;
     let timeout: NodeJS.Timeout | null = null;
     let dragRunning: boolean = false;
     let backupColor: string = "";
@@ -32,15 +30,6 @@ export function createMobile(
             !originTarget &&
             Array.from(target.classList).includes("draggable")
         ) {
-            if (ev instanceof TouchEvent) {
-                const touch = ev.targetTouches[0];
-                startX = touch.clientX;
-                startY = touch.clientY;
-            } else {
-                startX = ev.clientX;
-                startY = ev.clientY;
-            }
-
             startTime = new Date().getTime();
             originTarget = target;
 
@@ -68,22 +57,6 @@ export function createMobile(
 
         if (!dragRunning) {
             if (new Date().getTime() - startTime < 200) {
-                let diffX: number;
-                let diffY: number;
-                if (ev instanceof TouchEvent) {
-                    const touch = ev.targetTouches[0];
-                    diffX = Math.abs(startX - touch.clientX);
-                    diffY = Math.abs(startY - touch.clientY);
-                } else {
-                    diffX = Math.abs(startX - ev.clientX);
-                    diffY = Math.abs(startY - ev.clientY);
-                }
-
-                const diff = diffX > diffY ? diffX : diffY;
-                if (diff < 24) {
-                    return;
-                }
-
                 handleEnd();
                 return;
             }
