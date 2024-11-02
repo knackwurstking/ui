@@ -35,6 +35,6 @@
     --ui-ripple-text: currentColor;
     --ui-ripple-opacity: 0.2;
 
-    --ui-backdrop-alpha: 0.25;
+    --ui-backdrop-alpha: 0.35;
     --ui-backdropFilter: blur(5px);
 }
