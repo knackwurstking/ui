@@ -75,6 +75,8 @@ class UIStackLayout<T extends string> extends LitElement {
         while (this.stack.length > 0) {
             this.removeChild(this.stack.pop()!);
         }
+
+        this.dispatchChangeEvent(null);
     }
 
     public goBack(): void {
