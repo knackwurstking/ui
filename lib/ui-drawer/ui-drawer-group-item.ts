@@ -20,8 +20,6 @@ class UIDrawerGroupItem extends LitElement {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
-
-                padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
             }
 
             ::slotted(*) {
