@@ -90,7 +90,7 @@ class UIIconButton extends LitElement {
     }
 
     protected render() {
-        return html`<slot></slot>`;
+        return html`<ui-svg><slot></slot></ui-svg>`;
     }
 
     attributeChangedCallback(
