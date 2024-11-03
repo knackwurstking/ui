@@ -12,6 +12,7 @@
 
 **General**:
 
+- Removed padding from "ui-drawer-group-item"
 - Changed backdrop alpha value to "0.35"
 - Added "direction" attribute to "ui-flex-grid-item"
 - Added `::selection` styles to "ui-drawer-group"
