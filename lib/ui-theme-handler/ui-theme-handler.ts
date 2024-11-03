@@ -1,4 +1,4 @@
-import { css, LitElement, PropertyValues } from "lit";
+import { css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 export type UIThemeHandlerTheme = "original" | "gruvbox";
@@ -43,11 +43,6 @@ class UIThemeHandler extends LitElement {
                 display: none;
             }
         `;
-    }
-
-    protected firstUpdated(_changedProperties: PropertyValues): void {
-        // Set default theme if undefined
-        if (!this.hasAttribute("theme")) this.handleTheme();
     }
 
     attributeChangedCallback(
