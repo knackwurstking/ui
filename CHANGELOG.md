@@ -12,6 +12,7 @@
 
 **General**:
 
+- Update "ui-text" overflow wrap and width settings/styles
 - Removed padding from "ui-drawer-group-item"
 - Changed backdrop alpha value to "0.35"
 - Added "direction" attribute to "ui-flex-grid-item"

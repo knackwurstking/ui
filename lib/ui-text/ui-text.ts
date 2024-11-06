@@ -45,7 +45,10 @@ class UIText extends LitElement {
         return css`
             :host {
                 display: inline-block;
-                overflow-wrap: anywhere;
+
+                width: fit-content;
+                max-width: 100%;
+                overflow-wrap: break-word;
 
                 font-family: var(--_family) !important;
                 font-size: var(--_size) !important;
