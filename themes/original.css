@@ -1,20 +1,36 @@
+:root {
+    --_hue: 240;
+
+    --_sl-50: 0%, 98%;
+    --_sl-100: 4.8%, 95.9%;
+    --_sl-200: 5.9%, 90%;
+    --_sl-300: 4.9%, 83.9%;
+    --_sl-400: 5%, 64.9%;
+    --_sl-500: 3.8%, 46.1%;
+    --_sl-600: 5.2%, 33.9%;
+    --_sl-700: 5.3%, 26.1%;
+    --_sl-800: 3.7%, 15.9%;
+    --_sl-900: 5.9%, 10%;
+    --_sl-950: 10%, 3.9%;
+}
+
 [data-theme="light"] {
     /*
      * Basics
      */
 
-    --ui-hsl-bg: 240, 10%, 96%;
-    --ui-hsl-primary: 240, 10%, 25%;
-    --ui-hsl-secondary: 240, 15%, 75%;
+    --ui-hsl-bg: var(--_hue), var(--_sl-100);
+    --ui-hsl-primary: var(--_hue), var(--_sl-700);
+    --ui-hsl-secondary: var(--_hue), var(--_sl-400);
     --ui-hsl-destructive: 0, 72%, 51%;
 
-    --ui-hsl-text: 240, 10%, 10%;
-    --ui-hsl-input-text: 240, 10%, 30%;
-    --ui-hsl-primary-text: 240, 10%, 98%;
-    --ui-hsl-secondary-text: 240, 10%, 10%;
+    --ui-hsl-text: var(--_hue), var(--_sl-950);
+    --ui-hsl-input-text: var(--_hue), var(--_sl-800);
+    --ui-hsl-primary-text: var(--_hue), var(--_sl-300);
+    --ui-hsl-secondary-text: var(--_hue), var(--_sl-900);
     --ui-hsl-destructive-text: 0, 72%, 92%;
 
-    --ui-hsl-borderColor: 240, 10%, 82%;
+    --ui-hsl-borderColor: var(--_hue), var(--_sl-400);
 
     --ui-hsl-backdrop: var(--ui-hsl-bg);
 
@@ -31,8 +47,8 @@
      * Muted: code, pre
      */
 
-    --ui-hsl-muted: 240, 10%, 84%;
-    --ui-hsl-muted-text: 240, 10%, 40%;
+    --ui-hsl-muted: var(--_hue), var(--_sl-400);
+    --ui-hsl-muted-text: var(--hue), var(--_sl-600);
     --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
     --ui-muted-fontFamily: var(--ui-fontFamily);
 
@@ -40,8 +56,8 @@
      * ui-card
      */
 
-    --ui-hsl-card: 240, 10%, 92%;
-    --ui-hsl-card-text: 240, 10%, 4%;
+    --ui-hsl-card: var(--_hue), var(--_sl-200);
+    --ui-hsl-card-text: var(--_hue), var(--_sl-800);
     --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
     --ui-card-radius: var(--ui-radius);
 
@@ -56,18 +72,18 @@
      * Basics
      */
 
-    --ui-hsl-bg: 240, 10%, 4%;
-    --ui-hsl-primary: 240, 10%, 75%;
-    --ui-hsl-secondary: 240, 15%, 25%;
+    --ui-hsl-bg: var(--_hue), var(--_sl-950);
+    --ui-hsl-primary: var(--_hue), var(--_sl-300);
+    --ui-hsl-secondary: var(--_hue), var(--_sl-600);
     --ui-hsl-destructive: 0, 63%, 31%;
 
-    --ui-hsl-text: 240, 10%, 90%;
-    --ui-hsl-input-text: 240, 10%, 75%;
-    --ui-hsl-primary-text: 240, 10%, 10%;
-    --ui-hsl-secondary-text: 240, 10%, 98%;
+    --ui-hsl-text: var(--_hue), var(--_sl-50);
+    --ui-hsl-input-text: var(--_hue), var(--_sl-200);
+    --ui-hsl-primary-text: var(--_hue), var(--_sl-700);
+    --ui-hsl-secondary-text: var(--_hue), var(--_sl-100);
     --ui-hsl-destructive-text: 0, 63%, 92%;
 
-    --ui-hsl-borderColor: 240, 10%, 18%;
+    --ui-hsl-borderColor: var(--_hue), var(--_sl-600);
 
     --ui-hsl-backdrop: var(--ui-hsl-bg);
 
@@ -84,8 +100,8 @@
      * Muted: code, pre
      */
 
-    --ui-hsl-muted: 240, 10%, 16%;
-    --ui-hsl-muted-text: 240, 10%, 65%;
+    --ui-hsl-muted: var(--_hue), var(--_sl-600);
+    --ui-hsl-muted-text: var(--_hue), var(--_sl-400);
     --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
 
     --ui-muted-fontFamily: var(--ui-fontFamily);
@@ -94,8 +110,8 @@
      * ui-card
      */
 
-    --ui-hsl-card: 240, 10%, 8%;
-    --ui-hsl-card-text: 240, 10%, 98%;
+    --ui-hsl-card: var(--_hue), var(--_sl-800);
+    --ui-hsl-card-text: var(--_hue), var(--_sl-200);
     --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
 
     --ui-card-radius: var(--ui-radius);
