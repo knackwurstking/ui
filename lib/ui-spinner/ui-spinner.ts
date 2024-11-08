@@ -31,7 +31,7 @@ class UISpinner extends LitElement {
 
                 background-color: hsla(
                     var(--ui-hsl-backdrop),
-                    var(--ui-hsl-backdrop-alpha)
+                    var(--ui-backdrop-alpha)
                 );
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
