@@ -74,4 +74,5 @@ class UIFlexGridItem extends LitElement {
         }
     }
 }
+
 export default UIFlexGridItem;

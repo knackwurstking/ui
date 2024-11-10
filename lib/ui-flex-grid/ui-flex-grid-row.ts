@@ -26,6 +26,7 @@ class UIFlexGridRow extends LitElement {
         return css`
             :host {
                 display: flex;
+                flex-direction: row !important;
                 flex-flow: row var(--_wrap, nowrap);
                 justify-content: var(--_justify);
                 align-items: var(--_align);
