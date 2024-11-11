@@ -12,7 +12,6 @@
 
 **General**:
 
-- Added "tabindex" of 0 to button components
 - Updated "original" theme colors
 - Update "ui-text" overflow wrap and width settings/styles
 - Removed padding from "ui-drawer-group-item"

@@ -26,7 +26,6 @@ class UIButton extends LitElement {
     ripple: Boolean = false;
 
     role: string | null = "button";
-    tabIndex: number = 0; // TODO: Handle Enter/Space key for click this button on focus
 
     private rippleCleanUp: CleanUpFunction | null = null;
 
