@@ -148,7 +148,7 @@ export function createMobile(
         child.onmousemove = handleMove;
         child.ontouchmove = handleMove;
 
-        child.onmouseup = handleEnd;
+        container.onmouseleave = child.onmouseup = handleEnd;
         child.ontouchend = handleEnd;
     });
 
@@ -164,7 +164,7 @@ export function createMobile(
                 child.onmousemove = null;
                 child.ontouchmove = null;
 
-                child.onmouseup = null;
+                container.onmouseleave = child.onmouseup = null;
                 child.ontouchend = null;
             },
         );
