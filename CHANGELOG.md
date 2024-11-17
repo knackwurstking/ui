@@ -12,7 +12,7 @@
 
 **General**:
 
-- Remvoe "user-select" style for tables
+- Remove "user-select" style for tables
 - Added "onmouseleave" to mobild dragging handler
 - Updated "original" theme colors
 - Update "ui-text" overflow wrap and width settings/styles
