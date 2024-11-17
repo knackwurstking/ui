@@ -135,9 +135,7 @@ class UISearch extends LitElement {
         return html`
             <div class="container has-backdrop-blur">
                 ${!!this.title
-                    ? html`<ui-secondary class="title">
-                          ${this.title}
-                      </ui-secondary>`
+                    ? html`<ui-secondary class="title"> ${this.title} </ui-secondary>`
                     : ``}
 
                 <input
@@ -148,27 +146,19 @@ class UISearch extends LitElement {
                         if (this.noSubmit || ev.key !== "Enter") return;
                         // Trigger submit button click
                         this.shadowRoot
-                            ?.querySelector<UIIconButton>(
-                                `ui-icon-button[name="submit"]`,
-                            )
+                            ?.querySelector<UIIconButton>(`ui-icon-button[name="submit"]`)
                             ?.click();
                     }}
                     @input=${(ev: Event) => {
                         // Pass value down to the LitElement
-                        this.value = (
-                            ev.currentTarget as HTMLInputElement
-                        ).value;
+                        this.value = (ev.currentTarget as HTMLInputElement).value;
 
                         // Store value to localStorage
-                        if (!this.storage) return;
+                        if (this.storage) {
+                            localStorage.setItem(this.storagePrefix + this.storageKey, this.value);
+                        }
 
-                        localStorage.setItem(
-                            this.storagePrefix + this.storageKey,
-                            this.value,
-                        );
-
-                        if (this.noSubmit)
-                            this.dispatchEvent(new Event("change"));
+                        if (this.noSubmit) this.dispatchEvent(new Event("change"));
                     }}
                 />
 
@@ -191,9 +181,7 @@ class UISearch extends LitElement {
         super.firstUpdated(_changedProperties);
 
         if (this.storage) {
-            const value =
-                localStorage.getItem(this.storagePrefix + this.storageKey) ||
-                this.value;
+            const value = localStorage.getItem(this.storagePrefix + this.storageKey) || this.value;
 
             this.value = value;
             this.dispatchEvent(new Event("storage"));
@@ -202,9 +190,7 @@ class UISearch extends LitElement {
 
     public focus(options?: FocusOptions): void {
         super.focus(options);
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(
-            options,
-        );
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(options);
     }
 
     public blur(): void {
