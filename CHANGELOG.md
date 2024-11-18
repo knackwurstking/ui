@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.0 — [unreleased]
+## v1.1.0 — [2024-11-18]
 
 **Breaking Changes**:
 
@@ -12,6 +12,7 @@
 
 **General**:
 
+- Added generic type for "ui-app-bar" content items (name)
 - Remove "user-select" style for tables
 - Added "onmouseleave" to mobild dragging handler
 - Updated "original" theme colors
