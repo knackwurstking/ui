@@ -13,7 +13,7 @@ export type UIAppBarSlots = "left" | "center" | "right";
  * @slot right
  */
 @customElement("ui-app-bar")
-class UIAppBar extends LitElement {
+class UIAppBar<N extends string> extends LitElement {
     @property({ type: String, attribute: "position", reflect: true })
     position: UIAppBarPosition = "top";
 
@@ -32,10 +32,7 @@ class UIAppBar extends LitElement {
                 overflow: hidden;
                 padding: calc(var(--ui-spacing) / 2);
 
-                background-color: hsla(
-                    var(--ui-hsl-backdrop),
-                    var(--ui-backdrop-alpha)
-                );
+                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-backdrop-alpha));
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -103,11 +100,7 @@ class UIAppBar extends LitElement {
                     <slot name="left"></slot>
                 </ui-flex-grid-row>
 
-                <ui-flex-grid-row
-                    gap="0.25rem"
-                    style="overflow: hidden;"
-                    align="center"
-                >
+                <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;" align="center">
                     <slot name="center"></slot>
                 </ui-flex-grid-row>
 
@@ -122,7 +115,7 @@ class UIAppBar extends LitElement {
         return [...this.querySelectorAll<T>(`[slot="${slot}"]`)];
     }
 
-    contentName<T extends UIAppBarItem>(name: string): T | null {
+    contentName<T extends UIAppBarItem>(name: N): T | null {
         return this.querySelector<T>(`[name="${name}"]`);
     }
 }
