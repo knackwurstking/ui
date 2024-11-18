@@ -12,7 +12,7 @@
 | Method        | Type                                             |
 |---------------|--------------------------------------------------|
 | `content`     | `<T extends UIAppBarItem>(slot: UIAppBarSlots): T[]` |
-| `contentName` | `<T extends UIAppBarItem>(name: string): T \| null` |
+| `contentName` | `<T extends UIAppBarItem>(name: N): T \| null`   |
 
 ## Slots
 
