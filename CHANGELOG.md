@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.1 — [2024-11-20]
+
+**CSS Changes**:
+
+- Changed primary theme colors for the "original" theme
+- Changed thead/tbody font weight
+
 ## v1.1.0 — [2024-11-18]
 
 **Breaking Changes:**
