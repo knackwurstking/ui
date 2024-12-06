@@ -2,10 +2,16 @@
 
 ## v1.2.0 — [unreleased]
 
-- Updatd demo page from the src directory
-- Added css util
+
+- Updated demo page from (src directory)
+
+- Updated js bundle:
+    - Added a ui object with all exports to `window` object (`window.ui`)
+
+- Added css utils:
     - .has-padding, \[has-padding\]
-- Added border-radius to global css reset
+
+- Added border-radius to css resets
 
 ## v1.1.1 — [2024-11-20]
 
