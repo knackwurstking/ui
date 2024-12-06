@@ -9,6 +9,7 @@
     box-sizing: border-box;
     position: relative;
     outline: none;
+    border-radius: var(--ui-radius, 0);
 }
 
 /*

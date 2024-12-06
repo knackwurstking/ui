@@ -1,12 +1,13 @@
-.is-debug {
-    border: 1px solid red;
+.is-debug,
+[is-debug],
+.is-debug *,
+[is-debug] * {
+    border: 0.5px solid red;
+    border-radius: var(--ui-radius);
 }
 
-.is-debug * {
-    border: 1px solid red;
-}
-
-.is-container {
+.is-container,
+[is-container] {
     display: block;
     width: 100%;
     max-width: 65rem;
@@ -15,7 +16,8 @@
     overflow: auto;
 }
 
-.is-container.fluid {
+.is-container.fluid,
+[is-container].fluid {
     width: 100%;
     max-width: 100%;
 }

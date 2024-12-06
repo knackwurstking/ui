@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.2 — [unreleased]
+
+- Added css util "has-padding"
+
 ## v1.1.1 — [2024-11-20]
 
 **CSS Changes**:
