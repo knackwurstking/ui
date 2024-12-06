@@ -1,6 +1,7 @@
-import "../lib/index";
+import "../dist/style.css";
+import "../dist/ui.min.js";
 
-import { html, LitElement } from "lit";
+import { html, LitElement, PropertyValues } from "lit";
 import { customElement } from "lit/decorators.js";
 
 @customElement("main-app")
@@ -32,5 +33,11 @@ export class MainApp extends LitElement {
                 </details>
             </ui-flex-grid>
         `;
+    }
+
+    protected firstUpdated(_changedProperties: PropertyValues): void {
+        if ("ui" in window) {
+            console.debug(window.ui);
+        }
     }
 }
