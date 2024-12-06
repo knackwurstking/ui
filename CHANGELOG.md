@@ -1,8 +1,11 @@
 # Changelog
 
-## v1.1.2 — [unreleased]
+## v1.2.0 — [unreleased]
 
-- Added css util "has-padding"
+- Updatd demo page from the src directory
+- Added css util
+    - .has-padding, \[has-padding\]
+- Added border-radius to global css reset
 
 ## v1.1.1 — [2024-11-20]
 
