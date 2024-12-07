@@ -27,14 +27,6 @@ body {
 }
 
 /*
- * Container
- */
-
-section {
-    padding: var(--ui-spacing);
-}
-
-/*
  * Separator
  */
 
