@@ -2,7 +2,7 @@
 
 ## v1.2.0 — [unreleased]
 
-- Updated demo page from (src directory)
+- Updated demo/test page from (src directory)
 
 - Updated js bundle:
   - Added a ui object with all exports to `window` object (`window.ui`) [work-in-progress]
@@ -10,9 +10,12 @@
 
 - Added CSS components:
     - .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
+    - .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]
 
 - Added css utils:
   - .has-padding
+
+- Code clean up
 
 ## v1.1.1 — [2024-11-20]
 
