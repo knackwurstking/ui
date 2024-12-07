@@ -23,9 +23,7 @@
     --ui-dialog-header-height: 2.5rem;
     --ui-dialog-footer-height: 3rem;
 
-    --ui-ripple: currentColor;
-    --ui-ripple-opacity: 0.2;
-
-    --ui-backdrop-alpha: 0.2;
     --ui-backdropFilter: blur(5px);
+
+    --ui-ripple-opacity: 0.2;
 }
