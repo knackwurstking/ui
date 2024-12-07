@@ -1,88 +1,84 @@
 [data-theme="light"] {
-    --_bg-hard: 53, 74%, 91%;
-    --_bg: 48, 87%, 88%;
-    --_bg-soft: 46, 67%, 84%;
-    --_bg1: 43, 59%, 81%;
-    --_bg2: 40, 38%, 73%;
-    --_bg3: 39, 24%, 66%;
-    --_bg4: 35, 17%, 59%;
+    /*
+        --_bg-hard: 53, 74%, 91%;
+        --_bg: 48, 87%, 88%;
+        --_bg-soft: 46, 67%, 84%;
+        --_bg1: 43, 59%, 81%;
+        --_bg2: 40, 38%, 73%;
+        --_bg3: 39, 24%, 66%;
+        --_bg4: 35, 17%, 59%;
 
-    --_fg: 0, 0%, 16%;
-    --_fg1: 20, 5%, 22%;
-    --_fg2: 22, 7%, 29%;
-    --_fg3: 27, 10%, 36%;
-    --_fg4: 28, 11%, 44%;
+        --_fg: 0, 0%, 16%;
+        --_fg1: 20, 5%, 22%;
+        --_fg2: 22, 7%, 29%;
+        --_fg3: 27, 10%, 36%;
+        --_fg4: 28, 11%, 44%;
 
-    --_red: 358, 100%, 31%;
-    --_green: 57, 79%, 26%;
-    --_yellow: 37, 80%, 39%;
-    --_blue: 190, 89%, 25%;
-    --_purple: 323, 39%, 40%;
-    --_aqua: 143, 30%, 37%;
-    --_orange: 19, 97%, 35%;
-    --_gray: 30, 12%, 51%;
+        --_red: 358, 100%, 31%;
+        --_green: 57, 79%, 26%;
+        --_yellow: 37, 80%, 39%;
+        --_blue: 190, 89%, 25%;
+        --_purple: 323, 39%, 40%;
+        --_aqua: 143, 30%, 37%;
+        --_orange: 19, 97%, 35%;
+        --_gray: 30, 12%, 51%;
 
-    --_red-dim: 6, 84%, 44%;
-    --_green-dim: 60, 71%, 35%;
-    --_yellow-dim: 40, 73%, 49%;
-    --_blue-dim: 194, 38%, 43%;
-    --_purple-dim: 333, 34%, 54%;
-    --_aqua-dim: 122, 21%, 51%;
-    --_orange-dim: 24, 88%, 45%;
-    --_gray-dim: 28, 11%, 44%;
+        --_red-dim: 6, 84%, 44%;
+        --_green-dim: 60, 71%, 35%;
+        --_yellow-dim: 40, 73%, 49%;
+        --_blue-dim: 194, 38%, 43%;
+        --_purple-dim: 333, 34%, 54%;
+        --_aqua-dim: 122, 21%, 51%;
+        --_orange-dim: 24, 88%, 45%;
+        --_gray-dim: 28, 11%, 44%;
+    */
 
     /*
      * Basics
      */
 
-    --ui-hsl-bg: var(--_bg);
-    --ui-hsl-primary: 57, 79%, 26%; /* green */
-    --ui-hsl-secondary: var(--_gray);
-    --ui-hsl-destructive: var(--_red);
+    --ui-bg: hsl(48, 87%, 88%); /* bg */
+    --ui-primary: hsl(57, 79%, 26%); /* green */
+    --ui-secondary: hsl(30, 12%, 51%); /* gray */
+    --ui-destructive: hsl(358, 100%, 31%); /* red */
 
-    --ui-hsl-text: var(--_fg);
-    --ui-hsl-input-text: var(--_fg3);
-    --ui-hsl-primary-text: var(--_bg);
-    --ui-hsl-secondary-text: var(--_bg);
-    --ui-hsl-destructive-text: 6, 96%, 82%;
+    --ui-text: hsl(0, 0%, 16%); /* fg */
+    --ui-input-text: hsl(27, 10%, 36%); /* fg3 */
+    --ui-primary-text: hsl(48, 87%, 88%); /* bg */
+    --ui-secondary-text: hsl(48, 87%, 88%); /* bg */
+    --ui-destructive-text: 6, 96%, 82%;
 
-    --ui-hsl-borderColor: var(--_bg4);
-
-    --ui-hsl-backdrop: var(--ui-hsl-bg);
-
-    --ui-hsl-info: var(--ui-hsl-card);
-    --ui-hsl-info-text: var(--ui-hsl-card-text);
-
-    --ui-hsl-warning: var(--_yellow);
-    --ui-hsl-warning-text: 27, 80%, 84%;
-
-    --ui-hsl-error: var(--ui-hsl-destructive);
-    --ui-hsl-error-text: var(--ui-hsl-destructive-text);
-
+    --ui-borderColor: hsl(35, 17%, 59%); /* bg4 */
+    --ui-backdrop: var(--ui-bg);
     --ui-ripple: hsla(57, 79%, 26%, 0.2); /* green */
+
+    --ui-info: var(--ui-card);
+    --ui-info-text: var(--ui-card-text);
+
+    --ui-warning: hsl(37, 80%, 39%); /* yellow */
+    --ui-warning-text: 27, 80%, 84%;
+
+    --ui-error: var(--ui-destructive);
+    --ui-error-text: var(--ui-destructive-text);
 
     /*
      * Muted: code, pre
      */
 
-    --ui-hsl-muted: var(--_bg4);
-    --ui-hsl-muted-text: var(--_fg1);
-    --ui-hsl-muted-borderColor: var(--ui-hsl-borderColor);
-
-    --ui-muted-fontFamily: var(--ui-fontFamily);
+    --ui-muted: hsl(35, 17%, 59%); /* bg4 */
+    --ui-muted-text: hsl(20, 5%, 22%); /* fg1 */
+    --ui-muted-borderColor: var(--ui-borderColor);
 
     /*
      * ui-card
      */
 
-    --ui-hsl-card: var(--_bg1);
-    --ui-hsl-card-text: var(--_fg);
-    --ui-hsl-card-borderColor: var(--ui-hsl-borderColor);
+    --ui-card: hsl(43, 59%, 81%); /* bg1 */
+    --ui-card-text: hsl(0, 0%, 16%); /* fg */
+    --ui-card-borderColor: var(--ui-borderColor);
 
-    --ui-card-radius: var(--ui-radius);
-
-    background-color: hsl(var(--ui-hsl-bg));
-    color: hsl(var(--ui-hsl-text));
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
     color-scheme: light;
 }
 
@@ -137,8 +133,8 @@
     --ui-destructive-text: 6, 96%, 18%;
 
     --ui-borderColor: hsl(28, 11%, 44%); /* bg4 */
-
     --ui-backdrop: hsla(0, 0%, 16%, 0.2); /* --ui-bg */
+    --ui-ripple: hsla(61, 66%, 44%, 0.2); /* green */
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
@@ -148,8 +144,6 @@
 
     --ui-error: var(--ui-destructive);
     --ui-error-text: var(--ui-destructive-text);
-
-    --ui-ripple: hsla(61, 66%, 44%, 0.2); /* green */
 
     /*
      * Muted: code, pre
@@ -167,7 +161,7 @@
     --ui-card-text: 48, 87%, 88%; /* fg */
     --ui-card-borderColor: var(--ui-borderColor);
 
-    background-color: hsl(var(--ui-bg));
-    color: hsl(var(--ui-text));
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
     color-scheme: dark;
 }
