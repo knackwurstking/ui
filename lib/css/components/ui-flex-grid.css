@@ -8,6 +8,8 @@
 
     width: 100%;
     min-height: fit-content;
+
+    padding: var(--padding, 0);
 }
 
 .ui-flex-grid > * {
@@ -32,6 +34,8 @@
 
     width: 100%;
     min-height: fit-content;
+
+    padding: var(--padding, 0);
 }
 
 .ui-flex-grid-row > * {
@@ -48,6 +52,7 @@
 
 .ui-flex-grid-item {
     flex: var(--flex, 1);
+    padding: var(--padding, 0);
 }
 
 .ui-flex-grid-item > * {
