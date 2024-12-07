@@ -20,14 +20,14 @@
     color: transparent;
 }
 
-.ui-user-select {
+.ui-no-user-select {
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
 }
 
-.ui-scrollbar {
+.ui-no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
     scroll-behavior: smooth;
@@ -37,8 +37,8 @@
     display: none;
 }
 
-.ui-touch,
-.ui-touch * {
+.ui-no-touch,
+.ui-no-touch * {
     -ms-touch-action: none;
     touch-action: none;
 }

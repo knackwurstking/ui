@@ -1,9 +1,0 @@
-.ui-muted {
-    background-color: hsl(var(--ui-hsl-muted));
-    color: hsl(var(--ui-hsl-muted-text));
-    border: 1px solid hsl(var(--ui-hsl-muted-borderColor));
-    border-radius: var(--ui-radius);
-    padding: var(--ui-spacing);
-    font-family: var(--ui-muted-fontFamily);
-    font-variation-settings: var(--ui-muted-fontVariation);
-}

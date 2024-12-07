@@ -13,16 +13,26 @@
 
 **Added**:
 
+-   Added `[disabled]` to css custom
+-   Added CSS utils (old utils remove/renamed):
+    -   .ui-primary, .ui-secondary, .ui-destructive, ui-card, .ui-muted
+    -   .ui-dragging
+    -   .ui-flex, ...
+    -   .ui-backdrop-blur
+    -   .ui-border
+    -   .ui-debug
+    -   .ui-outline-text
+    -   .ui-no-user-select
+    -   .ui-no-scrollbar
+    -   .ui-no-touch
 -   Added CSS components:
     -   .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
     -   .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]
-    -   .ui-container .fluid
-    -   .ui-card
-    -   .ui-muted
+    -   .ui-container .fluid, .card, .muted
 
 **Updated**:
 
--   Updated library documentation [work-in-progress]
+-   Updated library documentation, CSS and JS documentation utils still missing
 -   Updated demo/test page from (src directory)
 
 ## v1.1.1 — [2024-11-20]

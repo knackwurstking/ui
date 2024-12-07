@@ -1,0 +1,24 @@
+.ui-primary {
+    background-color: hsl(var(--ui-hsl-primary));
+    color: hsl(var(--ui-hsl-primary-text));
+}
+
+.ui-secondary {
+    background-color: hsl(var(--ui-hsl-secondary));
+    color: hsl(var(--ui-hsl-secondary-text));
+}
+
+.ui-destructive {
+    background-color: hsl(var(--ui-hsl-destructive));
+    color: hsl(var(--ui-hsl-destructive-text));
+}
+
+.ui-card {
+    background-color: hsl(var(--ui-hsl-card));
+    color: hsl(var(--ui-hsl-card-text));
+}
+
+.ui-muted {
+    background-color: hsl(var(--ui-hsl-muted));
+    color: hsl(var(--ui-hsl-muted-text));
+}
