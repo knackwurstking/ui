@@ -2,6 +2,8 @@
 
 ## v1.2.0 — [unreleased]
 
+- [ ] Maybe change the "original" colors a bit? It's a bit too much black and white
+
 - Bundled formats "umd" (global: `window.ui`) and "es"
 - Updated demo/test page from (src directory)
 
