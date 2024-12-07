@@ -17,7 +17,7 @@ export class MainApp extends LitElement {
 
     protected render() {
         return html`
-            <ui-theme-handler themes-path="/themes" theme="gruvbox" auto></ui-theme-handler>
+            <ui-theme-handler themes-path="/themes" theme="original" auto></ui-theme-handler>
 
             <section class="ui-flex-grid has-padding">
                 <details>
