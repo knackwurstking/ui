@@ -76,10 +76,7 @@ class UIDrawer extends LitElement {
                 scroll-behavior: smooth;
 
                 /* Backdrop Blur */
-                background-color: hsla(
-                    var(--ui-hsl-backdrop),
-                    var(--ui-backdrop-alpha)
-                );
+                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-backdrop-alpha));
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -107,7 +104,7 @@ class UIDrawer extends LitElement {
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
-        this.classList.add("has-backdrop-blur");
+        this.classList.add("ui-backdrop-blur");
         this.addEventListener("click", () => {
             this.open = false;
         });
@@ -121,11 +118,7 @@ class UIDrawer extends LitElement {
         });
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

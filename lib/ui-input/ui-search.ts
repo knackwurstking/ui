@@ -65,6 +65,10 @@ class UISearch extends LitElement {
                 border-radius: var(--ui-radius);
 
                 transition: border-color 0.25s linear;
+
+                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-backdrop-alpha));
+                -webkit-backdrop-filter: var(--ui-backdropFilter);
+                backdrop-filter: var(--ui-backdropFilter);
             }
 
             .container:has(input:focus) {
@@ -133,7 +137,7 @@ class UISearch extends LitElement {
 
     protected render() {
         return html`
-            <div class="container has-backdrop-blur">
+            <div class="container">
                 ${!!this.title
                     ? html`<ui-secondary class="title"> ${this.title} </ui-secondary>`
                     : ``}
