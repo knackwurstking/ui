@@ -5,9 +5,8 @@
 - Updated demo page from (src directory)
 
 - Updated js bundle:
-
   - Added a ui object with all exports to `window` object (`window.ui`) [work-in-progress]
-  - Change the JS bundler output format if possible (no exports anymore)
+  - Change the JS bundler output format if possible (no exports anymore) [work-in-progress]
 
 - Added css utils:
   - .has-padding
