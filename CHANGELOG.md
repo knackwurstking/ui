@@ -16,8 +16,9 @@
 -   Added CSS components:
     -   .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
     -   .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]
--   Added css utils:
-    -   .has-padding
+    -   .ui-container .fluid
+    -   .ui-card
+    -   .ui-muted
 
 **Updated**:
 

@@ -1,0 +1,7 @@
+.ui-card {
+    background-color: hsl(var(--ui-hsl-card));
+    color: hsl(var(--ui-hsl-card-text));
+    border: 1px solid hsl(var(--ui-hsl-card-borderColor));
+    border-radius: var(--ui-card-radius);
+    padding: var(--ui-spacing);
+}

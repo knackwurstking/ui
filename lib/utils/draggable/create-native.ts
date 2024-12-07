@@ -23,9 +23,7 @@ export function createNative(
     // Setup //
     // ----- //
 
-    const childIndex: number = (
-        [...container.children] as HTMLElement[]
-    ).indexOf(child);
+    const childIndex: number = ([...container.children] as HTMLElement[]).indexOf(child);
 
     child.draggable = true;
 
@@ -35,7 +33,7 @@ export function createNative(
             ev.dataTransfer.dropEffect = "move";
         }
 
-        container.classList.add("dragging");
+        container.classList.add("ui-dragging");
         if (!!options.onDragStart) options.onDragStart(childIndex);
     };
 
@@ -69,7 +67,7 @@ export function createNative(
             ev.dataTransfer.dropEffect = "move";
         }
 
-        container.classList.remove("dragging");
+        container.classList.remove("ui-dragging");
         if (!!options.onDragEnd) options.onDragEnd(childIndex);
 
         ([...container.children] as HTMLElement[]).forEach((c) => {

@@ -1,4 +1,4 @@
-.flex {
+.ui-flex {
     display: flex;
     flex-direction: var(--direction, row);
     flex-wrap: var(--wrap);
@@ -6,66 +6,66 @@
     justify-content: var(--justify);
 }
 
-.flex.inline {
+.ui-flex.inline {
     display: inline-flex;
 }
 
-.flex.wrap {
+.ui-flex.wrap {
     flex-wrap: wrap;
 }
 
-.flex.nowrap {
+.ui-flex.nowrap {
     flex-wrap: nowrap;
 }
 
-.flex.row {
+.ui-flex.row {
     flex-direction: row;
 }
 
-.flex.row.reverse {
+.ui-flex.row.reverse {
     flex-direction: row-reverse;
 }
 
-.flex.column {
+.ui-flex.column {
     flex-direction: column;
 }
 
-.flex.column.reverse {
+.ui-flex.column.reverse {
     flex-direction: column-reverse;
 }
 
-.flex.align-center {
+.ui-flex.align-center {
     align-items: center;
 }
 
-.flex.align-start {
+.ui-flex.align-start {
     align-items: flex-start;
 }
 
-.flex.align-end {
+.ui-flex.align-end {
     align-items: flex-end;
 }
 
-.flex.justify-center {
+.ui-flex.justify-center {
     justify-content: center;
 }
 
-.flex.justify-start {
+.ui-flex.justify-start {
     justify-content: flex-start;
 }
 
-.flex.justify-end {
+.ui-flex.justify-end {
     justify-content: flex-end;
 }
 
-.flex.justify-evenly {
+.ui-flex.justify-evenly {
     justify-content: space-evenly;
 }
 
-.flex.justify-around {
+.ui-flex.justify-around {
     justify-content: space-around;
 }
 
-.flex.justify-between {
+.ui-flex.justify-between {
     justify-content: space-between;
 }

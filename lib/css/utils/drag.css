@@ -1,5 +1,5 @@
-.dragging,
-.dragging * {
+.ui-dragging,
+.ui-dragging * {
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;

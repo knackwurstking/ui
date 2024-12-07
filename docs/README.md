@@ -1,5 +1,7 @@
 # Documentation
 
+## JS UI (Lit) Components
+
 -   ui-alert
     -   [ui-alerts - `UIAlerts`](/docs/ui-alert/ui-alerts.md)
     -   [ui-alert - `UIAlert`](/docs/ui-alert/ui-alert.md)
@@ -46,5 +48,11 @@
     -   [ui-text - `UIText`](/docs/ui-text/ui-text.md)
 -   ui-theme-handler
     -   [ui-theme-handler - `UIThemeHandler`](/docs/ui-theme-handler/ui-theme-handler.md)
+
+## JS Utils
+
+@TODO: Maybe add some documentation for the JS utils
+
+## CSS
 
 @TODO: Add some css documentation (maybe just for the special selector stuff? And with some examples for the css components?)
