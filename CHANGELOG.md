@@ -2,6 +2,7 @@
 
 ## v1.2.0 — [unreleased]
 
+- [ ] Change the documentation to some markdown "books" or whatever
 - [ ] Maybe change the "original" colors a bit? It's a bit too much black and white
 
 - Bundled formats "umd" (global: `window.ui`) and "es"
