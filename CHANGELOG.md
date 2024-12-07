@@ -9,7 +9,7 @@
     - Added a ui object with all exports to `window` object (`window.ui`)
 
 - Added css utils:
-    - .has-padding, \[has-padding\]
+    - .has-padding
 
 - Added border-radius to css resets
 

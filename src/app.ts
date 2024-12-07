@@ -1,4 +1,4 @@
-import "../dist/style.css";
+import "../lib/css/main.css";
 import "../dist/ui.min.js";
 
 import { html, LitElement, PropertyValues } from "lit";
@@ -19,11 +19,17 @@ export class MainApp extends LitElement {
         return html`
             <ui-theme-handler themes-path="/themes" theme="gruvbox" auto></ui-theme-handler>
 
-            <ui-flex-grid gap="calc(var(--ui-spacing) / 2)" has-padding>
+            <ui-flex-grid class="has-padding" gap="calc(var(--ui-spacing) / 2)">
                 <details>
                     <summary>UI: Button</summary>
 
                     <!-- TODO: Add all button (colors, variants) here -->
+                    <hr />
+                    <pre>
+Test Code
+
+Multiline...</pre
+                    >
                 </details>
 
                 <details>

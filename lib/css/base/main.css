@@ -9,7 +9,7 @@
 
 *:focus {
     outline-offset: 1px;
-    outline: 1px solid hsl(var(--ui-hsl-primary)) !important;
+    outline: 1px solid hsl(var(--ui-hsl-primary));
     border-radius: var(--ui-radius);
 }
 
@@ -257,4 +257,36 @@ blockquote {
     border-left: 1px solid hsl(var(--ui-hsl-borderColor));
     margin: 0;
     padding-left: 1rem;
+}
+
+/*
+ * Details, Summary
+ */
+
+summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--ui-spacing);
+    border-radius: var(--ui-radius);
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: " +";
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: hsl(var(--ui-hsl-primary));
+}
+details[open] summary:after {
+    content: " -";
+}
+
+details[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
