@@ -290,3 +290,13 @@ details[open] summary {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
+
+details[disabled] {
+    pointer-events: none;
+    opacity: 0.75;
+
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
