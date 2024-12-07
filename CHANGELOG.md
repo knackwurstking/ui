@@ -5,10 +5,6 @@
 - Bundled formats "umd" (global: `window.ui`) and "es"
 - Updated demo/test page from (src directory)
 
-- Updated js bundle:
-  - Added a ui object with all exports to `window` object (`window.ui`) [work-in-progress]
-  - Change the JS bundler output format if possible (no exports anymore) [work-in-progress]
-
 - Added CSS components:
     - .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
     - .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]
