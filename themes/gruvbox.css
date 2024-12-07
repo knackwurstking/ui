@@ -46,7 +46,7 @@
     --ui-input-text: hsl(27, 10%, 36%); /* fg3 */
     --ui-primary-text: hsl(48, 87%, 88%); /* bg */
     --ui-secondary-text: hsl(48, 87%, 88%); /* bg */
-    --ui-destructive-text: 6, 96%, 82%;
+    --ui-destructive-text: hsl(6, 96%, 82%);
 
     --ui-borderColor: hsl(35, 17%, 59%); /* bg4 */
     --ui-backdrop: var(--ui-bg);
@@ -56,7 +56,7 @@
     --ui-info-text: var(--ui-card-text);
 
     --ui-warning: hsl(37, 80%, 39%); /* yellow */
-    --ui-warning-text: 27, 80%, 84%;
+    --ui-warning-text: hsl(27, 80%, 84%);
 
     --ui-error: var(--ui-destructive);
     --ui-error-text: var(--ui-destructive-text);
@@ -130,7 +130,7 @@
     --ui-input-text: hsl(39, 24%, 66%); /* fg3 */
     --ui-primary-text: hsl(0, 0%, 16%); /* bg */
     --ui-secondary-text: hsl(0, 0%, 16%); /* bg */
-    --ui-destructive-text: 6, 96%, 18%;
+    --ui-destructive-text: hsl(6, 96%, 18%);
 
     --ui-borderColor: hsl(28, 11%, 44%); /* bg4 */
     --ui-backdrop: hsla(0, 0%, 16%, 0.2); /* --ui-bg */
@@ -157,8 +157,8 @@
      * ui-card
      */
 
-    --ui-card: 20, 5%, 22%; /* bg1 */
-    --ui-card-text: 48, 87%, 88%; /* fg */
+    --ui-card: hsl(20, 5%, 22%); /* bg1 */
+    --ui-card-text: hsl(48, 87%, 88%); /* fg */
     --ui-card-borderColor: var(--ui-borderColor);
 
     background-color: var(--ui-bg);
