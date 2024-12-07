@@ -1,5 +1,9 @@
 .flex {
     display: flex;
+    flex-direction: var(--direction, row);
+    flex-wrap: var(--wrap);
+    align-items: var(--align);
+    justify-content: var(--justify);
 }
 
 .flex.inline {
