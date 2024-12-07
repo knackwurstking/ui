@@ -1,15 +1,7 @@
-@import "./base/reset.css";
+@import "./reset.css";
 
 @import "./root.css";
 
-@import "./base/recursive.css";
-@import "./base/main.css";
-
-@import "./utils/drag.css";
-@import "./utils/flex.css";
-@import "./utils/has.css";
-@import "./utils/is.css";
-@import "./utils/no.css";
-
-@import "./components/ui-flex-grid.css";
-@import "./components/ui-text.css";
+@import "./base/index.css";
+@import "./components/index.css";
+@import "./utils/index.css";

@@ -4,11 +4,11 @@
     font-family: var(--family, var(--ui-fontFamily));
     font-size: var(--size, var(--ui-fontSize));
     font-variation-settings:
-        "MONO" var(--mono, 0),
-        "CASL" var(--casl, 1),
-        "wght" var(--wght, 400),
-        "slnt" var(--slnt, 0),
-        "CRSV" var(--crsv, 0.5);
+        "MONO" var(--mono, var(--ui-default-mono)),
+        "CASL" var(--casl, var(--ui-default-casl)),
+        "wght" var(--wght, var(--ui-default-wght)),
+        "slnt" var(--slnt, var(--ui-default-slnt)),
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-text-primary,
@@ -18,11 +18,11 @@
     font-family: var(--family, var(--ui-fontFamily));
     font-size: 1.1rem;
     font-variation-settings:
-        "MONO" var(--mono, 0),
-        "CASL" var(--casl, 1),
+        "MONO" var(--mono, var(--ui-default-mono)),
+        "CASL" var(--casl, var(--ui-default-casl)),
         "wght" 425,
-        "slnt" var(--slnt, 0),
-        "CRSV" var(--crsv, 0.5);
+        "slnt" var(--slnt, var(--ui-default-slnt)),
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-text-secondary,
@@ -32,11 +32,11 @@
     font-family: var(--family, var(--ui-fontFamily));
     font-size: 0.9rem;
     font-variation-settings:
-        "MONO" var(--mono, 0),
-        "CASL" var(--casl, 1),
+        "MONO" var(--mono, var(--ui-default-mono)),
+        "CASL" var(--casl, var(--ui-default-casl)),
         "wght" 350,
         "slnt" -15,
-        "CRSV" var(--crsv, 0.5);
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-h1,
@@ -52,7 +52,7 @@
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--crsv, 0.5);
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-h2,
@@ -68,7 +68,7 @@
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--crsv, 0.5);
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-h3,
@@ -84,7 +84,7 @@
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--crsv, 0.5);
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-h4,
@@ -100,7 +100,7 @@
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--crsv, 0.5);
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-h5,
@@ -116,7 +116,7 @@
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--crsv, 0.5);
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
 
 .ui-h6,
@@ -132,5 +132,5 @@
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--crsv, 0.5);
+        "CRSV" var(--crsv, var(--ui-default-crsv));
 }
