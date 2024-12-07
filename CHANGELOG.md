@@ -2,6 +2,7 @@
 
 ## v1.2.0 — [unreleased]
 
+- Bundled formats "umd" (global: `window.ui`) and "es"
 - Updated demo/test page from (src directory)
 
 - Updated js bundle:
