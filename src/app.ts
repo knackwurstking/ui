@@ -19,7 +19,7 @@ export class MainApp extends LitElement {
         return html`
             <ui-theme-handler themes-path="/themes" theme="gruvbox" auto></ui-theme-handler>
 
-            <section --padding="0.25rem">
+            <section class="ui-flex-grid has-padding">
                 <details>
                     <summary>UI: Button</summary>
 
