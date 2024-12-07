@@ -13,19 +13,24 @@
 }
 
 .ui-container.card {
-    background-color: hsl(var(--ui-hsl-card));
-    color: hsl(var(--ui-hsl-card-text));
-    border: 1px solid hsl(var(--ui-hsl-card-borderColor));
-    border-radius: var(--ui-card-radius);
+    background-color: var(--ui-card);
+    color: var(--ui-card-text);
+    border: 1px solid var(--ui-card-borderColor);
+    border-radius: var(--ui-radius);
     padding: var(--ui-spacing);
 }
 
 .ui-container.muted {
-    background-color: hsl(var(--ui-hsl-muted));
-    color: hsl(var(--ui-hsl-muted-text));
-    border: 1px solid hsl(var(--ui-hsl-muted-borderColor));
+    background-color: var(--ui-muted);
+    color: var(--ui-muted-text);
+    border: 1px solid var(--ui-muted-borderColor);
     border-radius: var(--ui-radius);
     padding: var(--ui-spacing);
-    font-family: var(--ui-muted-fontFamily);
-    font-variation-settings: var(--ui-muted-fontVariation);
+    font-family: var(--ui-fontFamily);
+    font-variation-settings:
+        "MONO" 1,
+        "CASL" var(--ui-casl),
+        "wght" var(--ui-wght),
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
 }

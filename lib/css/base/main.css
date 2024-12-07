@@ -1,32 +1,32 @@
 /*
- * Basic
+ * Basics
  */
 
 ::selection {
-    background-color: hsl(var(--ui-hsl-primary));
-    color: hsl(var(--ui-hsl-primary-text));
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
 }
 
 *:focus {
     outline-offset: 1px;
-    outline: 1px solid hsl(var(--ui-hsl-primary));
+    outline: 1px solid var(--ui-primary);
     border-radius: var(--ui-radius);
 }
 
 html {
     font-size: var(--ui-fontSize);
-    background-color: hsl(var(--ui-hsl-bg));
-    color: hsl(var(--ui-hsl-text));
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
 }
 
 body {
     font-family: var(--ui-fontFamily);
     font-variation-settings:
-        "MONO" var(--mono, var(--ui-default-mono)),
-        "CASL" var(--casl, var(--ui-default-casl)),
-        "wght" var(--wght, var(--ui-default-wght)),
-        "slnt" var(--slnt, var(--ui-default-slnt)),
-        "CRSV" var(--crsv, var(--ui-default-crsv));
+        "MONO" var(--ui-mono),
+        "CASL" var(--ui-casl),
+        "wght" var(--ui-wght),
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
     font-size: 100%;
     line-height: var(--ui-lineHeight);
 }
@@ -39,7 +39,7 @@ hr {
     border: none;
     height: 1px;
     margin: var(--ui-spacing) 0;
-    background-color: hsl(var(--ui-hsl-borderColor));
+    background-color: var(--ui-borderColor);
 }
 
 /*
@@ -58,7 +58,7 @@ h6 {
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--ui-default-crsv);
+        "CRSV" var(--ui-crsv);
 }
 
 h1 {
@@ -91,18 +91,18 @@ h6 {
 
 code,
 pre {
-    background-color: hsl(var(--ui-hsl-muted));
-    color: hsl(var(--ui-hsl-muted-text));
-    border: 1px solid hsl(var(--ui-hsl-muted-borderColor));
+    background-color: var(--ui-muted);
+    color: var(--ui-muted-text);
+    border: 1px solid var(--ui-muted-borderColor);
     border-radius: var(--ui-radius);
     padding: var(--ui-spacing);
-    font-family: var(--ui-muted-fontFamily);
+    font-family: var(--ui-fontFamily);
     font-variation-settings:
         "MONO" 1,
-        "CASL" var(--ui-default-casl),
-        "wght" var(--ui-default-wght),
-        "slnt" var(--ui-default-slnt),
-        "CRSV" var(--ui-default-crsv);
+        "CASL" var(--ui-casl),
+        "wght" var(--ui-wght),
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
     font-size: 0.95rem;
 }
 
@@ -124,11 +124,11 @@ button {
     font-size: 1.1rem;
     font-family: var(--ui-fontFamily);
     font-variation-settings:
-        "MONO" var(--ui-default-mon),
-        "CASL" var(--ui-default-casl),
+        "MONO" var(--ui-mon),
+        "CASL" var(--ui-casl),
         "wght" 450,
-        "slnt" var(--ui-default-slnt),
-        "CRSV" var(--ui-default-crsv);
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
 }
 
 /*
@@ -139,12 +139,12 @@ input,
 textarea {
     display: block;
 
-    border: 1px solid hsl(var(--ui-hsl-borderColor));
+    border: 1px solid var(--ui-borderColor);
     border-radius: var(--ui-radius);
     transition: border-color 0.25s linear;
 
     background-color: transparent;
-    color: hsl(var(--ui-hsl-text));
+    color: var(--ui-text);
 
     box-shadow: none;
 
@@ -152,14 +152,14 @@ textarea {
     font-family: var(--ui-fontFamily);
     font-variation-settings:
         "MONO" 1,
-        "CASL" var(--ui-default-casl),
+        "CASL" var(--ui-casl),
         "wght" 375,
-        "slnt" var(--ui-default-slnt),
-        "CRSV" var(--ui-default-crsv);
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-    accent-color: hsl(var(--ui-hsl-primary));
+    accent-color: var(--ui-primary);
 }
 
 select {
@@ -169,13 +169,13 @@ select {
 
     display: block;
 
-    border: 1px solid hsl(var(--ui-hsl-borderColor));
+    border: 1px solid var(--ui-borderColor);
     border-radius: var(--ui-radius);
     transition: border-color 0.25s linear;
 
-    accent-color: hsl(var(--ui-hsl-primary));
+    accent-color: var(--ui-primary);
     background-color: transparent;
-    color: hsl(var(--ui-hsl-input-text));
+    color: var(--ui-input-text);
 
     padding: var(--ui-spacing);
 
@@ -185,10 +185,10 @@ select {
     font-family: var(--ui-fontFamily);
     font-variation-settings:
         "MONO" 1,
-        "CASL" var(--ui-default-casl),
+        "CASL" var(--ui-casl),
         "wght" 375,
-        "slnt" var(--ui-default-slnt),
-        "CRSV" var(--ui-default-crsv);
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
 
     cursor: pointer;
 }
@@ -217,7 +217,7 @@ input[type="color"] {
 }
 
 input[aria-invalid] {
-    border-color: hsl(var(--ui-hsl-destructive)) !important;
+    border-color: var(--ui-destructive) !important;
 }
 
 select:disabled,
@@ -249,7 +249,7 @@ table {
     width: 100%;
 
     border-collapse: collapse;
-    border: 1px solid hsl(var(--ui-hsl-borderColor));
+    border: 1px solid var(--ui-borderColor);
 }
 
 thead {
@@ -273,7 +273,7 @@ tbody {
 th,
 td {
     padding: var(--ui-spacing);
-    border: 1px solid hsl(var(--ui-hsl-borderColor));
+    border: 1px solid var(--ui-borderColor);
     word-break: auto-phrase;
 }
 
@@ -286,7 +286,7 @@ td {
  */
 
 blockquote {
-    border-left: 1px solid hsl(var(--ui-hsl-borderColor));
+    border-left: 1px solid var(--ui-borderColor);
     margin: 0;
     padding-left: 1rem;
 }
@@ -313,7 +313,7 @@ summary::after {
     content: " +";
     font-weight: bolder;
     font-size: 1.5rem;
-    color: hsl(var(--ui-hsl-primary));
+    color: var(--ui-primary);
 }
 details[open] summary:after {
     content: " -";

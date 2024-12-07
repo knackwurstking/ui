@@ -1,0 +1,15 @@
+.ui-ripple {
+    background-position: center;
+    transition: background 0.8s;
+}
+
+.ui-ripple:hover {
+    background: var(--ui-ripple) radial-gradient(circle, transparent 1%, var(--ui-ripple) 1%)
+        center/15000%; /* Original color: #47a7f5 */
+}
+
+.ui-ripple:active {
+    background-color: var(--ui-ripple); /* Original color: #6eb9f7 */
+    background-size: 100%;
+    transition: background 0s;
+}

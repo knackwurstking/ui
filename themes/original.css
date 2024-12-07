@@ -43,6 +43,8 @@
     --ui-hsl-error: var(--ui-hsl-destructive);
     --ui-hsl-error-text: var(--ui-hsl-destructive-text);
 
+    --ui-ripple: hsla(var(--ui-hue), 6%, 10%, 0.2); /* sl 900 */
+
     /*
      * Muted: code, pre
      */
@@ -95,6 +97,8 @@
 
     --ui-hsl-error: var(--ui-hsl-destructive);
     --ui-hsl-error-text: var(--ui-hsl-destructive-text);
+
+    --ui-ripple: hsla(var(--ui-hue), 5%, 96%, 0.2); /* sl 100 */
 
     /*
      * Muted: code, pre

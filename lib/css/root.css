@@ -13,11 +13,17 @@
     --ui-default-slnt: 0;
     --ui-default-crsv: 0.5;
 
+    --ui-mono: --ui-default-mono;
+    --ui-casl: --ui-default-casl;
+    --ui-wght: --ui-default-wght;
+    --ui-slnt: --ui-default-slnt;
+    --ui-crsv: --ui-default-crsv;
+
     --ui-app-bar-height: 3rem;
     --ui-dialog-header-height: 2.5rem;
     --ui-dialog-footer-height: 3rem;
 
-    --ui-ripple-text: currentColor;
+    --ui-ripple: currentColor;
     --ui-ripple-opacity: 0.2;
 
     --ui-backdrop-alpha: 0.2;

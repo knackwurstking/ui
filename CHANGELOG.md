@@ -2,7 +2,7 @@
 
 ## v1.2.0 [unreleased]
 
--   [ ] Add basic styles to the `popover` global attribute
+-   [ ] ~Add basic styles to the `popover` and `popovertarget` global attribute~
 -   [ ] Try to add a global `ripple` attribute with pure css, trigger it on click,
         this maybe replace the ripple JS function
 

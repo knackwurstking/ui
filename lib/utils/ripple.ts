@@ -12,7 +12,7 @@ export interface RippleOptions {
 }
 
 export const defaultOptions: RippleOptions = {
-    color: "var(--ui-ripple-text, currentColor)",
+    color: "var(--ui-ripple, currentColor)",
     opacity: "var(--ui-ripple-opacity, 0.2)",
     centered: false,
     spreadDuration: ".4s",
@@ -22,10 +22,7 @@ export const defaultOptions: RippleOptions = {
     usePointer: false,
 };
 
-export function create(
-    target: HTMLElement,
-    options?: RippleOptions,
-): CleanUpFunction {
+export function create(target: HTMLElement, options?: RippleOptions): CleanUpFunction {
     options = { ...defaultOptions, ...(options || {}) };
 
     let ripple: HTMLElement | null = null;
@@ -79,10 +76,7 @@ export function create(
     };
 }
 
-export function start(
-    ev: MouseEvent | PointerEvent,
-    options: RippleOptions,
-): HTMLElement {
+export function start(ev: MouseEvent | PointerEvent, options: RippleOptions): HTMLElement {
     const ripple = document.createElement("div");
     const target = ev.currentTarget as HTMLElement;
     target.appendChild(ripple);

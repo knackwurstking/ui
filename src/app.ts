@@ -21,13 +21,13 @@ export class MainApp extends LitElement {
 
             <section class="ui-flex-grid has-padding">
                 <details>
-                    <summary>UI: Button</summary>
+                    <summary class="ui-ripple">UI: Button</summary>
 
                     <!-- TODO: Add all button (colors, variants) here -->
                 </details>
 
                 <details>
-                    <summary>UI: Text</summary>
+                    <summary class="ui-ripple">UI: Text</summary>
 
                     <!-- TODO: Add all button (colors, variants) here -->
                 </details>
