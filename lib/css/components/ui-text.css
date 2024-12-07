@@ -1,0 +1,40 @@
+.ui-text {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: var(--size, var(--ui-fontSize));
+    font-variation-settings:
+        "MONO" var(--mono, 0),
+        "CASL" var(--casl, 1),
+        "wght" var(--wght, 400),
+        "slnt" var(--slnt, 0),
+        "CRSV" var(--crsv, 0.5);
+}
+
+.ui-text-primary,
+.ui-primary {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 1.1rem;
+    font-variation-settings:
+        "MONO" var(--mono, 0),
+        "CASL" var(--casl, 1),
+        "wght" 425,
+        "slnt" var(--slnt, 0),
+        "CRSV" var(--crsv, 0.5);
+}
+
+.ui-text-secondary,
+.ui-secondary {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 0.9rem;
+    font-variation-settings:
+        "MONO" var(--mono, 0),
+        "CASL" var(--casl, 1),
+        "wght" 350,
+        "slnt" -15,
+        "CRSV" var(--crsv, 0.5);
+}
