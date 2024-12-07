@@ -38,3 +38,99 @@
         "slnt" -15,
         "CRSV" var(--crsv, 0.5);
 }
+
+.ui-h1,
+.ui-text-h1,
+.ui-heading-1,
+.ui-text-heading-1 {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 2rem;
+    font-variation-settings:
+        "MONO" 0.25,
+        "CASL" 1,
+        "wght" 750,
+        "slnt" 0,
+        "CRSV" var(--crsv, 0.5);
+}
+
+.ui-h2,
+.ui-text-h2,
+.ui-heading-2,
+.ui-text-heading-2 {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 1.7rem;
+    font-variation-settings:
+        "MONO" 0.25,
+        "CASL" 1,
+        "wght" 750,
+        "slnt" 0,
+        "CRSV" var(--crsv, 0.5);
+}
+
+.ui-h3,
+.ui-text-h3,
+.ui-heading-3,
+.ui-text-heading-3 {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 1.5rem;
+    font-variation-settings:
+        "MONO" 0.25,
+        "CASL" 1,
+        "wght" 750,
+        "slnt" 0,
+        "CRSV" var(--crsv, 0.5);
+}
+
+.ui-h4,
+.ui-text-h4,
+.ui-heading-4,
+.ui-text-heading-4 {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 1.25rem;
+    font-variation-settings:
+        "MONO" 0.25,
+        "CASL" 1,
+        "wght" 750,
+        "slnt" 0,
+        "CRSV" var(--crsv, 0.5);
+}
+
+.ui-h5,
+.ui-text-h5,
+.ui-heading-5,
+.ui-text-heading-5 {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 1rem;
+    font-variation-settings:
+        "MONO" 0.25,
+        "CASL" 1,
+        "wght" 750,
+        "slnt" 0,
+        "CRSV" var(--crsv, 0.5);
+}
+
+.ui-h6,
+.ui-text-h6,
+.ui-heading-6,
+.ui-text-heading-6 {
+    overflow-wrap: break-word;
+
+    font-family: var(--family, var(--ui-fontFamily));
+    font-size: 0.75rem;
+    font-variation-settings:
+        "MONO" 0.25,
+        "CASL" 1,
+        "wght" 750,
+        "slnt" 0,
+        "CRSV" var(--crsv, 0.5);
+}
