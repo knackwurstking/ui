@@ -2,6 +2,8 @@
 
 ## v1.2.0 [unreleased]
 
+-   [ ] Add basic styles to the `popover` global attribute
+
 **General**:
 
 -   Bundled formats "umd" (global: `window.ui`) and "es"
