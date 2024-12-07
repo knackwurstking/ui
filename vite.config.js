@@ -8,7 +8,7 @@ export default defineConfig({
             name: "ui",
             entry: "lib/index.ts",
             fileName: "ui.min",
-            formats: ["umd"],
+            formats: ["umd", "es"],
         },
     },
     clearScreen: false,
