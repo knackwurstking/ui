@@ -31,23 +31,7 @@ class UIIconButton extends LitElement {
     static get styles() {
         return css`
             :host {
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                width: 2.5rem;
-                height: 2.5rem;
-                padding: calc(var(--ui-spacing) / 2);
                 border: 1px solid currentColor;
-                border-radius: var(--ui-radius);
-                outline: none;
-                overflow: hidden;
-                cursor: pointer;
-                user-select: none;
-                font-size: 1.1rem;
-                font-family: var(--ui-fontFamily);
-                font-variation-settings: var(--ui-button-fontVariation);
-                transition: color 0.5s linear;
             }
 
             :host([ghost]) {
@@ -56,18 +40,18 @@ class UIIconButton extends LitElement {
             }
 
             :host([color="primary"]) {
-                color: hsl(var(--ui-hsl-primary));
-                border-color: hsl(var(--ui-hsl-primary));
+                color: var(--ui-primary);
+                border-color: var(--ui-primary));
             }
 
             :host([color="secondary"]) {
-                color: hsl(var(--ui-hsl-secondary));
-                border-color: hsl(var(--ui-hsl-secondary));
+                color: var(--ui-secondary);
+                border-color: var(--ui-secondary);
             }
 
             :host([color="destructive"]) {
-                color: hsl(var(--ui-hsl-destructive));
-                border-color: hsl(var(--ui-hsl-destructive));
+                color: var(--ui-destructive);
+                border-color: var(--ui-destructive);
             }
 
             /* :disabled */
@@ -92,11 +76,7 @@ class UIIconButton extends LitElement {
         return html`<ui-svg><slot></slot></ui-svg>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

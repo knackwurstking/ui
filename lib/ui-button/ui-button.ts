@@ -32,26 +32,7 @@ class UIButton extends LitElement {
     static get styles() {
         return css`
             :host {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-
-                position: relative;
-
-                padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
-
-                outline: none;
                 border: 1px solid currentColor;
-                border-radius: var(--ui-radius);
-
-                user-select: none;
-                overflow: hidden;
-                cursor: pointer;
-
-                text-transform: capitalize;
-                font-size: 1.1rem;
-                font-family: var(--ui-fontFamily);
-                font-variation-settings: var(--ui-button-fontVariation);
             }
 
             :host([variant="full"]) {
@@ -59,18 +40,18 @@ class UIButton extends LitElement {
             }
 
             :host([variant="full"][color="primary"]) {
-                background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-text));
+                background-color: var(--ui-primary);
+                color: var(--ui-primary-text);
             }
 
             :host([variant="full"][color="secondary"]) {
-                background-color: hsl(var(--ui-hsl-secondary));
-                color: hsl(var(--ui-hsl-secondary-text));
+                background-color: var(--ui-secondary);
+                color: var(--ui-secondary-text);
             }
 
             :host([variant="full"][color="destructive"]) {
-                background-color: hsl(var(--ui-hsl-destructive));
-                color: hsl(var(--ui-hsl-destructive-text));
+                background-color: var(--ui-destructive);
+                color: var(--ui-destructive-text);
             }
 
             :host([variant="outline"]) {
@@ -79,15 +60,15 @@ class UIButton extends LitElement {
             }
 
             :host([variant="outline"][color="primary"]) {
-                color: hsl(var(--ui-hsl-primary));
+                color: var(--ui-primary);
             }
 
             :host([variant="outline"][color="secondary"]) {
-                color: hsl(var(--ui-hsl-secondary));
+                color: var(--ui-secondary);
             }
 
             :host([variant="outline"][color="destructive"]) {
-                color: hsl(var(--ui-hsl-destructive));
+                color: var(--ui-destructive);
             }
 
             :host([variant="ghost"]) {
@@ -96,15 +77,15 @@ class UIButton extends LitElement {
             }
 
             :host([variant="ghost"][color="primary"]) {
-                color: hsl(var(--ui-hsl-primary));
+                color: var(--ui-primary);
             }
 
             :host([variant="ghost"][color="secondary"]) {
-                color: hsl(var(--ui-hsl-secondary));
+                color: var(--ui-secondary);
             }
 
             :host([variant="ghost"][color="destructive"]) {
-                color: hsl(var(--ui-hsl-destructive));
+                color: var(--ui-destructive);
             }
 
             :host([disabled]),
@@ -122,11 +103,7 @@ class UIButton extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

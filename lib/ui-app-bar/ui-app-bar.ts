@@ -32,7 +32,7 @@ class UIAppBar<N extends string> extends LitElement {
                 overflow: hidden;
                 padding: calc(var(--ui-spacing) / 2);
 
-                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-backdrop-alpha));
+                background-color: var(--ui-backdrop);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -52,12 +52,12 @@ class UIAppBar<N extends string> extends LitElement {
 
             :host([position="top"]) {
                 top: 0;
-                border-bottom: 1px solid hsl(var(--ui-hsl-borderColor));
+                border-bottom: 1px solid var(--ui-borderColor);
             }
 
             :host([position="bottom"]) {
                 bottom: 0;
-                border-top: 1px solid hsl(var(--ui-hsl-borderColor));
+                border-top: 1px solid var(--ui-borderColor);
             }
 
             :host > ui-flex-grid-row {

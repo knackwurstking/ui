@@ -25,7 +25,7 @@ class UIAlert extends LitElement {
                 display: block;
 
                 border-radius: var(--ui-radius);
-                border: 1px solid hsl(var(--ui-hsl-borderColor));
+                border: 1px solid var(--ui-borderColor);
 
                 padding: var(--ui-spacing);
 
@@ -36,19 +36,19 @@ class UIAlert extends LitElement {
             }
 
             :host([variant="info"]) {
-                background-color: hsl(var(--ui-hsl-info));
-                color: hsl(var(--ui-hsl-info-text));
+                background-color: var(--ui-info);
+                color: var(--ui-info-text));
             }
 
             :host([variant="warning"]) {
                 background-color: hsl(48, 100%, 50%);
-                background-color: hsl(var(--ui-hsl-warning));
-                color: hsl(var(--ui-hsl-warning-text));
+                background-color: var(--ui-warning);
+                color: var(--ui-warning-text);
             }
 
             :host([variant="error"]) {
-                background-color: hsl(var(--ui-hsl-error));
-                color: hsl(var(--ui-hsl-error-text));
+                background-color: var(--ui-error);
+                color: var(--ui-error-text);
             }
 
             ui-text {
@@ -58,9 +58,7 @@ class UIAlert extends LitElement {
     }
 
     protected render() {
-        return html`
-            <ui-text style="font-size: 0.9rem;">${this.message}</ui-text>
-        `;
+        return html` <ui-text style="font-size: 0.9rem;">${this.message}</ui-text> `;
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
