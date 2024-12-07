@@ -7,6 +7,7 @@
 
 - Updated js bundle:
     - Added a ui object with all exports to `window` object (`window.ui`) [work-in-progress]
+    - Change the JS bundler output format if possible (no exports anymore)
 
 - Added css utils:
     - .has-padding
