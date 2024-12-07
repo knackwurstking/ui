@@ -1,5 +1,5 @@
 import "../lib/css/main.css";
-import "../dist/ui.min.js";
+import "../dist/ui.min.umd.cjs";
 
 import { html, LitElement, PropertyValues } from "lit";
 import { customElement } from "lit/decorators.js";
@@ -24,12 +24,6 @@ export class MainApp extends LitElement {
                     <summary>UI: Button</summary>
 
                     <!-- TODO: Add all button (colors, variants) here -->
-                    <hr />
-                    <pre>
-Test Code
-
-Multiline...</pre
-                    >
                 </details>
 
                 <details>
@@ -43,7 +37,7 @@ Multiline...</pre
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
         if ("ui" in window) {
-            console.debug(window.ui);
+            console.debug({ ui: window.ui });
         }
     }
 }

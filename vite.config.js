@@ -5,9 +5,10 @@ export default defineConfig({
         outDir: "dist",
         copyPublicDir: false,
         lib: {
+            name: "ui",
             entry: "lib/index.ts",
             fileName: "ui.min",
-            formats: ["es"],
+            formats: ["umd"],
         },
     },
     clearScreen: false,
