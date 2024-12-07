@@ -9,8 +9,8 @@ export class MainApp extends LitElement {
     protected createRenderRoot(): HTMLElement | DocumentFragment {
         this.style.height = "100vh";
 
-        this.setAttribute("is-container", "");
-        this.setAttribute("is-debug", "");
+        this.classList.add("is-container");
+        //this.classList.add("is-debug");
 
         return this;
     }
