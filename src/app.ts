@@ -19,7 +19,7 @@ export class MainApp extends LitElement {
         return html`
             <ui-theme-handler themes-path="/themes" theme="gruvbox" auto></ui-theme-handler>
 
-            <ui-flex-grid class="has-padding" gap="calc(var(--ui-spacing) / 2)">
+            <section --padding="0.25rem">
                 <details>
                     <summary>UI: Button</summary>
 
@@ -37,7 +37,7 @@ Multiline...</pre
 
                     <!-- TODO: Add all button (colors, variants) here -->
                 </details>
-            </ui-flex-grid>
+            </section>
         `;
     }
 
