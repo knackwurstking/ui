@@ -1,5 +1,5 @@
 :root {
-    --ui-hue: 351;
+    --ui-hue: 240;
 
     /*
         --sl-50: 0%, 98%; #fafafa
@@ -22,7 +22,7 @@
      */
 
     --ui-bg: hsl(var(--ui-hue), 0%, 98%); /* 50 */
-    --ui-primary: hsl(var(--ui-hue), 10%, 4%); /* 900 */
+    --ui-primary: hsl(var(--ui-hue), 10%, 10%); /* 900 */
     --ui-secondary: hsl(var(--ui-hue), 4%, 46%); /* 500 */
     --ui-destructive: hsl(0, 72%, 51%);
 
@@ -45,7 +45,7 @@
     --ui-error: var(--ui-destructive);
     --ui-error-text: var(--ui-destructive-text);
 
-    --ui-ripple: hsla(var(--ui-hue), 6%, 10%, 0.2); /* sl 900 */
+    --ui-ripple: hsla(var(--ui-hue), 10%, 10%, 0.2); /* sl 900 */
 
     /*
      * Muted: code, pre
@@ -75,7 +75,7 @@
      */
 
     --ui-bg: hsl(var(--ui-hue), 10%, 4%); /* 950 */
-    --ui-primary: hsl(var(--ui-hue), 5%, 96%); /* 100 */
+    --ui-primary: hsl(var(--ui-hue), 10%, 90%); /* 100 */
     --ui-secondary: hsl(var(--ui-hue), 4%, 46%); /* 500 */
     --ui-destructive: 0, 63%, 31%;
 
@@ -98,7 +98,7 @@
     --ui-error: var(--ui-destructive);
     --ui-error-text: var(--ui-destructive-text);
 
-    --ui-ripple: hsla(var(--ui-hue), 5%, 96%, 0.2); /* sl 100 */
+    --ui-ripple: hsla(var(--ui-hue), 10%, 90%, 0.2); /* sl 100 */
 
     /*
      * Muted: code, pre
