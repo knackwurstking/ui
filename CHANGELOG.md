@@ -6,12 +6,10 @@
 - Updated demo page from (src directory)
 
 - Updated js bundle:
-    - Added a ui object with all exports to `window` object (`window.ui`)
+    - Added a ui object with all exports to `window` object (`window.ui`) [work-in-progress]
 
 - Added css utils:
     - .has-padding
-
-- Added border-radius to css resets
 
 ## v1.1.1 — [2024-11-20]
 
