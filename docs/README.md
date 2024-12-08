@@ -2,52 +2,52 @@
 
 ## JS UI (Lit) Components
 
--   ui-alert
-    -   [ui-alerts - `UIAlerts`](/docs/ui-alert/ui-alerts.md)
-    -   [ui-alert - `UIAlert`](/docs/ui-alert/ui-alert.md)
--   ui-app-bar
-    -   [ui-app-bar - `UIAppBar`](/docs/ui-app-bar/ui-app-bar.md)
-    -   [ui-app-bar-item - `UIAppBarItem`](/docs/ui-app-bar-item/ui-app-bar.md)
--   ui-button
-    -   [ui-button - `UIButton`](/docs/ui-button/ui-button.md)
-    -   [ui-icon-button - `UIIconButton`](/docs/ui-button/ui-icon-button.md)
--   ui-dialog
-    -   [ui-dialog - `UIDialog`](/docs/ui-dialog/ui-dialog.md)
--   ui-drawer
-    -   [ui-drawer - `UIDrawer`](/docs/ui-drawer/ui-drawer.md)
-    -   [ui-drawer-group - `UIDrawerGroup`](/docs/ui-drawer/ui-drawer-group.md)
-    -   [ui-drawer-group-item - `UIDrawerGroupItem`](/docs/ui-drawer/ui-drawer-group-item.md)
--   ui-flex-grid
-    -   [ui-flex-grid - `UIFlexGrid`](/docs/ui-flex-grid/ui-flex-grid.md)
-    -   [ui-flex-grid-item - `UIFlexGridItem`](/docs/ui-flex-grid/ui-flex-grid-item.md)
-    -   [ui-flex-grid-row - `UIFlexGridRow`](/docs/ui-flex-grid/ui-flex-grid-row.md)
--   ui-input
-    -   [ui-check - `UICheck`](/docs/ui-input/ui-check.md)
-    -   [ui-input - `UIInput`](/docs/ui-input/ui-input.md)
-    -   [ui-search - `UISearch`](/docs/ui-input/ui-search.md)
-    -   [ui-select - `UISelect`](/docs/ui-input/ui-select.md)
-    -   [ui-select-option - `UISelectOption`](/docs/ui-input/ui-select-option.md)
-    -   [ui-textarea - `UITextarea`](/docs/ui-input/ui-textarea.md)
--   ui-lang
-    -   [ui-lang - `UILang`](/docs/ui-lang/ui-lang.md)
-    -   [ui-lang-type - `UILangType`](/docs/ui-lang/ui-lang-type.md)
--   ui-spinner
-    -   [ui-spinner - `UISpinner`](/docs/ui-spinner/ui-spinner.md)
--   ui-stack-layout
-    -   [ui-stack-layout - `UIStackLayout`](/docs/ui-stack-layout/ui-stack-layout.md)
-    -   [ui-stack-layout-page - `UIStackLayoutPage`](/docs/ui-stack-layout/ui-stack-layout-page.md)
--   ui-store
-    -   [ui-store - `UIStore`](/docs/ui-store/ui-store.md)
--   ui-svg
-    -   [ui-svg - `UISvg`](/docs/ui-svg/ui-svg.md)
--   ui-text
-    -   [ui-heading - `UIHeading`](/docs/ui-text/ui-heading.md)
-    -   [ui-label - `UILabel`](/docs/ui-text/ui-label.md)
-    -   [ui-primary - `UIPrimary`](/docs/ui-text/ui-primary.md)
-    -   [ui-secondary - `UISecondary`](/docs/ui-text/ui-secondary.md)
-    -   [ui-text - `UIText`](/docs/ui-text/ui-text.md)
--   ui-theme-handler
-    -   [ui-theme-handler - `UIThemeHandler`](/docs/ui-theme-handler/ui-theme-handler.md)
+- ui-alert
+  - [ui-alerts - `UIAlerts`](/docs/ui-alert/ui-alerts.md)
+  - [ui-alert - `UIAlert`](/docs/ui-alert/ui-alert.md)
+- ui-app-bar
+  - [ui-app-bar - `UIAppBar`](/docs/ui-app-bar/ui-app-bar.md)
+  - [ui-app-bar-item - `UIAppBarItem`](/docs/ui-app-bar/ui-app-bar.md)
+- ui-button
+  - [ui-button - `UIButton`](/docs/ui-button/ui-button.md)
+  - [ui-icon-button - `UIIconButton`](/docs/ui-button/ui-icon-button.md)
+- ui-dialog
+  - [ui-dialog - `UIDialog`](/docs/ui-dialog/ui-dialog.md)
+- ui-drawer
+  - [ui-drawer - `UIDrawer`](/docs/ui-drawer/ui-drawer.md)
+  - [ui-drawer-group - `UIDrawerGroup`](/docs/ui-drawer/ui-drawer-group.md)
+  - [ui-drawer-group-item - `UIDrawerGroupItem`](/docs/ui-drawer/ui-drawer-group-item.md)
+- ui-flex-grid
+  - [ui-flex-grid - `UIFlexGrid`](/docs/ui-flex-grid/ui-flex-grid.md)
+  - [ui-flex-grid-item - `UIFlexGridItem`](/docs/ui-flex-grid/ui-flex-grid-item.md)
+  - [ui-flex-grid-row - `UIFlexGridRow`](/docs/ui-flex-grid/ui-flex-grid-row.md)
+- ui-input
+  - [ui-check - `UICheck`](/docs/ui-input/ui-check.md)
+  - [ui-input - `UIInput`](/docs/ui-input/ui-input.md)
+  - [ui-search - `UISearch`](/docs/ui-input/ui-search.md)
+  - [ui-select - `UISelect`](/docs/ui-input/ui-select.md)
+  - [ui-select-option - `UISelectOption`](/docs/ui-input/ui-select-option.md)
+  - [ui-textarea - `UITextarea`](/docs/ui-input/ui-textarea.md)
+- ui-lang
+  - [ui-lang - `UILang`](/docs/ui-lang/ui-lang.md)
+  - [ui-lang-type - `UILangType`](/docs/ui-lang/ui-lang-type.md)
+- ui-spinner
+  - [ui-spinner - `UISpinner`](/docs/ui-spinner/ui-spinner.md)
+- ui-stack-layout
+  - [ui-stack-layout - `UIStackLayout`](/docs/ui-stack-layout/ui-stack-layout.md)
+  - [ui-stack-layout-page - `UIStackLayoutPage`](/docs/ui-stack-layout/ui-stack-layout-page.md)
+- ui-store
+  - [ui-store - `UIStore`](/docs/ui-store/ui-store.md)
+- ui-svg
+  - [ui-svg - `UISvg`](/docs/ui-svg/ui-svg.md)
+- ui-text
+  - [ui-heading - `UIHeading`](/docs/ui-text/ui-heading.md)
+  - [ui-label - `UILabel`](/docs/ui-text/ui-label.md)
+  - [ui-primary - `UIPrimary`](/docs/ui-text/ui-primary.md)
+  - [ui-secondary - `UISecondary`](/docs/ui-text/ui-secondary.md)
+  - [ui-text - `UIText`](/docs/ui-text/ui-text.md)
+- ui-theme-handler
+  - [ui-theme-handler - `UIThemeHandler`](/docs/ui-theme-handler/ui-theme-handler.md)
 
 ## JS Utils
 
@@ -55,4 +55,4 @@
 
 ## CSS
 
-@TODO: Add some css documentation (maybe just for the special selector stuff? And with some examples for the css components?)
+@TODO: Add some CSS documentation (maybe just for the special selector stuff? And with some examples for the CSS components?)
