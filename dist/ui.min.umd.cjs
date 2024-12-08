@@ -945,12 +945,6 @@
                 width: 100%;
                 overflow: hidden;
                 padding: calc(var(--ui-spacing) / 2);
-
-                /*
-                    background-color: var(--ui-backdrop);
-                    -webkit-backdrop-filter: var(--ui-backdropFilter);
-                    backdrop-filter: var(--ui-backdropFilter);
-                */
             }
 
             :host([position="top"]),
@@ -988,35 +982,28 @@
                 width: 100%;
             }
 
-            :host > ui-flex-grid-row > *:nth-child(1),
-            :host > ui-flex-grid-row > *:nth-child(3) {
-                width: fit-content;
-            }
-
-            :host > ui-flex-grid-row > *:nth-child(1) {
-                margin-left: 0 !important;
-                justify-content: flex-start;
-            }
-
-            :host > ui-flex-grid-row > *:nth-child(2) {
-                width: 100%;
-            }
-
-            :host > ui-flex-grid-row > *:nth-child(3) {
-                margin-right: 0 !important;
-                justify-content: flex-end;
-            }
+            /* TODO: Move this styles to the css file for the ui-app-bar comp.
+                :host > ui-flex-grid-row > *:nth-child(1),
+                :host > ui-flex-grid-row > *:nth-child(3) {
+                    width: fit-content;
+                }
+            */
         `}render(){return c`
             <ui-flex-grid-row gap="0.25rem">
-                <ui-flex-grid-row gap="0.25rem" align="center">
+                <ui-flex-grid-row part="left container" gap="0.25rem" align="center">
                     <slot name="left"></slot>
                 </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;" align="center">
+                <ui-flex-grid-row
+                    part="center container"
+                    gap="0.25rem"
+                    style="overflow: hidden;"
+                    align="center"
+                >
                     <slot name="center"></slot>
                 </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem" align="center">
+                <ui-flex-grid-row part="right container" gap="0.25rem" align="center">
                     <slot name="right"></slot>
                 </ui-flex-grid-row>
             </ui-flex-grid-row>

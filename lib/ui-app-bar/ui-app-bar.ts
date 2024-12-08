@@ -6,6 +6,11 @@ export type UIAppBarPosition = "top" | "bottom";
 export type UIAppBarSlots = "left" | "center" | "right";
 
 /**
+ * Parts (CSS):
+ *  - "left container"
+ *  - "center container"
+ *  - "right container"
+ *
  * @element ui-app-bar
  *
  * @slot left
@@ -27,9 +32,16 @@ class UIAppBar<N extends string> extends LitElement {
             }
 
             :host {
-                display: block;
+                display: flex;
+                flex-direction: row;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: space-between;
+
                 width: 100%;
+
                 overflow: hidden;
+
                 padding: calc(var(--ui-spacing) / 2);
             }
 
@@ -55,42 +67,26 @@ class UIAppBar<N extends string> extends LitElement {
                 bottom: 0;
                 border-top: 1px solid var(--ui-borderColor);
             }
-
-            :host > ui-flex-grid-row {
-                width: 100%;
-                height: 100%;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            :host > ui-flex-grid-row > * {
-                height: 100%;
-                width: 100%;
-            }
-
-            /* TODO: Move this styles to the css file for the ui-appb-bar comp.
-                :host > ui-flex-grid-row > *:nth-child(1),
-                :host > ui-flex-grid-row > *:nth-child(3) {
-                    width: fit-content;
-                }
-            */
         `;
     }
 
     protected render() {
         return html`
-            <ui-flex-grid-row gap="0.25rem">
-                <ui-flex-grid-row gap="0.25rem" align="center">
-                    <slot name="left"></slot>
-                </ui-flex-grid-row>
+            <ui-flex-grid-row part="container left" gap="0.25rem" align="center">
+                <slot name="left"></slot>
+            </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem" style="overflow: hidden;" align="center">
-                    <slot name="center"></slot>
-                </ui-flex-grid-row>
+            <ui-flex-grid-row
+                part="container center"
+                gap="0.25rem"
+                style="overflow: hidden;"
+                align="center"
+            >
+                <slot name="center"></slot>
+            </ui-flex-grid-row>
 
-                <ui-flex-grid-row gap="0.25rem" align="center">
-                    <slot name="right"></slot>
-                </ui-flex-grid-row>
+            <ui-flex-grid-row part="container right" gap="0.25rem" align="center">
+                <slot name="right"></slot>
             </ui-flex-grid-row>
         `;
     }
