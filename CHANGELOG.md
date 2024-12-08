@@ -33,6 +33,7 @@
     -   .ui-button, .ui-icon-button
     -   .ui-container .fluid, .card, .muted
     -   .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
+    -   .ui-svg
     -   .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]
 
 **Updated**:
