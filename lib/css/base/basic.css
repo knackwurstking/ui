@@ -1,0 +1,42 @@
+::selection {
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
+}
+
+*:focus {
+    outline-offset: 1px;
+    outline: 1px solid var(--ui-primary);
+    border-radius: var(--ui-radius);
+}
+
+html {
+    font-size: var(--ui-fontSize);
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+}
+
+body {
+    font-family: var(--ui-fontFamily);
+    font-variation-settings:
+        "MONO" var(--ui-mono),
+        "CASL" var(--ui-casl),
+        "wght" var(--ui-wght),
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
+    font-size: 100%;
+    line-height: var(--ui-lineHeight);
+}
+
+[disabled] {
+    pointer-events: none;
+    touch-action: none;
+
+    opacity: 0.75;
+
+    cursor: default;
+
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

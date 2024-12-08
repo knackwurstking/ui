@@ -1,3 +1,12 @@
 @import "./recursive.css";
-@import "./custom.css";
-@import "./main.css";
+
+@import "./basic.css";
+@import "./button.css";
+@import "./input.css";
+@import "./separator.css";
+@import "./heading.css";
+@import "./code.css";
+@import "./list.css";
+@import "./table.css";
+@import "./misc.css";
+@import "./details.css";

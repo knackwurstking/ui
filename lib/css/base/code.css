@@ -1,0 +1,26 @@
+code,
+pre {
+    background-color: var(--ui-muted);
+    color: var(--ui-muted-text);
+    border: 1px solid var(--ui-muted-borderColor);
+    border-radius: var(--ui-radius);
+    padding: var(--ui-spacing);
+    font-family: var(--ui-fontFamily);
+    font-variation-settings:
+        "MONO" 1,
+        "CASL" var(--ui-casl),
+        "wght" var(--ui-wght),
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
+    font-size: 0.95rem;
+}
+
+code {
+    display: inline-block;
+    padding: 0.1rem 0.25rem;
+}
+
+pre {
+    display: block;
+    overflow: auto;
+}

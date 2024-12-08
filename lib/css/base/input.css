@@ -1,0 +1,90 @@
+input,
+textarea {
+    display: block;
+
+    border: 1px solid var(--ui-borderColor);
+    border-radius: var(--ui-radius);
+    transition: border-color 0.25s linear;
+
+    background-color: transparent;
+    color: var(--ui-text);
+
+    box-shadow: none;
+
+    font-size: 0.9rem;
+    font-family: var(--ui-fontFamily);
+    font-variation-settings:
+        "MONO" 1,
+        "CASL" var(--ui-casl),
+        "wght" 375,
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
+
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
+    accent-color: var(--ui-primary);
+}
+
+select {
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+
+    display: block;
+
+    border: 1px solid var(--ui-borderColor);
+    border-radius: var(--ui-radius);
+    transition: border-color 0.25s linear;
+
+    accent-color: var(--ui-primary);
+    background-color: transparent;
+    color: var(--ui-input-text);
+
+    padding: var(--ui-spacing);
+
+    box-shadow: none;
+
+    font-size: 0.9rem;
+    font-family: var(--ui-fontFamily);
+    font-variation-settings:
+        "MONO" 1,
+        "CASL" var(--ui-casl),
+        "wght" 375,
+        "slnt" var(--ui-slnt),
+        "CRSV" var(--ui-crsv);
+
+    cursor: pointer;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+input[type="color"] {
+    height: calc(var(--ui-spacing) * 2 + 2rem);
+    padding: var(--ui-spacing);
+    cursor: pointer;
+}
+
+input[aria-invalid] {
+    border-color: var(--ui-destructive) !important;
+}
+
+select:disabled,
+input:disabled {
+    cursor: default;
+    user-select: none;
+}

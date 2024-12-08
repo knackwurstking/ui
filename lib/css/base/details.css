@@ -1,0 +1,28 @@
+summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--ui-spacing);
+    border-radius: var(--ui-radius);
+    list-style: none;
+    cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: " +";
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: var(--ui-primary);
+}
+details[open] summary:after {
+    content: " -";
+}
+
+details[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}

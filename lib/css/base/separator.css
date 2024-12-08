@@ -1,0 +1,6 @@
+hr {
+    border: none;
+    height: 1px;
+    margin: var(--ui-spacing) 0;
+    background-color: var(--ui-borderColor);
+}

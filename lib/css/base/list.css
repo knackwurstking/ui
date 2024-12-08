@@ -1,0 +1,10 @@
+ul {
+    list-style: none;
+    padding: var(--ui-spacing);
+    overflow: hidden;
+    margin: 0;
+}
+
+ul > * {
+    padding: var(--ui-spacing);
+}

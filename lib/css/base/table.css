@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+    border: 1px solid var(--ui-borderColor);
+}
+
+thead {
+    font-variation-settings:
+        "MONO" 0.25,
+        "CASL" var(--casl, 1),
+        "wght" 450,
+        "slnt" var(--slnt, 0),
+        "CRSV" var(--crsv, 0.5);
+}
+
+tbody {
+    font-variation-settings:
+        "MONO" var(--mono, 0),
+        "CASL" var(--casl, 1),
+        "wght" 350,
+        "slnt" var(--slnt, 0),
+        "CRSV" var(--crsv, 0.5);
+}
+
+th,
+td {
+    padding: var(--ui-spacing);
+    border: 1px solid var(--ui-borderColor);
+    word-break: auto-phrase;
+}
+
+td {
+    font-size: 0.9rem;
+}
