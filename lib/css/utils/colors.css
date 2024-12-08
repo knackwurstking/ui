@@ -1,3 +1,9 @@
+.ui-backdrop-blur {
+    background-color: var(--ui-backdrop);
+    -webkit-backdrop-filter: var(--ui-backdropFilter);
+    backdrop-filter: var(--ui-backdropFilter);
+}
+
 .ui-primary {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);

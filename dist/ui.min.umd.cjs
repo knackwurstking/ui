@@ -946,9 +946,11 @@
                 overflow: hidden;
                 padding: calc(var(--ui-spacing) / 2);
 
-                background-color: var(--ui-backdrop);
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
+                /*
+                    background-color: var(--ui-backdrop);
+                    -webkit-backdrop-filter: var(--ui-backdropFilter);
+                    backdrop-filter: var(--ui-backdropFilter);
+                */
             }
 
             :host([position="top"]),
@@ -991,16 +993,16 @@
                 width: fit-content;
             }
 
-            ::slotted([slot="left"]) {
+            :host > ui-flex-grid-row > *:nth-child(1) {
                 margin-left: 0 !important;
                 justify-content: flex-start;
             }
 
-            ::slotted([slot="center"]) {
+            :host > ui-flex-grid-row > *:nth-child(2) {
                 width: 100%;
             }
 
-            ::slotted([slot="right"]) {
+            :host > ui-flex-grid-row > *:nth-child(3) {
                 margin-right: 0 !important;
                 justify-content: flex-end;
             }

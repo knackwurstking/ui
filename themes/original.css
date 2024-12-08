@@ -33,8 +33,8 @@
     --ui-destructive-text: hsl(0, 72%, 92%);
 
     --ui-borderColor: hsl(var(--ui-hue), 5%, 84%); /* 300 */
-
-    --ui-backdrop: var(--ui-bg);
+    --ui-backdrop: hsla(var(--ui-hue), 0%, 98%, 0.2);
+    --ui-ripple: hsla(var(--ui-hue), 10%, 10%, 0.2); /* sl 900 */
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
@@ -44,8 +44,6 @@
 
     --ui-error: var(--ui-destructive);
     --ui-error-text: var(--ui-destructive-text);
-
-    --ui-ripple: hsla(var(--ui-hue), 10%, 10%, 0.2); /* sl 900 */
 
     /*
      * Muted: code, pre
@@ -86,8 +84,8 @@
     --ui-destructive-text: hsl(0, 63%, 92%);
 
     --ui-borderColor: hsl(var(--ui-hue), 5%, 26%); /* 700 */
-
-    --ui-backdrop: var(--ui-bg);
+    --ui-backdrop: hsla(var(--ui-hue), 10%, 4%, 0.2);
+    --ui-ripple: hsla(var(--ui-hue), 10%, 90%, 0.2); /* sl 100 */
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
@@ -97,8 +95,6 @@
 
     --ui-error: var(--ui-destructive);
     --ui-error-text: var(--ui-destructive-text);
-
-    --ui-ripple: hsla(var(--ui-hue), 10%, 90%, 0.2); /* sl 100 */
 
     /*
      * Muted: code, pre

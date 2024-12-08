@@ -49,7 +49,7 @@
     --ui-destructive-text: hsl(6, 96%, 82%);
 
     --ui-borderColor: hsl(35, 17%, 59%); /* bg4 */
-    --ui-backdrop: var(--ui-bg);
+    --ui-backdrop: hsla(48, 87%, 88%, 0.2);
     --ui-ripple: hsla(57, 79%, 26%, 0.2); /* green */
 
     --ui-info: var(--ui-card);
@@ -133,7 +133,7 @@
     --ui-destructive-text: hsl(6, 96%, 18%);
 
     --ui-borderColor: hsl(28, 11%, 44%); /* bg4 */
-    --ui-backdrop: hsla(0, 0%, 16%, 0.2); /* --ui-bg */
+    --ui-backdrop: hsla(0, 0%, 16%, 0.2);
     --ui-ripple: hsla(61, 66%, 44%, 0.2); /* green */
 
     --ui-info: var(--ui-card);

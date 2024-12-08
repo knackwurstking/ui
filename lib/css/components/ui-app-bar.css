@@ -1,0 +1,11 @@
+ui-app-bar {
+    z-index: 999;
+
+    background-color: var(--ui-backdrop);
+    -webkit-backdrop-filter: var(--ui-backdropFilter);
+    backdrop-filter: var(--ui-backdropFilter);
+}
+
+ui-app-bar [slot="center"] {
+    width: 100%;
+}

@@ -31,10 +31,6 @@ class UIAppBar<N extends string> extends LitElement {
                 width: 100%;
                 overflow: hidden;
                 padding: calc(var(--ui-spacing) / 2);
-
-                background-color: var(--ui-backdrop);
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
             }
 
             :host([position="top"]),
@@ -72,24 +68,12 @@ class UIAppBar<N extends string> extends LitElement {
                 width: 100%;
             }
 
-            :host > ui-flex-grid-row > *:nth-child(1),
-            :host > ui-flex-grid-row > *:nth-child(3) {
-                width: fit-content;
-            }
-
-            ::slotted([slot="left"]) {
-                margin-left: 0 !important;
-                justify-content: flex-start;
-            }
-
-            ::slotted([slot="center"]) {
-                width: 100%;
-            }
-
-            ::slotted([slot="right"]) {
-                margin-right: 0 !important;
-                justify-content: flex-end;
-            }
+            /* TODO: Move this styles to the css file for the ui-appb-bar comp.
+                :host > ui-flex-grid-row > *:nth-child(1),
+                :host > ui-flex-grid-row > *:nth-child(3) {
+                    width: fit-content;
+                }
+            */
         `;
     }
 
