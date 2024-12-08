@@ -66,7 +66,7 @@ class UIDrawer extends LitElement {
                 overflow-x: hidden;
                 overflow-y: scroll;
 
-                border-right: 1px solid hsl(var(--ui-hsl-card-borderColor));
+                border-right: 1px solid var(--ui-card-borderColor);
 
                 transition: left 0.5s ease;
 
@@ -76,7 +76,7 @@ class UIDrawer extends LitElement {
                 scroll-behavior: smooth;
 
                 /* Backdrop Blur */
-                background-color: hsla(var(--ui-hsl-backdrop), var(--ui-backdrop-alpha));
+                background-color: var(--ui-backdrop);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }

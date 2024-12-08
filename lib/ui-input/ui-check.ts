@@ -28,11 +28,11 @@ class UICheck extends LitElement {
 
                 padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-                border: 1px solid hsl(var(--ui-hsl-primary));
+                border: 1px solid var(--ui-primary);
                 border-radius: var(--ui-radius);
 
-                accent-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-text));
+                accent-color: var(--ui-primary);
+                color: var(--ui-text);
                 background-color: transparent;
 
                 box-shadow: none;
@@ -68,8 +68,8 @@ class UICheck extends LitElement {
 
     public click(): void {
         super.click();
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.checked =
-            this.checked = !this.checked;
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.checked = this.checked =
+            !this.checked;
     }
 }
 

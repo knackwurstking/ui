@@ -1,12 +1,6 @@
 import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import {
-    svg,
-    UIButton,
-    UIButtonColor,
-    UIButtonVariant,
-    UIFlexGridItem,
-} from "..";
+import { svg, UIButton, UIButtonColor, UIButtonVariant, UIFlexGridItem } from "..";
 
 export interface UIDialogOpenOptions {
     modal?: boolean;
@@ -80,10 +74,7 @@ class UIDialog extends LitElement {
             }
 
             dialog::backdrop {
-                background-color: hsla(
-                    var(--ui-hsl-backdrop),
-                    var(--ui-backdrop-alpha)
-                );
+                background-color: var(--ui-backdrop);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
             }
@@ -94,10 +85,10 @@ class UIDialog extends LitElement {
             }
 
             dialog > .container {
-                background-color: hsl(var(--ui-hsl-bg));
-                color: hsl(var(--ui-hsl-text));
+                background-color: var(--ui-bg);
+                color: var(--ui-text);
 
-                border: 1px solid hsl(var(--ui-hsl-borderColor));
+                border: 1px solid var(--ui-borderColor);
                 border-radius: var(--ui-radius);
 
                 padding: var(--ui-spacing);
@@ -156,9 +147,7 @@ class UIDialog extends LitElement {
                 z-index: 10;
                 position: absolute;
                 top: calc(var(--ui-dialog-header-height) + var(--ui-spacing));
-                bottom: calc(
-                    var(--ui-dialog-footer-height) + var(--ui-spacing)
-                );
+                bottom: calc(var(--ui-dialog-footer-height) + var(--ui-spacing));
                 right: var(--ui-spacing);
                 left: var(--ui-spacing);
                 padding: unset;

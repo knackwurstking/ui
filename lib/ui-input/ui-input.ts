@@ -39,8 +39,8 @@ class UIInput extends LitElement {
             }
 
             ::selection {
-                background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-text));
+                background-color: var(--ui-primary);
+                color: var(--ui-primary-text);
             }
 
             :host {
@@ -56,18 +56,18 @@ class UIInput extends LitElement {
             .container {
                 width: 100%;
 
-                border: 1px solid hsl(var(--ui-hsl-borderColor));
+                border: 1px solid var(--ui-borderColor);
                 border-radius: var(--ui-radius);
 
                 transition: border-color 0.25s linear;
             }
 
             .container:has(input:focus) {
-                border-color: hsl(var(--ui-hsl-primary));
+                border-color: var(--ui-primary);
             }
 
             :host([invalid]) .container {
-                border-color: hsl(var(--ui-hsl-destructive));
+                border-color: var(--ui-destructive);
             }
 
             ui-secondary.title {
@@ -84,9 +84,9 @@ class UIInput extends LitElement {
                 margin: 0;
                 padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-                accent-color: hsl(var(--ui-hsl-primary));
+                accent-color: var(--ui-primary);
                 background-color: transparent;
-                color: hsl(var(--ui-hsl-input-text));
+                color: var(--ui-input-text);
 
                 outline: none;
                 border: none;
@@ -94,7 +94,12 @@ class UIInput extends LitElement {
 
                 font-size: 0.95rem;
                 font-family: var(--ui-fontFamily);
-                font-variation-settings: var(--ui-input-fontVariation);
+                font-variation-settings:
+                    "MONO" 1,
+                    "CASL" var(--ui-casl),
+                    "wght" 375,
+                    "slnt" var(--ui-slnt),
+                    "CRSV" var(--ui-crsv);
             }
 
             ui-secondary.title ~ input {
@@ -107,11 +112,7 @@ class UIInput extends LitElement {
         return html`
             <div class="container">
                 ${!!this.title
-                    ? html`
-                          <ui-secondary class="title">
-                              ${this.title}
-                          </ui-secondary>
-                      `
+                    ? html` <ui-secondary class="title"> ${this.title} </ui-secondary> `
                     : ``}
                 <input
                     type="${this.type}"
@@ -120,9 +121,7 @@ class UIInput extends LitElement {
                     min="${this.min}"
                     max="${this.max}"
                     @input=${(ev: Event) => {
-                        this.value = (
-                            ev.currentTarget as HTMLInputElement
-                        ).value;
+                        this.value = (ev.currentTarget as HTMLInputElement).value;
                     }}
                     @change=${() => {
                         this.dispatchEvent(new Event("change"));
@@ -134,9 +133,7 @@ class UIInput extends LitElement {
 
     public focus(options?: FocusOptions): void {
         super.focus(options);
-        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(
-            options,
-        );
+        this.shadowRoot!.querySelector<HTMLInputElement>(`input`)!.focus(options);
     }
 
     public blur(): void {

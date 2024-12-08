@@ -43,8 +43,8 @@ class UILabel extends LitElement {
             }
 
             ::selection {
-                background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-text));
+                background-color: var(--ui-primary);
+                color: var(--ui-primary-text);
             }
 
             :host {
@@ -85,12 +85,8 @@ class UILabel extends LitElement {
         return html`
             <div>
                 <span>
-                    ${!!this.primary
-                        ? html`<ui-primary>${this.primary}</ui-primary>`
-                        : ``}
-                    ${!!this.secondary
-                        ? html`<ui-secondary>${this.secondary}</ui-secondary>`
-                        : ``}
+                    ${!!this.primary ? html`<ui-primary>${this.primary}</ui-primary>` : ``}
+                    ${!!this.secondary ? html`<ui-secondary>${this.secondary}</ui-secondary>` : ``}
                 </span>
 
                 <span>
@@ -107,11 +103,7 @@ class UILabel extends LitElement {
         else this.disableRipple();
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {

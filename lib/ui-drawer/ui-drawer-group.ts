@@ -33,8 +33,8 @@ class UIDrawerGroup extends LitElement {
             }
 
             ::selection {
-                background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-text));
+                background-color: var(--ui-primary);
+                color: var(--ui-primary-text);
             }
 
             :host {
@@ -82,17 +82,13 @@ class UIDrawerGroup extends LitElement {
                     @click=${async () => {
                         this.open = !this.open;
                         setTimeout(() => {
-                            if (this.open)
-                                this.dispatchEvent(new Event("unfold"));
+                            if (this.open) this.dispatchEvent(new Event("unfold"));
                             else this.dispatchEvent(new Event("fold"));
                         });
                     }}
                 >
                     <ui-flex-grid-row>
-                        <ui-flex-grid-item
-                            align="center"
-                            style="padding-right: var(--ui-spacing);"
-                        >
+                        <ui-flex-grid-item align="center" style="padding-right: var(--ui-spacing);">
                             <ui-heading level="4">${this.title}</ui-heading>
                         </ui-flex-grid-item>
 

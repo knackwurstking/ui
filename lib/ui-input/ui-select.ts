@@ -36,28 +36,28 @@ class UISelect extends LitElement {
 
                 background-color: transparent;
 
-                border: 1px solid hsl(var(--ui-hsl-borderColor));
+                border: 1px solid var(--ui-borderColor);
                 border-radius: var(--ui-radius);
 
                 overflow: hidden;
 
                 font-size: 0.9rem;
                 font-family: var(--ui-fontFamily);
-                font-variation-settings: var(--ui-input-fontVariation);
+                font-variation-settings:
+                    "MONO" 1,
+                    "CASL" var(--ui-casl),
+                    "wght" 375,
+                    "slnt" var(--ui-slnt),
+                    "CRSV" var(--ui-crsv);
             }
 
             :host([open]),
             :host([keep-open]) {
-                height: calc(
-                    (1em * var(--_lineHeight) + var(--ui-spacing) * 2) *
-                        var(--_items)
-                );
+                height: calc((1em * var(--_lineHeight) + var(--ui-spacing) * 2) * var(--_items));
             }
 
-            :host(:not([open]))
-                .options:has(> ::slotted(ui-select-option[selected])),
-            :host(:not([keep-open]))
-                .options:has(> ::slotted(ui-select-option[selected])) {
+            :host(:not([open])) .options:has(> ::slotted(ui-select-option[selected])),
+            :host(:not([keep-open])) .options:has(> ::slotted(ui-select-option[selected])) {
                 display: block;
             }
 
@@ -84,7 +84,7 @@ class UISelect extends LitElement {
                 width: 2.5rem;
                 height: 100%;
                 padding: 0.25rem;
-                color: hsl(var(--ui-hsl-primary));
+                color: var(--ui-primary);
             }
 
             .icon > * {
@@ -103,18 +103,18 @@ class UISelect extends LitElement {
 
             :host([open]) ::slotted(ui-select-option[selected]),
             :host([keep-open]) ::slotted(ui-select-option[selected]) {
-                background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-text));
+                background-color: var(--ui-primary);
+                color: var(--ui-primary-text);
             }
 
+            /* NOTE: Removed hover bg color in v2.0.0
             :host([open]) ::slotted(ui-select-option:not([selected]):hover),
-            :host([keep-open])
-                ::slotted(ui-select-option:not([selected]):hover) {
+            :host([keep-open]) ::slotted(ui-select-option:not([selected]):hover) {
                 background-color: hsla(var(--ui-hsl-text), 0.1);
             }
+            */
 
-            :host(:not([open], [keep-open]))
-                ::slotted(ui-select-option:not([selected])) {
+            :host(:not([open], [keep-open])) ::slotted(ui-select-option:not([selected])) {
                 display: none;
             }
         `;

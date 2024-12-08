@@ -1,10 +1,12 @@
 # Changelog
 
-## v1.2.0 [unreleased]
+## v2.0.0 [unreleased]
 
 -   [ ] ~Add basic styles to the `popover` and `popovertarget` global attribute~
--   [ ] Try to add a global `ripple` attribute with pure css, trigger it on click,
-        this maybe replace the ripple JS function
+
+**Breaking Changes**:
+
+-   Changed all color theme variables
 
 **General**:
 
@@ -25,6 +27,7 @@
     -   .ui-no-user-select
     -   .ui-no-scrollbar
     -   .ui-no-touch
+    -   .ui-ripple
 -   Added CSS components:
     -   .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
     -   .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]

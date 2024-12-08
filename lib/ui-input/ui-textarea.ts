@@ -37,8 +37,8 @@ class UITextarea extends LitElement {
             }
 
             ::selection {
-                background-color: hsl(var(--ui-hsl-primary));
-                color: hsl(var(--ui-hsl-primary-text));
+                background-color: var(--ui-primary);
+                color: var(--ui-primary-text);
             }
 
             :host {
@@ -52,17 +52,17 @@ class UITextarea extends LitElement {
                 width: 100%;
                 height: 100%;
                 border: none;
-                border: 1px solid hsl(var(--ui-hsl-borderColor));
+                border: 1px solid var(--ui-borderColor);
                 border-radius: var(--ui-radius);
                 transition: border-color 0.25s linear;
             }
 
             .container:has(textarea:focus) {
-                border-color: hsl(var(--ui-hsl-primary));
+                border-color: var(--ui-primary);
             }
 
             :host([invalid]) .container {
-                border-color: hsl(var(--ui-hsl-destructive));
+                border-color: var(--ui-destructive);
             }
 
             ui-secondary.title {
@@ -81,12 +81,19 @@ class UITextarea extends LitElement {
                 border: none;
                 border-radius: inherit;
                 outline: none;
+
                 font-size: 0.9rem;
                 font-family: var(--ui-fontFamily);
-                font-variation-settings: var(--ui-input-fontVariation);
-                accent-color: hsl(var(--ui-hsl-primary));
+                font-variation-settings:
+                    "MONO" 1,
+                    "CASL" var(--ui-casl),
+                    "wght" 375,
+                    "slnt" var(--ui-slnt),
+                    "CRSV" var(--ui-crsv);
+
+                accent-color: var(--ui-primary);
                 background-color: transparent;
-                color: hsl(var(--ui-hsl-input-text));
+                color: var(--ui-input-text);
             }
         `;
     }
@@ -95,11 +102,7 @@ class UITextarea extends LitElement {
         return html`
             <div class="container">
                 ${!!this.title
-                    ? html`
-                          <ui-secondary class="title">
-                              ${this.title}
-                          </ui-secondary>
-                      `
+                    ? html` <ui-secondary class="title"> ${this.title} </ui-secondary> `
                     : ``}
 
                 <textarea
@@ -108,9 +111,7 @@ class UITextarea extends LitElement {
                     rows=${ifDefined(this.rows)}
                     cols=${ifDefined(this.cols)}
                     @input=${(ev: Event) => {
-                        this.value = (
-                            ev.currentTarget as HTMLTextAreaElement
-                        ).value;
+                        this.value = (ev.currentTarget as HTMLTextAreaElement).value;
                     }}
                     @change=${() => {
                         this.dispatchEvent(new Event("change"));
@@ -122,9 +123,7 @@ class UITextarea extends LitElement {
 
     public focus(options?: FocusOptions): void {
         super.focus(options);
-        this.shadowRoot!.querySelector<HTMLInputElement>(`textarea`)!.focus(
-            options,
-        );
+        this.shadowRoot!.querySelector<HTMLInputElement>(`textarea`)!.focus(options);
     }
 
     public blur(): void {

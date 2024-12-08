@@ -30,8 +30,14 @@ class UISelectOption extends LitElement {
 
                 height: calc(1em * var(--_lineHeight) + var(--ui-spacing) * 2);
 
-                font-variation-settings: var(--ui-input-fontVariation);
-                color: hsl(var(--ui-hsl-input-text));
+                color: var(--ui-input-text);
+
+                font-variation-settings:
+                    "MONO" 1,
+                    "CASL" var(--ui-casl),
+                    "wght" 375,
+                    "slnt" var(--ui-slnt),
+                    "CRSV" var(--ui-crsv);
 
                 white-space: nowrap;
                 text-overflow: ellipsis;
