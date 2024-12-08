@@ -941,9 +941,16 @@
             }
 
             :host {
-                display: block;
+                display: flex;
+                flex-direction: row;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: space-between;
+
                 width: 100%;
+
                 overflow: hidden;
+
                 padding: calc(var(--ui-spacing) / 2);
             }
 
@@ -969,43 +976,22 @@
                 bottom: 0;
                 border-top: 1px solid var(--ui-borderColor);
             }
-
-            :host > ui-flex-grid-row {
-                width: 100%;
-                height: 100%;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            :host > ui-flex-grid-row > * {
-                height: 100%;
-                width: 100%;
-            }
-
-            /* TODO: Move this styles to the css file for the ui-app-bar comp.
-                :host > ui-flex-grid-row > *:nth-child(1),
-                :host > ui-flex-grid-row > *:nth-child(3) {
-                    width: fit-content;
-                }
-            */
         `}render(){return c`
-            <ui-flex-grid-row gap="0.25rem">
-                <ui-flex-grid-row part="left container" gap="0.25rem" align="center">
-                    <slot name="left"></slot>
-                </ui-flex-grid-row>
+            <ui-flex-grid-row part="container left" gap="0.25rem" align="center">
+                <slot name="left"></slot>
+            </ui-flex-grid-row>
 
-                <ui-flex-grid-row
-                    part="center container"
-                    gap="0.25rem"
-                    style="overflow: hidden;"
-                    align="center"
-                >
-                    <slot name="center"></slot>
-                </ui-flex-grid-row>
+            <ui-flex-grid-row
+                part="container center"
+                gap="0.25rem"
+                style="overflow: hidden;"
+                align="center"
+            >
+                <slot name="center"></slot>
+            </ui-flex-grid-row>
 
-                <ui-flex-grid-row part="right container" gap="0.25rem" align="center">
-                    <slot name="right"></slot>
-                </ui-flex-grid-row>
+            <ui-flex-grid-row part="container right" gap="0.25rem" align="center">
+                <slot name="right"></slot>
             </ui-flex-grid-row>
         `}content(i){return[...this.querySelectorAll(`[slot="${i}"]`)]}contentName(i){return this.querySelector(`[name="${i}"]`)}};ze([a({type:String,attribute:"position",reflect:!0})],ie.prototype,"position",2),ze([a({type:Boolean,attribute:"fixed",reflect:!0})],ie.prototype,"fixed",2),ie=ze([g("ui-app-bar")],ie);const Br=ie;var Vr=Object.defineProperty,Hr=Object.getOwnPropertyDescriptor,Ze=(i,e,t,o)=>{for(var r=o>1?void 0:o?Hr(e,t):e,s=i.length-1,n;s>=0;s--)(n=i[s])&&(r=(o?n(e,t,r):n(r))||r);return o&&r&&Vr(e,t,r),r};let oe=class extends d{constructor(){super(...arguments),this.name="",this.hidden=!1}static get styles(){return f`
             * {
@@ -1024,113 +1010,7 @@
             ::slotted(*) {
                 flex-grow: 1;
             }
-        `}render(){return c`<slot></slot>`}content(){return[...this.children]}contentAt(i=0){return this.children[i]}show(){this.hidden=!1}hide(){this.hidden=!0}};Ze([a({type:String,attribute:"name",reflect:!0})],oe.prototype,"name",2),Ze([a({type:Boolean,attribute:"hidden",reflect:!0})],oe.prototype,"hidden",2),oe=Ze([g("ui-app-bar-item")],oe);const Gr=oe;var Tr=Object.defineProperty,zr=Object.getOwnPropertyDescriptor,se=(i,e,t,o)=>{for(var r=o>1?void 0:o?zr(e,t):e,s=i.length-1,n;s>=0;s--)(n=i[s])&&(r=(o?n(e,t,r):n(r))||r);return o&&r&&Tr(e,t,r),r};let R=class extends d{constructor(){super(...arguments),this.disabled=!1,this.ripple=!1,this.role="button",this.rippleCleanUp=null}static get styles(){return f`
-            :host {
-                border: 1px solid currentColor;
-            }
-
-            :host([variant="full"]) {
-                border: none;
-            }
-
-            :host([variant="full"][color="primary"]) {
-                background-color: var(--ui-primary);
-                color: var(--ui-primary-text);
-            }
-
-            :host([variant="full"][color="secondary"]) {
-                background-color: var(--ui-secondary);
-                color: var(--ui-secondary-text);
-            }
-
-            :host([variant="full"][color="destructive"]) {
-                background-color: var(--ui-destructive);
-                color: var(--ui-destructive-text);
-            }
-
-            :host([variant="outline"]) {
-                border-color: currentColor;
-                background-color: transparent;
-            }
-
-            :host([variant="outline"][color="primary"]) {
-                color: var(--ui-primary);
-            }
-
-            :host([variant="outline"][color="secondary"]) {
-                color: var(--ui-secondary);
-            }
-
-            :host([variant="outline"][color="destructive"]) {
-                color: var(--ui-destructive);
-            }
-
-            :host([variant="ghost"]) {
-                border-color: transparent;
-                background-color: transparent;
-            }
-
-            :host([variant="ghost"][color="primary"]) {
-                color: var(--ui-primary);
-            }
-
-            :host([variant="ghost"][color="secondary"]) {
-                color: var(--ui-secondary);
-            }
-
-            :host([variant="ghost"][color="destructive"]) {
-                color: var(--ui-destructive);
-            }
-
-            :host([disabled]),
-            :host([disabled]:hover),
-            :host([disabled]:active) {
-                background-color: transparent;
-                opacity: 0.25;
-                cursor: default;
-                pointer-events: none;
-            }
-        `}render(){return c`<slot></slot>`}attributeChangedCallback(i,e,t){switch(super.attributeChangedCallback(i,e,t),i){case"ripple":this.rippleCleanUp!==null&&(this.rippleCleanUp(),this.rippleCleanUp=null),t!==null&&(this.rippleCleanUp=_e(this));break}}};se([a({type:String,attribute:"color",reflect:!0})],R.prototype,"color",2),se([a({type:String,attribute:"variant",reflect:!0})],R.prototype,"variant",2),se([a({type:Boolean,attribute:"disabled"})],R.prototype,"disabled",2),se([a({type:Boolean,attribute:"ripple"})],R.prototype,"ripple",2),R=se([g("ui-button")],R);const mt=R;var Zr=Object.defineProperty,Nr=Object.getOwnPropertyDescriptor,ne=(i,e,t,o)=>{for(var r=o>1?void 0:o?Nr(e,t):e,s=i.length-1,n;s>=0;s--)(n=i[s])&&(r=(o?n(e,t,r):n(r))||r);return o&&r&&Zr(e,t,r),r};let D=class extends d{constructor(){super(...arguments),this.ghost=!1,this.disabled=!1,this.ripple=!1,this.role="button",this.rippleCleanUp=null}static get styles(){return f`
-            :host {
-                border: 1px solid currentColor;
-            }
-
-            :host([ghost]) {
-                border-color: transparent !important;
-                box-shadow: none;
-            }
-
-            :host([color="primary"]) {
-                color: var(--ui-primary);
-                border-color: var(--ui-primary));
-            }
-
-            :host([color="secondary"]) {
-                color: var(--ui-secondary);
-                border-color: var(--ui-secondary);
-            }
-
-            :host([color="destructive"]) {
-                color: var(--ui-destructive);
-                border-color: var(--ui-destructive);
-            }
-
-            /* :disabled */
-
-            :host([disabled]),
-            :host([disabled]:hover),
-            :host([disabled]:active) {
-                opacity: 0.25;
-                cursor: default;
-                pointer-events: none;
-            }
-
-            ui-svg {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        `}render(){return c`<ui-svg><slot></slot></ui-svg>`}attributeChangedCallback(i,e,t){switch(super.attributeChangedCallback(i,e,t),i){case"ripple":this.rippleCleanUp!==null&&(this.rippleCleanUp(),this.rippleCleanUp=null),t!==null&&(this.rippleCleanUp=_e(this));break}}};ne([a({type:String,attribute:"color",reflect:!0})],D.prototype,"color",2),ne([a({type:Boolean,attribute:"ghost"})],D.prototype,"ghost",2),ne([a({type:Boolean,attribute:"disabled"})],D.prototype,"disabled",2),ne([a({type:Boolean,attribute:"ripple"})],D.prototype,"ripple",2),D=ne([g("ui-icon-button")],D);const Fr=D;var qr=Object.defineProperty,Wr=Object.getOwnPropertyDescriptor,B=(i,e,t,o)=>{for(var r=o>1?void 0:o?Wr(e,t):e,s=i.length-1,n;s>=0;s--)(n=i[s])&&(r=(o?n(e,t,r):n(r))||r);return o&&r&&qr(e,t,r),r};let x=class extends d{constructor(){super(...arguments),this.title="",this.fullscreen="",this.noFooter="",this.open=!1,this.modal=!1,this.inert=!1}static get styles(){return f`
+        `}render(){return c`<slot></slot>`}content(){return[...this.children]}contentAt(i=0){return this.children[i]}show(){this.hidden=!1}hide(){this.hidden=!0}};Ze([a({type:String,attribute:"name",reflect:!0})],oe.prototype,"name",2),Ze([a({type:Boolean,attribute:"hidden",reflect:!0})],oe.prototype,"hidden",2),oe=Ze([g("ui-app-bar-item")],oe);const Gr=oe;var Tr=Object.defineProperty,zr=Object.getOwnPropertyDescriptor,se=(i,e,t,o)=>{for(var r=o>1?void 0:o?zr(e,t):e,s=i.length-1,n;s>=0;s--)(n=i[s])&&(r=(o?n(e,t,r):n(r))||r);return o&&r&&Tr(e,t,r),r};let R=class extends d{constructor(){super(...arguments),this.disabled=!1,this.ripple=!1,this.role="button",this.rippleCleanUp=null}render(){return c`<slot></slot>`}attributeChangedCallback(i,e,t){switch(super.attributeChangedCallback(i,e,t),i){case"ripple":this.rippleCleanUp!==null&&(this.rippleCleanUp(),this.rippleCleanUp=null),t!==null&&(this.rippleCleanUp=_e(this));break}}};se([a({type:String,attribute:"color",reflect:!0})],R.prototype,"color",2),se([a({type:String,attribute:"variant",reflect:!0})],R.prototype,"variant",2),se([a({type:Boolean,attribute:"disabled"})],R.prototype,"disabled",2),se([a({type:Boolean,attribute:"ripple"})],R.prototype,"ripple",2),R=se([g("ui-button")],R);const mt=R;var Zr=Object.defineProperty,Nr=Object.getOwnPropertyDescriptor,ne=(i,e,t,o)=>{for(var r=o>1?void 0:o?Nr(e,t):e,s=i.length-1,n;s>=0;s--)(n=i[s])&&(r=(o?n(e,t,r):n(r))||r);return o&&r&&Zr(e,t,r),r};let D=class extends d{constructor(){super(...arguments),this.ghost=!1,this.disabled=!1,this.ripple=!1,this.role="button",this.rippleCleanUp=null}render(){return c`<slot></slot>`}attributeChangedCallback(i,e,t){switch(super.attributeChangedCallback(i,e,t),i){case"ripple":this.rippleCleanUp!==null&&(this.rippleCleanUp(),this.rippleCleanUp=null),t!==null&&(this.rippleCleanUp=_e(this));break}}};ne([a({type:String,attribute:"color",reflect:!0})],D.prototype,"color",2),ne([a({type:Boolean,attribute:"ghost"})],D.prototype,"ghost",2),ne([a({type:Boolean,attribute:"disabled"})],D.prototype,"disabled",2),ne([a({type:Boolean,attribute:"ripple"})],D.prototype,"ripple",2),D=ne([g("ui-icon-button")],D);const Fr=D;var qr=Object.defineProperty,Wr=Object.getOwnPropertyDescriptor,B=(i,e,t,o)=>{for(var r=o>1?void 0:o?Wr(e,t):e,s=i.length-1,n;s>=0;s--)(n=i[s])&&(r=(o?n(e,t,r):n(r))||r);return o&&r&&qr(e,t,r),r};let x=class extends d{constructor(){super(...arguments),this.title="",this.fullscreen="",this.noFooter="",this.open=!1,this.modal=!1,this.inert=!1}static get styles(){return f`
             * {
                 box-sizing: border-box;
             }
