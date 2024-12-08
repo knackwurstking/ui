@@ -11,6 +11,7 @@
 **General**:
 
 -   Bundled formats "umd" (global: `window.ui`) and "es"
+-   Style (CSS) changes
 -   Code clean up
 
 **Added**:
@@ -29,9 +30,10 @@
     -   .ui-no-touch
     -   .ui-ripple
 -   Added CSS components:
+    -   .ui-button, .ui-icon-button
+    -   .ui-container .fluid, .card, .muted
     -   .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
     -   .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]
-    -   .ui-container .fluid, .card, .muted
 
 **Updated**:
 
