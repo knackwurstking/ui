@@ -8,7 +8,7 @@ ui-app-bar,
 }
 
 ui-app-bar::part(container),
-ui-app-bar.container {
+.ui-app-bar.container {
     height: 100%;
     width: 100%;
 }
