@@ -44,55 +44,67 @@ ui-icon-button,
  * Button Styles
  */
 
+ui-button[variant="full"],
 .ui-button[variant="full"] {
     border-color: transparent;
 }
 
+ui-button[variant="full"][color="primary"],
 .ui-button[variant="full"][color="primary"] {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }
 
+ui-button[variant="full"][color="secondary"],
 .ui-button[variant="full"][color="secondary"] {
     background-color: var(--ui-secondary);
     color: var(--ui-secondary-text);
 }
 
+ui-button[variant="full"][color="destructive"],
 .ui-button[variant="full"][color="destructive"] {
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
 }
 
+ui-button[variant="outline"],
 .ui-button[variant="outline"] {
     border-color: currentColor;
     background-color: transparent;
 }
 
+ui-button[variant="outline"][color="primary"],
 .ui-button[variant="outline"][color="primary"] {
     color: var(--ui-primary);
 }
 
+ui-button[variant="outline"][color="secondary"],
 .ui-button[variant="outline"][color="secondary"] {
     color: var(--ui-secondary);
 }
 
+ui-button[variant="outline"][color="destructive"],
 .ui-button[variant="outline"][color="destructive"] {
     color: var(--ui-destructive);
 }
 
+ui-button[variant="ghost"],
 .ui-button[variant="ghost"] {
     border-color: transparent;
     background-color: transparent;
 }
 
+ui-button[variant="ghost"][color="primary"],
 .ui-button[variant="ghost"][color="primary"] {
     color: var(--ui-primary);
 }
 
+ui-button[variant="ghost"][color="secondary"],
 .ui-button[variant="ghost"][color="secondary"] {
     color: var(--ui-secondary);
 }
 
+ui-button[variant="ghost"][color="destructive"],
 .ui-button[variant="ghost"][color="destructive"] {
     color: var(--ui-destructive);
 }
@@ -101,25 +113,30 @@ ui-icon-button,
  * Icon Button Styles
  */
 
+ui-icon-button[color="primary"],
 .ui-icon-button[color="primary"] {
     color: var(--ui-primary);
     border-color: var(--ui-primary);
 }
 
+ui-icon-button[color="secondary"],
 .ui-icon-button[color="secondary"] {
     color: var(--ui-secondary);
     border-color: var(--ui-secondary);
 }
 
+ui-icon-button[color="destructive"],
 .ui-icon-button[color="destructive"] {
     color: var(--ui-destructive);
     border-color: var(--ui-destructive);
 }
 
+ui-icon-button[ghost],
 .ui-icon-button[ghost] {
     border-color: transparent;
 }
 
+ui-icon-button > *,
 .ui-icon-button > * {
     width: 100%;
     height: 100%;

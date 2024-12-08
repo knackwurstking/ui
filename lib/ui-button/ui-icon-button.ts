@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { CleanUpFunction } from "../global";
 import { ripple } from "../utils";
@@ -28,52 +28,8 @@ class UIIconButton extends LitElement {
 
     private rippleCleanUp: CleanUpFunction | null = null;
 
-    static get styles() {
-        return css`
-            :host {
-                border: 1px solid currentColor;
-            }
-
-            :host([ghost]) {
-                border-color: transparent !important;
-                box-shadow: none;
-            }
-
-            :host([color="primary"]) {
-                color: var(--ui-primary);
-                border-color: var(--ui-primary));
-            }
-
-            :host([color="secondary"]) {
-                color: var(--ui-secondary);
-                border-color: var(--ui-secondary);
-            }
-
-            :host([color="destructive"]) {
-                color: var(--ui-destructive);
-                border-color: var(--ui-destructive);
-            }
-
-            /* :disabled */
-
-            :host([disabled]),
-            :host([disabled]:hover),
-            :host([disabled]:active) {
-                opacity: 0.25;
-                cursor: default;
-                pointer-events: none;
-            }
-
-            ui-svg {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        `;
-    }
-
     protected render() {
-        return html`<ui-svg><slot></slot></ui-svg>`;
+        return html`<slot></slot>`;
     }
 
     attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
