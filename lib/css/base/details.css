@@ -3,6 +3,10 @@ details {
     border-radius: var(--ui-radius);
 }
 
+details:not([open]) > *:not(summary) {
+    display: none;
+}
+
 summary {
     display: flex;
     align-items: center;
