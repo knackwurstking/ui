@@ -1,3 +1,5 @@
+import "./css/main.css"; // NOTE: Need this line for the "style.css" inside the "/dist" directory
+
 export * from "./global";
 export * from "./utils";
 
