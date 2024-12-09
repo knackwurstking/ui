@@ -19,24 +19,8 @@
 **Added**:
 
 - Added `[disabled]` to css custom
-- Added CSS utils (old utils remove/renamed):
-  - .ui-primary, .ui-secondary, .ui-destructive, ui-card, .ui-muted
-  - .ui-dragging
-  - .ui-flex, ...
-  - .ui-backdrop-blur
-  - .ui-border
-  - .ui-debug
-  - .ui-outline-text
-  - .ui-no-user-select
-  - .ui-no-scrollbar
-  - .ui-no-touch
-  - .ui-ripple
-- Added CSS components:
-  - .ui-button, .ui-icon-button
-  - .ui-container .fluid, .ui-card, .ui-muted
-  - .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
-  - .ui-svg
-  - .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]
+- Added CSS utils (old utils remove/renamed) [@TODO: Link documentation here]
+- Added CSS components [@TODO: Link documentation here]
 
 **Updated**:
 
