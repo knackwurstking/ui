@@ -8,27 +8,23 @@ export default html`
         xmlns="http://www.w3.org/2000/svg"
     >
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-        <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        ></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
         <g id="SVGRepo_iconCarrier">
             <style type="text/css">
                 .st0 {
-                    fill: var(--ui-svg-bg, red);
+                    fill: var(--ui-svg-fill, red);
                     transition: fill 0.25s linear;
                 }
                 .st1 {
                     opacity: 0.2;
                 }
                 .st2 {
-                    fill: var(--ui-svg-bg, red);
+                    fill: var(--ui-svg-fill, red);
                     transition: fill 0.25s linear;
                 }
                 .st3 {
                     fill: none;
-                    stroke: var(--ui-svg-fg, currentColor);
+                    stroke: var(--ui-svg-stroke, currentColor);
                     stroke-width: 4;
                     stroke-linecap: round;
                     stroke-miterlimit: 10;
