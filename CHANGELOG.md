@@ -3,6 +3,7 @@
 ## v2.0.0 [unreleased]
 
 - [ ] ~Add basic styles to the `popover` and `popovertarget` global attribute~
+- [ ] Remove ripple from component attributes: label?
 
 **Breaking Changes**:
 
@@ -44,6 +45,7 @@
 **Removed**:
 
 - Removed the `UISvg` lit component and replaced it with a CSS `ui-svg`
+- Removed ripple attribute from `UIButton` and `UIIconButton` components
 
 ## v1.1.1 — [2024-11-20]
 

@@ -1,9 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-import { CleanUpFunction } from "../global";
-import { ripple } from "../utils";
-
 export type UIIconButtonColor = "primary" | "secondary" | "destructive";
 
 /**
@@ -22,13 +19,8 @@ class UIIconButton extends LitElement {
     @property({ type: Boolean, attribute: "disabled" })
     disabled: Boolean = false;
 
-    @property({ type: Boolean, attribute: "ripple" })
-    ripple: Boolean = false;
-
     role: string | null = "button";
     tabIndex: number = 0;
-
-    private rippleCleanUp: CleanUpFunction | null = null;
 
     static get styles() {
         return css`
@@ -98,24 +90,6 @@ class UIIconButton extends LitElement {
 
     protected render() {
         return html`<slot></slot>`;
-    }
-
-    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
-        super.attributeChangedCallback(name, _old, value);
-
-        switch (name) {
-            case "ripple":
-                if (this.rippleCleanUp !== null) {
-                    this.rippleCleanUp();
-                    this.rippleCleanUp = null;
-                }
-
-                if (value !== null) {
-                    this.rippleCleanUp = ripple.create(this);
-                }
-
-                break;
-        }
     }
 }
 

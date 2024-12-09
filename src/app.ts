@@ -51,7 +51,7 @@ export class MainApp extends LitElement {
 
             <section class="ui-flex-grid" style="padding-top: var(--ui-app-bar-height);">
                 <details>
-                    <summary>UI: Button</summary>
+                    <summary ripple>UI: Button</summary>
 
                     <div
                         class="ui-flex justify-center"
@@ -76,7 +76,7 @@ export class MainApp extends LitElement {
                 </details>
 
                 <details>
-                    <summary>UI: Text</summary>
+                    <summary ripple>UI: Text</summary>
 
                     <!-- TODO: Add all button (colors, variants) here -->
                 </details>
@@ -85,7 +85,7 @@ export class MainApp extends LitElement {
     }
 
     protected updated(_changedProperties: PropertyValues): void {
-        for (const summary of this.querySelectorAll<HTMLElement>(`details > summary`)) {
+        for (const summary of this.querySelectorAll<HTMLElement>(`[ripple]`)) {
             ui.ripple.create(summary);
         }
     }
