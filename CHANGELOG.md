@@ -8,6 +8,7 @@
 **Breaking Changes**:
 
 - Changed all color theme variables
+- Removed `UISvg` lit component
 
 **General**:
 
