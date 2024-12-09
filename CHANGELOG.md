@@ -5,7 +5,6 @@
 - [ ] ~Add basic styles to the `popover` and `popovertarget` global attribute~
 - [ ] Remove ui-button & ui-icon-button components when transition to CSS components are done
 - [ ] Remove all flex-grid components when transition to CSS components are done
-- [ ] Remove ui-svg component
 
 **Breaking Changes**:
 
@@ -43,6 +42,10 @@
 
 - Updated library documentation, CSS and JS documentation utils still missing
 - Updated demo/test page from (src directory)
+
+**Removed**:
+
+- Removed the `UISvg` lit component and replaced it with a CSS `ui-svg`
 
 ## v1.1.1 — [2024-11-20]
 
