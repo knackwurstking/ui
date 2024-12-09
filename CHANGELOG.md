@@ -3,7 +3,6 @@
 ## v2.0.0 [unreleased]
 
 - [ ] ~Add basic styles to the `popover` and `popovertarget` global attribute~
-- [ ] Remove ripple from component attributes: label?
 
 **Breaking Changes**:
 
