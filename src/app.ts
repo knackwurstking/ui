@@ -25,34 +25,33 @@ export class MainApp extends LitElement {
             <ui-theme-handler themes-path="/themes" theme="original" auto></ui-theme-handler>
 
             <ui-app-bar position="top" fixed>
-                <span class="ui-icon-button ui-ripple" ghost slot="left">
+                <ui-icon-button ghost ripple slot="left">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.menu)}
-                </span>
+                </ui-icon-button>
 
-                <span class="ui-icon-button ui-ripple" ghost slot="left">
+                <ui-icon-button ghost ripple slot="left">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.chevronLeft)}
-                </span>
+                </ui-icon-button>
 
                 <span class="ui-text-heading-4" slot="center">UI</span>
-
                 <span class="ui-text-heading-4" slot="center">${constants.version}</span>
 
-                <span class="ui-icon-button ui-ripple" ghost slot="right">
+                <ui-icon-button ghost ripple slot="right">
                     ${unsafeHTML(ui.svg.misc.cornflakesOpenBox)}
-                </span>
+                </ui-icon-button>
 
-                <span class="ui-icon-button ui-ripple" ghost slot="right">
+                <ui-icon-button ghost ripple slot="right">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.printer)}
-                </span>
+                </ui-icon-button>
 
-                <span class="ui-icon-button ui-ripple" ghost slot="right">
+                <ui-icon-button ghost ripple slot="right">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.search)}
-                </span>
+                </ui-icon-button>
             </ui-app-bar>
 
             <section class="ui-flex-grid" style="padding-top: var(--ui-app-bar-height);">
                 <details>
-                    <summary class="ui-ripple">UI: Button</summary>
+                    <summary>UI: Button</summary>
 
                     <div
                         class="ui-flex justify-center"
@@ -63,26 +62,32 @@ export class MainApp extends LitElement {
                         </label>
                     </div>
 
-                    <div class="ui-flex-grid-row" style="--wrap: wrap;" id="no-variant-buttons">
-                        <button class="ui-ripple">Raw (HTML)</button>
+                    <ui-flex-grid-row id="no-variant-buttons" gap="0.5rem" wrap>
+                        <button>Raw (HTML)</button>
 
-                        <button class="ui-button ui-ripple">Default</button>
+                        <ui-button ripple>Default</ui-button>
 
-                        <button class="ui-button ui-ripple" color="primary">Primary</button>
+                        <ui-button color="primary" ripple>Primary</ui-button>
 
-                        <button class="ui-button ui-ripple" color="secondary">Secondary</button>
+                        <ui-button color="secondary" ripple>Secondary</ui-button>
 
-                        <button class="ui-button ui-ripple" color="destructive">Destructive</button>
-                    </div>
+                        <ui-button color="destructive" ripple>Destructive</ui-button>
+                    </ui-flex-grid-row>
                 </details>
 
                 <details>
-                    <summary class="ui-ripple">UI: Text</summary>
+                    <summary>UI: Text</summary>
 
                     <!-- TODO: Add all button (colors, variants) here -->
                 </details>
             </section>
         `;
+    }
+
+    protected updated(_changedProperties: PropertyValues): void {
+        for (const summary of this.querySelectorAll<HTMLElement>(`details > summary`)) {
+            ui.ripple.create(summary);
+        }
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
