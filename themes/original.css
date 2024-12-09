@@ -1,19 +1,5 @@
 :root {
     --ui-hue: 240;
-
-    /*
-        --sl-50: 0%, 98%; #fafafa
-        --sl-100: 5%, 96%; #f4f4f5
-        --sl-200: 6%, 90%; #e4e4e7
-        --sl-300: 5%, 84%; #d4d4d8
-        --sl-400: 5%, 65%; #a1a1aa
-        --sl-500: 4%, 46%; #71717a
-        --sl-600: 5%, 34%; #52525b
-        --sl-700: 5%, 26%; #3f3f46
-        --sl-800: 4%, 16%; #27272a
-        --sl-900: 6%, 10%; #18181b
-        --sl-950: 10%, 4%; #09090b
-    */
 }
 
 [data-theme="light"] {
@@ -21,20 +7,20 @@
      * Basics
      */
 
-    --ui-bg: hsl(var(--ui-hue), 0%, 98%); /* 50 */
-    --ui-primary: hsl(var(--ui-hue), 10%, 10%); /* 900 */
-    --ui-secondary: hsl(var(--ui-hue), 4%, 46%); /* 500 */
+    --ui-bg: hsl(var(--ui-hue), 0%, 98%);
+    --ui-primary: hsl(var(--ui-hue), 25%, 80%);
+    --ui-secondary: hsl(var(--ui-hue), 4%, 46%);
     --ui-destructive: hsl(0, 72%, 51%);
 
-    --ui-text: hsl(var(--ui-hue), 4%, 16%); /* 800 */
-    --ui-input-text: hsl(var(--ui-hue), 10%, 4%); /* 950 */
-    --ui-primary-text: hsl(var(--ui-hue), 5%, 96%); /* 100 */
-    --ui-secondary-text: hsl(var(--ui-hue), 0%, 98%); /* 50 */
+    --ui-text: hsl(var(--ui-hue), 4%, 16%);
+    --ui-input-text: hsl(var(--ui-hue), 10%, 4%);
+    --ui-primary-text: hsl(var(--ui-hue), 5%, 96%);
+    --ui-secondary-text: hsl(var(--ui-hue), 0%, 98%);
     --ui-destructive-text: hsl(0, 72%, 92%);
 
-    --ui-borderColor: hsl(var(--ui-hue), 5%, 84%); /* 300 */
+    --ui-borderColor: hsl(var(--ui-hue), 5%, 84%);
     --ui-backdrop: hsla(var(--ui-hue), 0%, 98%, 0.2);
-    --ui-ripple: hsla(var(--ui-hue), 10%, 10%, 0.2); /* sl 900 */
+    --ui-ripple: hsla(var(--ui-hue), 25%, 80%, 0.2);
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
@@ -49,8 +35,8 @@
      * Muted: code, pre
      */
 
-    --ui-muted: hsl(var(--ui-hue), 5%, 84%); /* 300 */
-    --ui-muted-text: hsl(var(--ui-hue), 5%, 26%); /* 700 */
+    --ui-muted: hsl(var(--ui-hue), 5%, 84%);
+    --ui-muted-text: hsl(var(--ui-hue), 5%, 26%);
     --ui-muted-borderColor: var(--ui-borderColor);
 
     /*
@@ -72,20 +58,20 @@
      * Basics
      */
 
-    --ui-bg: hsl(var(--ui-hue), 10%, 4%); /* 950 */
-    --ui-primary: hsl(var(--ui-hue), 10%, 90%); /* 100 */
-    --ui-secondary: hsl(var(--ui-hue), 4%, 46%); /* 500 */
-    --ui-destructive: 0, 63%, 31%;
+    --ui-bg: hsl(var(--ui-hue), 10%, 4%);
+    --ui-primary: hsl(var(--ui-hue), 25%, 80%);
+    --ui-secondary: hsl(var(--ui-hue), 4%, 46%);
+    --ui-destructive: hsl(0, 63%, 31%);
 
-    --ui-text: hsl(var(--ui-hue), 6%, 90%); /* 200 */
-    --ui-input-text: hsl(var(--ui-hue), 0%, 98%); /* 50 */
-    --ui-primary-text: hsl(var(--ui-hue), 10%, 4%); /* 900 */
-    --ui-secondary-text: hsl(var(--ui-hue), 10%, 4%); /* 950 */
+    --ui-text: hsl(var(--ui-hue), 6%, 90%);
+    --ui-input-text: hsl(var(--ui-hue), 0%, 98%);
+    --ui-primary-text: hsl(var(--ui-hue), 10%, 4%);
+    --ui-secondary-text: hsl(var(--ui-hue), 10%, 4%);
     --ui-destructive-text: hsl(0, 63%, 92%);
 
-    --ui-borderColor: hsl(var(--ui-hue), 5%, 26%); /* 700 */
+    --ui-borderColor: hsl(var(--ui-hue), 5%, 26%);
     --ui-backdrop: hsla(var(--ui-hue), 10%, 4%, 0.2);
-    --ui-ripple: hsla(var(--ui-hue), 10%, 90%, 0.2); /* sl 100 */
+    --ui-ripple: hsla(var(--ui-hue), 25%, 80%, 0.2);
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
@@ -100,16 +86,16 @@
      * Muted: code, pre
      */
 
-    --ui-muted: hsl(var(--ui-hue), 5%, 26%); /* 700 */
-    --ui-muted-text: hsl(var(--ui-hue), 5%, 84%); /* 300 */
+    --ui-muted: hsl(var(--ui-hue), 5%, 26%);
+    --ui-muted-text: hsl(var(--ui-hue), 5%, 84%);
     --ui-muted-borderColor: var(--ui-borderColor);
 
     /*
      * ui-card
      */
 
-    --ui-card: hsl(var(--ui-hue), 4%, 16%); /* 800 */
-    --ui-card-text: hsl(var(--ui-hue), 6%, 90%); /* 200 */
+    --ui-card: hsl(var(--ui-hue), 4%, 16%);
+    --ui-card-text: hsl(var(--ui-hue), 6%, 90%);
     --ui-card-borderColor: var(--ui-borderColor);
 
     background-color: var(--ui-bg);
