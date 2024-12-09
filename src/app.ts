@@ -1,6 +1,7 @@
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import "../lib/css/main.css";
 //import "../dist/ui.min.umd.cjs";
-import "../lib/index";
+import * as ui from "../lib/index";
 
 import { html, LitElement, PropertyValues } from "lit";
 import { customElement } from "lit/decorators.js";
@@ -22,18 +23,25 @@ export class MainApp extends LitElement {
             <ui-theme-handler themes-path="/themes" theme="original" auto></ui-theme-handler>
 
             <ui-app-bar position="top" fixed>
-                <!-- TODO: Add icons here for testing -->
-                <span class="ui-icon-button ui-ripple" ghost slot="left">1</span>
-                <span class="ui-icon-button ui-ripple" ghost slot="left">2</span>
-                <span class="ui-icon-button ui-ripple" ghost slot="left">3</span>
+                <span class="ui-icon-button ui-ripple" ghost slot="left">
+                    ${unsafeHTML(ui.svg.smoothieLineIcons.menu)}
+                </span>
+                <span class="ui-icon-button ui-ripple" ghost slot="left">
+                    ${unsafeHTML(ui.svg.smoothieLineIcons.chevronLeft)}
+                </span>
 
-                <span class="ui-text-heading-4" slot="center">App Bar Title</span>
-                <span class="ui-text-heading-4" slot="center">Another Title</span>
+                <span class="ui-text-heading-4" slot="center">Title</span>
+                <span class="ui-text-heading-4" slot="center">Sub Title</span>
 
-                <!-- TODO: Add more icons here for testing -->
-                <span class="ui-icon-button ui-ripple" ghost slot="right">1</span>
-                <span class="ui-icon-button ui-ripple" ghost slot="right">2</span>
-                <span class="ui-icon-button ui-ripple" ghost slot="right">3</span>
+                <span class="ui-icon-button ui-ripple" ghost slot="right">
+                    ${unsafeHTML(ui.svg.misc.cornflakesOpenBox)}
+                </span>
+                <span class="ui-icon-button ui-ripple" ghost slot="right">
+                    ${unsafeHTML(ui.svg.smoothieLineIcons.printer)}
+                </span>
+                <span class="ui-icon-button ui-ripple" ghost slot="right">
+                    ${unsafeHTML(ui.svg.smoothieLineIcons.search)}
+                </span>
             </ui-app-bar>
 
             <section class="ui-flex-grid" style="padding-top: var(--ui-app-bar-height);">
