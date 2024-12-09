@@ -8,7 +8,6 @@
     -webkit-tap-highlight-color: transparent; /* For some Androids */
     box-sizing: border-box;
     position: relative;
-    outline: none;
     font-variation-settings: inherit;
 }
 

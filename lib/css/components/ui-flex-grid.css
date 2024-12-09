@@ -12,14 +12,6 @@
     gap: var(--gap, 0.25rem);
 }
 
-.ui-flex-grid > *:first-child {
-    margin-top: 0 !important;
-}
-
-.ui-flex-grid > *:last-child {
-    margin-bottom: 0 !important;
-}
-
 .ui-flex-grid-row {
     display: flex;
     flex-direction: row;
@@ -32,14 +24,6 @@
     min-height: fit-content;
 
     gap: var(--gap, 0.25rem);
-}
-
-.ui-flex-grid-row > *:first-child {
-    margin-left: 0 !important;
-}
-
-.ui-flex-grid-row > *:last-child {
-    margin-bottom: 0 !important;
 }
 
 .ui-flex-grid-item {

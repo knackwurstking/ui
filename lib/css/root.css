@@ -25,5 +25,6 @@
 
     --ui-backdropFilter: blur(5px);
 
+    --ui-ripple: currentColor;
     --ui-ripple-opacity: 0.2;
 }

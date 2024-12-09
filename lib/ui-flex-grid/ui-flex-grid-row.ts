@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-const defaultGap = "0";
+const defaultGap = "0.25rem";
 
 /**
  * @element ui-flex-grid-row
@@ -10,40 +10,32 @@ const defaultGap = "0";
  */
 @customElement("ui-flex-grid-row")
 class UIFlexGridRow extends LitElement {
-    @property({ type: String, attribute: "gap" })
+    @property({ type: String, attribute: "gap", reflect: true })
     gap: string = defaultGap;
 
-    @property({ type: String, attribute: "justify" })
+    @property({ type: String, attribute: "justify", reflect: true })
     justify?: string;
 
-    @property({ type: String, attribute: "align" })
+    @property({ type: String, attribute: "align", reflect: true })
     align?: string;
 
-    @property({ type: String, attribute: "wrap" })
-    wrap?: string;
+    @property({ type: Boolean, attribute: "wrap", reflect: true })
+    wrap?: boolean;
 
     static get styles() {
         return css`
             :host {
                 display: flex;
-                flex-direction: row !important;
+                flex-direction: row;
                 flex-flow: row var(--_wrap, nowrap);
+
                 justify-content: var(--_justify);
                 align-items: var(--_align);
 
                 width: 100%;
-            }
+                min-height: fit-content;
 
-            :host > ::slotted(*) {
-                margin: 0 var(--_gap, 0) !important;
-            }
-
-            :host > ::slotted(*:first-child) {
-                margin-left: 0 !important;
-            }
-
-            :host > ::slotted(*:last-child) {
-                margin-right: 0 !important;
+                gap: var(--_gap, 0.25rem);
             }
         `;
     }
@@ -52,11 +44,7 @@ class UIFlexGridRow extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {
@@ -76,8 +64,8 @@ class UIFlexGridRow extends LitElement {
                 break;
 
             case "wrap":
-                if (!value) this.style.removeProperty("--_wrap");
-                else this.style.setProperty(`--_wrap`, value || "");
+                if (value === null) this.style.removeProperty("--_wrap");
+                else this.style.setProperty(`--_wrap`, "wrap");
                 break;
         }
     }

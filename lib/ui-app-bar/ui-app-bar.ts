@@ -31,7 +31,6 @@ class UIAppBar<N extends string> extends LitElement {
                 z-index: 999;
 
                 display: flex;
-                flex-direction: row;
                 flex-flow: row nowrap;
                 align-items: center;
                 justify-content: space-between;
@@ -45,6 +44,8 @@ class UIAppBar<N extends string> extends LitElement {
                 background-color: var(--ui-backdrop);
                 -webkit-backdrop-filter: var(--ui-backdropFilter);
                 backdrop-filter: var(--ui-backdropFilter);
+
+                gap: var(--ui-spacing, 0.25rem);
             }
 
             :host([position="top"]),
@@ -88,20 +89,20 @@ class UIAppBar<N extends string> extends LitElement {
 
     protected render() {
         return html`
-            <ui-flex-grid-row part="container left" gap="0.25rem" align="center">
+            <ui-flex-grid-row class="container left" part="container left" align="center">
                 <slot name="left"></slot>
             </ui-flex-grid-row>
 
             <ui-flex-grid-row
+                class="container center"
                 part="container center"
-                gap="0.25rem"
                 style="overflow: hidden;"
                 align="center"
             >
                 <slot name="center"></slot>
             </ui-flex-grid-row>
 
-            <ui-flex-grid-row part="container right" gap="0.25rem" align="center">
+            <ui-flex-grid-row class="container right" part="container right" align="center">
                 <slot name="right"></slot>
             </ui-flex-grid-row>
         `;

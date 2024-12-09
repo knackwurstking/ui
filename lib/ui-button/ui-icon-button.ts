@@ -26,11 +26,46 @@ class UIIconButton extends LitElement {
     ripple: Boolean = false;
 
     role: string | null = "button";
+    tabIndex: number = 0;
 
     private rippleCleanUp: CleanUpFunction | null = null;
 
     static get styles() {
         return css`
+            :host {
+                text-transform: capitalize;
+
+                font-size: 1.1rem;
+                font-family: var(--ui-fontFamily);
+                font-variation-settings:
+                    "MONO" var(--ui-mon),
+                    "CASL" var(--ui-casl),
+                    "wght" 450,
+                    "slnt" var(--ui-slnt),
+                    "CRSV" var(--ui-crsv);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                -ms-user-select: none;
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
+
+                overflow: hidden;
+
+                cursor: pointer;
+
+                border: 1px solid currentColor;
+                border-radius: var(--ui-radius);
+
+                padding: calc(var(--ui-spacing) / 2);
+
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
             :host([color="primary"]) {
                 color: var(--ui-primary);
                 border-color: var(--ui-primary);

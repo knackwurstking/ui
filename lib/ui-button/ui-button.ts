@@ -27,6 +27,7 @@ class UIButton extends LitElement {
     ripple: Boolean = false;
 
     role: string | null = "button";
+    tabIndex: number = 0;
 
     private rippleCleanUp: CleanUpFunction | null = null;
 
@@ -44,7 +45,7 @@ class UIButton extends LitElement {
                     "slnt" var(--ui-slnt),
                     "CRSV" var(--ui-crsv);
 
-                display: inline-flex;
+                display: flex;
                 align-items: center;
                 justify-content: center;
 
@@ -61,12 +62,6 @@ class UIButton extends LitElement {
                 border-radius: var(--ui-radius);
 
                 padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
-            }
-
-            :host {
-                padding: calc(var(--ui-spacing) / 2);
-                width: 2.5rem;
-                height: 2.5rem;
             }
 
             /* Button Styles: no variant */

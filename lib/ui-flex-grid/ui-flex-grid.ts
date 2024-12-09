@@ -25,7 +25,7 @@ class UIFlexGrid extends LitElement {
     static get styles() {
         return css`
             :host {
-                display: flex;
+                display: flex !important;
                 flex-direction: column !important;
                 flex-flow: column var(--_wrap, nowrap);
                 justify-content: var(--_justify);
@@ -34,18 +34,8 @@ class UIFlexGrid extends LitElement {
                 position: relative;
                 width: 100%;
                 height: fit-content;
-            }
 
-            :host > ::slotted(*) {
-                margin: var(--_gap, 0) 0 !important;
-            }
-
-            :host > ::slotted(*:first-child) {
-                margin-top: 0 !important;
-            }
-
-            :host > ::slotted(*:last-child) {
-                margin-bottom: 0 !important;
+                gap: var(--_gap);
             }
         `;
     }
@@ -54,11 +44,7 @@ class UIFlexGrid extends LitElement {
         return html`<slot></slot>`;
     }
 
-    attributeChangedCallback(
-        name: string,
-        _old: string | null,
-        value: string | null,
-    ): void {
+    attributeChangedCallback(name: string, _old: string | null, value: string | null): void {
         super.attributeChangedCallback(name, _old, value);
 
         switch (name) {
