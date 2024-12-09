@@ -1,5 +1,3 @@
-import "./css/main.css";
-
 export * from "./global";
 export * from "./utils";
 
