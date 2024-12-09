@@ -53,10 +53,6 @@ ui-button[color],
     border-color: transparent;
 }
 
-/* TODO: Modify ripple color here
-    --ui-ripple: hsla(var(--ui-hue), 25%, 80%, 0.2);
-*/
-
 ui-button[color="primary"],
 .ui-button[color="primary"] {
     background-color: var(--ui-primary);

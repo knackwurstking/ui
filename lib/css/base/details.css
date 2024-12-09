@@ -1,5 +1,6 @@
 details {
     padding: var(--ui-spacing);
+    border-radius: var(--ui-radius);
 }
 
 summary {
@@ -10,6 +11,7 @@ summary {
     padding: var(--ui-spacing);
 
     border-radius: var(--ui-radius);
+    overflow: hidden;
 
     list-style: none;
     cursor: pointer;

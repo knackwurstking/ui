@@ -8,19 +8,29 @@
      */
 
     --ui-bg: hsl(var(--ui-hue), 0%, 98%);
-    --ui-primary: hsl(var(--ui-hue), 25%, 80%);
-    --ui-secondary: hsl(var(--ui-hue), 4%, 46%);
+    --ui-primary: hsl(var(--ui-hue), 10%, 10%);
+    --ui-secondary: hsl(var(--ui-hue), 5%, 65%);
     --ui-destructive: hsl(0, 72%, 51%);
 
     --ui-text: hsl(var(--ui-hue), 4%, 16%);
     --ui-input-text: hsl(var(--ui-hue), 10%, 4%);
     --ui-primary-text: hsl(var(--ui-hue), 5%, 96%);
-    --ui-secondary-text: hsl(var(--ui-hue), 0%, 98%);
+    --ui-secondary-text: hsl(var(--ui-hue), 4%, 16%);
     --ui-destructive-text: hsl(0, 72%, 92%);
 
     --ui-borderColor: hsl(var(--ui-hue), 5%, 84%);
     --ui-backdrop: hsla(var(--ui-hue), 0%, 98%, 0.2);
-    --ui-ripple: hsla(var(--ui-hue), 25%, 80%, 0.2);
+
+    --ui-ripple: hsla(var(--ui-hue), 4%, 16%, 0.1); /* --ui-text */
+
+    --ui-primary-ripple: hsla(var(--ui-hue), 10%, 10%, 0.1);
+    --ui-primary-ripple-text: hsla(var(--ui-hue), 5%, 96%, 0.1);
+
+    --ui-secondary-ripple: hsla(var(--ui-hue), 5%, 65%, 0.1);
+    --ui-secondary-ripple-text: hsla(var(--ui-hue), 4%, 16%, 0.1);
+
+    --ui-destructive-ripple: hsla(0, 72%, 51%, 0.1);
+    --ui-destructive-ripple-text: hsla(0, 72%, 92%, 0.1);
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
@@ -59,19 +69,29 @@
      */
 
     --ui-bg: hsl(var(--ui-hue), 10%, 4%);
-    --ui-primary: hsl(var(--ui-hue), 25%, 80%);
-    --ui-secondary: hsl(var(--ui-hue), 4%, 46%);
+    --ui-primary: hsl(var(--ui-hue), 10%, 90%);
+    --ui-secondary: hsl(var(--ui-hue), 5%, 34%);
     --ui-destructive: hsl(0, 63%, 31%);
 
     --ui-text: hsl(var(--ui-hue), 6%, 90%);
     --ui-input-text: hsl(var(--ui-hue), 0%, 98%);
     --ui-primary-text: hsl(var(--ui-hue), 10%, 4%);
-    --ui-secondary-text: hsl(var(--ui-hue), 10%, 4%);
+    --ui-secondary-text: hsl(var(--ui-hue), 6%, 90%);
     --ui-destructive-text: hsl(0, 63%, 92%);
 
     --ui-borderColor: hsl(var(--ui-hue), 5%, 26%);
     --ui-backdrop: hsla(var(--ui-hue), 10%, 4%, 0.2);
-    --ui-ripple: hsla(var(--ui-hue), 25%, 80%, 0.2);
+
+    --ui-ripple: hsla(var(--ui-hue), 6%, 90%, 0.1); /* --ui-text */
+
+    --ui-primary-ripple: hsla(var(--ui-hue), 10%, 90%, 0.1);
+    --ui-primary-ripple-text: hsla(var(--ui-hue), 10%, 4%, 0.1);
+
+    --ui-secondary-ripple: hsla(var(--ui-hue), 5%, 34%, 0.1);
+    --ui-secondary-ripple-text: hsla(var(--ui-hue), 6%, 90%, 0.1);
+
+    --ui-destructive-ripple: hsla(var(--ui-hue), 63%, 31%, 0.1);
+    --ui-destructive-ripple-text: hsla(0, 63%, 92%, 0.1);
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
