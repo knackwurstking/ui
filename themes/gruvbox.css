@@ -51,17 +51,6 @@
     --ui-borderColor: hsl(35, 17%, 59%); /* bg4 */
     --ui-backdrop: hsla(48, 87%, 88%, 0.2);
 
-    --ui-ripple: hsla(0, 0%, 16%, 0.1); /* --ui-text */
-
-    --ui-primary-ripple: hsla(57, 79%, 26%, 0.1);
-    --ui-primary-ripple-text: hsla(48, 87%, 88%, 0.1);
-
-    --ui-secondary-ripple: hsla(30, 12%, 51%, 0.1);
-    --ui-secondary-ripple-text: hsla(48, 87%, 88%, 0.1);
-
-    --ui-destructive-ripple: hsla(358, 100%, 31%, 0.1);
-    --ui-destructive-ripple-text: hsla(6, 96%, 82%, 0.1);
-
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
 
@@ -144,17 +133,6 @@
 
     --ui-borderColor: hsl(28, 11%, 44%); /* bg4 */
     --ui-backdrop: hsla(0, 0%, 16%, 0.2);
-
-    --ui-ripple: hsla(48, 87%, 88%, 0.2); /* --ui-text */
-
-    --ui-primary-ripple: hsla(61, 66%, 44%, 0.1);
-    --ui-primary-ripple-text: hsla(0, 0%, 16%, 0.1);
-
-    --ui-secondary-ripple: hsla(30, 12%, 51%, 0.1);
-    --ui-secondary-ripple-text: hsla(0, 0%, 16%, 0.1);
-
-    --ui-destructive-ripple: hsla(6, 96%, 59%, 0.1);
-    --ui-destructive-ripple-text: hsla(6, 96%, 18%, 0.1);
 
     --ui-info: var(--ui-card);
     --ui-info-text: var(--ui-card-text);
