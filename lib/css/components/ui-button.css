@@ -3,9 +3,7 @@
  */
 
 button,
-ui-button,
 .ui-button,
-ui-icon-button,
 .ui-icon-button {
     text-transform: capitalize;
 
@@ -37,7 +35,6 @@ ui-icon-button,
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
 }
 
-ui-icon-button,
 .ui-icon-button {
     padding: calc(var(--ui-spacing) / 2);
     width: 2.5rem;
@@ -48,24 +45,20 @@ ui-icon-button,
  * Button Styles: no variant
  */
 
-ui-button[color],
 .ui-button[color] {
     border-color: transparent;
 }
 
-ui-button[color="primary"],
 .ui-button[color="primary"] {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }
 
-ui-button[color="secondary"],
 .ui-button[color="secondary"] {
     background-color: var(--ui-secondary);
     color: var(--ui-secondary-text);
 }
 
-ui-button[color="destructive"],
 .ui-button[color="destructive"] {
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
@@ -75,24 +68,20 @@ ui-button[color="destructive"],
  * Button Styles: variant: "full" 
  */
 
-ui-button[variant="full"],
 .ui-button[variant="full"] {
     border-color: transparent;
 }
 
-ui-button[variant="full"][color="primary"],
 .ui-button[variant="full"][color="primary"] {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }
 
-ui-button[variant="full"][color="secondary"],
 .ui-button[variant="full"][color="secondary"] {
     background-color: var(--ui-secondary);
     color: var(--ui-secondary-text);
 }
 
-ui-button[variant="full"][color="destructive"],
 .ui-button[variant="full"][color="destructive"] {
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
@@ -102,23 +91,19 @@ ui-button[variant="full"][color="destructive"],
  * Button Styles: variant: "outline" 
  */
 
-ui-button[variant="outline"],
 .ui-button[variant="outline"] {
     border-color: currentColor;
     background-color: transparent;
 }
 
-ui-button[variant="outline"][color="primary"],
 .ui-button[variant="outline"][color="primary"] {
     color: var(--ui-primary);
 }
 
-ui-button[variant="outline"][color="secondary"],
 .ui-button[variant="outline"][color="secondary"] {
     color: var(--ui-secondary);
 }
 
-ui-button[variant="outline"][color="destructive"],
 .ui-button[variant="outline"][color="destructive"] {
     color: var(--ui-destructive);
 }
@@ -127,23 +112,19 @@ ui-button[variant="outline"][color="destructive"],
  * Button Styles: variant: "ghost" 
  */
 
-ui-button[variant="ghost"],
 .ui-button[variant="ghost"] {
     border-color: transparent;
     background-color: transparent;
 }
 
-ui-button[variant="ghost"][color="primary"],
 .ui-button[variant="ghost"][color="primary"] {
     color: var(--ui-primary);
 }
 
-ui-button[variant="ghost"][color="secondary"],
 .ui-button[variant="ghost"][color="secondary"] {
     color: var(--ui-secondary);
 }
 
-ui-button[variant="ghost"][color="destructive"],
 .ui-button[variant="ghost"][color="destructive"] {
     color: var(--ui-destructive);
 }
@@ -152,30 +133,25 @@ ui-button[variant="ghost"][color="destructive"],
  * Icon Button
  */
 
-ui-icon-button[color="primary"],
 .ui-icon-button[color="primary"] {
     color: var(--ui-primary);
     border-color: var(--ui-primary);
 }
 
-ui-icon-button[color="secondary"],
 .ui-icon-button[color="secondary"] {
     color: var(--ui-secondary);
     border-color: var(--ui-secondary);
 }
 
-ui-icon-button[color="destructive"],
 .ui-icon-button[color="destructive"] {
     color: var(--ui-destructive);
     border-color: var(--ui-destructive);
 }
 
-ui-icon-button[ghost],
 .ui-icon-button[ghost] {
     border-color: transparent;
 }
 
-ui-icon-button > *,
 .ui-icon-button > * {
     width: 100%;
     height: 100%;

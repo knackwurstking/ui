@@ -1,5 +1,6 @@
-import { html, LitElement } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+
 import { CleanUpFunction } from "../global";
 import { ripple } from "../utils";
 
@@ -27,6 +28,38 @@ class UIIconButton extends LitElement {
     role: string | null = "button";
 
     private rippleCleanUp: CleanUpFunction | null = null;
+
+    static get styles() {
+        return css`
+            :host([color="primary"]) {
+                color: var(--ui-primary);
+                border-color: var(--ui-primary);
+            }
+
+            :host([color="secondary"]) {
+                color: var(--ui-secondary);
+                border-color: var(--ui-secondary);
+            }
+
+            :host([color="destructive"]) {
+                color: var(--ui-destructive);
+                border-color: var(--ui-destructive);
+            }
+
+            :host([ghost]) {
+                border-color: transparent;
+            }
+
+            :host > ::slotted(*) {
+                width: 100%;
+                height: 100%;
+
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+        `;
+    }
 
     protected render() {
         return html`<slot></slot>`;

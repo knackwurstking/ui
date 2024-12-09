@@ -27,11 +27,9 @@ class UIAppBar<N extends string> extends LitElement {
 
     static get styles() {
         return css`
-            * {
-                box-sizing: border-box;
-            }
-
             :host {
+                z-index: 999;
+
                 display: flex;
                 flex-direction: row;
                 flex-flow: row nowrap;
@@ -43,6 +41,10 @@ class UIAppBar<N extends string> extends LitElement {
                 overflow: hidden;
 
                 padding: calc(var(--ui-spacing) / 2);
+
+                background-color: var(--ui-backdrop);
+                -webkit-backdrop-filter: var(--ui-backdropFilter);
+                backdrop-filter: var(--ui-backdropFilter);
             }
 
             :host([position="top"]),
@@ -66,6 +68,20 @@ class UIAppBar<N extends string> extends LitElement {
             :host([position="bottom"]) {
                 bottom: 0;
                 border-top: 1px solid var(--ui-borderColor);
+            }
+
+            :host .container {
+                height: 100%;
+                width: 100%;
+            }
+
+            :host .container.left,
+            :host .container.right {
+                width: fit-content;
+            }
+
+            :host ::slotted([slot="center"]) {
+                width: 100%;
             }
         `;
     }

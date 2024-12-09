@@ -3,8 +3,6 @@
 ## v2.0.0 [unreleased]
 
 - [ ] ~Add basic styles to the `popover` and `popovertarget` global attribute~
-- [ ] Remove ui-button & ui-icon-button components when transition to CSS components are done
-- [ ] Remove all flex-grid components when transition to CSS components are done
 
 **Breaking Changes**:
 
@@ -33,7 +31,7 @@
   - .ui-ripple
 - Added CSS components:
   - .ui-button, .ui-icon-button
-  - .ui-container .fluid, .card, .muted
+  - .ui-container .fluid, .ui-card, .ui-muted
   - .ui-flex-grid, .ui-flex-grid-row, .ui-flex-grid-item
   - .ui-svg
   - .ui-text, .ui-text-primary, .ui-text-secondary, .ui-text-heading-[1-6]

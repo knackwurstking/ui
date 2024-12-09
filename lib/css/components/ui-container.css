@@ -12,20 +12,25 @@
     max-width: 100%;
 }
 
-.ui-container.card {
+.ui-card {
+    padding: var(--ui-spacing);
+
     background-color: var(--ui-card);
     color: var(--ui-card-text);
+
     border: 1px solid var(--ui-card-borderColor);
     border-radius: var(--ui-radius);
-    padding: var(--ui-spacing);
 }
 
-.ui-container.muted {
+.ui-muted {
+    padding: var(--ui-spacing);
+
     background-color: var(--ui-muted);
     color: var(--ui-muted-text);
+
     border: 1px solid var(--ui-muted-borderColor);
     border-radius: var(--ui-radius);
-    padding: var(--ui-spacing);
+
     font-family: var(--ui-fontFamily);
     font-variation-settings:
         "MONO" 1,

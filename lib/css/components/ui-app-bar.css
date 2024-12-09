@@ -1,4 +1,3 @@
-ui-app-bar,
 .ui-app-bar {
     z-index: 999;
 
@@ -7,20 +6,16 @@ ui-app-bar,
     backdrop-filter: var(--ui-backdropFilter);
 }
 
-ui-app-bar::part(container),
-.ui-app-bar.container {
+.ui-app-bar container {
     height: 100%;
     width: 100%;
 }
 
-ui-app-bar::part(container left),
-.ui-app-bar.container.left,
-ui-app-bar::part(container right),
-.ui-app-bar.container.right {
+.ui-app-bar container.left,
+.ui-app-bar container.right {
     width: fit-content;
 }
 
-ui-app-bar [slot="center"],
 .ui-app-bar [slot="center"] {
     width: 100%;
 }
