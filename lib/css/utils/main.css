@@ -35,7 +35,7 @@
     user-select: none;
 }
 
-.ui-no-scrollbar {
+.ui-hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
     scroll-behavior: smooth;
@@ -45,8 +45,8 @@
     display: none;
 }
 
-.ui-no-touch,
-.ui-no-touch * {
+.ui-disable-touch,
+.ui-disable-touch * {
     -ms-touch-action: none;
     touch-action: none;
 }
