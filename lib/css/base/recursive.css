@@ -6,8 +6,11 @@ html,
 body {
     font-family: "Recursive";
     font-variation-settings:
-        "MONO" 0,
-        "wght" 400;
+        "MONO" var(--mono, 0),
+        "CASL" var(--casl, 1),
+        "wght" var(--wght, 400),
+        "slnt" var(--slnt, 0),
+        "CRSV" var(--crsv, 0.5);
 }
 
 code,
@@ -18,7 +21,10 @@ samp,
     font-family: "Recursive";
     font-variation-settings:
         "MONO" 1,
-        "wght" 350;
+        "CASL" var(--casl),
+        "wght" 350,
+        "slnt" var(--slnt),
+        "CRSV" var(--crsv);
 }
 
 button,
@@ -31,7 +37,12 @@ textarea {
 
 summary::after {
     font-size: 1.5rem;
-    font-variation-settings: "wght" 700;
+    font-variation-settings:
+        "MONO" var(--mono, 0),
+        "CASL" var(--casl, 1),
+        "wght" 700,
+        "slnt" var(--slnt, 0),
+        "CRSV" var(--crsv, 0.5);
 }
 
 h1,
@@ -45,7 +56,7 @@ h6 {
         "CASL" 1,
         "wght" 750,
         "slnt" 0,
-        "CRSV" var(--ui-crsv, 0.5);
+        "CRSV" var(--ui-crsv);
 }
 
 thead {

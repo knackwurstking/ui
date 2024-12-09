@@ -29,14 +29,7 @@ class UIButton extends LitElement {
                 text-transform: capitalize;
 
                 font-size: 1.1rem;
-                font-family: var(--ui-fontFamily);
-                font-variation-settings:
-                    "MONO" var(--ui-mon),
-                    "CASL" var(--ui-casl),
-                    "wght" 450,
-                    "slnt" var(--ui-slnt),
-                    "CRSV" var(--ui-crsv);
-
+                font-family: inherit;
                 display: flex;
                 align-items: center;
                 justify-content: center;
