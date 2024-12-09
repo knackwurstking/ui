@@ -16,13 +16,6 @@ html {
 }
 
 body {
-    font-family: var(--ui-fontFamily);
-    font-variation-settings:
-        "MONO" var(--ui-mono),
-        "CASL" var(--ui-casl),
-        "wght" var(--ui-wght),
-        "slnt" var(--ui-slnt),
-        "CRSV" var(--ui-crsv);
     font-size: 100%;
     line-height: var(--ui-lineHeight);
 }

@@ -12,13 +12,6 @@ textarea {
     box-shadow: none;
 
     font-size: 0.9rem;
-    font-family: var(--ui-fontFamily);
-    font-variation-settings:
-        "MONO" 1,
-        "CASL" var(--ui-casl),
-        "wght" 375,
-        "slnt" var(--ui-slnt),
-        "CRSV" var(--ui-crsv);
 
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
@@ -45,13 +38,6 @@ select {
     box-shadow: none;
 
     font-size: 0.9rem;
-    font-family: var(--ui-fontFamily);
-    font-variation-settings:
-        "MONO" 1,
-        "CASL" var(--ui-casl),
-        "wght" 375,
-        "slnt" var(--ui-slnt),
-        "CRSV" var(--ui-crsv);
 
     cursor: pointer;
 }

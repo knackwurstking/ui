@@ -1,18 +1,3 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--ui-fontFamily);
-    font-variation-settings:
-        "MONO" 0.25,
-        "CASL" 1,
-        "wght" 750,
-        "slnt" 0,
-        "CRSV" var(--ui-crsv);
-}
-
 h1 {
     font-size: 2rem;
 }

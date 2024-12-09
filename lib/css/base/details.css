@@ -17,6 +17,8 @@ summary {
     border-radius: var(--ui-radius);
     overflow: hidden;
 
+    font-size: 1.1rem;
+
     list-style: none;
     cursor: pointer;
 }
@@ -27,7 +29,6 @@ summary::-webkit-details-marker {
 
 summary::after {
     content: " +";
-    font-weight: bolder;
     font-size: 1.5rem;
     color: var(--ui-primary);
 }
