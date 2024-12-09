@@ -1,5 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
+
 import { svg } from "..";
 
 const defaultGap = "0";
@@ -93,9 +95,9 @@ class UIDrawerGroup extends LitElement {
                         </ui-flex-grid-item>
 
                         <ui-flex-grid-item class="icon" align="center" flex="0">
-                            <ui-svg style="width: 2.5rem; height: 2.5rem;">
-                                ${svg.smoothieLineIcons.chevronDown}
-                            </ui-svg>
+                            <div class="ui-svg" style="width: 2.5rem; height: 2.5rem;">
+                                ${unsafeHTML(svg.smoothieLineIcons.chevronDown)}
+                            </div>
                         </ui-flex-grid-item>
                     </ui-flex-grid-row>
                 </ui-drawer-group-item>

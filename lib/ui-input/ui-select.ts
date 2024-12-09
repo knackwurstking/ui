@@ -1,5 +1,7 @@
 import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
+
 import { svg, UISelectOption } from "..";
 
 /**
@@ -145,9 +147,7 @@ class UISelect extends LitElement {
                     }
                 }}
             >
-                <div class="icon">
-                    <ui-svg>${svg.smoothieLineIcons.chevronDown}</ui-svg>
-                </div>
+                <div class="icon">${unsafeHTML(svg.smoothieLineIcons.chevronDown)}</div>
 
                 <slot></slot>
             </div>

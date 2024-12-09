@@ -16,6 +16,5 @@ export * from "./ui-lang";
 export * from "./ui-spinner";
 export * from "./ui-stack-layout";
 export * from "./ui-store";
-export * from "./ui-svg";
 export * from "./ui-text";
 export * from "./ui-theme-handler";
