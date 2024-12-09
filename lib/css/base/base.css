@@ -1,4 +1,4 @@
-::selection {
+*::selection {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }

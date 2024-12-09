@@ -46,6 +46,7 @@
 
 - Removed the `UISvg` lit component and replaced it with a CSS `ui-svg`
 - Removed ripple attribute from `UIButton` and `UIIconButton` components
+- Removed ripple attribute from `UILabel` component
 
 ## v1.1.1 — [2024-11-20]
 
