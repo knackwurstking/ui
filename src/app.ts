@@ -1,10 +1,12 @@
-import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import "../lib/css/main.css";
 //import "../dist/ui.min.umd.cjs";
-import * as ui from "../lib/index";
 
 import { html, LitElement, PropertyValues } from "lit";
 import { customElement } from "lit/decorators.js";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
+
+import * as ui from "../lib/index";
+import * as constants from "./constants";
 
 @customElement("main-app")
 export class MainApp extends LitElement {
@@ -30,8 +32,8 @@ export class MainApp extends LitElement {
                     ${unsafeHTML(ui.svg.smoothieLineIcons.chevronLeft)}
                 </span>
 
-                <span class="ui-text-heading-4" slot="center">Title</span>
-                <span class="ui-text-heading-4" slot="center">Sub Title</span>
+                <span class="ui-text-heading-4" slot="center">UI</span>
+                <span class="ui-text-heading-4" slot="center">${constants.version}</span>
 
                 <span class="ui-icon-button ui-ripple" ghost slot="right">
                     ${unsafeHTML(ui.svg.misc.cornflakesOpenBox)}
