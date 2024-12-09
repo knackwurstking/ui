@@ -9,6 +9,7 @@
 
 - Changed all color theme variables
 - Removed `UISvg` lit component
+- Renamed CSS utils
 
 **General**:
 
@@ -18,7 +19,7 @@
 
 **Added**:
 
-- Added `[disabled]` to css custom
+- Added `[disabled]` to CSS custom
 - Added CSS utils (old utils remove/renamed) [@TODO: Link documentation here]
 - Added CSS components [@TODO: Link documentation here]
 
