@@ -1,3 +1,7 @@
+/*
+ * Button
+ */
+
 button,
 ui-button,
 .ui-button,
@@ -41,7 +45,38 @@ ui-icon-button,
 }
 
 /*
- * Button Styles
+ * Button Styles: no variant
+ */
+
+ui-button[color],
+.ui-button[color] {
+    border-color: transparent;
+}
+
+/* TODO: Modify ripple color here
+    --ui-ripple: hsla(var(--ui-hue), 25%, 80%, 0.2);
+*/
+
+ui-button[color="primary"],
+.ui-button[color="primary"] {
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
+}
+
+ui-button[color="secondary"],
+.ui-button[color="secondary"] {
+    background-color: var(--ui-secondary);
+    color: var(--ui-secondary-text);
+}
+
+ui-button[color="destructive"],
+.ui-button[color="destructive"] {
+    background-color: var(--ui-destructive);
+    color: var(--ui-destructive-text);
+}
+
+/*
+ * Button Styles: variant: "full" 
  */
 
 ui-button[variant="full"],
@@ -67,6 +102,10 @@ ui-button[variant="full"][color="destructive"],
     color: var(--ui-destructive-text);
 }
 
+/*
+ * Button Styles: variant: "outline" 
+ */
+
 ui-button[variant="outline"],
 .ui-button[variant="outline"] {
     border-color: currentColor;
@@ -87,6 +126,10 @@ ui-button[variant="outline"][color="destructive"],
 .ui-button[variant="outline"][color="destructive"] {
     color: var(--ui-destructive);
 }
+
+/*
+ * Button Styles: variant: "ghost" 
+ */
 
 ui-button[variant="ghost"],
 .ui-button[variant="ghost"] {
@@ -110,7 +153,7 @@ ui-button[variant="ghost"][color="destructive"],
 }
 
 /*
- * Icon Button Styles
+ * Icon Button
  */
 
 ui-icon-button[color="primary"],

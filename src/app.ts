@@ -28,19 +28,23 @@ export class MainApp extends LitElement {
                 <span class="ui-icon-button ui-ripple" ghost slot="left">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.menu)}
                 </span>
+
                 <span class="ui-icon-button ui-ripple" ghost slot="left">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.chevronLeft)}
                 </span>
 
                 <span class="ui-text-heading-4" slot="center">UI</span>
+
                 <span class="ui-text-heading-4" slot="center">${constants.version}</span>
 
                 <span class="ui-icon-button ui-ripple" ghost slot="right">
                     ${unsafeHTML(ui.svg.misc.cornflakesOpenBox)}
                 </span>
+
                 <span class="ui-icon-button ui-ripple" ghost slot="right">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.printer)}
                 </span>
+
                 <span class="ui-icon-button ui-ripple" ghost slot="right">
                     ${unsafeHTML(ui.svg.smoothieLineIcons.search)}
                 </span>
@@ -50,7 +54,26 @@ export class MainApp extends LitElement {
                 <details>
                     <summary class="ui-ripple">UI: Button</summary>
 
-                    <!-- TODO: Add all button (colors, variants) here -->
+                    <div
+                        class="ui-flex justify-center"
+                        style="width: 100%; margin-bottom: var(--ui-spacing);"
+                    >
+                        <label class="ui-text-heading-3" for="no-variant-buttons">
+                            No Variant Buttons
+                        </label>
+                    </div>
+
+                    <div class="ui-flex-grid-row" style="--wrap: wrap;" id="no-variant-buttons">
+                        <button class="ui-ripple">Raw (HTML)</button>
+
+                        <button class="ui-button ui-ripple">Default</button>
+
+                        <button class="ui-button ui-ripple" color="primary">Primary</button>
+
+                        <button class="ui-button ui-ripple" color="secondary">Secondary</button>
+
+                        <button class="ui-button ui-ripple" color="destructive">Destructive</button>
+                    </div>
                 </details>
 
                 <details>
