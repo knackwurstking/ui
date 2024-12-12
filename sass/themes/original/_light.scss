@@ -1,3 +1,31 @@
+@use "../../settings";
+
+$hue: 240;
+
+$bg: #ffffff;
+
+$color-50: #f7f7f8;
+$color-100: #ededf1;
+$color-200: #d7d8e0;
+$color-300: #b5b6c4;
+$color-400: #8c8fa4;
+$color-500: #6e7189;
+$color-600: #585971;
+$color-700: #48495c;
+$color-800: #3e3e4e;
+$color-900: #373843;
+$color-950: #373843;
+
 @mixin theme() {
-    // TODO: Continue here...
+    #{settings.$css-var-prefix}primary: $color-700;
+    #{settings.$css-var-prefix}secondary: $color-400;
+    #{settings.$css-var-prefix}destructive:;
+
+    #{settings.$css-var-prefix}text: $color-950;
+    #{settings.$css-var-prefix}border-color: $color-200;
+
+    background-color: $bg;
+    color: $color-950;
+
+    color-scheme: light;
 }
