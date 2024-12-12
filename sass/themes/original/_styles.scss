@@ -1,7 +1,35 @@
 @use "../../settings" as settings;
 
+@import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+
+// TODO:: Add font-variation-settings
+
+@mixin font($type) {
+    --mono: "MONO" 0; // NOTE: mono: 1
+    --casl: "CASL" 1; // NOTE: mono: 0
+    --wght: "wght" 400;
+    --slnt: "slnt" 0;
+    --CRSV: "CRSV" 0.5;
+
+    // TODO: if "default", "mono", "lighter", "bold", "bolder"
+
+    font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+}
+
 :root {
+    #{settings.$css-var-prefix}font-family: "Recursive", sans-serif;
+    #{settings.$css-var-prefix}font-size: 1rem;
     #{settings.$css-var-prefix}line-height: 1.5;
+
     #{settings.$css-var-prefix}radius: 0.25rem;
     #{settings.$css-var-prefix}spacing: 0.5rem;
+
+    #{settings.$css-var-prefix}app-bar-height: 3rem;
+    #{settings.$css-var-prefix}dialog-header-height: 2.5rem;
+    #{settings.$css-var-prefix}dialog-footer-height: 3rem;
+
+    #{settings.$css-var-prefix}backdrop-filter: blur(5px);
+
+    #{settings.$css-var-prefix}ripple-color: currentColor;
+    #{settings.$css-var-prefix}ripple-opacity: 0.2;
 }

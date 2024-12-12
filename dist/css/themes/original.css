@@ -1,7 +1,16 @@
+@import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
 :root {
+  --ui-font-family: "Recursive", sans-serif;
+  --ui-font-size: 1rem;
   --ui-line-height: 1.5;
   --ui-radius: 0.25rem;
   --ui-spacing: 0.5rem;
+  --ui-app-bar-height: 3rem;
+  --ui-dialog-header-height: 2.5rem;
+  --ui-dialog-footer-height: 3rem;
+  --ui-backdrop-filter: blur(5px);
+  --ui-ripple-color: currentColor;
+  --ui-ripple-opacity: 0.2;
 }
 
 /*# sourceMappingURL=original.css.map */
