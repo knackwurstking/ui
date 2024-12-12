@@ -2,6 +2,8 @@
 
 ## v2.0.0 [unreleased]
 
+- [ ] Use sass for css and kick css import from "/src/index.ts"
+- [ ] The "/dist" directory need some update... Just like "ratchet-2.0.2"
 - [ ] CSS:Missing defaults for css variables (no borders on input elements)
 - [ ] CSS: Themes not working until `data-theme="light"` is set (light should be
       default, or just use media queries?)
