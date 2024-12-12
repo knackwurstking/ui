@@ -8,7 +8,7 @@
 - [ ] CSS: Themes not working until `data-theme="light"` is set (light should be
       default, or just use media queries?)
 - [ ] CSS: Blockquote needs some more top/bottom margin
-- [ ] ~Add basic styles to the `popover` and `popovertarget` global attribute~
+- [ ] Add basic styles to the `popover` and `popovertarget` global attribute
 
 **Breaking Changes**:
 
