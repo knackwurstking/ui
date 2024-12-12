@@ -8,22 +8,10 @@
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "vite --host",
-        "build": "tsc && vite build --minify -c vite.config.js",
-        "build-docs": "npm run _ui-alert && npm run _ui-app-bar && npm run _ui-button && npm run _ui-dialog && npm run _ui-drawer && npm run _ui-flex-grid && npm run _ui-input && npm run _ui-lang && npm run _ui-spinner && npm run _ui-stack-layout && npm run _ui-store && npm run _ui-svg && npm run _ui-text && npm run _ui-theme-handler",
-        "_ui-alert": "wca analyze lib/ui-alert --outDir docs/ui-alert",
-        "_ui-app-bar": "wca analyze lib/ui-app-bar --outDir docs/ui-app-bar",
-        "_ui-button": "wca analyze lib/ui-button --outDir docs/ui-button",
-        "_ui-dialog": "wca analyze lib/ui-dialog --outDir docs/ui-dialog",
-        "_ui-drawer": "wca analyze lib/ui-drawer --outDir docs/ui-drawer",
-        "_ui-flex-grid": "wca analyze lib/ui-flex-grid --outDir docs/ui-flex-grid",
-        "_ui-input": "wca analyze lib/ui-input --outDir docs/ui-input",
-        "_ui-lang": "wca analyze lib/ui-lang --outDir docs/ui-lang",
-        "_ui-spinner": "wca analyze lib/ui-spinner --outDir docs/ui-spinner",
-        "_ui-stack-layout": "wca analyze lib/ui-stack-layout --outDir docs/ui-stack-layout",
-        "_ui-store": "wca analyze lib/ui-store --outDir docs/ui-store",
-        "_ui-svg": "wca analyze lib/ui-svg --outDir docs/ui-svg",
-        "_ui-text": "wca analyze lib/ui-text --outDir docs/ui-text",
-        "_ui-theme-handler": "wca analyze lib/ui-theme-handler --outDir docs/ui-theme-handler"
+        "build": "tsc && vite build --minify -c vite.config.js && npm run build-css && npm run build-fonts",
+        "build-css": "sass sass:dist/css/ && sass themes:dist/themes/",
+        "build-fonts": "cp -r fonts dist/",
+        "build-docs": "wca analyze lib --outDir docs/lit/"
     },
     "license": "MIT",
     "peerDependencies": {
@@ -38,6 +26,7 @@
     },
     "dependencies": {
         "lit": "^3.2.1",
+        "sass": "^1.82.0",
         "vite": "^5.2.11"
     }
 }

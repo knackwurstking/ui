@@ -2,13 +2,14 @@
 
 ## v2.0.0 [unreleased]
 
-- [ ] Use sass for css and kick css import from "/src/index.ts"
-- [ ] The "/dist" directory need some update... Just like "ratchet-2.0.2"
+- [ ] Use sass for css and kick css import from "/src/index.ts" [work-in-progress]
+- [x] The "/dist" directory need some update... Just like "ratchet-2.0.2"
 - [ ] CSS:Missing defaults for css variables (no borders on input elements)
 - [ ] CSS: Blockquote needs some more top/bottom margin
 - [ ] CSS: Themes not working until `data-theme="light"` is set (light should be
       default, or just use media queries?)
 - [ ] Add basic styles to the `popover` and `popovertarget` global attribute
+- [ ] Change and update docs
 
 **Breaking Changes**:
 
