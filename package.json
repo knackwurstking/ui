@@ -9,7 +9,7 @@
     "scripts": {
         "dev": "vite --host",
         "build": "tsc && vite build --minify -c vite.config.js && npm run build-css && npm run build-fonts",
-        "build-css": "sass sass:dist/css/ && sass themes:dist/themes/",
+        "build-css": "rm -rf dist/css && sass sass/:dist/css/",
         "build-fonts": "cp -r fonts dist/",
         "build-docs": "wca analyze lib --outDir docs/lit/"
     },

@@ -1,0 +1,7 @@
+@use "../../settings" as settings;
+
+:root {
+    #{settings.$css-var-prefix}line-height: 1.5;
+    #{settings.$css-var-prefix}radius: 0.25rem;
+    #{settings.$css-var-prefix}spacing: 0.5rem;
+}
