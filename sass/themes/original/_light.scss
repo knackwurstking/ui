@@ -24,7 +24,7 @@ $destructive-text: #b10303;
 $warning: #ffdd88;
 $warning-text: #94330c;
 
-$backdrop-color: hsla($bg, 0.2);
+$backdrop-color: rgba($bg, 0.2);
 $border-color: $color-300;
 
 @mixin theme() {
