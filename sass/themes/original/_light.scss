@@ -1,31 +1,57 @@
 @use "../../settings";
 
-$hue: 240;
-
-$bg: #ffffff;
-
 $color-50: #f7f7f8;
 $color-100: #ededf1;
 $color-200: #d7d8e0;
 $color-300: #b5b6c4;
 $color-400: #8c8fa4;
-$color-500: #6e7189;
+$color-500: #6e7189; //$hue: 240;
 $color-600: #585971;
 $color-700: #48495c;
 $color-800: #3e3e4e;
 $color-900: #373843;
 $color-950: #373843;
 
+$bg: #ffffff;
+$text: $color-950;
+
+$info: $color-50;
+$info-text: $color-950;
+
+$destructive: #ffc0c0;
+$destructive-text: #b10303;
+
+$warning: #ffdd88;
+$warning-text: #94330c;
+
+$backdrop-color: hsla($bg, 0.2);
+$border-color: $color-300;
+
 @mixin theme() {
+    #{settings.$css-var-prefix}bg: $bg;
+    #{settings.$css-var-prefix}text: $text;
+
     #{settings.$css-var-prefix}primary: $color-700;
     #{settings.$css-var-prefix}secondary: $color-400;
-    #{settings.$css-var-prefix}destructive:;
+    #{settings.$css-var-prefix}destructive: $destructive;
 
     #{settings.$css-var-prefix}text: $color-950;
-    #{settings.$css-var-prefix}border-color: $color-200;
+    #{settings.$css-var-prefix}destructive-text: $destructive-text;
+
+    #{settings.$css-var-prefix}info: $info;
+    #{settings.$css-var-prefix}info-text: $info-text;
+
+    #{settings.$css-var-prefix}warning: $warning;
+    #{settings.$css-var-prefix}warning-text: $warning-text;
+
+    #{settings.$css-var-prefix}error: $destructive;
+    #{settings.$css-var-prefix}error-text: $destructive-text;
+
+    #{settings.$css-var-prefix}backdrop-color: $backdrop-color;
+    #{settings.$css-var-prefix}border-color: $border-color;
 
     background-color: $bg;
-    color: $color-950;
+    color: $text;
 
     color-scheme: light;
 }
