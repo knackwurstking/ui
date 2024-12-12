@@ -1,6 +1,6 @@
 @forward "settings";
 
 // TODO: Themes: "original", "gruvbox" - Must also be compiled separately in "/dist/themes"
-@use "themes/original";
+@use "themes/original"; // Default theme
 
 // TODO: Do html resets, Add base styles, css utility classes and components
