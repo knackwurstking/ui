@@ -18,7 +18,9 @@
   --ui-bg: #f7f7f8;
   --ui-text: #373843;
   --ui-primary: #48495c;
+  --ui-primary-text: #f7f7f8;
   --ui-secondary: #8c8fa4;
+  --ui-secondary-text: #373843;
   --ui-destructive: #ffc0c0;
   --ui-destructive-text: #b10303;
   --ui-info: rgb(219.8, 219.8, 224.2);
@@ -38,7 +40,9 @@
   --ui-bg: #f7f7f8;
   --ui-text: #373843;
   --ui-primary: #48495c;
+  --ui-primary-text: #f7f7f8;
   --ui-secondary: #8c8fa4;
+  --ui-secondary-text: #373843;
   --ui-destructive: #ffc0c0;
   --ui-destructive-text: #b10303;
   --ui-info: rgb(219.8, 219.8, 224.2);
@@ -59,7 +63,9 @@
     --ui-bg: #f7f7f8;
     --ui-text: #373843;
     --ui-primary: #48495c;
+    --ui-primary-text: #f7f7f8;
     --ui-secondary: #8c8fa4;
+    --ui-secondary-text: #373843;
     --ui-destructive: #ffc0c0;
     --ui-destructive-text: #b10303;
     --ui-info: rgb(219.8, 219.8, 224.2);

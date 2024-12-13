@@ -19,7 +19,10 @@ $bg: $color-50;
 $text: $color-950;
 
 $primary: $color-700;
+$primary-text: $bg;
+
 $secondary: $color-400;
+$secondary-text: $text;
 
 $info: color.adjust($color-50, $lightness: -10%);
 $info-text: $color-950;
@@ -38,7 +41,10 @@ $border-color: $color-300;
     #{settings.$css-var-prefix}text: $text;
 
     #{settings.$css-var-prefix}primary: $primary;
+    #{settings.$css-var-prefix}primary-text: $primary-text;
+
     #{settings.$css-var-prefix}secondary: $secondary;
+    #{settings.$css-var-prefix}secondary-text: $secondary-text;
 
     #{settings.$css-var-prefix}destructive: $destructive;
     #{settings.$css-var-prefix}destructive-text: $destructive-text;
