@@ -15,65 +15,62 @@
 
 [data-theme=light],
 :root {
-  --ui-bg: #ffffff;
+  --ui-bg: #f7f7f8;
   --ui-text: #373843;
   --ui-primary: #48495c;
   --ui-secondary: #8c8fa4;
   --ui-destructive: #ffc0c0;
-  --ui-text: #373843;
   --ui-destructive-text: #b10303;
-  --ui-info: #f7f7f8;
+  --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
   --ui-warning: #ffdd88;
   --ui-warning-text: #94330c;
   --ui-error: #ffc0c0;
   --ui-error-text: #b10303;
-  --ui-backdrop-color: rgba(255, 255, 255, 0.2);
+  --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
-  background-color: #ffffff;
+  background-color: #f7f7f8;
   color: #373843;
   color-scheme: light;
 }
 
 [data-theme=dark] {
-  --ui-bg: #ffffff;
+  --ui-bg: #f7f7f8;
   --ui-text: #373843;
   --ui-primary: #48495c;
   --ui-secondary: #8c8fa4;
   --ui-destructive: #ffc0c0;
-  --ui-text: #373843;
   --ui-destructive-text: #b10303;
-  --ui-info: #f7f7f8;
+  --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
   --ui-warning: #ffdd88;
   --ui-warning-text: #94330c;
   --ui-error: #ffc0c0;
   --ui-error-text: #b10303;
-  --ui-backdrop-color: rgba(255, 255, 255, 0.2);
+  --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
-  background-color: #ffffff;
+  background-color: #f7f7f8;
   color: #373843;
   color-scheme: light;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
   [data-theme=auto] {
-    --ui-bg: #ffffff;
+    --ui-bg: #f7f7f8;
     --ui-text: #373843;
     --ui-primary: #48495c;
     --ui-secondary: #8c8fa4;
     --ui-destructive: #ffc0c0;
-    --ui-text: #373843;
     --ui-destructive-text: #b10303;
-    --ui-info: #f7f7f8;
+    --ui-info: rgb(219.8, 219.8, 224.2);
     --ui-info-text: #373843;
     --ui-warning: #ffdd88;
     --ui-warning-text: #94330c;
     --ui-error: #ffc0c0;
     --ui-error-text: #b10303;
-    --ui-backdrop-color: rgba(255, 255, 255, 0.2);
+    --ui-backdrop-color: rgba(247, 247, 248, 0.2);
     --ui-border-color: #b5b6c4;
-    background-color: #ffffff;
+    background-color: #f7f7f8;
     color: #373843;
     color-scheme: light;
   }

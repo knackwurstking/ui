@@ -1,21 +1,27 @@
+@use "sass:color";
 @use "../../settings";
 
+// hsl: 240, 10%, 10%; https://uicolors.app/create
 $color-50: #f7f7f8;
 $color-100: #ededf1;
 $color-200: #d7d8e0;
 $color-300: #b5b6c4;
 $color-400: #8c8fa4;
-$color-500: #6e7189; //$hue: 240;
+$color-500: #6e7189;
 $color-600: #585971;
 $color-700: #48495c;
 $color-800: #3e3e4e;
 $color-900: #373843;
 $color-950: #373843;
 
-$bg: #ffffff;
+//$bg: #ffffff;
+$bg: $color-50;
 $text: $color-950;
 
-$info: $color-50;
+$primary: $color-700;
+$secondary: $color-400;
+
+$info: color.adjust($color-50, $lightness: -10%);
 $info-text: $color-950;
 
 $destructive: #ffc0c0;
@@ -31,11 +37,10 @@ $border-color: $color-300;
     #{settings.$css-var-prefix}bg: $bg;
     #{settings.$css-var-prefix}text: $text;
 
-    #{settings.$css-var-prefix}primary: $color-700;
-    #{settings.$css-var-prefix}secondary: $color-400;
-    #{settings.$css-var-prefix}destructive: $destructive;
+    #{settings.$css-var-prefix}primary: $primary;
+    #{settings.$css-var-prefix}secondary: $secondary;
 
-    #{settings.$css-var-prefix}text: $color-950;
+    #{settings.$css-var-prefix}destructive: $destructive;
     #{settings.$css-var-prefix}destructive-text: $destructive-text;
 
     #{settings.$css-var-prefix}info: $info;
