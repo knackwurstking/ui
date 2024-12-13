@@ -1,31 +1,50 @@
 $font-name: "Recursive";
 
 @mixin variation($type) {
-    --mono: var(--mono, "MONO" 0); // NOTE: mono: 1
-    --casl: var(--casl, "CASL" 1); // NOTE: mono: 0
-    --wght: var(--wght, "wght" 400);
-    --slnt: var(--slnt, "slnt" 0);
-    --CRSV: var(--CRSV, "CRSV" 0.5);
-
     @if $type == default {
         --mono: "MONO" 0;
         --casl: "CASL" 1;
+        --wght: var(--wght, "wght" 400);
+        --slnt: var(--slnt, "slnt" 0);
+        --CRSV: var(--CRSV, "CRSV" 0.5);
     } @else if $type == mono {
         --mono: "MONO" 1;
         --casl: "CASL" 0;
+        --wght: var(--wght, "wght" 400);
+        --slnt: var(--slnt, "slnt" 0);
+        --CRSV: var(--CRSV, "CRSV" 0.5);
     } @else if $type == lighter {
+        --mono: var(--mono, "MONO" 0);
+        --casl: var(--casl, "CASL" 1);
         --wght: "wght" 300;
+        --slnt: var(--slnt, "slnt" 0);
+        --CRSV: var(--CRSV, "CRSV" 0.5);
     } @else if $type == normal {
+        --mono: var(--mono, "MONO" 0);
+        --casl: var(--casl, "CASL" 1);
         --wght: "wght" 400;
+        --slnt: var(--slnt, "slnt" 0);
+        --CRSV: var(--CRSV, "CRSV" 0.5);
     } @else if $type == bold {
+        --mono: var(--mono, "MONO" 0);
+        --casl: var(--casl, "CASL" 1);
         --wght: "wght" 600;
+        --slnt: var(--slnt, "slnt" 0);
+        --CRSV: var(--CRSV, "CRSV" 0.5);
     } @else if $type == bolder {
+        --mono: var(--mono, "MONO" 0);
+        --casl: var(--casl, "CASL" 1);
         --wght: "wght" 800;
+        --slnt: var(--slnt, "slnt" 0);
+        --CRSV: var(--CRSV, "CRSV" 0.5);
     } @else if $type == italic {
+        --mono: var(--mono, "MONO" 0);
+        --casl: var(--casl, "CASL" 1);
+        --wght: var(--wght, "wght" 400);
         --slnt: "slnt" -10;
+        --CRSV: var(--CRSV, "CRSV" 0.5);
     }
 
-    font-family: $font-name;
     font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
 }
 
@@ -45,15 +64,23 @@ $font-name: "Recursive";
     }
 
     summary::after {
-        font-size: 1.5rem;
+        font-family: $font-name;
         @include variation(bolder);
     }
 
     b {
+        font-family: $font-name;
         @include variation(bold);
     }
 
-    i {
+    i,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $font-name;
         @include variation(italic);
     }
 }
