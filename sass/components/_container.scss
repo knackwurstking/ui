@@ -1,7 +1,7 @@
 @use "../settings" as *;
 @use "../theme-variables" as *;
 
-.#{$css-util-prefix}container {
+.#{$css-selector-prefix}container {
     display: block;
 
     width: 100%;
@@ -14,7 +14,7 @@
     overflow: auto;
 }
 
-.#{$css-util-prefix}container.fluid {
+.#{$css-selector-prefix}container.fluid {
     width: 100%;
     max-width: 100%;
 }

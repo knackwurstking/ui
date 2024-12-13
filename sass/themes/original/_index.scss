@@ -29,6 +29,8 @@ $font-name: "Recursive";
     #{settings.$css-var-prefix}ripple-opacity: 0.2;
 
     #{settings.$css-var-prefix}focus-color: currentColor;
+
+    #{settings.$css-var-prefix}transition: 0.2s ease-in-out;
 }
 
 [data-theme="light"],

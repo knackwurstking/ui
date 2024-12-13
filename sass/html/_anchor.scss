@@ -1,0 +1,12 @@
+@use "../settings" as *;
+@use "../theme-variables" as *;
+
+a {
+    color: $secondary;
+    transition: color $transition;
+}
+
+a:active,
+a:visited {
+    color: $primary;
+}

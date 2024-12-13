@@ -189,6 +189,16 @@ dl > dd:not(:last-child) {
   margin-bottom: 0.25rem;
 }
 
+a {
+  color: var(--ui-secondary);
+  transition: color var(--ui-transition);
+}
+
+a:active,
+a:visited {
+  color: var(--ui-primary);
+}
+
 .ui-container {
   display: block;
   width: 100%;
@@ -292,6 +302,7 @@ dt {
   --ui-ripple-color: currentColor;
   --ui-ripple-opacity: 0.2;
   --ui-focus-color: currentColor;
+  --ui-transition: 0.2s ease-in-out;
 }
 
 [data-theme=light],
