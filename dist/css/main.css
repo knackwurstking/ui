@@ -108,6 +108,11 @@ section {
   margin: var(--ui-spacing) 0;
 }
 
+blockquote {
+  margin: var(--ui-spacing);
+  margin-left: 2rem;
+}
+
 .ui-container {
   display: block;
   width: 100%;
@@ -126,6 +131,40 @@ section {
 .ui-debug * {
   border: var(--ui-border-width) var(--ui-border-style) red;
   border-radius: var(--ui-radius);
+}
+
+html,
+body {
+  font-family: "Recursive";
+  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 0.5;
+}
+
+blockquote {
+  font-family: "Recursive";
+  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" -10, "CRSV" 0.5;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: "Recursive";
+  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 400, "slnt" 0, "CRSV" 0.5;
+}
+
+summary::after {
+  font-family: "Recursive";
+  font-variation-settings: "MONO" 0, "CASL" 1, "whgh" 800, "slnt" 0, "CRSV" 0.5;
+}
+
+b {
+  font-family: "Recursive";
+  font-variation-settings: "MONO" 0, "CASL" 1, "whgt" 600, "slnt" 0, "CRSV" 0.5;
+}
+
+i {
+  font-family: "Recursive";
+  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" -10, "CRSV" 0.5;
 }
 
 :root {

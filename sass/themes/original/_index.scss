@@ -7,6 +7,7 @@
 
 $font-name: "Recursive";
 
+// FIXME:I Don't like this font setup
 @mixin variation($type) {
     @if $type == default {
         font-variation-settings:
@@ -18,49 +19,80 @@ $font-name: "Recursive";
     } @else if $type == mono {
         font-variation-settings:
             "MONO" 1,
-            "CASL" 0;
+            "CASL" 0,
+            "wght" 400,
+            "slnt" 0,
+            "CRSV" 0.5;
     } @else if $type == lighter {
-        font-variation-settings: "whgh" 300;
+        font-variation-settings:
+            "MONO" 0,
+            "CASL" 1,
+            "whgt" 300,
+            "slnt" 0,
+            "CRSV" 0.5;
     } @else if $type == normal {
-        font-variation-settings: "whgh" 400;
+        font-variation-settings:
+            "MONO" 0,
+            "CASL" 1,
+            "whgt" 400,
+            "slnt" 0,
+            "CRSV" 0.5;
     } @else if $type == bold {
-        font-variation-settings: "whgh" 600;
+        font-variation-settings:
+            "MONO" 0,
+            "CASL" 1,
+            "whgt" 600,
+            "slnt" 0,
+            "CRSV" 0.5;
     } @else if $type == bolder {
-        font-variation-settings: "whgh" 800;
+        font-variation-settings:
+            "MONO" 0,
+            "CASL" 1,
+            "whgh" 800,
+            "slnt" 0,
+            "CRSV" 0.5;
     } @else if $type == italic {
-        font-variation-settings: "slnt" -10;
+        font-variation-settings:
+            "MONO" 0,
+            "CASL" 1,
+            "wght" 400,
+            "slnt" -10,
+            "CRSV" 0.5;
     }
 }
 
-@mixin setup {
-    html,
-    body {
-        font-family: $font-name;
-        @include variation(default);
-    }
+html,
+body {
+    font-family: $font-name;
+    @include variation(default);
+}
 
-    code,
-    kbd,
-    pre,
-    samp {
-        font-family: $font-name;
-        @include variation(mono);
-    }
+blockquote {
+    font-family: $font-name;
+    @include variation(italic);
+}
 
-    summary::after {
-        font-family: $font-name;
-        @include variation(bolder);
-    }
+code,
+kbd,
+pre,
+samp {
+    font-family: $font-name;
+    @include variation(mono);
+}
 
-    b {
-        font-family: $font-name;
-        @include variation(bold);
-    }
+summary::after {
+    font-family: $font-name;
+    @include variation(bolder);
+}
 
-    i {
-        font-family: $font-name;
-        @include variation(italic);
-    }
+b {
+    font-family: $font-name;
+    @include variation(bold);
+}
+
+i {
+    font-family: $font-name;
+    @include variation(italic);
 }
 
 :root {

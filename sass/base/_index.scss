@@ -1,4 +1,2 @@
-@use "reset";
-@use "root";
-@use "text";
-@use "container";
+@use "1_reset" as reset;
+@use "2_global" as global;
