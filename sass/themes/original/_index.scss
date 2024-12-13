@@ -68,6 +68,9 @@ $font-name: "Recursive";
     #{settings.$css-var-prefix}font-size: 1rem;
     #{settings.$css-var-prefix}line-height: 1.5;
 
+    #{settings.$css-var-prefix}border-width: 0.5px;
+    #{settings.$css-var-prefix}border-style: solid;
+
     #{settings.$css-var-prefix}radius: 0.25rem;
     #{settings.$css-var-prefix}spacing: 0.5rem;
 

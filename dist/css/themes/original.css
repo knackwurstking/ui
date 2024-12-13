@@ -3,6 +3,8 @@
   --ui-font-family: "Recursive", sans-serif;
   --ui-font-size: 1rem;
   --ui-line-height: 1.5;
+  --ui-border-width: 0.5px;
+  --ui-border-style: solid;
   --ui-radius: 0.25rem;
   --ui-spacing: 0.5rem;
   --ui-app-bar-height: 3rem;

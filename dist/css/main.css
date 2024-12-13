@@ -76,10 +76,64 @@ body {
   line-height: var(--ui-line-height);
 }
 
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  padding: var(--ui-spacing);
+}
+
+section {
+  margin: var(--ui-spacing) 0;
+}
+
+.ui-container {
+  display: block;
+  width: 100%;
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: var(--ui-spacing);
+  overflow: auto;
+}
+
+.ui-container.fluid {
+  width: 100%;
+  max-width: 100%;
+}
+
+.ui-debug,
+.ui-debug * {
+  border: var(--ui-border-width) var(--ui-border-style) red;
+  border-radius: var(--ui-radius);
+}
+
 :root {
   --ui-font-family: "Recursive", sans-serif;
   --ui-font-size: 1rem;
   --ui-line-height: 1.5;
+  --ui-border-width: 0.5px;
+  --ui-border-style: solid;
   --ui-radius: 0.25rem;
   --ui-spacing: 0.5rem;
   --ui-app-bar-height: 3rem;

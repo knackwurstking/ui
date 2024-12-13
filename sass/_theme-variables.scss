@@ -38,6 +38,9 @@ $error: var(#{$css-var-prefix}error);
 $error-text: var(#{$css-var-prefix}error-text);
 
 $backdrop-color: var(#{$css-var-prefix}backdrop-color);
+
+$border-width: var(#{$css-var-prefix}border-width);
 $border-color: var(#{$css-var-prefix}border-color);
+$border-style: var(#{$css-var-prefix}border-style);
 
 $focus-color: var(#{$css-var-prefix}focus-color, currentColor);
