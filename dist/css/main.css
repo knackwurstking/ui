@@ -190,12 +190,22 @@ dl > dd:not(:last-child) {
 }
 
 a {
+  text-decoration: none;
   color: var(--ui-secondary);
   transition: color var(--ui-transition);
 }
 
-a:active,
-a:visited {
+a:hover {
+  text-decoration: underline;
+  filter: contrast(200%);
+}
+
+a:active {
+  color: var(--ui-primary);
+}
+
+a:visited,
+a[current] {
   color: var(--ui-primary);
 }
 
