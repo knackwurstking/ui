@@ -32,7 +32,6 @@ samp {
 
 summary::after {
   --wght: 800;
-  font-family: "Recursive";
 }
 
 h1,
@@ -42,23 +41,19 @@ h4,
 h5,
 h6 {
   --wght: 600;
-  font-family: "Recursive";
 }
 
 b {
   --wght: 600;
-  font-family: "Recursive";
 }
 
 i {
   --slnt: -10;
-  font-family: "Recursive";
 }
 
 table thead,
 table th {
   --wght: 500;
-  font-family: "Recursive";
 }
 
 table tbody,
@@ -66,7 +61,10 @@ table td {
   --mono: 1;
   --casl: 1;
   --wght: 350;
-  font-family: "Recursive";
+}
+
+dt {
+  --wght: 600;
 }
 
 :root {

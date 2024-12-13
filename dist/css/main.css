@@ -129,6 +129,7 @@ td {
   background-color: transparent;
   border-bottom: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   text-align: center;
+  font-size: 0.95rem;
 }
 
 tr.left > *,
@@ -141,6 +142,51 @@ tr.right > *,
 th.right,
 td.right {
   text-align: left;
+}
+
+hr {
+  border: none;
+  height: var(--ui-border-width);
+  margin: var(--ui-spacing) 0;
+  background-color: var(--ui-border-color);
+}
+
+ul {
+  list-style: none;
+  padding: var(--ui-spacing);
+  overflow: hidden;
+}
+
+ul > * {
+  padding: var(--ui-spacing);
+}
+
+ol {
+  padding: var(--ui-spacing);
+  padding-left: calc(1.5rem + var(--ui-spacing));
+  overflow: hidden;
+}
+
+ol > * {
+  padding: var(--ui-spacing);
+}
+
+ul > *,
+ol > * {
+  margin: var(--ui-spacing) 0;
+}
+
+dl {
+  padding: var(--ui-spacing);
+}
+
+dl > dd {
+  margin-left: 1.5rem;
+  font-size: 0.95rem;
+}
+
+dl > dd:not(:last-child) {
+  margin-bottom: 0.25rem;
 }
 
 .ui-container {
@@ -196,7 +242,6 @@ samp {
 
 summary::after {
   --wght: 800;
-  font-family: "Recursive";
 }
 
 h1,
@@ -206,23 +251,19 @@ h4,
 h5,
 h6 {
   --wght: 600;
-  font-family: "Recursive";
 }
 
 b {
   --wght: 600;
-  font-family: "Recursive";
 }
 
 i {
   --slnt: -10;
-  font-family: "Recursive";
 }
 
 table thead,
 table th {
   --wght: 500;
-  font-family: "Recursive";
 }
 
 table tbody,
@@ -230,7 +271,10 @@ table td {
   --mono: 1;
   --casl: 1;
   --wght: 350;
-  font-family: "Recursive";
+}
+
+dt {
+  --wght: 600;
 }
 
 :root {

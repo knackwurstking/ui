@@ -1,0 +1,39 @@
+@use "../theme-variables" as *;
+
+ul {
+    list-style: none;
+    padding: $spacing;
+    overflow: hidden;
+}
+
+ul > * {
+    padding: $spacing;
+}
+
+ol {
+    padding: $spacing;
+    padding-left: calc(1.5rem + $spacing);
+    overflow: hidden;
+}
+
+ol > * {
+    padding: $spacing;
+}
+
+ul > *,
+ol > * {
+    margin: $spacing 0;
+}
+
+dl {
+    padding: $spacing;
+}
+
+dl > dd {
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+}
+
+dl > dd:not(:last-child) {
+    margin-bottom: 0.25rem;
+}
