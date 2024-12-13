@@ -2,11 +2,21 @@
 @use "../theme-variables" as *;
 
 a {
+    text-decoration: none;
     color: $secondary;
     transition: color $transition;
 }
 
-a:active,
-a:visited {
+a:hover {
+    text-decoration: underline;
+    filter: contrast(200%);
+}
+
+a:active {
+    color: $primary;
+}
+
+a:visited,
+a[current] {
     color: $primary;
 }
