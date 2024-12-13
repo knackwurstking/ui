@@ -1,0 +1,43 @@
+@use "settings" as *;
+
+$font-family: var(#{$css-var-prefix}font-family);
+$font-size: var(#{$css-var-prefix}font-size);
+$line-height: var(#{$css-var-prefix}line-height);
+
+$radius: var(#{$css-var-prefix}radius);
+$spacing: var(#{$css-var-prefix}spacing);
+
+$app-bar-height: var(#{$css-var-prefix}app-bar-height);
+$dialog-header-height: var(#{$css-var-prefix}dialog-header-height);
+$dialog-footer-height: var(#{$css-var-prefix}dialog-footer-height);
+
+$backdrop-filter: var(#{$css-var-prefix}backdrop-filter);
+
+$ripple-color: var(#{$css-var-prefix}ripple-color);
+$ripple-opacity: var(#{$css-var-prefix}ripple-opacity);
+
+$bg: var(#{$css-var-prefix}bg);
+$text: var(#{$css-var-prefix}text);
+
+$primary: var(#{$css-var-prefix}primary);
+$primary-text: var(#{$css-var-prefix}primary-text);
+
+$secondary: var(#{$css-var-prefix}secondary);
+$secondary-text: var(#{$css-var-prefix}secondary-text);
+
+$destructive: var(#{$css-var-prefix}destructive);
+$destructive-text: var(#{$css-var-prefix}destructive-text);
+
+$info: var(#{$css-var-prefix}info);
+$info-text: var(#{$css-var-prefix}info-text);
+
+$warning: var(#{$css-var-prefix}warning);
+$warning-text: var(#{$css-var-prefix}warning-text);
+
+$error: var(#{$css-var-prefix}error);
+$error-text: var(#{$css-var-prefix}error-text);
+
+$backdrop-color: var(#{$css-var-prefix}backdrop-color);
+$border-color: var(#{$css-var-prefix}border-color);
+
+$focus-color: var(#{$css-var-prefix}focus-color, currentColor);

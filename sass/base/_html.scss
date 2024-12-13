@@ -1,0 +1,12 @@
+@use "../theme-variables" as *;
+
+*::selection {
+    background-color: $primary;
+    color: $primary-text;
+}
+
+*:focus {
+    outline-offset: 1px;
+    outline: 1px solid $focus-color;
+    border-radius: $radius;
+}
