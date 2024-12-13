@@ -7,7 +7,8 @@
     "module": "dist/ui.min.js",
     "repository": "knackwurstking/ui",
     "scripts": {
-        "dev": "vite --host",
+        "dev": "cd public && live-server --watch=.",
+        "#dev": "echo disabled dev script: vite --host",
         "build": "tsc && vite build --minify -c vite.config.js && npm run build-css && npm run build-fonts",
         "build-css": "rm -rf dist/css && sass sass/:dist/css/",
         "build-fonts": "cp -r fonts dist/",
@@ -22,7 +23,8 @@
         "clean-css-cli": "^5.6.3",
         "typedoc": "^0.26.10",
         "typescript": "^5.6.3",
-        "web-component-analyzer": "^2.0.0"
+        "web-component-analyzer": "^2.0.0",
+        "live-server": "^1.2.2"
     },
     "dependencies": {
         "lit": "^3.2.1",
