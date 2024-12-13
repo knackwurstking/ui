@@ -83,33 +83,4 @@
   }
 }
 
-html,
-body {
-  font-family: "Recursive";
-  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 0.5;
-}
-
-code,
-kbd,
-pre,
-samp {
-  font-family: "Recursive";
-  font-variation-settings: "MONO" 1, "CASL" 0;
-}
-
-summary::after {
-  font-family: "Recursive";
-  font-variation-settings: "whgh" 800;
-}
-
-b {
-  font-family: "Recursive";
-  font-variation-settings: "whgh" 600;
-}
-
-i {
-  font-family: "Recursive";
-  font-variation-settings: "slnt" -10;
-}
-
 /*# sourceMappingURL=original.css.map */

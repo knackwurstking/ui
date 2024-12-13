@@ -1,14 +1,70 @@
 @use "../../settings" as settings;
 
-@use "../../fonts/recursive";
-
 @use "light";
 @use "dark";
 
 @import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
 
+$font-name: "Recursive";
+
+@mixin variation($type) {
+    @if $type == default {
+        font-variation-settings:
+            "MONO" 0,
+            "CASL" 1,
+            "wght" 400,
+            "slnt" 0,
+            "CRSV" 0.5;
+    } @else if $type == mono {
+        font-variation-settings:
+            "MONO" 1,
+            "CASL" 0;
+    } @else if $type == lighter {
+        font-variation-settings: "whgh" 300;
+    } @else if $type == normal {
+        font-variation-settings: "whgh" 400;
+    } @else if $type == bold {
+        font-variation-settings: "whgh" 600;
+    } @else if $type == bolder {
+        font-variation-settings: "whgh" 800;
+    } @else if $type == italic {
+        font-variation-settings: "slnt" -10;
+    }
+}
+
+@mixin setup {
+    html,
+    body {
+        font-family: $font-name;
+        @include variation(default);
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: $font-name;
+        @include variation(mono);
+    }
+
+    summary::after {
+        font-family: $font-name;
+        @include variation(bolder);
+    }
+
+    b {
+        font-family: $font-name;
+        @include variation(bold);
+    }
+
+    i {
+        font-family: $font-name;
+        @include variation(italic);
+    }
+}
+
 :root {
-    #{settings.$css-var-prefix}font-family: recursive.$font-name, sans-serif;
+    #{settings.$css-var-prefix}font-family: $font-name, sans-serif;
     #{settings.$css-var-prefix}font-size: 1rem;
     #{settings.$css-var-prefix}line-height: 1.5;
 
@@ -44,5 +100,3 @@
         @include light.theme;
     }
 }
-
-@include recursive.setup();
