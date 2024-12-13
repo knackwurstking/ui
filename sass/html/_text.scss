@@ -1,4 +1,5 @@
 @use "../theme-variables" as *;
+@use "../components";
 
 h1 {
     font-size: 2.25rem;
@@ -28,4 +29,12 @@ p {
     padding: $spacing;
 }
 
-// TODO: Add label for styles
+label {
+    // TODO: Use a primary text mixin from utils
+    background-color: green;
+}
+
+label[for]:has(~ select) {
+    // TODO: Use a secondary text mixin from utils
+    background-color: red;
+}
