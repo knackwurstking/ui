@@ -86,12 +86,7 @@
 html,
 body {
   font-family: "Recursive";
-  --mono: "MONO" 0;
-  --casl: "CASL" 1;
-  --wght: var(--wght, "wght" 400);
-  --slnt: var(--slnt, "slnt" 0);
-  --CRSV: var(--CRSV, "CRSV" 0.5);
-  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 0.5;
 }
 
 code,
@@ -99,48 +94,22 @@ kbd,
 pre,
 samp {
   font-family: "Recursive";
-  --mono: "MONO" 1;
-  --casl: "CASL" 0;
-  --wght: var(--wght, "wght" 400);
-  --slnt: var(--slnt, "slnt" 0);
-  --CRSV: var(--CRSV, "CRSV" 0.5);
-  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+  font-variation-settings: "MONO" 1, "CASL" 0;
 }
 
 summary::after {
   font-family: "Recursive";
-  --mono: var(--mono, "MONO" 0);
-  --casl: var(--casl, "CASL" 1);
-  --wght: "wght" 800;
-  --slnt: var(--slnt, "slnt" 0);
-  --CRSV: var(--CRSV, "CRSV" 0.5);
-  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+  font-variation-settings: "whgh" 800;
 }
 
 b {
   font-family: "Recursive";
-  --mono: var(--mono, "MONO" 0);
-  --casl: var(--casl, "CASL" 1);
-  --wght: "wght" 600;
-  --slnt: var(--slnt, "slnt" 0);
-  --CRSV: var(--CRSV, "CRSV" 0.5);
-  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+  font-variation-settings: "whgh" 600;
 }
 
-i,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+i {
   font-family: "Recursive";
-  --mono: var(--mono, "MONO" 0);
-  --casl: var(--casl, "CASL" 1);
-  --wght: var(--wght, "wght" 400);
-  --slnt: "slnt" -10;
-  --CRSV: var(--CRSV, "CRSV" 0.5);
-  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+  font-variation-settings: "slnt" -10;
 }
 
 /*# sourceMappingURL=original.css.map */

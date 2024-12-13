@@ -2,50 +2,27 @@ $font-name: "Recursive";
 
 @mixin variation($type) {
     @if $type == default {
-        --mono: "MONO" 0;
-        --casl: "CASL" 1;
-        --wght: var(--wght, "wght" 400);
-        --slnt: var(--slnt, "slnt" 0);
-        --CRSV: var(--CRSV, "CRSV" 0.5);
+        font-variation-settings:
+            "MONO" 0,
+            "CASL" 1,
+            "wght" 400,
+            "slnt" 0,
+            "CRSV" 0.5;
     } @else if $type == mono {
-        --mono: "MONO" 1;
-        --casl: "CASL" 0;
-        --wght: var(--wght, "wght" 400);
-        --slnt: var(--slnt, "slnt" 0);
-        --CRSV: var(--CRSV, "CRSV" 0.5);
+        font-variation-settings:
+            "MONO" 1,
+            "CASL" 0;
     } @else if $type == lighter {
-        --mono: var(--mono, "MONO" 0);
-        --casl: var(--casl, "CASL" 1);
-        --wght: "wght" 300;
-        --slnt: var(--slnt, "slnt" 0);
-        --CRSV: var(--CRSV, "CRSV" 0.5);
+        font-variation-settings: "whgh" 300;
     } @else if $type == normal {
-        --mono: var(--mono, "MONO" 0);
-        --casl: var(--casl, "CASL" 1);
-        --wght: "wght" 400;
-        --slnt: var(--slnt, "slnt" 0);
-        --CRSV: var(--CRSV, "CRSV" 0.5);
+        font-variation-settings: "whgh" 400;
     } @else if $type == bold {
-        --mono: var(--mono, "MONO" 0);
-        --casl: var(--casl, "CASL" 1);
-        --wght: "wght" 600;
-        --slnt: var(--slnt, "slnt" 0);
-        --CRSV: var(--CRSV, "CRSV" 0.5);
+        font-variation-settings: "whgh" 600;
     } @else if $type == bolder {
-        --mono: var(--mono, "MONO" 0);
-        --casl: var(--casl, "CASL" 1);
-        --wght: "wght" 800;
-        --slnt: var(--slnt, "slnt" 0);
-        --CRSV: var(--CRSV, "CRSV" 0.5);
+        font-variation-settings: "whgh" 800;
     } @else if $type == italic {
-        --mono: var(--mono, "MONO" 0);
-        --casl: var(--casl, "CASL" 1);
-        --wght: var(--wght, "wght" 400);
-        --slnt: "slnt" -10;
-        --CRSV: var(--CRSV, "CRSV" 0.5);
+        font-variation-settings: "slnt" -10;
     }
-
-    font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
 }
 
 @mixin setup {
@@ -73,13 +50,7 @@ $font-name: "Recursive";
         @include variation(bold);
     }
 
-    i,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    i {
         font-family: $font-name;
         @include variation(italic);
     }
