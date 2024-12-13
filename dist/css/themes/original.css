@@ -1,36 +1,72 @@
 @import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+*,
+*::before,
+*::after {
+  font-variation-settings: "MONO" var(--mono), "CASL" var(--casl), "wght" var(--wght), "slnt" var(--slnt), "CRSV" var(--CRSV);
+}
+
 html,
 body {
+  --mono: 0;
+  --casl: 1;
+  --wght: 400;
+  --slnt: 0;
+  --CRSV: 0.5;
   font-family: "Recursive";
-  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" 0, "CRSV" 0.5;
 }
 
 blockquote {
+  --wght: 350;
+  --slnt: -10;
   font-family: "Recursive";
-  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" -10, "CRSV" 0.5;
 }
 
 code,
 kbd,
 pre,
 samp {
+  --mono: 1;
+  --casl: 0;
   font-family: "Recursive";
-  font-variation-settings: "MONO" 1, "CASL" 0, "wght" 400, "slnt" 0, "CRSV" 0.5;
 }
 
 summary::after {
+  --wght: 800;
   font-family: "Recursive";
-  font-variation-settings: "MONO" 0, "CASL" 1, "whgh" 800, "slnt" 0, "CRSV" 0.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --wght: 600;
+  font-family: "Recursive";
 }
 
 b {
+  --wght: 600;
   font-family: "Recursive";
-  font-variation-settings: "MONO" 0, "CASL" 1, "whgt" 600, "slnt" 0, "CRSV" 0.5;
 }
 
 i {
+  --slnt: -10;
   font-family: "Recursive";
-  font-variation-settings: "MONO" 0, "CASL" 1, "wght" 400, "slnt" -10, "CRSV" 0.5;
+}
+
+table thead,
+table th {
+  --wght: 500;
+  font-family: "Recursive";
+}
+
+table tbody,
+table td {
+  --mono: 1;
+  --casl: 1;
+  --wght: 350;
+  font-family: "Recursive";
 }
 
 :root {

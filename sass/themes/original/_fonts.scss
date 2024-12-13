@@ -1,0 +1,85 @@
+$font-name: "Recursive";
+
+*,
+*::before,
+*::after {
+    font-variation-settings:
+        "MONO" var(--mono),
+        "CASL" var(--casl),
+        "wght" var(--wght),
+        "slnt" var(--slnt),
+        "CRSV" var(--CRSV);
+}
+
+html,
+body {
+    --mono: 0;
+    --casl: 1;
+    --wght: 400;
+    --slnt: 0;
+    --CRSV: 0.5;
+
+    font-family: $font-name;
+}
+
+blockquote {
+    --wght: 350;
+    --slnt: -10;
+
+    font-family: $font-name;
+}
+
+code,
+kbd,
+pre,
+samp {
+    --mono: 1;
+    --casl: 0;
+
+    font-family: $font-name;
+}
+
+summary::after {
+    --wght: 800;
+
+    font-family: $font-name;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    --wght: 600;
+
+    font-family: $font-name;
+}
+
+b {
+    --wght: 600;
+
+    font-family: $font-name;
+}
+
+i {
+    --slnt: -10;
+
+    font-family: $font-name;
+}
+
+table thead,
+table th {
+    --wght: 500;
+
+    font-family: $font-name;
+}
+
+table tbody,
+table td {
+    --mono: 1;
+    --casl: 1;
+    --wght: 350;
+
+    font-family: $font-name;
+}
