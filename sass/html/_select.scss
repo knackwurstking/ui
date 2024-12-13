@@ -1,0 +1,41 @@
+@use "../theme-variables" as *;
+@use "../icons" as icons;
+
+select {
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+
+    display: block;
+
+    border: $border-width $border-style $border-color;
+    border-radius: $radius;
+    transition: border-color $transition;
+
+    accent-color: $primary;
+    background-color: transparent;
+
+    padding: $spacing;
+
+    box-shadow: none;
+
+    font-size: 0.95rem;
+
+    cursor: pointer;
+
+    background: icons.chevron(right) no-repeat right transparent;
+    background-size: 1rem;
+}
+
+select::after {
+    content: "?";
+
+    position: absolute;
+    inset: 0 0 0 auto;
+    z-index: 1;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background-color: red;
+}

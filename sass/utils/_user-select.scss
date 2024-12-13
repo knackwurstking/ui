@@ -1,3 +1,5 @@
+@use "../settings";
+
 @mixin none-select() {
     -ms-user-select: none;
     -moz-user-select: none;
@@ -5,6 +7,6 @@
     user-select: none;
 }
 
-@mixin isolate() {
-    isolation: isolate;
+.#{settings.$css-selector-prefix}none-select {
+    @include none-select;
 }
