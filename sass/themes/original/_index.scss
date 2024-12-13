@@ -1,11 +1,14 @@
 @use "../../settings" as settings;
+
+@use "../../fonts/recursive";
+
 @use "light";
 @use "dark";
 
 @import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
 
 :root {
-    #{settings.$css-var-prefix}font-family: "Recursive", sans-serif;
+    #{settings.$css-var-prefix}font-family: recursive.$font-name, sans-serif;
     #{settings.$css-var-prefix}font-size: 1rem;
     #{settings.$css-var-prefix}line-height: 1.5;
 
@@ -41,3 +44,5 @@
         @include light.theme;
     }
 }
+
+@include recursive.setup();

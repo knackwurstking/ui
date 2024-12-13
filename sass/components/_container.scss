@@ -1,0 +1,19 @@
+@use "../settings" as *;
+
+.#{$css-util-prefix}container {
+    display: block;
+
+    width: 100%;
+    max-width: 65rem;
+
+    margin: 0 auto;
+
+    padding: var(--ui-spacing);
+
+    overflow: auto;
+}
+
+.#{$css-util-prefix}container.fluid {
+    width: 100%;
+    max-width: 100%;
+}

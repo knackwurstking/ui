@@ -10,6 +10,7 @@
   -webkit-font-smoothing: antialiased;
   vertical-align: middle;
   line-height: inherit;
+  font-family: inherit;
   font-variation-settings: inherit;
 }
 
@@ -40,6 +41,17 @@ h6 {
   margin: 0;
 }
 
+.ui-isolation {
+  isolation: isolate;
+}
+
+.ui-none-select {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 *::selection {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
@@ -51,8 +63,26 @@ h6 {
   border-radius: var(--ui-radius);
 }
 
-.ui-isolation {
-  isolation: isolate;
+[disabled] {
+  pointer-events: none;
+  touch-action: none;
+  opacity: 0.75;
+  cursor: default;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+html {
+  font-size: var(--ui-font-size);
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
+}
+
+body {
+  font-size: 100%;
+  line-height: var(--ui-line-height);
 }
 
 :root {
@@ -137,6 +167,70 @@ h6 {
     color: #373843;
     color-scheme: light;
   }
+}
+
+html,
+body {
+  font-family: "Recursive";
+  --mono: var(--mono, "MONO" 0);
+  --casl: var(--casl, "CASL" 1);
+  --wght: var(--wght, "wght" 400);
+  --slnt: var(--slnt, "slnt" 0);
+  --CRSV: var(--CRSV, "CRSV" 0.5);
+  --mono: "MONO" 0;
+  --casl: "CASL" 1;
+  font-family: "Recursive";
+  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: "Recursive";
+  --mono: var(--mono, "MONO" 0);
+  --casl: var(--casl, "CASL" 1);
+  --wght: var(--wght, "wght" 400);
+  --slnt: var(--slnt, "slnt" 0);
+  --CRSV: var(--CRSV, "CRSV" 0.5);
+  --mono: "MONO" 1;
+  --casl: "CASL" 0;
+  font-family: "Recursive";
+  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+}
+
+summary::after {
+  font-size: 1.5rem;
+  --mono: var(--mono, "MONO" 0);
+  --casl: var(--casl, "CASL" 1);
+  --wght: var(--wght, "wght" 400);
+  --slnt: var(--slnt, "slnt" 0);
+  --CRSV: var(--CRSV, "CRSV" 0.5);
+  --wght: "wght" 800;
+  font-family: "Recursive";
+  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+}
+
+b {
+  --mono: var(--mono, "MONO" 0);
+  --casl: var(--casl, "CASL" 1);
+  --wght: var(--wght, "wght" 400);
+  --slnt: var(--slnt, "slnt" 0);
+  --CRSV: var(--CRSV, "CRSV" 0.5);
+  --wght: "wght" 600;
+  font-family: "Recursive";
+  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+}
+
+i {
+  --mono: var(--mono, "MONO" 0);
+  --casl: var(--casl, "CASL" 1);
+  --wght: var(--wght, "wght" 400);
+  --slnt: var(--slnt, "slnt" 0);
+  --CRSV: var(--CRSV, "CRSV" 0.5);
+  --slnt: "slnt" -10;
+  font-family: "Recursive";
+  font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
 }
 
 /*# sourceMappingURL=main.css.map */

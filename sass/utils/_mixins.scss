@@ -1,0 +1,10 @@
+@mixin none-select() {
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@mixin isolate() {
+    isolation: isolate;
+}

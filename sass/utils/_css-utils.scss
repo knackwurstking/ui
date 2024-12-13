@@ -1,0 +1,10 @@
+@use "../settings";
+@use "mixins";
+
+.#{settings.$css-util-prefix}isolation {
+    @include mixins.isolate;
+}
+
+.#{settings.$css-util-prefix}none-select {
+    @include mixins.none-select;
+}

@@ -1,4 +1,6 @@
-@mixin font($type) {
+$font-name: "Recursive";
+
+@mixin variation($type) {
     --mono: var(--mono, "MONO" 0); // NOTE: mono: 1
     --casl: var(--casl, "CASL" 1); // NOTE: mono: 0
     --wght: var(--wght, "wght" 400);
@@ -19,8 +21,39 @@
         --wght: "wght" 600;
     } @else if $type == bolder {
         --wght: "wght" 800;
+    } @else if $type == italic {
+        --slnt: "slnt" -10;
     }
 
-    font-family: "Recursive";
+    font-family: $font-name;
     font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
+}
+
+@mixin setup {
+    html,
+    body {
+        font-family: $font-name;
+        @include variation(default);
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: $font-name;
+        @include variation(mono);
+    }
+
+    summary::after {
+        font-size: 1.5rem;
+        @include variation(bolder);
+    }
+
+    b {
+        @include variation(bold);
+    }
+
+    i {
+        @include variation(italic);
+    }
 }

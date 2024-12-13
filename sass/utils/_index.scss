@@ -1,5 +1,2 @@
-@use "../settings";
-
-.#{settings.$css-util-prefix}isolation {
-    isolation: isolate;
-}
+@use "css-utils";
+@forward "mixins";

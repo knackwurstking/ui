@@ -1,0 +1,34 @@
+@use "../theme-variables" as *;
+@use "../utils";
+
+*::selection {
+    background-color: $primary;
+    color: $primary-text;
+}
+
+*:focus {
+    outline-offset: 1px;
+    outline: 1px solid $focus-color;
+    border-radius: $radius;
+}
+
+[disabled] {
+    pointer-events: none;
+    touch-action: none;
+
+    opacity: 0.75;
+    cursor: default;
+
+    @include utils.none-select;
+}
+
+html {
+    font-size: $font-size;
+    background-color: $bg;
+    color: $text;
+}
+
+body {
+    font-size: 100%;
+    line-height: $line-height;
+}
