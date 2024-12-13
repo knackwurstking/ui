@@ -113,6 +113,36 @@ blockquote {
   margin-left: 2rem;
 }
 
+table {
+  table-layout: fixed 100%;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding: var(--ui-spacing);
+  background-color: var(--ui-secondary);
+}
+
+td {
+  padding: var(--ui-spacing);
+  background-color: transparent;
+  border-bottom: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  text-align: center;
+}
+
+tr.left > *,
+th.left,
+td.left {
+  text-align: left;
+}
+
+tr.right > *,
+th.right,
+td.right {
+  text-align: left;
+}
+
 .ui-container {
   display: block;
   width: 100%;
