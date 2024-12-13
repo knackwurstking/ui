@@ -72,5 +72,6 @@ h6 {
 */
 #root,
 #__next {
+    /* TODO: Make this and css util "ui-isolate" */
     isolation: isolate;
 }

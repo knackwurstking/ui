@@ -1,0 +1,5 @@
+@use "../settings";
+
+.#{settings.$css-util-prefix}isolation {
+    isolation: isolate;
+}

@@ -1,4 +1,49 @@
 @import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+  line-height: inherit;
+  font-variation-settings: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  margin: 0;
+}
+
+.ui-isolation {
+  isolation: isolate;
+}
+
 :root {
   --ui-font-family: "Recursive", sans-serif;
   --ui-font-size: 1rem;

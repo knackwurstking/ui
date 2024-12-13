@@ -1,3 +1,5 @@
-@use "themes/original"; // Default theme
+@use "base";
 
-@use "base/index";
+@use "utils";
+
+@use "themes/original"; // Default theme
