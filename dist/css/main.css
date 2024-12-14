@@ -225,7 +225,7 @@ select {
   -moz-appearance: none; /* Firefox */
   -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
-  display: block;
+  display: inline-block;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   transition: border-color var(--ui-transition);
@@ -253,9 +253,8 @@ form > * {
   margin: var(--ui-spacing) 0;
 }
 
-input,
 textarea {
-  display: block;
+  display: inline-block;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   transition: border-color var(--ui-transition);
@@ -266,34 +265,39 @@ textarea {
   accent-color: var(--ui-primary);
 }
 
-input:not([type=radio]):not([type=checkbox]) {
+input:not([type=button]):not([type=submit]):not([type=reset]) {
+  display: inline-block;
+  border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+  transition: border-color var(--ui-transition);
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 0.95rem;
+  padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+  accent-color: var(--ui-primary);
+}
+input:not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]) {
   padding: var(--ui-spacing);
 }
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input:not([type=button]):not([type=submit]):not([type=reset])[type=number]::-webkit-inner-spin-button, input:not([type=button]):not([type=submit]):not([type=reset])[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-input[type=number] {
+input:not([type=button]):not([type=submit]):not([type=reset])[type=number] {
   -moz-appearance: textfield;
 }
-
-input[type=checkbox] {
+input:not([type=button]):not([type=submit]):not([type=reset])[type=checkbox] {
   display: inline-block;
   cursor: pointer;
   height: 1.5rem;
   width: 1.5rem;
 }
-
-input[type=color] {
+input:not([type=button]):not([type=submit]):not([type=reset])[type=color] {
   height: calc(var(--ui-spacing) * 2 + 2rem);
   padding: var(--ui-spacing);
   cursor: pointer;
 }
-
-input[aria-invalid] {
+input:not([type=button]):not([type=submit]):not([type=reset])[aria-invalid] {
   border-color: var(--ui-destructive);
 }
 
