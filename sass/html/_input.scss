@@ -1,0 +1,55 @@
+@use "../theme-variables" as *;
+
+form > * {
+    margin: $spacing 0;
+}
+
+input,
+textarea {
+    display: block;
+
+    border: $border-width $border-style $border-color;
+    border-radius: $radius;
+    transition: border-color $transition;
+
+    background-color: transparent;
+
+    box-shadow: none;
+
+    font-size: 0.95rem;
+
+    padding: $spacing calc($spacing * 2);
+
+    accent-color: $primary;
+}
+
+input:not([type="radio"]):not([type="checkbox"]) {
+    padding: $spacing;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+input[type="color"] {
+    height: calc($spacing * 2 + 2rem);
+    padding: $spacing;
+    cursor: pointer;
+}
+
+input[aria-invalid] {
+    border-color: $destructive;
+}

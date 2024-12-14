@@ -1,5 +1,4 @@
 @use "../theme-variables" as *;
-@use "../components";
 
 h1 {
     font-size: 2.25rem;
@@ -29,12 +28,11 @@ p {
     padding: $spacing;
 }
 
-label {
-    // TODO: Use a primary text mixin from utils
-    background-color: green;
-}
+label[for]:has(~ select),
+label[for]:has(~ input:not([type="checkbox"]):not([type="radio"])),
+label[for]:has(~ textarea) {
+    --wght: 350;
+    --slnt: -10;
 
-label[for]:has(~ select) {
-    // TODO: Use a secondary text mixin from utils
-    background-color: red;
+    font-size: 0.9rem;
 }
