@@ -4,9 +4,8 @@ form > * {
     margin: $spacing 0;
 }
 
-input,
 textarea {
-    display: block;
+    display: inline-block;
 
     border: $border-width $border-style $border-color;
     border-radius: $radius;
@@ -23,33 +22,55 @@ textarea {
     accent-color: $primary;
 }
 
-input:not([type="radio"]):not([type="checkbox"]) {
-    padding: $spacing;
-}
+input {
+    &:not([type="button"]):not([type="submit"]):not([type="reset"]) {
+        display: inline-block;
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
+        border: $border-width $border-style $border-color;
+        border-radius: $radius;
+        transition: border-color $transition;
 
-input[type="number"] {
-    -moz-appearance: textfield;
-}
+        background-color: transparent;
 
-input[type="checkbox"] {
-    display: inline-block;
-    cursor: pointer;
-    height: 1.5rem;
-    width: 1.5rem;
-}
+        box-shadow: none;
 
-input[type="color"] {
-    height: calc($spacing * 2 + 2rem);
-    padding: $spacing;
-    cursor: pointer;
-}
+        font-size: 0.95rem;
 
-input[aria-invalid] {
-    border-color: $destructive;
+        padding: $spacing calc($spacing * 2);
+
+        accent-color: $primary;
+
+        &:not([type="radio"]):not([type="checkbox"]) {
+            padding: $spacing;
+        }
+
+        &[type="number"]::-webkit-inner-spin-button,
+        &[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        &[type="checkbox"] {
+            display: inline-block;
+            cursor: pointer;
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        &[type="color"] {
+            height: calc($spacing * 2 + 2rem);
+            padding: $spacing;
+            cursor: pointer;
+        }
+
+        &[aria-invalid] {
+            border-color: $destructive;
+        }
+
+        // TODO: Style the file type input element
+    }
 }
