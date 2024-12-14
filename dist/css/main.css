@@ -76,26 +76,6 @@ body {
   line-height: var(--ui-line-height);
 }
 
-.ui-container {
-  display: block;
-  width: 100%;
-  max-width: 65rem;
-  margin: 0 auto;
-  padding: var(--ui-spacing);
-  overflow: auto;
-}
-
-.ui-container.fluid {
-  width: 100%;
-  max-width: 100%;
-}
-
-.ui-debug,
-.ui-debug * {
-  border: var(--ui-border-width) var(--ui-border-style) red;
-  border-radius: var(--ui-radius);
-}
-
 h1 {
   font-size: 2.25rem;
 }
@@ -124,12 +104,12 @@ p {
   padding: var(--ui-spacing);
 }
 
-label {
-  background-color: green;
-}
-
-label[for]:has(~ select) {
-  background-color: red;
+label[for]:has(~ select),
+label[for]:has(~ input:not([type=checkbox]):not([type=radio])),
+label[for]:has(~ textarea) {
+  --wght: 350;
+  --slnt: -10;
+  font-size: 0.9rem;
 }
 
 section {
@@ -267,6 +247,74 @@ select::after {
   width: 2.5rem;
   height: 2.5rem;
   background-color: red;
+}
+
+form > * {
+  margin: var(--ui-spacing) 0;
+}
+
+input,
+textarea {
+  display: block;
+  border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+  transition: border-color var(--ui-transition);
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 0.95rem;
+  padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+  accent-color: var(--ui-primary);
+}
+
+input:not([type=radio]):not([type=checkbox]) {
+  padding: var(--ui-spacing);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=checkbox] {
+  display: inline-block;
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+input[type=color] {
+  height: calc(var(--ui-spacing) * 2 + 2rem);
+  padding: var(--ui-spacing);
+  cursor: pointer;
+}
+
+input[aria-invalid] {
+  border-color: var(--ui-destructive);
+}
+
+.ui-container {
+  display: block;
+  width: 100%;
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: var(--ui-spacing);
+  overflow: auto;
+}
+
+.ui-container.fluid {
+  width: 100%;
+  max-width: 100%;
+}
+
+.ui-debug,
+.ui-debug * {
+  border: var(--ui-border-width) var(--ui-border-style) red;
+  border-radius: var(--ui-radius);
 }
 
 *,
