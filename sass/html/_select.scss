@@ -6,7 +6,7 @@ select {
     -webkit-appearance: none; /* Safari and Chrome */
     appearance: none;
 
-    display: block;
+    display: inline-block;
 
     border: $border-width $border-style $border-color;
     border-radius: $radius;
