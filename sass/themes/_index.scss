@@ -30,18 +30,18 @@ $font-name: "Recursive";
 
 [data-theme="light"],
 :root {
-    @include light.theme;
+    @include light.get();
 }
 
 // Override light theme if dark was set
 [data-theme="dark"] {
-    @include dark.theme;
+    @include dark.get();
 }
 
 // Auto theme handling dark/light
 [data-theme="auto"] {
     // light theme is the default, only need to check for dark here
     @media only screen and (prefers-color-scheme: dark) {
-        @include dark.theme;
+        @include dark.get();
     }
 }

@@ -1,7 +1,7 @@
 @use "mixins";
 
-@mixin theme() {
+@mixin get() {
     $bg: #000000;
 
-    @include mixins.theme($bg: $bg); // TODO: Add theme vars
+    @include mixins.theme(dark, $bg: $bg); // TODO: Add theme vars
 }

@@ -2,6 +2,7 @@
 @use "variables";
 
 @mixin theme(
+    $scheme,
     $bg: variables.$bg,
     $text: variables.$text,
     $primary: variables.$primary,
@@ -15,7 +16,17 @@
     $destructive: variables.$destructive,
     $destructive-text: variables.$destructive-text,
     $destructive--hover: variables.$destructive--hover,
-    $destructive--active: variables.$destructive--active
+    $destructive--active: variables.$destructive--active,
+    $muted: variables.$muted,
+    $muted-text: variables.$muted-text,
+    $info: variables.$info,
+    $info-text: variables.$info-text,
+    $warning: variables.$warning,
+    $warning-text: variables.$warning-text,
+    $error: variables.$error,
+    $error-text: variables.$error-text,
+    $backdrop-color: variables.$backdrop-color,
+    $border-color: variables.$border-color
 ) {
     #{settings.$css-var-prefix}bg: $bg;
     #{settings.$css-var-prefix}text: $text;
@@ -35,7 +46,7 @@
     #{settings.$css-var-prefix}destructive--hover: $destructive--hover;
     #{settings.$css-var-prefix}destructive--active: $destructive--active;
 
-    #{settings.$css-var-prefix}muted: $muted; // TODO: Continue here...
+    #{settings.$css-var-prefix}muted: $muted;
     #{settings.$css-var-prefix}muted-text: $muted-text;
 
     #{settings.$css-var-prefix}info: $info;
@@ -44,8 +55,8 @@
     #{settings.$css-var-prefix}warning: $warning;
     #{settings.$css-var-prefix}warning-text: $warning-text;
 
-    #{settings.$css-var-prefix}error: $destructive;
-    #{settings.$css-var-prefix}error-text: $destructive-text;
+    #{settings.$css-var-prefix}error: $error;
+    #{settings.$css-var-prefix}error-text: $error-text;
 
     #{settings.$css-var-prefix}backdrop-color: $backdrop-color;
     #{settings.$css-var-prefix}border-color: $border-color;
@@ -53,5 +64,5 @@
     background-color: $bg;
     color: $text;
 
-    color-scheme: light;
+    color-scheme: $scheme;
 }
