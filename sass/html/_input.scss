@@ -58,6 +58,10 @@ input {
             width: 1.5rem;
         }
 
+        &[type="radio"] {
+            cursor: pointer;
+        }
+
         &[type="color"] {
             cursor: pointer;
 
