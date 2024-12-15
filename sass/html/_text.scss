@@ -28,9 +28,7 @@ p {
     padding: $spacing;
 }
 
-label[for]:has(~ select),
-label[for]:has(~ input:not([type="checkbox"]):not([type="radio"])),
-label[for]:has(~ textarea) {
+label[for] {
     --wght: 350;
     --slnt: -10;
 
