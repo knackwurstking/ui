@@ -1,0 +1,6 @@
+@use "../theme-variables" as *;
+
+fieldset {
+    border-color: $border-color;
+    border-radius: $radius;
+}
