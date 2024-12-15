@@ -434,8 +434,9 @@ button:has(> svg)[color=secondary][variant=ghost] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-button[color=destructive],
-button:has(> svg)[color=destructive] {
+button[color=destructive], button[type=reset],
+button:has(> svg)[color=destructive],
+button:has(> svg)[type=reset] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -455,17 +456,20 @@ button:has(> svg)[color=destructive] {
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
 }
-button[color=destructive]:hover,
-button:has(> svg)[color=destructive]:hover {
+button[color=destructive]:hover, button[type=reset]:hover,
+button:has(> svg)[color=destructive]:hover,
+button:has(> svg)[type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-button[color=destructive]:active,
-button:has(> svg)[color=destructive]:active {
+button[color=destructive]:active, button[type=reset]:active,
+button:has(> svg)[color=destructive]:active,
+button:has(> svg)[type=reset]:active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
-button[color=destructive][variant=outline],
-button:has(> svg)[color=destructive][variant=outline] {
+button[color=destructive][variant=outline], button[type=reset][variant=outline],
+button:has(> svg)[color=destructive][variant=outline],
+button:has(> svg)[type=reset][variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -485,8 +489,9 @@ button:has(> svg)[color=destructive][variant=outline] {
   background-color: transparent;
   color: var(--ui-destructive);
 }
-button[color=destructive][variant=ghost],
-button:has(> svg)[color=destructive][variant=ghost] {
+button[color=destructive][variant=ghost], button[type=reset][variant=ghost],
+button:has(> svg)[color=destructive][variant=ghost],
+button:has(> svg)[type=reset][variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -707,7 +712,7 @@ input[type=button][color=secondary][variant=ghost] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-input[type=button][color=destructive] {
+input[type=button][color=destructive], input[type=button][type=reset] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -727,14 +732,14 @@ input[type=button][color=destructive] {
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
 }
-input[type=button][color=destructive]:hover {
+input[type=button][color=destructive]:hover, input[type=button][type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-input[type=button][color=destructive]:active {
+input[type=button][color=destructive]:active, input[type=button][type=reset]:active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
-input[type=button][color=destructive][variant=outline] {
+input[type=button][color=destructive][variant=outline], input[type=button][type=reset][variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -754,7 +759,7 @@ input[type=button][color=destructive][variant=outline] {
   background-color: transparent;
   color: var(--ui-destructive);
 }
-input[type=button][color=destructive][variant=ghost] {
+input[type=button][color=destructive][variant=ghost], input[type=button][type=reset][variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -854,6 +859,30 @@ input::-webkit-file-upload-button:hover {
 input::-webkit-file-upload-button:active {
   transition: none;
   background-color: var(--ui-primary--active);
+}
+
+code,
+pre {
+  background-color: var(--ui-muted);
+  color: var(--ui-muted-text);
+  padding: var(--ui-spacing);
+  border: none;
+  border-radius: var(--ui-radius);
+}
+
+code {
+  display: inline-block;
+  padding: 0.1rem 0.25rem;
+}
+
+pre {
+  display: block;
+  overflow: auto;
+}
+
+fieldset {
+  border-color: var(--ui-border-color);
+  border-radius: var(--ui-radius);
 }
 
 .ui-container {
@@ -975,18 +1004,14 @@ dt {
   --ui-destructive-text: #f9dcdc;
   --ui-destructive--hover: rgb(223.57, 61.93, 61.93);
   --ui-destructive--active: rgb(227.14, 83.86, 83.86);
+  --ui-muted: rgb(192.6, 192.6, 200.4);
+  --ui-muted-text: rgb(89.487704918, 91.1147540984, 109.012295082);
   --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
-  --ui-info--hover: rgb(233.4, 233.4, 236.1);
-  --ui-info--active: #f7f7f8;
   --ui-warning: #b37614;
   --ui-warning-text: #f7deb6;
-  --ui-warning--hover: rgb(201.9371859296, 133.1206030151, 22.5628140704);
-  --ui-warning--active: rgb(224.8743718593, 148.2412060302, 25.1256281407);
   --ui-error: #dc2828;
   --ui-error-text: #f9dcdc;
-  --ui-error--hover: rgb(223.57, 61.93, 61.93);
-  --ui-error--active: rgb(227.14, 83.86, 83.86);
   --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
   background-color: #f7f7f8;
@@ -1009,18 +1034,14 @@ dt {
   --ui-destructive-text: #f9dcdc;
   --ui-destructive--hover: rgb(223.57, 61.93, 61.93);
   --ui-destructive--active: rgb(227.14, 83.86, 83.86);
+  --ui-muted: rgb(192.6, 192.6, 200.4);
+  --ui-muted-text: rgb(89.487704918, 91.1147540984, 109.012295082);
   --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
-  --ui-info--hover: rgb(233.4, 233.4, 236.1);
-  --ui-info--active: #f7f7f8;
   --ui-warning: #b37614;
   --ui-warning-text: #f7deb6;
-  --ui-warning--hover: rgb(201.9371859296, 133.1206030151, 22.5628140704);
-  --ui-warning--active: rgb(224.8743718593, 148.2412060302, 25.1256281407);
   --ui-error: #dc2828;
   --ui-error-text: #f9dcdc;
-  --ui-error--hover: rgb(223.57, 61.93, 61.93);
-  --ui-error--active: rgb(227.14, 83.86, 83.86);
   --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
   background-color: #f7f7f8;
@@ -1044,18 +1065,14 @@ dt {
     --ui-destructive-text: #f9dcdc;
     --ui-destructive--hover: rgb(223.57, 61.93, 61.93);
     --ui-destructive--active: rgb(227.14, 83.86, 83.86);
+    --ui-muted: rgb(192.6, 192.6, 200.4);
+    --ui-muted-text: rgb(89.487704918, 91.1147540984, 109.012295082);
     --ui-info: rgb(219.8, 219.8, 224.2);
     --ui-info-text: #373843;
-    --ui-info--hover: rgb(233.4, 233.4, 236.1);
-    --ui-info--active: #f7f7f8;
     --ui-warning: #b37614;
     --ui-warning-text: #f7deb6;
-    --ui-warning--hover: rgb(201.9371859296, 133.1206030151, 22.5628140704);
-    --ui-warning--active: rgb(224.8743718593, 148.2412060302, 25.1256281407);
     --ui-error: #dc2828;
     --ui-error-text: #f9dcdc;
-    --ui-error--hover: rgb(223.57, 61.93, 61.93);
-    --ui-error--active: rgb(227.14, 83.86, 83.86);
     --ui-backdrop-color: rgba(247, 247, 248, 0.2);
     --ui-border-color: #b5b6c4;
     background-color: #f7f7f8;
