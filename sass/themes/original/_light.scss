@@ -14,7 +14,6 @@ $color-800: #3e3e4e;
 $color-900: #373843;
 $color-950: #373843;
 
-//$bg: #ffffff;
 $bg: $color-50;
 $text: $color-950;
 
@@ -33,15 +32,14 @@ $destructive-text: #f9dcdc;
 $destructive--hover: color.adjust($destructive, $lightness: 5%);
 $destructive--active: color.adjust($destructive, $lightness: 10%);
 
+$muted: color.adjust($color-50, $lightness: -20%);
+$muted-text: color.adjust($color-950, $lightness: 15%);
+
 $info: color.adjust($color-50, $lightness: -10%);
 $info-text: $color-950;
-$info--hover: color.adjust($info, $lightness: 5%);
-$info--active: color.adjust($info, $lightness: 10%);
 
 $warning: #b37614;
 $warning-text: #f7deb6;
-$warning--hover: color.adjust($warning, $lightness: 5%);
-$warning--active: color.adjust($warning, $lightness: 10%);
 
 $backdrop-color: rgba($bg, 0.2);
 $border-color: $color-300;
@@ -65,20 +63,17 @@ $border-color: $color-300;
     #{settings.$css-var-prefix}destructive--hover: $destructive--hover;
     #{settings.$css-var-prefix}destructive--active: $destructive--active;
 
+    #{settings.$css-var-prefix}muted: $muted;
+    #{settings.$css-var-prefix}muted-text: $muted-text;
+
     #{settings.$css-var-prefix}info: $info;
     #{settings.$css-var-prefix}info-text: $info-text;
-    #{settings.$css-var-prefix}info--hover: $info--hover;
-    #{settings.$css-var-prefix}info--active: $info--active;
 
     #{settings.$css-var-prefix}warning: $warning;
     #{settings.$css-var-prefix}warning-text: $warning-text;
-    #{settings.$css-var-prefix}warning--hover: $warning--hover;
-    #{settings.$css-var-prefix}warning--active: $warning--active;
 
     #{settings.$css-var-prefix}error: $destructive;
     #{settings.$css-var-prefix}error-text: $destructive-text;
-    #{settings.$css-var-prefix}error--hover: $destructive--hover;
-    #{settings.$css-var-prefix}error--active: $destructive--active;
 
     #{settings.$css-var-prefix}backdrop-color: $backdrop-color;
     #{settings.$css-var-prefix}border-color: $border-color;

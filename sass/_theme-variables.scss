@@ -33,20 +33,17 @@ $destructive-text: var(#{$css-var-prefix}destructive-text);
 $destructive--hover: var(#{$css-var-prefix}destructive--hover);
 $destructive--active: var(#{$css-var-prefix}destructive--active);
 
+$muted: var(#{$css-var-prefix}muted);
+$muted-text: var(#{$css-var-prefix}muted-text);
+
 $info: var(#{$css-var-prefix}info);
 $info-text: var(#{$css-var-prefix}info-text);
-$info--hover: var(#{$css-var-prefix}info--hover);
-$info--active: var(#{$css-var-prefix}info--active);
 
 $warning: var(#{$css-var-prefix}warning);
 $warning-text: var(#{$css-var-prefix}warning-text);
-$warning--hover: var(#{$css-var-prefix}warning--hover);
-$warning--active: var(#{$css-var-prefix}warning--active);
 
 $error: var(#{$css-var-prefix}error);
 $error-text: var(#{$css-var-prefix}error-text);
-$error--hover: var(#{$css-var-prefix}error--hover);
-$error--active: var(#{$css-var-prefix}error--active);
 
 $backdrop-color: var(#{$css-var-prefix}backdrop-color);
 
