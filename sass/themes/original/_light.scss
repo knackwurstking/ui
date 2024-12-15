@@ -20,28 +20,28 @@ $text: $color-950;
 
 $primary: $color-700;
 $primary-text: $bg;
-$primary--hover: color.adjust($primary, $whiteness: 5%);
-$primary--active: color.adjust($primary, $whiteness: 10%);
+$primary--hover: color.adjust($primary, $lightness: 5%);
+$primary--active: color.adjust($primary, $lightness: 10%);
 
 $secondary: $color-400;
 $secondary-text: $text;
-$secondary--hover: color.adjust($secondary, $whiteness: 5%);
-$secondary--active: color.adjust($secondary, $whiteness: 10%);
+$secondary--hover: color.adjust($secondary, $lightness: 5%);
+$secondary--active: color.adjust($secondary, $lightness: 10%);
 
 $destructive: #dc2828;
 $destructive-text: #f9dcdc;
-$destructive--hover: color.adjust($destructive, $whiteness: 5%);
-$destructive--active: color.adjust($destructive, $whiteness: 10%);
+$destructive--hover: color.adjust($destructive, $lightness: 5%);
+$destructive--active: color.adjust($destructive, $lightness: 10%);
 
 $info: color.adjust($color-50, $lightness: -10%);
 $info-text: $color-950;
-$info--hover: color.adjust($info, $whiteness: 5%);
-$info--active: color.adjust($info, $whiteness: 10%);
+$info--hover: color.adjust($info, $lightness: 5%);
+$info--active: color.adjust($info, $lightness: 10%);
 
 $warning: #b37614;
 $warning-text: #f7deb6;
-$warning--hover: color.adjust($info, $whiteness: 5%);
-$warning--active: color.adjust($info, $whiteness: 10%);
+$warning--hover: color.adjust($warning, $lightness: 5%);
+$warning--active: color.adjust($warning, $lightness: 10%);
 
 $backdrop-color: rgba($bg, 0.2);
 $border-color: $color-300;
