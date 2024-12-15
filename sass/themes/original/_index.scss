@@ -13,7 +13,7 @@ $font-name: "Recursive";
     #{settings.$css-var-prefix}font-size: 1rem;
     #{settings.$css-var-prefix}line-height: 1.5;
 
-    #{settings.$css-var-prefix}border-width: 0.5px;
+    #{settings.$css-var-prefix}border-width: 1px;
     #{settings.$css-var-prefix}border-style: solid;
 
     #{settings.$css-var-prefix}radius: 0.25rem;
@@ -24,8 +24,6 @@ $font-name: "Recursive";
     #{settings.$css-var-prefix}dialog-footer-height: 3rem;
 
     #{settings.$css-var-prefix}backdrop-filter: blur(5px);
-
-    #{settings.$css-var-prefix}focus-color: currentColor;
 
     #{settings.$css-var-prefix}transition: 0.2s ease-in-out;
 }

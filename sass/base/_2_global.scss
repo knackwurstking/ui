@@ -7,9 +7,8 @@
 }
 
 *:focus {
-    outline-offset: 1px;
-    outline: 1px solid $focus-color;
-    border-radius: $radius;
+    outline-offset: $border-width;
+    outline: $border-width $border-style $border-color;
 }
 
 [disabled] {

@@ -82,4 +82,8 @@ input {
     &[type="reset"] {
         @include button-styles("destructive", "full");
     }
+
+    &::-webkit-file-upload-button {
+        @include button-styles("primary", "full");
+    }
 }

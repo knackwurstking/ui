@@ -49,9 +49,8 @@ h6 {
 }
 
 *:focus {
-  outline-offset: 1px;
-  outline: 1px solid var(--ui-focus-color, currentColor);
-  border-radius: var(--ui-radius);
+  outline-offset: var(--ui-border-width);
+  outline: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
 }
 
 [disabled] {
@@ -265,9 +264,17 @@ button:has(> svg) {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
-  border-color: transparent;
+}
+button:hover,
+button:has(> svg):hover {
+  background-color: var(--ui-primary--hover);
+}
+button:active,
+button:has(> svg):active {
+  background-color: var(--ui-primary--active);
 }
 button[variant=outline],
 button:has(> svg)[variant=outline] {
@@ -285,11 +292,11 @@ button:has(> svg)[variant=outline] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: currentColor;
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
   background-color: transparent;
   color: var(--ui-primary);
-  border-color: currentColor;
 }
 button[variant=ghost],
 button:has(> svg)[variant=ghost] {
@@ -307,11 +314,11 @@ button:has(> svg)[variant=ghost] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
   background-color: transparent;
   color: var(--ui-primary);
-  border-color: transparent;
 }
 button[color=secondary],
 button:has(> svg)[color=secondary] {
@@ -329,9 +336,17 @@ button:has(> svg)[color=secondary] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-secondary);
   color: var(--ui-secondary-text);
-  border-color: transparent;
+}
+button[color=secondary]:hover,
+button:has(> svg)[color=secondary]:hover {
+  background-color: var(--ui-secondary--hover);
+}
+button[color=secondary]:active,
+button:has(> svg)[color=secondary]:active {
+  background-color: var(--ui-secondary--active);
 }
 button[color=secondary][variant=outline],
 button:has(> svg)[color=secondary][variant=outline] {
@@ -349,9 +364,9 @@ button:has(> svg)[color=secondary][variant=outline] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: currentColor;
   background-color: transparent;
   color: var(--ui-secondary);
-  border-color: currentColor;
 }
 button[color=secondary][variant=ghost],
 button:has(> svg)[color=secondary][variant=ghost] {
@@ -369,9 +384,9 @@ button:has(> svg)[color=secondary][variant=ghost] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: transparent;
   color: var(--ui-secondary);
-  border-color: transparent;
 }
 button[color=destructive],
 button:has(> svg)[color=destructive] {
@@ -389,9 +404,17 @@ button:has(> svg)[color=destructive] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
-  border-color: transparent;
+}
+button[color=destructive]:hover,
+button:has(> svg)[color=destructive]:hover {
+  background-color: var(--ui-destructive--hover);
+}
+button[color=destructive]:active,
+button:has(> svg)[color=destructive]:active {
+  background-color: var(--ui-destructive--active);
 }
 button[color=destructive][variant=outline],
 button:has(> svg)[color=destructive][variant=outline] {
@@ -409,9 +432,9 @@ button:has(> svg)[color=destructive][variant=outline] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: currentColor;
   background-color: transparent;
   color: var(--ui-destructive);
-  border-color: currentColor;
 }
 button[color=destructive][variant=ghost],
 button:has(> svg)[color=destructive][variant=ghost] {
@@ -429,9 +452,9 @@ button:has(> svg)[color=destructive][variant=ghost] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: transparent;
   color: var(--ui-destructive);
-  border-color: transparent;
 }
 
 button:has(> svg) {
@@ -511,9 +534,15 @@ input[type=button] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
-  border-color: transparent;
+}
+input[type=button]:hover {
+  background-color: var(--ui-primary--hover);
+}
+input[type=button]:active {
+  background-color: var(--ui-primary--active);
 }
 input[type=button][variant=outline] {
   display: inline-flex;
@@ -530,11 +559,11 @@ input[type=button][variant=outline] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: currentColor;
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
   background-color: transparent;
   color: var(--ui-primary);
-  border-color: currentColor;
 }
 input[type=button][variant=ghost] {
   display: inline-flex;
@@ -551,11 +580,11 @@ input[type=button][variant=ghost] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
   background-color: transparent;
   color: var(--ui-primary);
-  border-color: transparent;
 }
 input[type=button][color=secondary] {
   display: inline-flex;
@@ -572,9 +601,15 @@ input[type=button][color=secondary] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-secondary);
   color: var(--ui-secondary-text);
-  border-color: transparent;
+}
+input[type=button][color=secondary]:hover {
+  background-color: var(--ui-secondary--hover);
+}
+input[type=button][color=secondary]:active {
+  background-color: var(--ui-secondary--active);
 }
 input[type=button][color=secondary][variant=outline] {
   display: inline-flex;
@@ -591,9 +626,9 @@ input[type=button][color=secondary][variant=outline] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: currentColor;
   background-color: transparent;
   color: var(--ui-secondary);
-  border-color: currentColor;
 }
 input[type=button][color=secondary][variant=ghost] {
   display: inline-flex;
@@ -610,9 +645,9 @@ input[type=button][color=secondary][variant=ghost] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: transparent;
   color: var(--ui-secondary);
-  border-color: transparent;
 }
 input[type=button][color=destructive] {
   display: inline-flex;
@@ -629,9 +664,15 @@ input[type=button][color=destructive] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
-  border-color: transparent;
+}
+input[type=button][color=destructive]:hover {
+  background-color: var(--ui-destructive--hover);
+}
+input[type=button][color=destructive]:active {
+  background-color: var(--ui-destructive--active);
 }
 input[type=button][color=destructive][variant=outline] {
   display: inline-flex;
@@ -648,9 +689,9 @@ input[type=button][color=destructive][variant=outline] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: currentColor;
   background-color: transparent;
   color: var(--ui-destructive);
-  border-color: currentColor;
 }
 input[type=button][color=destructive][variant=ghost] {
   display: inline-flex;
@@ -667,9 +708,9 @@ input[type=button][color=destructive][variant=ghost] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: transparent;
   color: var(--ui-destructive);
-  border-color: transparent;
 }
 input[type=submit] {
   display: inline-flex;
@@ -686,9 +727,15 @@ input[type=submit] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
-  border-color: transparent;
+}
+input[type=submit]:hover {
+  background-color: var(--ui-primary--hover);
+}
+input[type=submit]:active {
+  background-color: var(--ui-primary--active);
 }
 input[type=reset] {
   display: inline-flex;
@@ -705,9 +752,40 @@ input[type=reset] {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  border-color: transparent;
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
+}
+input[type=reset]:hover {
+  background-color: var(--ui-destructive--hover);
+}
+input[type=reset]:active {
+  background-color: var(--ui-destructive--active);
+}
+input::-webkit-file-upload-button {
+  display: inline-flex;
+  cursor: pointer;
+  padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  overflow: hidden;
+  border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
   border-color: transparent;
+  background-color: var(--ui-primary);
+  color: var(--ui-primary-text);
+}
+input::-webkit-file-upload-button:hover {
+  background-color: var(--ui-primary--hover);
+}
+input::-webkit-file-upload-button:active {
+  background-color: var(--ui-primary--active);
 }
 
 .ui-container {
@@ -802,7 +880,7 @@ dt {
   --ui-font-family: "Recursive", sans-serif;
   --ui-font-size: 1rem;
   --ui-line-height: 1.5;
-  --ui-border-width: 0.5px;
+  --ui-border-width: 1px;
   --ui-border-style: solid;
   --ui-radius: 0.25rem;
   --ui-spacing: 0.5rem;
@@ -810,9 +888,6 @@ dt {
   --ui-dialog-header-height: 2.5rem;
   --ui-dialog-footer-height: 3rem;
   --ui-backdrop-filter: blur(5px);
-  --ui-ripple-color: currentColor;
-  --ui-ripple-opacity: 0.2;
-  --ui-focus-color: currentColor;
   --ui-transition: 0.2s ease-in-out;
 }
 
@@ -822,16 +897,28 @@ dt {
   --ui-text: #373843;
   --ui-primary: #48495c;
   --ui-primary-text: #f7f7f8;
+  --ui-primary--hover: rgb(84.75, 85.1125, 92);
+  --ui-primary--active: rgb(95.4414587332, 95.4414587332, 95.4414587332);
   --ui-secondary: #8c8fa4;
   --ui-secondary-text: #373843;
+  --ui-secondary--hover: rgb(152.75, 154.15625, 164);
+  --ui-secondary--active: rgb(164.5321637427, 164.5321637427, 164.5321637427);
   --ui-destructive: #ffc0c0;
   --ui-destructive-text: #b10303;
+  --ui-destructive--hover: rgb(255, 204.75, 204.75);
+  --ui-destructive--active: rgb(255, 217.5, 217.5);
   --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
+  --ui-info--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
+  --ui-info--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
   --ui-warning: #ffdd88;
   --ui-warning-text: #94330c;
+  --ui-warning--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
+  --ui-warning--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
   --ui-error: #ffc0c0;
   --ui-error-text: #b10303;
+  --ui-error--hover: rgb(255, 204.75, 204.75);
+  --ui-error--active: rgb(255, 217.5, 217.5);
   --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
   background-color: #f7f7f8;
@@ -844,16 +931,28 @@ dt {
   --ui-text: #373843;
   --ui-primary: #48495c;
   --ui-primary-text: #f7f7f8;
+  --ui-primary--hover: rgb(84.75, 85.1125, 92);
+  --ui-primary--active: rgb(95.4414587332, 95.4414587332, 95.4414587332);
   --ui-secondary: #8c8fa4;
   --ui-secondary-text: #373843;
+  --ui-secondary--hover: rgb(152.75, 154.15625, 164);
+  --ui-secondary--active: rgb(164.5321637427, 164.5321637427, 164.5321637427);
   --ui-destructive: #ffc0c0;
   --ui-destructive-text: #b10303;
+  --ui-destructive--hover: rgb(255, 204.75, 204.75);
+  --ui-destructive--active: rgb(255, 217.5, 217.5);
   --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
+  --ui-info--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
+  --ui-info--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
   --ui-warning: #ffdd88;
   --ui-warning-text: #94330c;
+  --ui-warning--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
+  --ui-warning--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
   --ui-error: #ffc0c0;
   --ui-error-text: #b10303;
+  --ui-error--hover: rgb(255, 204.75, 204.75);
+  --ui-error--active: rgb(255, 217.5, 217.5);
   --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
   background-color: #f7f7f8;
@@ -867,16 +966,28 @@ dt {
     --ui-text: #373843;
     --ui-primary: #48495c;
     --ui-primary-text: #f7f7f8;
+    --ui-primary--hover: rgb(84.75, 85.1125, 92);
+    --ui-primary--active: rgb(95.4414587332, 95.4414587332, 95.4414587332);
     --ui-secondary: #8c8fa4;
     --ui-secondary-text: #373843;
+    --ui-secondary--hover: rgb(152.75, 154.15625, 164);
+    --ui-secondary--active: rgb(164.5321637427, 164.5321637427, 164.5321637427);
     --ui-destructive: #ffc0c0;
     --ui-destructive-text: #b10303;
+    --ui-destructive--hover: rgb(255, 204.75, 204.75);
+    --ui-destructive--active: rgb(255, 217.5, 217.5);
     --ui-info: rgb(219.8, 219.8, 224.2);
     --ui-info-text: #373843;
+    --ui-info--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
+    --ui-info--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
     --ui-warning: #ffdd88;
     --ui-warning-text: #94330c;
+    --ui-warning--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
+    --ui-warning--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
     --ui-error: #ffc0c0;
     --ui-error-text: #b10303;
+    --ui-error--hover: rgb(255, 204.75, 204.75);
+    --ui-error--active: rgb(255, 217.5, 217.5);
     --ui-backdrop-color: rgba(247, 247, 248, 0.2);
     --ui-border-color: #b5b6c4;
     background-color: #f7f7f8;
