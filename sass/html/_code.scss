@@ -1,0 +1,21 @@
+@use "../theme-variables" as *;
+
+code,
+pre {
+    background-color: $muted;
+    color: $muted-text;
+    padding: $spacing;
+
+    border: none;
+    border-radius: $radius;
+}
+
+code {
+    display: inline-block;
+    padding: 0.1rem 0.25rem;
+}
+
+pre {
+    display: block;
+    overflow: auto;
+}
