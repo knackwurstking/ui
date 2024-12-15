@@ -7,7 +7,7 @@
     "module": "dist/ui.min.js",
     "repository": "knackwurstking/ui",
     "scripts": {
-        "dev": "cd public && live-server --watch=.",
+        "dev": "cd public && live-server --host=0.0.0.0 --watch=.",
         "#dev": "echo disabled dev script: vite --host",
         "build": "tsc && vite build --minify -c vite.config.js && npm run build-css && npm run build-fonts",
         "build-css": "rm -rf dist/css && sass sass/:dist/css/",
