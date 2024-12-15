@@ -104,7 +104,8 @@
         }
     }
 
-    &[color="destructive"] {
+    &[color="destructive"],
+    &[type="reset"] {
         @include button-styles("destructive", "full");
 
         &[variant="outline"] {
