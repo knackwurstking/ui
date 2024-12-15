@@ -1,12 +1,7 @@
 @use "../theme-variables" as *;
 @use "../utils";
 
-button,
-button:has(> svg),
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="file"]::file-selector-button {
+@mixin button-styles($color, $variant) {
     display: inline-flex;
     cursor: pointer;
 
@@ -24,52 +19,89 @@ input[type="file"]::file-selector-button {
 
     // NOTE: Primary color and variant full will be the default
     //       in version v2.0.0
-    background-color: $primary;
-    color: $primary-text;
 
-    border-color: transparent;
+    @if $color == secondary {
+        @if $variant == outline or $variant == ghost {
+            background-color: transparent;
+            color: $secondary;
+        } @else {
+            background-color: $secondary;
+            color: $secondary-text;
+        }
+    } @else if $color == destructive {
+        @if $variant == outline or $variant == ghost {
+            background-color: transparent;
+            color: $destructive;
+        } @else {
+            background-color: $destructive;
+            color: $destructive-text;
+        }
+    } @else {
+        background-color: $primary;
+        color: $primary-text;
 
-    &[variant="outline"],
+        @if $variant == outline or $variant == ghost {
+            background-color: transparent;
+            color: $primary;
+        }
+    }
+
+    @if $variant == outline {
+        border-color: currentColor;
+    } @else {
+        border-color: transparent;
+    }
+}
+
+@mixin button() {
+    @include button-styles("primary", "full");
+
+    &[variant="outline"] {
+        @include button-styles("primary", "outline");
+    }
+
     &[variant="ghost"] {
-        background-color: transparent;
-        color: $primary;
+        @include button-styles("primary", "ghost");
     }
 
     &[color="secondary"] {
-        background-color: $secondary;
-        color: $secondary-text;
+        @include button-styles("secondary", "full");
 
-        &[variant="outline"],
+        &[variant="outline"] {
+            @include button-styles("secondary", "outline");
+        }
+
         &[variant="ghost"] {
-            background-color: transparent;
-            color: $secondary;
+            @include button-styles("secondary", "ghost");
         }
     }
 
     &[color="destructive"] {
-        background-color: $destructive;
-        color: $destructive-text;
+        @include button-styles("destructive", "full");
 
-        &[variant="outline"],
-        &[variant="ghost"] {
-            background-color: transparent;
-            color: $destructive;
+        &[variant="outline"] {
+            @include button-styles("destructive", "outline");
         }
-    }
 
-    &[variant="outline"] {
-        border-color: currentColor;
+        &[variant="ghost"] {
+            @include button-styles("destructive", "ghost");
+        }
     }
 }
 
+button,
 button:has(> svg) {
+    @include button();
+}
+
+button:has(> svg) {
+    padding: calc($spacing / 2);
+
     width: 2.5rem;
     height: 2.5rem;
 }
 
 button > svg {
-    padding: calc($spacing / 2);
-
     width: 100%;
     height: 100%;
 }

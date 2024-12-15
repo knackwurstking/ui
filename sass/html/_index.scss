@@ -8,4 +8,4 @@
 @use "anchor";
 @use "select";
 @use "input";
-@use "buttons";
+@forward "buttons";

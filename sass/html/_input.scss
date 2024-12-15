@@ -1,4 +1,5 @@
 @use "../theme-variables" as *;
+@use "buttons" as *;
 
 form > * {
     margin: $spacing 0;
@@ -68,17 +69,17 @@ input {
         &[aria-invalid] {
             border-color: $destructive;
         }
+    }
 
-        // TODO: Do file type button styling in buttons.scss
-        &[type="file"] {
-            &::file-selector-button {
-                background-color: #4caf50;
-                color: white;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-        }
+    &[type="button"] {
+        @include button();
+    }
+
+    &[type="submit"] {
+        @include button-styles("primary", "full");
+    }
+
+    &[type="reset"] {
+        @include button-styles("destructive", "full");
     }
 }
