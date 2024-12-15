@@ -1,8 +1,8 @@
-@use "../../settings" as settings;
+@use "../settings" as settings;
 
-@use "light";
-@use "dark";
-@use "fonts";
+@use "default/light";
+@use "default/dark";
+@use "default/fonts";
 
 @import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
 
@@ -35,13 +35,13 @@ $font-name: "Recursive";
 
 // Override light theme if dark was set
 [data-theme="dark"] {
-    @include light.theme;
+    @include dark.theme;
 }
 
 // Auto theme handling dark/light
 [data-theme="auto"] {
     // light theme is the default, only need to check for dark here
     @media only screen and (prefers-color-scheme: dark) {
-        @include light.theme;
+        @include dark.theme;
     }
 }
