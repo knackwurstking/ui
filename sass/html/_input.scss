@@ -9,14 +9,11 @@ textarea {
 
     border: $border-width $border-style $border-color;
     border-radius: $radius;
-    transition: border-color $transition;
-
-    background-color: transparent;
-
     box-shadow: none;
 
+    transition: border-color $transition;
+    background-color: transparent;
     font-size: 0.95rem;
-
     padding: $spacing calc($spacing * 2);
 
     accent-color: $primary;
@@ -28,15 +25,12 @@ input {
 
         border: $border-width $border-style $border-color;
         border-radius: $radius;
-        transition: border-color $transition;
-
-        background-color: transparent;
-
         box-shadow: none;
 
         font-size: 0.95rem;
-
         padding: $spacing calc($spacing * 2);
+        transition: border-color $transition;
+        background-color: transparent;
 
         accent-color: $primary;
 
@@ -47,6 +41,7 @@ input {
         &[type="number"]::-webkit-inner-spin-button,
         &[type="number"]::-webkit-outer-spin-button {
             -webkit-appearance: none;
+
             margin: 0;
         }
 
@@ -57,20 +52,33 @@ input {
         &[type="checkbox"] {
             display: inline-block;
             cursor: pointer;
+
             height: 1.5rem;
             width: 1.5rem;
         }
 
         &[type="color"] {
-            height: calc($spacing * 2 + 2rem);
-            padding: $spacing;
             cursor: pointer;
+
+            height: calc($spacing * 2 + 2rem);
+
+            padding: $spacing;
         }
 
         &[aria-invalid] {
             border-color: $destructive;
         }
 
-        // TODO: Style the file type input element
+        // TODO: Do file type button styling in buttons.scss
+        &[type="file"] {
+            &::file-selector-button {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
     }
 }

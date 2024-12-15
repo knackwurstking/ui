@@ -218,7 +218,7 @@ a[current] {
 }
 
 :root {
-  --ui-chevron-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-right%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708%22%2F%3E%0A%3C%2Fsvg%3E");
+  --ui-icon-chevron-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-right%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 
 select {
@@ -257,9 +257,9 @@ textarea {
   display: inline-block;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
+  box-shadow: none;
   transition: border-color var(--ui-transition);
   background-color: transparent;
-  box-shadow: none;
   font-size: 0.95rem;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
   accent-color: var(--ui-primary);
@@ -269,11 +269,11 @@ input:not([type=button]):not([type=submit]):not([type=reset]) {
   display: inline-block;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
-  transition: border-color var(--ui-transition);
-  background-color: transparent;
   box-shadow: none;
   font-size: 0.95rem;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+  transition: border-color var(--ui-transition);
+  background-color: transparent;
   accent-color: var(--ui-primary);
 }
 input:not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]) {
@@ -293,12 +293,124 @@ input:not([type=button]):not([type=submit]):not([type=reset])[type=checkbox] {
   width: 1.5rem;
 }
 input:not([type=button]):not([type=submit]):not([type=reset])[type=color] {
+  cursor: pointer;
   height: calc(var(--ui-spacing) * 2 + 2rem);
   padding: var(--ui-spacing);
-  cursor: pointer;
 }
 input:not([type=button]):not([type=submit]):not([type=reset])[aria-invalid] {
   border-color: var(--ui-destructive);
+}
+input:not([type=button]):not([type=submit]):not([type=reset])[type=file]::file-selector-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button,
+button:has(> svg),
+input[type=button],
+input[type=submit],
+input[type=reset],
+input[type=file]::file-selector-button {
+  display: inline-flex;
+  cursor: pointer;
+  padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  overflow: hidden;
+  border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: var(--ui-primary);
+  color: var(--ui-primary-text);
+  border-color: transparent;
+}
+button[variant=outline], button[variant=ghost],
+button:has(> svg)[variant=outline],
+button:has(> svg)[variant=ghost],
+input[type=button][variant=outline],
+input[type=button][variant=ghost],
+input[type=submit][variant=outline],
+input[type=submit][variant=ghost],
+input[type=reset][variant=outline],
+input[type=reset][variant=ghost],
+input[type=file]::file-selector-button[variant=outline],
+input[type=file]::file-selector-button[variant=ghost] {
+  background-color: transparent;
+  color: var(--ui-primary);
+}
+button[color=secondary],
+button:has(> svg)[color=secondary],
+input[type=button][color=secondary],
+input[type=submit][color=secondary],
+input[type=reset][color=secondary],
+input[type=file]::file-selector-button[color=secondary] {
+  background-color: var(--ui-secondary);
+  color: var(--ui-secondary-text);
+}
+button[color=secondary][variant=outline], button[color=secondary][variant=ghost],
+button:has(> svg)[color=secondary][variant=outline],
+button:has(> svg)[color=secondary][variant=ghost],
+input[type=button][color=secondary][variant=outline],
+input[type=button][color=secondary][variant=ghost],
+input[type=submit][color=secondary][variant=outline],
+input[type=submit][color=secondary][variant=ghost],
+input[type=reset][color=secondary][variant=outline],
+input[type=reset][color=secondary][variant=ghost],
+input[type=file]::file-selector-button[color=secondary][variant=outline],
+input[type=file]::file-selector-button[color=secondary][variant=ghost] {
+  background-color: transparent;
+  color: var(--ui-secondary);
+}
+button[color=destructive],
+button:has(> svg)[color=destructive],
+input[type=button][color=destructive],
+input[type=submit][color=destructive],
+input[type=reset][color=destructive],
+input[type=file]::file-selector-button[color=destructive] {
+  background-color: var(--ui-destructive);
+  color: var(--ui-destructive-text);
+}
+button[color=destructive][variant=outline], button[color=destructive][variant=ghost],
+button:has(> svg)[color=destructive][variant=outline],
+button:has(> svg)[color=destructive][variant=ghost],
+input[type=button][color=destructive][variant=outline],
+input[type=button][color=destructive][variant=ghost],
+input[type=submit][color=destructive][variant=outline],
+input[type=submit][color=destructive][variant=ghost],
+input[type=reset][color=destructive][variant=outline],
+input[type=reset][color=destructive][variant=ghost],
+input[type=file]::file-selector-button[color=destructive][variant=outline],
+input[type=file]::file-selector-button[color=destructive][variant=ghost] {
+  background-color: transparent;
+  color: var(--ui-destructive);
+}
+button[variant=outline],
+button:has(> svg)[variant=outline],
+input[type=button][variant=outline],
+input[type=submit][variant=outline],
+input[type=reset][variant=outline],
+input[type=file]::file-selector-button[variant=outline] {
+  border-color: currentColor;
+}
+
+button:has(> svg) {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+button > svg {
+  padding: calc(var(--ui-spacing) / 2);
+  width: 100%;
+  height: 100%;
 }
 
 .ui-container {
