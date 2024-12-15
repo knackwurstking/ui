@@ -103,9 +103,7 @@ p {
   padding: var(--ui-spacing);
 }
 
-label[for]:has(~ select),
-label[for]:has(~ input:not([type=checkbox]):not([type=radio])),
-label[for]:has(~ textarea) {
+label[for] {
   --wght: 350;
   --slnt: -10;
   font-size: 0.9rem;
@@ -258,6 +256,7 @@ button:has(> svg) {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -274,6 +273,7 @@ button:has(> svg):hover {
 }
 button:active,
 button:has(> svg):active {
+  transition: none;
   background-color: var(--ui-primary--active);
 }
 button[variant=outline],
@@ -286,6 +286,7 @@ button:has(> svg)[variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -308,6 +309,7 @@ button:has(> svg)[variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -330,6 +332,7 @@ button:has(> svg)[color=secondary] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -346,6 +349,7 @@ button:has(> svg)[color=secondary]:hover {
 }
 button[color=secondary]:active,
 button:has(> svg)[color=secondary]:active {
+  transition: none;
   background-color: var(--ui-secondary--active);
 }
 button[color=secondary][variant=outline],
@@ -358,6 +362,7 @@ button:has(> svg)[color=secondary][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -378,6 +383,7 @@ button:has(> svg)[color=secondary][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -398,6 +404,7 @@ button:has(> svg)[color=destructive] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -414,6 +421,7 @@ button:has(> svg)[color=destructive]:hover {
 }
 button[color=destructive]:active,
 button:has(> svg)[color=destructive]:active {
+  transition: none;
   background-color: var(--ui-destructive--active);
 }
 button[color=destructive][variant=outline],
@@ -426,6 +434,7 @@ button:has(> svg)[color=destructive][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -446,6 +455,7 @@ button:has(> svg)[color=destructive][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -528,6 +538,7 @@ input[type=button] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -542,6 +553,7 @@ input[type=button]:hover {
   background-color: var(--ui-primary--hover);
 }
 input[type=button]:active {
+  transition: none;
   background-color: var(--ui-primary--active);
 }
 input[type=button][variant=outline] {
@@ -553,6 +565,7 @@ input[type=button][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -574,6 +587,7 @@ input[type=button][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -595,6 +609,7 @@ input[type=button][color=secondary] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -609,6 +624,7 @@ input[type=button][color=secondary]:hover {
   background-color: var(--ui-secondary--hover);
 }
 input[type=button][color=secondary]:active {
+  transition: none;
   background-color: var(--ui-secondary--active);
 }
 input[type=button][color=secondary][variant=outline] {
@@ -620,6 +636,7 @@ input[type=button][color=secondary][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -639,6 +656,7 @@ input[type=button][color=secondary][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -658,6 +676,7 @@ input[type=button][color=destructive] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -672,6 +691,7 @@ input[type=button][color=destructive]:hover {
   background-color: var(--ui-destructive--hover);
 }
 input[type=button][color=destructive]:active {
+  transition: none;
   background-color: var(--ui-destructive--active);
 }
 input[type=button][color=destructive][variant=outline] {
@@ -683,6 +703,7 @@ input[type=button][color=destructive][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -702,6 +723,7 @@ input[type=button][color=destructive][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -721,6 +743,7 @@ input[type=submit] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -735,6 +758,7 @@ input[type=submit]:hover {
   background-color: var(--ui-primary--hover);
 }
 input[type=submit]:active {
+  transition: none;
   background-color: var(--ui-primary--active);
 }
 input[type=reset] {
@@ -746,6 +770,7 @@ input[type=reset] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -760,6 +785,7 @@ input[type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
 input[type=reset]:active {
+  transition: none;
   background-color: var(--ui-destructive--active);
 }
 input::-webkit-file-upload-button {
@@ -771,6 +797,7 @@ input::-webkit-file-upload-button {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
+  transition: background-color var(--ui-transition);
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -785,6 +812,7 @@ input::-webkit-file-upload-button:hover {
   background-color: var(--ui-primary--hover);
 }
 input::-webkit-file-upload-button:active {
+  transition: none;
   background-color: var(--ui-primary--active);
 }
 
@@ -903,22 +931,22 @@ dt {
   --ui-secondary-text: #373843;
   --ui-secondary--hover: rgb(152.75, 154.15625, 164);
   --ui-secondary--active: rgb(164.5321637427, 164.5321637427, 164.5321637427);
-  --ui-destructive: #ffc0c0;
-  --ui-destructive-text: #b10303;
-  --ui-destructive--hover: rgb(255, 204.75, 204.75);
-  --ui-destructive--active: rgb(255, 217.5, 217.5);
+  --ui-destructive: #dc2828;
+  --ui-destructive-text: #f9dcdc;
+  --ui-destructive--hover: rgb(220, 52.75, 52.75);
+  --ui-destructive--active: rgb(220, 65.5, 65.5);
   --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
   --ui-info--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
   --ui-info--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
-  --ui-warning: #ffdd88;
-  --ui-warning-text: #94330c;
+  --ui-warning: #b37614;
+  --ui-warning-text: #f7deb6;
   --ui-warning--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
   --ui-warning--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
-  --ui-error: #ffc0c0;
-  --ui-error-text: #b10303;
-  --ui-error--hover: rgb(255, 204.75, 204.75);
-  --ui-error--active: rgb(255, 217.5, 217.5);
+  --ui-error: #dc2828;
+  --ui-error-text: #f9dcdc;
+  --ui-error--hover: rgb(220, 52.75, 52.75);
+  --ui-error--active: rgb(220, 65.5, 65.5);
   --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
   background-color: #f7f7f8;
@@ -937,22 +965,22 @@ dt {
   --ui-secondary-text: #373843;
   --ui-secondary--hover: rgb(152.75, 154.15625, 164);
   --ui-secondary--active: rgb(164.5321637427, 164.5321637427, 164.5321637427);
-  --ui-destructive: #ffc0c0;
-  --ui-destructive-text: #b10303;
-  --ui-destructive--hover: rgb(255, 204.75, 204.75);
-  --ui-destructive--active: rgb(255, 217.5, 217.5);
+  --ui-destructive: #dc2828;
+  --ui-destructive-text: #f9dcdc;
+  --ui-destructive--hover: rgb(220, 52.75, 52.75);
+  --ui-destructive--active: rgb(220, 65.5, 65.5);
   --ui-info: rgb(219.8, 219.8, 224.2);
   --ui-info-text: #373843;
   --ui-info--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
   --ui-info--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
-  --ui-warning: #ffdd88;
-  --ui-warning-text: #94330c;
+  --ui-warning: #b37614;
+  --ui-warning-text: #f7deb6;
   --ui-warning--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
   --ui-warning--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
-  --ui-error: #ffc0c0;
-  --ui-error-text: #b10303;
-  --ui-error--hover: rgb(255, 204.75, 204.75);
-  --ui-error--active: rgb(255, 217.5, 217.5);
+  --ui-error: #dc2828;
+  --ui-error-text: #f9dcdc;
+  --ui-error--hover: rgb(220, 52.75, 52.75);
+  --ui-error--active: rgb(220, 65.5, 65.5);
   --ui-backdrop-color: rgba(247, 247, 248, 0.2);
   --ui-border-color: #b5b6c4;
   background-color: #f7f7f8;
@@ -972,22 +1000,22 @@ dt {
     --ui-secondary-text: #373843;
     --ui-secondary--hover: rgb(152.75, 154.15625, 164);
     --ui-secondary--active: rgb(164.5321637427, 164.5321637427, 164.5321637427);
-    --ui-destructive: #ffc0c0;
-    --ui-destructive-text: #b10303;
-    --ui-destructive--hover: rgb(255, 204.75, 204.75);
-    --ui-destructive--active: rgb(255, 217.5, 217.5);
+    --ui-destructive: #dc2828;
+    --ui-destructive-text: #f9dcdc;
+    --ui-destructive--hover: rgb(220, 52.75, 52.75);
+    --ui-destructive--active: rgb(220, 65.5, 65.5);
     --ui-info: rgb(219.8, 219.8, 224.2);
     --ui-info-text: #373843;
     --ui-info--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
     --ui-info--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
-    --ui-warning: #ffdd88;
-    --ui-warning-text: #94330c;
+    --ui-warning: #b37614;
+    --ui-warning-text: #f7deb6;
     --ui-warning--hover: rgb(225.1765711031, 225.1765711031, 225.1765711031);
     --ui-warning--active: rgb(226.5537848606, 226.5537848606, 226.5537848606);
-    --ui-error: #ffc0c0;
-    --ui-error-text: #b10303;
-    --ui-error--hover: rgb(255, 204.75, 204.75);
-    --ui-error--active: rgb(255, 217.5, 217.5);
+    --ui-error: #dc2828;
+    --ui-error-text: #f9dcdc;
+    --ui-error--hover: rgb(220, 52.75, 52.75);
+    --ui-error--active: rgb(220, 65.5, 65.5);
     --ui-backdrop-color: rgba(247, 247, 248, 0.2);
     --ui-border-color: #b5b6c4;
     background-color: #f7f7f8;
