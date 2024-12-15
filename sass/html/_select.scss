@@ -13,23 +13,26 @@ select {
     border-radius: $radius;
     box-shadow: none;
 
-    background-color: transparent;
-    background: icons.chevron(right) no-repeat right transparent;
-    background-size: 1rem;
     padding: $spacing;
+    background-color: transparent;
     font-size: 0.95rem;
     transition: border-color $transition;
 
     accent-color: $primary;
-}
 
-select::after {
-    position: absolute;
-    z-index: 1;
+    &:not([multiple]) {
+        background: icons.chevron(right) no-repeat right transparent;
+        background-size: 1rem;
 
-    content: "";
-    width: 2.5rem;
-    height: 2.5rem;
+        &::after {
+            position: absolute;
+            z-index: 1;
 
-    inset: 0 0 0 auto;
+            content: "";
+            width: 2.5rem;
+            height: 2.5rem;
+
+            inset: 0 0 0 auto;
+        }
+    }
 }
