@@ -28,8 +28,8 @@ $secondary-text: $text;
 $secondary--hover: color.adjust($secondary, $whiteness: 5%);
 $secondary--active: color.adjust($secondary, $whiteness: 10%);
 
-$destructive: #ffc0c0;
-$destructive-text: #b10303;
+$destructive: #dc2828;
+$destructive-text: #f9dcdc;
 $destructive--hover: color.adjust($destructive, $whiteness: 5%);
 $destructive--active: color.adjust($destructive, $whiteness: 10%);
 
@@ -38,8 +38,8 @@ $info-text: $color-950;
 $info--hover: color.adjust($info, $whiteness: 5%);
 $info--active: color.adjust($info, $whiteness: 10%);
 
-$warning: #ffdd88;
-$warning-text: #94330c;
+$warning: #b37614;
+$warning-text: #f7deb6;
 $warning--hover: color.adjust($info, $whiteness: 5%);
 $warning--active: color.adjust($info, $whiteness: 10%);
 
