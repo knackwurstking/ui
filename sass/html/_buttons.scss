@@ -1,0 +1,75 @@
+@use "../theme-variables" as *;
+@use "../utils";
+
+button,
+button:has(> svg),
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"]::file-selector-button {
+    display: inline-flex;
+    cursor: pointer;
+
+    padding: $spacing calc($spacing * 2.5);
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    overflow: hidden;
+
+    border: $border-width $border-style $border-color;
+    border-radius: $radius;
+
+    @include utils.none-select();
+
+    // NOTE: Primary color and variant full will be the default
+    //       in version v2.0.0
+    background-color: $primary;
+    color: $primary-text;
+
+    border-color: transparent;
+
+    &[variant="outline"],
+    &[variant="ghost"] {
+        background-color: transparent;
+        color: $primary;
+    }
+
+    &[color="secondary"] {
+        background-color: $secondary;
+        color: $secondary-text;
+
+        &[variant="outline"],
+        &[variant="ghost"] {
+            background-color: transparent;
+            color: $secondary;
+        }
+    }
+
+    &[color="destructive"] {
+        background-color: $destructive;
+        color: $destructive-text;
+
+        &[variant="outline"],
+        &[variant="ghost"] {
+            background-color: transparent;
+            color: $destructive;
+        }
+    }
+
+    &[variant="outline"] {
+        border-color: currentColor;
+    }
+}
+
+button:has(> svg) {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+button > svg {
+    padding: calc($spacing / 2);
+
+    width: 100%;
+    height: 100%;
+}
