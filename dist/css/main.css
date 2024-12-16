@@ -249,17 +249,27 @@ a {
 }
 
 a:hover {
+  color: var(--ui-secondary--hover);
   text-decoration: underline;
-  filter: contrast(200%);
 }
 
 a:active {
-  color: var(--ui-primary);
+  color: var(--ui-secondary--active);
 }
 
 a:visited,
 a[current] {
   color: var(--ui-primary);
+}
+
+a:visited:hover,
+a[current]:hover {
+  color: var(--ui-primary--hover);
+}
+
+a:visited:active,
+a[current]:active {
+  color: var(--ui-primary--active);
 }
 
 :root {
@@ -1041,8 +1051,8 @@ dt {
   --ui-primary--active: rgb(94.3902439024, 95.7012195122, 120.6097560976);
   --ui-secondary: #8c8fa4;
   --ui-secondary-text: #373843;
-  --ui-secondary--hover: rgb(154.2354368932, 156.8640776699, 175.2645631068);
-  --ui-secondary--active: rgb(168.4708737864, 170.7281553398, 186.5291262136);
+  --ui-secondary--hover: rgb(125.7645631068, 129.1359223301, 152.7354368932);
+  --ui-secondary--active: rgb(111.7621359223, 115.4466019417, 141.2378640777);
   --ui-destructive: #dc2828;
   --ui-destructive-text: #fee2e2;
   --ui-destructive--hover: rgb(223.57, 61.93, 61.93);
@@ -1067,16 +1077,16 @@ dt {
   --ui-text: #f7f7f8;
   --ui-primary: #b5b6c4;
   --ui-primary-text: #373843;
-  --ui-primary--hover: rgb(166.8120300752, 168.0037593985, 184.6879699248);
-  --ui-primary--active: rgb(152.6240601504, 154.007518797, 173.3759398496);
+  --ui-primary--hover: rgb(195.1879699248, 195.9962406015, 207.3120300752);
+  --ui-primary--active: rgb(209.3759398496, 209.992481203, 218.6240601504);
   --ui-secondary: #585971;
   --ui-secondary-text: #f7f7f8;
-  --ui-secondary--hover: rgb(76.8358208955, 77.7089552239, 98.6641791045);
-  --ui-secondary--active: rgb(65.671641791, 66.4179104478, 84.328358209);
+  --ui-secondary--hover: rgb(99.1641791045, 100.2910447761, 127.3358208955);
+  --ui-secondary--active: rgb(110.328358209, 111.5820895522, 141.671641791);
   --ui-destructive: #f87171;
   --ui-destructive-text: #7f1d1d;
-  --ui-destructive--hover: rgb(246.8020134228, 88.6979865772, 88.6979865772);
-  --ui-destructive--active: rgb(245.6040268456, 64.3959731544, 64.3959731544);
+  --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
+  --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
   --ui-muted: rgb(100.9836065574, 102.8196721311, 123.0163934426);
   --ui-muted-text: rgb(206.2, 206.2, 212.3);
   --ui-info: rgb(77.9918032787, 79.4098360656, 95.0081967213);
@@ -1098,16 +1108,16 @@ dt {
     --ui-text: #f7f7f8;
     --ui-primary: #b5b6c4;
     --ui-primary-text: #373843;
-    --ui-primary--hover: rgb(166.8120300752, 168.0037593985, 184.6879699248);
-    --ui-primary--active: rgb(152.6240601504, 154.007518797, 173.3759398496);
+    --ui-primary--hover: rgb(195.1879699248, 195.9962406015, 207.3120300752);
+    --ui-primary--active: rgb(209.3759398496, 209.992481203, 218.6240601504);
     --ui-secondary: #585971;
     --ui-secondary-text: #f7f7f8;
-    --ui-secondary--hover: rgb(76.8358208955, 77.7089552239, 98.6641791045);
-    --ui-secondary--active: rgb(65.671641791, 66.4179104478, 84.328358209);
+    --ui-secondary--hover: rgb(99.1641791045, 100.2910447761, 127.3358208955);
+    --ui-secondary--active: rgb(110.328358209, 111.5820895522, 141.671641791);
     --ui-destructive: #f87171;
     --ui-destructive-text: #7f1d1d;
-    --ui-destructive--hover: rgb(246.8020134228, 88.6979865772, 88.6979865772);
-    --ui-destructive--active: rgb(245.6040268456, 64.3959731544, 64.3959731544);
+    --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
+    --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
     --ui-muted: rgb(100.9836065574, 102.8196721311, 123.0163934426);
     --ui-muted-text: rgb(206.2, 206.2, 212.3);
     --ui-info: rgb(77.9918032787, 79.4098360656, 95.0081967213);
