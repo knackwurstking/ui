@@ -123,7 +123,8 @@ button:has(> svg) {
     @include button();
 }
 
-button:has(> svg) {
+button:has(> svg),
+button.ui-icon-button {
     padding: calc($spacing / 2);
 
     width: 2.5rem;

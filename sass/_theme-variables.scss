@@ -11,8 +11,6 @@ $app-bar-height: var(#{$css-var-prefix}app-bar-height);
 $dialog-header-height: var(#{$css-var-prefix}dialog-header-height);
 $dialog-footer-height: var(#{$css-var-prefix}dialog-footer-height);
 
-$backdrop-filter: var(#{$css-var-prefix}backdrop-filter);
-
 $transition: var(#{$css-var-prefix}transition);
 
 $bg: var(#{$css-var-prefix}bg);
@@ -45,6 +43,7 @@ $warning-text: var(#{$css-var-prefix}warning-text);
 $error: var(#{$css-var-prefix}error);
 $error-text: var(#{$css-var-prefix}error-text);
 
+$backdrop-filter: var(#{$css-var-prefix}backdrop-filter);
 $backdrop-color: var(#{$css-var-prefix}backdrop-color);
 
 $border-width: var(#{$css-var-prefix}border-width);

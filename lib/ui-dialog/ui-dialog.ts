@@ -1,6 +1,7 @@
 import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { svg, UIButton, UIButtonColor, UIButtonVariant, UIFlexGridItem } from "..";
+
+import { addGlobalStylesToShadowRoot, UIFlexGridItem } from "..";
 
 export interface UIDialogOpenOptions {
     modal?: boolean;
@@ -74,9 +75,9 @@ class UIDialog extends LitElement {
             }
 
             dialog::backdrop {
-                background-color: var(--ui-backdrop);
-                -webkit-backdrop-filter: var(--ui-backdropFilter);
-                backdrop-filter: var(--ui-backdropFilter);
+                background-color: var(--ui-backdrop-color);
+                -webkit-backdrop-filter: var(--ui-backdrop-filter);
+                backdrop-filter: var(--ui-backdrop-filter);
             }
 
             :host([fullscreen]) dialog {
@@ -88,7 +89,7 @@ class UIDialog extends LitElement {
                 background-color: var(--ui-bg);
                 color: var(--ui-text);
 
-                border: 1px solid var(--ui-borderColor);
+                border: 1px solid var(--ui-border-color);
                 border-radius: var(--ui-radius);
 
                 padding: var(--ui-spacing);
@@ -205,17 +206,16 @@ class UIDialog extends LitElement {
             >
                 <div class="container">
                     <div class="header">
-                        <ui-heading level="4">${this.title}</ui-heading>
+                        <h4>${this.title}</h4>
 
-                        <ui-icon-button
+                        <button
+                            class="ui-icon-button ui-icon-close"
                             style="width: var(--ui-dialog-header-height); height: 100%;"
-                            ghost
+                            variant="ghost"
                             @click=${() => {
                                 this.close();
                             }}
-                        >
-                            ${svg.smoothieLineIcons.close}
-                        </ui-icon-button>
+                        ></button>
                     </div>
 
                     <div class="content">
@@ -230,6 +230,12 @@ class UIDialog extends LitElement {
                 </div>
             </dialog>
         `;
+    }
+
+    protected firstUpdated(_changedProperties: PropertyValues): void {
+        if (this.shadowRoot !== null) {
+            addGlobalStylesToShadowRoot(this.shadowRoot);
+        }
     }
 
     protected updated(_changedProperties: PropertyValues): void {
@@ -266,23 +272,26 @@ class UIDialog extends LitElement {
         content: string,
         options?: {
             onClick?: ((ev: MouseEvent) => Promise<void> | void) | null;
-            variant?: UIButtonVariant;
-            color?: UIButtonColor;
+            variant?: string;
+            color?: string;
             flex?: number;
         } | null,
-    ): UIButton {
+    ): HTMLButtonElement {
         const item = new UIFlexGridItem();
 
         item.flex = options?.flex || 1;
         item.slot = "actions";
         this.appendChild(item);
 
-        let button = new UIButton();
-        button.innerHTML = content;
-        button.variant = options?.variant;
-        button.color = options?.color;
-        button.onclick = options?.onClick || null;
+        let button = document.createElement("button");
         item.appendChild(button);
+
+        button.innerHTML = content;
+
+        if (options?.variant) button.setAttribute("variant", options.variant);
+        if (options?.color) button.setAttribute("color", options.color);
+
+        button.onclick = options?.onClick || null;
 
         return button;
     }

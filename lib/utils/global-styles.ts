@@ -17,6 +17,6 @@ function globalStyleSheets(): CSSStyleSheet[] {
     return globalData;
 }
 
-export function globalStylesToShadowRoot(shadowRoot: ShadowRoot): void {
+export function addGlobalStylesToShadowRoot(shadowRoot: ShadowRoot): void {
     shadowRoot.adoptedStyleSheets.push(...globalStyleSheets());
 }

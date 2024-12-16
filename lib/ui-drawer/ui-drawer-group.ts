@@ -1,8 +1,7 @@
-import { css, html, LitElement } from "lit";
+import { css, html, LitElement, PropertyValues } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
-import { svg } from "..";
+import { addGlobalStylesToShadowRoot } from "../utils";
 
 const defaultGap = "0";
 
@@ -82,13 +81,14 @@ class UIDrawerGroup extends LitElement {
                 >
                     <ui-flex-grid-row>
                         <ui-flex-grid-item align="center" style="padding-right: var(--ui-spacing);">
-                            <ui-heading level="4">${this.title}</ui-heading>
+                            <h4>${this.title}</h4>
                         </ui-flex-grid-item>
 
                         <ui-flex-grid-item class="icon" align="center" flex="0">
-                            <div class="ui-svg" style="width: 2.5rem; height: 2.5rem;">
-                                ${unsafeHTML(svg.smoothieLineIcons.chevronDown)}
-                            </div>
+                            <div
+                                class="ui-icon-chevron-down"
+                                style="width: 2.5rem, height: 2.5rem"
+                            ></div>
                         </ui-flex-grid-item>
                     </ui-flex-grid-row>
                 </ui-drawer-group-item>
@@ -96,6 +96,12 @@ class UIDrawerGroup extends LitElement {
                 <slot></slot>
             </ui-flex-grid>
         `;
+    }
+
+    protected firstUpdated(_changedProperties: PropertyValues): void {
+        if (this.shadowRoot !== null) {
+            addGlobalStylesToShadowRoot(this.shadowRoot);
+        }
     }
 }
 
