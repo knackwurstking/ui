@@ -23,8 +23,8 @@ $primary--active: color.adjust($primary, $lightness: 10%);
 
 $secondary: $color-400;
 $secondary-text: $text;
-$secondary--hover: color.adjust($secondary, $lightness: 5%);
-$secondary--active: color.adjust($secondary, $lightness: 10%);
+$secondary--hover: color.adjust($secondary, $lightness: -5%);
+$secondary--active: color.adjust($secondary, $lightness: -10%);
 
 $destructive: #dc2828; // -600
 $destructive-text: #fee2e2; // -100
