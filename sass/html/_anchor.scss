@@ -7,15 +7,25 @@ a {
 }
 
 a:hover {
+    color: $secondary--hover;
     text-decoration: underline;
-    filter: contrast(200%);
 }
 
 a:active {
-    color: $primary;
+    color: $secondary--active;
 }
 
 a:visited,
 a[current] {
     color: $primary;
+}
+
+a:visited:hover,
+a[current]:hover {
+    color: $primary--hover;
+}
+
+a:visited:active,
+a[current]:active {
+    color: $primary--active;
 }
