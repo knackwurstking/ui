@@ -209,8 +209,8 @@ class UIDialog extends LitElement {
                         <h4>${this.title}</h4>
 
                         <button
-                            class="ui-icon-button ui-icon-close"
-                            style="width: var(--ui-dialog-header-height); height: 100%;"
+                            class="ui-icon"
+                            style="width: var(--ui-dialog-header-height);"
                             variant="ghost"
                             @click=${() => {
                                 this.close();

@@ -86,7 +86,7 @@ class UIDrawerGroup extends LitElement {
 
                         <ui-flex-grid-item class="icon" align="center" flex="0">
                             <div
-                                class="ui-icon-chevron-down"
+                                class="ui-icon ui-icon-chevron-down"
                                 style="width: 2.5rem, height: 2.5rem"
                             ></div>
                         </ui-flex-grid-item>
