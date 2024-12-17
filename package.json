@@ -8,10 +8,10 @@
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "cd public && live-server --host=0.0.0.0 --watch=.",
-        "#dev": "echo disabled dev script: vite --host",
+        "#dev": "echo disabled: vite --host",
         "build": "tsc && vite build --minify -c vite.config.js && npm run build-css",
         "build-css": "rm -rf dist/css && sass sass/:dist/css/",
-        "build-docs": "wca analyze lib --outDir docs/lit/"
+        "#build-docs": "echo disabled: wca analyze lib --outDir docs/lit/"
     },
     "license": "MIT",
     "peerDependencies": {
