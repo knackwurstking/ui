@@ -272,45 +272,48 @@ a[current]:active {
   color: var(--ui-primary--active);
 }
 
-:root {
-  --ui-icon-chevron-top: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-up%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M7.646%204.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201-.708.708L8%205.707l-5.646%205.647a.5.5%200%200%201-.708-.708z%22%2F%3E%0A%3C%2Fsvg%3E");
-  --ui-icon-chevron-right: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-right%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708%22%2F%3E%0A%3C%2Fsvg%3E");
-  --ui-icon-chevron-bottom: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-down%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708%22%2F%3E%0A%3C%2Fsvg%3E");
-  --ui-icon-chevron-left: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-left%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M11.354%201.646a.5.5%200%200%201%200%20.708L5.707%208l5.647%205.646a.5.5%200%200%201-.708.708l-6-6a.5.5%200%200%201%200-.708l6-6a.5.5%200%200%201%20.708%200%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
 .ui-icon-chevron-top {
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-up%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M7.646%204.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201-.708.708L8%205.707l-5.646%205.647a.5.5%200%200%201-.708-.708z%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat right transparent;
-  background-size: 100%;
+  /*@include chevron(up); no-repeat right transparent;*/
+  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 width="16"                 height="16"                 fill="currentColor"                 class="bi bi-chevron-up"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"                 />             </svg>         ');
+  background-color: currentColor;
+  background-image: var(--svg) no-repeat 0em;
+  -webkit-mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat center 1em;
   width: 100%;
   height: 100%;
 }
 
 .ui-icon-chevron-right {
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-right%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat right transparent;
-  background-size: 100%;
+  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 width="16"                 height="16"                 fill="currentColor"                 class="bi bi-chevron-right"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"                 />             </svg>         ');
+  background-color: currentColor;
+  background-image: var(--svg) no-repeat 0em;
+  -webkit-mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat center 1em;
   width: 100%;
   height: 100%;
 }
 
 .ui-icon-chevron-down {
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-down%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M1.646%204.646a.5.5%200%200%201%20.708%200L8%2010.293l5.646-5.647a.5.5%200%200%201%20.708.708l-6%206a.5.5%200%200%201-.708%200l-6-6a.5.5%200%200%201%200-.708%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat right transparent;
-  background-size: 100%;
+  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-down"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"                 />             </svg>         ');
+  background-color: currentColor;
+  background-image: var(--svg) no-repeat 0em;
+  -webkit-mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat center 1em;
   width: 100%;
   height: 100%;
 }
 
 .ui-icon-chevron-left {
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-left%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M11.354%201.646a.5.5%200%200%201%200%20.708L5.707%208l5.647%205.646a.5.5%200%200%201-.708.708l-6-6a.5.5%200%200%201%200-.708l6-6a.5.5%200%200%201%20.708%200%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat right transparent;
-  background-size: 100%;
+  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 width="16"                 height="16"                 fill="currentColor"                 class="bi bi-chevron-left"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"                 />             </svg>         ');
+  background-color: currentColor;
+  background-image: var(--svg) no-repeat 0em;
+  -webkit-mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat center 1em;
   width: 100%;
   height: 100%;
 }
 
 select {
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
-  appearance: none;
   display: inline-block;
   cursor: pointer;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
@@ -321,18 +324,6 @@ select {
   font-size: 0.95rem;
   transition: border-color var(--ui-transition);
   accent-color: var(--ui-primary);
-}
-select:not([multiple]) {
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-chevron-right%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat right transparent;
-  background-size: 1rem;
-}
-select:not([multiple])::after {
-  position: absolute;
-  z-index: 1;
-  content: "";
-  width: 2.5rem;
-  height: 2.5rem;
-  inset: 0 0 0 auto;
 }
 
 button,
@@ -953,7 +944,6 @@ fieldset {
 }
 
 .ui-icon {
-  padding: calc(var(--ui-spacing) / 2);
   width: 100%;
   height: 100%;
 }
