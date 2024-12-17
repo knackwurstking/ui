@@ -233,9 +233,7 @@ class UIDialog extends LitElement {
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
-        if (this.shadowRoot !== null) {
-            addGlobalStylesToShadowRoot(this.shadowRoot);
-        }
+        addGlobalStylesToShadowRoot(this.shadowRoot!);
     }
 
     protected updated(_changedProperties: PropertyValues): void {

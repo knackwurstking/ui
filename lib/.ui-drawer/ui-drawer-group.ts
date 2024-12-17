@@ -99,9 +99,7 @@ class UIDrawerGroup extends LitElement {
     }
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
-        if (this.shadowRoot !== null) {
-            addGlobalStylesToShadowRoot(this.shadowRoot);
-        }
+        addGlobalStylesToShadowRoot(this.shadowRoot!);
     }
 }
 

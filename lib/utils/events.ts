@@ -1,4 +1,4 @@
-import type { CleanUpFunction } from "../global";
+import type { CleanUpFunction } from ".";
 
 export class Events<T extends { [key: string]: any }> {
     private listeners: {
@@ -24,9 +24,7 @@ export class Events<T extends { [key: string]: any }> {
     ): void {
         if (!this.listeners[key as string]) return;
 
-        this.listeners[key as string] = this.listeners[key as string].filter(
-            (l) => l !== listener,
-        );
+        this.listeners[key as string] = this.listeners[key as string].filter((l) => l !== listener);
     }
 
     dispatch<K extends keyof T>(key: K, data: T[K]): void {

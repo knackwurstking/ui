@@ -1,4 +1,4 @@
-import type { CleanUpFunction } from "../../global";
+import type { CleanUpFunction } from "..";
 
 const defaultOptions: DraggableMobileOptions = {
     onDragStart: null,

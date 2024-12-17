@@ -5,9 +5,6 @@ export * from "./cleanup";
 export * as draggable from "./draggable";
 export * as ripple from "./ripple";
 
-export const html = String.raw;
-export const css = String.raw;
-
 export function isAndroid(): boolean {
     return /(android)/i.test(navigator.userAgent);
 }

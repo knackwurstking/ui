@@ -1,5 +1,7 @@
+export type CleanUpFunction = () => void | Promise<void>;
+
 export class CleanUp {
-    private callbacks: (() => void | Promise<void>)[] = [];
+    private callbacks: CleanUpFunction[] = [];
 
     add(...cb: (() => void | Promise<void>)[]): void {
         this.callbacks.push(...cb);

@@ -1,4 +1,4 @@
-import type { CleanUpFunction } from "../global";
+import type { CleanUpFunction } from ".";
 
 export interface RippleOptions {
     color?: string;
@@ -12,7 +12,7 @@ export interface RippleOptions {
 }
 
 export const defaultOptions: RippleOptions = {
-    color: "var(--ui-ripple, currentColor)",
+    color: "var(--ui-ripple-color, currentColor)",
     opacity: "var(--ui-ripple-opacity, 0.2)",
     centered: false,
     spreadDuration: ".4s",
