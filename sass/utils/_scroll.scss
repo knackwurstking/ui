@@ -1,0 +1,25 @@
+@use "../settings" as *;
+
+.#{$css-selector-prefix}auto-scroll {
+    overflow: auto;
+}
+
+.#{$css-selector-prefix}auto-scroll-x {
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.#{$css-selector-prefix}auto-scroll-y {
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.#{$css-selector-prefix}hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
