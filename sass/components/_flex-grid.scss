@@ -1,0 +1,35 @@
+@use "../settings" as *;
+
+.#{$css-selector-prefix}flex-grid {
+    display: flex;
+
+    flex-direction: column;
+    flex-flow: column var(--wrap, nowrap);
+    justify-content: var(--justify, flex-start);
+    align-items: var(--align, flex-start);
+
+    width: 100%;
+    min-height: fit-content;
+    gap: var(--gap, 0.25rem);
+}
+
+.#{$css-selector-prefix}flex-grid-row {
+    display: flex;
+
+    flex-direction: row;
+    flex-flow: row var(--wrap, nowrap);
+    justify-content: var(--justify, flex-start);
+    align-items: var(--align, flex-start);
+
+    width: 100%;
+    min-height: fit-content;
+    gap: var(--gap, 0.25rem);
+}
+
+.#{$css-selector-prefix}flex-grid-item {
+    flex: var(--flex, 1);
+}
+
+.#{$css-selector-prefix}flex-grid-item > * {
+    flex-grow: 1;
+}
