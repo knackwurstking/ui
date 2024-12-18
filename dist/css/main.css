@@ -49,6 +49,77 @@ h6 {
   user-select: none;
 }
 
+.ui-flex {
+  display: flex;
+  flex-flow: var(--direction, row) var(--wrap, nowrap);
+  align-items: var(--align);
+  justify-content: var(--justify);
+}
+
+.ui-flex.inline {
+  display: inline-flex;
+}
+
+.ui-flex.wrap {
+  flex-wrap: wrap;
+}
+
+.ui-flex.nowrap {
+  flex-wrap: nowrap;
+}
+
+.ui-flex.row {
+  flex-flow: row var(--wrap, nowrap);
+}
+
+.ui-flex.row.reverse {
+  flex-flow: row-reverse var(--wrap, nowrap);
+}
+
+.ui-flex.column {
+  flex-flow: column var(--wrap, nowrap);
+}
+
+.ui-flex.column.reverse {
+  flex-flow: column-reverse var(--wrap, nowrap);
+}
+
+.ui-flex.align-center {
+  align-items: center;
+}
+
+.ui-flex.align-start {
+  align-items: flex-start;
+}
+
+.ui-flex.align-end {
+  align-items: flex-end;
+}
+
+.ui-flex.justify-center {
+  justify-content: center;
+}
+
+.ui-flex.justify-start {
+  justify-content: flex-start;
+}
+
+.ui-flex.justify-end {
+  justify-content: flex-end;
+}
+
+.ui-flex.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.ui-flex.justify-around {
+  justify-content: space-around;
+}
+
+.ui-flex.justify-between {
+  justify-content: space-between;
+}
+
 *::selection {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
