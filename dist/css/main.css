@@ -272,23 +272,24 @@ a[current]:active {
   color: var(--ui-primary--active);
 }
 
-.ui-icon-chevron-top {
-  /*@include chevron(up); no-repeat right transparent;*/
-  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 width="16"                 height="16"                 fill="currentColor"                 class="bi bi-chevron-up"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"                 />             </svg>         ');
+.ui-icon-chevron-up {
+  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-up"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"                 />             </svg>         ');
   background-color: currentColor;
   background-image: var(--svg) no-repeat 0em;
   -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat 1em;
+  mask-position: center;
   width: 100%;
   height: 100%;
 }
 
 .ui-icon-chevron-right {
-  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 width="16"                 height="16"                 fill="currentColor"                 class="bi bi-chevron-right"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"                 />             </svg>         ');
+  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-right"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"                 />             </svg>         ');
   background-color: currentColor;
   background-image: var(--svg) no-repeat 0em;
   -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat 1em;
+  mask-position: center;
   width: 100%;
   height: 100%;
 }
@@ -298,17 +299,19 @@ a[current]:active {
   background-color: currentColor;
   background-image: var(--svg) no-repeat 0em;
   -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat 1em;
+  mask-position: center;
   width: 100%;
   height: 100%;
 }
 
 .ui-icon-chevron-left {
-  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 width="16"                 height="16"                 fill="currentColor"                 class="bi bi-chevron-left"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"                 />             </svg>         ');
+  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-left"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"                 />             </svg>         ');
   background-color: currentColor;
   background-image: var(--svg) no-repeat 0em;
   -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat center 1em;
+  mask: var(--svg) no-repeat 1em;
+  mask-position: center;
   width: 100%;
   height: 100%;
 }
@@ -946,6 +949,42 @@ fieldset {
 .ui-icon {
   width: 100%;
   height: 100%;
+}
+
+.ui-flex-grid {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column var(--wrap, nowrap);
+  justify-content: var(--justify, flex-start);
+  align-items: var(--align, flex-start);
+  width: 100%;
+  min-height: fit-content;
+  gap: var(--gap, 0.25rem);
+}
+.ui-flex-grid.wrap {
+  flex-flow: column wrap;
+}
+
+.ui-flex-grid-row {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row var(--wrap, nowrap);
+  justify-content: var(--justify, flex-start);
+  align-items: var(--align, flex-start);
+  width: 100%;
+  min-height: fit-content;
+  gap: var(--gap, 0.25rem);
+}
+.ui-flex-grid-row.wrap {
+  flex-flow: row wrap;
+}
+
+.ui-flex-grid-item {
+  flex: var(--flex, 1);
+}
+
+.ui-flex-grid-item > * {
+  flex-grow: 1;
 }
 
 *,
