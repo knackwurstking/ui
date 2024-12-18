@@ -7,3 +7,10 @@
 
     color: transparent;
 }
+
+.#{$css-selector-prefix}ellipsis {
+    text-wrap-mode: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+}
