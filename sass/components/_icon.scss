@@ -1,7 +1,0 @@
-@use "../settings" as *;
-@use "../theme-variables" as *;
-
-.#{$css-selector-prefix}icon {
-    width: 100%;
-    height: 100%;
-}
