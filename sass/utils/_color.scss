@@ -1,0 +1,28 @@
+@use "../settings" as *;
+@use "../theme-variables" as *;
+
+.#{$css-selector-prefix}backdrop-blur {
+    background-color: $backdrop-color;
+    -webkit-backdrop-filter: $backdrop-filter;
+    backdrop-filter: $backdrop-filter;
+}
+
+.#{$css-selector-prefix}primary {
+    background-color: $primary;
+    color: $primary-text;
+}
+
+.#{$css-selector-prefix}secondary {
+    background-color: $secondary;
+    color: $secondary-text;
+}
+
+.#{$css-selector-prefix}destructive {
+    background-color: $destructive;
+    color: $destrructive-text;
+}
+
+.#{$css-selector-prefix}muted {
+    background-color: $muted;
+    color: $muted-text;
+}
