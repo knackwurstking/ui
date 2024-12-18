@@ -8,7 +8,9 @@
     z-index: 999;
 }
 
-.ui-app-bar > * {
+.ui-app-bar > .left,
+.ui-app-bar > .center,
+.ui-app-bar > .right {
     height: 100%;
     width: 100%;
 }
