@@ -173,6 +173,13 @@ h6 {
   color: transparent;
 }
 
+.ui-ellipsis {
+  text-wrap-mode: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
 .ui-disable-touch,
 .ui-disable-touch * {
   -ms-touch-action: none;
