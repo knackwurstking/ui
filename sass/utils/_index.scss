@@ -1,9 +1,9 @@
-@forward "border";
+@use "border";
 @forward "color";
 @use "debug";
-@forward "flex";
+@use "flex";
 @forward "isolation";
-@forward "scroll";
-@forward "text";
-@forward "touch";
+@use "scroll";
+@use "text";
+@use "touch";
 @forward "user-select";
