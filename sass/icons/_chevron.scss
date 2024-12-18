@@ -74,8 +74,7 @@
     mask: var(--svg) $repeat $position 1em;
 }
 
-.#{$css-selector-prefix}icon-chevron-top {
-    /*@include chevron(up); no-repeat right transparent;*/
+.#{$css-selector-prefix}icon-chevron-up {
     @include chevron(up);
     width: 100%;
     height: 100%;
