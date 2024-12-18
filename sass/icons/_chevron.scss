@@ -5,8 +5,6 @@
         --svg: url('data:image/svg+xml, \
             <svg \
                 xmlns="http://www.w3.org/2000/svg" \
-                width="16" \
-                height="16" \
                 fill="currentColor" \
                 class="bi bi-chevron-up" \
                 viewBox="0 0 16 16" \
@@ -21,8 +19,6 @@
         --svg: url('data:image/svg+xml, \
             <svg \
                 xmlns="http://www.w3.org/2000/svg" \
-                width="16" \
-                height="16" \
                 fill="currentColor" \
                 class="bi bi-chevron-right" \
                 viewBox="0 0 16 16" \
@@ -51,8 +47,6 @@
         --svg: url('data:image/svg+xml, \
             <svg \
                 xmlns="http://www.w3.org/2000/svg" \
-                width="16" \
-                height="16" \
                 fill="currentColor" \
                 class="bi bi-chevron-left" \
                 viewBox="0 0 16 16" \
@@ -71,7 +65,8 @@
     background-image: var(--svg) $repeat 0em;
 
     -webkit-mask: var(--svg) $repeat $position 1em;
-    mask: var(--svg) $repeat $position 1em;
+    mask: var(--svg) $repeat 1em;
+    mask-position: $position;
 }
 
 .#{$css-selector-prefix}icon-chevron-up {
