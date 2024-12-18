@@ -1,4 +1,19 @@
 @use "../settings" as *;
 @use "../theme-variables" as *;
+@use "../utils";
 
-// TODO: Continue ...
+.ui-app-bar {
+    @include utils.backdrop();
+
+    z-index: 999;
+}
+
+.ui-app-bar > * {
+    height: 100%;
+    width: 100%;
+}
+
+.ui-app-bar > .left,
+.ui-app-bar > .right {
+    width: fit-content;
+}
