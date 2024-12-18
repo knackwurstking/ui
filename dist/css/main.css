@@ -38,9 +38,9 @@ h6 {
 }
 
 .ui-backdrop-blur {
-  background-color: var(--ui-backdrop-color);
   -webkit-backdrop-filter: var(--ui-backdrop-filter);
   backdrop-filter: var(--ui-backdrop-filter);
+  background-color: var(--ui-backdrop-color);
 }
 
 .ui-primary {
@@ -1067,6 +1067,23 @@ pre {
 fieldset {
   border-color: var(--ui-border-color);
   border-radius: var(--ui-radius);
+}
+
+.ui-app-bar {
+  -webkit-backdrop-filter: var(--ui-backdrop-filter);
+  backdrop-filter: var(--ui-backdrop-filter);
+  background-color: var(--ui-backdrop-color);
+  z-index: 999;
+}
+
+.ui-app-bar > * {
+  height: 100%;
+  width: 100%;
+}
+
+.ui-app-bar > .left,
+.ui-app-bar > .right {
+  width: fit-content;
 }
 
 .ui-container {
