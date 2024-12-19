@@ -2,20 +2,56 @@
 @use "../theme-variables" as *;
 @use "../utils";
 
-.ui-app-bar {
+.#{$css-selector-prefix}app-bar {
     @include utils.backdrop();
 
-    z-index: 999;
-}
+    display: flex;
 
-.ui-app-bar > .left,
-.ui-app-bar > .center,
-.ui-app-bar > .right {
-    height: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc($spacing / 2);
+    overflow: hidden;
+
     width: 100%;
-}
+    gap: var(--gap, 0.25rem);
 
-.ui-app-bar > .left,
-.ui-app-bar > .right {
-    width: fit-content;
+    &[position="top"],
+    &[position="bottom"] {
+        z-index: 999;
+        position: absolute !important;
+        left: 0;
+        right: 0;
+
+        height: var(--ui-app-bar-height);
+    }
+
+    &[fixed] {
+        z-index: 999;
+        position: fixed !important;
+    }
+
+    &[position="top"] {
+        top: 0;
+
+        border-bottom: 1px solid var(--ui-borderColor);
+    }
+
+    &[position="bottom"] {
+        bottom: 0;
+
+        border-top: 1px solid var(--ui-borderColor);
+    }
+
+    & > .left,
+    & > .center,
+    & > .right {
+        height: 100%;
+        width: 100%;
+    }
+
+    & > .left,
+    & > .right {
+        width: fit-content;
+    }
 }
