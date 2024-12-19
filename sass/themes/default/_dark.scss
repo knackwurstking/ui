@@ -6,12 +6,12 @@
     $bg: variables.$text;
     $text: variables.$bg;
 
-    $primary: variables.$color-300;
+    $primary: variables.$color-200;
     $primary-text: $bg;
     $primary--hover: color.adjust($primary, $lightness: 5%);
     $primary--active: color.adjust($primary, $lightness: 10%);
 
-    $secondary: variables.$color-600;
+    $secondary: variables.$color-500;
     $secondary-text: $text;
     $secondary--hover: color.adjust($secondary, $lightness: 5%);
     $secondary--active: color.adjust($secondary, $lightness: 10%);
@@ -34,7 +34,7 @@
     $error-text: $destructive;
 
     $backdrop-color: rgba($bg, 0.2);
-    $border-color: variables.$color-700;
+    $border-color: variables.$color-600;
 
     @include mixins.theme(
         dark,
