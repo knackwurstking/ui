@@ -46,6 +46,12 @@
     & > .left,
     & > .center,
     & > .right {
+        display: flex;
+
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+
         height: 100%;
         width: 100%;
     }
@@ -53,5 +59,13 @@
     & > .left,
     & > .right {
         width: fit-content;
+    }
+
+    & > .left {
+        justify-content: flex-start;
+    }
+
+    & > .left {
+        justify-content: flex-end;
     }
 }
