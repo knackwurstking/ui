@@ -206,7 +206,7 @@ h6 {
 [disabled] {
   pointer-events: none;
   touch-action: none;
-  opacity: 0.75;
+  opacity: 0.65;
   cursor: default;
   -ms-user-select: none;
   -moz-user-select: none;
@@ -1120,11 +1120,21 @@ fieldset {
   border-top: 1px solid var(--ui-borderColor);
 }
 .ui-app-bar > .left, .ui-app-bar > .center, .ui-app-bar > .right {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
 }
 .ui-app-bar > .left, .ui-app-bar > .right {
   width: fit-content;
+}
+.ui-app-bar > .left {
+  justify-content: flex-start;
+}
+.ui-app-bar > .left {
+  justify-content: flex-end;
 }
 
 .ui-container {
@@ -1294,14 +1304,14 @@ dt {
 [data-theme=dark] {
   --ui-bg: #373843;
   --ui-text: #f7f7f8;
-  --ui-primary: #b5b6c4;
+  --ui-primary: #d7d8e0;
   --ui-primary-text: #373843;
-  --ui-primary--hover: rgb(195.1879699248, 195.9962406015, 207.3120300752);
-  --ui-primary--active: rgb(209.3759398496, 209.992481203, 218.6240601504);
-  --ui-secondary: #585971;
+  --ui-primary--hover: rgb(229.3661971831, 230.0070422535, 235.1338028169);
+  --ui-primary--active: rgb(243.7323943662, 244.014084507, 246.2676056338);
+  --ui-secondary: #6e7189;
   --ui-secondary-text: #f7f7f8;
-  --ui-secondary--hover: rgb(99.1641791045, 100.2910447761, 127.3358208955);
-  --ui-secondary--active: rgb(110.328358209, 111.5820895522, 141.671641791);
+  --ui-secondary--hover: rgb(123.2692307692, 126.1538461538, 149.2307692308);
+  --ui-secondary--active: rgb(137.4129554656, 139.987854251, 160.5870445344);
   --ui-destructive: #f87171;
   --ui-destructive-text: #7f1d1d;
   --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
@@ -1315,7 +1325,7 @@ dt {
   --ui-error: #f87171;
   --ui-error-text: #f87171;
   --ui-backdrop-color: rgba(55, 56, 67, 0.2);
-  --ui-border-color: #48495c;
+  --ui-border-color: #585971;
   background-color: #373843;
   color: #f7f7f8;
   color-scheme: dark;
@@ -1325,14 +1335,14 @@ dt {
   [data-theme=auto] {
     --ui-bg: #373843;
     --ui-text: #f7f7f8;
-    --ui-primary: #b5b6c4;
+    --ui-primary: #d7d8e0;
     --ui-primary-text: #373843;
-    --ui-primary--hover: rgb(195.1879699248, 195.9962406015, 207.3120300752);
-    --ui-primary--active: rgb(209.3759398496, 209.992481203, 218.6240601504);
-    --ui-secondary: #585971;
+    --ui-primary--hover: rgb(229.3661971831, 230.0070422535, 235.1338028169);
+    --ui-primary--active: rgb(243.7323943662, 244.014084507, 246.2676056338);
+    --ui-secondary: #6e7189;
     --ui-secondary-text: #f7f7f8;
-    --ui-secondary--hover: rgb(99.1641791045, 100.2910447761, 127.3358208955);
-    --ui-secondary--active: rgb(110.328358209, 111.5820895522, 141.671641791);
+    --ui-secondary--hover: rgb(123.2692307692, 126.1538461538, 149.2307692308);
+    --ui-secondary--active: rgb(137.4129554656, 139.987854251, 160.5870445344);
     --ui-destructive: #f87171;
     --ui-destructive-text: #7f1d1d;
     --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
@@ -1346,7 +1356,7 @@ dt {
     --ui-error: #f87171;
     --ui-error-text: #f87171;
     --ui-backdrop-color: rgba(55, 56, 67, 0.2);
-    --ui-border-color: #48495c;
+    --ui-border-color: #585971;
     background-color: #373843;
     color: #f7f7f8;
     color-scheme: dark;
