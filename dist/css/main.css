@@ -387,32 +387,26 @@ details[open] summary {
 }
 
 a {
-  text-decoration: none;
   color: var(--ui-secondary);
-  transition: color var(--ui-transition);
+  text-decoration: none;
+  opacity: 1;
+  transition: color var(--ui-transition), opacity var(--ui-transition);
 }
-
 a:hover {
   color: var(--ui-secondary--hover);
   text-decoration: underline;
 }
-
 a:active {
   color: var(--ui-secondary--active);
 }
-
-a:visited,
-a[current] {
+a:visited, a[current] {
   color: var(--ui-primary);
+  opacity: 0.75;
 }
-
-a:visited:hover,
-a[current]:hover {
+a:visited:hover, a[current]:hover {
   color: var(--ui-primary--hover);
 }
-
-a:visited:active,
-a[current]:active {
+a:visited:active, a[current]:active {
   color: var(--ui-primary--active);
 }
 
@@ -1272,93 +1266,93 @@ dt {
 
 [data-theme=light],
 :root {
-  --ui-bg: #f7f7f8;
-  --ui-text: #373843;
-  --ui-primary: #48495c;
-  --ui-primary-text: #f7f7f8;
-  --ui-primary--hover: rgb(83.1951219512, 84.3506097561, 106.3048780488);
-  --ui-primary--active: rgb(94.3902439024, 95.7012195122, 120.6097560976);
-  --ui-secondary: #8c8fa4;
-  --ui-secondary-text: #373843;
-  --ui-secondary--hover: rgb(125.7645631068, 129.1359223301, 152.7354368932);
-  --ui-secondary--active: rgb(111.7621359223, 115.4466019417, 141.2378640777);
+  --ui-bg: hsl(240, 10%, 98%);
+  --ui-text: hsl(240, 10%, 4%);
+  --ui-primary: hsl(240, 10%, 26%);
+  --ui-primary-text: hsl(240, 10%, 98%);
+  --ui-primary--hover: hsl(240, 10%, 31%);
+  --ui-primary--active: hsl(240, 10%, 36%);
+  --ui-secondary: hsl(240, 10%, 65%);
+  --ui-secondary-text: hsl(240, 10%, 4%);
+  --ui-secondary--hover: hsl(240, 10%, 60%);
+  --ui-secondary--active: hsl(240, 10%, 55%);
   --ui-destructive: #dc2828;
   --ui-destructive-text: #fee2e2;
   --ui-destructive--hover: rgb(223.57, 61.93, 61.93);
   --ui-destructive--active: rgb(227.14, 83.86, 83.86);
-  --ui-muted: rgb(192.6, 192.6, 200.4);
-  --ui-muted-text: rgb(89.487704918, 91.1147540984, 109.012295082);
-  --ui-info: rgb(219.8, 219.8, 224.2);
-  --ui-info-text: #373843;
+  --ui-muted: hsl(240, 10%, 78%);
+  --ui-muted-text: hsl(240, 10%, 19%);
+  --ui-info: hsl(240, 10%, 88%);
+  --ui-info-text: hsl(240, 10%, 4%);
   --ui-warning: #b37614;
   --ui-warning-text: #f9f2c8;
   --ui-error: #dc2828;
   --ui-error-text: #fee2e2;
-  --ui-backdrop-color: rgba(247, 247, 248, 0.2);
-  --ui-border-color: #b5b6c4;
-  background-color: #f7f7f8;
-  color: #373843;
+  --ui-backdrop-color: rgba(249.39, 249.39, 250.41, 0.2);
+  --ui-border-color: hsl(240, 10%, 84%);
+  background-color: hsl(240, 10%, 98%);
+  color: hsl(240, 10%, 4%);
   color-scheme: light;
 }
 
 [data-theme=dark] {
-  --ui-bg: #373843;
-  --ui-text: #f7f7f8;
-  --ui-primary: #d7d8e0;
-  --ui-primary-text: #373843;
-  --ui-primary--hover: rgb(229.3661971831, 230.0070422535, 235.1338028169);
-  --ui-primary--active: rgb(243.7323943662, 244.014084507, 246.2676056338);
-  --ui-secondary: #6e7189;
-  --ui-secondary-text: #f7f7f8;
-  --ui-secondary--hover: rgb(123.2692307692, 126.1538461538, 149.2307692308);
-  --ui-secondary--active: rgb(137.4129554656, 139.987854251, 160.5870445344);
+  --ui-bg: hsl(240, 10%, 4%);
+  --ui-text: hsl(240, 10%, 98%);
+  --ui-primary: hsl(240, 10%, 84%);
+  --ui-primary-text: hsl(240, 10%, 4%);
+  --ui-primary--hover: hsl(240, 10%, 89%);
+  --ui-primary--active: hsl(240, 10%, 94%);
+  --ui-secondary: hsl(240, 10%, 46%);
+  --ui-secondary-text: hsl(240, 10%, 98%);
+  --ui-secondary--hover: hsl(240, 10%, 51%);
+  --ui-secondary--active: hsl(240, 10%, 56%);
   --ui-destructive: #f87171;
   --ui-destructive-text: #7f1d1d;
   --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
   --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
-  --ui-muted: rgb(100.9836065574, 102.8196721311, 123.0163934426);
-  --ui-muted-text: rgb(206.2, 206.2, 212.3);
-  --ui-info: rgb(77.9918032787, 79.4098360656, 95.0081967213);
-  --ui-info-text: #f7f7f8;
+  --ui-muted: hsl(240, 10%, 24%);
+  --ui-muted-text: hsl(240, 10%, 83%);
+  --ui-info: hsl(240, 10%, 14%);
+  --ui-info-text: hsl(240, 10%, 98%);
   --ui-warning: #e7b428;
   --ui-warning-text: #693a1a;
   --ui-error: #f87171;
   --ui-error-text: #f87171;
-  --ui-backdrop-color: rgba(55, 56, 67, 0.2);
-  --ui-border-color: #585971;
-  background-color: #373843;
-  color: #f7f7f8;
+  --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.2);
+  --ui-border-color: hsl(240, 10%, 34%);
+  background-color: hsl(240, 10%, 4%);
+  color: hsl(240, 10%, 98%);
   color-scheme: dark;
 }
 
 @media only screen and (prefers-color-scheme: dark) {
   [data-theme=auto] {
-    --ui-bg: #373843;
-    --ui-text: #f7f7f8;
-    --ui-primary: #d7d8e0;
-    --ui-primary-text: #373843;
-    --ui-primary--hover: rgb(229.3661971831, 230.0070422535, 235.1338028169);
-    --ui-primary--active: rgb(243.7323943662, 244.014084507, 246.2676056338);
-    --ui-secondary: #6e7189;
-    --ui-secondary-text: #f7f7f8;
-    --ui-secondary--hover: rgb(123.2692307692, 126.1538461538, 149.2307692308);
-    --ui-secondary--active: rgb(137.4129554656, 139.987854251, 160.5870445344);
+    --ui-bg: hsl(240, 10%, 4%);
+    --ui-text: hsl(240, 10%, 98%);
+    --ui-primary: hsl(240, 10%, 84%);
+    --ui-primary-text: hsl(240, 10%, 4%);
+    --ui-primary--hover: hsl(240, 10%, 89%);
+    --ui-primary--active: hsl(240, 10%, 94%);
+    --ui-secondary: hsl(240, 10%, 46%);
+    --ui-secondary-text: hsl(240, 10%, 98%);
+    --ui-secondary--hover: hsl(240, 10%, 51%);
+    --ui-secondary--active: hsl(240, 10%, 56%);
     --ui-destructive: #f87171;
     --ui-destructive-text: #7f1d1d;
     --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
     --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
-    --ui-muted: rgb(100.9836065574, 102.8196721311, 123.0163934426);
-    --ui-muted-text: rgb(206.2, 206.2, 212.3);
-    --ui-info: rgb(77.9918032787, 79.4098360656, 95.0081967213);
-    --ui-info-text: #f7f7f8;
+    --ui-muted: hsl(240, 10%, 24%);
+    --ui-muted-text: hsl(240, 10%, 83%);
+    --ui-info: hsl(240, 10%, 14%);
+    --ui-info-text: hsl(240, 10%, 98%);
     --ui-warning: #e7b428;
     --ui-warning-text: #693a1a;
     --ui-error: #f87171;
     --ui-error-text: #f87171;
-    --ui-backdrop-color: rgba(55, 56, 67, 0.2);
-    --ui-border-color: #585971;
-    background-color: #373843;
-    color: #f7f7f8;
+    --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.2);
+    --ui-border-color: hsl(240, 10%, 34%);
+    background-color: hsl(240, 10%, 4%);
+    color: hsl(240, 10%, 98%);
     color-scheme: dark;
   }
 }
