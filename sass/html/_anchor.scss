@@ -1,31 +1,33 @@
 @use "../theme-variables" as *;
 
 a {
-    text-decoration: none;
     color: $secondary;
-    transition: color $transition;
-}
+    text-decoration: none;
+    opacity: 1;
+    transition:
+        color $transition,
+        opacity $transition;
 
-a:hover {
-    color: $secondary--hover;
-    text-decoration: underline;
-}
+    &:hover {
+        color: $secondary--hover;
+        text-decoration: underline;
+    }
 
-a:active {
-    color: $secondary--active;
-}
+    &:active {
+        color: $secondary--active;
+    }
 
-a:visited,
-a[current] {
-    color: $primary;
-}
+    &:visited,
+    &[current] {
+        color: $primary;
+        opacity: 0.75;
 
-a:visited:hover,
-a[current]:hover {
-    color: $primary--hover;
-}
+        &:hover {
+            color: $primary--hover;
+        }
 
-a:visited:active,
-a[current]:active {
-    color: $primary--active;
+        &:active {
+            color: $primary--active;
+        }
+    }
 }
