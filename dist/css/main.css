@@ -705,7 +705,7 @@ button:has(> svg)[type=reset][variant=ghost] {
 }
 
 button:has(> svg),
-button.icon {
+button[icon] {
   padding: calc(var(--ui-spacing) / 2);
   width: 2.5rem;
   height: 2.5rem;
@@ -1107,11 +1107,11 @@ fieldset {
 }
 .ui-app-bar[position=top] {
   top: 0;
-  border-bottom: 1px solid var(--ui-borderColor);
+  border-bottom: 1px solid var(--ui-border-color);
 }
 .ui-app-bar[position=bottom] {
   bottom: 0;
-  border-top: 1px solid var(--ui-borderColor);
+  border-top: 1px solid var(--ui-border-color);
 }
 .ui-app-bar > .left, .ui-app-bar > .center, .ui-app-bar > .right {
   display: flex;
