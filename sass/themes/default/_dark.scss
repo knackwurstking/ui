@@ -6,7 +6,7 @@
     $bg: variables.$text;
     $text: variables.$bg;
 
-    $primary: variables.$color-200;
+    $primary: variables.$color-300;
     $primary-text: $bg;
     $primary--hover: color.adjust($primary, $lightness: 5%);
     $primary--active: color.adjust($primary, $lightness: 10%);
