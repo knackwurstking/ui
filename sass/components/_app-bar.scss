@@ -23,7 +23,7 @@
         left: 0;
         right: 0;
 
-        height: var(--ui-app-bar-height);
+        height: $app-bar-height;
     }
 
     &[fixed] {
@@ -34,13 +34,13 @@
     &[position="top"] {
         top: 0;
 
-        border-bottom: 1px solid var(--ui-borderColor);
+        border-bottom: 1px solid $border-color;
     }
 
     &[position="bottom"] {
         bottom: 0;
 
-        border-top: 1px solid var(--ui-borderColor);
+        border-top: 1px solid $border-color;
     }
 
     & > .left,
