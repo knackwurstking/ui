@@ -6,7 +6,7 @@
     @include utils.backdrop();
 
     box-sizing: content-box;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: -100vw;
 
@@ -39,9 +39,5 @@
         &::before {
             left: 0;
         }
-    }
-
-    &[fixed] {
-        position: fixed;
     }
 }
