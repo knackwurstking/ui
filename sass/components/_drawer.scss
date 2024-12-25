@@ -3,6 +3,7 @@
 
 .ui-drawer {
     @include utils.hide-scrollbar();
+    @include utils.backdrop();
 
     box-sizing: content-box;
     position: absolute;
@@ -38,5 +39,9 @@
         &::before {
             left: 0;
         }
+    }
+
+    &[fixed] {
+        position: fixed;
     }
 }
