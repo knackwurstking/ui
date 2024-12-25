@@ -2,7 +2,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
   position: relative;
   margin: 0;
   padding: 0;
@@ -37,9 +37,7 @@ h6 {
   border-radius: var(--ui-radius);
 }
 
-.ui-backdrop-blur {
-  -webkit-backdrop-filter: var(--ui-backdrop-filter);
-  backdrop-filter: var(--ui-backdrop-filter);
+.ui-backdrop {
   background-color: var(--ui-backdrop-color);
 }
 
@@ -215,6 +213,7 @@ h6 {
 }
 
 html {
+  box-sizing: border-box;
   font-size: var(--ui-font-size);
   background-color: var(--ui-bg);
   color: var(--ui-text);
@@ -1083,8 +1082,6 @@ fieldset {
 }
 
 .ui-app-bar {
-  -webkit-backdrop-filter: var(--ui-backdrop-filter);
-  backdrop-filter: var(--ui-backdrop-filter);
   background-color: var(--ui-backdrop-color);
   display: flex;
   flex-flow: row nowrap;
@@ -1096,14 +1093,12 @@ fieldset {
   gap: var(--gap, 0.25rem);
 }
 .ui-app-bar[position=top], .ui-app-bar[position=bottom] {
-  z-index: 999;
   position: absolute !important;
   left: 0;
   right: 0;
   height: var(--ui-app-bar-height);
 }
 .ui-app-bar[fixed] {
-  z-index: 999;
   position: fixed !important;
 }
 .ui-app-bar[position=top] {
@@ -1183,31 +1178,38 @@ fieldset {
 }
 
 .ui-drawer {
-  -webkit-backdrop-filter: var(--ui-backdrop-filter);
-  backdrop-filter: var(--ui-backdrop-filter);
-  background-color: var(--ui-backdrop-color);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  box-sizing: content-box;
   position: absolute;
-  z-index: 999;
   top: 0;
-  left: -100%;
+  left: -100vw;
+  overflow: auto;
   transition: left var(--ui-transition), width var(--ui-transition);
   width: var(--width, fit-content);
   max-width: calc(100vw - 2.5rem);
   height: 100vh;
   border-right: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
 }
-.ui-drawer[open] {
-  left: 0;
+.ui-drawer::-webkit-scrollbar {
+  display: none;
 }
 .ui-drawer::before {
-  -webkit-backdrop-filter: var(--ui-backdrop-filter);
-  backdrop-filter: var(--ui-backdrop-filter);
+  /* This is the outside container */
   background-color: var(--ui-backdrop-color);
-  position: absolute;
-  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: -100vw;
   content: "";
   width: 100vw;
   height: 100vh;
+}
+.ui-drawer[open] {
+  left: 0;
+}
+.ui-drawer[open]::before {
+  left: 0;
 }
 
 *,
@@ -1289,7 +1291,6 @@ dt {
   --ui-app-bar-height: 3rem;
   --ui-dialog-header-height: 2.5rem;
   --ui-dialog-footer-height: 3rem;
-  --ui-backdrop-filter: blur(5px);
   --ui-transition: 0.2s ease-in-out;
 }
 
@@ -1317,7 +1318,7 @@ dt {
   --ui-warning-text: #f9f2c8;
   --ui-error: #dc2828;
   --ui-error-text: #fee2e2;
-  --ui-backdrop-color: rgba(249.39, 249.39, 250.41, 0.2);
+  --ui-backdrop-color: rgba(249.39, 249.39, 250.41, 0.75);
   --ui-border-color: hsl(240, 10%, 84%);
   background-color: hsl(240, 10%, 98%);
   color: hsl(240, 10%, 4%);
@@ -1347,7 +1348,7 @@ dt {
   --ui-warning-text: #693a1a;
   --ui-error: #f87171;
   --ui-error-text: #f87171;
-  --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.2);
+  --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.75);
   --ui-border-color: hsl(240, 10%, 34%);
   background-color: hsl(240, 10%, 4%);
   color: hsl(240, 10%, 98%);
@@ -1378,7 +1379,7 @@ dt {
     --ui-warning-text: #693a1a;
     --ui-error: #f87171;
     --ui-error-text: #f87171;
-    --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.2);
+    --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.75);
     --ui-border-color: hsl(240, 10%, 34%);
     background-color: hsl(240, 10%, 4%);
     color: hsl(240, 10%, 98%);

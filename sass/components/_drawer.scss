@@ -2,13 +2,14 @@
 @use "../utils";
 
 .ui-drawer {
-    @include utils.backdrop-blur();
+    @include utils.hide-scrollbar();
 
+    box-sizing: content-box;
     position: absolute;
-    z-index: 999;
     top: 0;
-    left: -100%;
+    left: -100vw;
 
+    overflow: auto;
     transition:
         left $transition,
         width $transition;
@@ -18,19 +19,24 @@
     height: 100vh;
     border-right: $border-width $border-style $border-color;
 
-    &[open] {
-        left: 0;
-    }
-
     &::before {
-        // FIXME: Backdrop filter doesn't work here.
-        @include utils.backdrop-blur();
+        /* This is the outside container */
+        @include utils.backdrop();
 
-        position: absolute;
-        z-index: -1;
+        position: fixed;
+        top: 0;
+        left: -100vw;
 
         content: "";
         width: 100vw;
         height: 100vh;
+    }
+
+    &[open] {
+        left: 0;
+
+        &::before {
+            left: 0;
+        }
     }
 }

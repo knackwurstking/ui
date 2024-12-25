@@ -1,15 +1,12 @@
 @use "../settings" as *;
 @use "../theme-variables" as *;
 
-@mixin backdrop-blur() {
-    -webkit-backdrop-filter: $backdrop-filter;
-    backdrop-filter: $backdrop-filter;
-
+@mixin backdrop() {
     background-color: $backdrop-color;
 }
 
-.#{$css-selector-prefix}backdrop-blur {
-    @include backdrop-blur();
+.#{$css-selector-prefix}backdrop {
+    @include backdrop();
 }
 
 .#{$css-selector-prefix}primary {

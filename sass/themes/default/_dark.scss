@@ -33,7 +33,7 @@
     $error: $destructive;
     $error-text: $destructive;
 
-    $backdrop-color: rgba($bg, 0.2);
+    $backdrop-color: rgba($bg, 0.75);
     $border-color: variables.$color-600;
 
     @include mixins.theme(
