@@ -5,19 +5,19 @@ const routes = {
     },
     "01": {
         title: "UI | 01 Test",
-        path: "/01-test.html",
+        path: "/01-test.template.html",
     },
     "02": {
         title: "UI | HTML5 Test Page",
-        path: "/02-html5-test-page.html",
+        path: "/02-html5-test-page.template.html",
     },
     "03": {
         title: "UI | SVGs",
-        path: "/03-svgs.html",
+        path: "/03-svgs.template.html",
     },
     "04": {
         title: "UI | Mobile Layout",
-        path: "/04-mobile-layout.html",
+        path: "/04-mobile-layout.template.html",
     },
 };
 
