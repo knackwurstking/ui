@@ -1093,13 +1093,13 @@ fieldset {
   gap: var(--gap, 0.25rem);
 }
 .ui-app-bar[position=top], .ui-app-bar[position=bottom] {
-  position: absolute !important;
+  position: absolute;
   left: 0;
   right: 0;
   height: var(--ui-app-bar-height);
 }
 .ui-app-bar[fixed] {
-  position: fixed !important;
+  position: fixed;
 }
 .ui-app-bar[position=top] {
   top: 0;
@@ -1181,6 +1181,7 @@ fieldset {
   -ms-overflow-style: none;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  background-color: var(--ui-backdrop-color);
   box-sizing: content-box;
   position: absolute;
   top: 0;
@@ -1210,6 +1211,9 @@ fieldset {
 }
 .ui-drawer[open]::before {
   left: 0;
+}
+.ui-drawer[fixed] {
+  position: fixed;
 }
 
 *,
