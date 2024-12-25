@@ -18,7 +18,7 @@
 
     &[position="top"],
     &[position="bottom"] {
-        position: absolute !important;
+        position: absolute;
         left: 0;
         right: 0;
 
@@ -26,7 +26,7 @@
     }
 
     &[fixed] {
-        position: fixed !important;
+        position: fixed;
     }
 
     &[position="top"] {
