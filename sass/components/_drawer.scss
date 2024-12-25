@@ -1,0 +1,36 @@
+@use "../theme-variables" as *;
+@use "../utils";
+
+.ui-drawer {
+    @include utils.backdrop-blur();
+
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: -100%;
+
+    transition:
+        left $transition,
+        width $transition;
+
+    width: var(--width, fit-content);
+    max-width: calc(100vw - 2.5rem);
+    height: 100vh;
+    border-right: $border-width $border-style $border-color;
+
+    &[open] {
+        left: 0;
+    }
+
+    &::before {
+        // FIXME: Backdrop filter doesn't work here.
+        @include utils.backdrop-blur();
+
+        position: absolute;
+        z-index: -1;
+
+        content: "";
+        width: 100vw;
+        height: 100vh;
+    }
+}

@@ -374,6 +374,7 @@ summary::after {
   content: " +";
   font-size: 1.5rem;
   color: var(--ui-primary);
+  padding-left: 1.5rem;
 }
 
 details[open] summary:after {
@@ -1179,6 +1180,34 @@ fieldset {
 
 .ui-flex-grid-item > * {
   flex-grow: 1;
+}
+
+.ui-drawer {
+  -webkit-backdrop-filter: var(--ui-backdrop-filter);
+  backdrop-filter: var(--ui-backdrop-filter);
+  background-color: var(--ui-backdrop-color);
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: -100%;
+  transition: left var(--ui-transition), width var(--ui-transition);
+  width: var(--width, fit-content);
+  max-width: calc(100vw - 2.5rem);
+  height: 100vh;
+  border-right: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+}
+.ui-drawer[open] {
+  left: 0;
+}
+.ui-drawer::before {
+  -webkit-backdrop-filter: var(--ui-backdrop-filter);
+  backdrop-filter: var(--ui-backdrop-filter);
+  background-color: var(--ui-backdrop-color);
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: 100vw;
+  height: 100vh;
 }
 
 *,

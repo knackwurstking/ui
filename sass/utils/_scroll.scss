@@ -1,5 +1,15 @@
 @use "../settings" as *;
 
+@mixin hide-scrollbar() {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .#{$css-selector-prefix}auto-scroll {
     overflow: auto;
 }
@@ -15,11 +25,5 @@
 }
 
 .#{$css-selector-prefix}hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    scroll-behavior: smooth;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
+    @include hide-scrollbar();
 }
