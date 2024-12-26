@@ -10,7 +10,7 @@
         "dev": "cd public && live-server --host=0.0.0.0 --watch=.",
         "#dev": "echo disabled: vite --host",
         "build": "tsc && vite build --minify -c vite.config.js && npm run build-css",
-        "build-css": "rm -rf dist/css && sass sass/:dist/css/",
+        "build-css": "rm -rf dist/css && sass sass/:dist/css/ && rm -rf public/css && cp -r dist/css public/css",
         "#build-docs": "echo disabled: wca analyze lib --outDir docs/lit/"
     },
     "license": "MIT",
