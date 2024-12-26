@@ -7,11 +7,10 @@
     "module": "dist/ui.min.js",
     "repository": "knackwurstking/ui",
     "scripts": {
-        "dev": "cd public && live-server --host=0.0.0.0 --watch=.",
+        "dev": "cd docs && live-server --host=0.0.0.0 --watch=.",
         "#dev": "echo disabled: vite --host",
         "build": "tsc && vite build --minify -c vite.config.js && npm run build-css",
-        "build-css": "rm -rf dist/css && sass sass/:dist/css/ && rm -rf public/css && cp -r dist/css public/css",
-        "#build-docs": "echo disabled: wca analyze lib --outDir docs/lit/"
+        "build-css": "rm -rf dist/css && sass sass/:dist/css/ && rm -rf docs/css && cp -r dist/css docs/css"
     },
     "license": "MIT",
     "peerDependencies": {
@@ -22,11 +21,9 @@
         "clean-css-cli": "^5.6.3",
         "typedoc": "^0.26.10",
         "typescript": "^5.6.3",
-        "web-component-analyzer": "^2.0.0",
         "live-server": "^1.2.2"
     },
     "dependencies": {
-        "lit": "^3.2.1",
         "sass": "^1.82.0",
         "vite": "^5.2.11"
     }
