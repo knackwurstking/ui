@@ -41,6 +41,12 @@ h6 {
   background-color: var(--ui-backdrop-color);
 }
 
+.ui-backdrop-blur {
+  background-color: var(--ui-backdrop-color);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
 .ui-primary {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
@@ -1083,6 +1089,8 @@ fieldset {
 
 .ui-app-bar {
   background-color: var(--ui-backdrop-color);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -1182,6 +1190,8 @@ fieldset {
   scrollbar-width: none;
   scroll-behavior: smooth;
   background-color: var(--ui-backdrop-color);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   box-sizing: content-box;
   position: fixed;
   top: 0;
@@ -1196,7 +1206,7 @@ fieldset {
 .ui-drawer::-webkit-scrollbar {
   display: none;
 }
-.ui-drawer::before {
+.ui-drawer[backdrop]::before {
   /* This is the outside container */
   background-color: var(--ui-backdrop-color);
   position: fixed;
@@ -1211,6 +1221,24 @@ fieldset {
 }
 .ui-drawer[open]::before {
   left: 0;
+}
+.ui-drawer:has(~ .ui-drawer-backdrop) {
+  display: none;
+}
+
+.ui-drawer-backdrop {
+  background-color: var(--ui-backdrop-color);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  width: 100vw;
+  height: 100vh;
+}
+.ui-drawer-backdrop:has(~ .ui-drawer:not([open])) {
+  display: none;
 }
 
 *,
