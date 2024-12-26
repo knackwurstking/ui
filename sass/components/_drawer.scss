@@ -1,9 +1,10 @@
+@use "../settings" as *;
 @use "../theme-variables" as *;
 @use "../utils";
 
-.ui-drawer {
+.#{$css-selector-prefix}drawer {
     @include utils.hide-scrollbar();
-    @include utils.backdrop();
+    @include utils.backdrop-blur();
 
     box-sizing: content-box;
     position: fixed;
@@ -20,7 +21,7 @@
     height: 100vh;
     border-right: $border-width $border-style $border-color;
 
-    &::before {
+    &[backdrop]::before {
         /* This is the outside container */
         @include utils.backdrop();
 
@@ -39,5 +40,25 @@
         &::before {
             left: 0;
         }
+    }
+
+    &:has(~ .ui-drawer-backdrop) {
+        display: none;
+    }
+}
+
+.#{$css-selector-prefix}drawer-backdrop {
+    @include utils.backdrop-blur();
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+
+    width: 100vw;
+    height: 100vh;
+
+    &:has(~ .ui-drawer:not([open])) {
+        display: none;
     }
 }
