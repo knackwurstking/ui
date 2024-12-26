@@ -1,4 +1,6 @@
-<main class="ui-app-bar" position="top">
+<main style="padding-top: var(--ui-app-bar-height)">@TODO: Page content here...</main>
+
+<nav class="ui-app-bar" position="top">
     <div class="left">
         <button variant="ghost" icon onclick="toggleDrawer()">
             <div class="ui-icon-list"></div>
@@ -10,11 +12,10 @@
     </div>
 
     <div class="right"></div>
-</main>
+</nav>
 
-<aside class="ui-drawer">
-    <!-- TODO: Need a close button -->
-
+<div class="ui-drawer-backdrop" onclick="closeDrawer(event)"></div>
+<aside class="ui-drawer" fixed open>
     <details>
         <summary><h4>Drawer Group 1</h4></summary>
 
