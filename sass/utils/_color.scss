@@ -5,8 +5,18 @@
     background-color: $backdrop-color;
 }
 
+@mixin backdrop-blur($blur: 5px) {
+    background-color: $backdrop-color;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
 .#{$css-selector-prefix}backdrop {
     @include backdrop();
+}
+
+.#{$css-selector-prefix}backdrop-blur {
+    @include backdrop-blur();
 }
 
 .#{$css-selector-prefix}primary {
