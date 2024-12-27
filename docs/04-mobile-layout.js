@@ -13,6 +13,11 @@ function closeDrawer() {
     drawer.removeAttribute("open");
 }
 
+function closeDialog() {
+    const dialog = document.querySelector(`dialog`);
+    dialog.close();
+}
+
 (() => {
     const dialog = document.querySelector(`dialog`);
     dialog.showModal();
