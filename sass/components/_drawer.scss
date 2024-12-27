@@ -4,9 +4,8 @@
 
 .#{$css-selector-prefix}drawer {
     @include utils.hide-scrollbar();
-    @include utils.backdrop-blur();
+    @include utils.backdrop();
 
-    box-sizing: content-box;
     position: fixed;
     top: 0;
     left: -100vw;
@@ -20,19 +19,6 @@
     max-width: calc(100vw - 2.5rem);
     height: 100vh;
     border-right: $border-width $border-style $border-color;
-
-    &[backdrop]::before {
-        /* This is the outside container */
-        @include utils.backdrop();
-
-        position: fixed;
-        top: 0;
-        left: -100vw;
-
-        content: "";
-        width: 100vw;
-        height: 100vh;
-    }
 
     &[open] {
         left: 0;
@@ -48,12 +34,11 @@
 }
 
 .#{$css-selector-prefix}drawer-backdrop {
-    @include utils.backdrop-blur();
+    @include utils.backdrop();
 
     position: fixed;
     top: 0;
     left: 0;
-    cursor: pointer;
 
     width: 100vw;
     height: 100vh;

@@ -1,6 +1,17 @@
-<main style="padding-top: var(--ui-app-bar-height)">@TODO: Page content here...</main>
+<style>
+    html,
+    body,
+    main {
+        height: 100%;
+    }
+</style>
 
-<nav class="ui-app-bar" position="top">
+<main style="padding-top: var(--ui-app-bar-height)">
+    @TODO: Page content here...
+    <div class="ui-spinner"></div>
+</main>
+
+<nav class="ui-app-bar" position="top" fixed>
     <div class="left">
         <button variant="ghost" icon onclick="toggleDrawer()">
             <div class="ui-icon-list"></div>
@@ -14,8 +25,8 @@
     <div class="right"></div>
 </nav>
 
-<div class="ui-drawer-backdrop" onclick="closeDrawer(event)"></div>
-<aside class="ui-drawer" fixed>
+<div class="ui-drawer-backdrop" style="cursor: pointer" onclick="closeDrawer(event)"></div>
+<aside class="ui-drawer" fixed backdrop>
     <details>
         <summary><h4>Drawer Group 1</h4></summary>
 

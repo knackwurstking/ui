@@ -3,8 +3,6 @@
 @use "../utils";
 
 .#{$css-selector-prefix}app-bar {
-    @include utils.backdrop-blur();
-
     display: flex;
 
     flex-flow: row nowrap;
