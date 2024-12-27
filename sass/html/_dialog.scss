@@ -1,0 +1,14 @@
+@use "../theme-variables" as *;
+@use "../utils";
+
+dialog {
+    @include utils.hide-scrollbar();
+
+    position: fixed;
+
+    padding: $spacing;
+    margin: auto auto;
+
+    border: $border-width $border-style $border-color;
+    border-radius: $radius;
+}
