@@ -3,8 +3,7 @@
 .#{$css-selector-prefix}flex-grid {
     display: flex;
 
-    flex-direction: column;
-    flex-flow: column var(--wrap, nowrap);
+    flex-flow: var(--direction, column) var(--wrap, nowrap);
     justify-content: var(--justify, flex-start);
     align-items: var(--align, flex-start);
 
@@ -20,8 +19,7 @@
 .#{$css-selector-prefix}flex-grid-row {
     display: flex;
 
-    flex-direction: row;
-    flex-flow: row var(--wrap, nowrap);
+    flex-flow: var(--direction, row) var(--wrap, nowrap);
     justify-content: var(--justify, flex-start);
     align-items: var(--align, flex-start);
 
