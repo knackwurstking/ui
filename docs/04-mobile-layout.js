@@ -12,3 +12,8 @@ function closeDrawer() {
 
     drawer.removeAttribute("open");
 }
+
+(() => {
+    const dialog = document.querySelector(`dialog`);
+    dialog.showModal();
+})();
