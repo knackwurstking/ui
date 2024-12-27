@@ -1,6 +1,0 @@
-blockquote {
-    border: none;
-    border-left: 1px solid var(--ui-borderColor);
-    margin: 0;
-    padding-left: 1rem;
-}
