@@ -197,7 +197,7 @@ h6 {
 }
 
 *:focus {
-  outline-offset: var(--ui-border-width);
+  outline-offset: calc(var(--ui-border-width) * 2);
   outline: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
 }
 
@@ -1081,6 +1081,20 @@ fieldset {
   border-radius: var(--ui-radius);
 }
 
+dialog {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  position: fixed;
+  padding: var(--ui-spacing);
+  margin: auto auto;
+  border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+}
+dialog::-webkit-scrollbar {
+  display: none;
+}
+
 .ui-app-bar {
   display: flex;
   flex-flow: row nowrap;
@@ -1142,8 +1156,7 @@ fieldset {
 
 .ui-flex-grid {
   display: flex;
-  flex-direction: column;
-  flex-flow: column var(--wrap, nowrap);
+  flex-flow: var(--direction, column) var(--wrap, nowrap);
   justify-content: var(--justify, flex-start);
   align-items: var(--align, flex-start);
   width: 100%;
@@ -1156,8 +1169,7 @@ fieldset {
 
 .ui-flex-grid-row {
   display: flex;
-  flex-direction: row;
-  flex-flow: row var(--wrap, nowrap);
+  flex-flow: var(--direction, row) var(--wrap, nowrap);
   justify-content: var(--justify, flex-start);
   align-items: var(--align, flex-start);
   width: 100%;
