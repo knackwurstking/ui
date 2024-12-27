@@ -14,7 +14,7 @@ export class Store<T extends { [key: string]: any }> {
         this.prefix = prefix;
     }
 
-    public get<K extends keyof T>(key: K, options: StoreOptions): T[K] | undefined {
+    public get<K extends keyof T>(key: K, options?: StoreOptions | null): T[K] | undefined {
         if (!options?.skipStore) {
             const item = localStorage.getItem(`${this.prefix}${key as string}`);
             if (item !== null) return JSON.parse(item);
@@ -35,7 +35,7 @@ export class Store<T extends { [key: string]: any }> {
          * "storage" flag needs to be set for this.
          */
         fallback: boolean = false,
-        options: StoreOptions,
+        options?: StoreOptions | null,
     ): void {
         if (fallback) {
             let item = null;
@@ -67,7 +67,7 @@ export class Store<T extends { [key: string]: any }> {
     public update<K extends keyof T>(
         key: K,
         callback: (data: T[K]) => T[K],
-        options: StoreOptions,
+        options?: StoreOptions | null,
     ): void {
         const data = this.get(key, options);
         if (data === undefined) {
