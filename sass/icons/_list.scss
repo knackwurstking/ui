@@ -24,7 +24,7 @@
 }
 
 .#{$css-selector-prefix}icon-list {
-    @include list(left);
+    @include list();
     width: 100%;
     height: 100%;
 }
