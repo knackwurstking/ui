@@ -7,7 +7,7 @@
 }
 
 *:focus {
-    outline-offset: $border-width;
+    outline-offset: calc($border-width * 2);
     outline: $border-width $border-style $border-color;
 }
 
