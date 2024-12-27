@@ -1,5 +1,9 @@
 import { Events } from "../events";
 
+export interface StoreOptions {
+    skipStore?: boolean;
+}
+
 export class Store<T extends { [key: string]: any }> {
     public prefix: string = "";
     public events: Events<T> = new Events();
@@ -10,8 +14,8 @@ export class Store<T extends { [key: string]: any }> {
         this.prefix = prefix;
     }
 
-    public get<K extends keyof T>(key: K, skipStore: boolean = false): T[K] | undefined {
-        if (!skipStore) {
+    public get<K extends keyof T>(key: K, options: StoreOptions): T[K] | undefined {
+        if (!options?.skipStore) {
             const item = localStorage.getItem(`${this.prefix}${key as string}`);
             if (item !== null) return JSON.parse(item);
         }
@@ -23,7 +27,6 @@ export class Store<T extends { [key: string]: any }> {
         return this.data[key as string];
     }
 
-    // TODO: ...
     public set<K extends keyof T>(
         key: K,
         data: T[K],
@@ -32,11 +35,11 @@ export class Store<T extends { [key: string]: any }> {
          * "storage" flag needs to be set for this.
          */
         fallback: boolean = false,
-        skipStore: boolean = false,
+        options: StoreOptions,
     ): void {
         if (fallback) {
             let item = null;
-            if (!skipStore) {
+            if (!options?.skipStore) {
                 item = localStorage.getItem(`${this.prefix}${key as string}`);
             } else {
                 item = null;
@@ -51,7 +54,7 @@ export class Store<T extends { [key: string]: any }> {
             this.data[key as string] = data;
         }
 
-        if (!skipStore) {
+        if (!options?.skipStore) {
             localStorage.setItem(
                 `${this.prefix}${key as string}`,
                 JSON.stringify(this.data[key as string]),
@@ -61,8 +64,18 @@ export class Store<T extends { [key: string]: any }> {
         this.events.dispatch(key, this.data[key as string]);
     }
 
-    // TODO: ...
-    update() {}
+    public update<K extends keyof T>(
+        key: K,
+        callback: (data: T[K]) => T[K],
+        options: StoreOptions,
+    ): void {
+        const data = this.get(key, options);
+        if (data === undefined) {
+            throw new Error(`"${key as string}" not found, use \`set\``);
+        }
+
+        this.set(key, callback(data), false, options);
+    }
 
     // TODO: ...
     listen() {}
