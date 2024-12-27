@@ -1,4 +1,4 @@
-import type { CleanUpFunction } from "..";
+import { CleanUpFunction } from "../events";
 
 const defaultOptions: DraggableNativeOptions = {
     onDragStart: null,
