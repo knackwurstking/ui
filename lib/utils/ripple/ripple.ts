@@ -1,4 +1,4 @@
-import type { CleanUpFunction } from ".";
+import type { CleanUpFunction } from "../";
 
 export interface RippleOptions {
     color?: string;

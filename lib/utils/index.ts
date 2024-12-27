@@ -1,9 +1,9 @@
 export * from "./global-styles";
-export * from "./events";
-export * from "./cleanup";
 
 export * as draggable from "./draggable";
 export * as ripple from "./ripple";
+
+export type CleanUpFunction = () => void | Promise<void>;
 
 export function isAndroid(): boolean {
     return /(android)/i.test(navigator.userAgent);
