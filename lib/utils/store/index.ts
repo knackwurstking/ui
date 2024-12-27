@@ -1,4 +1,4 @@
-import { Events } from "../events";
+import { CleanUpFunction, Events } from "../events";
 
 export interface StoreOptions {
     skipStore?: boolean;
@@ -6,8 +6,8 @@ export interface StoreOptions {
 
 export class Store<T extends { [key: string]: any }> {
     public prefix: string = "";
-    public events: Events<T> = new Events();
 
+    private events: Events<T> = new Events();
     private data: { [key: string]: any } = {};
 
     constructor(prefix: string) {
@@ -77,6 +77,19 @@ export class Store<T extends { [key: string]: any }> {
         this.set(key, callback(data), false, options);
     }
 
-    // TODO: ...
-    listen() {}
+    public listen<K extends keyof T>(
+        key: K,
+        callback: (data: T[K]) => void | Promise<void>,
+        triggerOnce: boolean = false,
+        options?: StoreOptions | null,
+    ): CleanUpFunction {
+        if (triggerOnce) {
+            const data = this.get(key, options);
+            if (data !== undefined) {
+                setTimeout(() => callback(data));
+            }
+        }
+
+        return this.events.addListener(key, callback);
+    }
 }
