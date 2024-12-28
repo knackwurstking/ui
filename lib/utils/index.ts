@@ -3,6 +3,7 @@ export * from "./store";
 
 export * as draggable from "./draggable";
 export * as ripple from "./ripple";
+export * as router from "./router";
 
 export function isAndroid(): boolean {
     return /(android)/i.test(navigator.userAgent);
