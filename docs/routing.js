@@ -1,5 +1,7 @@
-window.addEventListener("DOMContentLoaded", () => {
-    const routes = {
+window.addEventListener("DOMContentLoaded", function () {
+    console.debug("window.ui:", window.ui);
+
+    window.ui.router.hash({
         "/": {
             title: "UI | Index",
             template: "",
@@ -25,39 +27,5 @@ window.addEventListener("DOMContentLoaded", () => {
             template: "04-mobile-layout.template.html",
             scripts: [{ src: "04-mobile-layout.js" }],
         },
-    };
-
-    function goto(route) {
-        fetch(route.template)
-            .then((r) => r.text())
-            .then((d) => {
-                document.querySelector(`head > title`).innerHTML = route.title;
-                document.body.innerHTML = d;
-
-                route.scripts.forEach((s) => {
-                    const script = document.createElement("script");
-                    script.setAttribute("data-template", route.template);
-                    script.src = s.src;
-                    document.body.appendChild(script);
-                });
-            })
-            .catch((err) => alert(err));
-    }
-
-    window.addEventListener("hashchange", () => {
-        const hash = window.location.hash.replace("#", "");
-
-        const match = Object.keys(routes).find((k) => {
-            return hash.startsWith(k);
-        });
-
-        if (match !== undefined) {
-            goto(routes[match]);
-        } else {
-            goto(routes["/"]);
-        }
     });
-
-    // Call haschange handler once
-    window.dispatchEvent(new Event("hashchange"));
 });
