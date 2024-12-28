@@ -45,7 +45,17 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     window.addEventListener("hashchange", () => {
-        goto(routes[window.location.hash.replace("#", "")] || routes["/"]);
+        const hash = window.location.hash.replace("#", "");
+
+        const match = Object.keys(routes).find((k) => {
+            return hash.startsWith(k);
+        });
+
+        if (match !== undefined) {
+            goto(routes[match]);
+        } else {
+            goto(routes["/"]);
+        }
     });
 
     // Call haschange handler once
