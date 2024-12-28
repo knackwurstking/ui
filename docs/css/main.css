@@ -1062,6 +1062,7 @@ pre {
   background-color: var(--ui-muted);
   color: var(--ui-muted-text);
   padding: var(--ui-spacing);
+  line-height: var(--ui-line-height-code);
   border: none;
   border-radius: var(--ui-radius);
 }
@@ -1332,6 +1333,7 @@ dt {
   --ui-font-family: "Recursive", sans-serif;
   --ui-font-size: 1rem;
   --ui-line-height: 1.5;
+  --ui-line-height-code: 1.25;
   --ui-border-width: 1px;
   --ui-border-style: solid;
   --ui-radius: 0.25rem;
