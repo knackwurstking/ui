@@ -12,6 +12,7 @@ $font-name: "Recursive";
     #{settings.$css-var-prefix}font-family: $font-name, sans-serif;
     #{settings.$css-var-prefix}font-size: 1rem;
     #{settings.$css-var-prefix}line-height: 1.5;
+    #{settings.$css-var-prefix}line-height-code: 1.25;
 
     #{settings.$css-var-prefix}border-width: 1px;
     #{settings.$css-var-prefix}border-style: solid;
