@@ -1,6 +1,6 @@
 import { Route } from "./types";
 
-export function hash(routes: { [key: string]: Route }) {
+export function hash(routes: { [key: string]: Route }): void {
     function goto(route: Route) {
         fetch(route.template)
             .then((r) => r.text())
