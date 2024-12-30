@@ -1,5 +1,6 @@
 export * from "./events";
 export * from "./store";
+export * from "./lang";
 
 export * as draggable from "./draggable";
 export * as ripple from "./ripple";
