@@ -2,45 +2,9 @@
 
 ## v2.0.0 [unreleased]
 
-[@TODO: Update this...]
+- Converted this library to an Sass library with some JavaScript utilities.
 
-- [ ] Use sass for css and kick css import from "/src/index.ts" [work-in-progress]
-- [x] The "/dist" directory need some update... Just like "ratchet-2.0.2"
-- [ ] CSS:Missing defaults for css variables (no borders on input elements)
-- [ ] CSS: Blockquote needs some more top/bottom margin
-- [ ] CSS: Themes not working until `data-theme="light"` is set (light should be
-      default, or just use media queries?)
-- [ ] Add basic styles to the `popover` and `popovertarget` global attribute
-- [ ] Change and update docs
-
-**Breaking Changes**:
-
-- Changed all color theme variables
-- Removed `UISvg` lit component
-- Renamed CSS utils
-
-**General**:
-
-- Bundled formats "umd" (global: `window.ui`) and "es"
-- Style (CSS) changes
-- Code clean up
-
-**Added**:
-
-- Added `[disabled]` to CSS custom
-- Added CSS utils (old utils remove/renamed) [@TODO: Link documentation here]
-- Added CSS components [@TODO: Link documentation here]
-
-**Updated**:
-
-- Updated library documentation, CSS and JS documentation utils still missing
-- Updated demo/test page from (src directory)
-
-**Removed**:
-
-- Removed the `UISvg` lit component and replaced it with a CSS `ui-svg`
-- Removed ripple attribute from `UIButton` and `UIIconButton` components
-- Removed ripple attribute from `UILabel` component
+> See the [docs](docs/README.md) for more info
 
 ## v1.1.1 — [2024-11-20]
 
