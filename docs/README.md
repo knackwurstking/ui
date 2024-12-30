@@ -6,7 +6,7 @@
 
 `window.ui` [dist/ui.min.umd.cjs](dist/ui.min.umd.cjs)
 
-```Typescript
+```typescript
 interface UI {
     draggable: {
         createNative: (
@@ -15,17 +15,11 @@ interface UI {
             options?: DraggableNativeOptions,
         ) => CleanUpFunction;
 
-        createMobile: (
-            container: HTMLElement,
-            options?: DraggableNativeOptions,
-        ) => CleanUpFunction;
+        createMobile: (container: HTMLElement, options?: DraggableNativeOptions) => CleanUpFunction;
     };
 
     ripple: {
-        create: (
-            target: HTMLElement,
-            options?: RippleOptions,
-        ) => CleanUpFunction;
+        create: (target: HTMLElement, options?: RippleOptions) => CleanUpFunction;
     };
 
     router: {
@@ -47,7 +41,77 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 ### Theme variables (dark/light schemes)
 
-@TODO: ...
+```css
+:root {
+    --ui-font-family: "Recursive", sans-serif;
+    --ui-font-size: 1rem;
+    --ui-line-height: 1.5;
+    --ui-line-height-code: 1.25;
+    --ui-border-width: 1px;
+    --ui-border-style: solid;
+    --ui-radius: 0.25rem;
+    --ui-spacing: 0.5rem;
+    --ui-app-bar-height: 3rem;
+    --ui-dialog-header-height: 2.5rem;
+    --ui-dialog-footer-height: 3rem;
+    --ui-transition: 0.2s ease-in-out;
+}
+
+[data-theme="light"],
+:root {
+    --ui-bg: hsl(240, 10%, 98%);
+    --ui-text: hsl(240, 10%, 4%);
+    --ui-primary: hsl(240, 10%, 26%);
+    --ui-primary-text: hsl(240, 10%, 98%);
+    --ui-primary--hover: hsl(240, 10%, 31%);
+    --ui-primary--active: hsl(240, 10%, 36%);
+    --ui-secondary: hsl(240, 10%, 65%);
+    --ui-secondary-text: hsl(240, 10%, 4%);
+    --ui-secondary--hover: hsl(240, 10%, 60%);
+    --ui-secondary--active: hsl(240, 10%, 55%);
+    --ui-destructive: #dc2828;
+    --ui-destructive-text: #fee2e2;
+    --ui-destructive--hover: rgb(223.57, 61.93, 61.93);
+    --ui-destructive--active: rgb(227.14, 83.86, 83.86);
+    --ui-muted: hsl(240, 10%, 78%);
+    --ui-muted-text: hsl(240, 10%, 19%);
+    --ui-info: hsl(240, 10%, 88%);
+    --ui-info-text: hsl(240, 10%, 4%);
+    --ui-warning: #b37614;
+    --ui-warning-text: #f9f2c8;
+    --ui-error: #dc2828;
+    --ui-error-text: #fee2e2;
+    --ui-backdrop-color: rgba(249.39, 249.39, 250.41, 0.75);
+    --ui-border-color: hsl(240, 10%, 84%);
+}
+
+[data-theme="dark"] {
+    --ui-bg: hsl(240, 10%, 4%);
+    --ui-text: hsl(240, 10%, 98%);
+    --ui-primary: hsl(240, 10%, 84%);
+    --ui-primary-text: hsl(240, 10%, 4%);
+    --ui-primary--hover: hsl(240, 10%, 89%);
+    --ui-primary--active: hsl(240, 10%, 94%);
+    --ui-secondary: hsl(240, 10%, 46%);
+    --ui-secondary-text: hsl(240, 10%, 98%);
+    --ui-secondary--hover: hsl(240, 10%, 51%);
+    --ui-secondary--active: hsl(240, 10%, 56%);
+    --ui-destructive: #f87171;
+    --ui-destructive-text: #7f1d1d;
+    --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
+    --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
+    --ui-muted: hsl(240, 10%, 24%);
+    --ui-muted-text: hsl(240, 10%, 83%);
+    --ui-info: hsl(240, 10%, 14%);
+    --ui-info-text: hsl(240, 10%, 98%);
+    --ui-warning: #e7b428;
+    --ui-warning-text: #693a1a;
+    --ui-error: #f87171;
+    --ui-error-text: #f87171;
+    --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.75);
+    --ui-border-color: hsl(240, 10%, 34%);
+}
+```
 
 ### Utility classes
 
