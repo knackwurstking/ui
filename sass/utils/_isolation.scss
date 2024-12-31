@@ -4,6 +4,6 @@
     isolation: isolate;
 }
 
-.#{settings.$css-selector-prefix}isolation {
-    @include isolate;
+.#{settings.$css-selector-prefix}isolate {
+    @include isolate();
 }
