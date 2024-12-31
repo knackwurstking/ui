@@ -27,10 +27,6 @@
             left: 0;
         }
     }
-
-    &:has(~ .ui-drawer-backdrop) {
-        display: none;
-    }
 }
 
 .#{$css-selector-prefix}drawer-backdrop {
