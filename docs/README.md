@@ -1,5 +1,21 @@
 # Documentation
 
+<!--toc:start-->
+
+- [Documentation](#documentation)
+  - [JavaScript](#javascript)
+  - [CSS/Sass](#csssass)
+    - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
+    - [Utility classes](#utility-classes)
+    - [Components](#components)
+      - [UI App Bar](#ui-app-bar)
+      - [UI Container](#ui-container)
+      - [UI Drawer](#ui-drawer)
+      - [UI Flex Grid](#ui-flex-grid)
+      - [UI Spinner](#ui-spinner)
+
+<!--toc:end-->
+
 > Just some quick and dirty documentation.
 
 ## JavaScript
@@ -177,4 +193,48 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 ### Components
 
-@TODO: ...
+#### UI App Bar
+
+- `.ui-app-bar`
+
+**Attributes**:
+
+- `&[position="top"]`
+- `&[position="bottom"]`
+- `&[fixed]`
+
+**Children**:
+
+- `& > .left, & > .center, & > .right`
+
+#### UI Container
+
+- `.ui-container`
+
+**Classes**:
+
+- `&.fluid`
+
+#### UI Drawer
+
+- `.ui-drawer`
+
+**Attributes**:
+
+- `&[open]`
+
+Container used for (outside) background [optional]
+
+> Should be set before the `.ui-drawer` container
+
+- `.ui-drawer-backdrop`
+
+#### UI Flex Grid
+
+- `.ui-flex-grid`
+- `.ui-flex-grid-row`
+- `.ui-flex-grid-item`
+
+#### UI Spinner
+
+- `.ui-spinner`
