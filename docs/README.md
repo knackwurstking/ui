@@ -115,7 +115,65 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 ### Utility classes
 
-@TODO: ...
+**\_border.scss**:
+
+- `.ui-border`
+
+**\_color.scss**:
+
+- `.ui-backdrop`
+- `.ui-primary`
+- `.ui-secondary`
+- `.ui-destructive`
+  `.ui-muted`
+
+**\_debug.scss**:
+
+- `.ui-debug`
+
+**\_flex.scss**:
+
+- `.ui-flex`
+  - `.inline`
+  - `.wrap`
+  - `.nowrap`
+  - `.row`
+    - `.reverse`
+  - `.column`
+    - `.reverse`
+  - `.align-center`
+  - `.align-start`
+  - `.align-end`
+  - `.justify-center`
+  - `.justify-start`
+  - `.justify-end`
+  - `.justify-evenly`
+  - `.justify-around`
+  - `.justify-between`
+
+**\_isolation.scss**:
+
+- `.ui-isolate`
+
+**\_scroll.scss**:
+
+- `.ui-auto-scroll`
+- `.ui-auto-scroll-x`
+- `.ui-auto-scroll-y`
+- `.ui-hide-scrollbar`
+
+**\_text.scss**:
+
+- `.ui-outline-text`
+- `.ui-ellipsis`
+
+**\_touch.scss**:
+
+- `.ui-disable-touch`
+
+**\_user-select.scss**:
+
+- `.ui-none-select`
 
 ### Components
 
