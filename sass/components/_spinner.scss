@@ -18,10 +18,6 @@
     width: 100%;
     height: 100%;
 
-    :host([nobg]) .background {
-        display: none;
-    }
-
     &::after {
         z-index: 1;
         position: absolute;
