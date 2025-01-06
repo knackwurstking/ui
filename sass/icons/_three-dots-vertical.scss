@@ -1,16 +1,15 @@
 @use "../settings" as *;
 
-@mixin list($repeat: no-repeat, $position: center) {
+@mixin three-dots-vertical($repeat: no-repeat, $position: center) {
     --svg: url('data:image/svg+xml, \
         <svg \
             xmlns="http://www.w3.org/2000/svg" \
             fill="currentColor" \
-            class="bi bi-list" \
+            class="bi bi-three-dots-vertical" \
             viewBox="0 0 16 16" \
         > \
             <path \
-                fill-rule="evenodd" \
-                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" \
+                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" \
             /> \
         </svg> \
     ');
@@ -23,8 +22,8 @@
     mask-position: $position;
 }
 
-.#{$css-selector-prefix}icon-list {
-    @include list();
+.#{$css-selector-prefix}icon-three-dots-vertical {
+    @include three-dots-vertical();
     width: 100%;
     height: 100%;
 }
