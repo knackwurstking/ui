@@ -144,20 +144,22 @@ h6 {
 
 .ui-auto-scroll {
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
 .ui-auto-scroll-x {
   overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 .ui-auto-scroll-y {
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .ui-hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  scroll-behavior: smooth;
 }
 .ui-hide-scrollbar::-webkit-scrollbar {
   display: none;
@@ -1083,7 +1085,6 @@ fieldset {
 dialog {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  scroll-behavior: smooth;
   position: fixed;
   padding: var(--ui-spacing);
   margin: auto auto;
@@ -1190,7 +1191,6 @@ dialog::-webkit-scrollbar {
 .ui-drawer {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  scroll-behavior: smooth;
   background-color: var(--ui-backdrop-color);
   position: fixed;
   top: 0;
