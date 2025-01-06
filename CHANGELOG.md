@@ -4,7 +4,7 @@
 
 - Converted this library to an Sass library with some JavaScript utilities.
 
-> See the [docs](docs/README.md) for more info
+> See the [docs](docs/DOCUMENTATION.md) for more info
 
 ## v1.1.1 — [2024-11-20]
 
