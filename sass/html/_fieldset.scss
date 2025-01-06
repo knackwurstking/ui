@@ -1,6 +1,8 @@
 @use "../theme-variables" as *;
 
 fieldset {
+    padding: $spacing;
+
     border-color: $border-color;
     border-radius: $radius;
 

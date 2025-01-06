@@ -1078,6 +1078,7 @@ pre {
 }
 
 fieldset {
+  padding: var(--ui-spacing);
   border-color: var(--ui-border-color);
   border-radius: var(--ui-radius);
 }
