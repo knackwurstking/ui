@@ -31,7 +31,7 @@
     $warning-text: #693a1a; // -900
 
     $error: $destructive;
-    $error-text: $destructive;
+    $error-text: $destructive-text;
 
     $backdrop-color: rgba($bg, 0.75);
     $border-color: variables.$color-600;
