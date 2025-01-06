@@ -1081,6 +1081,10 @@ fieldset {
   border-color: var(--ui-border-color);
   border-radius: var(--ui-radius);
 }
+fieldset legend {
+  padding: 0 var(--ui-spacing);
+  font-size: 1.25rem;
+}
 
 dialog {
   -ms-overflow-style: none;
@@ -1294,7 +1298,8 @@ h3,
 h4,
 h5,
 h6 {
-  --wght: 600;
+  --wght: 700;
+  --slnt: -3;
 }
 
 b {
@@ -1319,6 +1324,11 @@ table td {
 
 dt {
   --wght: 600;
+}
+
+fieldset legend {
+  --wght: 650;
+  --slnt: -3;
 }
 
 :root {

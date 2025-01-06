@@ -3,4 +3,9 @@
 fieldset {
     border-color: $border-color;
     border-radius: $radius;
+
+    legend {
+        padding: 0 $spacing;
+        font-size: 1.25rem;
+    }
 }
