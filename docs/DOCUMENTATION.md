@@ -1,5 +1,7 @@
 # Documentation
 
+- [ ] Add missing button documentation, special attributes like variant or color and what is with icons
+
 <!--toc:start-->
 
 - [Documentation](#documentation)
