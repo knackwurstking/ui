@@ -489,8 +489,7 @@ select {
   accent-color: var(--ui-primary);
 }
 
-button,
-button:has(> svg) {
+button {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -510,17 +509,14 @@ button:has(> svg) {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
 }
-button:hover,
-button:has(> svg):hover {
+button:hover {
   background-color: var(--ui-primary--hover);
 }
-button:active,
-button:has(> svg):active {
+button:active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
-button[variant=outline],
-button:has(> svg)[variant=outline] {
+button[variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -542,8 +538,7 @@ button:has(> svg)[variant=outline] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-button[variant=ghost],
-button:has(> svg)[variant=ghost] {
+button[variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -565,8 +560,7 @@ button:has(> svg)[variant=ghost] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-button[color=secondary],
-button:has(> svg)[color=secondary] {
+button[color=secondary] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -586,17 +580,14 @@ button:has(> svg)[color=secondary] {
   background-color: var(--ui-secondary);
   color: var(--ui-secondary-text);
 }
-button[color=secondary]:hover,
-button:has(> svg)[color=secondary]:hover {
+button[color=secondary]:hover {
   background-color: var(--ui-secondary--hover);
 }
-button[color=secondary]:active,
-button:has(> svg)[color=secondary]:active {
+button[color=secondary]:active {
   transition: none;
   background-color: var(--ui-secondary--active);
 }
-button[color=secondary][variant=outline],
-button:has(> svg)[color=secondary][variant=outline] {
+button[color=secondary][variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -616,8 +607,7 @@ button:has(> svg)[color=secondary][variant=outline] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-button[color=secondary][variant=ghost],
-button:has(> svg)[color=secondary][variant=ghost] {
+button[color=secondary][variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -637,9 +627,7 @@ button:has(> svg)[color=secondary][variant=ghost] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-button[color=destructive], button[type=reset],
-button:has(> svg)[color=destructive],
-button:has(> svg)[type=reset] {
+button[color=destructive], button[type=reset] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -659,20 +647,14 @@ button:has(> svg)[type=reset] {
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
 }
-button[color=destructive]:hover, button[type=reset]:hover,
-button:has(> svg)[color=destructive]:hover,
-button:has(> svg)[type=reset]:hover {
+button[color=destructive]:hover, button[type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-button[color=destructive]:active, button[type=reset]:active,
-button:has(> svg)[color=destructive]:active,
-button:has(> svg)[type=reset]:active {
+button[color=destructive]:active, button[type=reset]:active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
-button[color=destructive][variant=outline], button[type=reset][variant=outline],
-button:has(> svg)[color=destructive][variant=outline],
-button:has(> svg)[type=reset][variant=outline] {
+button[color=destructive][variant=outline], button[type=reset][variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -692,9 +674,7 @@ button:has(> svg)[type=reset][variant=outline] {
   background-color: transparent;
   color: var(--ui-destructive);
 }
-button[color=destructive][variant=ghost], button[type=reset][variant=ghost],
-button:has(> svg)[color=destructive][variant=ghost],
-button:has(> svg)[type=reset][variant=ghost] {
+button[color=destructive][variant=ghost], button[type=reset][variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);

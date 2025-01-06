@@ -118,8 +118,7 @@
     }
 }
 
-button,
-button:has(> svg) {
+button {
     @include button();
 }
 
