@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
     console.debug("window.ui:", window.ui);
 
-    window.ui.router.hash({
+    window.ui.router.hash(document.body, {
         "/": {
             title: "UI | Index",
             template: "",

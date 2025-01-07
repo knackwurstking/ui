@@ -1,6 +1,6 @@
 import { Route } from "./types";
 
-export function hash(routes: { [key: string]: Route }): void {
+export function hash(target: HTMLElement, routes: { [key: string]: Route }): void {
     function goto(route: Route) {
         fetch(route.template)
             .then((r) => r.text())
@@ -10,13 +10,13 @@ export function hash(routes: { [key: string]: Route }): void {
                     title.innerHTML = route.title;
                 }
 
-                document.body.innerHTML = d;
+                target.innerHTML = d;
 
                 route.scripts.forEach((s) => {
                     const script = document.createElement("script");
                     script.setAttribute("data-template", route.template);
                     script.src = s.src;
-                    document.body.appendChild(script);
+                    target.appendChild(script);
                 });
             })
             .catch((err) => alert(err));
