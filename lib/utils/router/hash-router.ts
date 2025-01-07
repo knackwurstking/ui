@@ -28,12 +28,20 @@ export function hash(target: Element, routes: { [key: string]: Route }): void {
         const match = Object.keys(routes).find((k) => {
             return hash.startsWith(k);
         });
+        if (match === undefined) {
+            const route = routes["/"];
+            if (route === undefined) {
+                console.warn(
+                    `Window location “${hash}” is missing in routes, and the fallback route “/“ is also missing.`,
+                );
+                return;
+            }
 
-        if (match !== undefined) {
-            goto(routes[match]);
-        } else {
-            goto(routes["/"]);
+            goto(route);
+            return;
         }
+
+        goto(routes[match]);
     });
 
     // Call haschange handler once
