@@ -4,27 +4,23 @@ window.addEventListener("DOMContentLoaded", function () {
     window.ui.router.hash(document.body, {
         "/": {
             title: "UI | Index",
-            template: "",
-            scripts: [],
+            href: "",
         },
         "01": {
             title: "UI | 01 Test",
-            template: "01-test.template.html",
-            scripts: [],
+            href: "01-test.template.html",
         },
         "02": {
             title: "UI | HTML5 Test Page",
-            template: "02-html5-test-page.template.html",
-            scripts: [],
+            href: "02-html5-test-page.template.html",
         },
         "03": {
             title: "UI | SVGs",
-            template: "03-svgs.template.html",
-            scripts: [],
+            href: "03-svgs.template.html",
         },
         "04": {
             title: "UI | Mobile Layout",
-            template: "04-mobile-layout.template.html",
+            href: "04-mobile-layout.template.html",
             scripts: [{ src: "04-mobile-layout.js" }],
         },
     });
