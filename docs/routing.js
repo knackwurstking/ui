@@ -22,6 +22,10 @@ window.addEventListener("DOMContentLoaded", function () {
             title: "UI | Mobile Layout",
             href: "04-mobile-layout.template.html",
             scripts: [{ src: "04-mobile-layout.js" }],
+            onMount: async () => {
+                const dialog = document.querySelector(`dialog`);
+                dialog.showModal();
+            },
         },
     });
 });
