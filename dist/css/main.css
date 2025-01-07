@@ -390,7 +390,7 @@ a {
   color: var(--ui-secondary);
   text-decoration: none;
   opacity: 1;
-  transition: color var(--ui-transition), opacity var(--ui-transition);
+  transition: color 0.25s ease-in-out, opacity 0.25s easse-in-out;
 }
 a:hover {
   color: var(--ui-secondary--hover);
@@ -485,7 +485,7 @@ select {
   padding: var(--ui-spacing);
   background-color: transparent;
   font-size: 0.95rem;
-  transition: border-color var(--ui-transition);
+  transition: border-color 0.25s ease-in-out;
   accent-color: var(--ui-primary);
 }
 
@@ -498,7 +498,7 @@ button {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -525,7 +525,7 @@ button[variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -547,7 +547,7 @@ button[variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -569,7 +569,7 @@ button[color=secondary] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -596,7 +596,7 @@ button[color=secondary][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -616,7 +616,7 @@ button[color=secondary][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -636,7 +636,7 @@ button[color=destructive], button[type=reset] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -663,7 +663,7 @@ button[color=destructive][variant=outline], button[type=reset][variant=outline] 
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -683,7 +683,7 @@ button[color=destructive][variant=ghost], button[type=reset][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -716,7 +716,7 @@ textarea {
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   box-shadow: none;
-  transition: border-color var(--ui-transition);
+  transition: border-color 0.25s ease-in-out;
   background-color: transparent;
   font-size: 0.95rem;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
@@ -730,7 +730,7 @@ input:not([type=button]):not([type=submit]):not([type=reset]) {
   box-shadow: none;
   font-size: 0.95rem;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-  transition: border-color var(--ui-transition);
+  transition: border-color 0.25s ease-in-out;
   background-color: transparent;
   accent-color: var(--ui-primary);
 }
@@ -770,7 +770,7 @@ input[type=button] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -797,7 +797,7 @@ input[type=button][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -819,7 +819,7 @@ input[type=button][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -841,7 +841,7 @@ input[type=button][color=secondary] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -868,7 +868,7 @@ input[type=button][color=secondary][variant=outline] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -888,7 +888,7 @@ input[type=button][color=secondary][variant=ghost] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -908,7 +908,7 @@ input[type=button][color=destructive], input[type=button][type=reset] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -935,7 +935,7 @@ input[type=button][color=destructive][variant=outline], input[type=button][type=
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -955,7 +955,7 @@ input[type=button][color=destructive][variant=ghost], input[type=button][type=re
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -975,7 +975,7 @@ input[type=submit] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -1002,7 +1002,7 @@ input[type=reset] {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -1029,7 +1029,7 @@ input::-webkit-file-upload-button {
   text-transform: capitalize;
   font-size: 1.1rem;
   overflow: hidden;
-  transition: background-color var(--ui-transition);
+  transition: background-color 0.25s ease-in-out;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
   -ms-user-select: none;
@@ -1192,7 +1192,7 @@ dialog::-webkit-scrollbar {
   top: 0;
   left: -100vw;
   overflow: auto;
-  transition: left var(--ui-transition), width var(--ui-transition);
+  transition: left 0.25s ease-in-out, width 0.25s ease-in-out;
   width: var(--width, fit-content);
   max-width: calc(100vw - 2.5rem);
   height: 100vh;
@@ -1335,7 +1335,6 @@ fieldset legend {
   --ui-app-bar-height: 3rem;
   --ui-dialog-header-height: 2.5rem;
   --ui-dialog-footer-height: 3rem;
-  --ui-transition: 0.2s ease-in-out;
 }
 
 [data-theme=light],

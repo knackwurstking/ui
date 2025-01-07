@@ -12,7 +12,7 @@ select {
     padding: $spacing;
     background-color: transparent;
     font-size: 0.95rem;
-    transition: border-color $transition;
+    transition: border-color 0.25s ease-in-out;
 
     accent-color: $primary;
 }

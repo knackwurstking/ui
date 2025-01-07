@@ -5,8 +5,8 @@ a {
     text-decoration: none;
     opacity: 1;
     transition:
-        color $transition,
-        opacity $transition;
+        color 0.25s ease-in-out,
+        opacity 0.25s easse-in-out;
 
     &:hover {
         color: $secondary--hover;

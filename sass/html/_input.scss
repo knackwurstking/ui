@@ -12,7 +12,7 @@ textarea {
     border-radius: $radius;
     box-shadow: none;
 
-    transition: border-color $transition;
+    transition: border-color 0.25s ease-in-out;
     background-color: transparent;
     font-size: 0.95rem;
     padding: $spacing calc($spacing * 2);
@@ -30,7 +30,7 @@ input {
 
         font-size: 0.95rem;
         padding: $spacing calc($spacing * 2);
-        transition: border-color $transition;
+        transition: border-color 0.25s ease-in-out;
         background-color: transparent;
 
         accent-color: $primary;

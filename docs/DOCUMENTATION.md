@@ -72,7 +72,6 @@ Or use [dist/ui.min.js](dist//ui.min.js)
     --ui-app-bar-height: 3rem;
     --ui-dialog-header-height: 2.5rem;
     --ui-dialog-footer-height: 3rem;
-    --ui-transition: 0.2s ease-in-out;
 }
 
 [data-theme="light"],
@@ -101,6 +100,9 @@ Or use [dist/ui.min.js](dist//ui.min.js)
     --ui-error-text: #fee2e2;
     --ui-backdrop-color: rgba(249.39, 249.39, 250.41, 0.75);
     --ui-border-color: hsl(240, 10%, 84%);
+    background-color: hsl(240, 10%, 98%);
+    color: hsl(240, 10%, 4%);
+    color-scheme: light;
 }
 
 [data-theme="dark"] {
@@ -125,9 +127,44 @@ Or use [dist/ui.min.js](dist//ui.min.js)
     --ui-warning: #e7b428;
     --ui-warning-text: #693a1a;
     --ui-error: #f87171;
-    --ui-error-text: #f87171;
+    --ui-error-text: #7f1d1d;
     --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.75);
     --ui-border-color: hsl(240, 10%, 34%);
+    background-color: hsl(240, 10%, 4%);
+    color: hsl(240, 10%, 98%);
+    color-scheme: dark;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+        --ui-bg: hsl(240, 10%, 4%);
+        --ui-text: hsl(240, 10%, 98%);
+        --ui-primary: hsl(240, 10%, 84%);
+        --ui-primary-text: hsl(240, 10%, 4%);
+        --ui-primary--hover: hsl(240, 10%, 89%);
+        --ui-primary--active: hsl(240, 10%, 94%);
+        --ui-secondary: hsl(240, 10%, 46%);
+        --ui-secondary-text: hsl(240, 10%, 98%);
+        --ui-secondary--hover: hsl(240, 10%, 51%);
+        --ui-secondary--active: hsl(240, 10%, 56%);
+        --ui-destructive: #f87171;
+        --ui-destructive-text: #7f1d1d;
+        --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
+        --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
+        --ui-muted: hsl(240, 10%, 24%);
+        --ui-muted-text: hsl(240, 10%, 83%);
+        --ui-info: hsl(240, 10%, 14%);
+        --ui-info-text: hsl(240, 10%, 98%);
+        --ui-warning: #e7b428;
+        --ui-warning-text: #693a1a;
+        --ui-error: #f87171;
+        --ui-error-text: #7f1d1d;
+        --ui-backdrop-color: rgba(9.18, 9.18, 11.22, 0.75);
+        --ui-border-color: hsl(240, 10%, 34%);
+        background-color: hsl(240, 10%, 4%);
+        color: hsl(240, 10%, 98%);
+        color-scheme: dark;
+    }
 }
 ```
 

@@ -11,7 +11,7 @@
     text-transform: capitalize;
     font-size: 1.1rem;
     overflow: hidden;
-    transition: background-color $transition;
+    transition: background-color 0.25s ease-in-out;
 
     border: $border-width $border-style $border-color;
     border-radius: $radius;
