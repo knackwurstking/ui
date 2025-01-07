@@ -1,7 +1,8 @@
 export interface Route {
-    title: string;
-    template: string;
-    scripts: Script[];
+    title?: string;
+    href?: string;
+    template?: string;
+    scripts?: Script[];
 }
 
 export interface Script {
