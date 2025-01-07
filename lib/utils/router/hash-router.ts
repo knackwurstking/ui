@@ -1,6 +1,8 @@
 import { Route } from "./types";
 
 export function hash(target: Element, routes: { [key: string]: Route }): void {
+    let currentRoute: Route | null = null;
+
     function goto(route: Route) {
         if (route.template !== undefined) {
             const template = document.querySelector(route.template);
@@ -8,12 +10,24 @@ export function hash(target: Element, routes: { [key: string]: Route }): void {
                 throw `${route.template} not found`;
             }
 
+            if (currentRoute?.onDestroy !== undefined) {
+                currentRoute.onDestroy();
+            }
+            currentRoute = null;
+
             if (template instanceof HTMLTemplateElement) {
                 target.innerHTML = "";
                 target.appendChild(template.content.cloneNode(true));
             } else {
                 target.innerHTML = template.innerHTML;
             }
+
+            currentRoute = route;
+            if (currentRoute.onMount !== undefined) {
+                currentRoute.onMount();
+            }
+
+            return;
         }
 
         if (route.href === undefined) {
@@ -30,18 +44,24 @@ export function hash(target: Element, routes: { [key: string]: Route }): void {
                     }
                 }
 
-                target.innerHTML = d;
-
-                if (route.scripts === undefined) {
-                    return;
+                if (currentRoute?.onDestroy !== undefined) {
+                    currentRoute.onDestroy();
                 }
 
-                route.scripts.forEach((s) => {
-                    const script = document.createElement("script");
-                    script.setAttribute("data-template", route.href!);
-                    script.src = s.src;
-                    target.appendChild(script);
-                });
+                target.innerHTML = d;
+                currentRoute = route;
+                if (currentRoute?.onMount !== undefined) {
+                    currentRoute.onMount();
+                }
+
+                if (route.scripts !== undefined) {
+                    route.scripts.forEach((s) => {
+                        const script = document.createElement("script");
+                        script.setAttribute("data-template", route.href!);
+                        script.src = s.src;
+                        target.appendChild(script);
+                    });
+                }
             })
             .catch((err) => alert(err));
     }
