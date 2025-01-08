@@ -1,6 +1,7 @@
 # Documentation
 
-- [ ] Add missing button documentation, special attributes like variant or color and what is with icons
+- [ ] Add documentation about special attributes like variant or color and what is with icons
+- [ ] Add documentation about special variables like --align, --justify, ...
 
 <!--toc:start-->
 
