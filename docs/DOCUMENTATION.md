@@ -2,26 +2,29 @@
 
 - [ ] Add documentation about special attributes like variant or color and what is with icons
 - [ ] Add documentation about special variables like --align, --justify, ...
+- [ ] Add icons documentation (css only)
 
 <!--toc:start-->
 
 - [Documentation](#documentation)
-  - [JavaScript](#javascript)
-  - [CSS/Sass](#csssass)
-    - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
-    - [Utility classes](#utility-classes)
-    - [Components](#components)
-      - [UI App Bar](#ui-app-bar)
-      - [UI Container](#ui-container)
-      - [UI Drawer](#ui-drawer)
-      - [UI Flex Grid](#ui-flex-grid)
-      - [UI Spinner](#ui-spinner)
+    - [JavaScript](#javascript)
+    - [CSS/Sass](#csssass)
+        - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
+        - [Utility classes](#utility-classes)
+        - [Components](#components)
+            - [UI App Bar](#ui-app-bar)
+            - [UI Container](#ui-container)
+            - [UI Drawer](#ui-drawer)
+            - [UI Flex Grid](#ui-flex-grid)
+            - [UI Spinner](#ui-spinner)
 
 <!--toc:end-->
 
 > Just some quick and dirty documentation.
 
 ## JavaScript
+
+> TODO: Update this, but keep it simple
 
 `window.ui` [dist/ui.min.umd.cjs](dist/ui.min.umd.cjs)
 
@@ -59,6 +62,8 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 ## CSS/Sass
 
 ### Theme variables (dark/light schemes)
+
+> TODO: Update this
 
 ```css
 :root {
@@ -190,22 +195,22 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 **\_flex.scss**:
 
 - `.ui-flex`
-  - `.inline`
-  - `.wrap`
-  - `.nowrap`
-  - `.row`
-    - `.reverse`
-  - `.column`
-    - `.reverse`
-  - `.align-center`
-  - `.align-start`
-  - `.align-end`
-  - `.justify-center`
-  - `.justify-start`
-  - `.justify-end`
-  - `.justify-evenly`
-  - `.justify-around`
-  - `.justify-between`
+    - `.inline`
+    - `.wrap`
+    - `.nowrap`
+    - `.row`
+        - `.reverse`
+    - `.column`
+        - `.reverse`
+    - `.align-center`
+    - `.align-start`
+    - `.align-end`
+    - `.justify-center`
+    - `.justify-start`
+    - `.justify-end`
+    - `.justify-evenly`
+    - `.justify-around`
+    - `.justify-between`
 
 **\_isolation.scss**:
 
