@@ -4,7 +4,11 @@ window.addEventListener("DOMContentLoaded", function () {
     window.ui.router.hash(document.body, {
         "/": {
             title: "UI | Index",
-            href: "",
+            href: "index.template.html",
+        },
+        "00": {
+            title: "UI | Documentation",
+            href: "00-doc.template.html",
         },
         "01": {
             title: "UI | 01 Test",
