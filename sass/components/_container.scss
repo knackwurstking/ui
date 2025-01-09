@@ -12,9 +12,9 @@
     padding: $spacing;
 
     overflow: auto;
-}
 
-.#{$css-selector-prefix}container.fluid {
-    width: 100%;
-    max-width: 100%;
+    &.fluid {
+        width: 100%;
+        max-width: 100%;
+    }
 }
