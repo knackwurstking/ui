@@ -24,46 +24,15 @@
 
 ## JavaScript
 
-> TODO: Update this, but keep it simple
-
 `window.ui` [dist/ui.min.umd.cjs](dist/ui.min.umd.cjs)
 
-```typescript
-interface UI {
-    draggable: {
-        createNative: (
-            container: HTMLElement,
-            child: HTMLElement,
-            options?: DraggableNativeOptions,
-        ) => CleanUpFunction;
-
-        createMobile: (container: HTMLElement, options?: DraggableNativeOptions) => CleanUpFunction;
-    };
-
-    ripple: {
-        create: (target: HTMLElement, options?: RippleOptions) => CleanUpFunction;
-    };
-
-    router: {
-        hash: (routes: { [key: string]: Route }) => void;
-    };
-
-    Events: Events<{ [key: string]: any }>;
-    Store: Store<{ [key: string]: any }>;
-    LanguageHandler: LanguageHandler;
-
-    isAndroid: () => boolean;
-    styles: (style: CSSStyleDeclaration) => string;
-}
-```
+Just go to the console and do a `console.log(window.ui)`.
 
 Or use [dist/ui.min.js](dist//ui.min.js)
 
 ## CSS/Sass
 
 ### Theme variables (dark/light schemes)
-
-> TODO: Update this
 
 ```css
 :root {
@@ -176,6 +145,8 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 ### Utility classes
 
+TODO: Update this
+
 **\_border.scss**:
 
 - `.ui-border`
@@ -237,6 +208,8 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 - `.ui-none-select`
 
 ### Components
+
+TODO: Update this
 
 #### UI App Bar
 
