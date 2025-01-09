@@ -18,8 +18,7 @@
 
     @include utils.none-select();
 
-    // NOTE: Primary color with variant full will be the default
-    //       in version v2.0.0
+    // NOTE: Color "primary" with variant "full" will be the default in version v2.0.0
 
     @if $variant == outline {
         border-color: currentColor;
