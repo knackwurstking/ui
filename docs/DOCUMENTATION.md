@@ -1,9 +1,5 @@
 # Documentation
 
-- [ ] Add documentation about special attributes like variant or color and what is with icons
-- [ ] Add documentation about special variables like --align, --justify, ...
-- [ ] Add icons documentation (css only)
-
 <!--toc:start-->
 
 - [Documentation](#documentation)
@@ -11,6 +7,15 @@
   - [CSS/Sass](#csssass)
     - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
     - [Utility classes](#utility-classes)
+      - [Border](#border)
+      - [Color](#color)
+      - [Debug](#debug)
+      - [Flex](#flex)
+      - [Isolation](#isolation)
+      - [Scroll](#scroll)
+      - [Text](#text)
+      - [Touch](#touch)
+      - [user-select](#user-select)
     - [Components](#components)
       - [UI App Bar](#ui-app-bar)
       - [UI Container](#ui-container)
@@ -145,13 +150,19 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 ### Utility classes
 
-TODO: Update this
+> All HTML Elements takes font variation settings from special CSS variables
+>
+> - `--mono`: 0..1
+> - `--casl`: 0..1
+> - `--wght`: 300..1000
+> - `--slnt`: 0..-15
+> - `--CRSV`: 0..1
 
-**\_border.scss**:
+#### Border
 
 - `.ui-border`
 
-**\_color.scss**:
+#### Color
 
 - `.ui-backdrop`
 - `.ui-primary`
@@ -159,100 +170,145 @@ TODO: Update this
 - `.ui-destructive`
   `.ui-muted`
 
-**\_debug.scss**:
+#### Debug
 
 - `.ui-debug`
 
-**\_flex.scss**:
+#### Flex
 
 - `.ui-flex`
-  - `.inline`
-  - `.wrap`
-  - `.nowrap`
-  - `.row`
-    - `.reverse`
-  - `.column`
-    - `.reverse`
-  - `.align-center`
-  - `.align-start`
-  - `.align-end`
-  - `.justify-center`
-  - `.justify-start`
-  - `.justify-end`
-  - `.justify-evenly`
-  - `.justify-around`
-  - `.justify-between`
 
-**\_isolation.scss**:
+**Optional**:
+
+- `&.inline`
+- `&.wrap`
+- `&.nowrap`
+- `&.row`
+  - `&.reverse`
+- `&.column`
+  - `&.reverse`
+- `&.align-center`
+- `&.align-start`
+- `&.align-end`
+- `&.justify-center`
+- `&.justify-start`
+- `&.justify-end`
+- `&.justify-evenly`
+- `&.justify-around`
+- `&.justify-between`
+
+#### Isolation
 
 - `.ui-isolate`
 
-**\_scroll.scss**:
+#### Scroll
 
 - `.ui-auto-scroll`
 - `.ui-auto-scroll-x`
 - `.ui-auto-scroll-y`
 - `.ui-hide-scrollbar`
 
-**\_text.scss**:
+#### Text
 
 - `.ui-outline-text`
 - `.ui-ellipsis`
 
-**\_touch.scss**:
+#### Touch
 
 - `.ui-disable-touch`
 
-**\_user-select.scss**:
+#### user-select
 
 - `.ui-none-select`
 
 ### Components
 
-TODO: Update this
-
 #### UI App Bar
 
-- `.ui-app-bar`
+**Component**:
 
-**Attributes**:
+- `.ui-app-bar`
+  - `& > .left`: Should be the first children of `.ui-app-bar`
+  - `& > .center`: The second
+  - `& > .right`: And the last
+
+**Special CSS Variables**:
+
+- `--gap` defaults to `0.25rem`
+
+**Custom Attributes**:
 
 - `&[position="top"]`
 - `&[position="bottom"]`
 - `&[fixed]`
 
-**Children**:
-
-- `& > .left, & > .center, & > .right`
-
 #### UI Container
+
+**Component**:
 
 - `.ui-container`
 
-**Classes**:
+**Optional**:
 
 - `&.fluid`
 
 #### UI Drawer
 
+**Component**:
+
 - `.ui-drawer`
 
-**Attributes**:
+**Special CSS Variables**:
+
+- `--width` defaults to `fit-content`
+
+**Custom Attributes**:
 
 - `&[open]`
 
-Container used for (outside) background [optional]
-
-> Should be set before the `.ui-drawer` container
+**Component**:
 
 - `.ui-drawer-backdrop`
 
+> Should be set before the `.ui-drawer` container
+> (You can handle the outside click here, ex.: closing the drawer)
+
 #### UI Flex Grid
 
+**Component**:
+
 - `.ui-flex-grid`
+
+**Special CSS Variables**:
+
+- `--direction` defaults to `column`
+- `--wrap` defaults to `nowrap`
+- `--justify` defaults to `flex-start`
+- `--align` defaults to `flex-start`
+- `--gap` defaults to `0.25rem`
+
+**Component**:
+
 - `.ui-flex-grid-row`
+
+**Special CSS Variables**:
+
+- `--direction` defaults to `column`
+- `--wrap` defaults to `nowrap`
+- `--justify` defaults to `flex-start`
+- `--align` defaults to `flex-start`
+- `--gap` defaults to `0.25rem`
+
+**Component**:
+
 - `.ui-flex-grid-item`
 
+**Special CSS Variables**:
+
+- `--flex` defaults to `1`
+
 #### UI Spinner
+
+**Component**:
 
 - `.ui-spinner`
