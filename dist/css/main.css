@@ -1069,6 +1069,7 @@ pre {
   color: var(--ui-muted-text);
   padding: var(--ui-spacing);
   line-height: var(--ui-line-height-code);
+  font-size: 0.95rem;
   border: none;
   border-radius: var(--ui-radius);
 }
