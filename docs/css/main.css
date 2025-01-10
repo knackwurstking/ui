@@ -1174,7 +1174,7 @@ dialog::-webkit-scrollbar {
   align-items: var(--align, flex-start);
   width: 100%;
   min-height: fit-content;
-  gap: var(--gap, 0.25rem);
+  gap: var(--gap, var(--ui-spacing));
 }
 .ui-flex-grid.wrap {
   flex-flow: column wrap;
@@ -1187,7 +1187,7 @@ dialog::-webkit-scrollbar {
   align-items: var(--align, flex-start);
   width: 100%;
   min-height: fit-content;
-  gap: var(--gap, 0.25rem);
+  gap: var(--gap, var(--ui-spacing));
 }
 .ui-flex-grid-row.wrap {
   flex-flow: row wrap;
