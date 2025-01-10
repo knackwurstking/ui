@@ -3,6 +3,8 @@
 @use "../utils";
 
 .#{$css-selector-prefix}app-bar {
+    @include utils.backdrop();
+
     display: flex;
 
     flex-flow: row nowrap;

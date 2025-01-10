@@ -1108,6 +1108,7 @@ dialog::-webkit-scrollbar {
 }
 
 .ui-app-bar {
+  background-color: var(--ui-backdrop-color);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
