@@ -3,25 +3,25 @@
 <!--toc:start-->
 
 - [Documentation](#documentation)
-    - [JavaScript](#javascript)
-    - [CSS/Sass](#csssass)
-        - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
-        - [Utility classes](#utility-classes)
-            - [Border](#border)
-            - [Color](#color)
-            - [Debug](#debug)
-            - [Flex](#flex)
-            - [Isolation](#isolation)
-            - [Scroll](#scroll)
-            - [Text](#text)
-            - [Touch](#touch)
-            - [user-select](#user-select)
-        - [Components](#components)
-            - [UI App Bar](#ui-app-bar)
-            - [UI Container](#ui-container)
-            - [UI Drawer](#ui-drawer)
-            - [UI Flex Grid](#ui-flex-grid)
-            - [UI Spinner](#ui-spinner)
+  - [JavaScript](#javascript)
+  - [CSS/Sass](#csssass)
+    - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
+    - [Utility classes](#utility-classes)
+      - [Border](#border)
+      - [Color](#color)
+      - [Debug](#debug)
+      - [Flex](#flex)
+      - [Isolation](#isolation)
+      - [Scroll](#scroll)
+      - [Text](#text)
+      - [Touch](#touch)
+      - [user-select](#user-select)
+    - [Components](#components)
+      - [UI App Bar](#ui-app-bar)
+      - [UI Container](#ui-container)
+      - [UI Drawer](#ui-drawer)
+      - [UI Flex Grid](#ui-flex-grid)
+      - [UI Spinner](#ui-spinner)
 
 <!--toc:end-->
 
@@ -182,9 +182,9 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 - `&.wrap`
 - `&.nowrap`
 - `&.row`
-    - `&.reverse`
+  - `&.reverse`
 - `&.column`
-    - `&.reverse`
+  - `&.reverse`
 - `&.align-center`
 - `&.align-start`
 - `&.align-end`
@@ -226,9 +226,9 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 **Component**:
 
 - `.ui-app-bar`
-    - `& > .left`: Should be the first children of `.ui-app-bar`
-    - `& > .center`: The second
-    - `& > .right`: And the last
+  - `& > .left`: Should be the first children of `.ui-app-bar`
+  - `& > .center`: The second
+  - `& > .right`: And the last
 
 **Special CSS Variables**:
 
