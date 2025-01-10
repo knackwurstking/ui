@@ -1092,7 +1092,7 @@ fieldset {
 }
 fieldset legend {
   padding: 0 var(--ui-spacing);
-  font-size: 1.25rem;
+  font-size: 1.15;
 }
 
 dialog {
