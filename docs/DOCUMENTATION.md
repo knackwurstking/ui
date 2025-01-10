@@ -232,7 +232,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 **Special CSS Variables**:
 
-- `--gap` defaults to `0.25rem`
+- `--gap` defaults to `var(--ui-spacing)`, and so do the `.left`, `.center` and `.right` children
 
 **Custom Attributes**:
 
@@ -283,7 +283,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 - `--wrap` defaults to `nowrap`
 - `--justify` defaults to `flex-start`
 - `--align` defaults to `flex-start`
-- `--gap` defaults to `0.25rem`
+- `--gap` defaults to `var(--ui-spacing)`
 
 **Component**:
 
@@ -295,7 +295,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 - `--wrap` defaults to `nowrap`
 - `--justify` defaults to `flex-start`
 - `--align` defaults to `flex-start`
-- `--gap` defaults to `0.25rem`
+- `--gap` defaults to `var(--ui-spacing)`
 
 **Component**:
 

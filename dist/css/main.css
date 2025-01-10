@@ -1116,7 +1116,7 @@ dialog::-webkit-scrollbar {
   padding: calc(var(--ui-spacing) / 2);
   overflow: hidden;
   width: 100%;
-  gap: var(--gap, 0.25rem);
+  gap: var(--gap, var(--ui-spacing));
 }
 .ui-app-bar[position=top], .ui-app-bar[position=bottom] {
   position: absolute;
@@ -1142,6 +1142,7 @@ dialog::-webkit-scrollbar {
   justify-content: center;
   height: 100%;
   width: 100%;
+  gap: var(--gap, var(--ui-spacing));
 }
 .ui-app-bar > .left, .ui-app-bar > .right {
   width: fit-content;

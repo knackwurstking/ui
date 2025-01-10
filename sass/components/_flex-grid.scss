@@ -9,7 +9,7 @@
 
     width: 100%;
     min-height: fit-content;
-    gap: var(--gap, 0.25rem);
+    gap: var(--gap, $spacing);
 
     &.wrap {
         flex-flow: column wrap;
@@ -25,7 +25,7 @@
 
     width: 100%;
     min-height: fit-content;
-    gap: var(--gap, 0.25rem);
+    gap: var(--gap, $spacing);
 
     &.wrap {
         flex-flow: row wrap;
