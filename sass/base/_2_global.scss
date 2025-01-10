@@ -1,14 +1,18 @@
 @use "../theme-variables" as *;
 @use "../utils";
 
-*::selection {
+*:focus {
+    outline-offset: calc($border-width * 2);
+    outline: $border-width $border-style $border-color;
+}
+
+::selection {
     background-color: $primary;
     color: $primary-text;
 }
 
-*:focus {
-    outline-offset: calc($border-width * 2);
-    outline: $border-width $border-style $border-color;
+::backdrop {
+    @include utils.backdrop();
 }
 
 [disabled] {

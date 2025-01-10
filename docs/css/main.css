@@ -191,14 +191,18 @@ h6 {
   user-select: none;
 }
 
-*::selection {
+*:focus {
+  outline-offset: calc(var(--ui-border-width) * 2);
+  outline: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+}
+
+::selection {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
 }
 
-*:focus {
-  outline-offset: calc(var(--ui-border-width) * 2);
-  outline: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+::backdrop {
+  background-color: var(--ui-backdrop-color);
 }
 
 [disabled] {
