@@ -1,77 +1,80 @@
 import { Route } from "./types";
 
 export function hash(target: Element, routes: { [key: string]: Route }): void {
-    let currentRoute: Route | null = null;
+    let current: Route | null = null;
 
-    function goto(route: Route) {
-        if (route.template !== undefined) {
-            const template = document.querySelector(route.template);
+    async function goto(_route: Route) {
+        if (current !== null) {
+            if (current.template?.onDestroy !== undefined) {
+                current.template.onDestroy();
+            }
+
+            if (current.onDestroy !== undefined) {
+                current.onDestroy();
+            }
+        }
+
+        current = _route;
+
+        if (current?.href !== undefined) {
+            const resp = await fetch(current.href);
+            const data = await resp.text();
+
+            if (current.title !== undefined) {
+                const title = document.querySelector(`head > title`);
+                if (title !== null) {
+                    title.innerHTML = current.title;
+                }
+            }
+
+            target.innerHTML = data;
+
+            if (current.scripts !== undefined) {
+                current.scripts.forEach((s) => {
+                    const script = document.createElement("script");
+                    script.setAttribute("data-template", current!.href!);
+                    script.src = s.src;
+                    target.appendChild(script);
+                });
+            }
+        }
+
+        if (current?.onMount !== undefined) {
+            current.onMount();
+        }
+
+        if (current?.template !== undefined) {
+            let templateTarget = target;
+            if (current.template.target !== undefined) {
+                templateTarget = document.querySelector(current.template.target)!;
+            }
+
+            const template = document.querySelector(current.template.selector);
             if (template === null) {
-                throw `${route.template} not found`;
+                throw `${current.template.selector} not found`;
             }
-
-            if (currentRoute?.onDestroy !== undefined) {
-                currentRoute.onDestroy();
-            }
-            currentRoute = null;
 
             if (template instanceof HTMLTemplateElement) {
-                target.innerHTML = "";
-                target.appendChild(template.content.cloneNode(true));
+                templateTarget.innerHTML = "";
+                templateTarget.appendChild(template.content.cloneNode(true));
             } else {
-                target.innerHTML = template.innerHTML;
+                templateTarget.innerHTML = template.innerHTML;
             }
 
-            currentRoute = route;
-            if (currentRoute.onMount !== undefined) {
-                currentRoute.onMount();
+            if (current.template?.onMount !== undefined) {
+                current.template.onMount();
             }
-
-            return;
         }
-
-        if (route.href === undefined) {
-            return;
-        }
-
-        fetch(route.href)
-            .then((r) => r.text())
-            .then((d) => {
-                if (route.title !== undefined) {
-                    const title = document.querySelector(`head > title`);
-                    if (title !== null) {
-                        title.innerHTML = route.title;
-                    }
-                }
-
-                if (currentRoute?.onDestroy !== undefined) {
-                    currentRoute.onDestroy();
-                }
-
-                target.innerHTML = d;
-                currentRoute = route;
-                if (currentRoute?.onMount !== undefined) {
-                    currentRoute.onMount();
-                }
-
-                if (route.scripts !== undefined) {
-                    route.scripts.forEach((s) => {
-                        const script = document.createElement("script");
-                        script.setAttribute("data-template", route.href!);
-                        script.src = s.src;
-                        target.appendChild(script);
-                    });
-                }
-            })
-            .catch((err) => alert(err));
     }
 
     window.addEventListener("hashchange", () => {
         const hash = window.location.hash.replace("#", "");
 
-        const match = Object.keys(routes).find((k) => {
-            return hash.startsWith(k);
-        });
+        const match = Object.keys(routes)
+            .reverse()
+            .find((k) => {
+                return hash.startsWith(k);
+            });
         if (match === undefined) {
             const route = routes["/"];
             if (route === undefined) {
