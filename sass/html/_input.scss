@@ -20,7 +20,7 @@ textarea {
     accent-color: $primary;
 }
 
-input {
+input:not([type="range"]) {
     &:not([type="button"]):not([type="submit"]):not([type="reset"]) {
         display: inline-block;
 
