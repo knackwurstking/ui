@@ -25,6 +25,7 @@ input[type="range"] {
 
         background: $primary-text;
         margin-top: -14px;
+        transition: background 0.25s linear;
 
         border: 1px $border-style $border-color;
         height: 36px;
@@ -47,6 +48,7 @@ input[type="range"] {
         cursor: pointer;
 
         background: $primary-text;
+        transition: background 0.25s linear;
 
         border: 1px $border-style $border-color;
         height: 36px;
@@ -84,6 +86,7 @@ input[type="range"] {
         cursor: pointer;
 
         background: $primary-text;
+        transition: background 0.25s linear;
 
         border: 1px $border-style $border-color;
         height: 36px;

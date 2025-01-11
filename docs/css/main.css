@@ -1058,6 +1058,7 @@ input[type=range]::-webkit-slider-thumb {
   cursor: pointer;
   background: var(--ui-primary-text);
   margin-top: -14px;
+  transition: background 0.25s linear;
   border: 1px var(--ui-border-style) var(--ui-border-color);
   height: 36px;
   width: 16px;
@@ -1074,6 +1075,7 @@ input[type=range]::-moz-range-track {
 input[type=range]::-moz-range-thumb {
   cursor: pointer;
   background: var(--ui-primary-text);
+  transition: background 0.25s linear;
   border: 1px var(--ui-border-style) var(--ui-border-color);
   height: 36px;
   width: 16px;
@@ -1101,6 +1103,7 @@ input[type=range]::-ms-fill-upper {
 input[type=range]::-ms-thumb {
   cursor: pointer;
   background: var(--ui-primary-text);
+  transition: background 0.25s linear;
   border: 1px var(--ui-border-style) var(--ui-border-color);
   height: 36px;
   width: 16px;
