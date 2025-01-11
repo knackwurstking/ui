@@ -5,8 +5,6 @@
 input[type="range"] {
     -webkit-appearance: none;
 
-    margin: 18px 0;
-
     width: 100%;
 
     &::-webkit-slider-runnable-track {
@@ -22,6 +20,7 @@ input[type="range"] {
 
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
+
         cursor: pointer;
 
         background: $primary-text;
@@ -90,5 +89,21 @@ input[type="range"] {
         height: 36px;
         width: 16px;
         border-radius: 3px;
+    }
+
+    &:focus {
+        outline: none;
+
+        &::-webkit-slider-thumb {
+            background: $primary;
+        }
+
+        &::-ms-thumb {
+            background: $primary;
+        }
+
+        &::-moz-range-thumb {
+            background: $primary;
+        }
     }
 }
