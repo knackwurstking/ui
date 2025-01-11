@@ -3,7 +3,7 @@ import { Route } from "./types";
 export function hash(target: Element, routes: { [key: string]: Route }): void {
     let current: Route | null = null;
 
-    async function goto(_route: Route) {
+    async function goto(route: Route) {
         if (current !== null) {
             if (current.template?.onDestroy !== undefined) {
                 current.template.onDestroy();
@@ -14,18 +14,18 @@ export function hash(target: Element, routes: { [key: string]: Route }): void {
             }
         }
 
-        current = _route;
+        current = route;
+
+        if (current.title !== undefined) {
+            const title = document.querySelector(`head > title`);
+            if (title !== null) {
+                title.innerHTML = current.title;
+            }
+        }
 
         if (current?.href !== undefined) {
             const resp = await fetch(current.href);
             const data = await resp.text();
-
-            if (current.title !== undefined) {
-                const title = document.querySelector(`head > title`);
-                if (title !== null) {
-                    title.innerHTML = current.title;
-                }
-            }
 
             target.innerHTML = data;
 
