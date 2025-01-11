@@ -586,7 +586,7 @@ textarea {
   accent-color: var(--ui-primary);
 }
 
-input:not([type=button]):not([type=submit]):not([type=reset]) {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset]) {
   display: inline-block;
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
@@ -597,34 +597,34 @@ input:not([type=button]):not([type=submit]):not([type=reset]) {
   background-color: transparent;
   accent-color: var(--ui-primary);
 }
-input:not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]) {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]) {
   padding: var(--ui-spacing);
 }
-input:not([type=button]):not([type=submit]):not([type=reset])[type=number]::-webkit-inner-spin-button, input:not([type=button]):not([type=submit]):not([type=reset])[type=number]::-webkit-outer-spin-button {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset])[type=number]::-webkit-inner-spin-button, input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset])[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input:not([type=button]):not([type=submit]):not([type=reset])[type=number] {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset])[type=number] {
   -moz-appearance: textfield;
 }
-input:not([type=button]):not([type=submit]):not([type=reset])[type=checkbox] {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset])[type=checkbox] {
   display: inline-block;
   cursor: pointer;
   height: 1.5rem;
   width: 1.5rem;
 }
-input:not([type=button]):not([type=submit]):not([type=reset])[type=radio] {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset])[type=radio] {
   cursor: pointer;
 }
-input:not([type=button]):not([type=submit]):not([type=reset])[type=color] {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset])[type=color] {
   cursor: pointer;
   height: calc(var(--ui-spacing) * 2 + 2rem);
   padding: var(--ui-spacing);
 }
-input:not([type=button]):not([type=submit]):not([type=reset])[aria-invalid] {
+input:not([type=range]):not([type=button]):not([type=submit]):not([type=reset])[aria-invalid] {
   border-color: var(--ui-destructive);
 }
-input[type=button] {
+input:not([type=range])[type=button] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -644,14 +644,14 @@ input[type=button] {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
 }
-input[type=button]:hover {
+input:not([type=range])[type=button]:hover {
   background-color: var(--ui-primary--hover);
 }
-input[type=button]:active {
+input:not([type=range])[type=button]:active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
-input[type=button][variant=outline] {
+input:not([type=range])[type=button][variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -673,7 +673,7 @@ input[type=button][variant=outline] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-input[type=button][variant=ghost] {
+input:not([type=range])[type=button][variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -695,7 +695,7 @@ input[type=button][variant=ghost] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-input[type=button][color=secondary] {
+input:not([type=range])[type=button][color=secondary] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -715,14 +715,14 @@ input[type=button][color=secondary] {
   background-color: var(--ui-secondary);
   color: var(--ui-secondary-text);
 }
-input[type=button][color=secondary]:hover {
+input:not([type=range])[type=button][color=secondary]:hover {
   background-color: var(--ui-secondary--hover);
 }
-input[type=button][color=secondary]:active {
+input:not([type=range])[type=button][color=secondary]:active {
   transition: none;
   background-color: var(--ui-secondary--active);
 }
-input[type=button][color=secondary][variant=outline] {
+input:not([type=range])[type=button][color=secondary][variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -742,7 +742,7 @@ input[type=button][color=secondary][variant=outline] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-input[type=button][color=secondary][variant=ghost] {
+input:not([type=range])[type=button][color=secondary][variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -762,7 +762,7 @@ input[type=button][color=secondary][variant=ghost] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-input[type=button][color=destructive], input[type=button][type=reset] {
+input:not([type=range])[type=button][color=destructive], input:not([type=range])[type=button][type=reset] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -782,14 +782,14 @@ input[type=button][color=destructive], input[type=button][type=reset] {
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
 }
-input[type=button][color=destructive]:hover, input[type=button][type=reset]:hover {
+input:not([type=range])[type=button][color=destructive]:hover, input:not([type=range])[type=button][type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-input[type=button][color=destructive]:active, input[type=button][type=reset]:active {
+input:not([type=range])[type=button][color=destructive]:active, input:not([type=range])[type=button][type=reset]:active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
-input[type=button][color=destructive][variant=outline], input[type=button][type=reset][variant=outline] {
+input:not([type=range])[type=button][color=destructive][variant=outline], input:not([type=range])[type=button][type=reset][variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -809,7 +809,7 @@ input[type=button][color=destructive][variant=outline], input[type=button][type=
   background-color: transparent;
   color: var(--ui-destructive);
 }
-input[type=button][color=destructive][variant=ghost], input[type=button][type=reset][variant=ghost] {
+input:not([type=range])[type=button][color=destructive][variant=ghost], input:not([type=range])[type=button][type=reset][variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -829,7 +829,7 @@ input[type=button][color=destructive][variant=ghost], input[type=button][type=re
   background-color: transparent;
   color: var(--ui-destructive);
 }
-input[type=submit] {
+input:not([type=range])[type=submit] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -849,14 +849,14 @@ input[type=submit] {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
 }
-input[type=submit]:hover {
+input:not([type=range])[type=submit]:hover {
   background-color: var(--ui-primary--hover);
 }
-input[type=submit]:active {
+input:not([type=range])[type=submit]:active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
-input[type=reset] {
+input:not([type=range])[type=reset] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -876,14 +876,14 @@ input[type=reset] {
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
 }
-input[type=reset]:hover {
+input:not([type=range])[type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-input[type=reset]:active {
+input:not([type=range])[type=reset]:active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
-input::-webkit-file-upload-button {
+input:not([type=range])::-webkit-file-upload-button {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -903,10 +903,10 @@ input::-webkit-file-upload-button {
   background-color: var(--ui-primary);
   color: var(--ui-primary-text);
 }
-input::-webkit-file-upload-button:hover {
+input:not([type=range])::-webkit-file-upload-button:hover {
   background-color: var(--ui-primary--hover);
 }
-input::-webkit-file-upload-button:active {
+input:not([type=range])::-webkit-file-upload-button:active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
@@ -1043,7 +1043,6 @@ hr {
 
 input[type=range] {
   -webkit-appearance: none;
-  margin: 18px 0;
   width: 100%;
 }
 input[type=range]::-webkit-slider-runnable-track {
@@ -1106,6 +1105,18 @@ input[type=range]::-ms-thumb {
   height: 36px;
   width: 16px;
   border-radius: 3px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]:focus::-webkit-slider-thumb {
+  background: var(--ui-primary);
+}
+input[type=range]:focus::-ms-thumb {
+  background: var(--ui-primary);
+}
+input[type=range]:focus::-moz-range-thumb {
+  background: var(--ui-primary);
 }
 
 table {
