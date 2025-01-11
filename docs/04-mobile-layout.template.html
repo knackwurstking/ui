@@ -25,12 +25,23 @@
     <div class="right"></div>
 </nav>
 
-<div class="ui-drawer-backdrop" style="cursor: pointer" onclick="closeDrawer(event)"></div>
+<div class="ui-drawer-backdrop" style="cursor: pointer" onclick="closeDrawer()"></div>
 <aside class="ui-drawer" fixed backdrop>
     <details>
-        <summary><h4>Drawer Group 1</h4></summary>
+        <summary><h4>Inputs</h4></summary>
 
-        <!-- TODO: Group items here... `ui-drawer-group-item`? -->
+        <ul>
+            <li>
+                <a
+                    class="ui-flex align-center"
+                    style="width: 100%; height: 100%"
+                    href="#04slider"
+                    onclick="closeDrawer()"
+                >
+                    <span>Slider</span>
+                </a>
+            </li>
+        </ul>
     </details>
 
     <details>
@@ -46,7 +57,7 @@
     </details>
 </aside>
 
-<dialog>
+<!--dialog>
     <p>Test Dialog</p>
 
     <br />
@@ -54,4 +65,8 @@
     <div class="ui-flex-grid-row" style="--direction: row-reverse">
         <button onclick="closeDialog()">OK</button>
     </div>
-</dialog>
+</dialog-->
+
+<template id="slider">
+    <p>Testing the range input element here...</p>
+</template>

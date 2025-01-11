@@ -1,6 +1,18 @@
 window.addEventListener("DOMContentLoaded", function () {
     console.debug("window.ui:", window.ui);
 
+    const mobileLayout = {
+        title: "UI | Mobile Layout",
+        href: "04-mobile-layout.template.html",
+        scripts: [{ src: "04-mobile-layout.js" }],
+        //onMount: async () => {
+        //    if (location.hash === "#04") {
+        //        const dialog = document.querySelector(`dialog`);
+        //        dialog.showModal();
+        //    }
+        //},
+    };
+
     window.ui.router.hash(document.body, {
         "/": {
             title: "UI | Index",
@@ -22,13 +34,18 @@ window.addEventListener("DOMContentLoaded", function () {
             title: "UI | SVGs",
             href: "03-svgs.template.html",
         },
-        "04": {
-            title: "UI | Mobile Layout",
-            href: "04-mobile-layout.template.html",
-            scripts: [{ src: "04-mobile-layout.js" }],
-            onMount: async () => {
-                const dialog = document.querySelector(`dialog`);
-                dialog.showModal();
+        "04": mobileLayout,
+        "04slider": {
+            ...mobileLayout,
+            template: {
+                target: "main",
+                selector: "template#slider",
+                onMount: async () => {
+                    if (location.hash === "#04") {
+                        const dialog = document.querySelector(`dialog`);
+                        dialog.showModal();
+                    }
+                },
             },
         },
     });
