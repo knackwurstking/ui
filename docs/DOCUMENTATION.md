@@ -1,5 +1,7 @@
 # Documentation
 
+- [ ] HTML Element special attributes missing, ex: `button[variant]` or `dialog[fullscreen]`
+
 <!--toc:start-->
 
 - [Documentation](#documentation)

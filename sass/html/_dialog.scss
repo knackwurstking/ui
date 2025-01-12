@@ -11,4 +11,9 @@ dialog {
 
     border: $border-width $border-style $border-color;
     border-radius: $radius;
+
+    &[fullscreen] {
+        width: 100%;
+        height: 100%;
+    }
 }
