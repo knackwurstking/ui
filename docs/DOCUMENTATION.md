@@ -45,7 +45,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 ## Special SVGs
 
-- [/svg/power.svg]
+- [/svg/power.svg](/svg/power.svg)
 
 ## CSS/Sass
 
