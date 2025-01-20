@@ -7,8 +7,13 @@
 
 - [Documentation](#documentation)
   - [JavaScript](#javascript)
+  - [Special SVGs](#special-svgs)
   - [CSS/Sass](#csssass)
     - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
+    - [Svg (CSS) Icons](#svg-css-icons)
+      - [Chevron](#chevron)
+      - [Settings](#settings)
+      - [Menu/List](#menulist)
     - [Utility classes](#utility-classes)
       - [Border](#border)
       - [Color](#color)
@@ -37,6 +42,10 @@
 Just go to the console and do a `console.log(window.ui)`.
 
 Or use [dist/ui.min.js](dist//ui.min.js)
+
+## Special SVGs
+
+- [/svg/power.svg]
 
 ## CSS/Sass
 
@@ -148,6 +157,24 @@ Or use [dist/ui.min.js](dist//ui.min.js)
     }
 }
 ```
+
+### Svg (CSS) Icons
+
+#### Chevron
+
+- `--ui-icon-chevron-up`
+- `--ui-icon-chevron-right`
+- `--ui-icon-chevron-down`
+- `--ui-icon-chevron-left`
+
+#### Settings
+
+- `--ui-icon-gear`
+
+#### Menu/List
+
+- `--ui-icon-list`
+- `--ui-icon-dots-vertical`
 
 ### Utility classes
 
