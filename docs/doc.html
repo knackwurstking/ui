@@ -21,38 +21,39 @@
                 <a href="#documentation">Documentation</a>
                 <ul>
                     <li><a href="#javascript">JavaScript</a></li>
+                    <li><a href="#special-svgs">Special SVGs</a></li>
+                    <li><a href="#css-theme-variables">CSS: Theme Variables</a></li>
                     <li>
-                        <a href="#csssass">CSS/Sass</a>
+                        <a href="#css-icons">CSS: Icons</a>
                         <ul>
-                            <li>
-                                <a href="#theme-variables-darklight-schemes"
-                                    >Theme variables (dark/light schemes)</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#utility-classes">Utility classes</a>
-                                <ul>
-                                    <li><a href="#border">Border</a></li>
-                                    <li><a href="#color">Color</a></li>
-                                    <li><a href="#debug">Debug</a></li>
-                                    <li><a href="#flex">Flex</a></li>
-                                    <li><a href="#isolation">Isolation</a></li>
-                                    <li><a href="#scroll">Scroll</a></li>
-                                    <li><a href="#text">Text</a></li>
-                                    <li><a href="#touch">Touch</a></li>
-                                    <li><a href="#user-select">user-select</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#components">Components</a>
-                                <ul>
-                                    <li><a href="#ui-app-bar">UI App Bar</a></li>
-                                    <li><a href="#ui-container">UI Container</a></li>
-                                    <li><a href="#ui-drawer">UI Drawer</a></li>
-                                    <li><a href="#ui-flex-grid">UI Flex Grid</a></li>
-                                    <li><a href="#ui-spinner">UI Spinner</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="#chevron">Chevron</a></li>
+                            <li><a href="#settings">Settings</a></li>
+                            <li><a href="#menulist">Menu/List</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#css-utilities">CSS: Utilities</a>
+                        <ul>
+                            <li><a href="#border">Border</a></li>
+                            <li><a href="#color">Color</a></li>
+                            <li><a href="#debug">Debug</a></li>
+                            <li><a href="#flex">Flex</a></li>
+                            <li><a href="#isolation">Isolation</a></li>
+                            <li><a href="#scroll">Scroll</a></li>
+                            <li><a href="#text">Text</a></li>
+                            <li><a href="#touch">Touch</a></li>
+                            <li><a href="#user-select">user-select</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#css-html-base-elements">CSS: HTML Base Elements</a></li>
+                    <li>
+                        <a href="#css-components">CSS: Components</a>
+                        <ul>
+                            <li><a href="#ui-app-bar">UI App Bar</a></li>
+                            <li><a href="#ui-container">UI Container</a></li>
+                            <li><a href="#ui-drawer">UI Drawer</a></li>
+                            <li><a href="#ui-flex-grid">UI Flex Grid</a></li>
+                            <li><a href="#ui-spinner">UI Spinner</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -66,8 +67,17 @@
         <p><code>window.ui</code> <a href="dist/ui.min.umd.cjs">dist/ui.min.umd.cjs</a></p>
         <p>Just go to the console and do a <code>console.log(window.ui)</code>.</p>
         <p>Or use <a href="dist//ui.min.js">dist/ui.min.js</a></p>
-        <h2 id="css-sass">CSS/Sass</h2>
-        <h3 id="theme-variables-dark-light-schemes-">Theme variables (dark/light schemes)</h3>
+        <h2 id="special-svgs">Special SVGs</h2>
+        <ul>
+            <li><a href="/svg/power.svg">/svg/power.svg</a></li>
+        </ul>
+        <h2 id="css-theme-variables">CSS: Theme Variables</h2>
+        <blockquote>
+            <p>
+                Add this to whatever html element
+                <code>data-theme=&quot;schemes&quot;</code> schemes: dark/light/auto
+            </p>
+        </blockquote>
         <pre><code class="lang-css"><span class="hljs-selector-pseudo">:root</span> {
     <span class="hljs-attribute">--ui-font-family</span>: <span class="hljs-string">"Recursive"</span>, sans-serif;
     <span class="hljs-attribute">--ui-font-size</span>: <span class="hljs-number">1rem</span>;
@@ -173,7 +183,24 @@
     }
 }
 </code></pre>
-        <h3 id="utility-classes">Utility classes</h3>
+        <h2 id="css-icons">CSS: Icons</h2>
+        <h3 id="chevron">Chevron</h3>
+        <ul>
+            <li><code>--ui-icon-chevron-up</code></li>
+            <li><code>--ui-icon-chevron-right</code></li>
+            <li><code>--ui-icon-chevron-down</code></li>
+            <li><code>--ui-icon-chevron-left</code></li>
+        </ul>
+        <h3 id="settings">Settings</h3>
+        <ul>
+            <li><code>--ui-icon-gear</code></li>
+        </ul>
+        <h3 id="menu-list">Menu/List</h3>
+        <ul>
+            <li><code>--ui-icon-list</code></li>
+            <li><code>--ui-icon-dots-vertical</code></li>
+        </ul>
+        <h2 id="css-utilities">CSS: Utilities</h2>
         <blockquote>
             <p>All HTML Elements takes font variation settings from special CSS variables</p>
             <ul>
@@ -184,22 +211,22 @@
                 <li><code>--CRSV</code>: 0..1</li>
             </ul>
         </blockquote>
-        <h4 id="border">Border</h4>
+        <h3 id="border">Border</h3>
         <ul>
             <li><code>.ui-border</code></li>
         </ul>
-        <h4 id="color">Color</h4>
+        <h3 id="color">Color</h3>
         <ul>
             <li><code>.ui-backdrop</code></li>
             <li><code>.ui-primary</code></li>
             <li><code>.ui-secondary</code></li>
             <li><code>.ui-destructive</code> <code>.ui-muted</code></li>
         </ul>
-        <h4 id="debug">Debug</h4>
+        <h3 id="debug">Debug</h3>
         <ul>
             <li><code>.ui-debug</code></li>
         </ul>
-        <h4 id="flex">Flex</h4>
+        <h3 id="flex">Flex</h3>
         <ul>
             <li><code>.ui-flex</code></li>
         </ul>
@@ -230,32 +257,57 @@
             <li><code>&amp;.justify-around</code></li>
             <li><code>&amp;.justify-between</code></li>
         </ul>
-        <h4 id="isolation">Isolation</h4>
+        <h3 id="isolation">Isolation</h3>
         <ul>
             <li><code>.ui-isolate</code></li>
         </ul>
-        <h4 id="scroll">Scroll</h4>
+        <h3 id="scroll">Scroll</h3>
         <ul>
             <li><code>.ui-auto-scroll</code></li>
             <li><code>.ui-auto-scroll-x</code></li>
             <li><code>.ui-auto-scroll-y</code></li>
             <li><code>.ui-hide-scrollbar</code></li>
         </ul>
-        <h4 id="text">Text</h4>
+        <h3 id="text">Text</h3>
         <ul>
             <li><code>.ui-outline-text</code></li>
             <li><code>.ui-ellipsis</code></li>
         </ul>
-        <h4 id="touch">Touch</h4>
+        <h3 id="touch">Touch</h3>
         <ul>
             <li><code>.ui-disable-touch</code></li>
         </ul>
-        <h4 id="user-select">user-select</h4>
+        <h3 id="user-select">user-select</h3>
         <ul>
             <li><code>.ui-none-select</code></li>
         </ul>
-        <h3 id="components">Components</h3>
-        <h4 id="ui-app-bar">UI App Bar</h4>
+        <hr />
+        <h2 id="css-html-base-elements">CSS: HTML Base Elements</h2>
+        <ul>
+            <li>
+                <code>&lt;button</code>
+                <ul>
+                    <li>
+                        <strong>variant</strong>: &quot;full&quot; | &quot;outline&quot; |
+                        &quot;ghost&quot;
+                    </li>
+                    <li>
+                        <strong>color</strong>: &quot;primary&quot; | &quot;secondary&quot; |
+                        &quot;destructive&quot;
+                    </li>
+                    <li><strong>icon</strong></li>
+                </ul>
+            </li>
+            <li>
+                <code>&lt;dialog</code>
+                <ul>
+                    <li><strong>fullscreen</strong></li>
+                </ul>
+            </li>
+        </ul>
+        <hr />
+        <h2 id="css-components">CSS: Components</h2>
+        <h3 id="ui-app-bar">UI App Bar</h3>
         <p><strong>Component</strong>:</p>
         <ul>
             <li>
@@ -277,14 +329,13 @@
                 <code>.left</code>, <code>.center</code> and <code>.right</code> children
             </li>
         </ul>
-
         <p><strong>Custom Attributes</strong>:</p>
         <ul>
             <li><code>&amp;[position=&quot;top&quot;]</code></li>
             <li><code>&amp;[position=&quot;bottom&quot;]</code></li>
             <li><code>&amp;[fixed]</code></li>
         </ul>
-        <h4 id="ui-container">UI Container</h4>
+        <h3 id="ui-container">UI Container</h3>
         <p><strong>Component</strong>:</p>
         <ul>
             <li><code>.ui-container</code></li>
@@ -293,7 +344,7 @@
         <ul>
             <li><code>&amp;.fluid</code></li>
         </ul>
-        <h4 id="ui-drawer">UI Drawer</h4>
+        <h3 id="ui-drawer">UI Drawer</h3>
         <p><strong>Component</strong>:</p>
         <ul>
             <li><code>.ui-drawer</code></li>
@@ -316,7 +367,7 @@
                 outside click here, ex.: closing the drawer)
             </p>
         </blockquote>
-        <h4 id="ui-flex-grid">UI Flex Grid</h4>
+        <h3 id="ui-flex-grid">UI Flex Grid</h3>
         <p><strong>Component</strong>:</p>
         <ul>
             <li><code>.ui-flex-grid</code></li>
@@ -349,7 +400,7 @@
         <ul>
             <li><code>--flex</code> defaults to <code>1</code></li>
         </ul>
-        <h4 id="ui-spinner">UI Spinner</h4>
+        <h3 id="ui-spinner">UI Spinner</h3>
         <p><strong>Component</strong>:</p>
         <ul>
             <li><code>.ui-spinner</code></li>

@@ -1,35 +1,32 @@
 # Documentation
 
-- [ ] HTML Element special attributes missing, ex: `button[variant]` or `dialog[fullscreen]`
-- [ ] List with available SVGs
-
 <!--toc:start-->
 
 - [Documentation](#documentation)
   - [JavaScript](#javascript)
   - [Special SVGs](#special-svgs)
-  - [CSS/Sass](#csssass)
-    - [Theme variables (dark/light schemes)](#theme-variables-darklight-schemes)
-    - [Svg (CSS) Icons](#svg-css-icons)
-      - [Chevron](#chevron)
-      - [Settings](#settings)
-      - [Menu/List](#menulist)
-    - [Utility classes](#utility-classes)
-      - [Border](#border)
-      - [Color](#color)
-      - [Debug](#debug)
-      - [Flex](#flex)
-      - [Isolation](#isolation)
-      - [Scroll](#scroll)
-      - [Text](#text)
-      - [Touch](#touch)
-      - [user-select](#user-select)
-    - [Components](#components)
-      - [UI App Bar](#ui-app-bar)
-      - [UI Container](#ui-container)
-      - [UI Drawer](#ui-drawer)
-      - [UI Flex Grid](#ui-flex-grid)
-      - [UI Spinner](#ui-spinner)
+  - [CSS: Theme Variables](#css-theme-variables)
+  - [CSS: Icons](#css-icons)
+    - [Chevron](#chevron)
+    - [Settings](#settings)
+    - [Menu/List](#menulist)
+  - [CSS: Utilities](#css-utilities)
+    - [Border](#border)
+    - [Color](#color)
+    - [Debug](#debug)
+    - [Flex](#flex)
+    - [Isolation](#isolation)
+    - [Scroll](#scroll)
+    - [Text](#text)
+    - [Touch](#touch)
+    - [user-select](#user-select)
+  - [CSS: HTML Base Elements](#css-html-base-elements)
+  - [CSS: Components](#css-components)
+    - [UI App Bar](#ui-app-bar)
+    - [UI Container](#ui-container)
+    - [UI Drawer](#ui-drawer)
+    - [UI Flex Grid](#ui-flex-grid)
+    - [UI Spinner](#ui-spinner)
 
 <!--toc:end-->
 
@@ -47,9 +44,10 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 - [/svg/power.svg](/svg/power.svg)
 
-## CSS/Sass
+## CSS: Theme Variables
 
-### Theme variables (dark/light schemes)
+> Add this to whatever html element `data-theme="schemes"`
+> schemes: dark/light/auto
 
 ```css
 :root {
@@ -158,25 +156,25 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 }
 ```
 
-### Svg (CSS) Icons
+## CSS: Icons
 
-#### Chevron
+### Chevron
 
 - `--ui-icon-chevron-up`
 - `--ui-icon-chevron-right`
 - `--ui-icon-chevron-down`
 - `--ui-icon-chevron-left`
 
-#### Settings
+### Settings
 
 - `--ui-icon-gear`
 
-#### Menu/List
+### Menu/List
 
 - `--ui-icon-list`
 - `--ui-icon-dots-vertical`
 
-### Utility classes
+## CSS: Utilities
 
 > All HTML Elements takes font variation settings from special CSS variables
 >
@@ -186,11 +184,11 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 > - `--slnt`: 0..-15
 > - `--CRSV`: 0..1
 
-#### Border
+### Border
 
 - `.ui-border`
 
-#### Color
+### Color
 
 - `.ui-backdrop`
 - `.ui-primary`
@@ -198,11 +196,11 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 - `.ui-destructive`
   `.ui-muted`
 
-#### Debug
+### Debug
 
 - `.ui-debug`
 
-#### Flex
+### Flex
 
 - `.ui-flex`
 
@@ -225,33 +223,46 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 - `&.justify-around`
 - `&.justify-between`
 
-#### Isolation
+### Isolation
 
 - `.ui-isolate`
 
-#### Scroll
+### Scroll
 
 - `.ui-auto-scroll`
 - `.ui-auto-scroll-x`
 - `.ui-auto-scroll-y`
 - `.ui-hide-scrollbar`
 
-#### Text
+### Text
 
 - `.ui-outline-text`
 - `.ui-ellipsis`
 
-#### Touch
+### Touch
 
 - `.ui-disable-touch`
 
-#### user-select
+### user-select
 
 - `.ui-none-select`
 
-### Components
+---
 
-#### UI App Bar
+## CSS: HTML Base Elements
+
+- `<button`
+  - **variant**: "full" | "outline" | "ghost"
+  - **color**: "primary" | "secondary" | "destructive"
+  - **icon**
+- `<dialog`
+  - **fullscreen**
+
+---
+
+## CSS: Components
+
+### UI App Bar
 
 **Component**:
 
@@ -270,7 +281,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 - `&[position="bottom"]`
 - `&[fixed]`
 
-#### UI Container
+### UI Container
 
 **Component**:
 
@@ -280,7 +291,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 - `&.fluid`
 
-#### UI Drawer
+### UI Drawer
 
 **Component**:
 
@@ -301,7 +312,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 > Should be set before the `.ui-drawer` container
 > (You can handle the outside click here, ex.: closing the drawer)
 
-#### UI Flex Grid
+### UI Flex Grid
 
 **Component**:
 
@@ -335,7 +346,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 - `--flex` defaults to `1`
 
-#### UI Spinner
+### UI Spinner
 
 **Component**:
 
