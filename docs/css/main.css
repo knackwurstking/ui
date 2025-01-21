@@ -1094,6 +1094,7 @@ select {
 }
 
 hr {
+  width: 100%;
   border: none;
   height: var(--ui-border-width);
   margin: var(--ui-spacing) 0;
