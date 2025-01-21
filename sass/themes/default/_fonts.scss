@@ -3,6 +3,7 @@ $font-name: "Recursive";
 *,
 *::before,
 *::after {
+    font-family: $font-name;
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
@@ -18,8 +19,6 @@ body {
     --wght: 400;
     --slnt: 0;
     --CRSV: 0.5;
-
-    font-family: $font-name;
 }
 
 blockquote {

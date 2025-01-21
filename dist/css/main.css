@@ -1411,6 +1411,7 @@ label:has(input) {
 *,
 *::before,
 *::after {
+  font-family: "Recursive";
   font-variation-settings: "MONO" var(--mono), "CASL" var(--casl), "wght" var(--wght), "slnt" var(--slnt), "CRSV" var(--CRSV);
 }
 
@@ -1421,7 +1422,6 @@ body {
   --wght: 400;
   --slnt: 0;
   --CRSV: 0.5;
-  font-family: "Recursive";
 }
 
 blockquote {
