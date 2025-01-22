@@ -30,6 +30,15 @@
         @if $variant == outline or $variant == ghost {
             background-color: transparent;
             color: $secondary;
+
+            &:hover {
+                color: $secondary--hover;
+            }
+
+            &:active {
+                transition: none;
+                color: $secondary--active;
+            }
         } @else {
             background-color: $secondary;
             color: $secondary-text;
@@ -47,6 +56,15 @@
         @if $variant == outline or $variant == ghost {
             background-color: transparent;
             color: $destructive;
+
+            &:hover {
+                color: $destructive--hover;
+            }
+
+            &:active {
+                transition: none;
+                color: $destructive--active;
+            }
         } @else {
             background-color: $destructive;
             color: $destructive-text;
@@ -67,6 +85,15 @@
         @if $variant == outline or $variant == ghost {
             background-color: transparent;
             color: $primary;
+
+            &:hover {
+                color: $primary--hover;
+            }
+
+            &:active {
+                transition: none;
+                color: $primary--active;
+            }
         } @else {
             &:hover {
                 background-color: $primary--hover;
