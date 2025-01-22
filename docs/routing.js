@@ -3,10 +3,10 @@ window.addEventListener("DOMContentLoaded", function () {
 
     const mobileLayout = {
         title: "UI | Mobile Layout",
-        href: "04-mobile-layout.template.html",
-        scripts: [{ src: "04-mobile-layout.js" }],
+        href: "03-mobile-layout.template.html",
+        scripts: [{ src: "03-mobile-layout.js" }],
         //onMount: async () => {
-        //    if (location.hash === "#04") {
+        //    if (location.hash === "#03") {
         //        const dialog = document.querySelector(`dialog`);
         //        dialog.showModal();
         //    }
@@ -34,14 +34,14 @@ window.addEventListener("DOMContentLoaded", function () {
             title: "UI | SVGs",
             href: "03-svgs.template.html",
         },
-        "04": mobileLayout,
-        "04slider": {
+        "03": mobileLayout,
+        "03slider": {
             ...mobileLayout,
             template: {
                 target: "main",
                 selector: "template#slider",
                 onMount: async () => {
-                    if (location.hash === "#04") {
+                    if (location.hash === "#03") {
                         const dialog = document.querySelector(`dialog`);
                         dialog.showModal();
                     }

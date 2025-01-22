@@ -121,9 +121,14 @@ button {
     @include button();
 }
 
-button:has(> svg),
+button:has(svg),
 button[icon] {
     padding: $spacing;
+}
+
+button:has(svg) {
+    width: 2.25rem;
+    height: 2.25rem;
 }
 
 button > svg {

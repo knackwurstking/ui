@@ -463,9 +463,14 @@ button[color=destructive][variant=ghost], button[type=reset][variant=ghost] {
   color: var(--ui-destructive);
 }
 
-button:has(> svg),
+button:has(svg),
 button[icon] {
   padding: var(--ui-spacing);
+}
+
+button:has(svg) {
+  width: 2.25rem;
+  height: 2.25rem;
 }
 
 button > svg {
@@ -528,14 +533,14 @@ summary::-webkit-details-marker {
 }
 
 summary::after {
-  content: " +";
-  font-size: 1.5rem;
+  content: "+";
+  font-size: 1rem;
   color: var(--ui-primary);
-  padding-left: 1.5rem;
+  padding-left: 1rem;
 }
 
-details[open] summary:after {
-  content: " -";
+details[open] summary::after {
+  content: "-";
 }
 
 details[open] summary {
@@ -944,138 +949,6 @@ dl > dd {
 
 dl > dd:not(:last-child) {
   margin-bottom: 0.25rem;
-}
-
-.ui-icon-chevron-up {
-  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-up"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"                 />             </svg>         ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-chevron-right {
-  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-right"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"                 />             </svg>         ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-chevron-down {
-  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-down"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"                 />             </svg>         ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-chevron-left {
-  --svg: url('data:image/svg+xml,             <svg                 xmlns="http://www.w3.org/2000/svg"                 fill="currentColor"                 class="bi bi-chevron-left"                 viewBox="0 0 16 16"             >                 <path                     fill-rule="evenodd"                     d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"                 />             </svg>         ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-three-dots-vertical {
-  --svg: url('data:image/svg+xml,         <svg             xmlns="http://www.w3.org/2000/svg"             fill="currentColor"             class="bi bi-three-dots-vertical"             viewBox="0 0 16 16"         >             <path                 d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"             />         </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-pen {
-  --svg: url('data:image/svg+xml,         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>         </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-list {
-  --svg: url('data:image/svg+xml,         <svg             xmlns="http://www.w3.org/2000/svg"             fill="currentColor"             class="bi bi-list"             viewBox="0 0 16 16"         >             <path                 fill-rule="evenodd"                 d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"             />         </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-printer {
-  --svg: url('data:image/svg+xml,         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">         <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>         <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>         </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-search {
-  --svg: url('data:image/svg+xml,         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>         </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-gear {
-  --svg: url('data:image/svg+xml,         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">       <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>       <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>     </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-share {
-  --svg: url('data:image/svg+xml,         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">         <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>         </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
-}
-
-.ui-icon-trash {
-  --svg: url('data:image/svg+xml,         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>         </svg>     ');
-  background-color: currentColor;
-  background-image: var(--svg) no-repeat 0em;
-  -webkit-mask: var(--svg) no-repeat center 1em;
-  mask: var(--svg) no-repeat 1em;
-  mask-position: center;
-  width: 100%;
-  height: 100%;
 }
 
 select {

@@ -2,8 +2,6 @@
 
 ## v2.0.0 [unreleased]
 
-- [ ] Kick icons from scss, just use the bootstrap icons lib
-
 - Converted this library to an Sass library with some JavaScript utilities.
 
 > See the [docs](docs/DOCUMENTATION.md) for more info
