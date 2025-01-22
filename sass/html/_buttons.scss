@@ -35,7 +35,8 @@
                 color: $secondary--hover;
             }
 
-            &:active {
+            &:active,
+            &.active {
                 transition: none;
                 color: $secondary--active;
             }
@@ -47,7 +48,8 @@
                 background-color: $secondary--hover;
             }
 
-            &:active {
+            &:active,
+            &.active {
                 transition: none;
                 background-color: $secondary--active;
             }
@@ -61,7 +63,8 @@
                 color: $destructive--hover;
             }
 
-            &:active {
+            &:active,
+            &.active {
                 transition: none;
                 color: $destructive--active;
             }
@@ -73,7 +76,8 @@
                 background-color: $destructive--hover;
             }
 
-            &:active {
+            &:active,
+            &.active {
                 transition: none;
                 background-color: $destructive--active;
             }
@@ -90,7 +94,8 @@
                 color: $primary--hover;
             }
 
-            &:active {
+            &:active,
+            &.active {
                 transition: none;
                 color: $primary--active;
             }
@@ -99,7 +104,8 @@
                 background-color: $primary--hover;
             }
 
-            &:active {
+            &:active,
+            &.active {
                 transition: none;
                 background-color: $primary--active;
             }

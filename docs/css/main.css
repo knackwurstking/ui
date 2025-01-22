@@ -280,7 +280,7 @@ button {
 button:hover {
   background-color: var(--ui-primary--hover);
 }
-button:active {
+button:active, button.active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
@@ -309,7 +309,7 @@ button[variant=outline] {
 button[variant=outline]:hover {
   color: var(--ui-primary--hover);
 }
-button[variant=outline]:active {
+button[variant=outline]:active, button[variant=outline].active {
   transition: none;
   color: var(--ui-primary--active);
 }
@@ -338,7 +338,7 @@ button[variant=ghost] {
 button[variant=ghost]:hover {
   color: var(--ui-primary--hover);
 }
-button[variant=ghost]:active {
+button[variant=ghost]:active, button[variant=ghost].active {
   transition: none;
   color: var(--ui-primary--active);
 }
@@ -365,7 +365,7 @@ button[color=secondary] {
 button[color=secondary]:hover {
   background-color: var(--ui-secondary--hover);
 }
-button[color=secondary]:active {
+button[color=secondary]:active, button[color=secondary].active {
   transition: none;
   background-color: var(--ui-secondary--active);
 }
@@ -392,7 +392,7 @@ button[color=secondary][variant=outline] {
 button[color=secondary][variant=outline]:hover {
   color: var(--ui-secondary--hover);
 }
-button[color=secondary][variant=outline]:active {
+button[color=secondary][variant=outline]:active, button[color=secondary][variant=outline].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
@@ -419,7 +419,7 @@ button[color=secondary][variant=ghost] {
 button[color=secondary][variant=ghost]:hover {
   color: var(--ui-secondary--hover);
 }
-button[color=secondary][variant=ghost]:active {
+button[color=secondary][variant=ghost]:active, button[color=secondary][variant=ghost].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
@@ -446,7 +446,7 @@ button[color=destructive], button[type=reset] {
 button[color=destructive]:hover, button[type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-button[color=destructive]:active, button[type=reset]:active {
+button[color=destructive]:active, button[color=destructive].active, button[type=reset]:active, button[type=reset].active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
@@ -473,7 +473,7 @@ button[color=destructive][variant=outline], button[type=reset][variant=outline] 
 button[color=destructive][variant=outline]:hover, button[type=reset][variant=outline]:hover {
   color: var(--ui-destructive--hover);
 }
-button[color=destructive][variant=outline]:active, button[type=reset][variant=outline]:active {
+button[color=destructive][variant=outline]:active, button[color=destructive][variant=outline].active, button[type=reset][variant=outline]:active, button[type=reset][variant=outline].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
@@ -500,7 +500,7 @@ button[color=destructive][variant=ghost], button[type=reset][variant=ghost] {
 button[color=destructive][variant=ghost]:hover, button[type=reset][variant=ghost]:hover {
   color: var(--ui-destructive--hover);
 }
-button[color=destructive][variant=ghost]:active, button[type=reset][variant=ghost]:active {
+button[color=destructive][variant=ghost]:active, button[color=destructive][variant=ghost].active, button[type=reset][variant=ghost]:active, button[type=reset][variant=ghost].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
@@ -696,7 +696,7 @@ input:not([type=range])[type=button] {
 input:not([type=range])[type=button]:hover {
   background-color: var(--ui-primary--hover);
 }
-input:not([type=range])[type=button]:active {
+input:not([type=range])[type=button]:active, input:not([type=range])[type=button].active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
@@ -725,7 +725,7 @@ input:not([type=range])[type=button][variant=outline] {
 input:not([type=range])[type=button][variant=outline]:hover {
   color: var(--ui-primary--hover);
 }
-input:not([type=range])[type=button][variant=outline]:active {
+input:not([type=range])[type=button][variant=outline]:active, input:not([type=range])[type=button][variant=outline].active {
   transition: none;
   color: var(--ui-primary--active);
 }
@@ -754,7 +754,7 @@ input:not([type=range])[type=button][variant=ghost] {
 input:not([type=range])[type=button][variant=ghost]:hover {
   color: var(--ui-primary--hover);
 }
-input:not([type=range])[type=button][variant=ghost]:active {
+input:not([type=range])[type=button][variant=ghost]:active, input:not([type=range])[type=button][variant=ghost].active {
   transition: none;
   color: var(--ui-primary--active);
 }
@@ -781,7 +781,7 @@ input:not([type=range])[type=button][color=secondary] {
 input:not([type=range])[type=button][color=secondary]:hover {
   background-color: var(--ui-secondary--hover);
 }
-input:not([type=range])[type=button][color=secondary]:active {
+input:not([type=range])[type=button][color=secondary]:active, input:not([type=range])[type=button][color=secondary].active {
   transition: none;
   background-color: var(--ui-secondary--active);
 }
@@ -808,7 +808,7 @@ input:not([type=range])[type=button][color=secondary][variant=outline] {
 input:not([type=range])[type=button][color=secondary][variant=outline]:hover {
   color: var(--ui-secondary--hover);
 }
-input:not([type=range])[type=button][color=secondary][variant=outline]:active {
+input:not([type=range])[type=button][color=secondary][variant=outline]:active, input:not([type=range])[type=button][color=secondary][variant=outline].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
@@ -835,7 +835,7 @@ input:not([type=range])[type=button][color=secondary][variant=ghost] {
 input:not([type=range])[type=button][color=secondary][variant=ghost]:hover {
   color: var(--ui-secondary--hover);
 }
-input:not([type=range])[type=button][color=secondary][variant=ghost]:active {
+input:not([type=range])[type=button][color=secondary][variant=ghost]:active, input:not([type=range])[type=button][color=secondary][variant=ghost].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
@@ -862,7 +862,7 @@ input:not([type=range])[type=button][color=destructive], input:not([type=range])
 input:not([type=range])[type=button][color=destructive]:hover, input:not([type=range])[type=button][type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-input:not([type=range])[type=button][color=destructive]:active, input:not([type=range])[type=button][type=reset]:active {
+input:not([type=range])[type=button][color=destructive]:active, input:not([type=range])[type=button][color=destructive].active, input:not([type=range])[type=button][type=reset]:active, input:not([type=range])[type=button][type=reset].active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
@@ -889,7 +889,7 @@ input:not([type=range])[type=button][color=destructive][variant=outline], input:
 input:not([type=range])[type=button][color=destructive][variant=outline]:hover, input:not([type=range])[type=button][type=reset][variant=outline]:hover {
   color: var(--ui-destructive--hover);
 }
-input:not([type=range])[type=button][color=destructive][variant=outline]:active, input:not([type=range])[type=button][type=reset][variant=outline]:active {
+input:not([type=range])[type=button][color=destructive][variant=outline]:active, input:not([type=range])[type=button][color=destructive][variant=outline].active, input:not([type=range])[type=button][type=reset][variant=outline]:active, input:not([type=range])[type=button][type=reset][variant=outline].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
@@ -916,7 +916,7 @@ input:not([type=range])[type=button][color=destructive][variant=ghost], input:no
 input:not([type=range])[type=button][color=destructive][variant=ghost]:hover, input:not([type=range])[type=button][type=reset][variant=ghost]:hover {
   color: var(--ui-destructive--hover);
 }
-input:not([type=range])[type=button][color=destructive][variant=ghost]:active, input:not([type=range])[type=button][type=reset][variant=ghost]:active {
+input:not([type=range])[type=button][color=destructive][variant=ghost]:active, input:not([type=range])[type=button][color=destructive][variant=ghost].active, input:not([type=range])[type=button][type=reset][variant=ghost]:active, input:not([type=range])[type=button][type=reset][variant=ghost].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
@@ -943,7 +943,7 @@ input:not([type=range])[type=submit] {
 input:not([type=range])[type=submit]:hover {
   background-color: var(--ui-primary--hover);
 }
-input:not([type=range])[type=submit]:active {
+input:not([type=range])[type=submit]:active, input:not([type=range])[type=submit].active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
@@ -970,7 +970,7 @@ input:not([type=range])[type=reset] {
 input:not([type=range])[type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-input:not([type=range])[type=reset]:active {
+input:not([type=range])[type=reset]:active, input:not([type=range])[type=reset].active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
@@ -997,7 +997,7 @@ input:not([type=range])::-webkit-file-upload-button {
 input:not([type=range])::-webkit-file-upload-button:hover {
   background-color: var(--ui-primary--hover);
 }
-input:not([type=range])::-webkit-file-upload-button:active {
+input:not([type=range])::-webkit-file-upload-button:active, input:not([type=range])::-webkit-file-upload-button.active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
