@@ -465,9 +465,7 @@ button[color=destructive][variant=ghost], button[type=reset][variant=ghost] {
 
 button:has(> svg),
 button[icon] {
-  padding: calc(var(--ui-spacing) / 2);
-  width: 2.5rem;
-  height: 2.5rem;
+  padding: var(--ui-spacing);
 }
 
 button > svg {
