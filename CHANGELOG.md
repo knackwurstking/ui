@@ -2,6 +2,9 @@
 
 ## v2.0.0 [unreleased]
 
+- [ ] Change the button :active and :hover effect for ghost (icon) buttons or just add some ripple
+      thing
+
 - Converted this library to an Sass library with some JavaScript utilities.
 
 > See the [docs](docs/DOCUMENTATION.md) for more info
