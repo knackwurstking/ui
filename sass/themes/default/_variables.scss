@@ -20,17 +20,17 @@ $text: $color-950;
 $primary: $color-700;
 $primary-text: $bg;
 $primary--hover: color.adjust($primary, $lightness: 5%);
-$primary--active: color.adjust($primary, $lightness: 10%);
+$primary--active: color.adjust($primary, $lightness: 25%);
 
 $secondary: $color-400;
 $secondary-text: $text;
 $secondary--hover: color.adjust($secondary, $lightness: -5%);
-$secondary--active: color.adjust($secondary, $lightness: -10%);
+$secondary--active: color.adjust($secondary, $lightness: -25%);
 
 $destructive: #dc2828; // -600
 $destructive-text: #fee2e2; // -100
 $destructive--hover: color.adjust($destructive, $lightness: 5%);
-$destructive--active: color.adjust($destructive, $lightness: 10%);
+$destructive--active: color.adjust($destructive, $lightness: 25%);
 
 $muted: color.adjust($bg, $lightness: -20%);
 $muted-text: color.adjust($text, $lightness: 15%);
