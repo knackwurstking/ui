@@ -70,12 +70,16 @@ export function hash(target: Element, routes: { [key: string]: Route }): void {
     window.addEventListener("hashchange", () => {
         const hash = window.location.hash.replace("#", "");
 
-        const match = Object.keys(routes)
-            .reverse()
-            .find((k) => {
-                return hash.startsWith(k);
-            });
-        if (match === undefined) {
+        let match: string = "";
+        for (const key of Object.keys(routes)) {
+            if (hash.startsWith(key)) {
+                if (key > match) {
+                    match = key;
+                }
+            }
+        }
+
+        if (!match) {
             const route = routes["/"];
             if (route === undefined) {
                 console.warn(
