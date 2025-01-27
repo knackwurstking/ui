@@ -1,18 +1,18 @@
 import { Route } from "./types";
 
 export function hash(target: Element, routes: { [key: string]: Route }): void {
-    let pushedState = false;
+    //let pushedState = false;
     let current: Route | null = null;
 
     async function goto(route: Route) {
-        if (location.hash.match(/.*\?+/)) {
-            const [hash, search] = location.hash.split("?", 2);
-            const url = location.origin + location.pathname + `?${search}` + hash;
-            history.pushState({ path: url, modified: true }, "", url);
-            pushedState = true;
-        } else {
-            pushedState = false;
-        }
+        //if (location.hash.match(/.*\?+/)) {
+        //    const [hash, search] = location.hash.split("?", 2);
+        //    const url = location.origin + location.pathname + `?${search}` + hash;
+        //    history.pushState({ path: url, modified: true }, "", url);
+        //    pushedState = true;
+        //} else {
+        //    pushedState = false;
+        //}
 
         if (current !== null) {
             if (current.template?.onDestroy !== undefined) {
@@ -77,14 +77,14 @@ export function hash(target: Element, routes: { [key: string]: Route }): void {
         }
     }
 
-    window.addEventListener("popstate", () => {
-        if (!pushedState) {
-            return;
-        }
+    //window.addEventListener("popstate", () => {
+    //    if (!pushedState) {
+    //        return;
+    //    }
 
-        history.back();
-        pushedState = false;
-    });
+    //    history.back();
+    //    pushedState = false;
+    //});
 
     window.addEventListener("hashchange", () => {
         const hash = window.location.hash.replace("#", "");
