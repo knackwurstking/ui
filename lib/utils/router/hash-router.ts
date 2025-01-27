@@ -1,6 +1,6 @@
 import { Route } from "./types";
 
-export function router(target: Element, routes: { [key: string]: Route }): void {
+export function init(target: Element, routes: { [key: string]: Route }): void {
     //let pushedState = false;
     let current: Route | null = null;
 
