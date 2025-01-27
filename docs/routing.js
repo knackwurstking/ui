@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", function () {
         //},
     };
 
-    window.ui.router.hash(document.body, {
+    window.ui.router.hash.init(document.body, {
         "/": {
             title: "UI | Index",
             href: "index.template.html",
