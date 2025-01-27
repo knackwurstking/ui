@@ -1,5 +1,10 @@
+/**
+ * @type {import("../lib")}
+ */
+const ui = window.ui;
+
 window.addEventListener("DOMContentLoaded", function () {
-    console.debug("window.ui:", window.ui);
+    console.debug("window.ui:", ui);
 
     const mobileLayout = {
         title: "UI | Mobile Layout",
@@ -13,7 +18,7 @@ window.addEventListener("DOMContentLoaded", function () {
         //},
     };
 
-    window.ui.router.hash.init(document.body, {
+    ui.router.hash.init(document.body, {
         "/": {
             title: "UI | Index",
             href: "index.template.html",
