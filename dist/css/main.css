@@ -1237,6 +1237,7 @@ label:has(input) {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   height: 100%;
   width: 100%;
   gap: var(--gap, var(--ui-spacing));
