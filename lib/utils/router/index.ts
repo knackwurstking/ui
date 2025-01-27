@@ -1,2 +1,2 @@
 export * from "./types";
-export * from "./hash-router";
+export * as hash from "./hash-router";

@@ -1,6 +1,6 @@
 import { Route } from "./types";
 
-export function hash(target: Element, routes: { [key: string]: Route }): void {
+export function router(target: Element, routes: { [key: string]: Route }): void {
     //let pushedState = false;
     let current: Route | null = null;
 
@@ -116,4 +116,40 @@ export function hash(target: Element, routes: { [key: string]: Route }): void {
 
     // Call haschange handler once
     window.dispatchEvent(new Event("hashchange"));
+}
+
+export function goTo(query: { [key: string]: string } | null, hash: string): void {
+    let search: string;
+    if (!query) {
+        search = "";
+    } else {
+        search = `?${Object.entries(query)
+            .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+            .join("&")}`;
+    }
+
+    if (!hash && !search) {
+        location.hash = "";
+        return;
+    }
+
+    location.hash = `#${encodeURIComponent(hash)}` + (!!search ? `&${search}` : "");
+}
+
+export function getSearchParam(): { [key: string]: string } {
+    const result: { [key: string]: string } = {};
+
+    location.hash
+        .replace(/^#.*\?/, "") // Remove the hash and the first question mark
+        .split("?") // Split by question mark
+        .forEach((searchParam) => {
+            // Split by ampersand
+            searchParam.split("&").forEach((part) => {
+                // Split by equal sign
+                const [key, value] = part.split("=");
+                result[decodeURIComponent(key)] = decodeURIComponent(value);
+            });
+        });
+
+    return result;
 }
