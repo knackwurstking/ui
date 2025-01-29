@@ -41,6 +41,10 @@
         border-top: 1px solid $border-color;
     }
 
+    & > .center {
+        overflow: hidden;
+    }
+
     & > .left,
     & > .center,
     & > .right {
@@ -49,7 +53,6 @@
         flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
 
         height: 100%;
         width: 100%;
