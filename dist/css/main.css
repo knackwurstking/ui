@@ -510,11 +510,6 @@ button[icon] {
   padding: calc(var(--ui-spacing) / 2);
 }
 
-button:has(svg) {
-  width: 2rem;
-  height: 2rem;
-}
-
 button > svg {
   width: 100%;
   height: 100%;
@@ -1232,12 +1227,14 @@ label:has(input) {
   bottom: 0;
   border-top: 1px solid var(--ui-border-color);
 }
+.ui-app-bar > .center {
+  overflow: hidden;
+}
 .ui-app-bar > .left, .ui-app-bar > .center, .ui-app-bar > .right {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   height: 100%;
   width: 100%;
   gap: var(--gap, var(--ui-spacing));
