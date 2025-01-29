@@ -4,6 +4,7 @@
 *::after {
   box-sizing: inherit;
   position: relative;
+  outline: none;
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
@@ -189,11 +190,6 @@ h6 {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-}
-
-*:focus {
-  outline-offset: calc(var(--ui-border-width) * 2);
-  outline: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
 }
 
 ::selection {
