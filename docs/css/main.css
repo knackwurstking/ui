@@ -507,12 +507,12 @@ button[color=destructive][variant=ghost]:active, button[color=destructive][varia
 
 button:has(svg),
 button[icon] {
-  padding: var(--ui-spacing);
+  padding: calc(var(--ui-spacing) / 2);
 }
 
 button:has(svg) {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 button > svg {
