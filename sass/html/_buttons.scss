@@ -156,12 +156,12 @@ button {
 
 button:has(svg),
 button[icon] {
-    padding: $spacing;
+    padding: calc($spacing / 2);
 }
 
 button:has(svg) {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 button > svg {
