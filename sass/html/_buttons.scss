@@ -159,11 +159,6 @@ button[icon] {
     padding: calc($spacing / 2);
 }
 
-button:has(svg) {
-    width: 2rem;
-    height: 2rem;
-}
-
 button > svg {
     width: 100%;
     height: 100%;
