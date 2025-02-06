@@ -259,6 +259,8 @@ Or use [dist/ui.min.js](dist//ui.min.js)
   - **icon**
 - `<dialog`
   - **fullscreen**
+- `<tr` or `<td`
+  - **.left** or **.right**
 
 ---
 
