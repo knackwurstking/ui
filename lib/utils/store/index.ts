@@ -14,6 +14,14 @@ export class Store<T extends { [key: string]: any }> {
         this.prefix = prefix;
     }
 
+    public delete<K extends keyof T>(key: K, options?: StoreOptions | null) {
+        if (!options?.skipStore) {
+            localStorage.removeItem(`${this.prefix}${key as string}`);
+        }
+
+        delete this.data[key as string];
+    }
+
     public get<K extends keyof T>(key: K, options?: StoreOptions | null): T[K] | undefined {
         if (!options?.skipStore) {
             const item = localStorage.getItem(`${this.prefix}${key as string}`);
