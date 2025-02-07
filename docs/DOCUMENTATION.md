@@ -1,17 +1,11 @@
 # Documentation
 
-- [ ] Add new css icons
-
 <!--toc:start-->
 
 - [Documentation](#documentation)
   - [JavaScript](#javascript)
   - [Special SVGs](#special-svgs)
   - [CSS: Theme Variables](#css-theme-variables)
-  - [CSS: Icons](#css-icons)
-    - [Chevron](#chevron)
-    - [Settings](#settings)
-    - [Menu/List](#menulist)
   - [CSS: Utilities](#css-utilities)
     - [Border](#border)
     - [Color](#color)
@@ -48,7 +42,7 @@ Or use [dist/ui.min.js](dist//ui.min.js)
 
 ## CSS: Theme Variables
 
-> Add this to whatever html element `data-theme="schemes"`
+> Add this to whatever html element you want `data-theme="schemes"`
 > schemes: dark/light/auto
 
 ```css
@@ -71,15 +65,15 @@ Or use [dist/ui.min.js](dist//ui.min.js)
  --ui-primary: hsl(240, 10%, 26%);
  --ui-primary-text: hsl(240, 10%, 98%);
  --ui-primary--hover: hsl(240, 10%, 31%);
- --ui-primary--active: hsl(240, 10%, 36%);
+ --ui-primary--active: hsl(240, 10%, 51%);
  --ui-secondary: hsl(240, 10%, 65%);
  --ui-secondary-text: hsl(240, 10%, 4%);
  --ui-secondary--hover: hsl(240, 10%, 60%);
- --ui-secondary--active: hsl(240, 10%, 55%);
+ --ui-secondary--active: hsl(240, 10%, 40%);
  --ui-destructive: #dc2828;
  --ui-destructive-text: #fee2e2;
  --ui-destructive--hover: rgb(223.57, 61.93, 61.93);
- --ui-destructive--active: rgb(227.14, 83.86, 83.86);
+ --ui-destructive--active: rgb(237.85, 149.65, 149.65);
  --ui-muted: hsl(240, 10%, 78%);
  --ui-muted-text: hsl(240, 10%, 19%);
  --ui-info: hsl(240, 10%, 88%);
@@ -100,16 +94,16 @@ Or use [dist/ui.min.js](dist//ui.min.js)
  --ui-text: hsl(240, 10%, 98%);
  --ui-primary: hsl(240, 10%, 84%);
  --ui-primary-text: hsl(240, 10%, 4%);
- --ui-primary--hover: hsl(240, 10%, 89%);
- --ui-primary--active: hsl(240, 10%, 94%);
+ --ui-primary--hover: hsl(240, 10%, 79%);
+ --ui-primary--active: hsl(240, 10%, 59%);
  --ui-secondary: hsl(240, 10%, 46%);
  --ui-secondary-text: hsl(240, 10%, 98%);
  --ui-secondary--hover: hsl(240, 10%, 51%);
- --ui-secondary--active: hsl(240, 10%, 56%);
+ --ui-secondary--active: hsl(240, 10%, 71%);
  --ui-destructive: #f87171;
  --ui-destructive-text: #7f1d1d;
- --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
- --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
+ --ui-destructive--hover: rgb(246.8020134228, 88.6979865772, 88.6979865772);
+ --ui-destructive--active: rgb(222.5302013423, 10.9697986577, 10.9697986577);
  --ui-muted: hsl(240, 10%, 24%);
  --ui-muted-text: hsl(240, 10%, 83%);
  --ui-info: hsl(240, 10%, 14%);
@@ -131,16 +125,16 @@ Or use [dist/ui.min.js](dist//ui.min.js)
   --ui-text: hsl(240, 10%, 98%);
   --ui-primary: hsl(240, 10%, 84%);
   --ui-primary-text: hsl(240, 10%, 4%);
-  --ui-primary--hover: hsl(240, 10%, 89%);
-  --ui-primary--active: hsl(240, 10%, 94%);
+  --ui-primary--hover: hsl(240, 10%, 79%);
+  --ui-primary--active: hsl(240, 10%, 59%);
   --ui-secondary: hsl(240, 10%, 46%);
   --ui-secondary-text: hsl(240, 10%, 98%);
   --ui-secondary--hover: hsl(240, 10%, 51%);
-  --ui-secondary--active: hsl(240, 10%, 56%);
+  --ui-secondary--active: hsl(240, 10%, 71%);
   --ui-destructive: #f87171;
   --ui-destructive-text: #7f1d1d;
-  --ui-destructive--hover: rgb(249.1979865772, 137.3020134228, 137.3020134228);
-  --ui-destructive--active: rgb(250.3959731544, 161.6040268456, 161.6040268456);
+  --ui-destructive--hover: rgb(246.8020134228, 88.6979865772, 88.6979865772);
+  --ui-destructive--active: rgb(222.5302013423, 10.9697986577, 10.9697986577);
   --ui-muted: hsl(240, 10%, 24%);
   --ui-muted-text: hsl(240, 10%, 83%);
   --ui-info: hsl(240, 10%, 14%);
@@ -157,24 +151,6 @@ Or use [dist/ui.min.js](dist//ui.min.js)
  }
 }
 ```
-
-## CSS: Icons
-
-### Chevron
-
-- `--ui-icon-chevron-up`
-- `--ui-icon-chevron-right`
-- `--ui-icon-chevron-down`
-- `--ui-icon-chevron-left`
-
-### Settings
-
-- `--ui-icon-gear`
-
-### Menu/List
-
-- `--ui-icon-list`
-- `--ui-icon-dots-vertical`
 
 ## CSS: Utilities
 

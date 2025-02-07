@@ -24,14 +24,6 @@
                     <li><a href="#special-svgs">Special SVGs</a></li>
                     <li><a href="#css-theme-variables">CSS: Theme Variables</a></li>
                     <li>
-                        <a href="#css-icons">CSS: Icons</a>
-                        <ul>
-                            <li><a href="#chevron">Chevron</a></li>
-                            <li><a href="#settings">Settings</a></li>
-                            <li><a href="#menulist">Menu/List</a></li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="#css-utilities">CSS: Utilities</a>
                         <ul>
                             <li><a href="#border">Border</a></li>
@@ -74,132 +66,115 @@
         <h2 id="css-theme-variables">CSS: Theme Variables</h2>
         <blockquote>
             <p>
-                Add this to whatever html element
+                Add this to whatever html element you want
                 <code>data-theme=&quot;schemes&quot;</code> schemes: dark/light/auto
             </p>
         </blockquote>
         <pre><code class="lang-css"><span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--ui-font-family</span>: <span class="hljs-string">"Recursive"</span>, sans-serif;
-    <span class="hljs-attribute">--ui-font-size</span>: <span class="hljs-number">1rem</span>;
-    <span class="hljs-attribute">--ui-line-height</span>: <span class="hljs-number">1.5</span>;
-    <span class="hljs-attribute">--ui-line-height-code</span>: <span class="hljs-number">1.25</span>;
-    <span class="hljs-attribute">--ui-border-width</span>: <span class="hljs-number">1px</span>;
-    <span class="hljs-attribute">--ui-border-style</span>: solid;
-    <span class="hljs-attribute">--ui-radius</span>: <span class="hljs-number">0.25rem</span>;
-    <span class="hljs-attribute">--ui-spacing</span>: <span class="hljs-number">0.5rem</span>;
-    <span class="hljs-attribute">--ui-app-bar-height</span>: <span class="hljs-number">3rem</span>;
-}
+         <span class="hljs-attribute">--ui-font-family</span>: <span class="hljs-string">"Recursive"</span>, sans-serif;
+         <span class="hljs-attribute">--ui-font-size</span>: <span class="hljs-number">1rem</span>;
+         <span class="hljs-attribute">--ui-line-height</span>: <span class="hljs-number">1.5</span>;
+         <span class="hljs-attribute">--ui-line-height-code</span>: <span class="hljs-number">1.25</span>;
+         <span class="hljs-attribute">--ui-border-width</span>: <span class="hljs-number">1px</span>;
+         <span class="hljs-attribute">--ui-border-style</span>: solid;
+         <span class="hljs-attribute">--ui-radius</span>: <span class="hljs-number">0.25rem</span>;
+         <span class="hljs-attribute">--ui-spacing</span>: <span class="hljs-number">0.5rem</span>;
+         <span class="hljs-attribute">--ui-app-bar-height</span>: <span class="hljs-number">3rem</span>;
+        }
 
-<span class="hljs-selector-attr">[data-theme="light"]</span>,
-<span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-    <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-    <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 26%);
-    <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-    <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 31%);
-    <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 36%);
-    <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 65%);
-    <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-    <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 60%);
-    <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 55%);
-    <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#dc2828</span>;
-    <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#fee2e2</span>;
-    <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(223.57, 61.93, 61.93);
-    <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(227.14, 83.86, 83.86);
-    <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 78%);
-    <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 19%);
-    <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 88%);
-    <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-    <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#b37614</span>;
-    <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#f9f2c8</span>;
-    <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#dc2828</span>;
-    <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#fee2e2</span>;
-    <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(249.39, 249.39, 250.41, 0.75);
-    <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-    <span class="hljs-attribute">color-scheme</span>: light;
-}
+        <span class="hljs-selector-attr">[data-theme="light"]</span>,
+        <span class="hljs-selector-pseudo">:root</span> {
+         <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 26%);
+         <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 31%);
+         <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
+         <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 65%);
+         <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 60%);
+         <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 40%);
+         <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#dc2828</span>;
+         <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#fee2e2</span>;
+         <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(223.57, 61.93, 61.93);
+         <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(237.85, 149.65, 149.65);
+         <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 78%);
+         <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 19%);
+         <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 88%);
+         <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#b37614</span>;
+         <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#f9f2c8</span>;
+         <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#dc2828</span>;
+         <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#fee2e2</span>;
+         <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(249.39, 249.39, 250.41, 0.75);
+         <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
+         <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">color-scheme</span>: light;
+        }
 
-<span class="hljs-selector-attr">[data-theme="dark"]</span> {
-    <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-    <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-    <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
-    <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-    <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 89%);
-    <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 94%);
-    <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 46%);
-    <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-    <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
-    <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 56%);
-    <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#f87171</span>;
-    <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#7f1d1d</span>;
-    <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(249.1979865772, 137.3020134228, 137.3020134228);
-    <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(250.3959731544, 161.6040268456, 161.6040268456);
-    <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 24%);
-    <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 83%);
-    <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 14%);
-    <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-    <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#e7b428</span>;
-    <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#693a1a</span>;
-    <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#f87171</span>;
-    <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#7f1d1d</span>;
-    <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(9.18, 9.18, 11.22, 0.75);
-    <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 34%);
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-    <span class="hljs-attribute">color-scheme</span>: dark;
-}
+        <span class="hljs-selector-attr">[data-theme="dark"]</span> {
+         <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
+         <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 79%);
+         <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 59%);
+         <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 46%);
+         <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
+         <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 71%);
+         <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#f87171</span>;
+         <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#7f1d1d</span>;
+         <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(246.8020134228, 88.6979865772, 88.6979865772);
+         <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(222.5302013423, 10.9697986577, 10.9697986577);
+         <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 24%);
+         <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 83%);
+         <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 14%);
+         <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#e7b428</span>;
+         <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#693a1a</span>;
+         <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#f87171</span>;
+         <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#7f1d1d</span>;
+         <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(9.18, 9.18, 11.22, 0.75);
+         <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 34%);
+         <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">color-scheme</span>: dark;
+        }
 
-@<span class="hljs-keyword">media</span> only screen and (prefers-color-scheme: dark) {
-    <span class="hljs-selector-attr">[data-theme="auto"]</span> {
-        <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-        <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-        <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
-        <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-        <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 89%);
-        <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 94%);
-        <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 46%);
-        <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-        <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
-        <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 56%);
-        <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#f87171</span>;
-        <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#7f1d1d</span>;
-        <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(249.1979865772, 137.3020134228, 137.3020134228);
-        <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(250.3959731544, 161.6040268456, 161.6040268456);
-        <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 24%);
-        <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 83%);
-        <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 14%);
-        <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-        <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#e7b428</span>;
-        <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#693a1a</span>;
-        <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#f87171</span>;
-        <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#7f1d1d</span>;
-        <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(9.18, 9.18, 11.22, 0.75);
-        <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 34%);
-        <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
-        <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
-        <span class="hljs-attribute">color-scheme</span>: dark;
-    }
-}
-</code></pre>
-        <h2 id="css-icons">CSS: Icons</h2>
-        <h3 id="chevron">Chevron</h3>
-        <ul>
-            <li><code>--ui-icon-chevron-up</code></li>
-            <li><code>--ui-icon-chevron-right</code></li>
-            <li><code>--ui-icon-chevron-down</code></li>
-            <li><code>--ui-icon-chevron-left</code></li>
-        </ul>
-        <h3 id="settings">Settings</h3>
-        <ul>
-            <li><code>--ui-icon-gear</code></li>
-        </ul>
-        <h3 id="menu-list">Menu/List</h3>
-        <ul>
-            <li><code>--ui-icon-list</code></li>
-            <li><code>--ui-icon-dots-vertical</code></li>
-        </ul>
+        @<span class="hljs-keyword">media</span> only screen and (prefers-color-scheme: dark) {
+         <span class="hljs-selector-attr">[data-theme="auto"]</span> {
+          <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+          <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
+          <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+          <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 79%);
+          <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 59%);
+          <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 46%);
+          <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
+          <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 71%);
+          <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#f87171</span>;
+          <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#7f1d1d</span>;
+          <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(246.8020134228, 88.6979865772, 88.6979865772);
+          <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(222.5302013423, 10.9697986577, 10.9697986577);
+          <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 24%);
+          <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 83%);
+          <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 14%);
+          <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#e7b428</span>;
+          <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#693a1a</span>;
+          <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#f87171</span>;
+          <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#7f1d1d</span>;
+          <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(9.18, 9.18, 11.22, 0.75);
+          <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 34%);
+          <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+          <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">color-scheme</span>: dark;
+         }
+        }
+        </code></pre>
         <h2 id="css-utilities">CSS: Utilities</h2>
         <blockquote>
             <p>All HTML Elements takes font variation settings from special CSS variables</p>
@@ -302,6 +277,12 @@
                 <code>&lt;dialog</code>
                 <ul>
                     <li><strong>fullscreen</strong></li>
+                </ul>
+            </li>
+            <li>
+                <code>&lt;tr</code> or <code>&lt;td</code>
+                <ul>
+                    <li><strong>.left</strong> or <strong>.right</strong></li>
                 </ul>
             </li>
         </ul>

@@ -1,11 +1,9 @@
 # Changelog
 
-## v2.0.0 [unreleased]
-
-- [ ] Change the button :active and :hover effect for ghost (icon) buttons or just add some ripple
-      thing
+## v2.0.0 [2025-02-07]
 
 - Converted this library to an Sass library with some JavaScript utilities.
+- Changed JavaScript utils
 
 > See the [docs](docs/DOCUMENTATION.md) for more info
 
