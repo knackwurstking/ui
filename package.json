@@ -12,9 +12,6 @@
         "build-css": "rm -rf dist/css && sass sass/:dist/css/ && rm -rf docs/css && cp -r dist/css docs/css"
     },
     "license": "MIT",
-    "peerDependencies": {
-        "lit": "^3.2.1"
-    },
     "devDependencies": {
         "@types/node": "^22.7.5",
         "clean-css-cli": "^5.6.3",
