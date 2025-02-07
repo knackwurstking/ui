@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    position: relative;
+    outline: none;
+
+    margin: 0;
+    padding: 0;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+
+    vertical-align: middle;
+    line-height: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    margin: 0;
+}

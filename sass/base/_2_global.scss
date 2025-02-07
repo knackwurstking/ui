@@ -1,0 +1,39 @@
+@use "../theme-variables" as *;
+@use "../utils";
+
+//*:focus {
+//    outline-offset: calc($border-width * 2);
+//    outline: $border-width $border-style $border-color;
+//}
+
+::selection {
+    background-color: $primary;
+    color: $primary-text;
+}
+
+::backdrop {
+    @include utils.backdrop();
+}
+
+[disabled] {
+    pointer-events: none;
+    touch-action: none;
+
+    opacity: 0.45;
+    cursor: default;
+
+    @include utils.none-select;
+}
+
+html {
+    box-sizing: border-box;
+
+    font-size: $font-size;
+    background-color: $bg;
+    color: $text;
+}
+
+body {
+    font-size: 100%;
+    line-height: $line-height;
+}

@@ -1,0 +1,9 @@
+@use "../settings";
+
+@mixin isolate() {
+    isolation: isolate;
+}
+
+.#{settings.$css-selector-prefix}isolate {
+    @include isolate();
+}

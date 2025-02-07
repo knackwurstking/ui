@@ -1,0 +1,47 @@
+@use "settings" as *;
+
+$font-family: var(#{$css-var-prefix}font-family);
+$font-size: var(#{$css-var-prefix}font-size);
+$line-height: var(#{$css-var-prefix}line-height);
+$line-height-code: var(#{$css-var-prefix}line-height-code);
+
+$radius: var(#{$css-var-prefix}radius);
+$spacing: var(#{$css-var-prefix}spacing);
+
+$app-bar-height: var(#{$css-var-prefix}app-bar-height);
+
+$bg: var(#{$css-var-prefix}bg);
+$text: var(#{$css-var-prefix}text);
+
+$primary: var(#{$css-var-prefix}primary);
+$primary-text: var(#{$css-var-prefix}primary-text);
+$primary--hover: var(#{$css-var-prefix}primary--hover);
+$primary--active: var(#{$css-var-prefix}primary--active);
+
+$secondary: var(#{$css-var-prefix}secondary);
+$secondary-text: var(#{$css-var-prefix}secondary-text);
+$secondary--hover: var(#{$css-var-prefix}secondary--hover);
+$secondary--active: var(#{$css-var-prefix}secondary--active);
+
+$destructive: var(#{$css-var-prefix}destructive);
+$destructive-text: var(#{$css-var-prefix}destructive-text);
+$destructive--hover: var(#{$css-var-prefix}destructive--hover);
+$destructive--active: var(#{$css-var-prefix}destructive--active);
+
+$muted: var(#{$css-var-prefix}muted);
+$muted-text: var(#{$css-var-prefix}muted-text);
+
+$info: var(#{$css-var-prefix}info);
+$info-text: var(#{$css-var-prefix}info-text);
+
+$warning: var(#{$css-var-prefix}warning);
+$warning-text: var(#{$css-var-prefix}warning-text);
+
+$error: var(#{$css-var-prefix}error);
+$error-text: var(#{$css-var-prefix}error-text);
+
+$backdrop-color: var(#{$css-var-prefix}backdrop-color);
+
+$border-width: var(#{$css-var-prefix}border-width);
+$border-color: var(#{$css-var-prefix}border-color);
+$border-style: var(#{$css-var-prefix}border-style);

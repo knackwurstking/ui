@@ -1,0 +1,5 @@
+@use "mixins";
+
+@mixin get() {
+    @include mixins.theme(light);
+}

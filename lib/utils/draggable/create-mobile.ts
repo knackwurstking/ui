@@ -1,4 +1,4 @@
-import type { CleanUpFunction } from "../../global";
+import { CleanUpFunction } from "../events";
 
 const defaultOptions: DraggableMobileOptions = {
     onDragStart: null,
@@ -26,10 +26,7 @@ export function createMobile(
     const handleStart = (ev: Event & (TouchEvent | MouseEvent)) => {
         const target = ev.currentTarget as HTMLElement;
 
-        if (
-            !originTarget &&
-            Array.from(target.classList).includes("draggable")
-        ) {
+        if (!originTarget && Array.from(target.classList).includes("draggable")) {
             startTime = new Date().getTime();
             originTarget = target;
 
@@ -40,11 +37,10 @@ export function createMobile(
                 backupColor = originTarget.style.color;
                 backupBGColor = originTarget.style.backgroundColor;
 
-                originTarget.style.color = "hsl(var(--ui-hsl-primary-text))";
-                originTarget.style.backgroundColor =
-                    "hsl(var(--ui-hsl-primary))";
+                originTarget.style.color = "var(--ui-primary-text)";
+                originTarget.style.backgroundColor = "var(--ui-primary)";
 
-                container.classList.add("dragging");
+                container.classList.add("ui-dragging");
 
                 dragRunning = true;
                 if (!!options?.onDragStart) options.onDragStart();
@@ -105,10 +101,7 @@ export function createMobile(
                 if (isBefore()) {
                     container.insertBefore(originTarget, target);
                 } else {
-                    container.insertBefore(
-                        originTarget,
-                        target.nextElementSibling,
-                    );
+                    container.insertBefore(originTarget, target.nextElementSibling);
                 }
             }
         }
@@ -127,7 +120,7 @@ export function createMobile(
         }
 
         startTime = null;
-        container.classList.remove("dragging");
+        container.classList.remove("ui-dragging");
 
         if (!dragRunning) return;
 
@@ -154,19 +147,17 @@ export function createMobile(
 
     // Return a cleanup function
     return () => {
-        ([...container.children] as HTMLElement[]).forEach(
-            (child: HTMLElement) => {
-                child.classList.remove("draggable");
+        ([...container.children] as HTMLElement[]).forEach((child: HTMLElement) => {
+            child.classList.remove("draggable");
 
-                child.onmousedown = null;
-                child.ontouchstart = null;
+            child.onmousedown = null;
+            child.ontouchstart = null;
 
-                child.onmousemove = null;
-                child.ontouchmove = null;
+            child.onmousemove = null;
+            child.ontouchmove = null;
 
-                container.onmouseleave = child.onmouseup = null;
-                child.ontouchend = null;
-            },
-        );
+            container.onmouseleave = child.onmouseup = null;
+            child.ontouchend = null;
+        });
     };
 }

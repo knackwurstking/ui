@@ -1,0 +1,66 @@
+@use "sass:color";
+@use "mixins";
+@use "variables";
+
+@mixin get() {
+    $bg: variables.$text;
+    $text: variables.$bg;
+
+    $primary: variables.$color-300;
+    $primary-text: $bg;
+    $primary--hover: color.adjust($primary, $lightness: -5%);
+    $primary--active: color.adjust($primary, $lightness: -25%);
+
+    $secondary: variables.$color-500;
+    $secondary-text: $text;
+    $secondary--hover: color.adjust($secondary, $lightness: 5%);
+    $secondary--active: color.adjust($secondary, $lightness: 25%);
+
+    $destructive: #f87171; // -400
+    $destructive-text: #7f1d1d; // -900
+    $destructive--hover: color.adjust($destructive, $lightness: -5%);
+    $destructive--active: color.adjust($destructive, $lightness: -25%);
+
+    $muted: color.adjust($bg, $lightness: 20%);
+    $muted-text: color.adjust($text, $lightness: -15%);
+
+    $info: color.adjust($bg, $lightness: 10%);
+    $info-text: $text;
+
+    $warning: #e7b428; // -400
+    $warning-text: #693a1a; // -900
+
+    $error: $destructive;
+    $error-text: $destructive-text;
+
+    $backdrop-color: rgba($bg, 0.75);
+    $border-color: variables.$color-600;
+
+    @include mixins.theme(
+        dark,
+        $bg: $bg,
+        $text: $text,
+        $primary: $primary,
+        $primary-text: $primary-text,
+        $primary--hover: $primary--hover,
+        $primary--active: $primary--active,
+        $secondary: $secondary,
+        $secondary-text: $secondary-text,
+        $secondary--hover: $secondary--hover,
+        $secondary--active: $secondary--active,
+        $destructive: $destructive,
+        $destructive-text: $destructive-text,
+        $destructive--hover: $destructive--hover,
+        $destructive--active: $destructive--active,
+        $muted: $muted,
+        $muted-text: $muted-text,
+        $info: $info,
+        $info-text: $info-text,
+        $warning: $warning,
+        $warning-text: $warning-text,
+        $error: $error,
+        $error-text: $error-text,
+        $backdrop-color: $backdrop-color,
+        $border-color: $border-color
+    );
+}

@@ -1,0 +1,20 @@
+@use "../settings" as *;
+@use "../theme-variables" as *;
+
+.#{$css-selector-prefix}container {
+    display: block;
+
+    width: 100%;
+    max-width: 65rem;
+
+    margin: 0 auto;
+
+    padding: $spacing;
+
+    overflow: auto;
+
+    &.fluid {
+        width: 100%;
+        max-width: 100%;
+    }
+}

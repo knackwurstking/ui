@@ -1,4 +1,4 @@
-import type { CleanUpFunction } from "../../global";
+import { CleanUpFunction } from "../events";
 
 const defaultOptions: DraggableNativeOptions = {
     onDragStart: null,
@@ -23,9 +23,7 @@ export function createNative(
     // Setup //
     // ----- //
 
-    const childIndex: number = (
-        [...container.children] as HTMLElement[]
-    ).indexOf(child);
+    const childIndex: number = ([...container.children] as HTMLElement[]).indexOf(child);
 
     child.draggable = true;
 
@@ -35,7 +33,7 @@ export function createNative(
             ev.dataTransfer.dropEffect = "move";
         }
 
-        container.classList.add("dragging");
+        container.classList.add("ui-dragging");
         if (!!options.onDragStart) options.onDragStart(childIndex);
     };
 
@@ -49,8 +47,8 @@ export function createNative(
 
         ([...container.children] as HTMLElement[]).forEach((c, ci) => {
             if (ci === childIndex) {
-                c.style.background = "hsl(var(--ui-hsl-primary))";
-                c.style.color = "hsl(var(--ui-hsl-primary-text))";
+                c.style.background = "var(--ui-primary)";
+                c.style.color = "var(--ui-primary-text)";
 
                 return;
             }
@@ -69,7 +67,7 @@ export function createNative(
             ev.dataTransfer.dropEffect = "move";
         }
 
-        container.classList.remove("dragging");
+        container.classList.remove("ui-dragging");
         if (!!options.onDragEnd) options.onDragEnd(childIndex);
 
         ([...container.children] as HTMLElement[]).forEach((c) => {

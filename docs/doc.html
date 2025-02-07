@@ -1,0 +1,390 @@
+<!doctype html>
+
+<html lang="en" data-theme="auto">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"
+        />
+
+        <link rel="stylesheet" href="css/main.css" />
+
+        <title>UI | Index</title>
+    </head>
+
+    <body>
+        <h1 id="documentation">Documentation</h1>
+        <!--toc:start-->
+        <ul>
+            <li>
+                <a href="#documentation">Documentation</a>
+                <ul>
+                    <li><a href="#javascript">JavaScript</a></li>
+                    <li><a href="#special-svgs">Special SVGs</a></li>
+                    <li><a href="#css-theme-variables">CSS: Theme Variables</a></li>
+                    <li>
+                        <a href="#css-utilities">CSS: Utilities</a>
+                        <ul>
+                            <li><a href="#border">Border</a></li>
+                            <li><a href="#color">Color</a></li>
+                            <li><a href="#debug">Debug</a></li>
+                            <li><a href="#flex">Flex</a></li>
+                            <li><a href="#isolation">Isolation</a></li>
+                            <li><a href="#scroll">Scroll</a></li>
+                            <li><a href="#text">Text</a></li>
+                            <li><a href="#touch">Touch</a></li>
+                            <li><a href="#user-select">user-select</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#css-html-base-elements">CSS: HTML Base Elements</a></li>
+                    <li>
+                        <a href="#css-components">CSS: Components</a>
+                        <ul>
+                            <li><a href="#ui-app-bar">UI App Bar</a></li>
+                            <li><a href="#ui-container">UI Container</a></li>
+                            <li><a href="#ui-drawer">UI Drawer</a></li>
+                            <li><a href="#ui-flex-grid">UI Flex Grid</a></li>
+                            <li><a href="#ui-spinner">UI Spinner</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!--toc:end-->
+        <blockquote>
+            <p>Just some quick and dirty documentation.</p>
+        </blockquote>
+        <h2 id="javascript">JavaScript</h2>
+        <p><code>window.ui</code> <a href="dist/ui.min.umd.cjs">dist/ui.min.umd.cjs</a></p>
+        <p>Just go to the console and do a <code>console.log(window.ui)</code>.</p>
+        <p>Or use <a href="dist//ui.min.js">dist/ui.min.js</a></p>
+        <h2 id="special-svgs">Special SVGs</h2>
+        <ul>
+            <li><a href="/svg/power.svg">/svg/power.svg</a></li>
+        </ul>
+        <h2 id="css-theme-variables">CSS: Theme Variables</h2>
+        <blockquote>
+            <p>
+                Add this to whatever html element you want
+                <code>data-theme=&quot;schemes&quot;</code> schemes: dark/light/auto
+            </p>
+        </blockquote>
+        <pre><code class="lang-css"><span class="hljs-selector-pseudo">:root</span> {
+         <span class="hljs-attribute">--ui-font-family</span>: <span class="hljs-string">"Recursive"</span>, sans-serif;
+         <span class="hljs-attribute">--ui-font-size</span>: <span class="hljs-number">1rem</span>;
+         <span class="hljs-attribute">--ui-line-height</span>: <span class="hljs-number">1.5</span>;
+         <span class="hljs-attribute">--ui-line-height-code</span>: <span class="hljs-number">1.25</span>;
+         <span class="hljs-attribute">--ui-border-width</span>: <span class="hljs-number">1px</span>;
+         <span class="hljs-attribute">--ui-border-style</span>: solid;
+         <span class="hljs-attribute">--ui-radius</span>: <span class="hljs-number">0.25rem</span>;
+         <span class="hljs-attribute">--ui-spacing</span>: <span class="hljs-number">0.5rem</span>;
+         <span class="hljs-attribute">--ui-app-bar-height</span>: <span class="hljs-number">3rem</span>;
+        }
+
+        <span class="hljs-selector-attr">[data-theme="light"]</span>,
+        <span class="hljs-selector-pseudo">:root</span> {
+         <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 26%);
+         <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 31%);
+         <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
+         <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 65%);
+         <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 60%);
+         <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 40%);
+         <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#dc2828</span>;
+         <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#fee2e2</span>;
+         <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(223.57, 61.93, 61.93);
+         <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(237.85, 149.65, 149.65);
+         <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 78%);
+         <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 19%);
+         <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 88%);
+         <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#b37614</span>;
+         <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#f9f2c8</span>;
+         <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#dc2828</span>;
+         <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#fee2e2</span>;
+         <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(249.39, 249.39, 250.41, 0.75);
+         <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
+         <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">color-scheme</span>: light;
+        }
+
+        <span class="hljs-selector-attr">[data-theme="dark"]</span> {
+         <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
+         <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 79%);
+         <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 59%);
+         <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 46%);
+         <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
+         <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 71%);
+         <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#f87171</span>;
+         <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#7f1d1d</span>;
+         <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(246.8020134228, 88.6979865772, 88.6979865772);
+         <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(222.5302013423, 10.9697986577, 10.9697986577);
+         <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 24%);
+         <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 83%);
+         <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 14%);
+         <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#e7b428</span>;
+         <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#693a1a</span>;
+         <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#f87171</span>;
+         <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#7f1d1d</span>;
+         <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(9.18, 9.18, 11.22, 0.75);
+         <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 34%);
+         <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+         <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+         <span class="hljs-attribute">color-scheme</span>: dark;
+        }
+
+        @<span class="hljs-keyword">media</span> only screen and (prefers-color-scheme: dark) {
+         <span class="hljs-selector-attr">[data-theme="auto"]</span> {
+          <span class="hljs-attribute">--ui-bg</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+          <span class="hljs-attribute">--ui-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">--ui-primary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 84%);
+          <span class="hljs-attribute">--ui-primary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+          <span class="hljs-attribute">--ui-primary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 79%);
+          <span class="hljs-attribute">--ui-primary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 59%);
+          <span class="hljs-attribute">--ui-secondary</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 46%);
+          <span class="hljs-attribute">--ui-secondary-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">--ui-secondary--hover</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 51%);
+          <span class="hljs-attribute">--ui-secondary--active</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 71%);
+          <span class="hljs-attribute">--ui-destructive</span>: <span class="hljs-number">#f87171</span>;
+          <span class="hljs-attribute">--ui-destructive-text</span>: <span class="hljs-number">#7f1d1d</span>;
+          <span class="hljs-attribute">--ui-destructive--hover</span>: <span class="hljs-built_in">rgb</span>(246.8020134228, 88.6979865772, 88.6979865772);
+          <span class="hljs-attribute">--ui-destructive--active</span>: <span class="hljs-built_in">rgb</span>(222.5302013423, 10.9697986577, 10.9697986577);
+          <span class="hljs-attribute">--ui-muted</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 24%);
+          <span class="hljs-attribute">--ui-muted-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 83%);
+          <span class="hljs-attribute">--ui-info</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 14%);
+          <span class="hljs-attribute">--ui-info-text</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">--ui-warning</span>: <span class="hljs-number">#e7b428</span>;
+          <span class="hljs-attribute">--ui-warning-text</span>: <span class="hljs-number">#693a1a</span>;
+          <span class="hljs-attribute">--ui-error</span>: <span class="hljs-number">#f87171</span>;
+          <span class="hljs-attribute">--ui-error-text</span>: <span class="hljs-number">#7f1d1d</span>;
+          <span class="hljs-attribute">--ui-backdrop-color</span>: <span class="hljs-built_in">rgba</span>(9.18, 9.18, 11.22, 0.75);
+          <span class="hljs-attribute">--ui-border-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 34%);
+          <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 4%);
+          <span class="hljs-attribute">color</span>: <span class="hljs-built_in">hsl</span>(240, 10%, 98%);
+          <span class="hljs-attribute">color-scheme</span>: dark;
+         }
+        }
+        </code></pre>
+        <h2 id="css-utilities">CSS: Utilities</h2>
+        <blockquote>
+            <p>All HTML Elements takes font variation settings from special CSS variables</p>
+            <ul>
+                <li><code>--mono</code>: 0..1</li>
+                <li><code>--casl</code>: 0..1</li>
+                <li><code>--wght</code>: 300..1000</li>
+                <li><code>--slnt</code>: 0..-15</li>
+                <li><code>--CRSV</code>: 0..1</li>
+            </ul>
+        </blockquote>
+        <h3 id="border">Border</h3>
+        <ul>
+            <li><code>.ui-border</code></li>
+        </ul>
+        <h3 id="color">Color</h3>
+        <ul>
+            <li><code>.ui-backdrop</code></li>
+            <li><code>.ui-primary</code></li>
+            <li><code>.ui-secondary</code></li>
+            <li><code>.ui-destructive</code> <code>.ui-muted</code></li>
+        </ul>
+        <h3 id="debug">Debug</h3>
+        <ul>
+            <li><code>.ui-debug</code></li>
+        </ul>
+        <h3 id="flex">Flex</h3>
+        <ul>
+            <li><code>.ui-flex</code></li>
+        </ul>
+        <p><strong>Optional</strong>:</p>
+        <ul>
+            <li><code>&amp;.inline</code></li>
+            <li><code>&amp;.wrap</code></li>
+            <li><code>&amp;.nowrap</code></li>
+            <li>
+                <code>&amp;.row</code>
+                <ul>
+                    <li><code>&amp;.reverse</code></li>
+                </ul>
+            </li>
+            <li>
+                <code>&amp;.column</code>
+                <ul>
+                    <li><code>&amp;.reverse</code></li>
+                </ul>
+            </li>
+            <li><code>&amp;.align-center</code></li>
+            <li><code>&amp;.align-start</code></li>
+            <li><code>&amp;.align-end</code></li>
+            <li><code>&amp;.justify-center</code></li>
+            <li><code>&amp;.justify-start</code></li>
+            <li><code>&amp;.justify-end</code></li>
+            <li><code>&amp;.justify-evenly</code></li>
+            <li><code>&amp;.justify-around</code></li>
+            <li><code>&amp;.justify-between</code></li>
+        </ul>
+        <h3 id="isolation">Isolation</h3>
+        <ul>
+            <li><code>.ui-isolate</code></li>
+        </ul>
+        <h3 id="scroll">Scroll</h3>
+        <ul>
+            <li><code>.ui-auto-scroll</code></li>
+            <li><code>.ui-auto-scroll-x</code></li>
+            <li><code>.ui-auto-scroll-y</code></li>
+            <li><code>.ui-hide-scrollbar</code></li>
+        </ul>
+        <h3 id="text">Text</h3>
+        <ul>
+            <li><code>.ui-outline-text</code></li>
+            <li><code>.ui-ellipsis</code></li>
+        </ul>
+        <h3 id="touch">Touch</h3>
+        <ul>
+            <li><code>.ui-disable-touch</code></li>
+        </ul>
+        <h3 id="user-select">user-select</h3>
+        <ul>
+            <li><code>.ui-none-select</code></li>
+        </ul>
+        <hr />
+        <h2 id="css-html-base-elements">CSS: HTML Base Elements</h2>
+        <ul>
+            <li>
+                <code>&lt;button</code>
+                <ul>
+                    <li>
+                        <strong>variant</strong>: &quot;full&quot; | &quot;outline&quot; |
+                        &quot;ghost&quot;
+                    </li>
+                    <li>
+                        <strong>color</strong>: &quot;primary&quot; | &quot;secondary&quot; |
+                        &quot;destructive&quot;
+                    </li>
+                    <li><strong>icon</strong></li>
+                </ul>
+            </li>
+            <li>
+                <code>&lt;dialog</code>
+                <ul>
+                    <li><strong>fullscreen</strong></li>
+                </ul>
+            </li>
+            <li>
+                <code>&lt;tr</code> or <code>&lt;td</code>
+                <ul>
+                    <li><strong>.left</strong> or <strong>.right</strong></li>
+                </ul>
+            </li>
+        </ul>
+        <hr />
+        <h2 id="css-components">CSS: Components</h2>
+        <h3 id="ui-app-bar">UI App Bar</h3>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li>
+                <code>.ui-app-bar</code>
+                <ul>
+                    <li>
+                        <code>&amp; &gt; .left</code>: Should be the first children of
+                        <code>.ui-app-bar</code>
+                    </li>
+                    <li><code>&amp; &gt; .center</code>: The second</li>
+                    <li><code>&amp; &gt; .right</code>: And the last</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Special CSS Variables</strong>:</p>
+        <ul>
+            <li>
+                <code>--gap</code> defaults to <code>var(--ui-spacing)</code>, and so do the
+                <code>.left</code>, <code>.center</code> and <code>.right</code> children
+            </li>
+        </ul>
+        <p><strong>Custom Attributes</strong>:</p>
+        <ul>
+            <li><code>&amp;[position=&quot;top&quot;]</code></li>
+            <li><code>&amp;[position=&quot;bottom&quot;]</code></li>
+            <li><code>&amp;[fixed]</code></li>
+        </ul>
+        <h3 id="ui-container">UI Container</h3>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li><code>.ui-container</code></li>
+        </ul>
+        <p><strong>Optional</strong>:</p>
+        <ul>
+            <li><code>&amp;.fluid</code></li>
+        </ul>
+        <h3 id="ui-drawer">UI Drawer</h3>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li><code>.ui-drawer</code></li>
+        </ul>
+        <p><strong>Special CSS Variables</strong>:</p>
+        <ul>
+            <li><code>--width</code> defaults to <code>fit-content</code></li>
+        </ul>
+        <p><strong>Custom Attributes</strong>:</p>
+        <ul>
+            <li><code>&amp;[open]</code></li>
+        </ul>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li><code>.ui-drawer-backdrop</code></li>
+        </ul>
+        <blockquote>
+            <p>
+                Should be set before the <code>.ui-drawer</code> container (You can handle the
+                outside click here, ex.: closing the drawer)
+            </p>
+        </blockquote>
+        <h3 id="ui-flex-grid">UI Flex Grid</h3>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li><code>.ui-flex-grid</code></li>
+        </ul>
+        <p><strong>Special CSS Variables</strong>:</p>
+        <ul>
+            <li><code>--direction</code> defaults to <code>column</code></li>
+            <li><code>--wrap</code> defaults to <code>nowrap</code></li>
+            <li><code>--justify</code> defaults to <code>flex-start</code></li>
+            <li><code>--align</code> defaults to <code>flex-start</code></li>
+            <li><code>--gap</code> defaults to <code>var(--ui-spacing)</code></li>
+        </ul>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li><code>.ui-flex-grid-row</code></li>
+        </ul>
+        <p><strong>Special CSS Variables</strong>:</p>
+        <ul>
+            <li><code>--direction</code> defaults to <code>column</code></li>
+            <li><code>--wrap</code> defaults to <code>nowrap</code></li>
+            <li><code>--justify</code> defaults to <code>flex-start</code></li>
+            <li><code>--align</code> defaults to <code>flex-start</code></li>
+            <li><code>--gap</code> defaults to <code>var(--ui-spacing)</code></li>
+        </ul>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li><code>.ui-flex-grid-item</code></li>
+        </ul>
+        <p><strong>Special CSS Variables</strong>:</p>
+        <ul>
+            <li><code>--flex</code> defaults to <code>1</code></li>
+        </ul>
+        <h3 id="ui-spinner">UI Spinner</h3>
+        <p><strong>Component</strong>:</p>
+        <ul>
+            <li><code>.ui-spinner</code></li>
+        </ul>
+    </body>
+</html>

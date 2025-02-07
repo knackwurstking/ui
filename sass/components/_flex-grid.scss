@@ -1,0 +1,42 @@
+@use "../settings" as *;
+@use "../_theme-variables.scss" as *;
+
+.#{$css-selector-prefix}flex-grid {
+    display: flex;
+
+    flex-flow: var(--direction, column) var(--wrap, nowrap);
+    justify-content: var(--justify, flex-start);
+    align-items: var(--align, flex-start);
+
+    width: 100%;
+    min-height: fit-content;
+    gap: var(--gap, $spacing);
+
+    &.wrap {
+        flex-flow: column wrap;
+    }
+}
+
+.#{$css-selector-prefix}flex-grid-row {
+    display: flex;
+
+    flex-flow: var(--direction, row) var(--wrap, nowrap);
+    justify-content: var(--justify, flex-start);
+    align-items: var(--align, flex-start);
+
+    width: 100%;
+    min-height: fit-content;
+    gap: var(--gap, $spacing);
+
+    &.wrap {
+        flex-flow: row wrap;
+    }
+}
+
+.#{$css-selector-prefix}flex-grid-item {
+    flex: var(--flex, 1);
+}
+
+.#{$css-selector-prefix}flex-grid-item > * {
+    flex-grow: 1;
+}

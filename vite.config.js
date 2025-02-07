@@ -2,12 +2,14 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
     build: {
-        outDir: "dist",
+        //emptyOutDir: false,
+        outDir: "dist/js",
         copyPublicDir: false,
         lib: {
+            name: "ui",
             entry: "lib/index.ts",
             fileName: "ui.min",
-            formats: ["es"],
+            formats: ["umd", "es"],
         },
     },
     clearScreen: false,

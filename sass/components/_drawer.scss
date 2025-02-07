@@ -1,0 +1,45 @@
+@use "../settings" as *;
+@use "../theme-variables" as *;
+@use "../utils";
+
+.#{$css-selector-prefix}drawer {
+    @include utils.hide-scrollbar();
+    @include utils.backdrop();
+
+    position: fixed;
+    top: 0;
+    left: -100vw;
+
+    overflow: auto;
+    transition:
+        left 0.25s ease-in-out,
+        width 0.25s ease-in-out;
+
+    width: var(--width, fit-content);
+    max-width: calc(100vw - 2.5rem);
+    height: 100vh;
+    border-right: $border-width $border-style $border-color;
+
+    &[open] {
+        left: 0;
+
+        &::before {
+            left: 0;
+        }
+    }
+}
+
+.#{$css-selector-prefix}drawer-backdrop {
+    @include utils.backdrop();
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    &:has(~ .ui-drawer:not([open])) {
+        display: none;
+    }
+}

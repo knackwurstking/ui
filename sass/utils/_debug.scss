@@ -1,0 +1,8 @@
+@use "../settings" as *;
+@use "../theme-variables" as *;
+
+.#{$css-selector-prefix}debug,
+.#{$css-selector-prefix}debug * {
+    border: $border-width $border-style red;
+    border-radius: $radius;
+}
