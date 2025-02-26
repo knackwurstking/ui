@@ -7,7 +7,7 @@ export interface Route {
 
     template?: {
         target?: string;
-        selector: string;
+        selector?: string;
         onMount?: () => void | Promise<void>;
         onDestroy?: () => void | Promise<void>;
     };

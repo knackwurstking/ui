@@ -1,6 +1,6 @@
 import { Route } from "./types";
 
-export function init(target: Element, routes: { [key: string]: Route }): void {
+export function init(target: Element | null, routes: { [key: string]: Route }): void {
     //let pushedState = false;
     let current: Route | null = null;
 
@@ -33,7 +33,7 @@ export function init(target: Element, routes: { [key: string]: Route }): void {
             }
         }
 
-        if (current?.href !== undefined) {
+        if (current?.href !== undefined && !!target) {
             const resp = await fetch(current.href);
             const data = await resp.text();
 
@@ -53,22 +53,24 @@ export function init(target: Element, routes: { [key: string]: Route }): void {
             current.onMount();
         }
 
-        if (current?.template !== undefined) {
+        if (!!current?.template) {
             let templateTarget = target;
             if (current.template.target !== undefined) {
                 templateTarget = document.querySelector(current.template.target)!;
             }
 
-            const template = document.querySelector(current.template.selector);
-            if (template === null) {
-                throw `${current.template.selector} not found`;
-            }
+            if (!!current.template.selector && !!templateTarget) {
+                const template = document.querySelector(current.template.selector);
+                if (!template) {
+                    throw `${current.template.selector} not found`;
+                }
 
-            if (template instanceof HTMLTemplateElement) {
-                templateTarget.innerHTML = "";
-                templateTarget.appendChild(template.content.cloneNode(true));
-            } else {
-                templateTarget.innerHTML = template.innerHTML;
+                if (template instanceof HTMLTemplateElement) {
+                    templateTarget.innerHTML = "";
+                    templateTarget.appendChild(template.content.cloneNode(true));
+                } else {
+                    templateTarget.innerHTML = template.innerHTML;
+                }
             }
 
             if (current.template?.onMount !== undefined) {

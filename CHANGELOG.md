@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.0 [unreleased]
+
+- [ ] Make router template.selector optional [wip]
+- [ ] Make router target optional is not set [wip]
+
 ## v2.0.0 [2025-02-07]
 
 - Converted this library to an Sass library with some JavaScript utilities.
