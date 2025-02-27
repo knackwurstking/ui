@@ -103,6 +103,10 @@ h6 {
   flex-flow: column-reverse var(--wrap, nowrap);
 }
 
+.ui-flex.gap {
+  gap: var(--gap, var(--ui-spacing));
+}
+
 .ui-flex.align-center {
   align-items: center;
 }
