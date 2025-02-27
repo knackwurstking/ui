@@ -1,3 +1,3 @@
 # ui
 
-- [Library Documentation](/docs/DOCUMENTATION.md)
+- [Library Documentation](/DOCUMENTATION.md)
