@@ -2,8 +2,10 @@
 
 ## v2.1.0 [unreleased]
 
-- [ ] Make router template.selector optional [wip]
-- [ ] Make router target optional is not set [wip]
+**Changed**:
+
+- Router
+  - `template.selector` and target is now optional
 
 ## v2.0.0 [2025-02-07]
 
