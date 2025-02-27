@@ -8,8 +8,8 @@
     "repository": "knackwurstking/ui",
     "scripts": {
         "dev": "cd docs && live-server --host=0.0.0.0 --watch=.",
-        "build": "tsc && vite build --minify -c vite.config.js && rm -rf docs/js && cp -r dist/js docs/js && npm run build-css",
-        "build-css": "rm -rf dist/css && sass sass/:dist/css/ && rm -rf docs/css && cp -r dist/css docs/css"
+        "build": "tsc && vite build --minify -c vite.config.js && npm run build-css",
+        "build-css": "rm -rf dist/css && sass sass/:dist/css/"
     },
     "license": "MIT",
     "devDependencies": {
