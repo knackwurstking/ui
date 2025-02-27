@@ -2,10 +2,14 @@
 
 ## v2.1.0 [unreleased]
 
+**Added**:
+
+- CSS utils [spacing](/sass/utils/_spacing.scss)
+- `.gap` for ".ui-flex"
+
 **Changed**:
 
-- Router
-  - `template.selector` and target is now optional
+- Router: `template.selector` and target is now optional
 
 ## v2.0.0 [2025-02-07]
 
