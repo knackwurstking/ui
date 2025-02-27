@@ -1,4 +1,5 @@
 @use "../settings" as *;
+@use "../_theme-variables.scss" as *;
 
 .#{$css-selector-prefix}flex {
     display: flex;
@@ -33,6 +34,10 @@
 
 .#{$css-selector-prefix}flex.column.reverse {
     flex-flow: column-reverse var(--wrap, nowrap);
+}
+
+.#{$css-selector-prefix}flex.gap {
+    gap: var(--gap, $spacing);
 }
 
 .#{$css-selector-prefix}flex.align-center {
