@@ -170,6 +170,34 @@ h6 {
   display: none;
 }
 
+.ui-padding {
+  padding: var(--ui-spacing);
+}
+
+.ui-padding-x {
+  padding-left: var(--ui-spacing);
+  padding-right: var(--ui-spacing);
+}
+
+.ui-padding-y {
+  padding-top: var(--ui-spacing);
+  padding-bottom: var(--ui-spacing);
+}
+
+.ui-margin {
+  margin: var(--ui-spacing);
+}
+
+.ui-margin-x {
+  margin-left: var(--ui-spacing);
+  margin-right: var(--ui-spacing);
+}
+
+.ui-margin-y {
+  margin-top: var(--ui-spacing);
+  margin-bottom: var(--ui-spacing);
+}
+
 .ui-outline-text {
   -webkit-text-stroke-width: 0.05rem;
   -webkit-text-stroke-color: var(--ui-text);
