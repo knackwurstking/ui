@@ -206,9 +206,10 @@ h6 {
 
 .ui-ellipsis {
   text-wrap-mode: nowrap;
+  max-width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-width: 100%;
+  white-space: nowrap;
 }
 
 .ui-disable-touch,
