@@ -10,7 +10,11 @@
 
 .#{$css-selector-prefix}ellipsis {
     text-wrap-mode: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+
     max-width: 100%;
+
+    text-overflow: ellipsis;
+
+    overflow: hidden;
+    white-space: nowrap;
 }

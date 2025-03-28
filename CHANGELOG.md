@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.1 [2025-03-28]
+
+- Fixed `ui-ellipsis`, missing `white-space: nowrap`
+
 ## v2.1.0 [2025-02-27]
 
 **Added**:
