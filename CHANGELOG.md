@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.2.0 [2025-03-29]
+
+- Prefixed special html element attributes with `data-`, to get rid of linter
+  errors in svelte files
+
 ## v2.1.1 [2025-03-28]
 
 - Fixed `ui-ellipsis`, missing `white-space: nowrap`

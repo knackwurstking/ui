@@ -18,7 +18,8 @@ a {
     }
 
     &:visited,
-    &[current] {
+    &[current],
+    &[data-current] {
         color: $primary;
         opacity: 0.75;
 

@@ -17,7 +17,9 @@
     gap: var(--gap, $spacing);
 
     &[position="top"],
-    &[position="bottom"] {
+    &[data-position="top"],
+    &[position="bottom"],
+    &[data-position="bottom"] {
         position: absolute;
         left: 0;
         right: 0;
@@ -25,17 +27,20 @@
         height: $app-bar-height;
     }
 
-    &[fixed] {
+    &[fixed],
+    &[data-fixed] {
         position: fixed;
     }
 
-    &[position="top"] {
+    &[position="top"],
+    &[data-position="top"] {
         top: 0;
 
         border-bottom: 1px solid $border-color;
     }
 
-    &[position="bottom"] {
+    &[position="bottom"],
+    &[data-position="bottom"] {
         bottom: 0;
 
         border-top: 1px solid $border-color;

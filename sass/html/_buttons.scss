@@ -116,35 +116,43 @@
 @mixin button() {
     @include button-styles("primary", "full");
 
-    &[variant="outline"] {
+    &[variant="outline"],
+    &[data-variant="outline"] {
         @include button-styles("primary", "outline");
     }
 
-    &[variant="ghost"] {
+    &[variant="ghost"],
+    &[data-variant="ghost"] {
         @include button-styles("primary", "ghost");
     }
 
-    &[color="secondary"] {
+    &[color="secondary"],
+    &[data-color="secondary"] {
         @include button-styles("secondary", "full");
 
-        &[variant="outline"] {
+        &[variant="outline"],
+        &[data-variant="outline"] {
             @include button-styles("secondary", "outline");
         }
 
-        &[variant="ghost"] {
+        &[variant="ghost"],
+        &[data-variant="ghost"] {
             @include button-styles("secondary", "ghost");
         }
     }
 
     &[color="destructive"],
+    &[data-color="destructive"],
     &[type="reset"] {
         @include button-styles("destructive", "full");
 
-        &[variant="outline"] {
+        &[variant="outline"],
+        &[data-variant="outline"] {
             @include button-styles("destructive", "outline");
         }
 
-        &[variant="ghost"] {
+        &[variant="ghost"],
+        &[data-variant="ghost"] {
             @include button-styles("destructive", "ghost");
         }
     }
@@ -155,7 +163,8 @@ button {
 }
 
 button:has(svg),
-button[icon] {
+button[icon],
+button[data-icon] {
     padding: 0.25rem 0.5rem;
 }
 

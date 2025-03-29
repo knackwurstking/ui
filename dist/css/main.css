@@ -270,14 +270,14 @@ a:hover {
 a:active {
   color: var(--ui-secondary--active);
 }
-a:visited, a[current] {
+a:visited, a[current], a[data-current] {
   color: var(--ui-primary);
   opacity: 0.75;
 }
-a:visited:hover, a[current]:hover {
+a:visited:hover, a[current]:hover, a[data-current]:hover {
   color: var(--ui-primary--hover);
 }
-a:visited:active, a[current]:active {
+a:visited:active, a[current]:active, a[data-current]:active {
   color: var(--ui-primary--active);
 }
 
@@ -313,7 +313,7 @@ button:active, button.active {
   transition: none;
   background-color: var(--ui-primary--active);
 }
-button[variant=outline] {
+button[variant=outline], button[data-variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -335,14 +335,14 @@ button[variant=outline] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-button[variant=outline]:hover {
+button[variant=outline]:hover, button[data-variant=outline]:hover {
   color: var(--ui-primary--hover);
 }
-button[variant=outline]:active, button[variant=outline].active {
+button[variant=outline]:active, button[variant=outline].active, button[data-variant=outline]:active, button[data-variant=outline].active {
   transition: none;
   color: var(--ui-primary--active);
 }
-button[variant=ghost] {
+button[variant=ghost], button[data-variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -364,14 +364,14 @@ button[variant=ghost] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-button[variant=ghost]:hover {
+button[variant=ghost]:hover, button[data-variant=ghost]:hover {
   color: var(--ui-primary--hover);
 }
-button[variant=ghost]:active, button[variant=ghost].active {
+button[variant=ghost]:active, button[variant=ghost].active, button[data-variant=ghost]:active, button[data-variant=ghost].active {
   transition: none;
   color: var(--ui-primary--active);
 }
-button[color=secondary] {
+button[color=secondary], button[data-color=secondary] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -391,14 +391,14 @@ button[color=secondary] {
   background-color: var(--ui-secondary);
   color: var(--ui-secondary-text);
 }
-button[color=secondary]:hover {
+button[color=secondary]:hover, button[data-color=secondary]:hover {
   background-color: var(--ui-secondary--hover);
 }
-button[color=secondary]:active, button[color=secondary].active {
+button[color=secondary]:active, button[color=secondary].active, button[data-color=secondary]:active, button[data-color=secondary].active {
   transition: none;
   background-color: var(--ui-secondary--active);
 }
-button[color=secondary][variant=outline] {
+button[color=secondary][variant=outline], button[color=secondary][data-variant=outline], button[data-color=secondary][variant=outline], button[data-color=secondary][data-variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -418,14 +418,14 @@ button[color=secondary][variant=outline] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-button[color=secondary][variant=outline]:hover {
+button[color=secondary][variant=outline]:hover, button[color=secondary][data-variant=outline]:hover, button[data-color=secondary][variant=outline]:hover, button[data-color=secondary][data-variant=outline]:hover {
   color: var(--ui-secondary--hover);
 }
-button[color=secondary][variant=outline]:active, button[color=secondary][variant=outline].active {
+button[color=secondary][variant=outline]:active, button[color=secondary][variant=outline].active, button[color=secondary][data-variant=outline]:active, button[color=secondary][data-variant=outline].active, button[data-color=secondary][variant=outline]:active, button[data-color=secondary][variant=outline].active, button[data-color=secondary][data-variant=outline]:active, button[data-color=secondary][data-variant=outline].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
-button[color=secondary][variant=ghost] {
+button[color=secondary][variant=ghost], button[color=secondary][data-variant=ghost], button[data-color=secondary][variant=ghost], button[data-color=secondary][data-variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -445,14 +445,14 @@ button[color=secondary][variant=ghost] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-button[color=secondary][variant=ghost]:hover {
+button[color=secondary][variant=ghost]:hover, button[color=secondary][data-variant=ghost]:hover, button[data-color=secondary][variant=ghost]:hover, button[data-color=secondary][data-variant=ghost]:hover {
   color: var(--ui-secondary--hover);
 }
-button[color=secondary][variant=ghost]:active, button[color=secondary][variant=ghost].active {
+button[color=secondary][variant=ghost]:active, button[color=secondary][variant=ghost].active, button[color=secondary][data-variant=ghost]:active, button[color=secondary][data-variant=ghost].active, button[data-color=secondary][variant=ghost]:active, button[data-color=secondary][variant=ghost].active, button[data-color=secondary][data-variant=ghost]:active, button[data-color=secondary][data-variant=ghost].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
-button[color=destructive], button[type=reset] {
+button[color=destructive], button[data-color=destructive], button[type=reset] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -472,14 +472,14 @@ button[color=destructive], button[type=reset] {
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
 }
-button[color=destructive]:hover, button[type=reset]:hover {
+button[color=destructive]:hover, button[data-color=destructive]:hover, button[type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-button[color=destructive]:active, button[color=destructive].active, button[type=reset]:active, button[type=reset].active {
+button[color=destructive]:active, button[color=destructive].active, button[data-color=destructive]:active, button[data-color=destructive].active, button[type=reset]:active, button[type=reset].active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
-button[color=destructive][variant=outline], button[type=reset][variant=outline] {
+button[color=destructive][variant=outline], button[color=destructive][data-variant=outline], button[data-color=destructive][variant=outline], button[data-color=destructive][data-variant=outline], button[type=reset][variant=outline], button[type=reset][data-variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -499,14 +499,14 @@ button[color=destructive][variant=outline], button[type=reset][variant=outline] 
   background-color: transparent;
   color: var(--ui-destructive);
 }
-button[color=destructive][variant=outline]:hover, button[type=reset][variant=outline]:hover {
+button[color=destructive][variant=outline]:hover, button[color=destructive][data-variant=outline]:hover, button[data-color=destructive][variant=outline]:hover, button[data-color=destructive][data-variant=outline]:hover, button[type=reset][variant=outline]:hover, button[type=reset][data-variant=outline]:hover {
   color: var(--ui-destructive--hover);
 }
-button[color=destructive][variant=outline]:active, button[color=destructive][variant=outline].active, button[type=reset][variant=outline]:active, button[type=reset][variant=outline].active {
+button[color=destructive][variant=outline]:active, button[color=destructive][variant=outline].active, button[color=destructive][data-variant=outline]:active, button[color=destructive][data-variant=outline].active, button[data-color=destructive][variant=outline]:active, button[data-color=destructive][variant=outline].active, button[data-color=destructive][data-variant=outline]:active, button[data-color=destructive][data-variant=outline].active, button[type=reset][variant=outline]:active, button[type=reset][variant=outline].active, button[type=reset][data-variant=outline]:active, button[type=reset][data-variant=outline].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
-button[color=destructive][variant=ghost], button[type=reset][variant=ghost] {
+button[color=destructive][variant=ghost], button[color=destructive][data-variant=ghost], button[data-color=destructive][variant=ghost], button[data-color=destructive][data-variant=ghost], button[type=reset][variant=ghost], button[type=reset][data-variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -526,16 +526,17 @@ button[color=destructive][variant=ghost], button[type=reset][variant=ghost] {
   background-color: transparent;
   color: var(--ui-destructive);
 }
-button[color=destructive][variant=ghost]:hover, button[type=reset][variant=ghost]:hover {
+button[color=destructive][variant=ghost]:hover, button[color=destructive][data-variant=ghost]:hover, button[data-color=destructive][variant=ghost]:hover, button[data-color=destructive][data-variant=ghost]:hover, button[type=reset][variant=ghost]:hover, button[type=reset][data-variant=ghost]:hover {
   color: var(--ui-destructive--hover);
 }
-button[color=destructive][variant=ghost]:active, button[color=destructive][variant=ghost].active, button[type=reset][variant=ghost]:active, button[type=reset][variant=ghost].active {
+button[color=destructive][variant=ghost]:active, button[color=destructive][variant=ghost].active, button[color=destructive][data-variant=ghost]:active, button[color=destructive][data-variant=ghost].active, button[data-color=destructive][variant=ghost]:active, button[data-color=destructive][variant=ghost].active, button[data-color=destructive][data-variant=ghost]:active, button[data-color=destructive][data-variant=ghost].active, button[type=reset][variant=ghost]:active, button[type=reset][variant=ghost].active, button[type=reset][data-variant=ghost]:active, button[type=reset][data-variant=ghost].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
 
 button:has(svg),
-button[icon] {
+button[icon],
+button[data-icon] {
   padding: 0.25rem 0.5rem;
 }
 
@@ -724,7 +725,7 @@ input:not([type=range])[type=button]:active, input:not([type=range])[type=button
   transition: none;
   background-color: var(--ui-primary--active);
 }
-input:not([type=range])[type=button][variant=outline] {
+input:not([type=range])[type=button][variant=outline], input:not([type=range])[type=button][data-variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -746,14 +747,14 @@ input:not([type=range])[type=button][variant=outline] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-input:not([type=range])[type=button][variant=outline]:hover {
+input:not([type=range])[type=button][variant=outline]:hover, input:not([type=range])[type=button][data-variant=outline]:hover {
   color: var(--ui-primary--hover);
 }
-input:not([type=range])[type=button][variant=outline]:active, input:not([type=range])[type=button][variant=outline].active {
+input:not([type=range])[type=button][variant=outline]:active, input:not([type=range])[type=button][variant=outline].active, input:not([type=range])[type=button][data-variant=outline]:active, input:not([type=range])[type=button][data-variant=outline].active {
   transition: none;
   color: var(--ui-primary--active);
 }
-input:not([type=range])[type=button][variant=ghost] {
+input:not([type=range])[type=button][variant=ghost], input:not([type=range])[type=button][data-variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -775,14 +776,14 @@ input:not([type=range])[type=button][variant=ghost] {
   background-color: transparent;
   color: var(--ui-primary);
 }
-input:not([type=range])[type=button][variant=ghost]:hover {
+input:not([type=range])[type=button][variant=ghost]:hover, input:not([type=range])[type=button][data-variant=ghost]:hover {
   color: var(--ui-primary--hover);
 }
-input:not([type=range])[type=button][variant=ghost]:active, input:not([type=range])[type=button][variant=ghost].active {
+input:not([type=range])[type=button][variant=ghost]:active, input:not([type=range])[type=button][variant=ghost].active, input:not([type=range])[type=button][data-variant=ghost]:active, input:not([type=range])[type=button][data-variant=ghost].active {
   transition: none;
   color: var(--ui-primary--active);
 }
-input:not([type=range])[type=button][color=secondary] {
+input:not([type=range])[type=button][color=secondary], input:not([type=range])[type=button][data-color=secondary] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -802,14 +803,14 @@ input:not([type=range])[type=button][color=secondary] {
   background-color: var(--ui-secondary);
   color: var(--ui-secondary-text);
 }
-input:not([type=range])[type=button][color=secondary]:hover {
+input:not([type=range])[type=button][color=secondary]:hover, input:not([type=range])[type=button][data-color=secondary]:hover {
   background-color: var(--ui-secondary--hover);
 }
-input:not([type=range])[type=button][color=secondary]:active, input:not([type=range])[type=button][color=secondary].active {
+input:not([type=range])[type=button][color=secondary]:active, input:not([type=range])[type=button][color=secondary].active, input:not([type=range])[type=button][data-color=secondary]:active, input:not([type=range])[type=button][data-color=secondary].active {
   transition: none;
   background-color: var(--ui-secondary--active);
 }
-input:not([type=range])[type=button][color=secondary][variant=outline] {
+input:not([type=range])[type=button][color=secondary][variant=outline], input:not([type=range])[type=button][color=secondary][data-variant=outline], input:not([type=range])[type=button][data-color=secondary][variant=outline], input:not([type=range])[type=button][data-color=secondary][data-variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -829,14 +830,14 @@ input:not([type=range])[type=button][color=secondary][variant=outline] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-input:not([type=range])[type=button][color=secondary][variant=outline]:hover {
+input:not([type=range])[type=button][color=secondary][variant=outline]:hover, input:not([type=range])[type=button][color=secondary][data-variant=outline]:hover, input:not([type=range])[type=button][data-color=secondary][variant=outline]:hover, input:not([type=range])[type=button][data-color=secondary][data-variant=outline]:hover {
   color: var(--ui-secondary--hover);
 }
-input:not([type=range])[type=button][color=secondary][variant=outline]:active, input:not([type=range])[type=button][color=secondary][variant=outline].active {
+input:not([type=range])[type=button][color=secondary][variant=outline]:active, input:not([type=range])[type=button][color=secondary][variant=outline].active, input:not([type=range])[type=button][color=secondary][data-variant=outline]:active, input:not([type=range])[type=button][color=secondary][data-variant=outline].active, input:not([type=range])[type=button][data-color=secondary][variant=outline]:active, input:not([type=range])[type=button][data-color=secondary][variant=outline].active, input:not([type=range])[type=button][data-color=secondary][data-variant=outline]:active, input:not([type=range])[type=button][data-color=secondary][data-variant=outline].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
-input:not([type=range])[type=button][color=secondary][variant=ghost] {
+input:not([type=range])[type=button][color=secondary][variant=ghost], input:not([type=range])[type=button][color=secondary][data-variant=ghost], input:not([type=range])[type=button][data-color=secondary][variant=ghost], input:not([type=range])[type=button][data-color=secondary][data-variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -856,14 +857,14 @@ input:not([type=range])[type=button][color=secondary][variant=ghost] {
   background-color: transparent;
   color: var(--ui-secondary);
 }
-input:not([type=range])[type=button][color=secondary][variant=ghost]:hover {
+input:not([type=range])[type=button][color=secondary][variant=ghost]:hover, input:not([type=range])[type=button][color=secondary][data-variant=ghost]:hover, input:not([type=range])[type=button][data-color=secondary][variant=ghost]:hover, input:not([type=range])[type=button][data-color=secondary][data-variant=ghost]:hover {
   color: var(--ui-secondary--hover);
 }
-input:not([type=range])[type=button][color=secondary][variant=ghost]:active, input:not([type=range])[type=button][color=secondary][variant=ghost].active {
+input:not([type=range])[type=button][color=secondary][variant=ghost]:active, input:not([type=range])[type=button][color=secondary][variant=ghost].active, input:not([type=range])[type=button][color=secondary][data-variant=ghost]:active, input:not([type=range])[type=button][color=secondary][data-variant=ghost].active, input:not([type=range])[type=button][data-color=secondary][variant=ghost]:active, input:not([type=range])[type=button][data-color=secondary][variant=ghost].active, input:not([type=range])[type=button][data-color=secondary][data-variant=ghost]:active, input:not([type=range])[type=button][data-color=secondary][data-variant=ghost].active {
   transition: none;
   color: var(--ui-secondary--active);
 }
-input:not([type=range])[type=button][color=destructive], input:not([type=range])[type=button][type=reset] {
+input:not([type=range])[type=button][color=destructive], input:not([type=range])[type=button][data-color=destructive], input:not([type=range])[type=button][type=reset] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -883,14 +884,14 @@ input:not([type=range])[type=button][color=destructive], input:not([type=range])
   background-color: var(--ui-destructive);
   color: var(--ui-destructive-text);
 }
-input:not([type=range])[type=button][color=destructive]:hover, input:not([type=range])[type=button][type=reset]:hover {
+input:not([type=range])[type=button][color=destructive]:hover, input:not([type=range])[type=button][data-color=destructive]:hover, input:not([type=range])[type=button][type=reset]:hover {
   background-color: var(--ui-destructive--hover);
 }
-input:not([type=range])[type=button][color=destructive]:active, input:not([type=range])[type=button][color=destructive].active, input:not([type=range])[type=button][type=reset]:active, input:not([type=range])[type=button][type=reset].active {
+input:not([type=range])[type=button][color=destructive]:active, input:not([type=range])[type=button][color=destructive].active, input:not([type=range])[type=button][data-color=destructive]:active, input:not([type=range])[type=button][data-color=destructive].active, input:not([type=range])[type=button][type=reset]:active, input:not([type=range])[type=button][type=reset].active {
   transition: none;
   background-color: var(--ui-destructive--active);
 }
-input:not([type=range])[type=button][color=destructive][variant=outline], input:not([type=range])[type=button][type=reset][variant=outline] {
+input:not([type=range])[type=button][color=destructive][variant=outline], input:not([type=range])[type=button][color=destructive][data-variant=outline], input:not([type=range])[type=button][data-color=destructive][variant=outline], input:not([type=range])[type=button][data-color=destructive][data-variant=outline], input:not([type=range])[type=button][type=reset][variant=outline], input:not([type=range])[type=button][type=reset][data-variant=outline] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -910,14 +911,14 @@ input:not([type=range])[type=button][color=destructive][variant=outline], input:
   background-color: transparent;
   color: var(--ui-destructive);
 }
-input:not([type=range])[type=button][color=destructive][variant=outline]:hover, input:not([type=range])[type=button][type=reset][variant=outline]:hover {
+input:not([type=range])[type=button][color=destructive][variant=outline]:hover, input:not([type=range])[type=button][color=destructive][data-variant=outline]:hover, input:not([type=range])[type=button][data-color=destructive][variant=outline]:hover, input:not([type=range])[type=button][data-color=destructive][data-variant=outline]:hover, input:not([type=range])[type=button][type=reset][variant=outline]:hover, input:not([type=range])[type=button][type=reset][data-variant=outline]:hover {
   color: var(--ui-destructive--hover);
 }
-input:not([type=range])[type=button][color=destructive][variant=outline]:active, input:not([type=range])[type=button][color=destructive][variant=outline].active, input:not([type=range])[type=button][type=reset][variant=outline]:active, input:not([type=range])[type=button][type=reset][variant=outline].active {
+input:not([type=range])[type=button][color=destructive][variant=outline]:active, input:not([type=range])[type=button][color=destructive][variant=outline].active, input:not([type=range])[type=button][color=destructive][data-variant=outline]:active, input:not([type=range])[type=button][color=destructive][data-variant=outline].active, input:not([type=range])[type=button][data-color=destructive][variant=outline]:active, input:not([type=range])[type=button][data-color=destructive][variant=outline].active, input:not([type=range])[type=button][data-color=destructive][data-variant=outline]:active, input:not([type=range])[type=button][data-color=destructive][data-variant=outline].active, input:not([type=range])[type=button][type=reset][variant=outline]:active, input:not([type=range])[type=button][type=reset][variant=outline].active, input:not([type=range])[type=button][type=reset][data-variant=outline]:active, input:not([type=range])[type=button][type=reset][data-variant=outline].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
-input:not([type=range])[type=button][color=destructive][variant=ghost], input:not([type=range])[type=button][type=reset][variant=ghost] {
+input:not([type=range])[type=button][color=destructive][variant=ghost], input:not([type=range])[type=button][color=destructive][data-variant=ghost], input:not([type=range])[type=button][data-color=destructive][variant=ghost], input:not([type=range])[type=button][data-color=destructive][data-variant=ghost], input:not([type=range])[type=button][type=reset][variant=ghost], input:not([type=range])[type=button][type=reset][data-variant=ghost] {
   display: inline-flex;
   cursor: pointer;
   padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -937,10 +938,10 @@ input:not([type=range])[type=button][color=destructive][variant=ghost], input:no
   background-color: transparent;
   color: var(--ui-destructive);
 }
-input:not([type=range])[type=button][color=destructive][variant=ghost]:hover, input:not([type=range])[type=button][type=reset][variant=ghost]:hover {
+input:not([type=range])[type=button][color=destructive][variant=ghost]:hover, input:not([type=range])[type=button][color=destructive][data-variant=ghost]:hover, input:not([type=range])[type=button][data-color=destructive][variant=ghost]:hover, input:not([type=range])[type=button][data-color=destructive][data-variant=ghost]:hover, input:not([type=range])[type=button][type=reset][variant=ghost]:hover, input:not([type=range])[type=button][type=reset][data-variant=ghost]:hover {
   color: var(--ui-destructive--hover);
 }
-input:not([type=range])[type=button][color=destructive][variant=ghost]:active, input:not([type=range])[type=button][color=destructive][variant=ghost].active, input:not([type=range])[type=button][type=reset][variant=ghost]:active, input:not([type=range])[type=button][type=reset][variant=ghost].active {
+input:not([type=range])[type=button][color=destructive][variant=ghost]:active, input:not([type=range])[type=button][color=destructive][variant=ghost].active, input:not([type=range])[type=button][color=destructive][data-variant=ghost]:active, input:not([type=range])[type=button][color=destructive][data-variant=ghost].active, input:not([type=range])[type=button][data-color=destructive][variant=ghost]:active, input:not([type=range])[type=button][data-color=destructive][variant=ghost].active, input:not([type=range])[type=button][data-color=destructive][data-variant=ghost]:active, input:not([type=range])[type=button][data-color=destructive][data-variant=ghost].active, input:not([type=range])[type=button][type=reset][variant=ghost]:active, input:not([type=range])[type=button][type=reset][variant=ghost].active, input:not([type=range])[type=button][type=reset][data-variant=ghost]:active, input:not([type=range])[type=button][type=reset][data-variant=ghost].active {
   transition: none;
   color: var(--ui-destructive--active);
 }
@@ -1239,20 +1240,20 @@ label:has(input) {
   width: 100%;
   gap: var(--gap, var(--ui-spacing));
 }
-.ui-app-bar[position=top], .ui-app-bar[position=bottom] {
+.ui-app-bar[position=top], .ui-app-bar[data-position=top], .ui-app-bar[position=bottom], .ui-app-bar[data-position=bottom] {
   position: absolute;
   left: 0;
   right: 0;
   height: var(--ui-app-bar-height);
 }
-.ui-app-bar[fixed] {
+.ui-app-bar[fixed], .ui-app-bar[data-fixed] {
   position: fixed;
 }
-.ui-app-bar[position=top] {
+.ui-app-bar[position=top], .ui-app-bar[data-position=top] {
   top: 0;
   border-bottom: 1px solid var(--ui-border-color);
 }
-.ui-app-bar[position=bottom] {
+.ui-app-bar[position=bottom], .ui-app-bar[data-position=bottom] {
   bottom: 0;
   border-top: 1px solid var(--ui-border-color);
 }
@@ -1342,10 +1343,10 @@ label:has(input) {
 .ui-drawer::-webkit-scrollbar {
   display: none;
 }
-.ui-drawer[open] {
+.ui-drawer[open], .ui-drawer[data-open] {
   left: 0;
 }
-.ui-drawer[open]::before {
+.ui-drawer[open]::before, .ui-drawer[data-open]::before {
   left: 0;
 }
 

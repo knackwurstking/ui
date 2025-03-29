@@ -20,7 +20,8 @@
     height: 100vh;
     border-right: $border-width $border-style $border-color;
 
-    &[open] {
+    &[open],
+    &[data-open] {
         left: 0;
 
         &::before {
