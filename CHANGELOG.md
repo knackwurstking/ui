@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.3.0 [2025-03-30]
+
+- Added html save-area-inset-\* as padding
+
 ## v2.2.0 [2025-03-29]
 
 - Prefixed special html element attributes with `data-`, to get rid of linter
