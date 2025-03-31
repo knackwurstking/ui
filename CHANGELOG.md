@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.0 [unreleased]
+
+- [ ] **Breaking**: Remove `LanguageHandler` from lib/utils
+
 ## v2.3.0 [2025-03-30]
 
 - Added html save-area-inset-\* as padding
