@@ -1,3 +1,6 @@
+/**
+ * @deprecated This will be removed in v3.0.0
+ */
 export class LanguageHandler {
     public data: { [key: string]: string } = {};
 
