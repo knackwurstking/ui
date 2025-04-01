@@ -4,6 +4,10 @@
 
 - [ ] **Breaking**: Remove `LanguageHandler` from lib/utils
 
+## v2.4.0 [unreleased]
+
+- Added dialog background color `var(--ui-bg)`
+
 ## v2.3.0 [2025-03-30]
 
 - Added html save-area-inset-\* as padding
