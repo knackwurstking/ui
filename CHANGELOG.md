@@ -4,6 +4,7 @@
 
 - **Breaking**: Removed `LanguageHandler` from `lib/utils`
 - Added dialog background color `var(--ui-bg)`
+- [ ] **Breaking**: Simplified the hash router
 - [ ] Added popover basic styles <https://youtu.be/0_wgyB64a8I?list=TLPQMzEwMzIwMjXr_f2WAWmg-Q>
 
 ## v2.3.0 [2025-03-30]
