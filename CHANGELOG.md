@@ -2,10 +2,7 @@
 
 ## v3.0.0 [unreleased]
 
-- [ ] **Breaking**: Remove `LanguageHandler` from lib/utils
-
-## v2.4.0 [unreleased]
-
+- **Breaking**: Removed `LanguageHandler` from `lib/utils`
 - Added dialog background color `var(--ui-bg)`
 
 ## v2.3.0 [2025-03-30]
@@ -51,10 +48,10 @@
 **Breaking Changes:**
 
 - Renamed UIStackLayout method names:
-  - clear() -> clearStack()
-  - register() -> registerPage()
-  - unregister() -> unregisterPage()
-  - set() -> setPage()
+    - clear() -> clearStack()
+    - register() -> registerPage()
+    - unregister() -> unregisterPage()
+    - set() -> setPage()
 
 **General:**
 
@@ -120,38 +117,38 @@
 
 - Added global style sheets to JS utils
 
-  - [x] `UIAlert`
-  - [x] `UIAlerts`
-  - [x] `UIAppBarItem`
-  - [x] `UIAppBar`
-  - [x] `UIButton`
-  - [x] `UIIconButton`
-  - [x] `UIContainer`
-  - [x] `UIDialog`
-  - [x] `UIDrawerGroupItem`
-  - [x] `UIDrawerGroup`
-  - [x] `UIDrawer`
-  - [x] `UIFlexGridItem`
-  - [x] `UIFlexGridRow`
-  - [x] `UIFlexGrid`
-  - [x] `UICheck`
-  - [x] `UIInput`
-  - [x] `UISearch`
-  - [x] `UISelect`
-  - [x] `UISelectOption`
-  - [x] `UITextarea`
-  - [ ] ~`UILangType`~
-  - [ ] ~`UILang`~
-  - [x] `UISpinner`
-  - [ ] ~`UIStackLayoutPage`~
-  - [ ] ~`UIStackLayout`~
-  - [ ] ~`UIStore`~
-  - [x] `UISvg`
-  - [x] `UILabel`
-  - [x] `UIPrimary`
-  - [x] `UISecondary`
-  - [x] `UIText`
-  - [ ] ~`UIThemeHandler`~
+    - [x] `UIAlert`
+    - [x] `UIAlerts`
+    - [x] `UIAppBarItem`
+    - [x] `UIAppBar`
+    - [x] `UIButton`
+    - [x] `UIIconButton`
+    - [x] `UIContainer`
+    - [x] `UIDialog`
+    - [x] `UIDrawerGroupItem`
+    - [x] `UIDrawerGroup`
+    - [x] `UIDrawer`
+    - [x] `UIFlexGridItem`
+    - [x] `UIFlexGridRow`
+    - [x] `UIFlexGrid`
+    - [x] `UICheck`
+    - [x] `UIInput`
+    - [x] `UISearch`
+    - [x] `UISelect`
+    - [x] `UISelectOption`
+    - [x] `UITextarea`
+    - [ ] ~`UILangType`~
+    - [ ] ~`UILang`~
+    - [x] `UISpinner`
+    - [ ] ~`UIStackLayoutPage`~
+    - [ ] ~`UIStackLayout`~
+    - [ ] ~`UIStore`~
+    - [x] `UISvg`
+    - [x] `UILabel`
+    - [x] `UIPrimary`
+    - [x] `UISecondary`
+    - [x] `UIText`
+    - [ ] ~`UIThemeHandler`~
 
 **Changed**:
 
@@ -321,8 +318,8 @@
 
 - Component `UICheck`
 - Button role
-  - `UIDrawer` toggle
-  - `UIDrawerGroup` toggle
+    - `UIDrawer` toggle
+    - `UIDrawerGroup` toggle
 
 **Changed**:
 
@@ -366,33 +363,33 @@ New standard methods for all ui components:
 
 - Icon button size (2.5rem)
 - Components structures
-  - [x] ui-app-bar
-  - [x] ui-app-bar-item
-  - [x] ui-button
-  - [x] ui-icon-button
-  - [x] ui-container
-  - [x] ui-dialog
-  - [x] ui-drawer-group-item
-  - [x] ui-drawer-group
-  - [x] ui-drawer
-  - [x] ui-flex-grid-item
-  - [x] ui-flex-grid-row
-  - [x] ui-flex-grid
-  - [x] ui-input
-  - [x] ui-search
-  - [x] ui-select-option
-  - [x] ui-select
-  - [x] ui-lang-type
-  - [x] ui-lang
-  - [x] ui-spinner
-  - [x] ui-stack-layout-page
-  - [x] ui-stack-layout
-  - [x] ui-store
-  - [x] ui-svg
-  - [x] ui-label
-  - [x] ui-primary
-  - [x] ui-secondary
-  - [x] ui-theme-handler
+    - [x] ui-app-bar
+    - [x] ui-app-bar-item
+    - [x] ui-button
+    - [x] ui-icon-button
+    - [x] ui-container
+    - [x] ui-dialog
+    - [x] ui-drawer-group-item
+    - [x] ui-drawer-group
+    - [x] ui-drawer
+    - [x] ui-flex-grid-item
+    - [x] ui-flex-grid-row
+    - [x] ui-flex-grid
+    - [x] ui-input
+    - [x] ui-search
+    - [x] ui-select-option
+    - [x] ui-select
+    - [x] ui-lang-type
+    - [x] ui-lang
+    - [x] ui-spinner
+    - [x] ui-stack-layout-page
+    - [x] ui-stack-layout
+    - [x] ui-store
+    - [x] ui-svg
+    - [x] ui-label
+    - [x] ui-primary
+    - [x] ui-secondary
+    - [x] ui-theme-handler
 
 ## v0.2.11 2024-07-20
 
