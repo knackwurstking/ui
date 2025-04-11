@@ -3,78 +3,78 @@
 @use "../utils";
 
 .#{$css-selector-prefix}app-bar {
-    @include utils.backdrop();
+  @include utils.backdrop();
 
+  display: flex;
+
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc($spacing / 2);
+  overflow: hidden;
+
+  width: 100%;
+  gap: var(--gap, $spacing);
+
+  &[position="top"],
+  &[data-position="top"],
+  &[position="bottom"],
+  &[data-position="bottom"] {
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    height: $app-bar-height;
+  }
+
+  &[fixed],
+  &[data-fixed] {
+    position: fixed;
+  }
+
+  &[position="top"],
+  &[data-position="top"] {
+    top: 0;
+
+    border-bottom: 1px solid $border-color;
+  }
+
+  &[position="bottom"],
+  &[data-position="bottom"] {
+    bottom: 0;
+
+    border-top: 1px solid $border-color;
+  }
+
+  &>.center {
+    overflow: hidden;
+  }
+
+  &>.left,
+  &>.center,
+  &>.right {
     display: flex;
 
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
-    padding: calc($spacing / 2);
-    overflow: hidden;
+    justify-content: center;
 
+    height: 100%;
     width: 100%;
+
     gap: var(--gap, $spacing);
+  }
 
-    &[position="top"],
-    &[data-position="top"],
-    &[position="bottom"],
-    &[data-position="bottom"] {
-        position: absolute;
-        left: 0;
-        right: 0;
+  &>.left,
+  &>.right {
+    width: fit-content;
+  }
 
-        height: $app-bar-height;
-    }
+  &>.left {
+    justify-content: flex-start;
+  }
 
-    &[fixed],
-    &[data-fixed] {
-        position: fixed;
-    }
-
-    &[position="top"],
-    &[data-position="top"] {
-        top: 0;
-
-        border-bottom: 1px solid $border-color;
-    }
-
-    &[position="bottom"],
-    &[data-position="bottom"] {
-        bottom: 0;
-
-        border-top: 1px solid $border-color;
-    }
-
-    & > .center {
-        overflow: hidden;
-    }
-
-    & > .left,
-    & > .center,
-    & > .right {
-        display: flex;
-
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: center;
-
-        height: 100%;
-        width: 100%;
-
-        gap: var(--gap, $spacing);
-    }
-
-    & > .left,
-    & > .right {
-        width: fit-content;
-    }
-
-    & > .left {
-        justify-content: flex-start;
-    }
-
-    & > .left {
-        justify-content: flex-end;
-    }
+  &>.left {
+    justify-content: flex-end;
+  }
 }

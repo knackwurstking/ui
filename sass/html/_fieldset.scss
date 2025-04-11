@@ -1,14 +1,14 @@
 @use "../theme-variables" as *;
 
 fieldset {
-    padding: $spacing;
-    padding-top: 0;
+  padding: $spacing;
+  padding-top: 0;
 
-    border-color: $border-color;
-    border-radius: $radius;
+  border-color: $border-color;
+  border-radius: $radius;
 
-    legend {
-        padding: 0 $spacing;
-        font-size: 1.15;
-    }
+  legend {
+    padding: 0 $spacing;
+    font-size: 1.15;
+  }
 }

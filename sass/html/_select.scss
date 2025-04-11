@@ -1,17 +1,17 @@
 @use "../theme-variables" as *;
 
 select {
-    display: inline-block;
-    cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
 
-    border: $border-width $border-style $border-color;
-    border-radius: $radius;
-    box-shadow: none;
+  border: $border-width $border-style $border-color;
+  border-radius: $radius;
+  box-shadow: none;
 
-    padding: $spacing;
-    background-color: transparent;
-    font-size: 0.95rem;
-    transition: border-color 0.25s ease-in-out;
+  padding: $spacing;
+  background-color: transparent;
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease-in-out;
 
-    accent-color: $primary;
+  accent-color: $primary;
 }

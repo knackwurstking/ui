@@ -1,68 +1,66 @@
 @use "../../settings";
 @use "variables";
 
-@mixin theme(
-    $scheme,
-    $bg: variables.$bg,
-    $text: variables.$text,
-    $primary: variables.$primary,
-    $primary-text: variables.$primary-text,
-    $primary--hover: variables.$primary--hover,
-    $primary--active: variables.$primary--active,
-    $secondary: variables.$secondary,
-    $secondary-text: variables.$secondary-text,
-    $secondary--hover: variables.$secondary--hover,
-    $secondary--active: variables.$secondary--active,
-    $destructive: variables.$destructive,
-    $destructive-text: variables.$destructive-text,
-    $destructive--hover: variables.$destructive--hover,
-    $destructive--active: variables.$destructive--active,
-    $muted: variables.$muted,
-    $muted-text: variables.$muted-text,
-    $info: variables.$info,
-    $info-text: variables.$info-text,
-    $warning: variables.$warning,
-    $warning-text: variables.$warning-text,
-    $error: variables.$error,
-    $error-text: variables.$error-text,
-    $backdrop-color: variables.$backdrop-color,
-    $border-color: variables.$border-color
-) {
-    #{settings.$css-var-prefix}bg: $bg;
-    #{settings.$css-var-prefix}text: $text;
+@mixin theme($scheme,
+  $bg: variables.$bg,
+  $text: variables.$text,
+  $primary: variables.$primary,
+  $primary-text: variables.$primary-text,
+  $primary--hover: variables.$primary--hover,
+  $primary--active: variables.$primary--active,
+  $secondary: variables.$secondary,
+  $secondary-text: variables.$secondary-text,
+  $secondary--hover: variables.$secondary--hover,
+  $secondary--active: variables.$secondary--active,
+  $destructive: variables.$destructive,
+  $destructive-text: variables.$destructive-text,
+  $destructive--hover: variables.$destructive--hover,
+  $destructive--active: variables.$destructive--active,
+  $muted: variables.$muted,
+  $muted-text: variables.$muted-text,
+  $info: variables.$info,
+  $info-text: variables.$info-text,
+  $warning: variables.$warning,
+  $warning-text: variables.$warning-text,
+  $error: variables.$error,
+  $error-text: variables.$error-text,
+  $backdrop-color: variables.$backdrop-color,
+  $border-color: variables.$border-color) {
+  #{settings.$css-var-prefix}bg: $bg;
+  #{settings.$css-var-prefix}text: $text;
 
-    #{settings.$css-var-prefix}primary: $primary;
-    #{settings.$css-var-prefix}primary-text: $primary-text;
-    #{settings.$css-var-prefix}primary--hover: $primary--hover;
-    #{settings.$css-var-prefix}primary--active: $primary--active;
+  #{settings.$css-var-prefix}primary: $primary;
+  #{settings.$css-var-prefix}primary-text: $primary-text;
+  #{settings.$css-var-prefix}primary--hover: $primary--hover;
+  #{settings.$css-var-prefix}primary--active: $primary--active;
 
-    #{settings.$css-var-prefix}secondary: $secondary;
-    #{settings.$css-var-prefix}secondary-text: $secondary-text;
-    #{settings.$css-var-prefix}secondary--hover: $secondary--hover;
-    #{settings.$css-var-prefix}secondary--active: $secondary--active;
+  #{settings.$css-var-prefix}secondary: $secondary;
+  #{settings.$css-var-prefix}secondary-text: $secondary-text;
+  #{settings.$css-var-prefix}secondary--hover: $secondary--hover;
+  #{settings.$css-var-prefix}secondary--active: $secondary--active;
 
-    #{settings.$css-var-prefix}destructive: $destructive;
-    #{settings.$css-var-prefix}destructive-text: $destructive-text;
-    #{settings.$css-var-prefix}destructive--hover: $destructive--hover;
-    #{settings.$css-var-prefix}destructive--active: $destructive--active;
+  #{settings.$css-var-prefix}destructive: $destructive;
+  #{settings.$css-var-prefix}destructive-text: $destructive-text;
+  #{settings.$css-var-prefix}destructive--hover: $destructive--hover;
+  #{settings.$css-var-prefix}destructive--active: $destructive--active;
 
-    #{settings.$css-var-prefix}muted: $muted;
-    #{settings.$css-var-prefix}muted-text: $muted-text;
+  #{settings.$css-var-prefix}muted: $muted;
+  #{settings.$css-var-prefix}muted-text: $muted-text;
 
-    #{settings.$css-var-prefix}info: $info;
-    #{settings.$css-var-prefix}info-text: $info-text;
+  #{settings.$css-var-prefix}info: $info;
+  #{settings.$css-var-prefix}info-text: $info-text;
 
-    #{settings.$css-var-prefix}warning: $warning;
-    #{settings.$css-var-prefix}warning-text: $warning-text;
+  #{settings.$css-var-prefix}warning: $warning;
+  #{settings.$css-var-prefix}warning-text: $warning-text;
 
-    #{settings.$css-var-prefix}error: $error;
-    #{settings.$css-var-prefix}error-text: $error-text;
+  #{settings.$css-var-prefix}error: $error;
+  #{settings.$css-var-prefix}error-text: $error-text;
 
-    #{settings.$css-var-prefix}backdrop-color: $backdrop-color;
-    #{settings.$css-var-prefix}border-color: $border-color;
+  #{settings.$css-var-prefix}backdrop-color: $backdrop-color;
+  #{settings.$css-var-prefix}border-color: $border-color;
 
-    background-color: $bg;
-    color: $text;
+  background-color: $bg;
+  color: $text;
 
-    color-scheme: $scheme;
+  color-scheme: $scheme;
 }

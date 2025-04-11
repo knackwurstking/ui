@@ -2,19 +2,19 @@
 @use "../utils";
 
 dialog {
-    @include utils.hide-scrollbar();
+  @include utils.hide-scrollbar();
 
-    position: fixed;
+  position: fixed;
 
-    background-color: $bg;
-    padding: $spacing;
-    margin: auto auto;
+  background-color: $bg;
+  padding: $spacing;
+  margin: auto auto;
 
-    border: $border-width $border-style $border-color;
-    border-radius: $radius;
+  border: $border-width $border-style $border-color;
+  border-radius: $radius;
 
-    &[fullscreen] {
-        width: 100%;
-        height: 100%;
-    }
+  &[fullscreen] {
+    width: 100%;
+    height: 100%;
+  }
 }

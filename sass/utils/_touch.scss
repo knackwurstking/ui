@@ -3,6 +3,6 @@
 
 .#{$css-selector-prefix}disable-touch,
 .#{$css-selector-prefix}disable-touch * {
-    -ms-touch-action: none;
-    touch-action: none;
+  -ms-touch-action: none;
+  touch-action: none;
 }

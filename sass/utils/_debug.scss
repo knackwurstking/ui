@@ -3,6 +3,6 @@
 
 .#{$css-selector-prefix}debug,
 .#{$css-selector-prefix}debug * {
-    border: $border-width $border-style red;
-    border-radius: $radius;
+  border: $border-width $border-style red;
+  border-radius: $radius;
 }

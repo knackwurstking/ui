@@ -2,22 +2,22 @@
 
 code,
 pre {
-    background-color: $muted;
-    color: $muted-text;
-    padding: $spacing;
-    line-height: $line-height-code;
-    font-size: 0.95rem;
+  background-color: $muted;
+  color: $muted-text;
+  padding: $spacing;
+  line-height: $line-height-code;
+  font-size: 0.95rem;
 
-    border: none;
-    border-radius: $radius;
+  border: none;
+  border-radius: $radius;
 }
 
 code {
-    display: inline-block;
-    padding: 0.1rem 0.25rem;
+  display: inline-block;
+  padding: 0.1rem 0.25rem;
 }
 
 pre {
-    display: block;
-    overflow: auto;
+  display: block;
+  overflow: auto;
 }

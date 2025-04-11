@@ -7,36 +7,35 @@
 //}
 
 ::selection {
-    background-color: $primary;
-    color: $primary-text;
+  background-color: $primary;
+  color: $primary-text;
 }
 
 ::backdrop {
-    @include utils.backdrop();
+  @include utils.backdrop();
 }
 
 [disabled] {
-    pointer-events: none;
-    touch-action: none;
+  pointer-events: none;
+  touch-action: none;
 
-    opacity: 0.45;
-    cursor: default;
+  opacity: 0.45;
+  cursor: default;
 
-    @include utils.none-select;
+  @include utils.none-select;
 }
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    font-size: $font-size;
-    background-color: $bg;
-    color: $text;
+  font-size: $font-size;
+  background-color: $bg;
+  color: $text;
 
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-        env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
-    font-size: 100%;
-    line-height: $line-height;
+  font-size: 100%;
+  line-height: $line-height;
 }

@@ -1,12 +1,12 @@
 @use "../settings";
 
 @mixin none-select() {
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .#{settings.$css-selector-prefix}none-select {
-    @include none-select;
+  @include none-select;
 }

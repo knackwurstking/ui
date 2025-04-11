@@ -38,6 +38,26 @@ h6 {
   border-radius: var(--ui-radius);
 }
 
+.ui-border-top {
+  border-top: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+}
+
+.ui-border-right {
+  border-right: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+}
+
+.ui-border-bottom {
+  border-bottom: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+}
+
+.ui-border-left {
+  border-left: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+  border-radius: var(--ui-radius);
+}
+
 .ui-backdrop {
   background-color: var(--ui-backdrop-color);
 }
