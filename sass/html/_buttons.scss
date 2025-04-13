@@ -177,7 +177,7 @@ button {
 button:has(svg),
 button[icon],
 button[data-icon] {
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.5rem !important;
 }
 
 button>svg {
