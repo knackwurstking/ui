@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.0.0 - unreleased
+## v3.0.1 - unreleased
 
 **Fixed**:
 
