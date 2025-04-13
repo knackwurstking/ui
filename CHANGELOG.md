@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.0.1 - unreleased
+## v3.0.1 - 2025-04-13
 
 **Fixed**:
 
