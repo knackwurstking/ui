@@ -1,5 +1,12 @@
 # Changelog
 
+## v3.0.0 - unreleased
+
+**Fixed**:
+
+- Force padding on icon button, in some cases the icon button padding will be
+  overridden with the button padding
+
 ## v3.0.0 - 2025-03-11
 
 **Breaking Changes**:
