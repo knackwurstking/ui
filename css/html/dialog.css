@@ -1,0 +1,23 @@
+dialog {
+    /* utils: .ui-hide-scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    position: fixed;
+    background-color: var(--ui-bg);
+    padding: var(--ui-spacing);
+    margin: auto auto;
+
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-radius: var(--ui-radius);
+}
+
+dialog[data-ui-fullscreen] {
+    width: 100%;
+    height: 100%;
+}
+
+/* utils: .ui-hide-scrollbar */
+dialog::-webkit-scrollbar {
+    display: none;
+}

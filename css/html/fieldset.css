@@ -1,0 +1,11 @@
+fieldset {
+    padding: var(--ui-spacing);
+    padding-top: 0;
+    border-color: var(--ui-border-color);
+    border-radius: var(--ui-radius);
+}
+
+fieldset > legend {
+    padding: 0 var(--ui-spacing);
+    font-size: 1.15;
+}

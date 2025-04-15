@@ -1,0 +1,5 @@
+.ui-debug,
+.ui-debug * {
+    border: var(--ui-border-width) var(--ui-border-style) red;
+    border-radius: var(--ui-radius);
+}

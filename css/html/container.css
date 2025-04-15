@@ -1,0 +1,7 @@
+article {
+    padding: calc(1rem + var(--ui-spacing)) var(--ui-spacing);
+}
+
+section {
+    margin: var(--ui-spacing) 0;
+}

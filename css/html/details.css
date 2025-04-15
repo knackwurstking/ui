@@ -1,0 +1,45 @@
+details {
+    padding: var(--ui-spacing);
+
+    border-radius: var(--ui-radius);
+}
+
+details:not([open]) > *:not(summary) {
+    display: none;
+}
+
+summary {
+    display: flex;
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--ui-spacing);
+    overflow: hidden;
+    font-size: 1.1rem;
+    list-style: none;
+
+    border-radius: var(-ui-radius);
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    font-size: 1rem;
+    color: var(--ui-primary);
+    padding-left: 1rem;
+}
+
+details[open] summary::after {
+    content: "-";
+}
+
+details[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    margin-bottom: var(--ui-spacing);
+}

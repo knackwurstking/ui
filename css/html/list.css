@@ -1,0 +1,32 @@
+ul {
+    list-style: none;
+    padding: var(--ui-spacing);
+    overflow: hidden;
+}
+
+ul > * {
+    padding: var(--ui-spacing);
+}
+
+ol {
+    padding: var(--ui-spacing);
+    padding-left: calc(1.5rem + var(--ui-spacing));
+    overflow: hidden;
+}
+
+ol > * {
+    padding: var(--ui-spacing);
+}
+
+dl {
+    padding: var(--ui-spacing);
+}
+
+dl > dd {
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+}
+
+dl > dd:not(:last-child) {
+    margin-bottom: 0.25rem;
+}

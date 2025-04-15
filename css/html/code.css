@@ -1,0 +1,20 @@
+code,
+pre {
+    background-color: var(--ui-muted);
+    color: var(--ui-muted-text);
+    padding: var(--ui-spacing);
+    line-height: var(--ui-line-height-code);
+    font-size: 0.95rem;
+    border: none;
+    border-radius: var(--ui-radius);
+}
+
+code {
+    display: inline-block;
+    padding: 0.1rem 0.25rem;
+}
+
+pre {
+    display: block;
+    overflow: auto;
+}

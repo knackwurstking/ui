@@ -1,0 +1,12 @@
+select {
+    display: inline-block;
+    cursor: pointer;
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-radius: var(--ui-radius);
+    box-shadow: none;
+    padding: var(--ui-spacing);
+    background-color: transparent;
+    font-size: 0.95rem;
+    transition: border-color 0.25s ease-in-out;
+    accent-color: var(--ui-primary);
+}

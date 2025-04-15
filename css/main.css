@@ -4,6 +4,11 @@
 @import "./global.css";
 
 @import "./utils/flex.css";
+@import "./utils/border.css";
+@import "./utils/color.css";
+@import "./utils/debug.css";
+@import "./utils/isolation.css";
+@import "./utils/scroll.css";
 
 @import "./components/app-bar.css";
 @import "./components/container.css";
@@ -12,6 +17,20 @@
 
 @import "./html/input.css";
 @import "./html/button.css"; /* NOTE: Button needs to be imported after Input */
+
+@import "./html/anchor.css";
+@import "./html/blockquote.css";
+@import "./html/code.css";
+@import "./html/container.css";
+@import "./html/details.css";
+@import "./html/dialog.css";
+@import "./html/fieldset.css";
+@import "./html/list.css";
+@import "./html/select.css";
+@import "./html/separator.css";
+@import "./html/slider.css";
+@import "./html/table.css";
+@import "./html/text.css";
 
 /* TODO: ...
  *  -[x] Themes
@@ -25,27 +44,27 @@
  *      -[x] ~flex-grid~ -> replaced with ui-flex util
  *      -[x] spinner
  *  -[ ] html
- *      -[ ] anchor
- *      -[ ] blockquote
+ *      -[x] anchor
+ *      -[x] blockquote
  *      -[x] button
- *      -[ ] code
- *      -[ ] container
- *      -[ ] details
- *      -[ ] dialog
- *      -[ ] fieldset
+ *      -[x] code
+ *      -[x] container
+ *      -[x] details
+ *      -[x] dialog
+ *      -[x] fieldset
  *      -[x] input 
- *      -[ ] select
- *      -[ ] separator
- *      -[ ] slider
- *      -[ ] table
- *      -[ ] table
- *      -[ ] text
+ *      -[x] list
+ *      -[x] select
+ *      -[x] separator
+ *      -[x] slider
+ *      -[x] table
+ *      -[x] text
  *  -[ ] utils
- *      -[ ] border
- *      -[ ] color
- *      -[ ] debug
+ *      -[x] border
+ *      -[x] color
+ *      -[x] debug
  *      -[x] flex
- *      -[ ] isolation
+ *      -[x] isolation
  *      -[ ] scroll
  *      -[ ] spacing
  *      -[ ] text

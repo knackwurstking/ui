@@ -1,0 +1,4 @@
+blockquote {
+    margin: var(--ui-spacing);
+    margin-left: 2rem;
+}
