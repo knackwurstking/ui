@@ -12,6 +12,7 @@
 - Added the `--ui-hue` var for some more fun
 - Prefixed all component attributes with `data-ui-*`
 - Prefixed ui-app-bar component children (left, center and right) with `.ui-app-bar-*`
+- Prefixed button attributes with `data-ui-*`
 
 **Removed**:
 

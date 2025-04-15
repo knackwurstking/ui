@@ -4,7 +4,7 @@
 }
 
 ::backdrop {
-    /* utils: --ui-backdrop */
+    /* utils: .ui-backdrop */
     background-color: var(--ui-backdrop-color);
 }
 
@@ -14,7 +14,7 @@
     opacity: 0.45;
     cursor: default;
 
-    /* utils: --ui-none-select */
+    /* utils: .ui-none-select */
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
