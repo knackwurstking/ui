@@ -8,6 +8,8 @@
 @import "./components/app-bar.css";
 @import "./components/container.css";
 
+@import "./html/button.css";
+
 /* TODO: ...
  *  -[x] Themes
  *  -[ ] base

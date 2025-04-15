@@ -26,6 +26,16 @@ button {
 
 /* NOTE: Default styles for color primary and variant full */
 
+button:hover {
+    background-color: var(--ui-primary--hover);
+}
+
+button:active,
+button.active {
+    transition: none;
+    background-color: var(--ui-primary--active);
+}
+
 button[data-ui-variant="outline"],
 button[data-ui-variant="ghost"] {
     background-color: transparent;
@@ -42,8 +52,9 @@ button[data-ui-variant="outline"]:active,
 button[data-ui-variant="outline"].active,
 button[data-ui-variant="ghost"]:active,
 button[data-ui-variant="ghost"].active {
+    background-color: transparent;
     transition: none;
-    background-color: var(--ui-primary--active);
+    color: var(--ui-primary--active);
 }
 
 button[data-ui-variant="outline"] {
@@ -95,32 +106,32 @@ button[data-ui-color="destructive"] {
     color: var(--ui-destructive-text);
 }
 
-button[data-ui-color="secondary"]:hover {
+button[data-ui-color="destructive"]:hover {
     background-color: var(--ui-destructive--hover);
 }
 
-button[data-ui-color="secondary"]:active,
-button[data-ui-color="secondary"].active {
+button[data-ui-color="destructive"]:active,
+button[data-ui-color="destructive"].active {
     background-color: var(--ui-destructive--active);
     transition: none;
 }
 
-button[data-ui-color="secondary"][data-ui-variant="ghost"],
-button[data-ui-color="secondary"][data-ui-variant="outline"] {
+button[data-ui-color="destructive"][data-ui-variant="ghost"],
+button[data-ui-color="destructive"][data-ui-variant="outline"] {
     background-color: transparent;
     color: var(--ui-destructive);
 }
 
-button[data-ui-color="secondary"][data-ui-variant="ghost"]:hover,
-button[data-ui-color="secondary"][data-ui-variant="outline"]:hover {
+button[data-ui-color="destructive"][data-ui-variant="ghost"]:hover,
+button[data-ui-color="destructive"][data-ui-variant="outline"]:hover {
     background-color: transparent;
     color: var(--ui-destructive--hover);
 }
 
-button[data-ui-color="secondary"][data-ui-variant="ghost"]:active,
-button[data-ui-color="secondary"][data-ui-variant="ghost"].active,
-button[data-ui-color="secondary"][data-ui-variant="outline"]:active,
-button[data-ui-color="secondary"][data-ui-variant="outline"].active {
+button[data-ui-color="destructive"][data-ui-variant="ghost"]:active,
+button[data-ui-color="destructive"][data-ui-variant="ghost"].active,
+button[data-ui-color="destructive"][data-ui-variant="outline"]:active,
+button[data-ui-color="destructive"][data-ui-variant="outline"].active {
     transition: none;
     background-color: transparent;
     color: var(--ui-destructive--active);
