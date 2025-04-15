@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
 
-/* TODO: Fonts here... */
+/* Default Theme Variables */
 
 :root {
     --ui-font-name: Recursive;
@@ -52,7 +52,9 @@
 
     --ui-destructive-text: hsl(0, 93%, 94%);
     --ui-destructive: hsl(0, 72%, 51%);
+    /* --ui-destructive + lightness 5% */
     --ui-destructive--hover: hsl(0, 72%, 56%);
+    /* --ui-destructive + lightness 25% */
     --ui-destructive--active: hsl(0, 72%, 76%);
 
     /* --ui-color-950 + lightness 15% */
@@ -67,8 +69,8 @@
     --ui-warning-text: hsl(51, 80%, 88%);
     --ui-warning: hsl(37, 80%, 39%);
 
-    --ui-error-text: var(--ui-destructive);
-    --ui-error: var(--ui-destructive-text);
+    --ui-error-text: var(--ui-destructive-text);
+    --ui-error: var(--ui-destructive);
 
     /* --ui-color-50 + alpha 0.75 */
     --ui-backdrop-color: hsla(var(--ui-hue), 10%, 98%, 0.75);
@@ -92,13 +94,46 @@
     --ui-color-800: hsl(var(--ui-hue), 10%, 90%);
     --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
     --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
+
+    /* --ui-color-700 + lightness -5% */
+    --ui-primary--hover: hsl(var(--ui-hue), 10%, 79%);
+    /* --ui-color-700 + lightness -25% */
+    --ui-primary--active: hsl(var(--ui-hue), 10%, 59%);
+
+    --ui-secondary: var(--ui-color-500);
+    /* --ui-color-500 + lightness 5% */
+    --ui-secondary--hover: hsl(var(--ui-hue), 10%, 51%);
+    /* --ui-color-500 + lightness 25% */
+    --ui-secondary--active: hsl(var(--ui-hue), 10%, 71%);
+
+    --ui-destructive-text: hsl(0, 63%, 31%);
+    --ui-destructive: hsl(0, 91%, 71%);
+    /* --ui-destructive + lightness -5 */
+    --ui-destructive--hover: hsl(0, 91%, 66%);
+    /* --ui-destructive + lightness -25 */
+    --ui-destructive--active: hsl(0, 91%, 46%);
+
+    /* --ui-color-950 + lightness -15% */
+    --ui-muted-text: hsl(var(--ui-hue), 10%, 13%);
+    /* --ui-color-50 + lightness 20% */
+    --ui-muted: hsl(var(--ui-hue), 10%, 24%);
+
+    --ui-info-text: var(--ui-text);
+    /* --ui-color-50 + lightness 10% */
+    --ui-info: hsl(var(--ui-hue), 10%, 14%);
+
+    --ui-warning-text: hsl(24, 60%, 26%);
+    --ui-warning: hsl(44, 80%, 53%);
+
+    /* --ui-color-50 + alpha 0.75 */
+    --ui-backdrop-color: hsla(var(--ui-hue), 10%, 4%, 0.75);
+    --ui-border-color: var(--ui-color-400);
 }
 
 /* Auto theme handling dark/light */
 [data-theme="auto"] {
     /* light theme is the default, only need to check for dark here */
     @media only screen and (prefers-color-scheme: dark) {
-        /* Just a copy from the dark data-theme */
         --ui-color-50: hsl(var(--ui-hue), 10%, 4%);
         --ui-color-100: hsl(var(--ui-hue), 10%, 10%);
         --ui-color-200: hsl(var(--ui-hue), 10%, 16%);
@@ -110,5 +145,122 @@
         --ui-color-800: hsl(var(--ui-hue), 10%, 90%);
         --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
         --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
+
+        /* --ui-color-700 + lightness -5% */
+        --ui-primary--hover: hsl(var(--ui-hue), 10%, 79%);
+        /* --ui-color-700 + lightness -25% */
+        --ui-primary--active: hsl(var(--ui-hue), 10%, 59%);
+
+        --ui-secondary: var(--ui-color-500);
+        /* --ui-color-500 + lightness 5% */
+        --ui-secondary--hover: hsl(var(--ui-hue), 10%, 51%);
+        /* --ui-color-500 + lightness 25% */
+        --ui-secondary--active: hsl(var(--ui-hue), 10%, 71%);
+
+        --ui-destructive-text: hsl(0, 63%, 31%);
+        --ui-destructive: hsl(0, 91%, 71%);
+        /* --ui-destructive + lightness -5 */
+        --ui-destructive--hover: hsl(0, 91%, 66%);
+        /* --ui-destructive + lightness -25 */
+        --ui-destructive--active: hsl(0, 91%, 46%);
+
+        /* --ui-color-950 + lightness -15% */
+        --ui-muted-text: hsl(var(--ui-hue), 10%, 13%);
+        /* --ui-color-50 + lightness 20% */
+        --ui-muted: hsl(var(--ui-hue), 10%, 24%);
+
+        --ui-info-text: var(--ui-text);
+        /* --ui-color-50 + lightness 10% */
+        --ui-info: hsl(var(--ui-hue), 10%, 14%);
+
+        --ui-warning-text: hsl(24, 60%, 26%);
+        --ui-warning: hsl(44, 80%, 53%);
+
+        /* --ui-color-50 + alpha 0.75 */
+        --ui-backdrop-color: hsla(var(--ui-hue), 10%, 4%, 0.75);
+        --ui-border-color: var(--ui-color-400);
     }
+}
+
+/* Fonts Section */
+
+*,
+*::before,
+*::after {
+    font-family: var(--ui-font-name);
+    font-variation-settings:
+        "MONO" var(--mono),
+        "CASL" var(--casl),
+        "wght" var(--wght),
+        "slnt" var(--slnt),
+        "CRSV" var(--CRSV);
+}
+
+html,
+body {
+    --mono: 0;
+    --casl: 1;
+    --wght: 400;
+    --slnt: 0;
+    --CRSV: 0.5;
+}
+
+blockquote {
+    --wght: 350;
+    --slnt: -10;
+
+    font-family: var(--ui-font-name);
+}
+
+code,
+kbd,
+pre,
+samp {
+    --mono: 1;
+    --casl: 0;
+
+    font-family: var(--ui-font-name);
+}
+
+summary::after {
+    --wght: 800;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    --wght: 700;
+    --slnt: -3;
+}
+
+b {
+    --wght: 600;
+}
+
+i {
+    --slnt: -10;
+}
+
+table thead,
+table th {
+    --wght: 500;
+}
+
+table tbody,
+table td {
+    --mono: 1;
+    --casl: 1;
+    --wght: 350;
+}
+
+dt {
+    --wght: 600;
+}
+
+fieldset legend {
+    --wght: 650;
+    --slnt: -3;
 }
