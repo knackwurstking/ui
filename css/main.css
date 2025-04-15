@@ -5,6 +5,8 @@
 
 @import "./utils/flex.css";
 
+@import "./components/app-bar.css";
+
 /* TODO: ...
  *  -[x] Themes
  *  -[ ] base
