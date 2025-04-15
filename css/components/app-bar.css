@@ -1,25 +1,66 @@
-/* TODO: Continue here... */
-
 .ui-app-bar {
+    /* utile: .ui-backdrop */
+    background-color: var(--ui-backdrop-color);
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--ui-spacing) / 2);
+    overflow: hidden;
+    width: 100%;
+    gap: var(--ui-spacing);
 }
 
 .ui-app-bar[data-ui-position="top"],
 .ui-app-bar[data-ui-position="bottom"] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: var(--ui-app-bar-height);
 }
 
 .ui-app-bar[data-ui-fixed] {
+    position: fixed;
 }
 
 .ui-app-bar[data-ui-position="top"] {
+    top: 0;
+    border-bottom: var(--ui-border-width) var(--ui-border-style)
+        var(--ui-border-color);
 }
 
 .ui-app-bar[data-ui-position="bottom"] {
+    bottom: 0;
+    border-top: var(--ui-border-width) var(--ui-border-style)
+        var(--ui-border-color);
 }
 
 .ui-app-bar > .center {
+    overflow: hidden;
 }
 
 .ui-app-bar > .ui-app-bar-left,
 .ui-app-bar > .ui-app-bar-center,
 .ui-app-bar > .ui-app-bar-right {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: var(--ui-spacing);
+}
+
+.ui-app-bar > .ui-app-bar-left,
+.ui-app-bar > .ui-app-bar-right {
+    width: fit-content;
+}
+
+.ui-app-bar > .ui-app-bar-left {
+    justify-content: flex-start;
+}
+
+.ui-app-bar > .ui-app-bar-right {
+    justify-content: flex-end;
 }
