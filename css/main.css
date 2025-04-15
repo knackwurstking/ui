@@ -1,9 +1,11 @@
 @import "./themes/default.css";
+@import "./reset.css";
+@import "./global.css";
 
 /* TODO: ...
  *  -[x] Themes
  *  -[ ] base
- *      -[ ] reset
+ *      -[x] reset
  *      -[ ] global
  *  -[ ] components
  *      -[ ] app-bar
