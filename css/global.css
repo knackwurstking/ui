@@ -4,6 +4,7 @@
 }
 
 ::backdrop {
+    /* utils: --ui-backdrop */
     background-color: var(--ui-backdrop-color);
 }
 
