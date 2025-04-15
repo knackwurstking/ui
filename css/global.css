@@ -1,0 +1,33 @@
+::selection {
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
+}
+
+::backdrop {
+    background-color: var(--ui-backdrop-color);
+}
+
+[disabled] {
+    pointer-events: none;
+    touch-action: none;
+    opacity: 0.45;
+    cursor: default;
+
+    /* utils: --ui-none-select */
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: var(--ui-font-size);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+        env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+body {
+    font-size: 100%;
+    line-height: var(--ui-line-height);
+}
