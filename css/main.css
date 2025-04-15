@@ -6,6 +6,7 @@
 @import "./utils/flex.css";
 
 @import "./components/app-bar.css";
+@import "./components/container.css";
 
 /* TODO: ...
  *  -[x] Themes
@@ -14,7 +15,7 @@
  *      -[x] global
  *  -[ ] components
  *      -[x] app-bar
- *      -[ ] container
+ *      -[x] container
  *      -[ ] drawer
  *      -[x] ~flex-grid~ -> replaced with ui-flex util
  *      -[ ] index
