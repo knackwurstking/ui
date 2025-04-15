@@ -1,5 +1,9 @@
 /* Defaults: primary full */
-button {
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input::-webkit-file-upload-button {
     display: inline-flex;
     cursor: pointer;
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
@@ -101,37 +105,49 @@ button[data-ui-color="secondary"][data-ui-variant="outline"].active {
 
 /* NOTE: Color: Destructive */
 
-button[data-ui-color="destructive"] {
+button[data-ui-color="destructive"],
+input[type="reset"] {
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
 }
 
-button[data-ui-color="destructive"]:hover {
+button[data-ui-color="destructive"]:hover,
+input[type="reset"]:hover {
     background-color: var(--ui-destructive--hover);
 }
 
 button[data-ui-color="destructive"]:active,
-button[data-ui-color="destructive"].active {
+input[type="reset"]:active,
+button[data-ui-color="destructive"].active,
+input[type="reset"].active {
     background-color: var(--ui-destructive--active);
     transition: none;
 }
 
 button[data-ui-color="destructive"][data-ui-variant="ghost"],
-button[data-ui-color="destructive"][data-ui-variant="outline"] {
+input[type="reset"][data-ui-variant="ghost"],
+button[data-ui-color="destructive"][data-ui-variant="outline"],
+input[type="reset"][data-ui-variant="outline"] {
     background-color: transparent;
     color: var(--ui-destructive);
 }
 
 button[data-ui-color="destructive"][data-ui-variant="ghost"]:hover,
-button[data-ui-color="destructive"][data-ui-variant="outline"]:hover {
+input[type="reset"][data-ui-variant="ghost"]:hover,
+button[data-ui-color="destructive"][data-ui-variant="outline"]:hover,
+input[type="reset"][data-ui-variant="outline"]:hover {
     background-color: transparent;
     color: var(--ui-destructive--hover);
 }
 
 button[data-ui-color="destructive"][data-ui-variant="ghost"]:active,
+input[type="reset"][data-ui-variant="ghost"]:active,
 button[data-ui-color="destructive"][data-ui-variant="ghost"].active,
+input[type="reset"][data-ui-variant="ghost"].active,
 button[data-ui-color="destructive"][data-ui-variant="outline"]:active,
-button[data-ui-color="destructive"][data-ui-variant="outline"].active {
+input[type="reset"][data-ui-variant="outline"]:active,
+button[data-ui-color="destructive"][data-ui-variant="outline"].active,
+input[type="reset"][data-ui-variant="outline"].active {
     transition: none;
     background-color: transparent;
     color: var(--ui-destructive--active);

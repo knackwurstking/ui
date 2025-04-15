@@ -8,7 +8,8 @@
 @import "./components/app-bar.css";
 @import "./components/container.css";
 
-@import "./html/button.css";
+@import "./html/input.css";
+@import "./html/button.css"; /* NOTE: Button needs to be imported after Input */
 
 /* TODO: ...
  *  -[x] Themes
@@ -24,6 +25,7 @@
  *      -[ ] spinner
  *  -[ ] html
  *      -[x] button
+ *      -[x] input 
  *  -[ ] utils
  *      -[x] flex
  */

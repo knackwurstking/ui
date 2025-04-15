@@ -1,0 +1,70 @@
+form > * {
+    margin: var(--ui-spacing) 0;
+}
+
+textarea {
+    display: inline-block;
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-radius: var(--ui-radius);
+    box-shadow: none;
+    transition: border-color 0.25s ease-in-out;
+    background-color: transparent;
+    font-size: 0.95rem;
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+    accent-color: var(--ui-primary);
+}
+
+input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ) {
+    display: inline-block;
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-radius: var(--ui-radius);
+    box-shadow: none;
+    font-size: 0.95rem;
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+    transition: border-color 0.25s ease-in-out;
+    background-color: transparent;
+    accent-color: var(--ui-primary);
+}
+
+input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):not([type="radio"]):not([type="checkbox"]) {
+    padding: var(spacing);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    cursor: pointer;
+
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}
+
+input[type="color"] {
+    cursor: pointer;
+
+    height: calc(var(--ui-spacing) * 2 + 2rem);
+
+    padding: var(--ui-spacing);
+}
+
+input[aria-invalid] {
+    border-color: var(--ui-destructive);
+}
