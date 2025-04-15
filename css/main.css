@@ -8,6 +8,7 @@
 @import "./components/app-bar.css";
 @import "./components/container.css";
 @import "./components/drawer.css";
+@import "./components/spinner.css";
 
 @import "./html/input.css";
 @import "./html/button.css"; /* NOTE: Button needs to be imported after Input */
@@ -22,8 +23,7 @@
  *      -[x] container
  *      -[x] drawer
  *      -[x] ~flex-grid~ -> replaced with ui-flex util
- *      -[ ] index
- *      -[ ] spinner
+ *      -[x] spinner
  *  -[ ] html
  *      -[ ] anchor
  *      -[ ] blockquote
