@@ -1,0 +1,114 @@
+@import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+
+/* TODO: Fonts here... */
+
+:root {
+    --ui-font-name: Recursive;
+    --ui-font-family: var(--font-name) sans-serif;
+    --ui-font-size: 1rem;
+    --ui-line-height: 1.5;
+    --ui-line-height-code: 1.25;
+
+    --ui-border-width: 1px;
+    --ui-border-style: solid;
+    --ui-radius: 0.25rem;
+    --ui-spacing: 0.5rem;
+
+    --ui-app-bar-height: 3rem;
+}
+
+[data-theme="light"],
+:root {
+    --ui-hue: 250;
+
+    --ui-color-50: hsl(var(--ui-hue), 10%, 98%);
+    --ui-color-100: hsl(var(--ui-hue), 10%, 96%);
+    --ui-color-200: hsl(var(--ui-hue), 10%, 90%);
+    --ui-color-300: hsl(var(--ui-hue), 10%, 84%);
+    --ui-color-400: hsl(var(--ui-hue), 10%, 65%);
+    --ui-color-500: hsl(var(--ui-hue), 10%, 46%);
+    --ui-color-600: hsl(var(--ui-hue), 10%, 34%);
+    --ui-color-700: hsl(var(--ui-hue), 10%, 26%);
+    --ui-color-800: hsl(var(--ui-hue), 10%, 16%);
+    --ui-color-900: hsl(var(--ui-hue), 10%, 10%);
+    --ui-color-950: hsl(var(--ui-hue), 10%, 4%);
+
+    --ui-bg: var(--ui-color-50);
+    --ui-text: var(--ui-color-950);
+
+    --ui-primary-text: var(--ui-bg);
+    --ui-primary: var(--ui-color-700);
+    /* --ui-color-700 + lightness 5% */
+    --ui-primary--hover: hsl(var(--ui-hue), 10%, 31%);
+    /* --ui-color-700 + lightness 25% */
+    --ui-primary--active: hsl(var(--ui-hue), 10%, 51%);
+
+    --ui-secondary-text: var(--ui-text);
+    --ui-secondary: var(--ui-color-400);
+    /* --ui-color-400 + lightness -5% */
+    --ui-secondary--hover: hsl(var(--ui-hue), 10%, 60%);
+    /* --ui-color-400 + lightness -25% */
+    --ui-secondary--active: hsl(var(--ui-hue), 10%, 40%);
+
+    --ui-destructive-text: hsl(0, 93%, 94%);
+    --ui-destructive: hsl(0, 72%, 51%);
+    --ui-destructive--hover: hsl(0, 72%, 56%);
+    --ui-destructive--active: hsl(0, 72%, 76%);
+
+    /* --ui-color-950 + lightness 15% */
+    --ui-muted-text: hsl(var(--ui-hue), 10%, 19%);
+    /* --ui-color-50 + lightness -20% */
+    --ui-muted: hsl(var(--ui-hue), 10%, 78%);
+
+    --ui-info-text: var(--ui-text);
+    /* --ui-color-50 + lightness -10% */
+    --ui-info: hsl(var(--ui-hue), 10%, 88%);
+
+    --ui-warning-text: hsl(51, 80%, 88%);
+    --ui-warning: hsl(37, 80%, 39%);
+
+    --ui-error-text: var(--ui-destructive);
+    --ui-error: var(--ui-destructive-text);
+
+    /* --ui-color-50 + alpha 0.75 */
+    --ui-backdrop-color: hsla(var(--ui-hue), 10%, 98%, 0.75);
+    --ui-border-color: var(--ui-color-300);
+
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    --ui-color-50: hsl(var(--ui-hue), 10%, 4%);
+    --ui-color-100: hsl(var(--ui-hue), 10%, 10%);
+    --ui-color-200: hsl(var(--ui-hue), 10%, 16%);
+    --ui-color-300: hsl(var(--ui-hue), 10%, 26%);
+    --ui-color-400: hsl(var(--ui-hue), 10%, 34%);
+    --ui-color-500: hsl(var(--ui-hue), 10%, 46%);
+    --ui-color-600: hsl(var(--ui-hue), 10%, 65%);
+    --ui-color-700: hsl(var(--ui-hue), 10%, 84%);
+    --ui-color-800: hsl(var(--ui-hue), 10%, 90%);
+    --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
+    --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
+}
+
+/* Auto theme handling dark/light */
+[data-theme="auto"] {
+    /* light theme is the default, only need to check for dark here */
+    @media only screen and (prefers-color-scheme: dark) {
+        /* Just a copy from the dark data-theme */
+        --ui-color-50: hsl(var(--ui-hue), 10%, 4%);
+        --ui-color-100: hsl(var(--ui-hue), 10%, 10%);
+        --ui-color-200: hsl(var(--ui-hue), 10%, 16%);
+        --ui-color-300: hsl(var(--ui-hue), 10%, 26%);
+        --ui-color-400: hsl(var(--ui-hue), 10%, 34%);
+        --ui-color-500: hsl(var(--ui-hue), 10%, 46%);
+        --ui-color-600: hsl(var(--ui-hue), 10%, 65%);
+        --ui-color-700: hsl(var(--ui-hue), 10%, 84%);
+        --ui-color-800: hsl(var(--ui-hue), 10%, 90%);
+        --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
+        --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
+    }
+}
