@@ -1,0 +1,186 @@
+@use "../theme-variables" as *;
+@use "../utils";
+
+@mixin button-styles($color, $variant) {
+  display: inline-flex;
+  cursor: pointer;
+
+  padding: $spacing calc($spacing * 2.5);
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  overflow: hidden;
+  transition: background-color 0.25s ease-in-out;
+
+  border: $border-width $border-style $border-color;
+  border-radius: $radius;
+
+  @include utils.none-select();
+
+  // NOTE: Color "primary" with variant "full" will be the default in version v2.0.0
+
+  @if $variant ==outline {
+    border-color: currentColor;
+  }
+
+  @else {
+    border-color: transparent;
+  }
+
+  @if $color ==secondary {
+    @if $variant ==outline or $variant ==ghost {
+      background-color: transparent;
+      color: $secondary;
+
+      &:hover {
+        color: $secondary--hover;
+      }
+
+      &:active,
+      &.active {
+        transition: none;
+        color: $secondary--active;
+      }
+    }
+
+    @else {
+      background-color: $secondary;
+      color: $secondary-text;
+
+      &:hover {
+        background-color: $secondary--hover;
+      }
+
+      &:active,
+      &.active {
+        transition: none;
+        background-color: $secondary--active;
+      }
+    }
+  }
+
+  @else if $color ==destructive {
+    @if $variant ==outline or $variant ==ghost {
+      background-color: transparent;
+      color: $destructive;
+
+      &:hover {
+        color: $destructive--hover;
+      }
+
+      &:active,
+      &.active {
+        transition: none;
+        color: $destructive--active;
+      }
+    }
+
+    @else {
+      background-color: $destructive;
+      color: $destructive-text;
+
+      &:hover {
+        background-color: $destructive--hover;
+      }
+
+      &:active,
+      &.active {
+        transition: none;
+        background-color: $destructive--active;
+      }
+    }
+  }
+
+  @else {
+    background-color: $primary;
+    color: $primary-text;
+
+    @if $variant ==outline or $variant ==ghost {
+      background-color: transparent;
+      color: $primary;
+
+      &:hover {
+        color: $primary--hover;
+      }
+
+      &:active,
+      &.active {
+        transition: none;
+        color: $primary--active;
+      }
+    }
+
+    @else {
+      &:hover {
+        background-color: $primary--hover;
+      }
+
+      &:active,
+      &.active {
+        transition: none;
+        background-color: $primary--active;
+      }
+    }
+  }
+}
+
+@mixin button() {
+  @include button-styles("primary", "full");
+
+  &[variant="outline"],
+  &[data-variant="outline"] {
+    @include button-styles("primary", "outline");
+  }
+
+  &[variant="ghost"],
+  &[data-variant="ghost"] {
+    @include button-styles("primary", "ghost");
+  }
+
+  &[color="secondary"],
+  &[data-color="secondary"] {
+    @include button-styles("secondary", "full");
+
+    &[variant="outline"],
+    &[data-variant="outline"] {
+      @include button-styles("secondary", "outline");
+    }
+
+    &[variant="ghost"],
+    &[data-variant="ghost"] {
+      @include button-styles("secondary", "ghost");
+    }
+  }
+
+  &[color="destructive"],
+  &[data-color="destructive"],
+  &[type="reset"] {
+    @include button-styles("destructive", "full");
+
+    &[variant="outline"],
+    &[data-variant="outline"] {
+      @include button-styles("destructive", "outline");
+    }
+
+    &[variant="ghost"],
+    &[data-variant="ghost"] {
+      @include button-styles("destructive", "ghost");
+    }
+  }
+}
+
+button {
+  @include button();
+}
+
+button:has(svg),
+button[icon],
+button[data-icon] {
+  padding: 0.25rem 0.5rem !important;
+}
+
+button>svg {
+  width: 100%;
+  height: 100%;
+}

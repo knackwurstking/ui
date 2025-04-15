@@ -1,0 +1,29 @@
+@use "../settings" as *;
+
+@mixin hide-scrollbar() {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.#{$css-selector-prefix}auto-scroll {
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.#{$css-selector-prefix}auto-scroll-x {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.#{$css-selector-prefix}auto-scroll-y {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.#{$css-selector-prefix}hide-scrollbar {
+  @include hide-scrollbar();
+}

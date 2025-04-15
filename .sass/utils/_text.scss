@@ -1,0 +1,20 @@
+@use "../settings" as *;
+@use "../theme-variables" as *;
+
+.#{$css-selector-prefix}outline-text {
+  -webkit-text-stroke-width: 0.05rem;
+  -webkit-text-stroke-color: $text;
+
+  color: transparent;
+}
+
+.#{$css-selector-prefix}ellipsis {
+  text-wrap-mode: nowrap;
+
+  max-width: 100%;
+
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+  white-space: nowrap;
+}

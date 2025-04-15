@@ -1,0 +1,20 @@
+@use "../theme-variables" as *;
+@use "../utils";
+
+dialog {
+  @include utils.hide-scrollbar();
+
+  position: fixed;
+
+  background-color: $bg;
+  padding: $spacing;
+  margin: auto auto;
+
+  border: $border-width $border-style $border-color;
+  border-radius: $radius;
+
+  &[fullscreen] {
+    width: 100%;
+    height: 100%;
+  }
+}

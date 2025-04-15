@@ -1,0 +1,32 @@
+@use "../theme-variables" as *;
+
+table {
+  table-layout: fixed 100%;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding: $spacing;
+  background-color: $secondary;
+}
+
+td {
+  padding: $spacing;
+  background-color: transparent;
+  border-bottom: $border-width $border-style $border-color;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+tr.left>*,
+th.left,
+td.left {
+  text-align: left;
+}
+
+tr.right>*,
+th.right,
+td.right {
+  text-align: left;
+}

@@ -1,0 +1,9 @@
+@use "../theme-variables" as *;
+
+article {
+  padding: calc(1rem + $spacing) $spacing;
+}
+
+section {
+  margin: $spacing 0;
+}

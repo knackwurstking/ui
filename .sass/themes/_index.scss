@@ -1,0 +1,45 @@
+@use "../settings" as settings;
+
+@use "default/light";
+@use "default/dark";
+@use "default/fonts";
+
+@import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+
+$font-name: "Recursive";
+
+:root {
+  #{settings.$css-var-prefix}font-family: $font-name, sans-serif;
+  #{settings.$css-var-prefix}font-size: 1rem;
+  #{settings.$css-var-prefix}line-height: 1.5;
+  #{settings.$css-var-prefix}line-height-code: 1.25;
+
+  #{settings.$css-var-prefix}border-width: 1px;
+  #{settings.$css-var-prefix}border-style: solid;
+
+  #{settings.$css-var-prefix}radius: 0.25rem;
+  #{settings.$css-var-prefix}spacing: 0.5rem;
+
+  #{settings.$css-var-prefix}app-bar-height: 3rem;
+}
+
+[data-theme="light"],
+:root {
+  @include light.get();
+}
+
+// Override light theme if dark was set
+[data-theme="dark"] {
+  @include dark.get();
+}
+
+/* TODO: ... */
+
+// Auto theme handling dark/light
+[data-theme="auto"] {
+
+  // light theme is the default, only need to check for dark here
+  @media only screen and (prefers-color-scheme: dark) {
+    @include dark.get();
+  }
+}

@@ -1,0 +1,112 @@
+@use "../theme-variables" as *;
+
+// NOTE: See: https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+
+input[type="range"] {
+  -webkit-appearance: none;
+
+  width: 100%;
+
+  &::-webkit-slider-runnable-track {
+    cursor: pointer;
+
+    background: $primary;
+
+    width: 100%;
+    height: 8.4px;
+    border-radius: 1.3px;
+    border: 0.2px $border-style $border-color;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    cursor: pointer;
+
+    background: $primary-text;
+    margin-top: -14px;
+    transition: background 0.25s linear;
+
+    border: 1px $border-style $border-color;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+  }
+
+  &::-moz-range-track {
+    cursor: pointer;
+
+    background: $primary;
+
+    width: 100%;
+    height: 8.4px;
+    border-radius: 1.3px;
+    border: 0.2px $border-style $border-color;
+  }
+
+  &::-moz-range-thumb {
+    cursor: pointer;
+
+    background: $primary-text;
+    transition: background 0.25s linear;
+
+    border: 1px $border-style $border-color;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+  }
+
+  &::-ms-track {
+    cursor: pointer;
+
+    background: transparent;
+    color: transparent;
+
+    width: 100%;
+    height: 8.4px;
+    border-color: transparent;
+    border-width: 16px 0;
+  }
+
+  &::-ms-fill-lower {
+    background: $primary;
+
+    border: 0.2px $border-style $border-color;
+    border-radius: 2.6px;
+  }
+
+  &::-ms-fill-upper {
+    background: $primary;
+
+    border: 0.2px $border-style $border-color;
+    border-radius: 2.6px;
+  }
+
+  &::-ms-thumb {
+    cursor: pointer;
+
+    background: $primary-text;
+    transition: background 0.25s linear;
+
+    border: 1px $border-style $border-color;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+  }
+
+  &:focus {
+    outline: none;
+
+    &::-webkit-slider-thumb {
+      background: $primary;
+    }
+
+    &::-ms-thumb {
+      background: $primary;
+    }
+
+    &::-moz-range-thumb {
+      background: $primary;
+    }
+  }
+}
