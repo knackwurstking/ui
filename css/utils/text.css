@@ -1,0 +1,14 @@
+.ui-outline-text {
+    -webkit-text-stroke-width: 0.05rem;
+    -webkit-text-stroke-color: var(--ui-text);
+
+    color: transparent;
+}
+
+.ui-ellipsis {
+    text-wrap-mode: nowrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

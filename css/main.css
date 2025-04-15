@@ -9,6 +9,10 @@
 @import "./utils/debug.css";
 @import "./utils/isolation.css";
 @import "./utils/scroll.css";
+@import "./utils/spacing.css";
+@import "./utils/text.css";
+@import "./utils/touch.css";
+@import "./utils/user-select.css";
 
 @import "./components/app-bar.css";
 @import "./components/container.css";
@@ -34,16 +38,16 @@
 
 /* TODO: ...
  *  -[x] Themes
- *  -[ ] base
+ *  -[x] base
  *      -[x] reset
  *      -[x] global
- *  -[ ] components
+ *  -[x] components
  *      -[x] app-bar
  *      -[x] container
  *      -[x] drawer
  *      -[x] ~flex-grid~ -> replaced with ui-flex util
  *      -[x] spinner
- *  -[ ] html
+ *  -[x] html
  *      -[x] anchor
  *      -[x] blockquote
  *      -[x] button
@@ -65,9 +69,9 @@
  *      -[x] debug
  *      -[x] flex
  *      -[x] isolation
- *      -[ ] scroll
- *      -[ ] spacing
- *      -[ ] text
- *      -[ ] touch
- *      -[ ] user-select
+ *      -[x] scroll
+ *      -[x] spacing
+ *      -[x] text
+ *      -[x] touch
+ *      -[x] user-select
  */
