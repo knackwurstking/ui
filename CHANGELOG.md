@@ -1,5 +1,16 @@
 # Changelog
 
+## v4.0.0 - unreleased
+
+**Changed**:
+
+- Moved sass to css
+- Added the `--ui-hue` var for some more fun
+
+**Removed**:
+
+- Removed `.ui-flex-grid` components, `.ui-flex` utils should do the ting quite well
+
 ## v3.0.1 - 2025-04-13
 
 **Fixed**:
