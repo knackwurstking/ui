@@ -36,6 +36,9 @@
     --ui-bg: var(--ui-color-50);
     --ui-text: var(--ui-color-950);
 
+    /* --ui-color-950 + alpha 0.85 */
+    --ui-text-input: hsla(var(--ui-hue), 10%, 4%, 0.85);
+
     --ui-primary-text: var(--ui-bg);
     --ui-primary: var(--ui-color-700);
     /* --ui-color-700 + lightness 5% */
@@ -92,6 +95,9 @@
     --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
     --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
 
+    /* --ui-color-950 + alpha 0.85 */
+    --ui-text-input: hsla(var(--ui-hue), 10%, 98%, 0.85);
+
     /* --ui-color-700 + lightness -5% */
     --ui-primary--hover: hsl(var(--ui-hue), 10%, 79%);
     /* --ui-color-700 + lightness -25% */
@@ -144,6 +150,9 @@
         --ui-color-800: hsl(var(--ui-hue), 10%, 90%);
         --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
         --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
+
+        /* --ui-color-950 + alpha 0.85 */
+        --ui-text-input: hsla(var(--ui-hue), 10%, 98%, 0.85);
 
         /* --ui-color-700 + lightness -5% */
         --ui-primary--hover: hsl(var(--ui-hue), 10%, 79%);

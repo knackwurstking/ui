@@ -2,6 +2,11 @@ form > * {
     margin: var(--ui-spacing) 0;
 }
 
+textarea,
+input {
+    color: var(--ui-text-input);
+}
+
 textarea {
     display: inline-block;
     border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);

@@ -78,6 +78,7 @@ Or use [/dist/ui.min.js](/dist/ui.min.js)
 
 --ui-bg
 --ui-text
+--ui-text-input
 
 --ui-primary-text
 --ui-primary
