@@ -36,7 +36,7 @@
         var(--ui-border-color);
 }
 
-.ui-app-bar > .center {
+.ui-app-bar > .ui-app-bar-center {
     overflow: hidden;
 }
 
