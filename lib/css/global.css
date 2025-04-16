@@ -28,9 +28,7 @@ html {
         env(safe-area-inset-bottom) env(safe-area-inset-left);
 
     background-color: var(--ui-bg);
-    /*color: var(--ui-text);*/
-    color: green;
-    /* FIXME: Fix all the colors not green, maybe is should change text colors inside the theme too */
+    color: var(--ui-text);
 }
 
 body {
