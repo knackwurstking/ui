@@ -1,28 +1,30 @@
 # Documentation
 
+> Out of Date
+
 <!--toc:start-->
 
 - [Documentation](#documentation)
-  - [JavaScript](#javascript)
-  - [Special SVGs](#special-svgs)
-  - [CSS: Theme Variables](#css-theme-variables)
-  - [CSS: Utilities](#css-utilities)
-    - [Border](#border)
-    - [Color](#color)
-    - [Debug](#debug)
-    - [Flex](#flex)
-    - [Isolation](#isolation)
-    - [Scroll](#scroll)
-    - [Text](#text)
-    - [Touch](#touch)
-    - [user-select](#user-select)
-  - [CSS: HTML Base Elements](#css-html-base-elements)
-  - [CSS: Components](#css-components)
-    - [UI App Bar](#ui-app-bar)
-    - [UI Container](#ui-container)
-    - [UI Drawer](#ui-drawer)
-    - [UI Flex Grid](#ui-flex-grid)
-    - [UI Spinner](#ui-spinner)
+    - [JavaScript](#javascript)
+    - [Special SVGs](#special-svgs)
+    - [CSS: Theme Variables](#css-theme-variables)
+    - [CSS: Utilities](#css-utilities)
+        - [Border](#border)
+        - [Color](#color)
+        - [Debug](#debug)
+        - [Flex](#flex)
+        - [Isolation](#isolation)
+        - [Scroll](#scroll)
+        - [Text](#text)
+        - [Touch](#touch)
+        - [user-select](#user-select)
+    - [CSS: HTML Base Elements](#css-html-base-elements)
+    - [CSS: Components](#css-components)
+        - [UI App Bar](#ui-app-bar)
+        - [UI Container](#ui-container)
+        - [UI Drawer](#ui-drawer)
+        - [UI Flex Grid](#ui-flex-grid)
+        - [UI Spinner](#ui-spinner)
 
 <!--toc:end-->
 
@@ -133,8 +135,16 @@ Or use [/dist/ui.min.js](/dist/ui.min.js)
         --ui-secondary--active: hsl(240, 10%, 71%);
         --ui-destructive: #f87171;
         --ui-destructive-text: #7f1d1d;
-        --ui-destructive--hover: rgb(246.8020134228, 88.6979865772, 88.6979865772);
-        --ui-destructive--active: rgb(222.5302013423, 10.9697986577, 10.9697986577);
+        --ui-destructive--hover: rgb(
+            246.8020134228,
+            88.6979865772,
+            88.6979865772
+        );
+        --ui-destructive--active: rgb(
+            222.5302013423,
+            10.9697986577,
+            10.9697986577
+        );
         --ui-muted: hsl(240, 10%, 24%);
         --ui-muted-text: hsl(240, 10%, 83%);
         --ui-info: hsl(240, 10%, 14%);
@@ -188,9 +198,9 @@ Or use [/dist/ui.min.js](/dist/ui.min.js)
 - `&.wrap`
 - `&.nowrap`
 - `&.row`
-  - `&.reverse`
+    - `&.reverse`
 - `&.column`
-  - `&.reverse`
+    - `&.reverse`
 - `&.gap`
 - `&.align-center`
 - `&.align-start`
@@ -240,13 +250,13 @@ Or use [/dist/ui.min.js](/dist/ui.min.js)
 ## CSS: HTML Base Elements
 
 - `<button`
-  - **variant**: "full" | "outline" | "ghost"
-  - **color**: "primary" | "secondary" | "destructive"
-  - **icon**
+    - **variant**: "full" | "outline" | "ghost"
+    - **color**: "primary" | "secondary" | "destructive"
+    - **icon**
 - `<dialog`
-  - **fullscreen**
+    - **fullscreen**
 - `<tr` or `<td`
-  - **.left** or **.right**
+    - **.left** or **.right**
 
 ---
 
@@ -257,9 +267,9 @@ Or use [/dist/ui.min.js](/dist/ui.min.js)
 **Component**:
 
 - `.ui-app-bar`
-  - `& > .left`: Should be the first children of `.ui-app-bar`
-  - `& > .center`: The second
-  - `& > .right`: And the last
+    - `& > .left`: Should be the first children of `.ui-app-bar`
+    - `& > .center`: The second
+    - `& > .right`: And the last
 
 **Special CSS Variables**:
 
