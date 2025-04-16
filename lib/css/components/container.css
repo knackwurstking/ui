@@ -7,7 +7,7 @@
     overflow: auto;
 }
 
-.ui-container.fluid {
+.ui-container[data-ui-fluid] {
     width: 100%;
     max-width: 100%;
 }
