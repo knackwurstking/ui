@@ -48,7 +48,67 @@ Or use [/dist/ui.min.js](/dist/ui.min.js)
 
 ### Theme
 
-> TODO: List theme variables
+```css
+--ui-font-name
+--ui-font-family
+--ui-font-size
+--ui-line-height
+--ui-line-height-code
+
+--ui-border-width
+--ui-border-style
+--ui-radius
+--ui-spacing
+
+--ui-app-bar-height
+
+--ui-hue
+
+--ui-color-50
+--ui-color-100
+--ui-color-200
+--ui-color-300
+--ui-color-400
+--ui-color-500
+--ui-color-600
+--ui-color-700
+--ui-color-800
+--ui-color-900
+--ui-color-950
+
+--ui-bg
+--ui-text
+
+--ui-primary-text
+--ui-primary
+--ui-primary--hover
+--ui-primary--active
+
+--ui-secondary-text
+--ui-secondary
+--ui-secondary--hover
+--ui-secondary--active
+
+--ui-destructive-text
+--ui-destructive
+--ui-destructive--hover
+--ui-destructive--active
+
+--ui-muted-text
+--ui-muted
+
+--ui-info-text
+--ui-info
+
+--ui-warning-text
+--ui-warning
+
+--ui-error-text
+--ui-error
+
+--ui-backdrop-color
+--ui-border-color
+```
 
 ### Font
 
