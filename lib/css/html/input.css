@@ -36,7 +36,7 @@ input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
 input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
         [type="reset"]
     ):not([type="radio"]):not([type="checkbox"]) {
-    padding: var(spacing);
+    padding: var(--ui-spacing);
 }
 
 input[type="number"]::-webkit-inner-spin-button,
