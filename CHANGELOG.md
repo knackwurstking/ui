@@ -11,6 +11,7 @@
 - Moved sass to css
 - Added the `--ui-hue` var for some more fun
 - Prefixed component attributes with `data-ui-*`
+- CSS components `.ui-container.fluid` class replaced with `data-ui-fluid`
 
 **Removed**:
 
