@@ -7,22 +7,16 @@
     "module": "dist/js/ui.min.js",
     "repository": "knackwurstking/ui",
     "scripts": {
-        "dev": "cd docs && live-server --host=0.0.0.0 --watch=.",
-        "build": "tsc && vite build --minify -c vite.config.js && npm run build-css",
-        "build-css": "rm -rf dist/css && mkdir -p dist/css && uglifycss ./css/main.css > dist/css/ui.css"
+        "build": "tsc && vite build --minify -c vite.config.js"
     },
     "license": "MIT",
     "devDependencies": {
         "@types/node": "^22.7.5",
-        "clean-css-cli": "^5.6.3",
-        "live-server": "^1.2.2",
         "typedoc": "^0.26.10",
         "typescript": "^5.6.3"
     },
     "dependencies": {
         "bootstrap-icons": "^1.11.3",
-        "sass": "^1.82.0",
-        "uglifycss": "^0.0.29",
         "vite": "^5.2.11"
     }
 }
