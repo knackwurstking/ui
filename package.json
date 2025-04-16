@@ -4,7 +4,7 @@
     "description": "Just an ui lib for my projects.",
     "type": "module",
     "main": "lib/index.ts",
-    "module": "dist/js/ui.min.js",
+    "module": "dist/ui.min.js",
     "repository": "knackwurstking/ui",
     "scripts": {
         "build": "tsc && vite build --minify -c vite.config.js"
