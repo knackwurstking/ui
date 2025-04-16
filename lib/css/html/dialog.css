@@ -5,6 +5,7 @@ dialog {
 
     position: fixed;
     background-color: var(--ui-bg);
+    color: var(--ui-text);
     padding: var(--ui-spacing);
     margin: auto auto;
 
