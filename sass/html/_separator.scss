@@ -1,9 +1,0 @@
-@use "../theme-variables" as *;
-
-hr {
-  width: 100%;
-  border: none;
-  height: $border-width;
-  margin: $spacing 0;
-  background-color: $border-color;
-}
