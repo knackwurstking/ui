@@ -117,7 +117,7 @@
     --ui-destructive--active: hsl(0, 91%, 46%);
 
     /* --ui-color-950 + lightness -15% */
-    --ui-muted-text: hsl(var(--ui-hue), 10%, 13%);
+    --ui-muted-text: hsl(var(--ui-hue), 10%, 83%);
     /* --ui-color-50 + lightness 20% */
     --ui-muted: hsl(var(--ui-hue), 10%, 24%);
 
@@ -173,7 +173,7 @@
         --ui-destructive--active: hsl(0, 91%, 46%);
 
         /* --ui-color-950 + lightness -15% */
-        --ui-muted-text: hsl(var(--ui-hue), 10%, 13%);
+        --ui-muted-text: hsl(var(--ui-hue), 10%, 83%);
         /* --ui-color-50 + lightness 20% */
         --ui-muted: hsl(var(--ui-hue), 10%, 24%);
 
