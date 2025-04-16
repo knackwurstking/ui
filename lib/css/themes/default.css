@@ -76,9 +76,6 @@
     --ui-backdrop-color: hsla(var(--ui-hue), 10%, 98%, 0.75);
     --ui-border-color: var(--ui-color-300);
 
-    background-color: var(--ui-bg);
-    color: var(--ui-text);
-
     color-scheme: light;
 }
 
@@ -128,6 +125,8 @@
     /* --ui-color-50 + alpha 0.75 */
     --ui-backdrop-color: hsla(var(--ui-hue), 10%, 4%, 0.75);
     --ui-border-color: var(--ui-color-400);
+
+    color-scheme: dark;
 }
 
 /* Auto theme handling dark/light */
@@ -179,6 +178,8 @@
         /* --ui-color-50 + alpha 0.75 */
         --ui-backdrop-color: hsla(var(--ui-hue), 10%, 4%, 0.75);
         --ui-border-color: var(--ui-color-400);
+
+        color-scheme: dark;
     }
 }
 
