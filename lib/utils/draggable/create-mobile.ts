@@ -26,7 +26,10 @@ export function createMobile(
     const handleStart = (ev: Event & (TouchEvent | MouseEvent)) => {
         const target = ev.currentTarget as HTMLElement;
 
-        if (!originTarget && Array.from(target.classList).includes("draggable")) {
+        if (
+            !originTarget &&
+            Array.from(target.classList).includes("draggable")
+        ) {
             startTime = new Date().getTime();
             originTarget = target;
 
@@ -66,7 +69,7 @@ export function createMobile(
         }
 
         let pos: { clientX: number; clientY: number };
-        if (ev instanceof TouchEvent) {
+        if (window.TouchEvent && ev instanceof TouchEvent) {
             const touch = ev.targetTouches[0];
             pos = {
                 clientX: touch.clientX,
@@ -74,7 +77,9 @@ export function createMobile(
             };
         } else {
             pos = {
+                // @ts-ignore
                 clientX: ev.clientX,
+                // @ts-ignore
                 clientY: ev.clientY,
             };
         }
@@ -101,7 +106,10 @@ export function createMobile(
                 if (isBefore()) {
                     container.insertBefore(originTarget, target);
                 } else {
-                    container.insertBefore(originTarget, target.nextElementSibling);
+                    container.insertBefore(
+                        originTarget,
+                        target.nextElementSibling,
+                    );
                 }
             }
         }
@@ -147,17 +155,19 @@ export function createMobile(
 
     // Return a cleanup function
     return () => {
-        ([...container.children] as HTMLElement[]).forEach((child: HTMLElement) => {
-            child.classList.remove("draggable");
+        ([...container.children] as HTMLElement[]).forEach(
+            (child: HTMLElement) => {
+                child.classList.remove("draggable");
 
-            child.onmousedown = null;
-            child.ontouchstart = null;
+                child.onmousedown = null;
+                child.ontouchstart = null;
 
-            child.onmousemove = null;
-            child.ontouchmove = null;
+                child.onmousemove = null;
+                child.ontouchmove = null;
 
-            container.onmouseleave = child.onmouseup = null;
-            child.ontouchend = null;
-        });
+                container.onmouseleave = child.onmouseup = null;
+                child.ontouchend = null;
+            },
+        );
     };
 }

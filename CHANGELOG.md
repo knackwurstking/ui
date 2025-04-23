@@ -1,5 +1,12 @@
 # Changelog
 
+## v4.0.0 - 2025-04-23
+
+**Fixed**:
+
+- Drag'n'Drop for safari and firefox, problems with TouchEvent not defined on desktop
+- Disable all user select on ".draggable" selector
+
 ## v4.0.0 - 2025-04-17
 
 **Added**:

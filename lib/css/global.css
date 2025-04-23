@@ -20,6 +20,12 @@
     -webkit-user-select: none;
     user-select: none;
 }
+.draggable {
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
 
 html {
     box-sizing: border-box;
