@@ -49,9 +49,46 @@
         --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
         --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
     }
+
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
 }
 
-root {
+[data-theme="light"],
+[data-ui-theme="light"] {
+    --ui-hue: 250;
+
+    --ui-color-50: hsl(var(--ui-hue), 10%, 98%);
+    --ui-color-100: hsl(var(--ui-hue), 10%, 96%);
+    --ui-color-200: hsl(var(--ui-hue), 10%, 90%);
+    --ui-color-300: hsl(var(--ui-hue), 10%, 84%);
+    --ui-color-400: hsl(var(--ui-hue), 10%, 65%);
+    --ui-color-500: hsl(var(--ui-hue), 10%, 46%);
+    --ui-color-600: hsl(var(--ui-hue), 10%, 34%);
+    --ui-color-700: hsl(var(--ui-hue), 10%, 26%);
+    --ui-color-800: hsl(var(--ui-hue), 10%, 16%);
+    --ui-color-900: hsl(var(--ui-hue), 10%, 10%);
+    --ui-color-950: hsl(var(--ui-hue), 10%, 4%);
+}
+
+[data-theme="dark"],
+[data-ui-theme="dark"] {
+    --ui-hue: 250;
+
+    --ui-color-50: hsl(var(--ui-hue), 10%, 4%);
+    --ui-color-100: hsl(var(--ui-hue), 10%, 10%);
+    --ui-color-200: hsl(var(--ui-hue), 10%, 16%);
+    --ui-color-300: hsl(var(--ui-hue), 10%, 26%);
+    --ui-color-400: hsl(var(--ui-hue), 10%, 34%);
+    --ui-color-500: hsl(var(--ui-hue), 10%, 46%);
+    --ui-color-600: hsl(var(--ui-hue), 10%, 65%);
+    --ui-color-700: hsl(var(--ui-hue), 10%, 84%);
+    --ui-color-800: hsl(var(--ui-hue), 10%, 90%);
+    --ui-color-900: hsl(var(--ui-hue), 10%, 96%);
+    --ui-color-950: hsl(var(--ui-hue), 10%, 98%);
+}
+
+:root {
     @media only screen and (prefers-color-scheme: light) {
         --ui-bg: var(--ui-color-50);
         --ui-text: var(--ui-color-950);
@@ -100,7 +137,6 @@ root {
         --ui-border-color: var(--ui-color-300);
 
         color-scheme: light;
-
     }
 
     @media only screen and (prefers-color-scheme: dark) {
@@ -154,7 +190,112 @@ root {
     }
 }
 
-:root {
+[data-theme="light"],
+[data-ui-theme="light"] {
+    --ui-bg: var(--ui-color-50);
+    --ui-text: var(--ui-color-950);
+
+    /* --ui-color-950 + alpha 0.85 */
+    --ui-text-input: hsla(var(--ui-hue), 10%, 4%, 0.85);
+
+    --ui-primary-text: var(--ui-bg);
+    --ui-primary: var(--ui-color-700);
+    /* --ui-color-700 + lightness 5% */
+    --ui-primary--hover: hsl(var(--ui-hue), 10%, 31%);
+    /* --ui-color-700 + lightness 25% */
+    --ui-primary--active: hsl(var(--ui-hue), 10%, 51%);
+
+    --ui-secondary-text: var(--ui-text);
+    --ui-secondary: var(--ui-color-400);
+    /* --ui-color-400 + lightness -5% */
+    --ui-secondary--hover: hsl(var(--ui-hue), 10%, 60%);
+    /* --ui-color-400 + lightness -25% */
+    --ui-secondary--active: hsl(var(--ui-hue), 10%, 40%);
+
+    --ui-destructive-text: hsl(0, 93%, 94%);
+    --ui-destructive: hsl(0, 72%, 51%);
+    /* --ui-destructive + lightness 5% */
+    --ui-destructive--hover: hsl(0, 72%, 56%);
+    /* --ui-destructive + lightness 25% */
+    --ui-destructive--active: hsl(0, 72%, 76%);
+
+    /* --ui-color-950 + lightness 15% */
+    --ui-muted-text: hsl(var(--ui-hue), 10%, 19%);
+    /* --ui-color-50 + lightness -20% */
+    --ui-muted: hsl(var(--ui-hue), 10%, 78%);
+
+    --ui-info-text: var(--ui-text);
+    /* --ui-color-50 + lightness -10% */
+    --ui-info: hsl(var(--ui-hue), 10%, 88%);
+
+    --ui-warning-text: hsl(51, 80%, 88%);
+    --ui-warning: hsl(37, 80%, 39%);
+
+    --ui-error-text: var(--ui-destructive-text);
+    --ui-error: var(--ui-destructive);
+
+    /* --ui-color-50 + alpha 0.75 */
+    --ui-backdrop-color: hsla(var(--ui-hue), 10%, 98%, 0.75);
+    --ui-border-color: var(--ui-color-300);
+
+    color-scheme: light;
+}
+
+[data-theme="dark"],
+[data-ui-theme="dark"] {
+    --ui-bg: var(--ui-color-50);
+    --ui-text: var(--ui-color-950);
+
+    /* --ui-color-950 + alpha 0.85 */
+    --ui-text-input: hsla(var(--ui-hue), 10%, 98%, 0.85);
+
+    --ui-primary-text: var(--ui-bg);
+    --ui-primary: var(--ui-color-700);
+    /* --ui-color-700 + lightness -5% */
+    --ui-primary--hover: hsl(var(--ui-hue), 10%, 79%);
+    /* --ui-color-700 + lightness -25% */
+    --ui-primary--active: hsl(var(--ui-hue), 10%, 59%);
+
+    --ui-secondary-text: var(--ui-text);
+    --ui-secondary: var(--ui-color-500);
+    /* --ui-color-500 + lightness 5% */
+    --ui-secondary--hover: hsl(var(--ui-hue), 10%, 51%);
+    /* --ui-color-500 + lightness 25% */
+    --ui-secondary--active: hsl(var(--ui-hue), 10%, 71%);
+
+    --ui-destructive-text: hsl(0, 63%, 31%);
+    --ui-destructive: hsl(0, 91%, 71%);
+    /* --ui-destructive + lightness -5 */
+    --ui-destructive--hover: hsl(0, 91%, 66%);
+    /* --ui-destructive + lightness -25 */
+    --ui-destructive--active: hsl(0, 91%, 46%);
+
+    /* --ui-color-950 + lightness -15% */
+    --ui-muted-text: hsl(var(--ui-hue), 10%, 83%);
+    /* --ui-color-50 + lightness 20% */
+    --ui-muted: hsl(var(--ui-hue), 10%, 24%);
+
+    --ui-info-text: var(--ui-text);
+    /* --ui-color-50 + lightness 10% */
+    --ui-info: hsl(var(--ui-hue), 10%, 14%);
+
+    --ui-warning-text: hsl(24, 60%, 26%);
+    --ui-warning: hsl(44, 80%, 53%);
+
+    --ui-error-text: var(--ui-destructive-text);
+    --ui-error: var(--ui-destructive);
+
+    /* --ui-color-50 + alpha 0.75 */
+    --ui-backdrop-color: hsla(var(--ui-hue), 10%, 4%, 0.75);
+    --ui-border-color: var(--ui-color-400);
+
+    color-scheme: dark;
+}
+
+[data-theme="light"],
+[data-theme="dark"],
+[data-ui-theme="light"],
+[data-ui-theme="dark"] {
     background-color: var(--ui-bg);
     color: var(--ui-text);
 }

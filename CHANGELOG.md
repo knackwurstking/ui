@@ -1,5 +1,19 @@
 # Changelog
 
+## v4.1.0 - unreleased
+
+**Added**:
+
+- `[data-ui-theme]` for dark and light theme, the old `[data-ui-theme]` is now deprecated
+
+**Changed**:
+
+- Theming: `[data-theme="auto"]` kicked, no need for this
+
+**Fixed**:
+
+- Theme variable declaration for `[data-theme]` only worked on the root html tag, this is now fixed 
+
 ## v4.0.1 - 2025-04-23
 
 **Fixed**:
