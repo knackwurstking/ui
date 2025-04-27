@@ -1,5 +1,7 @@
 # Documentation
 
+<!-- TODO: Add info about theming with [data-ui-theme] -->
+
 <!--toc:start-->
 
 - [Documentation](#documentation)

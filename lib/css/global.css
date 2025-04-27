@@ -20,6 +20,7 @@
     -webkit-user-select: none;
     user-select: none;
 }
+
 .draggable {
     -ms-user-select: none;
     -moz-user-select: none;
@@ -30,11 +31,8 @@
 html {
     box-sizing: border-box;
     font-size: var(--ui-font-size);
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-        env(safe-area-inset-bottom) env(safe-area-inset-left);
-
-    background-color: var(--ui-bg);
-    color: var(--ui-text);
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    color-scheme: light dark;
 }
 
 body {
