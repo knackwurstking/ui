@@ -4,6 +4,7 @@
 // These are the elements for the input handlers (x-axis)
 const redCircle = document.querySelector(`.color-picker .red .circle`);
 const greenCircle = document.querySelector(`.color-picker .green .circle`);
+/** @type {HTMLElement} */
 const blueCircle = document.querySelector(`.color-picker .blue .circle`);
 
 const redCircleRect = redCircle.getBoundingClientRect();
@@ -19,6 +20,7 @@ const redRangeContainer = document.querySelector(`.color-picker .red .range`);
 const greenRangeContainer = document.querySelector(
     `.color-picker .green .range`,
 );
+/** @type {HTMLElement} */
 const blueRangeContainer = document.querySelector(`.color-picker .blue .range`);
 
 const redRangeRect = redRangeContainer.getBoundingClientRect();
@@ -44,3 +46,41 @@ console.debug("marginX:", marginX);
 
 // TODO: Pointer events for "*Circle"(s)
 // TODO: And a pointer events for "*CircleRect"(s), for positioning the circle once (pointerdown)
+
+// Range Container
+
+blueRangeContainer.onpointerdown = (ev) => {
+    // TODO: Move circle to this position
+    console.debug("redRangeContainer pointerdown", ev.clientX, ev.clientY);
+};
+redRangeContainer.onpointerdown = greenRangeContainer.onpointerdown =
+    blueRangeContainer.onpointerdown;
+
+// Circle
+
+redCircle.onpointerdown =
+    greenCircle.onpointerdown =
+    blueCircle.onpointerdown =
+        (ev) => {
+            ev.stopPropagation();
+
+            // TODO: start pointer movement handler until pointer up event is called
+            console.debug("redCircle: pointerdown", ev.clientX, ev.clientY);
+        };
+redCircle.onpointerdown = greenCircle.onpointerdown = blueCircle.onpointerdown;
+
+redCircle.onpointermove =
+    greenCircle.onpointermove =
+    blueCircle.onpointermove =
+        (ev) => {
+            // TODO: ...
+        };
+redCircle.onpointermove = greenCircle.onpointermove = blueCircle.onpointermove;
+
+redCircle.onpointerup =
+    greenCircle.onpointerup =
+    blueCircle.onpointerup =
+        (ev) => {
+            // TODO: ...
+        };
+redCircle.onpointerup = greenCircle.onpointerup = blueCircle.onpointerup;
