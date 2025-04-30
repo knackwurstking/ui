@@ -1,6 +1,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -8,11 +9,40 @@
     <link rel="stylesheet" href="/style.css">
 
     <title>Color Picker</title>
+
 </head>
 
-<body>
+<body class="ui-debug ui-flex column justify-center align-center">
 
-    <!-- TODO: ... -->
+    <div class="color-picker">
+
+        <!-- NOTE: Default White -->
+
+        <span class="red">
+            <span>RED</span>
+            <div class="container">
+                <span class="circle"></span>
+            </div>
+            <input type="text" min="0" max="255" step="1" value="255">
+        </span>
+
+        <span class="green">
+            <span>GREEN</span>
+            <div class="container">
+                <span class="circle"></span>
+            </div>
+            <input type="text" min="0" max="255" step="1" value="255">
+        </span>
+
+        <span class="blue">
+            <span>BLUE</span>
+            <div class="container">
+                <span class="circle"></span>
+            </div>
+            <input type="text" min="0" max="255" step="1" value="255">
+        </span>
+
+    </div>
 
     <script src="/script.js"></script>
 
