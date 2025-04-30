@@ -34,8 +34,8 @@ body {
     cursor: pointer;
     border-radius: 50%;
     position: absolute;
-    top: 0rem;
-    right: var(--ui-border-width);
+    top: 0;
+    right: 0;
     width: 2.5rem;
     height: calc(100% - var(--ui-border-width) * 2);
 }
