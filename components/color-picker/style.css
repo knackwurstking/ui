@@ -27,7 +27,7 @@ body {
     box-sizing: content-box;
     height: 100%;
     width: 100%;
-    border-radius: var(--ui-radius);
+    border-radius: 2.5rem;
 }
 
 .color-picker .circle {
