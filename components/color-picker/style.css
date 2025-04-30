@@ -34,10 +34,12 @@ body {
     cursor: pointer;
     border-radius: 50%;
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 2.5rem;
-    height: calc(100% - var(--ui-border-width) * 2);
+    top: 0.05rem;
+    right: 0.05rem;
+    width: 2rem;
+    height: calc(100% - 0.6rem);
+    /*border-color: black;*/
+    border-width: 0.25rem;
 }
 
 .color-picker input {
