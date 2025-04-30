@@ -12,36 +12,45 @@
 
 </head>
 
-<body class="ui-debug ui-flex column justify-center align-center">
 
-    <div class="color-picker">
+<body class="ui-container ui-flex column justify-center align-center" style="display: flex;">
+    <!-- NOTE: ".ui-container" will override the ui-flex display value in v4.1.0 -->
 
+    <div class="color-picker ui-flex column gap nowrap" style="width: 100%;">
         <!-- NOTE: Default White -->
 
-        <span class="red">
-            <span>RED</span>
-            <div class="container">
-                <span class="circle"></span>
-            </div>
-            <input type="text" min="0" max="255" step="1" value="255">
+        <span class="red ui-flex column justify-start">
+            <span class="title">RED</span>
+
+            <span class="container ui-flex row gap nowrap">
+                <div class="range">
+                    <div class="circle"></div>
+                </div>
+                <input type="text" min="0" max="255" step="1" value="255">
+            </span>
         </span>
 
-        <span class="green">
-            <span>GREEN</span>
-            <div class="container">
-                <span class="circle"></span>
-            </div>
-            <input type="text" min="0" max="255" step="1" value="255">
+        <span class="green ui-flex column justify-start">
+            <span class="title">GREEN</span>
+
+            <span class="container ui-flex row gap nowrap">
+                <div class="range">
+                    <div class="circle"></div>
+                </div>
+                <input type="text" min="0" max="255" step="1" value="255">
+            </span>
         </span>
 
-        <span class="blue">
-            <span>BLUE</span>
-            <div class="container">
-                <span class="circle"></span>
-            </div>
-            <input type="text" min="0" max="255" step="1" value="255">
-        </span>
+        <span class="blue ui-flex column justify-start">
+            <span class="title">BLUE</span>
 
+            <span class="container ui-flex row gap nowrap">
+                <div class="range">
+                    <div class="circle"></div>
+                </div>
+                <input type="text" min="0" max="255" step="1" value="255">
+            </span>
+        </span>
     </div>
 
     <script src="/script.js"></script>
