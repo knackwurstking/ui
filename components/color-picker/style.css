@@ -24,7 +24,6 @@ body {
 }
 
 .color-picker .range {
-    box-sizing: content-box;
     cursor: pointer;
     height: 100%;
     width: 100%;
@@ -35,12 +34,12 @@ body {
     cursor: pointer;
     border-radius: 50%;
     position: absolute;
-    top: 0.05rem;
-    right: 0.05rem;
-    width: 2rem;
-    height: calc(100% - 0.6rem);
+    top: 1px;
+    right: 1px;
+    width: calc(2.5rem - 2px);
+    height: calc(100% - 2px);
     /*border-color: black;*/
-    border-width: 0.25rem;
+    border-width: 2px;
 }
 
 .color-picker input {

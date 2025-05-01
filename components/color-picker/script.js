@@ -6,25 +6,11 @@ const circles = [
     document.querySelector(`.color-picker .blue .circle`),
 ];
 
-/** @type {[DOMRect, DOMRect, DOMRect]} */
-const rectCircles = [
-    circles[0].getBoundingClientRect(),
-    circles[1].getBoundingClientRect(),
-    circles[2].getBoundingClientRect(),
-];
-
 /** @type {[HTMLElement, HTMLElement, HTMLElement]} */
 const rangeContainers = [
     document.querySelector(`.color-picker .red .range`),
     document.querySelector(`.color-picker .green .range`),
     document.querySelector(`.color-picker .blue .range`),
-];
-
-/** @type {[DOMRect, DOMRect, DOMRect]} */
-const rectRangeContainers = [
-    rangeContainers[0].getBoundingClientRect(),
-    rangeContainers[1].getBoundingClientRect(),
-    rangeContainers[2].getBoundingClientRect(),
 ];
 
 /** @type {[HTMLInputElement, HTMLInputElement, HTMLInputElement]} */
@@ -37,46 +23,15 @@ const inputs = [
 // NOTE: Need to get px for 0.05rem
 // NOTE: Right is 255, Left is 0
 
-const xCircleMargins = [
-    rectRangeContainers[0].right - rectCircles[0].right,
-    rectRangeContainers[1].right - rectCircles[1].right,
-    rectRangeContainers[2].right - rectCircles[2].right,
-];
-
-// Range Container
-
-rangeContainers.forEach((container, index) => {
-    container.addEventListener("pointerdown", (ev) => {
-        move(index, ev.clientX);
-        circles[index].dispatchEvent(new PointerEvent("pointerdown"));
-    });
-});
-
 // Circles
 
-circles.forEach((circle, circleIndex) => {
-    let movementlock = true;
-
-    /**
-     * @param {PointerEvent} ev
-     */
-    const pointerMove = (ev) => {
-        if (movementlock) return;
-        move(circleIndex, ev.clientX, ev.clientY);
-    };
-
-    const pointerEnd = () => {
-        movementlock = true;
-
-        if (!noneSelectBackup) {
-            document.body.classList.remove("ui-none-select");
-        }
-
-        document.body.style.touchAction = touchActionBackup;
-
-        window.removeEventListener("pointermove", pointerMove);
-        window.removeEventListener("pointerup", pointerEnd);
-    };
+circles.forEach((circle, index) => {
+    /** @type {DOMRect} */
+    let rR;
+    /** @type {DOMRect} */
+    let cR;
+    /** @type {number} */
+    let xM = 1;
 
     let noneSelectBackup = "";
     let touchActionBackup = "";
@@ -84,9 +39,48 @@ circles.forEach((circle, circleIndex) => {
     /**
      * @param {PointerEvent} ev
      */
-    const pointerStart = () => {
-        if (!movementlock) return;
-        movementlock = false;
+    const pointerMove = (ev) => {
+        const circle = circles[index];
+
+        const circleRadius = (cR.right - cR.left) / 2;
+        const rightPosPx = rR.right + xM - (ev.clientX + circleRadius);
+
+        const trackWidth = rR.width - cR.width + xM * 2;
+
+        let right = 100 - (trackWidth - rightPosPx) / (trackWidth / 100);
+        const rightMax = (trackWidth - cR.width) / (trackWidth / 100); // color: 0, circles border width is 2px
+        const rightMin = 100 - (trackWidth - xM) / (trackWidth / 100); // color: 255
+
+        if (right >= rightMax) {
+            right = rightMax;
+        } else if (right <= rightMin) {
+            right = rightMin;
+        }
+
+        circle.style.right = `${right}%`;
+
+        const min = (100 - rightMax) * (trackWidth / 100); // 0
+        const max = (100 - rightMin) * (trackWidth / 100); // 255
+        const current = (100 - right) * (trackWidth / 100);
+        inputs[index].value =
+            `${Math.round(((current - min) / ((max - min) / 100)) * 2.55)}`;
+    };
+
+    const pointerEnd = (ev) => {
+        ev.preventDefault();
+
+        window.removeEventListener("pointermove", pointerMove);
+        window.removeEventListener("pointerup", pointerEnd);
+
+        if (!noneSelectBackup) {
+            document.body.classList.remove("ui-none-select");
+        }
+
+        document.body.style.touchAction = touchActionBackup;
+    };
+
+    const pointerStart = (ev) => {
+        ev.preventDefault();
 
         noneSelectBackup = document.body.classList.contains("ui-none-select");
         document.body.classList.add("ui-none-select");
@@ -94,52 +88,17 @@ circles.forEach((circle, circleIndex) => {
         touchActionBackup = document.body.style.touchAction;
         document.body.style.touchAction = "none";
 
-        window.addEventListener("pointermove", pointerMove);
+        rR = rangeContainers[index].getBoundingClientRect();
+        cR = circles[index].getBoundingClientRect();
+
         window.addEventListener("pointerup", pointerEnd);
+        window.addEventListener("pointermove", pointerMove);
     };
+
+    //rangeContainers[index].addEventListener("pointerdown", (ev) => {
+    //    pointerStart();
+    //    move(index, ev.clientX, xM);
+    //});
 
     circle.addEventListener("pointerdown", pointerStart);
 });
-
-/**
- * @param {number} circleIndex
- * @param {number} x
- * @param {number} y
- * @returns {void}
- */
-function move(circleIndex, x) {
-    /** Range Rect */
-    const rR = rectRangeContainers[circleIndex];
-    /** Circle Rect */
-    const cR = rectCircles[circleIndex];
-    /** x (Circle) Margin */
-    const xM = xCircleMargins[circleIndex];
-
-    const xLeft = rR.left + xM;
-    const xRight = rR.right + xM;
-
-    if (cR.left <= xLeft || cR.right >= xRight) {
-        // There is nothing to move anymore, you hit the limits
-        return;
-    }
-
-    const cRadius = (cR.right - cR.left) / 2;
-    const circle = circles[circleIndex];
-
-    if (x - cRadius <= xLeft) {
-        // Just move to the limit and return (.05rem === x-margin)
-        circle.style.right = `calc(100% - 0.1rem)`;
-        circle.style.transform = `translateX(+100%)`;
-        return;
-    }
-    if (x + cRadius >= xRight) {
-        // Just move to the limit and return (.05rem === x-margin)
-        circle.style.right = `calc(0.05rem)`;
-        circle.style.transform = "";
-        return; // TODO: Update input element
-    }
-
-    //circle.style.right = `${x + cR.right - cR.left + cRadius}px`;
-    circle.style.transform = `none`;
-    circle.style.right = `${cR.right - x - cRadius}px`; // TODO: Calc percentage here and update number element
-}
