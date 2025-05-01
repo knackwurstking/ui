@@ -136,10 +136,10 @@ function move(circleIndex, x) {
         // Just move to the limit and return (.05rem === x-margin)
         circle.style.right = `calc(0.05rem)`;
         circle.style.transform = "";
-        return;
+        return; // TODO: Update input element
     }
 
     //circle.style.right = `${x + cR.right - cR.left + cRadius}px`;
     circle.style.transform = `none`;
-    circle.style.right = `${cR.right - x - cRadius}px`; // TODO: Calc percentage here
+    circle.style.right = `${cR.right - x - cRadius}px`; // TODO: Calc percentage here and update number element
 }
