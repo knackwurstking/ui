@@ -25,6 +25,7 @@ const inputs = [
 
 // Circles
 
+// FIXME: Try get get multi toch input working
 circles.forEach((circle, index) => {
     /** @type {DOMRect} */
     let rR;
