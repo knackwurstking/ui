@@ -1,86 +1,81 @@
-// TODO: First query all elements...
-//  - Need to allow multiple touch inputs (or should i use pointerevents?)
-
 // These are the elements for the input handlers (x-axis)
-const redCircle = document.querySelector(`.color-picker .red .circle`);
-const greenCircle = document.querySelector(`.color-picker .green .circle`);
-/** @type {HTMLElement} */
-const blueCircle = document.querySelector(`.color-picker .blue .circle`);
+/** @type {[HTMLElement, HTMLElement, HTMLElement]} */
+const circles = [
+    document.querySelector(`.color-picker .red .circle`),
+    document.querySelector(`.color-picker .green .circle`),
+    document.querySelector(`.color-picker .blue .circle`),
+];
 
-const redCircleRect = redCircle.getBoundingClientRect();
-const greenCircleRect = greenCircle.getBoundingClientRect();
-const blueCircleRect = blueCircle.getBoundingClientRect();
+/** @type {[DOMRect, DOMRect, DOMRect]} */
+const rectCircles = [
+    circles[0].getBoundingClientRect(),
+    circles[1].getBoundingClientRect(),
+    circles[2].getBoundingClientRect(),
+];
 
-console.debug("circle:", redCircleRect);
-console.debug("circle:", greenCircleRect);
-console.debug("circle:", blueCircleRect);
+/** @type {[HTMLElement, HTMLElement, HTMLElement]} */
+const rangeContainers = [
+    document.querySelector(`.color-picker .red .range`),
+    document.querySelector(`.color-picker .green .range`),
+    document.querySelector(`.color-picker .blue .range`),
+];
 
-// When handling the pointer events, this container are the limits for moving the circles
-const redRangeContainer = document.querySelector(`.color-picker .red .range`);
-const greenRangeContainer = document.querySelector(
-    `.color-picker .green .range`,
-);
-/** @type {HTMLElement} */
-const blueRangeContainer = document.querySelector(`.color-picker .blue .range`);
+/** @type {[DOMRect, DOMRect, DOMRect]} */
+const rectRangeContainers = [
+    rangeContainers[0].getBoundingClientRect(),
+    rangeContainers[1].getBoundingClientRect(),
+    rangeContainers[2].getBoundingClientRect(),
+];
 
-const redRangeRect = redRangeContainer.getBoundingClientRect();
-const greenRangeRect = greenRangeContainer.getBoundingClientRect();
-const blueRangeRect = blueRangeContainer.getBoundingClientRect();
-
-console.debug("range:", redRangeRect);
-console.debug("range:", greenRangeRect);
-console.debug("range:", blueRangeRect);
-
-// Manuel (number) inputs
-const redInput = document.querySelector(`.color-picker .red input`);
-const greenInput = document.querySelector(`.color-picker .green input`);
-const blueInput = document.querySelector(`.color-picker .blue input`);
+/** @type {[HTMLInputElement, HTMLInputElement, HTMLInputElement]} */
+const inputs = [
+    document.querySelector(`.color-picker .red input`),
+    document.querySelector(`.color-picker .green input`),
+    document.querySelector(`.color-picker .blue input`),
+];
 
 // NOTE: Need to get px for 0.05rem
 // NOTE: Right is 255, Left is 0
 
-const marginX = redRangeRect.right - redCircleRect.right;
-console.debug("marginX:", marginX);
-
-// TODO: Input handlers, set circles based on value change
-
-// TODO: Pointer events for "*Circle"(s)
-// TODO: And a pointer events for "*CircleRect"(s), for positioning the circle once (pointerdown)
+const xCircleMargins = [
+    rectRangeContainers[0].right - rectCircles[0].right,
+    rectRangeContainers[1].right - rectCircles[1].right,
+    rectRangeContainers[2].right - rectCircles[2].right,
+];
 
 // Range Container
 
-blueRangeContainer.onpointerdown = (ev) => {
-    // TODO: Move circle to this position
-    console.debug("redRangeContainer pointerdown", ev.clientX, ev.clientY);
-};
-redRangeContainer.onpointerdown = greenRangeContainer.onpointerdown =
-    blueRangeContainer.onpointerdown;
+// TODO: Move circle to position clientX
+//blueRangeContainer.onpointerdown = (ev) => {
+//    console.debug("rangeContainer pointerdown", ev.clientX);
+//};
 
-// Circle
+// Circles
 
-redCircle.onpointerdown =
-    greenCircle.onpointerdown =
-    blueCircle.onpointerdown =
-        (ev) => {
-            ev.stopPropagation();
+circles.forEach((circle) => {
+    circle.addEventListener("pointerdown", startMove);
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", endMove);
+});
 
-            // TODO: start pointer movement handler until pointer up event is called
-            console.debug("redCircle: pointerdown", ev.clientX, ev.clientY);
-        };
-redCircle.onpointerdown = greenCircle.onpointerdown = blueCircle.onpointerdown;
+/**
+ * @param {PointerEvent} ev
+ */
+function startMove(ev) {
+    ev.preventDefault();
+}
 
-redCircle.onpointermove =
-    greenCircle.onpointermove =
-    blueCircle.onpointermove =
-        (ev) => {
-            // TODO: ...
-        };
-redCircle.onpointermove = greenCircle.onpointermove = blueCircle.onpointermove;
+/**
+ * @param {PointerEvent} ev
+ */
+function move(ev) {
+    // TODO: Move the circle around (x-axis)
+}
 
-redCircle.onpointerup =
-    greenCircle.onpointerup =
-    blueCircle.onpointerup =
-        (ev) => {
-            // TODO: ...
-        };
-redCircle.onpointerup = greenCircle.onpointerup = blueCircle.onpointerup;
+/**
+ * @param {PointerEvent} ev
+ */
+function endMove(ev) {
+    ev.preventDefault();
+    // ...
+}
