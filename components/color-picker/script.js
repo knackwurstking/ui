@@ -95,10 +95,20 @@ circles.forEach((circle, index) => {
         window.addEventListener("pointermove", pointerMove);
     };
 
-    //rangeContainers[index].addEventListener("pointerdown", (ev) => {
-    //    pointerStart();
-    //    move(index, ev.clientX, xM);
-    //});
-
     circle.addEventListener("pointerdown", pointerStart);
+
+    inputs[index].addEventListener("change", (ev) => {
+        rR = rangeContainers[index].getBoundingClientRect();
+        cR = circles[index].getBoundingClientRect();
+
+        const trackWidth = rR.width - cR.width + xM * 2;
+
+        const rightMax = (trackWidth - cR.width) / (trackWidth / 100); // color: 0, circles border width is 2px
+        const rightMin = 100 - (trackWidth - xM) / (trackWidth / 100); // color: 255
+
+        const value = parseInt(ev.currentTarget.value || "0", 10);
+        const circle = circles[index];
+
+        circle.style.right = `${100 - (100 - (100 - rightMax) - rightMin) / (255 / value) - cR.width / (trackWidth / 100)}%`;
+    });
 });
