@@ -58,32 +58,45 @@ circles.forEach((circle, circleIndex) => {
     /**
      * @param {PointerEvent} ev
      */
-    function pointerStart(ev) {
-        if (!movementlock) return;
-        ev.preventDefault();
-        movementlock = false;
-    }
-
-    /**
-     * @param {PointerEvent} ev
-     */
-    function pointerEnd(ev) {
-        if (!movementlock) return;
-        ev.preventDefault();
-        movementlock = true;
-    }
-
-    /**
-     * @param {PointerEvent} ev
-     */
-    function pointerMove(ev) {
+    const pointerMove = (ev) => {
         if (movementlock) return;
         move(circleIndex, ev.clientX, ev.clientY);
-    }
+    };
+
+    const pointerEnd = () => {
+        movementlock = true;
+
+        if (!noneSelectBackup) {
+            document.body.classList.remove("ui-none-select");
+        }
+
+        document.body.style.touchAction = touchActionBackup;
+
+        window.removeEventListener("pointermove", pointerMove);
+        window.removeEventListener("pointerup", pointerEnd);
+    };
+
+    let noneSelectBackup = "";
+    let touchActionBackup = "";
+
+    /**
+     * @param {PointerEvent} ev
+     */
+    const pointerStart = () => {
+        if (!movementlock) return;
+        movementlock = false;
+
+        noneSelectBackup = document.body.classList.contains("ui-none-select");
+        document.body.classList.add("ui-none-select");
+
+        touchActionBackup = document.body.style.touchAction;
+        document.body.style.touchAction = "none";
+
+        window.addEventListener("pointermove", pointerMove);
+        window.addEventListener("pointerup", pointerEnd);
+    };
 
     circle.addEventListener("pointerdown", pointerStart);
-    window.addEventListener("pointermove", pointerMove);
-    window.addEventListener("pointerup", pointerEnd);
 });
 
 /**
@@ -113,16 +126,18 @@ function move(circleIndex, x) {
 
     if (x - cRadius <= xLeft) {
         // Just move to the limit and return (.05rem === x-margin)
-        circle.style.right = `calc(100% - 0.05rem)`;
-        circle.style.transform = "";
+        circle.style.right = `calc(100% - 0.1rem)`;
+        circle.style.transform = `translateX(+100%)`;
         return;
     }
     if (x + cRadius >= xRight) {
         // Just move to the limit and return (.05rem === x-margin)
         circle.style.right = `calc(0.05rem)`;
-        circle.style.transform = `translateX(+100%)`;
+        circle.style.transform = "";
         return;
     }
 
-    circle.style.right = `${x + cR.right - cR.left + cRadius}px`; // TODO: Calc percentage here
+    //circle.style.right = `${x + cR.right - cR.left + cRadius}px`;
+    circle.style.transform = `none`;
+    circle.style.right = `${cR.right - x - cRadius}px`; // TODO: Calc percentage here
 }
