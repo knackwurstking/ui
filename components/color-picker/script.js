@@ -47,7 +47,6 @@ const xCircleMargins = [
 
 rangeContainers.forEach((container, index) => {
     container.addEventListener("pointerdown", (ev) => {
-        console.debug("start");
         move(index, ev.clientX);
         circles[index].dispatchEvent(new PointerEvent("pointerdown"));
     });
