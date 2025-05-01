@@ -36,32 +36,49 @@ circles.forEach((circle, index) => {
     let noneSelectBackup = "";
     let touchActionBackup = "";
 
+    function updateRects() {
+        rR = rangeContainers[index].getBoundingClientRect();
+        cR = circles[index].getBoundingClientRect();
+    }
+
+    /**
+     * @returns {Record<"trackWidth" | "maxRange" | "minRange" | "circleRadius", number>}
+     */
+    function basicCalculations() {
+        const trackWidth = rR.width - cR.width + xM * 2;
+        const maxRange = (trackWidth - cR.width) / (trackWidth / 100); // color: 0, circles border width is 2px
+        const minRange = 100 - (trackWidth - xM) / (trackWidth / 100); // color: 255
+
+        const circleRadius = (cR.right - cR.left) / 2;
+
+        return {
+            trackWidth,
+            maxRange,
+            minRange,
+            circleRadius,
+        };
+    }
+
     /**
      * @param {PointerEvent} ev
      */
     const pointerMove = (ev) => {
-        const circle = circles[index];
+        const c = basicCalculations();
 
-        const circleRadius = (cR.right - cR.left) / 2;
-        const rightPosPx = rR.right + xM - (ev.clientX + circleRadius);
+        const clientRight = rR.right + xM - (ev.clientX + c.circleRadius);
+        let right = 100 - (c.trackWidth - clientRight) / (c.trackWidth / 100);
 
-        const trackWidth = rR.width - cR.width + xM * 2;
-
-        let right = 100 - (trackWidth - rightPosPx) / (trackWidth / 100);
-        const rightMax = (trackWidth - cR.width) / (trackWidth / 100); // color: 0, circles border width is 2px
-        const rightMin = 100 - (trackWidth - xM) / (trackWidth / 100); // color: 255
-
-        if (right >= rightMax) {
-            right = rightMax;
-        } else if (right <= rightMin) {
-            right = rightMin;
+        if (right >= c.maxRange) {
+            right = c.maxRange;
+        } else if (right <= c.minRange) {
+            right = c.minRange;
         }
 
-        circle.style.right = `${right}%`;
+        circles[index].style.right = `${right}%`;
 
-        const min = (100 - rightMax) * (trackWidth / 100); // 0
-        const max = (100 - rightMin) * (trackWidth / 100); // 255
-        const current = (100 - right) * (trackWidth / 100);
+        const min = (100 - c.maxRange) * (c.trackWidth / 100); // 0
+        const max = (100 - c.minRange) * (c.trackWidth / 100); // 255
+        const current = (100 - right) * (c.trackWidth / 100);
         inputs[index].value =
             `${Math.round(((current - min) / ((max - min) / 100)) * 2.55)}`;
     };
@@ -88,8 +105,7 @@ circles.forEach((circle, index) => {
         touchActionBackup = document.body.style.touchAction;
         document.body.style.touchAction = "none";
 
-        rR = rangeContainers[index].getBoundingClientRect();
-        cR = circles[index].getBoundingClientRect();
+        updateRects();
 
         window.addEventListener("pointerup", pointerEnd);
         window.addEventListener("pointermove", pointerMove);
@@ -98,17 +114,19 @@ circles.forEach((circle, index) => {
     circle.addEventListener("pointerdown", pointerStart);
 
     inputs[index].addEventListener("change", (ev) => {
-        rR = rangeContainers[index].getBoundingClientRect();
-        cR = circles[index].getBoundingClientRect();
+        updateRects();
+        const c = basicCalculations();
 
-        const trackWidth = rR.width - cR.width + xM * 2;
+        let value = parseInt(ev.currentTarget.value || "0", 10);
+        if (value < 0) {
+            value = 0;
+            ev.currentTarget.value = value.toString();
+        } else if (value > 255) {
+            value = 255;
+            ev.currentTarget.value = value.toString();
+        }
 
-        const rightMax = (trackWidth - cR.width) / (trackWidth / 100); // color: 0, circles border width is 2px
-        const rightMin = 100 - (trackWidth - xM) / (trackWidth / 100); // color: 255
-
-        const value = parseInt(ev.currentTarget.value || "0", 10);
-        const circle = circles[index];
-
-        circle.style.right = `${100 - (100 - (100 - rightMax) - rightMin) / (255 / value) - cR.width / (trackWidth / 100)}%`;
+        circles[index].style.right =
+            `${100 - (100 - (100 - c.maxRange) - c.minRange) / (255 / value) - cR.width / (c.trackWidth / 100)}%`;
     });
 });
