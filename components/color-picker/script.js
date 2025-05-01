@@ -45,7 +45,7 @@ circles.forEach((circle, index) => {
      * @returns {Record<"trackWidth" | "maxRange" | "minRange" | "circleRadius", number>}
      */
     function basicCalculations() {
-        const trackWidth = rR.width - cR.width + xM * 2;
+        const trackWidth = rR.width - cR.width - xM * 2;
         const maxRange = (trackWidth - cR.width) / (trackWidth / 100); // color: 0, circles border width is 2px
         const minRange = 100 - (trackWidth - xM) / (trackWidth / 100); // color: 255
 
@@ -65,6 +65,7 @@ circles.forEach((circle, index) => {
     const pointerMove = (ev) => {
         const c = basicCalculations();
 
+        // FIXME: The circle is left
         const clientRight = rR.right + xM - (ev.clientX + c.circleRadius);
         let right = 100 - (c.trackWidth - clientRight) / (c.trackWidth / 100);
 
