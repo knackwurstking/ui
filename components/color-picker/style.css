@@ -25,6 +25,7 @@ body {
 
 .color-picker .range {
     box-sizing: content-box;
+    cursor: pointer;
     height: 100%;
     width: 100%;
     border-radius: 2.5rem;
