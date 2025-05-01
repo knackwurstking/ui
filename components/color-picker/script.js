@@ -65,9 +65,8 @@ circles.forEach((circle, index) => {
     const pointerMove = (ev) => {
         const c = basicCalculations();
 
-        // FIXME: The circle is left
-        const clientRight = rR.right + xM - (ev.clientX + c.circleRadius);
-        let right = 100 - (c.trackWidth - clientRight) / (c.trackWidth / 100);
+        let right =
+            (c.trackWidth - (ev.clientX - rR.left - xM)) / (c.trackWidth / 100);
 
         if (right >= c.maxRange) {
             right = c.maxRange;
