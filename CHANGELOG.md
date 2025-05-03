@@ -1,5 +1,16 @@
 # Changelog
 
+## v4.2.0 - unreleased
+
+**Added**:
+
+- Components directory, just a collection with stuff i can copy paste
+- Component: added color-picker for RGB
+
+**Change**:
+
+- CSS Order: ".ui-container" move above the utils, so ui-flex can override the container settings like display
+
 ## v4.1.0 - 2025-04-28 
 
 **Added**:
