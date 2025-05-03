@@ -1,0 +1,13 @@
+{
+  "name": "components",
+  "version": "0.0.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "eslint": "^9.25.1",
+    "globals": "^16.0.0"
+  }
+}
