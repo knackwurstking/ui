@@ -1,60 +1,81 @@
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
 
-<head>
+        <link rel="stylesheet" href="/ui-v4.1.0.css" />
+        <link rel="stylesheet" href="/style.css" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>Color Picker</title>
+    </head>
 
-    <link rel="stylesheet" href="/ui-v4.1.0.css">
-    <link rel="stylesheet" href="/style.css">
+    <body
+        class="ui-container ui-flex column justify-center align-center"
+        style="display: flex"
+    >
+        <!-- NOTE: ".ui-container" will override the ui-flex display value in v4.1.0 -->
 
-    <title>Color Picker</title>
+        <div
+            class="color-picker ui-flex column gap nowrap"
+            style="width: 100%; touch-action: none"
+        >
+            <!-- NOTE: Default White -->
 
-</head>
+            <span class="red ui-flex column justify-start">
+                <span class="title">RED</span>
 
-
-<body class="ui-container ui-flex column justify-center align-center" style="display: flex;">
-    <!-- NOTE: ".ui-container" will override the ui-flex display value in v4.1.0 -->
-
-    <div class="color-picker ui-flex column gap nowrap" style="width: 100%; touch-action: none;">
-        <!-- NOTE: Default White -->
-
-        <span class="red ui-flex column justify-start">
-            <span class="title">RED</span>
-
-            <span class="container ui-flex row gap nowrap">
-                <div class="range">
-                    <div class="circle"></div>
-                </div>
-                <input type="number" min="0" max="255" step="1" value="255">
+                <span class="container ui-flex row gap nowrap">
+                    <div class="range">
+                        <div class="circle"></div>
+                    </div>
+                    <input
+                        type="number"
+                        min="0"
+                        max="255"
+                        step="1"
+                        value="255"
+                    />
+                </span>
             </span>
-        </span>
 
-        <span class="green ui-flex column justify-start">
-            <span class="title">GREEN</span>
+            <span class="green ui-flex column justify-start">
+                <span class="title">GREEN</span>
 
-            <span class="container ui-flex row gap nowrap">
-                <div class="range">
-                    <div class="circle"></div>
-                </div>
-                <input type="number" min="0" max="255" step="1" value="255">
+                <span class="container ui-flex row gap nowrap">
+                    <div class="range">
+                        <div class="circle"></div>
+                    </div>
+                    <input
+                        type="number"
+                        min="0"
+                        max="255"
+                        step="1"
+                        value="255"
+                    />
+                </span>
             </span>
-        </span>
 
-        <span class="blue ui-flex column justify-start">
-            <span class="title">BLUE</span>
+            <span class="blue ui-flex column justify-start">
+                <span class="title">BLUE</span>
 
-            <span class="container ui-flex row gap nowrap">
-                <div class="range">
-                    <div class="circle"></div>
-                </div>
-                <input type="number" min="0" max="255" step="1" value="255">
+                <span class="container ui-flex row gap nowrap">
+                    <div class="range">
+                        <div class="circle"></div>
+                    </div>
+                    <input
+                        type="number"
+                        min="0"
+                        max="255"
+                        step="1"
+                        value="255"
+                    />
+                </span>
             </span>
-        </span>
-    </div>
+        </div>
 
-    <script src="/script.js"></script>
-
-</body>
-
+        <script src="/script.js"></script>
+    </body>
 </html>
