@@ -36,7 +36,7 @@ circles.forEach((circle, index) => {
     /** @type {number | null} */
     let currentPointerID = null;
 
-    let noneSelectBackup = "";
+    let noneSelectBackup = false;
     let touchActionBackup = "";
 
     function updateRects() {
@@ -124,19 +124,24 @@ circles.forEach((circle, index) => {
 
     circle.addEventListener("pointerdown", pointerStart);
 
-    inputs[index].addEventListener("change", (ev) => {
-        updateRects();
-        const c = basicCalculations();
+    inputs[index].addEventListener(
+        "change",
+        (
+            /** @type {PointerEvent & { currentTarget: HTMLInputElement }} */ ev,
+        ) => {
+            updateRects();
+            const c = basicCalculations();
 
-        let value = parseInt(ev.currentTarget.value || "0", 10);
-        if (value < 0) {
-            value = 0;
-            ev.currentTarget.value = value.toString();
-        } else if (value > 255) {
-            value = 255;
-            ev.currentTarget.value = value.toString();
-        }
+            let value = parseInt(ev.currentTarget.value || "0", 10);
+            if (value < 0) {
+                value = 0;
+                ev.currentTarget.value = value.toString();
+            } else if (value > 255) {
+                value = 255;
+                ev.currentTarget.value = value.toString();
+            }
 
-        circle.style.right = `${100 - (100 - (100 - c.maxRange) - c.minRange) / (255 / value) - cR.width / (c.trackWidth / 100)}%`;
-    });
+            circle.style.right = `${100 - (100 - (100 - c.maxRange) - c.minRange) / (255 / value) - cR.width / (c.trackWidth / 100)}%`;
+        },
+    );
 });
