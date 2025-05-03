@@ -21,7 +21,7 @@ body {
 
 .color-picker .range,
 .color-picker .circle {
-    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color)
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
 }
 
 .color-picker .range {
