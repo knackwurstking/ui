@@ -34,6 +34,9 @@ circles.forEach((circle, index) => {
     /** @type {number} */
     let xM = 1;
 
+    /** @type {number | null} */
+    let currentPointerID = null;
+
     let noneSelectBackup = "";
     let touchActionBackup = "";
 
@@ -64,42 +67,50 @@ circles.forEach((circle, index) => {
      * @param {PointerEvent} ev
      */
     const pointerMove = (ev) => {
-        const c = basicCalculations();
+        if (currentPointerID === ev.pointerId) {
+            const c = basicCalculations();
 
-        let right =
-            (c.trackWidth - (ev.clientX - rR.left - xM)) / (c.trackWidth / 100);
+            let right =
+                (c.trackWidth - (ev.clientX - rR.left - xM)) /
+                (c.trackWidth / 100);
 
-        if (right >= c.maxRange) {
-            right = c.maxRange;
-        } else if (right <= c.minRange) {
-            right = c.minRange;
+            if (right >= c.maxRange) {
+                right = c.maxRange;
+            } else if (right <= c.minRange) {
+                right = c.minRange;
+            }
+
+            circle.style.right = `${right}%`;
+
+            const min = (100 - c.maxRange) * (c.trackWidth / 100); // 0
+            const max = (100 - c.minRange) * (c.trackWidth / 100); // 255
+            const current = (100 - right) * (c.trackWidth / 100);
+            inputs[index].value =
+                `${Math.round(((current - min) / ((max - min) / 100)) * 2.55)}`;
         }
-
-        circles[index].style.right = `${right}%`;
-
-        const min = (100 - c.maxRange) * (c.trackWidth / 100); // 0
-        const max = (100 - c.minRange) * (c.trackWidth / 100); // 255
-        const current = (100 - right) * (c.trackWidth / 100);
-        inputs[index].value =
-            `${Math.round(((current - min) / ((max - min) / 100)) * 2.55)}`;
     };
 
-    const pointerEnd = (ev) => {
-        ev.preventDefault();
+    const pointerEnd = (/** @type {PointerEvent} */ ev) => {
+        if (currentPointerID === ev.pointerId) {
+            currentPointerID = null;
+            window.removeEventListener("pointermove", pointerMove);
+            window.removeEventListener("pointerup", pointerEnd);
 
-        window.removeEventListener("pointermove", pointerMove);
-        window.removeEventListener("pointerup", pointerEnd);
+            if (!noneSelectBackup) {
+                document.body.classList.remove("ui-none-select");
+            }
 
-        if (!noneSelectBackup) {
-            document.body.classList.remove("ui-none-select");
+            document.body.style.touchAction = touchActionBackup;
         }
-
-        document.body.style.touchAction = touchActionBackup;
     };
 
-    const pointerStart = (ev) => {
+    const pointerStart = (/** @type {PointerEvent} */ ev) => {
+        if (currentPointerID === ev.pointerId) {
+            return;
+        }
         ev.preventDefault();
 
+        currentPointerID = ev.pointerId;
         noneSelectBackup = document.body.classList.contains("ui-none-select");
         document.body.classList.add("ui-none-select");
 
@@ -127,7 +138,6 @@ circles.forEach((circle, index) => {
             ev.currentTarget.value = value.toString();
         }
 
-        circles[index].style.right =
-            `${100 - (100 - (100 - c.maxRange) - c.minRange) / (255 / value) - cR.width / (c.trackWidth / 100)}%`;
+        circle.style.right = `${100 - (100 - (100 - c.maxRange) - c.minRange) / (255 / value) - cR.width / (c.trackWidth / 100)}%`;
     });
 });
