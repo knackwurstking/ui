@@ -3,6 +3,8 @@
 @import "./reset.css";
 @import "./global.css";
 
+@import "./html/container.css";
+
 @import "./utils/flex.css";
 @import "./utils/border.css";
 @import "./utils/color.css";
@@ -25,7 +27,6 @@
 @import "./html/anchor.css";
 @import "./html/blockquote.css";
 @import "./html/code.css";
-@import "./html/container.css";
 @import "./html/details.css";
 @import "./html/dialog.css";
 @import "./html/fieldset.css";
