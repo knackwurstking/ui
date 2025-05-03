@@ -3,7 +3,10 @@
 @import "./reset.css";
 @import "./global.css";
 
-@import "./html/container.css";
+@import "./components/app-bar.css";
+@import "./components/container.css";
+@import "./components/drawer.css";
+@import "./components/spinner.css";
 
 @import "./utils/flex.css";
 @import "./utils/border.css";
@@ -15,11 +18,6 @@
 @import "./utils/touch.css";
 @import "./utils/user-select.css";
 
-@import "./components/app-bar.css";
-@import "./components/container.css";
-@import "./components/drawer.css";
-@import "./components/spinner.css";
-
 @import "./html/input.css";
 @import "./html/button.css";
 /* NOTE: Button needs to be imported after Input */
@@ -27,6 +25,7 @@
 @import "./html/anchor.css";
 @import "./html/blockquote.css";
 @import "./html/code.css";
+@import "./html/container.css";
 @import "./html/details.css";
 @import "./html/dialog.css";
 @import "./html/fieldset.css";
