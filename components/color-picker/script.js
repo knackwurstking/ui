@@ -1,23 +1,30 @@
 // These are the elements for the input handlers (x-axis)
 /** @type {[HTMLElement, HTMLElement, HTMLElement]} */
+const sliders = [
+    document.querySelector(`.color-picker .red`),
+    document.querySelector(`.color-picker .green`),
+    document.querySelector(`.color-picker .blue`),
+];
+
+/** @type {[HTMLElement, HTMLElement, HTMLElement]} */
 const circles = [
-    document.querySelector(`.color-picker .red .circle`),
-    document.querySelector(`.color-picker .green .circle`),
-    document.querySelector(`.color-picker .blue .circle`),
+    sliders[0].querySelector(`.circle`),
+    sliders[1].querySelector(`.circle`),
+    sliders[2].querySelector(`.circle`),
 ];
 
 /** @type {[HTMLElement, HTMLElement, HTMLElement]} */
 const rangeContainers = [
-    document.querySelector(`.color-picker .red .range`),
-    document.querySelector(`.color-picker .green .range`),
-    document.querySelector(`.color-picker .blue .range`),
+    sliders[0].querySelector(`.range`),
+    sliders[1].querySelector(`.range`),
+    sliders[2].querySelector(`.range`),
 ];
 
 /** @type {[HTMLInputElement, HTMLInputElement, HTMLInputElement]} */
 const inputs = [
-    document.querySelector(`.color-picker .red input`),
-    document.querySelector(`.color-picker .green input`),
-    document.querySelector(`.color-picker .blue input`),
+    sliders[0].querySelector(`input`),
+    sliders[1].querySelector(`input`),
+    sliders[2].querySelector(`input`),
 ];
 
 // NOTE: Need to get px for 0.05rem
@@ -99,7 +106,7 @@ circles.forEach((circle, index) => {
                 document.body.classList.remove("ui-none-select");
             }
 
-            document.body.style.touchAction = touchActionBackup;
+            sliders[index].style.touchAction = touchActionBackup;
         }
     };
 
@@ -114,7 +121,7 @@ circles.forEach((circle, index) => {
         document.body.classList.add("ui-none-select");
 
         touchActionBackup = document.body.style.touchAction;
-        document.body.style.touchAction = "none";
+        sliders[index].style.touchAction = "none";
 
         updateRects();
 
