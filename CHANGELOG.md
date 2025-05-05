@@ -1,6 +1,6 @@
 # Changelog
 
-## v4.1.1 - unreleased
+## v4.1.1 - 2025-05-05
 
 **Fixed**:
 
