@@ -1,2 +1,2 @@
-dev-color-picker:
-	cd color-picker && serve
+run-range-slider:
+	cd ./range-slider && serve
