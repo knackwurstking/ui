@@ -4,7 +4,7 @@ body {
     height: 100%;
 }
 
-.range-slider input[type="range"] {
+input[type="range"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     height: 0.5rem;
@@ -14,7 +14,7 @@ body {
  * Webkit: (Tested: Safari v18.4) 
  */
 
-.range-slider input[type="range"]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     appearance: none;
     height: 100%;
