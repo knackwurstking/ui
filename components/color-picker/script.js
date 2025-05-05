@@ -44,7 +44,7 @@ circles.forEach((circle, index) => {
     let currentPointerID = null;
 
     let noneSelectBackup = false;
-    let touchActionBackup = "";
+    let touchActionBackup = false;
 
     function updateRects() {
         rR = rangeContainers[index].getBoundingClientRect();
@@ -106,7 +106,9 @@ circles.forEach((circle, index) => {
                 document.body.classList.remove("ui-none-select");
             }
 
-            sliders[index].style.touchAction = touchActionBackup;
+            if (!touchActionBackup) {
+                document.body.classList.remove("ui-disable-touch");
+            }
         }
     };
 
@@ -120,8 +122,9 @@ circles.forEach((circle, index) => {
         noneSelectBackup = document.body.classList.contains("ui-none-select");
         document.body.classList.add("ui-none-select");
 
-        touchActionBackup = document.body.style.touchAction;
-        sliders[index].style.touchAction = "none";
+        touchActionBackup =
+            document.body.classList.contains("ui-disable-touch");
+        document.body.classList.add("ui-disable-touch");
 
         updateRects();
 
