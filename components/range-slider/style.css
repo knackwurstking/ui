@@ -7,17 +7,22 @@ body {
 input[type="range"] {
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
     height: 0.5rem;
 }
 
 /**
- * Webkit: (Tested: Safari v18.4) 
+ * Webkit: (Tested: Safari v18.4, Chrome: v136.0.7103.49) 
  */
 
 input[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     appearance: none;
+
     height: 100%;
+
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-radius: var(--ui-radius);
 
     background: -webkit-linear-gradient(
         right,
@@ -25,15 +30,29 @@ input[type="range"]::-webkit-slider-runnable-track {
         hsla(0, 100%, 65%) 50%,
         hsla(0, 100%, 25%) 100%
     );
-    background: -webkit-linear-gradient(to right);
+    /*background: var(--ui-primary);*/
 }
 
 input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    background: var(--ui-primary-text);
+    transition: background 0.25s linear;
+
+    height: 500%;
+    width: 1rem;
+    transform: translateY(-40%);
+
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-radius: 3px;
+
     cursor: grab;
 }
 
 input[type="range"]::-webkit-slider-thumb:active {
     cursor: grabbing;
+    background: var(--ui-primary);
 }
 
 /** 
