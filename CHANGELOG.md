@@ -1,15 +1,13 @@
 # Changelog
 
-## v4.2.0 - unreleased
+## v4.1.1 - unreleased
 
-**Added**:
-
-- Components directory, just a collection with stuff i can copy paste
-- Component: added color-picker for RGB
-
-**Change**:
+**Fixed**:
 
 - CSS Order: ".ui-container" move above the utils, so ui-flex can override the container settings like display
+- CSS: Slider styles 
+    - Webkit: (Tested: Safari v18.4, Chrome: v136.0.7103.49, Edge v136.0.3240.50)
+    - Mozilla: (Tested: Firefox v138.0.1)
 
 ## v4.1.0 - 2025-04-28 
 
