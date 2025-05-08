@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.1.2 - unreleased
+
+**Fixed**:
+
+- input `aria-invalid`, border color not working
+
 ## v4.1.1 - 2025-05-05
 
 **Fixed**:
