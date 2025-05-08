@@ -71,5 +71,5 @@ input[type="color"] {
 }
 
 input[aria-invalid] {
-    border-color: var(--ui-destructive);
+    border-color: var(--ui-destructive) !important;
 }
