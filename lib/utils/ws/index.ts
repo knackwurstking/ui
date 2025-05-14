@@ -48,7 +48,7 @@ export class WS<D = any> {
         this.events.dispatch("message", data);
     };
 
-    protected constructor(serverPathPrefix: string) {
+    public constructor(serverPathPrefix: string) {
         this.serverPathPrefix = serverPathPrefix;
     }
 
