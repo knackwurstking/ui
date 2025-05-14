@@ -1,7 +1,7 @@
 import { Events } from "../events";
 
 export class WS<D = any> {
-    public serverPathPrefix: string = "";
+    public url: string = "";
 
     public socket: WebSocket | null = null;
     public events = new Events<{
@@ -28,13 +28,13 @@ export class WS<D = any> {
 
         // Reconnect here
         this.timeout = setTimeout(async () => {
-            console.debug(`WS: try to reconnect to "${this.getURL()}"`);
+            console.debug(`WS: try to reconnect to "${this.url}"`);
             await this.connect();
         }, this.reconnectInterval);
     };
 
     protected onOpen = () => {
-        console.debug(`WS: connected to "${this.getURL()}"`);
+        console.debug(`WS: connected to "${this.url}"`);
 
         if (!this.open) {
             this.open = true;
@@ -48,12 +48,8 @@ export class WS<D = any> {
         this.events.dispatch("message", data);
     };
 
-    public constructor(serverPathPrefix: string) {
-        this.serverPathPrefix = serverPathPrefix;
-    }
-
-    protected getURL(): string {
-        return process.env.SERVER_PATH_PREFIX + `/ws`;
+    public constructor(url: string) {
+        this.url = url;
     }
 
     public isOpen() {
@@ -63,7 +59,7 @@ export class WS<D = any> {
     public async connect() {
         if (this.socket) this.close();
 
-        const wsAddr = this.getURL(); // origin + path
+        const wsAddr = this.url; // origin + path
         console.debug(`Try to connect WebSocket to ${wsAddr}`);
 
         this.socket = new WebSocket(wsAddr);
