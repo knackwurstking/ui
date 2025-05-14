@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.2.0 - unreleased
+
+**Added**:
+
+- lib: new websocket handler `WS`
+
 ## v4.1.2 - 2025-05-08
 
 **Fixed**:
@@ -11,11 +17,11 @@
 **Fixed**:
 
 - CSS Order: ".ui-container" move above the utils, so ui-flex can override the container settings like display
-- CSS: Slider styles 
+- CSS: Slider styles
     - Webkit: (Tested: Safari v18.4, Chrome: v136.0.7103.49, Edge v136.0.3240.50)
     - Mozilla: (Tested: Firefox v138.0.1)
 
-## v4.1.0 - 2025-04-28 
+## v4.1.0 - 2025-04-28
 
 **Added**:
 
@@ -27,7 +33,7 @@
 
 **Fixed**:
 
-- Theme variable declaration for `[data-theme]` only worked on the root html tag, this is now fixed 
+- Theme variable declaration for `[data-theme]` only worked on the root html tag, this is now fixed
 
 ## v4.0.1 - 2025-04-23
 
