@@ -28,14 +28,11 @@ export class WS<D = any> {
 
         // Reconnect here
         this.timeout = setTimeout(async () => {
-            console.debug(`WS: try to reconnect to "${this.url}"`);
             await this.connect();
         }, this.reconnectInterval);
     };
 
     protected onOpen = () => {
-        console.debug(`WS: connected to "${this.url}"`);
-
         if (!this.open) {
             this.open = true;
             this.events.dispatch("open", this);
@@ -44,7 +41,6 @@ export class WS<D = any> {
 
     protected onMessage = async (ev: MessageEvent<Blob>) => {
         const data: D = JSON.parse(await ev.data.text());
-        console.debug(`WS: Got a message:`, data);
         this.events.dispatch("message", data);
     };
 
@@ -59,10 +55,7 @@ export class WS<D = any> {
     public async connect() {
         if (this.socket) this.close();
 
-        const wsAddr = this.url; // origin + path
-        console.debug(`Try to connect WebSocket to ${wsAddr}`);
-
-        this.socket = new WebSocket(wsAddr);
+        this.socket = new WebSocket(this.url);
 
         // Reconnect handler
         this.socket.addEventListener("close", this.onClose);
