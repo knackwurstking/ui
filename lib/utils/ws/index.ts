@@ -36,24 +36,6 @@ export class WS<D = any> {
             this.open = true;
             this.events.dispatch("open", this);
 
-            this.socket!.onclose = () => {
-                if (this.timeout !== null) {
-                    clearTimeout(this.timeout);
-                    this.timeout = null;
-                }
-
-                if (this.open) {
-                    this.open = false;
-                    this.events.dispatch("close", this);
-                }
-
-                // Reconnect here
-                this.timeout = setTimeout(
-                    async () => await this.connect(),
-                    this.reconnectInterval,
-                );
-            };
-
             this.socket!.onmessage = async (ev) => {
                 if (!(ev.data instanceof Blob)) {
                     console.error(
@@ -70,6 +52,24 @@ export class WS<D = any> {
                         : await ev.data.text(),
                 );
             };
+        };
+
+        this.socket.onclose = () => {
+            if (this.timeout !== null) {
+                clearTimeout(this.timeout);
+                this.timeout = null;
+            }
+
+            if (this.open) {
+                this.open = false;
+                this.events.dispatch("close", this);
+            }
+
+            // Reconnect here
+            this.timeout = setTimeout(
+                async () => await this.connect(),
+                this.reconnectInterval,
+            );
         };
 
         this.socket.addEventListener("error", () => {
