@@ -1,6 +1,6 @@
 # Changelog
 
-## v4.2.1 - 2025-05-14
+## v4.2.1 - 2025-05-20
 
 - close websocket on error
 

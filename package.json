@@ -1,6 +1,6 @@
 {
     "name": "ui",
-    "version": "4.2.0",
+    "version": "4.2.1",
     "description": "Just an ui lib for my projects.",
     "type": "module",
     "main": "lib/index.ts",
