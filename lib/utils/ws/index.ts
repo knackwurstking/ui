@@ -2,6 +2,7 @@ import { Events } from "../events";
 
 export class WS<D = any> {
     public url: string = "";
+    public json = true;
     public socket: WebSocket | null = null;
     public events = new Events<{
         open: WS;
@@ -14,8 +15,9 @@ export class WS<D = any> {
     protected timeout: NodeJS.Timeout | null = null;
     protected open = false;
 
-    public constructor(url: string) {
+    public constructor(url: string, json = true) {
         this.url = url;
+        this.json = json;
     }
 
     protected onClose = () => {};
@@ -63,7 +65,9 @@ export class WS<D = any> {
 
                 this.events.dispatch(
                     "message",
-                    JSON.parse(await ev.data.text()),
+                    this.json
+                        ? JSON.parse(await ev.data.text())
+                        : await ev.data.text(),
                 );
             };
         };
