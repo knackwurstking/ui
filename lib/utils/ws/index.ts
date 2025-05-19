@@ -70,6 +70,7 @@ export class WS<D = any> {
 
         this.socket.addEventListener("error", () => {
             if (!this.socket) return;
+            this.events.dispatch("error", this);
             this.socket.close();
         });
     }
