@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.3.0 - 2025-05-20
+
+- Changed CSS colors for the -950 and -50 levels (support for OLED screens)
+- Added CSS variable --ui-saturation (default: 10%)
+
 ## v4.2.1 - 2025-05-20
 
 - close websocket on error
