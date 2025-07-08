@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.4.0 - unreleased
+
+- Changed aria-invalid input styles
+
 ## v4.3.0 - 2025-05-20
 
 - Changed CSS colors for the -950 and -50 levels (support for OLED screens)
@@ -198,7 +202,6 @@
 **Added**:
 
 - Added global style sheets to JS utils
-
     - [x] `UIAlert`
     - [x] `UIAlerts`
     - [x] `UIAppBarItem`
