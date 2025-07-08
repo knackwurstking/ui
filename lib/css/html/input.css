@@ -70,10 +70,10 @@ input[type="color"] {
     padding: var(--ui-spacing);
 }
 
-input[aria-invalid="false"] {
+input[aria-invalid="true"] {
     border-color: var(--ui-destructive) !important;
 }
 
-input[aria-invalid="true"] {
+input[aria-invalid="false"] {
     border-color: green !important;
 }
