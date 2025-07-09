@@ -1,27 +1,27 @@
-.ui-padding {
+.padding {
     padding: var(--ui-spacing);
 }
 
-.ui-padding-x {
+.padding-x {
     padding-left: var(--ui-spacing);
     padding-right: var(--ui-spacing);
 }
 
-.ui-padding-y {
+.padding-y {
     padding-top: var(--ui-spacing);
     padding-bottom: var(--ui-spacing);
 }
 
-.ui-margin {
+.margin {
     margin: var(--ui-spacing);
 }
 
-.ui-margin-x {
+.margin-x {
     margin-left: var(--ui-spacing);
     margin-right: var(--ui-spacing);
 }
 
-.ui-margin-y {
+.margin-y {
     margin-top: var(--ui-spacing);
     margin-bottom: var(--ui-spacing);
 }

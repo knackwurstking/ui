@@ -1,23 +1,23 @@
-.ui-auto-scroll {
+.auto-scroll {
     overflow: auto;
     scroll-behavior: smooth;
 }
 
-.ui-auto-scroll-x {
+.auto-scroll-x {
     overflow-x: auto;
     scroll-behavior: smooth;
 }
 
-.ui-auto-scroll-y {
+.auto-scroll-y {
     overflow-y: auto;
     scroll-behavior: smooth;
 }
 
-.ui-hide-scrollbar {
+.no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-.ui-hide-scrollbar::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar {
     display: none;
 }
