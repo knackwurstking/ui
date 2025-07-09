@@ -14,7 +14,7 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 assetFileNames: (assetInfo) => {
-                    if (assetInfo.name == "style.css") return "ui.css";
+                    if (assetInfo.name == "style.css") return "ui.min.css";
                     return assetInfo.name;
                 },
             },
