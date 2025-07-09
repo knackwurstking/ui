@@ -13,7 +13,12 @@ dialog {
     border-radius: var(--ui-radius);
 }
 
-dialog[data-ui-fullscreen] {
+dialog.clean {
+    border: none;
+    background-color: transparent;
+}
+
+dialog.fullscreen {
     width: 100%;
     height: 100%;
 }

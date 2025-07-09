@@ -25,11 +25,11 @@
     display: none;
 }
 
-.ui-drawer[data-ui-open] {
+.ui-drawer.open {
     left: 0;
 }
 
-.ui-drawer[data-ui-open]::before {
+.ui-drawer.open::before {
     left: 0;
 }
 
@@ -44,6 +44,6 @@
     height: 100%;
 }
 
-.ui-drawer-backdrop:has(~ .ui-drawer:not([data-ui-open])) {
+.ui-drawer-backdrop:has(~ .ui-drawer:not(.open)) {
     display: none;
 }

@@ -17,17 +17,17 @@ a:active {
 }
 
 a:visited,
-a[data-ui-current] {
+a.current {
     color: var(--ui-primary);
     opacity: 0.75;
 }
 
 a:visited:hover,
-a[data-ui-current]:hover {
+a.current:hover {
     color: var(--ui-primary--hover);
 }
 
 a:visited:active,
-a[data-ui-current]:active {
+a.current:active {
     color: var(--ui-primary--active);
 }

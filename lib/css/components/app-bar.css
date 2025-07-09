@@ -12,25 +12,25 @@
     gap: var(--ui-spacing);
 }
 
-.ui-app-bar[data-ui-position="top"],
-.ui-app-bar[data-ui-position="bottom"] {
+.ui-app-bar.top,
+.ui-app-bar.bottom {
     position: absolute;
     left: 0;
     right: 0;
     height: var(--ui-app-bar-height);
 }
 
-.ui-app-bar[data-ui-fixed] {
+.ui-app-bar.fixed {
     position: fixed;
 }
 
-.ui-app-bar[data-ui-position="top"] {
+.ui-app-bar.top {
     top: 0;
     border-bottom: var(--ui-border-width) var(--ui-border-style)
         var(--ui-border-color);
 }
 
-.ui-app-bar[data-ui-position="bottom"] {
+.ui-app-bar.bottom {
     bottom: 0;
     border-top: var(--ui-border-width) var(--ui-border-style)
         var(--ui-border-color);
