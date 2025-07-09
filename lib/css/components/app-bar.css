@@ -1,6 +1,8 @@
 .app-bar {
-    /* utile: .ui-backdrop */
+    /* utils: .backdrop */
     background-color: var(--ui-backdrop-color);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 
     display: flex;
     flex-flow: row nowrap;
