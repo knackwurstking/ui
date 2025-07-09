@@ -1,4 +1,4 @@
-.ui-app-bar {
+.app-bar {
     /* utile: .ui-backdrop */
     background-color: var(--ui-backdrop-color);
 
@@ -12,37 +12,37 @@
     gap: var(--ui-spacing);
 }
 
-.ui-app-bar.top,
-.ui-app-bar.bottom {
+.app-bar.top,
+.app-bar.bottom {
     position: absolute;
     left: 0;
     right: 0;
     height: var(--ui-app-bar-height);
 }
 
-.ui-app-bar.fixed {
+.app-bar.fixed {
     position: fixed;
 }
 
-.ui-app-bar.top {
+.app-bar.top {
     top: 0;
     border-bottom: var(--ui-border-width) var(--ui-border-style)
         var(--ui-border-color);
 }
 
-.ui-app-bar.bottom {
+.app-bar.bottom {
     bottom: 0;
     border-top: var(--ui-border-width) var(--ui-border-style)
         var(--ui-border-color);
 }
 
-.ui-app-bar > .ui-app-bar-center {
+.app-bar > .app-bar-center {
     overflow: hidden;
 }
 
-.ui-app-bar > .ui-app-bar-left,
-.ui-app-bar > .ui-app-bar-center,
-.ui-app-bar > .ui-app-bar-right {
+.app-bar > .app-bar-left,
+.app-bar > .app-bar-center,
+.app-bar > .app-bar-right {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -52,15 +52,15 @@
     gap: var(--ui-spacing);
 }
 
-.ui-app-bar > .ui-app-bar-left,
-.ui-app-bar > .ui-app-bar-right {
+.app-bar > .app-bar-left,
+.app-bar > .app-bar-right {
     width: fit-content;
 }
 
-.ui-app-bar > .ui-app-bar-left {
+.app-bar > .app-bar-left {
     justify-content: flex-start;
 }
 
-.ui-app-bar > .ui-app-bar-right {
+.app-bar > .app-bar-right {
     justify-content: flex-end;
 }

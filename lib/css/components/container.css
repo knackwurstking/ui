@@ -1,4 +1,4 @@
-.ui-container {
+.container {
     display: block;
     width: 100%;
     max-width: 65rem;
@@ -7,7 +7,7 @@
     overflow: auto;
 }
 
-.ui-container.fluid {
+.container.fluid {
     width: 100%;
     max-width: 100%;
 }

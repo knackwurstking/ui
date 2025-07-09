@@ -4,7 +4,7 @@
     }
 }
 
-.ui-spinner {
+.spinner {
     /* utils: .ui-backdrop */
     background-color: var(--ui-backdrop-color);
 
@@ -15,7 +15,7 @@
     height: 100%;
 }
 
-.ui-spinner::after {
+.spinner::after {
     z-index: 1;
     position: absolute;
     top: 50%;
