@@ -2,7 +2,7 @@
     background-color: var(--ui-backdrop-color);
 }
 
-.primary {
+.primary:not(.ghost) {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }
@@ -11,7 +11,7 @@
     color: var(--ui-primary);
 }
 
-.secondary {
+.secondary:not(.ghost) {
     background-color: var(--ui-secondary);
     color: var(--ui-secondary-text);
 }
@@ -20,7 +20,7 @@
     color: var(--ui-secondary);
 }
 
-.destructive {
+.destructive:not(.ghost) {
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
 }
@@ -29,7 +29,7 @@
     color: var(--ui-destructive);
 }
 
-.muted {
+.muted:not(.ghost) {
     background-color: var(--ui-muted);
     color: var(--ui-muted-text);
 }
