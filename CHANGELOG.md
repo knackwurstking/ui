@@ -1,8 +1,15 @@
 # Changelog
 
-## v4.4.0 - unreleased
+## v5.0.0 - unreleased
 
 - Changed aria-invalid input styles
+- Removed all ui- prefixes from class names
+- Renamed some css utility class names
+- Added backdrop blur
+- Updated color utility classes
+- Added support for `[role="button"]`
+- Changed table styles
+- Fixed theme font settings
 
 ## v4.3.0 - 2025-05-20
 
