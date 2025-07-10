@@ -1,21 +1,29 @@
 table {
     table-layout: fixed 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
     width: 100%;
+}
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-radius: var(--ui-radius);
 }
 
 th {
     padding: var(--ui-spacing);
-    background-color: var(--ui-secondary);
+    color: var(--ui-secondary);
 }
 
 td {
     padding: var(--ui-spacing);
     background-color: transparent;
-    border-bottom: var(--ui-border-width) var(--ui-border-style)
-        var(--ui-border-color);
     text-align: center;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 tr.left > *,

@@ -332,7 +332,7 @@ blockquote {
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
-        "wght" 350, 
+        "wght" 350,
         "slnt" -10,
         "CRSV" var(--CRSV);
 }
@@ -345,7 +345,7 @@ samp {
     font-variation-settings:
         "MONO" 1,
         "CASL" 0,
-        "wght" var(--wght), 
+        "wght" var(--wght),
         "slnt" var(--slnt),
         "CRSV" var(--CRSV);
 }
@@ -355,7 +355,7 @@ summary::after {
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
-        "wght" 800, 
+        "wght" 800,
         "slnt" -5,
         "CRSV" var(--CRSV);
 }
@@ -371,7 +371,7 @@ h6 {
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
-        "wght" var(--wght), 
+        "wght" var(--wght),
         "slnt" var(--slnt),
         "CRSV" var(--CRSV);
 }
@@ -381,7 +381,7 @@ strong {
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
-        "wght" 600, 
+        "wght" 600,
         "slnt" var(--slnt),
         "CRSV" var(--CRSV);
 }
@@ -390,27 +390,25 @@ i {
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
-        "wght" var(--wght), 
+        "wght" var(--wght),
         "slnt" -10,
         "CRSV" var(--CRSV);
 }
 
-table thead,
 table th {
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
-        "wght" 500, 
+        "wght" 600,
         "slnt" var(--slnt),
         "CRSV" var(--CRSV);
 }
 
-table tbody,
 table td {
     font-variation-settings:
         "MONO" 1,
-        "CASL" 1,
-        "wght" 350,
+        "CASL" 0,
+        "wght" 300,
         "slnt" var(--slnt),
         "CRSV" var(--CRSV);
 }
