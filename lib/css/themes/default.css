@@ -306,6 +306,15 @@
 
 /* Fonts Section */
 
+html,
+body {
+    --mono: 0;
+    --casl: 1;
+    --wght: 400;
+    --slnt: 0;
+    --CRSV: 0.5;
+}
+
 *,
 *::before,
 *::after {
@@ -318,17 +327,7 @@
         "CRSV" var(--CRSV);
 }
 
-html,
-body {
-    --mono: 0;
-    --casl: 1;
-    --wght: 400;
-    --slnt: 0;
-    --CRSV: 0.5;
-}
-
 blockquote {
-    font-family: var(--ui-font-name);
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
@@ -341,7 +340,6 @@ code,
 kbd,
 pre,
 samp {
-    font-family: var(--ui-font-name);
     font-variation-settings:
         "MONO" 1,
         "CASL" 0,
@@ -399,8 +397,18 @@ small {
     font-variation-settings:
         "MONO" var(--mono),
         "CASL" var(--casl),
-        "wght" 350,
+        "wght" 300,
         "slnt" var(--slnt),
+        "CRSV" var(--CRSV);
+}
+
+label[for],
+label:has(input) {
+    font-variation-settings:
+        "MONO" var(--mono),
+        "CASL" var(--casl),
+        "wght" 350,
+        "slnt" -10,
         "CRSV" var(--CRSV);
 }
 
