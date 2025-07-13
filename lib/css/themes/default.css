@@ -22,7 +22,7 @@
         --ui-hue: 250;
         --ui-saturation: 10%;
 
-        --ui-color-50: hsl(var(--ui-hue), 0%, 100%);
+        --ui-color-50: hsl(var(--ui-hue), var(--ui-saturation), 98%);
         --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 96%);
         --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 90%);
         --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 84%);
@@ -61,7 +61,7 @@
     --ui-hue: 250;
     --ui-saturation: 10%;
 
-    --ui-color-50: hsl(var(--ui-hue), 0%, 100%);
+    --ui-color-50: hsl(var(--ui-hue), var(--ui-saturation), 98%);
     --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 96%);
     --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 90%);
     --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 84%);
