@@ -16,7 +16,6 @@ summary {
     justify-content: space-between;
     padding: var(--ui-spacing);
     overflow: hidden;
-    font-size: 1.1rem;
     list-style: none;
 
     border-radius: var(-ui-radius);
@@ -28,7 +27,6 @@ summary::-webkit-details-marker {
 
 summary::after {
     content: "+";
-    font-size: 1rem;
     color: var(--ui-primary);
     padding-left: 1rem;
 }

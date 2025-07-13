@@ -36,6 +36,10 @@ small {
     font-size: 0.75rem;
 }
 
+summary {
+    font-size: 1.1rem;
+}
+
 textarea,
 input:not([role="button"]),
 select {
