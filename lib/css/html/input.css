@@ -14,7 +14,6 @@ textarea {
     box-shadow: none;
     transition: border-color 0.25s ease-in-out;
     background-color: transparent;
-    font-size: 0.95rem;
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
     accent-color: var(--ui-primary);
 }
@@ -26,7 +25,6 @@ input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
     border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
     border-radius: var(--ui-radius);
     box-shadow: none;
-    font-size: 0.95rem;
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
     transition: border-color 0.25s ease-in-out;
     background-color: transparent;

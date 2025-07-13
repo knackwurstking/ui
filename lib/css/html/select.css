@@ -6,7 +6,6 @@ select {
     box-shadow: none;
     padding: var(--ui-spacing);
     background-color: transparent;
-    font-size: 0.95rem;
     transition: border-color 0.25s ease-in-out;
     accent-color: var(--ui-primary);
 }

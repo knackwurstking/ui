@@ -395,6 +395,15 @@ i {
         "CRSV" var(--CRSV);
 }
 
+small {
+    font-variation-settings:
+        "MONO" var(--mono),
+        "CASL" var(--casl),
+        "wght" 350,
+        "slnt" var(--slnt),
+        "CRSV" var(--CRSV);
+}
+
 table th {
     font-variation-settings:
         "MONO" var(--mono),

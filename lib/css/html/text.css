@@ -34,3 +34,21 @@ label:has(input) {
     cursor: pointer;
     font-size: 0.9rem;
 }
+
+small {
+    font-size: 0.75rem;
+}
+
+textarea,
+input:not([role="button"]),
+select {
+    font-size: 0.95rem;
+}
+
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    font-size: 1.1rem;
+}
