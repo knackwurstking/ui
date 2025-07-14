@@ -4,7 +4,7 @@ ul {
     overflow: hidden;
 }
 
-ul > * {
+ul > li {
     padding: var(--ui-spacing);
 }
 
@@ -14,7 +14,7 @@ ol {
     overflow: hidden;
 }
 
-ol > * {
+ol > li {
     padding: var(--ui-spacing);
 }
 
