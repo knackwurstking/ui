@@ -7,7 +7,7 @@ input[type="reset"],
 input::-webkit-file-upload-button {
     display: inline-flex;
     cursor: pointer;
-    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2.5);
+    padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
@@ -197,14 +197,6 @@ input[type="reset"].outline.active {
     background-color: transparent;
     color: var(--ui-destructive--active);
     transform: scale(0.98);
-}
-
-/* Icon Buttons */
-[role="button"]:has(svg),
-button:has(svg),
-[role="button"].icon,
-button.icon {
-    padding: 0.25rem 0.5rem !important;
 }
 
 [role="button"] > svg,
