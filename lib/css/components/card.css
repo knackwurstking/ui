@@ -95,7 +95,8 @@
 /* Card structure */
 .card-header {
     padding: var(--card-padding, calc(var(--ui-spacing) * 1.5));
-    border-bottom: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-bottom: var(--ui-border-width) var(--ui-border-style)
+        var(--ui-border-color);
     background-color: var(--ui-color-50);
 }
 
@@ -105,7 +106,8 @@
 
 .card-footer {
     padding: var(--card-padding, calc(var(--ui-spacing) * 1.5));
-    border-top: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border-top: var(--ui-border-width) var(--ui-border-style)
+        var(--ui-border-color);
     background-color: var(--ui-color-50);
 }
 
@@ -301,6 +303,11 @@
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
     border-color: var(--ui-destructive);
+}
+
+.card.outlined .card-header {
+    background-color: transparent;
+    color: var(--ui-destructive);
 }
 
 /* Accessibility improvements */
