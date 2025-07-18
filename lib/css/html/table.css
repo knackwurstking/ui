@@ -35,5 +35,5 @@ td.left {
 tr.right > *,
 th.right,
 td.right {
-    text-align: left;
+    text-align: right;
 }
