@@ -2,33 +2,28 @@ a {
     color: var(--ui-secondary);
     text-decoration: none;
     opacity: 1;
+
     transition:
         color 0.25s ease-in-out,
-        opacity 0.25s easse-in-out;
+        background-color 0.25s ease-in-out,
+        opacity 0.25s easse-in-out,
+        transform 0.25s ease-in-out;
+
+    cursor: pointer;
+}
+
+a[role="button"] {
+    transition:
+        color 0.25s ease-in-out,
+        background-color 0.25s ease-in-out,
+        opacity 0.25s ease-in-out,
+        transform 0.25s ease-in-out !important;
 }
 
 a:hover {
     color: var(--ui-secondary--hover);
-    text-decoration: underline;
-}
-
-a:hover:first-child {
-    color: var(--ui-secondary--hover);
-    text-decoration: underline;
-    transform: translateY(-0.1rem);
-    transition: transform 0.25s ease-in-out;
-}
-
-a:hover:last-child {
-    color: var(--ui-secondary--hover);
-    text-decoration: underline;
-    transform: translateY(0.1rem);
-    transition: transform 0.25s ease-in-out;
-}
-
-a:hover:not(:first-child):not(:last-child) {
+    text-decoration: none;
     transform: scale(1.05);
-    transition: transform 0.25s ease-in-out;
 }
 
 a:active {
