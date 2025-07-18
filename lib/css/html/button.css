@@ -44,6 +44,15 @@ button.active {
     transform: scale(0.98);
 }
 
+[role="button"]:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--ui-primary--hover);
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-primary--hover);
+}
+
 /* Primary Outline & Ghost Variants */
 [role="button"].outline,
 [role="button"].ghost,
@@ -103,6 +112,15 @@ button.secondary.active {
     transform: scale(0.98);
 }
 
+[role="button"].secondary:focus-visible,
+button.secondary:focus-visible {
+    outline: 2px solid var(--ui-secondary--hover);
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-secondary--hover);
+}
+
 [role="button"].secondary.ghost,
 [role="button"].secondary.outline,
 button.secondary.ghost,
@@ -160,6 +178,16 @@ input[type="reset"].active {
     transform: scale(0.98);
 }
 
+[role="button"].destructive:focus-visible,
+button.destructive:focus-visible,
+input[type="reset"]:focus-visible {
+    outline: 2px solid var(--ui-destructive--hover);
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-destructive--hover);
+}
+
 [role="button"].destructive.ghost,
 button.destructive.ghost,
 input[type="reset"].ghost,
@@ -196,6 +224,130 @@ input[type="reset"].outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-destructive--active);
+    transform: scale(0.98);
+}
+
+/* Success Color Variants */
+[role="button"].success,
+button.success {
+    background-color: var(--ui-success);
+    color: var(--ui-success-text);
+}
+
+[role="button"].success:hover,
+button.success:hover {
+    background-color: var(--ui-success--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].success:active,
+[role="button"].success.active,
+button.success:active,
+button.success.active {
+    background-color: var(--ui-success--active);
+    transition: none;
+    transform: scale(0.98);
+}
+
+[role="button"].success:focus-visible,
+button.success:focus-visible {
+    outline: 2px solid var(--ui-success--hover);
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-success--hover);
+}
+
+[role="button"].success.ghost,
+[role="button"].success.outline,
+button.success.ghost,
+button.success.outline {
+    background-color: transparent;
+    color: var(--ui-success);
+}
+
+[role="button"].success.ghost:hover,
+[role="button"].success.outline:hover,
+button.success.ghost:hover,
+button.success.outline:hover {
+    background-color: transparent;
+    color: var(--ui-success--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].success.ghost:active,
+[role="button"].success.ghost.active,
+[role="button"].success.outline:active,
+[role="button"].success.outline.active,
+button.success.ghost:active,
+button.success.ghost.active,
+button.success.outline:active,
+button.success.outline.active {
+    transition: none;
+    background-color: transparent;
+    color: var(--ui-success--active);
+    transform: scale(0.98);
+}
+
+/* Warning Color Variants */
+[role="button"].warning,
+button.warning {
+    background-color: var(--ui-warning);
+    color: var(--ui-warning-text);
+}
+
+[role="button"].warning:hover,
+button.warning:hover {
+    background-color: var(--ui-warning--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].warning:active,
+[role="button"].warning.active,
+button.warning:active,
+button.warning.active {
+    background-color: var(--ui-warning--active);
+    transition: none;
+    transform: scale(0.98);
+}
+
+[role="button"].warning:focus-visible,
+button.warning:focus-visible {
+    outline: 2px solid var(--ui-warning--hover);
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-warning--hover);
+}
+
+[role="button"].warning.ghost,
+[role="button"].warning.outline,
+button.warning.ghost,
+button.warning.outline {
+    background-color: transparent;
+    color: var(--ui-warning);
+}
+
+[role="button"].warning.ghost:hover,
+[role="button"].warning.outline:hover,
+button.warning.ghost:hover,
+button.warning.outline:hover {
+    background-color: transparent;
+    color: var(--ui-warning--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].warning.ghost:active,
+[role="button"].warning.ghost.active,
+[role="button"].warning.outline:active,
+[role="button"].warning.outline.active,
+button.warning.ghost:active,
+button.warning.ghost.active,
+button.warning.outline:active,
+button.warning.outline.active {
+    transition: none;
+    background-color: transparent;
+    color: var(--ui-warning--active);
     transform: scale(0.98);
 }
 

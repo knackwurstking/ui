@@ -39,3 +39,39 @@
 .muted.ghost {
     color: var(--ui-muted);
 }
+
+.success:not(.ghost) {
+    background-color: var(--ui-success);
+    color: var(--ui-success-text);
+}
+
+.success.ghost {
+    color: var(--ui-success);
+}
+
+.info:not(.ghost) {
+    background-color: var(--ui-info);
+    color: var(--ui-info-text);
+}
+
+.info.ghost {
+    color: var(--ui-info);
+}
+
+.warning:not(.ghost) {
+    background-color: var(--ui-warning);
+    color: var(--ui-warning-text);
+}
+
+.warning.ghost {
+    color: var(--ui-warning);
+}
+
+.error:not(.ghost) {
+    background-color: var(--ui-error);
+    color: var(--ui-error-text);
+}
+
+.error.ghost {
+    color: var(--ui-error);
+}

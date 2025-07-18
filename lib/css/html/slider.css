@@ -12,7 +12,7 @@ input[type="range"] {
 }
 
 /**
- * Webkit: (Tested: Safari v18.4, Chrome: v136.0.7103.49, Edge v136.0.3240.50) 
+ * Webkit: (Tested: Safari v18.4, Chrome: v136.0.7103.49, Edge v136.0.3240.50)
  */
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -57,8 +57,8 @@ input[type="range"]::-webkit-slider-thumb:active {
     background: var(--ui-primary);
 }
 
-/** 
- * Mozilla: (Tested: Firefox v138.0.1) 
+/**
+ * Mozilla: (Tested: Firefox v138.0.1)
  */
 
 input[type="range"]::-moz-range-track {
@@ -101,4 +101,26 @@ input[type="range"]::-moz-range-thumb {
 input[type="range"]::-moz-range-thumb:active {
     cursor: grabbing;
     background: var(--ui-primary);
+}
+
+/* Focus styles for accessibility */
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]:focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+}
+
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-primary);
+}
+
+input[type="range"]:focus-visible::-moz-range-thumb {
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-primary);
 }

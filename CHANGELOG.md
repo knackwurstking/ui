@@ -1,5 +1,52 @@
 # Changelog
 
+## v5.0.1 - unreleased
+
+**Enhanced Color Palette & Theme**:
+
+- Improved default theme colors with better contrast and vibrancy
+- Changed base hue from 250° to 220° for cleaner blue tones
+- Increased saturation from 10% to 25-30% for more modern appearance
+- Enhanced primary colors with vibrant blue variants
+- Added comprehensive success color system (green)
+- Improved warning colors with better orange/amber tones
+- Enhanced destructive/error colors with better red variants
+- Added subtle color tinting to muted and border colors
+- Improved backdrop colors with better transparency effects
+
+**Accessibility & Focus Management**:
+
+- Added comprehensive focus-visible styles for all interactive elements
+- Implemented proper keyboard navigation support
+- Added high contrast mode support with enhanced focus indicators
+- Added reduced motion support for accessibility
+- Enhanced focus styles for buttons, inputs, selects, and sliders
+- Added proper ARIA validation color support
+
+**Component Improvements**:
+
+- Added missing success and warning button variants
+- Enhanced button focus states with box-shadow effects
+- Improved select component with better styling and validation states
+- Added comprehensive focus styles to range sliders
+- Fixed hardcoded color values to use CSS custom properties
+
+**Utility Classes**:
+
+- Added success, info, warning, and error color utility classes
+- Added comprehensive text utilities (alignment, transform, weight, size)
+- Added font weight utilities using variable font settings
+- Added line height and text decoration utilities
+- Added white space and word break utilities
+- Enhanced text utilities with proper variable font support
+
+**Bug Fixes**:
+
+- Fixed CSS syntax error in details.css (missing dash in --ui-radius)
+- Fixed border-left utility class applying all borders instead of just left
+- Fixed input validation using hardcoded green instead of success variable
+- Replaced hardcoded color values with proper CSS custom properties
+
 ## v5.0.0 - unreleased
 
 - Changed aria-invalid input styles

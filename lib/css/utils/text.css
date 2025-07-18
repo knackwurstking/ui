@@ -12,3 +12,192 @@
     overflow: hidden;
     white-space: nowrap;
 }
+
+/* Text alignment utilities */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* Text transform utilities */
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-normal-case {
+    text-transform: none;
+}
+
+/* Font weight utilities */
+.text-thin {
+    --wght: 100;
+}
+
+.text-light {
+    --wght: 300;
+}
+
+.text-normal {
+    --wght: 400;
+}
+
+.text-medium {
+    --wght: 500;
+}
+
+.text-semibold {
+    --wght: 600;
+}
+
+.text-bold {
+    --wght: 700;
+}
+
+.text-extrabold {
+    --wght: 800;
+}
+
+.text-black {
+    --wght: 900;
+}
+
+/* Font size utilities */
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-base {
+    font-size: 1rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+}
+
+/* Line height utilities */
+.leading-none {
+    line-height: 1;
+}
+
+.leading-tight {
+    line-height: 1.25;
+}
+
+.leading-snug {
+    line-height: 1.375;
+}
+
+.leading-normal {
+    line-height: 1.5;
+}
+
+.leading-relaxed {
+    line-height: 1.625;
+}
+
+.leading-loose {
+    line-height: 2;
+}
+
+/* Text decoration utilities */
+.underline {
+    text-decoration: underline;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+/* White space utilities */
+.whitespace-normal {
+    white-space: normal;
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
+.whitespace-pre {
+    white-space: pre;
+}
+
+.whitespace-pre-line {
+    white-space: pre-line;
+}
+
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
+
+/* Word break utilities */
+.break-normal {
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.break-words {
+    overflow-wrap: break-word;
+}
+
+.break-all {
+    word-break: break-all;
+}
+
+/* Text overflow utilities */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Font style utilities */
+.italic {
+    --slnt: -10;
+}
+
+.not-italic {
+    --slnt: 0;
+}

@@ -4,8 +4,39 @@ select {
     border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
     border-radius: var(--ui-radius);
     box-shadow: none;
-    padding: var(--ui-spacing);
-    background-color: transparent;
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
     transition: border-color 0.25s ease-in-out;
     accent-color: var(--ui-primary);
+    min-height: calc(var(--ui-spacing) * 2 + 1.5rem);
+}
+
+select:hover {
+    border-color: var(--ui-primary);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--ui-primary);
+}
+
+select:focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+    border-color: var(--ui-primary);
+}
+
+select[aria-invalid="true"] {
+    border-color: var(--ui-destructive);
+}
+
+select[aria-invalid="false"] {
+    border-color: var(--ui-success);
+}
+
+option {
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+    padding: var(--ui-spacing);
 }

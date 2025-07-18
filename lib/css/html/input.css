@@ -69,5 +69,5 @@ input[aria-invalid="true"] {
 
 textarea[aria-invalid="false"],
 input[aria-invalid="false"] {
-    border-color: green !important;
+    border-color: var(--ui-success) !important;
 }

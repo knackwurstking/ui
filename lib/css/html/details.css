@@ -18,7 +18,7 @@ summary {
     overflow: hidden;
     list-style: none;
 
-    border-radius: var(-ui-radius);
+    border-radius: var(--ui-radius);
 }
 
 summary::-webkit-details-marker {
