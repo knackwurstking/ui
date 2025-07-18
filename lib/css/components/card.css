@@ -275,6 +275,10 @@
     border-color: var(--ui-primary);
 }
 
+.card.outlined.primary .card-header {
+    color: var(--ui-primary);
+}
+
 .card.success {
     border-color: var(--ui-success);
 }
@@ -283,6 +287,10 @@
     background-color: var(--ui-success);
     color: var(--ui-success-text);
     border-color: var(--ui-success);
+}
+
+.card.outlined.success .card-header {
+    color: var(--ui-success);
 }
 
 .card.warning {
@@ -295,6 +303,10 @@
     border-color: var(--ui-warning);
 }
 
+.card.outlined.warning .card-header {
+    color: var(--ui-warning);
+}
+
 .card.destructive {
     border-color: var(--ui-destructive);
 }
@@ -305,9 +317,13 @@
     border-color: var(--ui-destructive);
 }
 
+.card.outlined.destructive .card-header {
+    color: var(--ui-destructive);
+}
+
 .card.outlined .card-header {
     background-color: transparent;
-    color: var(--ui-destructive);
+    border: transparent;
 }
 
 /* Accessibility improvements */
