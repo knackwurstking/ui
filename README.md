@@ -38,7 +38,6 @@ A modern, lightweight UI library with comprehensive CSS framework and TypeScript
 - [🎨 Customization](#-customization)
     - [CSS Variables](#css-variables)
     - [Theme Switching](#theme-switching)
-- [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 - [🙏 Acknowledgments](#-acknowledgments)
 
@@ -461,15 +460,6 @@ document.documentElement.setAttribute(
     prefersDark ? "dark" : "light",
 );
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Update documentation
-6. Submit a pull request
 
 ## 📄 License
 
