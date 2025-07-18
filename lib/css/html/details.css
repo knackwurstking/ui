@@ -27,7 +27,6 @@ summary::-webkit-details-marker {
 
 summary::after {
     content: "+";
-    color: var(--ui-primary);
     padding-left: 1rem;
 }
 
