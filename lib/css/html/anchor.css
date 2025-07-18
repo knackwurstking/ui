@@ -12,6 +12,25 @@ a:hover {
     text-decoration: underline;
 }
 
+a:hover:first-child {
+    color: var(--ui-secondary--hover);
+    text-decoration: underline;
+    transform: translateY(-0.1rem);
+    transition: transform 0.25s ease-in-out;
+}
+
+a:hover:last-child {
+    color: var(--ui-secondary--hover);
+    text-decoration: underline;
+    transform: translateY(0.1rem);
+    transition: transform 0.25s ease-in-out;
+}
+
+a:hover:not(:first-child):not(:last-child) {
+    transform: scale(1.05);
+    transition: transform 0.25s ease-in-out;
+}
+
 a:active {
     color: var(--ui-secondary--active);
 }
