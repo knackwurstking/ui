@@ -14,7 +14,6 @@
 }
 
 .card:hover {
-    transform: translateY(-2px);
     box-shadow:
         0 4px 12px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
         0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
@@ -47,7 +46,6 @@
 }
 
 .card.flat:hover {
-    transform: none;
     background-color: var(--ui-color-200);
 }
 
@@ -70,7 +68,6 @@
 }
 
 .card.interactive:active {
-    transform: translateY(0);
     transition: transform 0.1s ease-in-out;
 }
 
@@ -331,10 +328,6 @@
     .card,
     .card.media .card-image {
         transition: none;
-    }
-
-    .card:hover {
-        transform: none;
     }
 }
 
