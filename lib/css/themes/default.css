@@ -19,10 +19,10 @@
 
 :root {
     @media only screen and (prefers-color-scheme: light) {
-        --ui-hue: 220;
+        --ui-hue: 120;
         --ui-saturation: 25%;
 
-        --ui-color-50: hsl(var(--ui-hue), var(--ui-saturation), 98%);
+        --ui-color-50: hsl(var(--ui-hue), 0, 98%);
         --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 95%);
         --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 88%);
         --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 78%);
@@ -32,14 +32,14 @@
         --ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 24%);
         --ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 15%);
         --ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 8%);
-        --ui-color-950: hsl(var(--ui-hue), 20%, 3%);
+        --ui-color-950: hsl(var(--ui-hue), 0%, 3%);
     }
 
     @media only screen and (prefers-color-scheme: dark) {
-        --ui-hue: 220;
+        --ui-hue: 120;
         --ui-saturation: 30%;
 
-        --ui-color-50: hsl(var(--ui-hue), 20%, 5%);
+        --ui-color-50: hsl(var(--ui-hue), 0%, 0%);
         --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 8%);
         --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 12%);
         --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 18%);
@@ -49,7 +49,7 @@
         --ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 72%);
         --ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 85%);
         --ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 92%);
-        --ui-color-950: hsl(var(--ui-hue), 15%, 98%);
+        --ui-color-950: hsl(var(--ui-hue), 0%, 98%);
     }
 
     background-color: var(--ui-bg);
@@ -58,10 +58,10 @@
 
 [data-theme="light"],
 [data-ui-theme="light"] {
-    --ui-hue: 220;
+    --ui-hue: 120;
     --ui-saturation: 25%;
 
-    --ui-color-50: hsl(var(--ui-hue), var(--ui-saturation), 98%);
+    --ui-color-50: hsl(var(--ui-hue), 0, 98%);
     --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 95%);
     --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 88%);
     --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 78%);
@@ -71,15 +71,15 @@
     --ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 24%);
     --ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 15%);
     --ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 8%);
-    --ui-color-950: hsl(var(--ui-hue), 20%, 3%);
+    --ui-color-950: hsl(var(--ui-hue), 0%, 3%);
 }
 
 [data-theme="dark"],
 [data-ui-theme="dark"] {
-    --ui-hue: 220;
+    --ui-hue: 120;
     --ui-saturation: 30%;
 
-    --ui-color-50: hsl(var(--ui-hue), 20%, 5%);
+    --ui-color-50: hsl(var(--ui-hue), 0%, 0%);
     --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 8%);
     --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 12%);
     --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 18%);
@@ -89,7 +89,7 @@
     --ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 72%);
     --ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 85%);
     --ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 92%);
-    --ui-color-950: hsl(var(--ui-hue), 15%, 98%);
+    --ui-color-950: hsl(var(--ui-hue), 0%, 98%);
 }
 
 :root {
@@ -101,11 +101,11 @@
         --ui-text-input: hsla(var(--ui-hue), 0%, 0%, 0.85);
 
         --ui-primary-text: var(--ui-bg);
-        --ui-primary: hsl(210, 85%, 55%);
+        --ui-primary: hsl(var(--ui-hue), 85%, 55%);
         /* --ui-primary + lightness -5% */
-        --ui-primary--hover: hsl(210, 85%, 50%);
+        --ui-primary--hover: hsl(var(--ui-hue), 85%, 50%);
         /* --ui-primary + lightness -15% */
-        --ui-primary--active: hsl(210, 85%, 40%);
+        --ui-primary--active: hsl(var(--ui-hue), 85%, 40%);
 
         --ui-secondary-text: var(--ui-text);
         --ui-secondary: var(--ui-color-400);
@@ -143,6 +143,11 @@
         --ui-error-text: var(--ui-destructive-text);
         --ui-error: var(--ui-destructive);
 
+        --ui-contrast-text: var(--ui-color-50);
+        --ui-contrast: var(--ui-color-950);
+        --ui-contrast--hover: hsl(var(--ui-hue), 0%, 10%);
+        --ui-contrast--active: hsl(var(--ui-hue), 0%, 15%);
+
         /* --ui-color-50 + alpha 0.75 */
         --ui-backdrop-color: hsla(var(--ui-hue), 25%, 98%, 0.85);
         --ui-border-color: hsla(var(--ui-hue), 20%, 20%, 0.2);
@@ -158,11 +163,11 @@
         --ui-text-input: hsla(var(--ui-hue), 0%, 100%, 0.85);
 
         --ui-primary-text: var(--ui-bg);
-        --ui-primary: hsl(210, 90%, 68%);
+        --ui-primary: hsl(var(--ui-hue), 90%, 68%);
         /* --ui-primary + lightness -5% */
-        --ui-primary--hover: hsl(210, 90%, 63%);
+        --ui-primary--hover: hsl(var(--ui-hue), 90%, 63%);
         /* --ui-primary + lightness -15% */
-        --ui-primary--active: hsl(210, 90%, 53%);
+        --ui-primary--active: hsl(var(--ui-hue), 90%, 53%);
 
         --ui-secondary-text: var(--ui-text);
         --ui-secondary: var(--ui-color-500);
@@ -200,6 +205,11 @@
         --ui-error-text: var(--ui-destructive-text);
         --ui-error: var(--ui-destructive);
 
+        --ui-contrast-text: var(--ui-color-50);
+        --ui-contrast: var(--ui-color-950);
+        --ui-contrast--hover: hsl(var(--ui-hue), 0%, 90%);
+        --ui-contrast--active: hsl(var(--ui-hue), 0%, 85%);
+
         /* --ui-color-50 + alpha 0.75 */
         --ui-backdrop-color: hsla(var(--ui-hue), 25%, 5%, 0.85);
         --ui-border-color: hsla(var(--ui-hue), 20%, 80%, 0.25);
@@ -217,11 +227,11 @@
     --ui-text-input: hsla(var(--ui-hue), 0%, 0%, 0.85);
 
     --ui-primary-text: var(--ui-bg);
-    --ui-primary: hsl(210, 85%, 55%);
+    --ui-primary: hsl(var(--ui-hue), 85%, 55%);
     /* --ui-primary + lightness -5% */
-    --ui-primary--hover: hsl(210, 85%, 50%);
+    --ui-primary--hover: hsl(var(--ui-hue), 85%, 50%);
     /* --ui-primary + lightness -15% */
-    --ui-primary--active: hsl(210, 85%, 40%);
+    --ui-primary--active: hsl(var(--ui-hue), 85%, 40%);
 
     --ui-secondary-text: var(--ui-text);
     --ui-secondary: var(--ui-color-400);
@@ -259,6 +269,11 @@
     --ui-error-text: var(--ui-destructive-text);
     --ui-error: var(--ui-destructive);
 
+    --ui-contrast-text: var(--ui-color-50);
+    --ui-contrast: var(--ui-color-950);
+    --ui-contrast--hover: hsl(var(--ui-hue), 0%, 10%);
+    --ui-contrast--active: hsl(var(--ui-hue), 0%, 15%);
+
     /* --ui-color-50 + alpha 0.75 */
     --ui-backdrop-color: hsla(var(--ui-hue), 25%, 98%, 0.85);
     --ui-border-color: hsla(var(--ui-hue), 20%, 20%, 0.2);
@@ -275,11 +290,11 @@
     --ui-text-input: hsla(var(--ui-hue), 0%, 100%, 0.85);
 
     --ui-primary-text: var(--ui-bg);
-    --ui-primary: hsl(210, 90%, 68%);
+    --ui-primary: hsl(var(--ui-hue), 90%, 68%);
     /* --ui-primary + lightness -5% */
-    --ui-primary--hover: hsl(210, 90%, 63%);
+    --ui-primary--hover: hsl(var(--ui-hue), 90%, 63%);
     /* --ui-primary + lightness -15% */
-    --ui-primary--active: hsl(210, 90%, 53%);
+    --ui-primary--active: hsl(var(--ui-hue), 90%, 53%);
 
     --ui-secondary-text: var(--ui-text);
     --ui-secondary: var(--ui-color-500);
@@ -316,6 +331,11 @@
 
     --ui-error-text: var(--ui-destructive-text);
     --ui-error: var(--ui-destructive);
+
+    --ui-contrast-text: var(--ui-color-50);
+    --ui-contrast: var(--ui-color-950);
+    --ui-contrast--hover: hsl(var(--ui-hue), 0%, 90%);
+    --ui-contrast--active: hsl(var(--ui-hue), 0%, 85%);
 
     /* --ui-color-50 + alpha 0.75 */
     --ui-backdrop-color: hsla(var(--ui-hue), 25%, 5%, 0.85);

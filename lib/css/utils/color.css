@@ -75,3 +75,12 @@
 .error.ghost {
     color: var(--ui-error);
 }
+
+.contrast:not(.ghost) {
+    background-color: var(--ui-contrast);
+    color: var(--ui-contrast-text);
+}
+
+.contrast.ghost {
+    color: var(--ui-contrast);
+}

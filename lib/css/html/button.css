@@ -351,6 +351,68 @@ button.warning.outline.active {
     transform: scale(0.98);
 }
 
+/* Contrast Color Variants */
+[role="button"].contrast,
+button.contrast {
+    background-color: var(--ui-contrast);
+    color: var(--ui-contrast-text);
+}
+
+[role="button"].contrast:hover,
+button.contrast:hover {
+    background-color: var(--ui-contrast--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].contrast:active,
+[role="button"].contrast.active,
+button.contrast:active,
+button.contrast.active {
+    background-color: var(--ui-contrast--active);
+    transition: none;
+    transform: scale(0.98);
+}
+
+[role="button"].contrast:focus-visible,
+button.contrast:focus-visible {
+    outline: 2px solid var(--ui-contrast--hover);
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-contrast--hover);
+}
+
+[role="button"].contrast.ghost,
+[role="button"].contrast.outline,
+button.contrast.ghost,
+button.contrast.outline {
+    background-color: transparent;
+    color: var(--ui-contrast);
+}
+
+[role="button"].contrast.ghost:hover,
+[role="button"].contrast.outline:hover,
+button.contrast.ghost:hover,
+button.contrast.outline:hover {
+    background-color: transparent;
+    color: var(--ui-contrast--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].contrast.ghost:active,
+[role="button"].contrast.ghost.active,
+[role="button"].contrast.outline:active,
+[role="button"].contrast.outline.active,
+button.contrast.ghost:active,
+button.contrast.ghost.active,
+button.contrast.outline:active,
+button.contrast.outline.active {
+    transition: none;
+    background-color: transparent;
+    color: var(--ui-contrast--active);
+    transform: scale(0.98);
+}
+
 [role="button"] > svg,
 button > svg {
     width: 100%;
