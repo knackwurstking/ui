@@ -1,4 +1,4 @@
-/* Defaults: primary full */
+/* Button Base Styles */
 [role="button"],
 button,
 input[type="button"],
@@ -12,27 +12,27 @@ input::-webkit-file-upload-button {
     justify-content: center;
     text-transform: capitalize;
     overflow: hidden;
-    transition: background-color 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
     border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
     border-radius: var(--ui-radius);
 
-    /* utils: .ui-none-select */
+    /* Prevent text selection */
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
 
-    /* NOTE: Default Styles (primary, full) */
+    /* Default primary full styles */
     border-color: transparent;
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }
 
-/* NOTE: Default styles for color primary and variant full */
-
+/* Primary Color Variants */
 [role="button"]:hover,
 button:hover {
     background-color: var(--ui-primary--hover);
+    transform: scale(1.05);
 }
 
 [role="button"]:active,
@@ -41,8 +41,10 @@ button:active,
 button.active {
     transition: none;
     background-color: var(--ui-primary--active);
+    transform: scale(0.98);
 }
 
+/* Primary Outline & Ghost Variants */
 [role="button"].outline,
 [role="button"].ghost,
 button.outline,
@@ -57,6 +59,7 @@ button.outline:hover,
 button.ghost:hover {
     background-color: transparent;
     color: var(--ui-primary--hover);
+    transform: scale(1.05);
 }
 
 [role="button"].outline:active,
@@ -70,6 +73,7 @@ button.ghost.active {
     background-color: transparent;
     transition: none;
     color: var(--ui-primary--active);
+    transform: scale(0.98);
 }
 
 [role="button"].outline,
@@ -77,8 +81,7 @@ button.outline {
     border-color: currentColor;
 }
 
-/* NOTE: Color: Secondary */
-
+/* Secondary Color Variants */
 [role="button"].secondary,
 button.secondary {
     background-color: var(--ui-secondary);
@@ -88,6 +91,7 @@ button.secondary {
 [role="button"].secondary:hover,
 button.secondary:hover {
     background-color: var(--ui-secondary--hover);
+    transform: scale(1.05);
 }
 
 [role="button"].secondary:active,
@@ -96,6 +100,7 @@ button.secondary:active,
 button.secondary.active {
     transition: none;
     background-color: var(--ui-secondary--active);
+    transform: scale(0.98);
 }
 
 [role="button"].secondary.ghost,
@@ -112,6 +117,7 @@ button.secondary.ghost:hover,
 button.secondary.outline:hover {
     background-color: transparent;
     color: var(--ui-secondary--hover);
+    transform: scale(1.05);
 }
 
 [role="button"].secondary.ghost:active,
@@ -125,10 +131,10 @@ button.secondary.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-secondary--active);
+    transform: scale(0.98);
 }
 
-/* NOTE: Color: Destructive */
-
+/* Destructive Color Variants */
 [role="button"].destructive,
 button.destructive,
 input[type="reset"] {
@@ -140,6 +146,7 @@ input[type="reset"] {
 button.destructive:hover,
 input[type="reset"]:hover {
     background-color: var(--ui-destructive--hover);
+    transform: scale(1.05);
 }
 
 [role="button"].destructive:active,
@@ -150,6 +157,7 @@ button.destructive.active,
 input[type="reset"].active {
     background-color: var(--ui-destructive--active);
     transition: none;
+    transform: scale(0.98);
 }
 
 [role="button"].destructive.ghost,
@@ -170,6 +178,7 @@ button.destructive.outline:hover,
 input[type="reset"].outline:hover {
     background-color: transparent;
     color: var(--ui-destructive--hover);
+    transform: scale(1.05);
 }
 
 [role="button"].destructive.ghost:active,
@@ -187,9 +196,10 @@ input[type="reset"].outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-destructive--active);
+    transform: scale(0.98);
 }
 
-/* SVG/Icon Buttons */
+/* Icon Buttons */
 [role="button"]:has(svg),
 button:has(svg),
 [role="button"].icon,
