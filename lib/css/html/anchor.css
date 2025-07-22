@@ -1,32 +1,65 @@
+/* Base anchor styles */
 a {
     color: var(--ui-secondary);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.125em;
     cursor: pointer;
-    opacity: 1;
-    text-decoration: none;
-    transition: all 0.25s linear;
+    transition: all 0.2s ease-in-out;
+    border-radius: calc(var(--ui-radius) * 0.5);
+    outline: none;
 }
 
+/* Hover state */
 a:hover {
     color: var(--ui-secondary--hover);
+    text-decoration-color: currentColor;
+}
+
+/* Active state */
+a:active {
+    color: var(--ui-secondary--active);
+    text-decoration-color: currentColor;
+}
+
+/* Focus state for accessibility */
+a:focus-visible {
+    color: var(--ui-secondary--hover);
+    text-decoration-color: currentColor;
+    outline: 2px solid var(--ui-secondary);
+    outline-offset: 2px;
+}
+
+/* Visited state */
+a:visited {
+    color: var(--ui-secondary);
+}
+
+a[href^="http"]:not([href*="localhost"]):after,
+a[target="_blank"]:after {
+    content: "↗";
+    margin-left: 0.25em;
+    font-size: 0.875em;
+    opacity: 0.7;
+}
+
+/* Disabled state */
+a[aria-disabled="true"],
+a[disabled],
+a.disabled {
+    color: var(--ui-muted-text);
+    cursor: not-allowed;
+    text-decoration: none;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* No decoration variant */
+a.no-decoration {
     text-decoration: none;
 }
 
-a:active {
-    color: var(--ui-secondary--active);
-}
-
-a:visited,
-a.current {
-    color: var(--ui-primary);
-    opacity: 0.75;
-}
-
-a:visited:hover,
-a.current:hover {
-    color: var(--ui-primary--hover);
-}
-
-a:visited:active,
-a.current:active {
-    color: var(--ui-primary--active);
+a.no-decoration:hover,
+a.no-decoration:focus-visible {
+    text-decoration: none;
 }
