@@ -31,11 +31,11 @@
     flex-flow: column-reverse nowrap;
 }
 
-.flex.gap {
+.gap {
     gap: var(--ui-spacing);
 }
 
-.flex.align-center {
+.align-center {
     align-items: center;
 }
 
@@ -47,7 +47,7 @@
     align-items: flex-end;
 }
 
-.flex.justify-center {
+.justify-center {
     justify-content: center;
 }
 
@@ -59,7 +59,7 @@
     justify-content: flex-end;
 }
 
-.flex.justify-evenly {
+.justify-evenly {
     justify-content: space-evenly;
 }
 
