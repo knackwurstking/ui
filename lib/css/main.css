@@ -3,15 +3,6 @@
 @import "./reset.css";
 @import "./global.css";
 
-@import "./utils/flex.css";
-@import "./utils/border.css";
-@import "./utils/color.css";
-@import "./utils/debug.css";
-@import "./utils/scroll.css";
-@import "./utils/text.css";
-@import "./utils/touch.css";
-@import "./utils/user-select.css";
-
 @import "./html/input.css";
 @import "./html/button.css"; /* NOTE: Button needs to be imported after Input */
 @import "./html/anchor.css";
@@ -33,3 +24,12 @@
 @import "./components/container.css";
 @import "./components/drawer.css";
 @import "./components/spinner.css";
+
+@import "./utils/flex.css";
+@import "./utils/border.css";
+@import "./utils/color.css";
+@import "./utils/debug.css";
+@import "./utils/scroll.css";
+@import "./utils/text.css";
+@import "./utils/touch.css";
+@import "./utils/user-select.css";
