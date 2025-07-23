@@ -19,11 +19,13 @@
         0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
 }
 
+/*
 .card:focus-within {
     border-color: var(--ui-primary);
     outline: 2px solid var(--ui-primary);
     outline-offset: 2px;
 }
+*/
 
 /* Card variants */
 .card.elevated {
@@ -45,19 +47,23 @@
     background-color: var(--ui-muted);
 }
 
+/*
 .card.flat:hover {
     background-color: var(--ui-color-200);
 }
+*/
 
 .card.outlined {
     background-color: transparent;
     border-width: calc(var(--ui-border-width) * 1.5);
 }
 
+/*
 .card.outlined:hover {
     border-color: var(--ui-primary);
     background-color: var(--ui-color-50);
 }
+/*
 
 /* Interactive card */
 .card.interactive {
@@ -71,10 +77,12 @@
     transition: transform 0.1s ease-in-out;
 }
 
+/*
 .card.interactive:focus {
     outline: 2px solid var(--ui-primary);
     outline-offset: 2px;
 }
+*/
 
 /* Card sizes */
 .card.compact {
@@ -262,6 +270,7 @@
 }
 
 /* Color variants */
+/*
 .card.primary {
     border-color: var(--ui-primary);
 }
@@ -322,6 +331,7 @@
     background-color: transparent;
     border: transparent;
 }
+*/
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
