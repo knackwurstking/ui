@@ -4,7 +4,7 @@
     -webkit-backdrop-filter: blur(5px);
 }
 
-.primary:not(.ghost) {
+.primary:not(.ghost):not(.outline) {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }
@@ -13,7 +13,12 @@
     color: var(--ui-primary);
 }
 
-.secondary:not(.ghost) {
+.primary.outline {
+    color: var(--ui-primary);
+    border-color: var(--ui-primary);
+}
+
+.secondary:not(.ghost):not(.outline) {
     background-color: var(--ui-secondary);
     color: var(--ui-secondary-text);
 }
@@ -22,7 +27,12 @@
     color: var(--ui-secondary);
 }
 
-.destructive:not(.ghost) {
+.secondary.outline {
+    color: var(--ui-secondary);
+    border-color: var(--ui-secondary);
+}
+
+.destructive:not(.ghost):not(.outline) {
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
 }
@@ -31,7 +41,12 @@
     color: var(--ui-destructive);
 }
 
-.muted:not(.ghost) {
+.destructive.outline {
+    color: var(--ui-destructive);
+    border-color: var(--ui-destructive);
+}
+
+.muted:not(.ghost):not(.outline) {
     background-color: var(--ui-muted);
     color: var(--ui-muted-text);
 }
@@ -40,7 +55,12 @@
     color: var(--ui-muted);
 }
 
-.success:not(.ghost) {
+.muted.outline {
+    color: var(--ui-muted);
+    border-color: var(--ui-muted);
+}
+
+.success:not(.ghost):not(.outline) {
     background-color: var(--ui-success);
     color: var(--ui-success-text);
 }
@@ -49,7 +69,12 @@
     color: var(--ui-success);
 }
 
-.info:not(.ghost) {
+.success.outline {
+    color: var(--ui-success);
+    border-color: var(--ui-success);
+}
+
+.info:not(.ghost):not(.outline) {
     background-color: var(--ui-info);
     color: var(--ui-info-text);
 }
@@ -58,7 +83,12 @@
     color: var(--ui-info);
 }
 
-.warning:not(.ghost) {
+.info.outline {
+    color: var(--ui-info);
+    border-color: var(--ui-info);
+}
+
+.warning:not(.ghost):not(.outline) {
     background-color: var(--ui-warning);
     color: var(--ui-warning-text);
 }
@@ -67,7 +97,11 @@
     color: var(--ui-warning);
 }
 
-.error:not(.ghost) {
+.warning.outline {
+    color: var(--ui-warning);
+}
+
+.error:not(.ghost):not(.outline) {
     background-color: var(--ui-error);
     color: var(--ui-error-text);
 }
@@ -76,11 +110,21 @@
     color: var(--ui-error);
 }
 
-.contrast:not(.ghost) {
+.error.outline {
+    color: var(--ui-error);
+    border-color: var(--ui-error);
+}
+
+.contrast:not(.ghost):not(.outline) {
     background-color: var(--ui-contrast);
     color: var(--ui-contrast-text);
 }
 
 .contrast.ghost {
     color: var(--ui-contrast);
+}
+
+.contrast.outline {
+    color: var(--ui-contrast);
+    border-color: var(--ui-contrast);
 }
