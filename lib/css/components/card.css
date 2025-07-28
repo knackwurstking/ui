@@ -19,13 +19,11 @@
         0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
 }
 
-/*
 .card:focus-within {
     border-color: var(--ui-primary);
     outline: 2px solid var(--ui-primary);
     outline-offset: 2px;
 }
-*/
 
 /* Card variants */
 .card.elevated {
@@ -47,23 +45,19 @@
     background-color: var(--ui-muted);
 }
 
-/*
 .card.flat:hover {
     background-color: var(--ui-color-200);
 }
-*/
 
 .card.outlined {
     background-color: transparent;
     border-width: calc(var(--ui-border-width) * 1.5);
 }
 
-/*
 .card.outlined:hover {
     border-color: var(--ui-primary);
     background-color: var(--ui-color-50);
 }
-/*
 
 /* Interactive card */
 .card.interactive {
@@ -77,12 +71,10 @@
     transition: transform 0.1s ease-in-out;
 }
 
-/*
 .card.interactive:focus {
     outline: 2px solid var(--ui-primary);
     outline-offset: 2px;
 }
-*/
 
 /* Card sizes */
 .card.compact {
@@ -270,7 +262,6 @@
 }
 
 /* Color variants */
-/*
 .card.primary {
     border-color: var(--ui-primary);
 }
@@ -283,6 +274,46 @@
 
 .card.outlined.primary .card-header {
     color: var(--ui-primary);
+}
+
+.card.primary:hover {
+    border-color: var(--ui-primary--hover);
+}
+
+.card.secondary {
+    border-color: var(--ui-secondary);
+}
+
+.card.secondary .card-header {
+    background-color: var(--ui-secondary);
+    color: var(--ui-secondary-text);
+    border-color: var(--ui-secondary);
+}
+
+.card.outlined.secondary .card-header {
+    color: var(--ui-secondary);
+}
+
+.card.secondary:hover {
+    border-color: var(--ui-secondary--hover);
+}
+
+.card.info {
+    border-color: var(--ui-info);
+}
+
+.card.info .card-header {
+    background-color: var(--ui-info);
+    color: var(--ui-info-text);
+    border-color: var(--ui-info);
+}
+
+.card.outlined.info .card-header {
+    color: var(--ui-info);
+}
+
+.card.info:hover {
+    border-color: var(--ui-info--hover);
 }
 
 .card.success {
@@ -299,6 +330,10 @@
     color: var(--ui-success);
 }
 
+.card.success:hover {
+    border-color: var(--ui-success--hover);
+}
+
 .card.warning {
     border-color: var(--ui-warning);
 }
@@ -311,6 +346,10 @@
 
 .card.outlined.warning .card-header {
     color: var(--ui-warning);
+}
+
+.card.warning:hover {
+    border-color: var(--ui-warning--hover);
 }
 
 .card.destructive {
@@ -327,11 +366,33 @@
     color: var(--ui-destructive);
 }
 
+.card.destructive:hover {
+    border-color: var(--ui-destructive--hover);
+}
+
+.card.contrast {
+    border-color: var(--ui-contrast);
+}
+
+.card.contrast .card-header {
+    background-color: var(--ui-contrast);
+    color: var(--ui-contrast-text);
+    border-color: var(--ui-contrast);
+}
+
+.card.outlined.contrast .card-header {
+    color: var(--ui-contrast);
+}
+
+.card.contrast:hover {
+    border-color: var(--ui-contrast--hover);
+}
+
+/* Override for all outlined cards - must come after color variants */
 .card.outlined .card-header {
     background-color: transparent;
-    border: transparent;
+    border-color: transparent;
 }
-*/
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
