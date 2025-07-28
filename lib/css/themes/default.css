@@ -129,11 +129,11 @@
         --ui-success--hover: hsl(140, 85%, 50%);
         --ui-success--active: hsl(140, 85%, 40%);
 
-        --ui-info-text: var(--ui-text);
+        --ui-info-text: hsl(200, 95%, 95%);
         /* --ui-color-50 + lightness -10% */
-        --ui-info: hsl(200, 95%, 92%);
-        --ui-info--hover: hsl(200, 95%, 87%);
-        --ui-info--active: hsl(200, 95%, 77%);
+        --ui-info: hsl(200, 85%, 50%);
+        --ui-info--hover: hsl(200, 85%, 45%);
+        --ui-info--active: hsl(200, 85%, 35%);
 
         --ui-warning-text: hsl(32, 95%, 12%);
         --ui-warning: hsl(42, 95%, 58%);
@@ -255,11 +255,11 @@
     --ui-success--hover: hsl(140, 85%, 50%);
     --ui-success--active: hsl(140, 85%, 40%);
 
-    --ui-info-text: var(--ui-text);
+    --ui-info-text: hsl(200, 95%, 95%);
     /* --ui-color-50 + lightness -10% */
-    --ui-info: hsl(200, 95%, 92%);
-    --ui-info--hover: hsl(200, 95%, 87%);
-    --ui-info--active: hsl(200, 95%, 77%);
+    --ui-info: hsl(200, 85%, 50%);
+    --ui-info--hover: hsl(200, 85%, 45%);
+    --ui-info--active: hsl(200, 85%, 35%);
 
     --ui-warning-text: hsl(32, 95%, 12%);
     --ui-warning: hsl(42, 95%, 58%);
