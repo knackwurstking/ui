@@ -57,6 +57,28 @@ a.primary:visited {
     color: var(--ui-primary);
 }
 
+/* Secondary Color Variant */
+a.secondary {
+    color: var(--ui-secondary);
+}
+
+a.secondary:hover {
+    color: var(--ui-secondary--hover);
+}
+
+a.secondary:active {
+    color: var(--ui-secondary--active);
+}
+
+a.secondary:focus-visible {
+    color: var(--ui-secondary--hover);
+    outline: 2px solid var(--ui-secondary);
+}
+
+a.secondary:visited {
+    color: var(--ui-secondary);
+}
+
 /* Info Color Variant */
 a.info {
     color: var(--ui-info);
@@ -123,25 +145,30 @@ a.success:visited {
     color: var(--ui-success);
 }
 
-/* Destructive Color Variant */
-a.destructive {
+/* Destructive/Error Color Variant */
+a.destructive,
+a.error {
     color: var(--ui-destructive);
 }
 
-a.destructive:hover {
+a.destructive:hover,
+a.error:hover {
     color: var(--ui-destructive--hover);
 }
 
-a.destructive:active {
+a.destructive:active,
+a.error:active {
     color: var(--ui-destructive--active);
 }
 
-a.destructive:focus-visible {
+a.destructive:focus-visible,
+a.error:focus-visible {
     color: var(--ui-destructive--hover);
     outline: 2px solid var(--ui-destructive);
 }
 
-a.destructive:visited {
+a.destructive:visited,
+a.error:visited {
     color: var(--ui-destructive);
 }
 
@@ -165,6 +192,30 @@ a.contrast:focus-visible {
 
 a.contrast:visited {
     color: var(--ui-contrast);
+}
+
+/* Muted Color Variant */
+a.muted {
+    color: var(--ui-muted-text);
+}
+
+a.muted:hover {
+    color: var(--ui-muted-text);
+    opacity: 0.8;
+}
+
+a.muted:active {
+    color: var(--ui-muted-text);
+    opacity: 0.6;
+}
+
+a.muted:focus-visible {
+    color: var(--ui-muted-text);
+    outline: 2px solid var(--ui-muted);
+}
+
+a.muted:visited {
+    color: var(--ui-muted-text);
 }
 
 a[href^="http"]:not([href*="localhost"]):after,
