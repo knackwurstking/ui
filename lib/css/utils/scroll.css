@@ -5,10 +5,12 @@
 
 .auto-scroll-x {
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-behavior: smooth;
 }
 
 .auto-scroll-y {
+    overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
