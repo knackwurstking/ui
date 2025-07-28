@@ -35,6 +35,138 @@ a:visited {
     color: var(--ui-secondary);
 }
 
+/* Primary Color Variant */
+a.primary {
+    color: var(--ui-primary);
+}
+
+a.primary:hover {
+    color: var(--ui-primary--hover);
+}
+
+a.primary:active {
+    color: var(--ui-primary--active);
+}
+
+a.primary:focus-visible {
+    color: var(--ui-primary--hover);
+    outline: 2px solid var(--ui-primary);
+}
+
+a.primary:visited {
+    color: var(--ui-primary);
+}
+
+/* Info Color Variant */
+a.info {
+    color: var(--ui-info);
+}
+
+a.info:hover {
+    color: var(--ui-info--hover);
+}
+
+a.info:active {
+    color: var(--ui-info--active);
+}
+
+a.info:focus-visible {
+    color: var(--ui-info--hover);
+    outline: 2px solid var(--ui-info);
+}
+
+a.info:visited {
+    color: var(--ui-info);
+}
+
+/* Warning Color Variant */
+a.warning {
+    color: var(--ui-warning);
+}
+
+a.warning:hover {
+    color: var(--ui-warning--hover);
+}
+
+a.warning:active {
+    color: var(--ui-warning--active);
+}
+
+a.warning:focus-visible {
+    color: var(--ui-warning--hover);
+    outline: 2px solid var(--ui-warning);
+}
+
+a.warning:visited {
+    color: var(--ui-warning);
+}
+
+/* Success Color Variant */
+a.success {
+    color: var(--ui-success);
+}
+
+a.success:hover {
+    color: var(--ui-success--hover);
+}
+
+a.success:active {
+    color: var(--ui-success--active);
+}
+
+a.success:focus-visible {
+    color: var(--ui-success--hover);
+    outline: 2px solid var(--ui-success);
+}
+
+a.success:visited {
+    color: var(--ui-success);
+}
+
+/* Destructive Color Variant */
+a.destructive {
+    color: var(--ui-destructive);
+}
+
+a.destructive:hover {
+    color: var(--ui-destructive--hover);
+}
+
+a.destructive:active {
+    color: var(--ui-destructive--active);
+}
+
+a.destructive:focus-visible {
+    color: var(--ui-destructive--hover);
+    outline: 2px solid var(--ui-destructive);
+}
+
+a.destructive:visited {
+    color: var(--ui-destructive);
+}
+
+/* Contrast Color Variant */
+a.contrast {
+    color: var(--ui-contrast);
+}
+
+a.contrast:hover {
+    color: var(--ui-contrast--hover);
+}
+
+a.contrast:active {
+    color: var(--ui-contrast--active);
+}
+
+a.contrast:focus-visible {
+    color: var(--ui-contrast--hover);
+    outline: 2px solid var(--ui-contrast);
+}
+
+a.contrast:visited {
+    color: var(--ui-contrast);
+}
+
 a[href^="http"]:not([href*="localhost"]):after,
 a[target="_blank"]:after {
     content: "↗";

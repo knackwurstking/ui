@@ -351,6 +351,68 @@ button.warning.outline.active {
     transform: scale(0.98);
 }
 
+/* Info Color Variants */
+[role="button"].info,
+button.info {
+    background-color: var(--ui-info);
+    color: var(--ui-info-text);
+}
+
+[role="button"].info:hover,
+button.info:hover {
+    background-color: var(--ui-info--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].info:active,
+[role="button"].info.active,
+button.info:active,
+button.info.active {
+    background-color: var(--ui-info--active);
+    transition: none;
+    transform: scale(0.98);
+}
+
+[role="button"].info:focus-visible,
+button.info:focus-visible {
+    outline: 2px solid var(--ui-info--hover);
+    outline-offset: 2px;
+    box-shadow:
+        0 0 0 2px var(--ui-bg),
+        0 0 0 4px var(--ui-info--hover);
+}
+
+[role="button"].info.ghost,
+[role="button"].info.outline,
+button.info.ghost,
+button.info.outline {
+    background-color: transparent;
+    color: var(--ui-info);
+}
+
+[role="button"].info.ghost:hover,
+[role="button"].info.outline:hover,
+button.info.ghost:hover,
+button.info.outline:hover {
+    background-color: transparent;
+    color: var(--ui-info--hover);
+    transform: scale(1.05);
+}
+
+[role="button"].info.ghost:active,
+[role="button"].info.ghost.active,
+[role="button"].info.outline:active,
+[role="button"].info.outline.active,
+button.info.ghost:active,
+button.info.ghost.active,
+button.info.outline:active,
+button.info.outline.active {
+    transition: none;
+    background-color: transparent;
+    color: var(--ui-info--active);
+    transform: scale(0.98);
+}
+
 /* Contrast Color Variants */
 [role="button"].contrast,
 button.contrast {

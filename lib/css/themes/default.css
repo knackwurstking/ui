@@ -132,6 +132,8 @@
         --ui-info-text: var(--ui-text);
         /* --ui-color-50 + lightness -10% */
         --ui-info: hsl(200, 95%, 92%);
+        --ui-info--hover: hsl(200, 95%, 87%);
+        --ui-info--active: hsl(200, 95%, 77%);
 
         --ui-warning-text: hsl(32, 95%, 12%);
         --ui-warning: hsl(42, 95%, 58%);
@@ -192,6 +194,8 @@
         --ui-info-text: var(--ui-text);
         /* --ui-color-50 + lightness 10% */
         --ui-info: hsl(200, 85%, 25%);
+        --ui-info--hover: hsl(200, 85%, 30%);
+        --ui-info--active: hsl(200, 85%, 40%);
 
         --ui-warning-text: hsl(32, 85%, 15%);
         --ui-warning: hsl(42, 90%, 65%);
@@ -254,6 +258,8 @@
     --ui-info-text: var(--ui-text);
     /* --ui-color-50 + lightness -10% */
     --ui-info: hsl(200, 95%, 92%);
+    --ui-info--hover: hsl(200, 95%, 87%);
+    --ui-info--active: hsl(200, 95%, 77%);
 
     --ui-warning-text: hsl(32, 95%, 12%);
     --ui-warning: hsl(42, 95%, 58%);
@@ -315,6 +321,8 @@
     --ui-info-text: var(--ui-text);
     /* --ui-color-50 + lightness 10% */
     --ui-info: hsl(200, 85%, 25%);
+    --ui-info--hover: hsl(200, 85%, 30%);
+    --ui-info--active: hsl(200, 85%, 40%);
 
     --ui-warning-text: hsl(32, 85%, 15%);
     --ui-warning: hsl(42, 90%, 65%);
