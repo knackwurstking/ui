@@ -26,6 +26,10 @@ p {
     padding: var(--ui-spacing);
 }
 
+label {
+    padding: var(--ui-spacing);
+}
+
 label[for],
 label:has(input) {
     cursor: pointer;
