@@ -28,6 +28,7 @@ summary::-webkit-details-marker {
 summary::after {
     content: "+";
     padding-left: 1rem;
+    padding-right: var(--ui-spacing);
 }
 
 details[open] summary::after {
