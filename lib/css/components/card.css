@@ -388,6 +388,42 @@
     border-color: var(--ui-contrast--hover);
 }
 
+.card.muted {
+    border-color: var(--ui-muted);
+}
+
+.card.muted .card-header {
+    background-color: var(--ui-muted);
+    color: var(--ui-muted-text);
+    border-color: var(--ui-muted);
+}
+
+.card.outlined.muted .card-header {
+    color: var(--ui-muted);
+}
+
+.card.muted:hover {
+    border-color: var(--ui-color-300);
+}
+
+.card.error {
+    border-color: var(--ui-error);
+}
+
+.card.error .card-header {
+    background-color: var(--ui-error);
+    color: var(--ui-error-text);
+    border-color: var(--ui-error);
+}
+
+.card.outlined.error .card-header {
+    color: var(--ui-error);
+}
+
+.card.error:hover {
+    border-color: var(--ui-destructive--hover);
+}
+
 /* Override for all outlined cards - must come after color variants */
 .card.outlined .card-header {
     background-color: transparent;
