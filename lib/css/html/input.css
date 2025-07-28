@@ -18,6 +18,21 @@ textarea {
     accent-color: var(--ui-primary);
 }
 
+textarea:hover {
+    border-color: var(--ui-primary);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--ui-primary);
+}
+
+textarea:focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+    border-color: var(--ui-primary);
+}
+
 input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
         [type="reset"]
     ) {
@@ -29,6 +44,27 @@ input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
     transition: border-color 0.25s ease-in-out;
     background-color: transparent;
     accent-color: var(--ui-primary);
+}
+
+input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):hover {
+    border-color: var(--ui-primary);
+}
+
+input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus {
+    outline: none;
+    border-color: var(--ui-primary);
+}
+
+input:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+    border-color: var(--ui-primary);
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -70,4 +106,272 @@ input[aria-invalid="true"] {
 textarea[aria-invalid="false"],
 input[aria-invalid="false"] {
     border-color: var(--ui-success) !important;
+}
+
+/* Color variants for textarea */
+textarea.primary {
+    border-color: var(--ui-primary);
+    accent-color: var(--ui-primary);
+}
+
+textarea.primary:hover {
+    border-color: var(--ui-primary--hover);
+}
+
+textarea.primary:focus,
+textarea.primary:focus-visible {
+    border-color: var(--ui-primary);
+    outline-color: var(--ui-primary);
+}
+
+textarea.secondary {
+    border-color: var(--ui-secondary);
+    accent-color: var(--ui-secondary);
+}
+
+textarea.secondary:hover {
+    border-color: var(--ui-secondary--hover);
+}
+
+textarea.secondary:focus,
+textarea.secondary:focus-visible {
+    border-color: var(--ui-secondary);
+    outline-color: var(--ui-secondary);
+}
+
+textarea.info {
+    border-color: var(--ui-info);
+    accent-color: var(--ui-info);
+}
+
+textarea.info:hover {
+    border-color: var(--ui-info--hover);
+}
+
+textarea.info:focus,
+textarea.info:focus-visible {
+    border-color: var(--ui-info);
+    outline-color: var(--ui-info);
+}
+
+textarea.success {
+    border-color: var(--ui-success);
+    accent-color: var(--ui-success);
+}
+
+textarea.success:hover {
+    border-color: var(--ui-success--hover);
+}
+
+textarea.success:focus,
+textarea.success:focus-visible {
+    border-color: var(--ui-success);
+    outline-color: var(--ui-success);
+}
+
+textarea.warning {
+    border-color: var(--ui-warning);
+    accent-color: var(--ui-warning);
+}
+
+textarea.warning:hover {
+    border-color: var(--ui-warning--hover);
+}
+
+textarea.warning:focus,
+textarea.warning:focus-visible {
+    border-color: var(--ui-warning);
+    outline-color: var(--ui-warning);
+}
+
+textarea.destructive {
+    border-color: var(--ui-destructive);
+    accent-color: var(--ui-destructive);
+}
+
+textarea.destructive:hover {
+    border-color: var(--ui-destructive--hover);
+}
+
+textarea.destructive:focus,
+textarea.destructive:focus-visible {
+    border-color: var(--ui-destructive);
+    outline-color: var(--ui-destructive);
+}
+
+textarea.contrast {
+    border-color: var(--ui-contrast);
+    accent-color: var(--ui-contrast);
+}
+
+textarea.contrast:hover {
+    border-color: var(--ui-contrast--hover);
+}
+
+textarea.contrast:focus,
+textarea.contrast:focus-visible {
+    border-color: var(--ui-contrast);
+    outline-color: var(--ui-contrast);
+}
+
+/* Color variants for input */
+input.primary:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ) {
+    border-color: var(--ui-primary);
+    accent-color: var(--ui-primary);
+}
+
+input.primary:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):hover {
+    border-color: var(--ui-primary--hover);
+}
+
+input.primary:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus,
+input.primary:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus-visible {
+    border-color: var(--ui-primary);
+    outline-color: var(--ui-primary);
+}
+
+input.secondary:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]) {
+    border-color: var(--ui-secondary);
+    accent-color: var(--ui-secondary);
+}
+
+input.secondary:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):hover {
+    border-color: var(--ui-secondary--hover);
+}
+
+input.secondary:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):focus,
+input.secondary:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):focus-visible {
+    border-color: var(--ui-secondary);
+    outline-color: var(--ui-secondary);
+}
+
+input.info:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ) {
+    border-color: var(--ui-info);
+    accent-color: var(--ui-info);
+}
+
+input.info:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):hover {
+    border-color: var(--ui-info--hover);
+}
+
+input.info:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus,
+input.info:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus-visible {
+    border-color: var(--ui-info);
+    outline-color: var(--ui-info);
+}
+
+input.success:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ) {
+    border-color: var(--ui-success);
+    accent-color: var(--ui-success);
+}
+
+input.success:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):hover {
+    border-color: var(--ui-success--hover);
+}
+
+input.success:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus,
+input.success:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus-visible {
+    border-color: var(--ui-success);
+    outline-color: var(--ui-success);
+}
+
+input.warning:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ) {
+    border-color: var(--ui-warning);
+    accent-color: var(--ui-warning);
+}
+
+input.warning:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):hover {
+    border-color: var(--ui-warning--hover);
+}
+
+input.warning:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus,
+input.warning:not([type="range"]):not([type="button"]):not([type="submit"]):not(
+        [type="reset"]
+    ):focus-visible {
+    border-color: var(--ui-warning);
+    outline-color: var(--ui-warning);
+}
+
+input.destructive:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]) {
+    border-color: var(--ui-destructive);
+    accent-color: var(--ui-destructive);
+}
+
+input.destructive:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):hover {
+    border-color: var(--ui-destructive--hover);
+}
+
+input.destructive:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):focus,
+input.destructive:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):focus-visible {
+    border-color: var(--ui-destructive);
+    outline-color: var(--ui-destructive);
+}
+
+input.contrast:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]) {
+    border-color: var(--ui-contrast);
+    accent-color: var(--ui-contrast);
+}
+
+input.contrast:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):hover {
+    border-color: var(--ui-contrast--hover);
+}
+
+input.contrast:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):focus,
+input.contrast:not([type="range"]):not([type="button"]):not(
+        [type="submit"]
+    ):not([type="reset"]):focus-visible {
+    border-color: var(--ui-contrast);
+    outline-color: var(--ui-contrast);
 }

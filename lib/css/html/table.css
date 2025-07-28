@@ -37,3 +37,98 @@ th.right,
 td.right {
     text-align: right;
 }
+
+/* Table hover effects */
+table.hover tbody tr:hover {
+    background-color: var(--ui-color-100);
+}
+
+/* Striped table variant */
+table.striped tbody tr:nth-child(even) {
+    background-color: var(--ui-color-50);
+}
+
+table.striped.hover tbody tr:nth-child(even):hover {
+    background-color: var(--ui-color-150);
+}
+
+table.striped.hover tbody tr:nth-child(odd):hover {
+    background-color: var(--ui-color-100);
+}
+
+/* Color variants for table headers */
+table.primary th {
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
+    border-color: var(--ui-primary);
+}
+
+table.secondary th {
+    background-color: var(--ui-secondary);
+    color: var(--ui-secondary-text);
+    border-color: var(--ui-secondary);
+}
+
+table.info th {
+    background-color: var(--ui-info);
+    color: var(--ui-info-text);
+    border-color: var(--ui-info);
+}
+
+table.success th {
+    background-color: var(--ui-success);
+    color: var(--ui-success-text);
+    border-color: var(--ui-success);
+}
+
+table.warning th {
+    background-color: var(--ui-warning);
+    color: var(--ui-warning-text);
+    border-color: var(--ui-warning);
+}
+
+table.destructive th {
+    background-color: var(--ui-destructive);
+    color: var(--ui-destructive-text);
+    border-color: var(--ui-destructive);
+}
+
+table.contrast th {
+    background-color: var(--ui-contrast);
+    color: var(--ui-contrast-text);
+    border-color: var(--ui-contrast);
+}
+
+/* Bordered table variant */
+table.bordered {
+    border-collapse: collapse;
+}
+
+table.bordered th,
+table.bordered td {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+}
+
+/* Borderless table variant */
+table.borderless,
+table.borderless th,
+table.borderless td,
+table.borderless thead,
+table.borderless tbody,
+table.borderless tr {
+    border: none;
+}
+
+/* Compact table variant */
+table.compact th,
+table.compact td {
+    padding: calc(var(--ui-spacing) / 2);
+    font-size: 0.85rem;
+}
+
+/* Spacious table variant */
+table.spacious th,
+table.spacious td {
+    padding: calc(var(--ui-spacing) * 1.5);
+    font-size: 1rem;
+}

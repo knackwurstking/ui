@@ -40,3 +40,67 @@ details[open] summary {
 
     margin-bottom: var(--ui-spacing);
 }
+
+/* Color variants for details */
+details.primary {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-primary);
+}
+
+details.primary summary {
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
+}
+
+details.secondary {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-secondary);
+}
+
+details.secondary summary {
+    background-color: var(--ui-secondary);
+    color: var(--ui-secondary-text);
+}
+
+details.info {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-info);
+}
+
+details.info summary {
+    background-color: var(--ui-info);
+    color: var(--ui-info-text);
+}
+
+details.success {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-success);
+}
+
+details.success summary {
+    background-color: var(--ui-success);
+    color: var(--ui-success-text);
+}
+
+details.warning {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-warning);
+}
+
+details.warning summary {
+    background-color: var(--ui-warning);
+    color: var(--ui-warning-text);
+}
+
+details.destructive {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-destructive);
+}
+
+details.destructive summary {
+    background-color: var(--ui-destructive);
+    color: var(--ui-destructive-text);
+}
+
+details.contrast {
+    border: var(--ui-border-width) var(--ui-border-style) var(--ui-contrast);
+}
+
+details.contrast summary {
+    background-color: var(--ui-contrast);
+    color: var(--ui-contrast-text);
+}

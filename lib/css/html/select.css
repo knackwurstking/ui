@@ -40,3 +40,109 @@ option {
     color: var(--ui-text);
     padding: var(--ui-spacing);
 }
+
+/* Color variants for select */
+select.primary {
+    border-color: var(--ui-primary);
+    accent-color: var(--ui-primary);
+}
+
+select.primary:hover {
+    border-color: var(--ui-primary--hover);
+}
+
+select.primary:focus,
+select.primary:focus-visible {
+    border-color: var(--ui-primary);
+    outline-color: var(--ui-primary);
+}
+
+select.secondary {
+    border-color: var(--ui-secondary);
+    accent-color: var(--ui-secondary);
+}
+
+select.secondary:hover {
+    border-color: var(--ui-secondary--hover);
+}
+
+select.secondary:focus,
+select.secondary:focus-visible {
+    border-color: var(--ui-secondary);
+    outline-color: var(--ui-secondary);
+}
+
+select.info {
+    border-color: var(--ui-info);
+    accent-color: var(--ui-info);
+}
+
+select.info:hover {
+    border-color: var(--ui-info--hover);
+}
+
+select.info:focus,
+select.info:focus-visible {
+    border-color: var(--ui-info);
+    outline-color: var(--ui-info);
+}
+
+select.success {
+    border-color: var(--ui-success);
+    accent-color: var(--ui-success);
+}
+
+select.success:hover {
+    border-color: var(--ui-success--hover);
+}
+
+select.success:focus,
+select.success:focus-visible {
+    border-color: var(--ui-success);
+    outline-color: var(--ui-success);
+}
+
+select.warning {
+    border-color: var(--ui-warning);
+    accent-color: var(--ui-warning);
+}
+
+select.warning:hover {
+    border-color: var(--ui-warning--hover);
+}
+
+select.warning:focus,
+select.warning:focus-visible {
+    border-color: var(--ui-warning);
+    outline-color: var(--ui-warning);
+}
+
+select.destructive {
+    border-color: var(--ui-destructive);
+    accent-color: var(--ui-destructive);
+}
+
+select.destructive:hover {
+    border-color: var(--ui-destructive--hover);
+}
+
+select.destructive:focus,
+select.destructive:focus-visible {
+    border-color: var(--ui-destructive);
+    outline-color: var(--ui-destructive);
+}
+
+select.contrast {
+    border-color: var(--ui-contrast);
+    accent-color: var(--ui-contrast);
+}
+
+select.contrast:hover {
+    border-color: var(--ui-contrast--hover);
+}
+
+select.contrast:focus,
+select.contrast:focus-visible {
+    border-color: var(--ui-contrast);
+    outline-color: var(--ui-contrast);
+}

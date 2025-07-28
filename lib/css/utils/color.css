@@ -99,6 +99,7 @@
 
 .warning.outline {
     color: var(--ui-warning);
+    border-color: var(--ui-warning);
 }
 
 .error:not(.ghost):not(.outline) {
