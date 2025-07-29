@@ -11,6 +11,7 @@ input::-webkit-file-upload-button {
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
+    text-decoration: none;
     overflow: hidden;
     transition: all 0.25s ease-in-out;
     border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);

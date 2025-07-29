@@ -1,6 +1,5 @@
 /* Base anchor styles */
-a {
-    color: var(--ui-secondary);
+a:not([role="button"]) {
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: 0.125em;
@@ -11,215 +10,207 @@ a {
 }
 
 /* Hover state */
-a:hover {
-    color: var(--ui-secondary--hover);
+a:not([role="button"]):hover {
     text-decoration-color: currentColor;
 }
 
 /* Active state */
-a:active {
-    color: var(--ui-secondary--active);
+a:not([role="button"]):active {
     text-decoration-color: currentColor;
 }
 
 /* Focus state for accessibility */
-a:focus-visible {
-    color: var(--ui-secondary--hover);
+a:not([role="button"]):focus-visible {
     text-decoration-color: currentColor;
     outline: 2px solid var(--ui-secondary);
     outline-offset: 2px;
 }
 
-/* Visited state */
-a:visited {
-    color: var(--ui-secondary);
-}
-
 /* Primary Color Variant */
-a.primary {
+a.primary:not([role="button"]) {
     color: var(--ui-primary);
 }
 
-a.primary:hover {
+a.primary:not([role="button"]):hover {
     color: var(--ui-primary--hover);
 }
 
-a.primary:active {
+a.primary:not([role="button"]):active {
     color: var(--ui-primary--active);
 }
 
-a.primary:focus-visible {
+a.primary:not([role="button"]):focus-visible {
     color: var(--ui-primary--hover);
     outline: 2px solid var(--ui-primary);
 }
 
-a.primary:visited {
+a.primary:not([role="button"]):visited {
     color: var(--ui-primary);
 }
 
 /* Secondary Color Variant */
-a.secondary {
+a.secondary:not([role="button"]) {
     color: var(--ui-secondary);
 }
 
-a.secondary:hover {
+a.secondary:not([role="button"]):hover {
     color: var(--ui-secondary--hover);
 }
 
-a.secondary:active {
+a.secondary:not([role="button"]):active {
     color: var(--ui-secondary--active);
 }
 
-a.secondary:focus-visible {
+a.secondary:not([role="button"]):focus-visible {
     color: var(--ui-secondary--hover);
     outline: 2px solid var(--ui-secondary);
 }
 
-a.secondary:visited {
+a.secondary:not([role="button"]):visited {
     color: var(--ui-secondary);
 }
 
 /* Info Color Variant */
-a.info {
+a.info:not([role="button"]) {
     color: var(--ui-info);
 }
 
-a.info:hover {
+a.info:not([role="button"]):hover {
     color: var(--ui-info--hover);
 }
 
-a.info:active {
+a.info:not([role="button"]):active {
     color: var(--ui-info--active);
 }
 
-a.info:focus-visible {
+a.info:not([role="button"]):focus-visible {
     color: var(--ui-info--hover);
     outline: 2px solid var(--ui-info);
 }
 
-a.info:visited {
+a.info:not([role="button"]):visited {
     color: var(--ui-info);
 }
 
 /* Warning Color Variant */
-a.warning {
+a.warning:not([role="button"]) {
     color: var(--ui-warning);
 }
 
-a.warning:hover {
+a.warning:not([role="button"]):hover {
     color: var(--ui-warning--hover);
 }
 
-a.warning:active {
+a.warning:not([role="button"]):active {
     color: var(--ui-warning--active);
 }
 
-a.warning:focus-visible {
+a.warning:not([role="button"]):focus-visible {
     color: var(--ui-warning--hover);
     outline: 2px solid var(--ui-warning);
 }
 
-a.warning:visited {
+a.warning:not([role="button"]):visited {
     color: var(--ui-warning);
 }
 
 /* Success Color Variant */
-a.success {
+a.success:not([role="button"]) {
     color: var(--ui-success);
 }
 
-a.success:hover {
+a.success:not([role="button"]):hover {
     color: var(--ui-success--hover);
 }
 
-a.success:active {
+a.success:not([role="button"]):active {
     color: var(--ui-success--active);
 }
 
-a.success:focus-visible {
+a.success:not([role="button"]):focus-visible {
     color: var(--ui-success--hover);
     outline: 2px solid var(--ui-success);
 }
 
-a.success:visited {
+a.success:not([role="button"]):visited {
     color: var(--ui-success);
 }
 
 /* Destructive/Error Color Variant */
-a.destructive,
-a.error {
+a.destructive:not([role="button"]),
+a.error:not([role="button"]) {
     color: var(--ui-destructive);
 }
 
-a.destructive:hover,
-a.error:hover {
+a.destructive:not([role="button"]):hover,
+a.error:not([role="button"]):hover {
     color: var(--ui-destructive--hover);
 }
 
-a.destructive:active,
-a.error:active {
+a.destructive:not([role="button"]):active,
+a.error:not([role="button"]):active {
     color: var(--ui-destructive--active);
 }
 
-a.destructive:focus-visible,
-a.error:focus-visible {
+a.destructive:not([role="button"]):focus-visible,
+a.error:not([role="button"]):focus-visible {
     color: var(--ui-destructive--hover);
     outline: 2px solid var(--ui-destructive);
 }
 
-a.destructive:visited,
-a.error:visited {
+a.destructive:not([role="button"]):visited,
+a.error:not([role="button"]):visited {
     color: var(--ui-destructive);
 }
 
 /* Contrast Color Variant */
-a.contrast {
+a.contrast:not([role="button"]) {
     color: var(--ui-contrast);
 }
 
-a.contrast:hover {
+a.contrast:not([role="button"]):hover {
     color: var(--ui-contrast--hover);
 }
 
-a.contrast:active {
+a.contrast:not([role="button"]):active {
     color: var(--ui-contrast--active);
 }
 
-a.contrast:focus-visible {
+a.contrast:not([role="button"]):focus-visible {
     color: var(--ui-contrast--hover);
     outline: 2px solid var(--ui-contrast);
 }
 
-a.contrast:visited {
+a.contrast:not([role="button"]):visited {
     color: var(--ui-contrast);
 }
 
 /* Muted Color Variant */
-a.muted {
+a.muted:not([role="button"]) {
     color: var(--ui-muted-text);
 }
 
-a.muted:hover {
+a.muted:not([role="button"]):hover {
     color: var(--ui-muted-text);
     opacity: 0.8;
 }
 
-a.muted:active {
+a.muted:not([role="button"]):active {
     color: var(--ui-muted-text);
     opacity: 0.6;
 }
 
-a.muted:focus-visible {
+a.muted:not([role="button"]):focus-visible {
     color: var(--ui-muted-text);
     outline: 2px solid var(--ui-muted);
 }
 
-a.muted:visited {
+a.muted:not([role="button"]):visited {
     color: var(--ui-muted-text);
 }
 
-a[href^="http"]:not([href*="localhost"]):after,
-a[target="_blank"]:after {
+a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
+a[target="_blank"]:not([role="button"]):after {
     content: "↗";
     margin-left: 0.25em;
     font-size: 0.875em;
@@ -227,9 +218,9 @@ a[target="_blank"]:after {
 }
 
 /* Disabled state */
-a[aria-disabled="true"],
-a[disabled],
-a.disabled {
+a[aria-disabled="true"]:not([role="button"]),
+a[disabled]:not([role="button"]),
+a.disabled:not([role="button"]) {
     color: var(--ui-muted-text);
     cursor: not-allowed;
     text-decoration: none;
@@ -238,11 +229,11 @@ a.disabled {
 }
 
 /* No decoration variant */
-a.no-decoration {
+a.no-decoration:not([role="button"]) {
     text-decoration: none;
 }
 
-a.no-decoration:hover,
-a.no-decoration:focus-visible {
+a.no-decoration:not([role="button"]):hover,
+a.no-decoration:not([role="button"]):focus-visible {
     text-decoration: none;
 }
