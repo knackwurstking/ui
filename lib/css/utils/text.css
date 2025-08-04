@@ -201,3 +201,17 @@
 .not-italic {
     --slnt: 0;
 }
+
+/*
+ * Safari zoom prevention utility
+ *
+ * Safari on iOS automatically zooms in when focusing on input fields
+ * with font-size smaller than 16px. This utility class forces a minimum
+ * font-size of 1rem (16px) to prevent this behavior.
+ *
+ * Usage: Add .no-zoom class to any input element that needs to prevent
+ * Safari's automatic zoom behavior.
+ */
+.no-zoom {
+    font-size: 1rem !important;
+}

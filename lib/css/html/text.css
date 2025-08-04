@@ -21,7 +21,6 @@ h5 {
 h6 {
     font-size: 0.75rem;
 }
-
 p {
     padding: var(--ui-spacing);
 }
@@ -44,10 +43,15 @@ summary {
     font-size: 1.1rem;
 }
 
+/*
+ * Safari zoom prevention: Set input font-size to 1rem (16px) minimum
+ * to prevent automatic zoom on iOS Safari when focusing input fields.
+ * Safari zooms in when font-size < 16px on form inputs.
+ */
 textarea,
 input:not([role="button"]):not([role="submit"]):not([role="reset"]),
 select {
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 button,
