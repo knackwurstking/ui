@@ -45,7 +45,7 @@ summary {
 }
 
 textarea,
-input:not([role="button"]),
+input:not([role="button"]):not([role="submit"]):not([role="reset"]),
 select {
     font-size: 0.95rem;
 }

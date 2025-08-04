@@ -45,15 +45,6 @@ button.active {
     transform: scale(0.98);
 }
 
-[role="button"]:focus-visible,
-button:focus-visible {
-    outline: 2px solid var(--ui-primary--hover);
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--ui-bg),
-        0 0 0 4px var(--ui-primary--hover);
-}
-
 /* Primary Outline & Ghost Variants */
 [role="button"].outline,
 [role="button"].ghost,
@@ -113,15 +104,6 @@ button.secondary.active {
     transform: scale(0.98);
 }
 
-[role="button"].secondary:focus-visible,
-button.secondary:focus-visible {
-    outline: 2px solid var(--ui-secondary--hover);
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--ui-bg),
-        0 0 0 4px var(--ui-secondary--hover);
-}
-
 [role="button"].secondary.ghost,
 [role="button"].secondary.outline,
 button.secondary.ghost,
@@ -177,16 +159,6 @@ input[type="reset"].active {
     background-color: var(--ui-destructive--active);
     transition: none;
     transform: scale(0.98);
-}
-
-[role="button"].destructive:focus-visible,
-button.destructive:focus-visible,
-input[type="reset"]:focus-visible {
-    outline: 2px solid var(--ui-destructive--hover);
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--ui-bg),
-        0 0 0 4px var(--ui-destructive--hover);
 }
 
 [role="button"].destructive.ghost,
@@ -250,15 +222,6 @@ button.success.active {
     transform: scale(0.98);
 }
 
-[role="button"].success:focus-visible,
-button.success:focus-visible {
-    outline: 2px solid var(--ui-success--hover);
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--ui-bg),
-        0 0 0 4px var(--ui-success--hover);
-}
-
 [role="button"].success.ghost,
 [role="button"].success.outline,
 button.success.ghost,
@@ -310,15 +273,6 @@ button.warning.active {
     background-color: var(--ui-warning--active);
     transition: none;
     transform: scale(0.98);
-}
-
-[role="button"].warning:focus-visible,
-button.warning:focus-visible {
-    outline: 2px solid var(--ui-warning--hover);
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--ui-bg),
-        0 0 0 4px var(--ui-warning--hover);
 }
 
 [role="button"].warning.ghost,
@@ -374,15 +328,6 @@ button.info.active {
     transform: scale(0.98);
 }
 
-[role="button"].info:focus-visible,
-button.info:focus-visible {
-    outline: 2px solid var(--ui-info--hover);
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--ui-bg),
-        0 0 0 4px var(--ui-info--hover);
-}
-
 [role="button"].info.ghost,
 [role="button"].info.outline,
 button.info.ghost,
@@ -434,15 +379,6 @@ button.contrast.active {
     background-color: var(--ui-contrast--active);
     transition: none;
     transform: scale(0.98);
-}
-
-[role="button"].contrast:focus-visible,
-button.contrast:focus-visible {
-    outline: 2px solid var(--ui-contrast--hover);
-    outline-offset: 2px;
-    box-shadow:
-        0 0 0 2px var(--ui-bg),
-        0 0 0 4px var(--ui-contrast--hover);
 }
 
 [role="button"].contrast.ghost,

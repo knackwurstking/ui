@@ -4,6 +4,11 @@
     -webkit-backdrop-filter: blur(5px);
 }
 
+.ghost {
+    outline: none;
+    outline-offset: none;
+}
+
 .primary:not(.ghost):not(.outline):not(a) {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
