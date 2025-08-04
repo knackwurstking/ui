@@ -30,12 +30,10 @@
 
 html {
     box-sizing: border-box;
-    font-size: var(--ui-font-size);
     padding: 0px;
     color-scheme: light dark;
 }
 
 body {
-    font-size: 100%;
     line-height: var(--ui-line-height);
 }

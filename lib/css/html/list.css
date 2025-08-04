@@ -23,10 +23,8 @@ dl {
 }
 
 dl > dd {
-    margin-left: 1.5rem;
-    font-size: 0.95rem;
+    margin-left: 24px;
 }
-
 dl > dd:not(:last-child) {
     margin-bottom: 0.25rem;
 }

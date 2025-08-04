@@ -2,11 +2,10 @@ code,
 pre {
     background-color: var(--ui-muted);
     color: var(--ui-muted-text);
-    padding: var(--ui-spacing);
+    padding: 16px;
     line-height: var(--ui-line-height-code);
-    font-size: 0.95rem;
     border: none;
-    border-radius: var(--ui-radius);
+    border-radius: 8px;
 }
 
 code {
@@ -18,6 +17,3 @@ pre {
     display: block;
     overflow: auto;
 }
-
-/* Use utility color classes instead of element-specific variants */
-/* Example: <code class="primary"> or <pre class="outlined secondary"> */

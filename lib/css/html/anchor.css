@@ -212,8 +212,7 @@ a.muted:not([role="button"]):visited {
 a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
 a[target="_blank"]:not([role="button"]):after {
     content: "↗";
-    margin-left: 0.25em;
-    font-size: 0.875em;
+    margin-left: 4px;
     opacity: 0.7;
 }
 
