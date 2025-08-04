@@ -27,6 +27,10 @@ dialog.clean {
 dialog.fullscreen {
     width: 100%;
     height: 100%;
+    padding: env(safe-area-inset-top, var(--ui-spacing))
+        env(safe-area-inset-right, var(--ui-spacing))
+        env(safe-area-inset-bottom, var(--ui-spacing))
+        env(safe-area-inset-left, var(--ui-spacing));
 }
 
 /* utils: .ui-hide-scrollbar */
