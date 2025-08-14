@@ -4,7 +4,8 @@ button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
-input::-webkit-file-upload-button {
+input::-webkit-file-upload-button,
+a[role="button"] {
     display: inline-flex;
     cursor: pointer;
     padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
@@ -16,6 +17,12 @@ input::-webkit-file-upload-button {
     transition: all 0.25s ease-in-out;
     border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
     border-radius: var(--ui-radius);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    white-space: nowrap;
+    vertical-align: middle;
+    position: relative;
 
     /* Prevent text selection */
     -ms-user-select: none;
@@ -29,27 +36,66 @@ input::-webkit-file-upload-button {
     color: var(--ui-primary-text);
 }
 
+/* Ensure anchors with role="button" don't have link styles */
+a[role="button"] {
+    text-underline-offset: initial;
+    text-decoration-thickness: initial;
+}
+
 /* Primary Color Variants */
 [role="button"]:hover,
-button:hover {
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover:not(.destructive),
+a[role="button"]:hover {
     background-color: var(--ui-primary--hover);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [role="button"]:active,
 [role="button"].active,
 button:active,
-button.active {
+button.active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active:not(.destructive),
+a[role="button"]:active,
+a[role="button"].active {
     transition: none;
     background-color: var(--ui-primary--active);
     transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Focus states */
+[role="button"]:focus,
+button:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+a[role="button"]:focus {
+    outline: none;
+}
+
+[role="button"]:focus-visible,
+button:focus-visible,
+input[type="button"]:focus-visible,
+input[type="submit"]:focus-visible,
+input[type="reset"]:focus-visible,
+a[role="button"]:focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
 }
 
 /* Primary Outline & Ghost Variants */
 [role="button"].outline,
 [role="button"].ghost,
 button.outline,
-button.ghost {
+button.ghost,
+a[role="button"].outline,
+a[role="button"].ghost {
     background-color: transparent;
     color: var(--ui-primary);
 }
@@ -57,7 +103,9 @@ button.ghost {
 [role="button"].outline:hover,
 [role="button"].ghost:hover,
 button.outline:hover,
-button.ghost:hover {
+button.ghost:hover,
+a[role="button"].outline:hover,
+a[role="button"].ghost:hover {
     background-color: transparent;
     color: var(--ui-primary--hover);
     transform: translateY(-1px);
@@ -70,7 +118,11 @@ button.ghost:hover {
 button.outline:active,
 button.outline.active,
 button.ghost:active,
-button.ghost.active {
+button.ghost.active,
+a[role="button"].outline:active,
+a[role="button"].outline.active,
+a[role="button"].ghost:active,
+a[role="button"].ghost.active {
     background-color: transparent;
     transition: none;
     color: var(--ui-primary--active);
@@ -78,36 +130,57 @@ button.ghost.active {
 }
 
 [role="button"].outline,
-button.outline {
+button.outline,
+a[role="button"].outline {
     border-color: currentColor;
+}
+
+[role="button"].ghost,
+button.ghost,
+a[role="button"].ghost {
+    border-color: transparent;
+}
+
+[role="button"].ghost:hover,
+button.ghost:hover,
+a[role="button"].ghost:hover {
+    background-color: var(--ui-color-100);
 }
 
 /* Secondary Color Variants */
 [role="button"].secondary,
-button.secondary {
+button.secondary,
+a[role="button"].secondary {
     background-color: var(--ui-secondary);
     color: var(--ui-secondary-text);
 }
 
 [role="button"].secondary:hover,
-button.secondary:hover {
+button.secondary:hover,
+a[role="button"].secondary:hover {
     background-color: var(--ui-secondary--hover);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [role="button"].secondary:active,
 [role="button"].secondary.active,
 button.secondary:active,
-button.secondary.active {
+button.secondary.active,
+a[role="button"].secondary:active,
+a[role="button"].secondary.active {
     transition: none;
     background-color: var(--ui-secondary--active);
     transform: translateY(1px);
+    box-shadow: none;
 }
 
 [role="button"].secondary.ghost,
 [role="button"].secondary.outline,
 button.secondary.ghost,
-button.secondary.outline {
+button.secondary.outline,
+a[role="button"].secondary.ghost,
+a[role="button"].secondary.outline {
     background-color: transparent;
     color: var(--ui-secondary);
 }
@@ -115,7 +188,9 @@ button.secondary.outline {
 [role="button"].secondary.ghost:hover,
 [role="button"].secondary.outline:hover,
 button.secondary.ghost:hover,
-button.secondary.outline:hover {
+button.secondary.outline:hover,
+a[role="button"].secondary.ghost:hover,
+a[role="button"].secondary.outline:hover {
     background-color: transparent;
     color: var(--ui-secondary--hover);
     transform: translateY(-1px);
@@ -128,7 +203,11 @@ button.secondary.outline:hover {
 button.secondary.ghost:active,
 button.secondary.ghost.active,
 button.secondary.outline:active,
-button.secondary.outline.active {
+button.secondary.outline.active,
+a[role="button"].secondary.ghost:active,
+a[role="button"].secondary.ghost.active,
+a[role="button"].secondary.outline:active,
+a[role="button"].secondary.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-secondary--active);
@@ -138,16 +217,19 @@ button.secondary.outline.active {
 /* Destructive Color Variants */
 [role="button"].destructive,
 button.destructive,
-input[type="reset"] {
+input[type="reset"],
+a[role="button"].destructive {
     background-color: var(--ui-destructive);
     color: var(--ui-destructive-text);
 }
 
 [role="button"].destructive:hover,
 button.destructive:hover,
-input[type="reset"]:hover {
+input[type="reset"]:hover,
+a[role="button"].destructive:hover {
     background-color: var(--ui-destructive--hover);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [role="button"].destructive:active,
@@ -155,10 +237,13 @@ button.destructive:active,
 input[type="reset"]:active,
 [role="button"].destructive.active,
 button.destructive.active,
-input[type="reset"].active {
+input[type="reset"].active,
+a[role="button"].destructive:active,
+a[role="button"].destructive.active {
     background-color: var(--ui-destructive--active);
     transition: none;
     transform: translateY(1px);
+    box-shadow: none;
 }
 
 [role="button"].destructive.ghost,
@@ -166,7 +251,9 @@ button.destructive.ghost,
 input[type="reset"].ghost,
 [role="button"].destructive.outline,
 button.destructive.outline,
-input[type="reset"].outline {
+input[type="reset"].outline,
+a[role="button"].destructive.ghost,
+a[role="button"].destructive.outline {
     background-color: transparent;
     color: var(--ui-destructive);
 }
@@ -176,7 +263,9 @@ button.destructive.ghost:hover,
 input[type="reset"].ghost:hover,
 [role="button"].destructive.outline:hover,
 button.destructive.outline:hover,
-input[type="reset"].outline:hover {
+input[type="reset"].outline:hover,
+a[role="button"].destructive.ghost:hover,
+a[role="button"].destructive.outline:hover {
     background-color: transparent;
     color: var(--ui-destructive--hover);
     transform: translateY(-1px);
@@ -193,7 +282,11 @@ button.destructive.outline:active,
 input[type="reset"].outline:active,
 [role="button"].destructive.outline.active,
 button.destructive.outline.active,
-input[type="reset"].outline.active {
+input[type="reset"].outline.active,
+a[role="button"].destructive.ghost:active,
+a[role="button"].destructive.ghost.active,
+a[role="button"].destructive.outline:active,
+a[role="button"].destructive.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-destructive--active);
@@ -202,30 +295,38 @@ input[type="reset"].outline.active {
 
 /* Success Color Variants */
 [role="button"].success,
-button.success {
+button.success,
+a[role="button"].success {
     background-color: var(--ui-success);
     color: var(--ui-success-text);
 }
 
 [role="button"].success:hover,
-button.success:hover {
+button.success:hover,
+a[role="button"].success:hover {
     background-color: var(--ui-success--hover);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [role="button"].success:active,
 [role="button"].success.active,
 button.success:active,
-button.success.active {
+button.success.active,
+a[role="button"].success:active,
+a[role="button"].success.active {
     background-color: var(--ui-success--active);
     transition: none;
     transform: translateY(1px);
+    box-shadow: none;
 }
 
 [role="button"].success.ghost,
 [role="button"].success.outline,
 button.success.ghost,
-button.success.outline {
+button.success.outline,
+a[role="button"].success.ghost,
+a[role="button"].success.outline {
     background-color: transparent;
     color: var(--ui-success);
 }
@@ -233,7 +334,9 @@ button.success.outline {
 [role="button"].success.ghost:hover,
 [role="button"].success.outline:hover,
 button.success.ghost:hover,
-button.success.outline:hover {
+button.success.outline:hover,
+a[role="button"].success.ghost:hover,
+a[role="button"].success.outline:hover {
     background-color: transparent;
     color: var(--ui-success--hover);
     transform: translateY(-1px);
@@ -246,7 +349,11 @@ button.success.outline:hover {
 button.success.ghost:active,
 button.success.ghost.active,
 button.success.outline:active,
-button.success.outline.active {
+button.success.outline.active,
+a[role="button"].success.ghost:active,
+a[role="button"].success.ghost.active,
+a[role="button"].success.outline:active,
+a[role="button"].success.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-success--active);
@@ -255,30 +362,38 @@ button.success.outline.active {
 
 /* Warning Color Variants */
 [role="button"].warning,
-button.warning {
+button.warning,
+a[role="button"].warning {
     background-color: var(--ui-warning);
     color: var(--ui-warning-text);
 }
 
 [role="button"].warning:hover,
-button.warning:hover {
+button.warning:hover,
+a[role="button"].warning:hover {
     background-color: var(--ui-warning--hover);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [role="button"].warning:active,
 [role="button"].warning.active,
 button.warning:active,
-button.warning.active {
+button.warning.active,
+a[role="button"].warning:active,
+a[role="button"].warning.active {
     background-color: var(--ui-warning--active);
     transition: none;
     transform: translateY(1px);
+    box-shadow: none;
 }
 
 [role="button"].warning.ghost,
 [role="button"].warning.outline,
 button.warning.ghost,
-button.warning.outline {
+button.warning.outline,
+a[role="button"].warning.ghost,
+a[role="button"].warning.outline {
     background-color: transparent;
     color: var(--ui-warning);
 }
@@ -286,7 +401,9 @@ button.warning.outline {
 [role="button"].warning.ghost:hover,
 [role="button"].warning.outline:hover,
 button.warning.ghost:hover,
-button.warning.outline:hover {
+button.warning.outline:hover,
+a[role="button"].warning.ghost:hover,
+a[role="button"].warning.outline:hover {
     background-color: transparent;
     color: var(--ui-warning--hover);
     transform: translateY(-1px);
@@ -299,7 +416,11 @@ button.warning.outline:hover {
 button.warning.ghost:active,
 button.warning.ghost.active,
 button.warning.outline:active,
-button.warning.outline.active {
+button.warning.outline.active,
+a[role="button"].warning.ghost:active,
+a[role="button"].warning.ghost.active,
+a[role="button"].warning.outline:active,
+a[role="button"].warning.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-warning--active);
@@ -308,30 +429,38 @@ button.warning.outline.active {
 
 /* Info Color Variants */
 [role="button"].info,
-button.info {
+button.info,
+a[role="button"].info {
     background-color: var(--ui-info);
     color: var(--ui-info-text);
 }
 
 [role="button"].info:hover,
-button.info:hover {
+button.info:hover,
+a[role="button"].info:hover {
     background-color: var(--ui-info--hover);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [role="button"].info:active,
 [role="button"].info.active,
 button.info:active,
-button.info.active {
+button.info.active,
+a[role="button"].info:active,
+a[role="button"].info.active {
     background-color: var(--ui-info--active);
     transition: none;
     transform: translateY(1px);
+    box-shadow: none;
 }
 
 [role="button"].info.ghost,
 [role="button"].info.outline,
 button.info.ghost,
-button.info.outline {
+button.info.outline,
+a[role="button"].info.ghost,
+a[role="button"].info.outline {
     background-color: transparent;
     color: var(--ui-info);
 }
@@ -339,7 +468,9 @@ button.info.outline {
 [role="button"].info.ghost:hover,
 [role="button"].info.outline:hover,
 button.info.ghost:hover,
-button.info.outline:hover {
+button.info.outline:hover,
+a[role="button"].info.ghost:hover,
+a[role="button"].info.outline:hover {
     background-color: transparent;
     color: var(--ui-info--hover);
     transform: translateY(-1px);
@@ -352,7 +483,11 @@ button.info.outline:hover {
 button.info.ghost:active,
 button.info.ghost.active,
 button.info.outline:active,
-button.info.outline.active {
+button.info.outline.active,
+a[role="button"].info.ghost:active,
+a[role="button"].info.ghost.active,
+a[role="button"].info.outline:active,
+a[role="button"].info.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-info--active);
@@ -361,30 +496,38 @@ button.info.outline.active {
 
 /* Contrast Color Variants */
 [role="button"].contrast,
-button.contrast {
+button.contrast,
+a[role="button"].contrast {
     background-color: var(--ui-contrast);
     color: var(--ui-contrast-text);
 }
 
 [role="button"].contrast:hover,
-button.contrast:hover {
+button.contrast:hover,
+a[role="button"].contrast:hover {
     background-color: var(--ui-contrast--hover);
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [role="button"].contrast:active,
 [role="button"].contrast.active,
 button.contrast:active,
-button.contrast.active {
+button.contrast.active,
+a[role="button"].contrast:active,
+a[role="button"].contrast.active {
     background-color: var(--ui-contrast--active);
     transition: none;
     transform: translateY(1px);
+    box-shadow: none;
 }
 
 [role="button"].contrast.ghost,
 [role="button"].contrast.outline,
 button.contrast.ghost,
-button.contrast.outline {
+button.contrast.outline,
+a[role="button"].contrast.ghost,
+a[role="button"].contrast.outline {
     background-color: transparent;
     color: var(--ui-contrast);
 }
@@ -392,7 +535,9 @@ button.contrast.outline {
 [role="button"].contrast.ghost:hover,
 [role="button"].contrast.outline:hover,
 button.contrast.ghost:hover,
-button.contrast.outline:hover {
+button.contrast.outline:hover,
+a[role="button"].contrast.ghost:hover,
+a[role="button"].contrast.outline:hover {
     background-color: transparent;
     color: var(--ui-contrast--hover);
     transform: translateY(-1px);
@@ -405,15 +550,210 @@ button.contrast.outline:hover {
 button.contrast.ghost:active,
 button.contrast.ghost.active,
 button.contrast.outline:active,
-button.contrast.outline.active {
+button.contrast.outline.active,
+a[role="button"].contrast.ghost:active,
+a[role="button"].contrast.ghost.active,
+a[role="button"].contrast.outline:active,
+a[role="button"].contrast.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-contrast--active);
     transform: translateY(1px);
 }
 
-[role="button"] > svg,
-button > svg {
+/* Muted Color Variant */
+[role="button"].muted,
+button.muted,
+a[role="button"].muted {
+    background-color: var(--ui-muted);
+    color: var(--ui-muted-text);
+}
+
+[role="button"].muted:hover,
+button.muted:hover,
+a[role="button"].muted:hover {
+    background-color: var(--ui-color-200);
+    transform: translateY(-1px);
+}
+
+[role="button"].muted:active,
+[role="button"].muted.active,
+button.muted:active,
+button.muted.active,
+a[role="button"].muted:active,
+a[role="button"].muted.active {
+    background-color: var(--ui-color-300);
+    transition: none;
+    transform: translateY(1px);
+}
+
+[role="button"].muted.ghost,
+[role="button"].muted.outline,
+button.muted.ghost,
+button.muted.outline,
+a[role="button"].muted.ghost,
+a[role="button"].muted.outline {
+    background-color: transparent;
+    color: var(--ui-muted-text);
+}
+
+/* Size Variants */
+[role="button"].small,
+button.small,
+a[role="button"].small {
+    padding: calc(var(--ui-spacing) / 4) calc(var(--ui-spacing) / 1.5);
+    font-size: 0.875rem;
+}
+
+[role="button"].large,
+button.large,
+a[role="button"].large {
+    padding: calc(var(--ui-spacing) * 0.75) calc(var(--ui-spacing) * 1.5);
+    font-size: 1.25rem;
+}
+
+/* Full Width Variant */
+[role="button"].full,
+button.full,
+a[role="button"].full {
     width: 100%;
-    height: 100%;
+}
+
+/* Round Variant */
+[role="button"].round,
+button.round,
+a[role="button"].round {
+    border-radius: 9999px;
+}
+
+/* Icon Button Variant */
+[role="button"].icon,
+button.icon,
+a[role="button"].icon {
+    padding: calc(var(--ui-spacing) / 2);
+    aspect-ratio: 1;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+}
+
+/* Loading State */
+[role="button"].loading,
+button.loading,
+a[role="button"].loading {
+    color: transparent;
+    pointer-events: none;
+}
+
+[role="button"].loading::after,
+button.loading::after,
+a[role="button"].loading::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    margin: auto;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top-color: currentColor;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Icon Support */
+[role="button"] > svg,
+button > svg,
+a[role="button"] > svg {
+    width: 1.25em;
+    height: 1.25em;
+    vertical-align: middle;
+    fill: currentColor;
+}
+
+[role="button"] > svg:first-child:not(:last-child),
+button > svg:first-child:not(:last-child),
+a[role="button"] > svg:first-child:not(:last-child) {
+    margin-right: calc(var(--ui-spacing) / 2);
+}
+
+[role="button"] > svg:last-child:not(:first-child),
+button > svg:last-child:not(:first-child),
+a[role="button"] > svg:last-child:not(:first-child) {
+    margin-left: calc(var(--ui-spacing) / 2);
+}
+
+/* Button Group */
+.button-group {
+    display: inline-flex;
+    gap: 0;
+}
+
+.button-group > [role="button"],
+.button-group > button,
+.button-group > a[role="button"] {
+    border-radius: 0;
+    margin-left: calc(var(--ui-border-width) * -1);
+}
+
+.button-group > [role="button"]:first-child,
+.button-group > button:first-child,
+.button-group > a[role="button"]:first-child {
+    border-top-left-radius: var(--ui-radius);
+    border-bottom-left-radius: var(--ui-radius);
+    margin-left: 0;
+}
+
+.button-group > [role="button"]:last-child,
+.button-group > button:last-child,
+.button-group > a[role="button"]:last-child {
+    border-top-right-radius: var(--ui-radius);
+    border-bottom-right-radius: var(--ui-radius);
+}
+
+.button-group > [role="button"]:focus,
+.button-group > button:focus,
+.button-group > a[role="button"]:focus {
+    z-index: 1;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    [role="button"],
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    a[role="button"] {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    [role="button"]:focus-visible,
+    button:focus-visible,
+    input[type="button"]:focus-visible,
+    input[type="submit"]:focus-visible,
+    input[type="reset"]:focus-visible,
+    a[role="button"]:focus-visible {
+        outline-width: 3px;
+        outline-offset: 3px;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    [role="button"],
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    a[role="button"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
 }

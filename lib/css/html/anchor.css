@@ -13,11 +13,6 @@ a {
     outline-offset: 2px;
 }
 
-/* Remove default styles for anchors with role="button" - handled in button.css */
-a[role="button"] {
-    all: unset;
-}
-
 /* Visited state */
 a:visited:not([role="button"]) {
     color: var(--ui-primary);
