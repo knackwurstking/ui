@@ -12,11 +12,13 @@ a:not([role="button"]) {
 /* Hover state */
 a:not([role="button"]):hover {
     text-decoration-color: currentColor;
+    transform: translateY(-1px);
 }
 
 /* Active state */
 a:not([role="button"]):active {
     text-decoration-color: currentColor;
+    transform: translateY(1px);
 }
 
 /* Focus state for accessibility */
@@ -26,6 +28,26 @@ a:not([role="button"]):focus-visible {
     outline-offset: 2px;
 }
 
+/* Visited state - base */
+a:not([role="button"]):visited {
+    opacity: 0.85;
+    text-decoration-style: dotted;
+}
+
+a:not([role="button"]):visited:hover {
+    opacity: 1;
+    text-decoration-style: solid;
+    text-decoration-color: currentColor;
+    transform: translateY(-1px);
+}
+
+a:not([role="button"]):visited:active {
+    opacity: 0.75;
+    text-decoration-style: solid;
+    text-decoration-color: currentColor;
+    transform: translateY(1px);
+}
+
 /* Primary Color Variant */
 a.primary:not([role="button"]) {
     color: var(--ui-primary);
@@ -33,10 +55,12 @@ a.primary:not([role="button"]) {
 
 a.primary:not([role="button"]):hover {
     color: var(--ui-primary--hover);
+    transform: translateY(-1px);
 }
 
 a.primary:not([role="button"]):active {
     color: var(--ui-primary--active);
+    transform: translateY(1px);
 }
 
 a.primary:not([role="button"]):focus-visible {
@@ -46,6 +70,14 @@ a.primary:not([role="button"]):focus-visible {
 
 a.primary:not([role="button"]):visited {
     color: var(--ui-primary);
+    opacity: 0.8;
+    text-decoration-style: dotted;
+}
+
+a.primary:not([role="button"]):visited:hover {
+    color: var(--ui-primary--hover);
+    opacity: 1;
+    text-decoration-style: solid;
 }
 
 /* Secondary Color Variant */
@@ -55,10 +87,12 @@ a.secondary:not([role="button"]) {
 
 a.secondary:not([role="button"]):hover {
     color: var(--ui-secondary--hover);
+    transform: translateY(-1px);
 }
 
 a.secondary:not([role="button"]):active {
     color: var(--ui-secondary--active);
+    transform: translateY(1px);
 }
 
 a.secondary:not([role="button"]):focus-visible {
@@ -68,6 +102,14 @@ a.secondary:not([role="button"]):focus-visible {
 
 a.secondary:not([role="button"]):visited {
     color: var(--ui-secondary);
+    opacity: 0.8;
+    text-decoration-style: dotted;
+}
+
+a.secondary:not([role="button"]):visited:hover {
+    color: var(--ui-secondary--hover);
+    opacity: 1;
+    text-decoration-style: solid;
 }
 
 /* Info Color Variant */
@@ -77,10 +119,12 @@ a.info:not([role="button"]) {
 
 a.info:not([role="button"]):hover {
     color: var(--ui-info--hover);
+    transform: translateY(-1px);
 }
 
 a.info:not([role="button"]):active {
     color: var(--ui-info--active);
+    transform: translateY(1px);
 }
 
 a.info:not([role="button"]):focus-visible {
@@ -90,6 +134,14 @@ a.info:not([role="button"]):focus-visible {
 
 a.info:not([role="button"]):visited {
     color: var(--ui-info);
+    opacity: 0.8;
+    text-decoration-style: dotted;
+}
+
+a.info:not([role="button"]):visited:hover {
+    color: var(--ui-info--hover);
+    opacity: 1;
+    text-decoration-style: solid;
 }
 
 /* Warning Color Variant */
@@ -99,10 +151,12 @@ a.warning:not([role="button"]) {
 
 a.warning:not([role="button"]):hover {
     color: var(--ui-warning--hover);
+    transform: translateY(-1px);
 }
 
 a.warning:not([role="button"]):active {
     color: var(--ui-warning--active);
+    transform: translateY(1px);
 }
 
 a.warning:not([role="button"]):focus-visible {
@@ -112,6 +166,14 @@ a.warning:not([role="button"]):focus-visible {
 
 a.warning:not([role="button"]):visited {
     color: var(--ui-warning);
+    opacity: 0.8;
+    text-decoration-style: dotted;
+}
+
+a.warning:not([role="button"]):visited:hover {
+    color: var(--ui-warning--hover);
+    opacity: 1;
+    text-decoration-style: solid;
 }
 
 /* Success Color Variant */
@@ -121,10 +183,12 @@ a.success:not([role="button"]) {
 
 a.success:not([role="button"]):hover {
     color: var(--ui-success--hover);
+    transform: translateY(-1px);
 }
 
 a.success:not([role="button"]):active {
     color: var(--ui-success--active);
+    transform: translateY(1px);
 }
 
 a.success:not([role="button"]):focus-visible {
@@ -134,6 +198,14 @@ a.success:not([role="button"]):focus-visible {
 
 a.success:not([role="button"]):visited {
     color: var(--ui-success);
+    opacity: 0.8;
+    text-decoration-style: dotted;
+}
+
+a.success:not([role="button"]):visited:hover {
+    color: var(--ui-success--hover);
+    opacity: 1;
+    text-decoration-style: solid;
 }
 
 /* Destructive/Error Color Variant */
@@ -145,11 +217,13 @@ a.error:not([role="button"]) {
 a.destructive:not([role="button"]):hover,
 a.error:not([role="button"]):hover {
     color: var(--ui-destructive--hover);
+    transform: translateY(-1px);
 }
 
 a.destructive:not([role="button"]):active,
 a.error:not([role="button"]):active {
     color: var(--ui-destructive--active);
+    transform: translateY(1px);
 }
 
 a.destructive:not([role="button"]):focus-visible,
@@ -161,6 +235,15 @@ a.error:not([role="button"]):focus-visible {
 a.destructive:not([role="button"]):visited,
 a.error:not([role="button"]):visited {
     color: var(--ui-destructive);
+    opacity: 0.8;
+    text-decoration-style: dotted;
+}
+
+a.destructive:not([role="button"]):visited:hover,
+a.error:not([role="button"]):visited:hover {
+    color: var(--ui-destructive--hover);
+    opacity: 1;
+    text-decoration-style: solid;
 }
 
 /* Contrast Color Variant */
@@ -170,10 +253,12 @@ a.contrast:not([role="button"]) {
 
 a.contrast:not([role="button"]):hover {
     color: var(--ui-contrast--hover);
+    transform: translateY(-1px);
 }
 
 a.contrast:not([role="button"]):active {
     color: var(--ui-contrast--active);
+    transform: translateY(1px);
 }
 
 a.contrast:not([role="button"]):focus-visible {
@@ -183,6 +268,14 @@ a.contrast:not([role="button"]):focus-visible {
 
 a.contrast:not([role="button"]):visited {
     color: var(--ui-contrast);
+    opacity: 0.8;
+    text-decoration-style: dotted;
+}
+
+a.contrast:not([role="button"]):visited:hover {
+    color: var(--ui-contrast--hover);
+    opacity: 1;
+    text-decoration-style: solid;
 }
 
 /* Muted Color Variant */
@@ -193,11 +286,13 @@ a.muted:not([role="button"]) {
 a.muted:not([role="button"]):hover {
     color: var(--ui-muted-text);
     opacity: 0.8;
+    transform: translateY(-1px);
 }
 
 a.muted:not([role="button"]):active {
     color: var(--ui-muted-text);
     opacity: 0.6;
+    transform: translateY(1px);
 }
 
 a.muted:not([role="button"]):focus-visible {
@@ -207,13 +302,28 @@ a.muted:not([role="button"]):focus-visible {
 
 a.muted:not([role="button"]):visited {
     color: var(--ui-muted-text);
+    opacity: 0.7;
+    text-decoration-style: dotted;
 }
 
+a.muted:not([role="button"]):visited:hover {
+    color: var(--ui-muted-text);
+    opacity: 0.8;
+    text-decoration-style: solid;
+}
+
+/* External link indicator */
 a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
 a[target="_blank"]:not([role="button"]):after {
     content: "↗";
     margin-left: 4px;
     opacity: 0.7;
+}
+
+/* Visited external links get a slightly different indicator */
+a[href^="http"]:not([href*="localhost"]):not([role="button"]):visited:after,
+a[target="_blank"]:not([role="button"]):visited:after {
+    opacity: 0.5;
 }
 
 /* Disabled state */
@@ -232,7 +342,26 @@ a.no-decoration:not([role="button"]) {
     text-decoration: none;
 }
 
-a.no-decoration:not([role="button"]):hover,
+a.no-decoration:not([role="button"]):hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+a.no-decoration:not([role="button"]):active {
+    text-decoration: none;
+    transform: translateY(1px);
+}
+
 a.no-decoration:not([role="button"]):focus-visible {
     text-decoration: none;
+}
+
+a.no-decoration:not([role="button"]):visited {
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+a.no-decoration:not([role="button"]):visited:hover {
+    text-decoration: none;
+    opacity: 1;
 }
