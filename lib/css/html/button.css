@@ -33,7 +33,7 @@ input::-webkit-file-upload-button {
 [role="button"]:hover,
 button:hover {
     background-color: var(--ui-primary--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"]:active,
@@ -42,7 +42,7 @@ button:active,
 button.active {
     transition: none;
     background-color: var(--ui-primary--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 /* Primary Outline & Ghost Variants */
@@ -60,7 +60,7 @@ button.outline:hover,
 button.ghost:hover {
     background-color: transparent;
     color: var(--ui-primary--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].outline:active,
@@ -74,7 +74,7 @@ button.ghost.active {
     background-color: transparent;
     transition: none;
     color: var(--ui-primary--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"].outline,
@@ -92,7 +92,7 @@ button.secondary {
 [role="button"].secondary:hover,
 button.secondary:hover {
     background-color: var(--ui-secondary--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].secondary:active,
@@ -101,7 +101,7 @@ button.secondary:active,
 button.secondary.active {
     transition: none;
     background-color: var(--ui-secondary--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"].secondary.ghost,
@@ -118,7 +118,7 @@ button.secondary.ghost:hover,
 button.secondary.outline:hover {
     background-color: transparent;
     color: var(--ui-secondary--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].secondary.ghost:active,
@@ -132,7 +132,7 @@ button.secondary.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-secondary--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 /* Destructive Color Variants */
@@ -147,7 +147,7 @@ input[type="reset"] {
 button.destructive:hover,
 input[type="reset"]:hover {
     background-color: var(--ui-destructive--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].destructive:active,
@@ -158,7 +158,7 @@ button.destructive.active,
 input[type="reset"].active {
     background-color: var(--ui-destructive--active);
     transition: none;
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"].destructive.ghost,
@@ -179,7 +179,7 @@ button.destructive.outline:hover,
 input[type="reset"].outline:hover {
     background-color: transparent;
     color: var(--ui-destructive--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].destructive.ghost:active,
@@ -197,7 +197,7 @@ input[type="reset"].outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-destructive--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 /* Success Color Variants */
@@ -210,7 +210,7 @@ button.success {
 [role="button"].success:hover,
 button.success:hover {
     background-color: var(--ui-success--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].success:active,
@@ -219,7 +219,7 @@ button.success:active,
 button.success.active {
     background-color: var(--ui-success--active);
     transition: none;
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"].success.ghost,
@@ -236,7 +236,7 @@ button.success.ghost:hover,
 button.success.outline:hover {
     background-color: transparent;
     color: var(--ui-success--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].success.ghost:active,
@@ -250,7 +250,7 @@ button.success.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-success--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 /* Warning Color Variants */
@@ -263,7 +263,7 @@ button.warning {
 [role="button"].warning:hover,
 button.warning:hover {
     background-color: var(--ui-warning--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].warning:active,
@@ -272,7 +272,7 @@ button.warning:active,
 button.warning.active {
     background-color: var(--ui-warning--active);
     transition: none;
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"].warning.ghost,
@@ -289,7 +289,7 @@ button.warning.ghost:hover,
 button.warning.outline:hover {
     background-color: transparent;
     color: var(--ui-warning--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].warning.ghost:active,
@@ -303,7 +303,7 @@ button.warning.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-warning--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 /* Info Color Variants */
@@ -316,7 +316,7 @@ button.info {
 [role="button"].info:hover,
 button.info:hover {
     background-color: var(--ui-info--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].info:active,
@@ -325,7 +325,7 @@ button.info:active,
 button.info.active {
     background-color: var(--ui-info--active);
     transition: none;
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"].info.ghost,
@@ -342,7 +342,7 @@ button.info.ghost:hover,
 button.info.outline:hover {
     background-color: transparent;
     color: var(--ui-info--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].info.ghost:active,
@@ -356,7 +356,7 @@ button.info.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-info--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 /* Contrast Color Variants */
@@ -369,7 +369,7 @@ button.contrast {
 [role="button"].contrast:hover,
 button.contrast:hover {
     background-color: var(--ui-contrast--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].contrast:active,
@@ -378,7 +378,7 @@ button.contrast:active,
 button.contrast.active {
     background-color: var(--ui-contrast--active);
     transition: none;
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"].contrast.ghost,
@@ -395,7 +395,7 @@ button.contrast.ghost:hover,
 button.contrast.outline:hover {
     background-color: transparent;
     color: var(--ui-contrast--hover);
-    transform: scale(1.05);
+    transform: translateY(-1px);
 }
 
 [role="button"].contrast.ghost:active,
@@ -409,7 +409,7 @@ button.contrast.outline.active {
     transition: none;
     background-color: transparent;
     color: var(--ui-contrast--active);
-    transform: scale(0.98);
+    transform: translateY(1px);
 }
 
 [role="button"] > svg,
