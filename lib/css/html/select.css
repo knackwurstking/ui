@@ -1,21 +1,32 @@
+/* Select Element Styles */
+
 select {
+    /* Layout */
     display: inline-block;
-    cursor: pointer;
-    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
-    border-radius: var(--ui-radius);
-    box-shadow: none;
+    min-height: calc(var(--ui-spacing) * 2 + 1.5rem);
     padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+
+    /* Appearance */
     background-color: var(--ui-bg);
     color: var(--ui-text);
-    transition: border-color 0.25s ease-in-out;
+    border: var(--ui-border-width) solid var(--ui-border-color);
+    border-radius: var(--ui-radius);
+
+    /* Typography */
+    font-size: 1rem;
+
+    /* Interaction */
+    cursor: pointer;
     accent-color: var(--ui-primary);
-    min-height: calc(var(--ui-spacing) * 2 + 1.5rem);
+    transition: border-color 0.25s ease-in-out;
 }
 
+/* Hover State */
 select:hover {
     border-color: var(--ui-primary);
 }
 
+/* Focus States */
 select:focus {
     outline: none;
     border-color: var(--ui-primary);
@@ -24,125 +35,126 @@ select:focus {
 select:focus-visible {
     outline: 2px solid var(--ui-primary);
     outline-offset: 2px;
-    border-color: var(--ui-primary);
 }
 
-select[aria-invalid="true"] {
-    border-color: var(--ui-destructive);
-}
-
-select[aria-invalid="false"] {
-    border-color: var(--ui-success);
-}
-
+/* Option Styling */
 option {
     background-color: var(--ui-bg);
     color: var(--ui-text);
     padding: var(--ui-spacing);
 }
 
-/* Color variants for select */
+/* Validation States */
+select[aria-invalid="true"] {
+    border-color: var(--ui-destructive) !important;
+}
+
+select[aria-invalid="false"] {
+    border-color: var(--ui-success) !important;
+}
+
+/* Color Variants */
 select.primary {
-    border-color: var(--ui-primary);
-    accent-color: var(--ui-primary);
-}
-
-select.primary:hover {
-    border-color: var(--ui-primary--hover);
-}
-
-select.primary:focus,
-select.primary:focus-visible {
-    border-color: var(--ui-primary);
-    outline-color: var(--ui-primary);
+    --select-color: var(--ui-primary);
 }
 
 select.secondary {
-    border-color: var(--ui-secondary);
-    accent-color: var(--ui-secondary);
-}
-
-select.secondary:hover {
-    border-color: var(--ui-secondary--hover);
-}
-
-select.secondary:focus,
-select.secondary:focus-visible {
-    border-color: var(--ui-secondary);
-    outline-color: var(--ui-secondary);
-}
-
-select.info {
-    border-color: var(--ui-info);
-    accent-color: var(--ui-info);
-}
-
-select.info:hover {
-    border-color: var(--ui-info--hover);
-}
-
-select.info:focus,
-select.info:focus-visible {
-    border-color: var(--ui-info);
-    outline-color: var(--ui-info);
+    --select-color: var(--ui-secondary);
 }
 
 select.success {
-    border-color: var(--ui-success);
-    accent-color: var(--ui-success);
-}
-
-select.success:hover {
-    border-color: var(--ui-success--hover);
-}
-
-select.success:focus,
-select.success:focus-visible {
-    border-color: var(--ui-success);
-    outline-color: var(--ui-success);
+    --select-color: var(--ui-success);
 }
 
 select.warning {
-    border-color: var(--ui-warning);
-    accent-color: var(--ui-warning);
-}
-
-select.warning:hover {
-    border-color: var(--ui-warning--hover);
-}
-
-select.warning:focus,
-select.warning:focus-visible {
-    border-color: var(--ui-warning);
-    outline-color: var(--ui-warning);
+    --select-color: var(--ui-warning);
 }
 
 select.destructive {
-    border-color: var(--ui-destructive);
-    accent-color: var(--ui-destructive);
+    --select-color: var(--ui-destructive);
 }
 
-select.destructive:hover {
-    border-color: var(--ui-destructive--hover);
-}
-
-select.destructive:focus,
-select.destructive:focus-visible {
-    border-color: var(--ui-destructive);
-    outline-color: var(--ui-destructive);
+select.info {
+    --select-color: var(--ui-info);
 }
 
 select.contrast {
-    border-color: var(--ui-contrast);
-    accent-color: var(--ui-contrast);
+    --select-color: var(--ui-contrast);
 }
 
-select.contrast:hover {
-    border-color: var(--ui-contrast--hover);
+/* Apply color variant styles */
+select[class*="primary"],
+select[class*="secondary"],
+select[class*="success"],
+select[class*="warning"],
+select[class*="destructive"],
+select[class*="info"],
+select[class*="contrast"] {
+    border-color: var(--select-color);
+    accent-color: var(--select-color);
 }
 
-select.contrast:focus,
-select.contrast:focus-visible {
-    border-color: var(--ui-contrast);
-    outline-color: var(--ui-contrast);
+select[class*="primary"]:hover,
+select[class*="secondary"]:hover,
+select[class*="success"]:hover,
+select[class*="warning"]:hover,
+select[class*="destructive"]:hover,
+select[class*="info"]:hover,
+select[class*="contrast"]:hover {
+    border-color: var(--select-color);
+}
+
+select[class*="primary"]:focus,
+select[class*="secondary"]:focus,
+select[class*="success"]:focus,
+select[class*="warning"]:focus,
+select[class*="destructive"]:focus,
+select[class*="info"]:focus,
+select[class*="contrast"]:focus,
+select[class*="primary"]:focus-visible,
+select[class*="secondary"]:focus-visible,
+select[class*="success"]:focus-visible,
+select[class*="warning"]:focus-visible,
+select[class*="destructive"]:focus-visible,
+select[class*="info"]:focus-visible,
+select[class*="contrast"]:focus-visible {
+    outline-color: var(--select-color);
+    border-color: var(--select-color);
+}
+
+/* Disabled State */
+select:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Size Variants */
+select.small {
+    padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
+    font-size: 0.875rem;
+    min-height: calc(var(--ui-spacing) + 1.25rem);
+}
+
+select.large {
+    padding: calc(var(--ui-spacing) * 1.5) calc(var(--ui-spacing) * 2.5);
+    font-size: 1.125rem;
+    min-height: calc(var(--ui-spacing) * 3 + 1.75rem);
+}
+
+/* Multiple Select */
+select[multiple] {
+    min-height: auto;
+    padding: var(--ui-spacing);
+}
+
+select[multiple] option {
+    padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    select:focus-visible {
+        outline-width: 3px;
+        outline-offset: 3px;
+    }
 }

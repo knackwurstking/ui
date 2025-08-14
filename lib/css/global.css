@@ -1,41 +1,82 @@
+/* Global Styles */
+
+/* Base Elements */
+html {
+    box-sizing: border-box;
+    font-size: var(--ui-font-size);
+    color-scheme: light dark;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+        env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+body {
+    line-height: var(--ui-line-height);
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+}
+
+/* Selection */
 ::selection {
     background-color: var(--ui-primary);
     color: var(--ui-primary-text);
 }
 
+/* Backdrop */
 ::backdrop {
-    /* utils: .ui-backdrop */
     background-color: var(--ui-backdrop-color);
 }
 
-[disabled] {
-    pointer-events: none;
-    touch-action: none;
+/* Interactive States */
+[disabled],
+:disabled {
     opacity: 0.45;
-    cursor: default;
-
-    /* utils: .ui-none-select */
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
+    cursor: not-allowed;
+    pointer-events: none;
     user-select: none;
 }
 
+/* Utility Classes */
 .draggable {
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
     user-select: none;
+    -webkit-user-drag: element;
 }
 
-html {
-    box-sizing: border-box;
-    font-size: var(--ui-font-size);
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-        env(safe-area-inset-bottom) env(safe-area-inset-left);
-    color-scheme: light dark;
+/* Scrollbar Hiding */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-body {
-    line-height: var(--ui-line-height);
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Focus Management */
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :focus-visible {
+        outline-width: 3px;
+        outline-offset: 3px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

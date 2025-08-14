@@ -1,9 +1,0 @@
-.no-touch,
-.no-touch * {
-    -ms-touch-action: none;
-    touch-action: none;
-}
-
-.no-pointer-events {
-    pointer-events: none;
-}

@@ -1,136 +1,105 @@
+/* Color Utilities */
+
+/* Backdrop effect */
 .backdrop {
     background-color: var(--ui-backdrop-color);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
 
-.ghost {
-    outline: none;
-    outline-offset: none;
+/* Base color application */
+.primary,
+.secondary,
+.success,
+.warning,
+.destructive,
+.info,
+.contrast,
+.muted,
+.error {
+    --color-bg: var(--ui-primary);
+    --color-text: var(--ui-primary-text);
 }
 
-.primary:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-primary);
-    color: var(--ui-primary-text);
+.secondary {
+    --color-bg: var(--ui-secondary);
+    --color-text: var(--ui-secondary-text);
 }
 
-.primary.ghost {
-    color: var(--ui-primary);
+.success {
+    --color-bg: var(--ui-success);
+    --color-text: var(--ui-success-text);
 }
 
-.primary.outline {
-    color: var(--ui-primary);
-    border-color: var(--ui-primary);
+.warning {
+    --color-bg: var(--ui-warning);
+    --color-text: var(--ui-warning-text);
 }
 
-.secondary:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-secondary);
-    color: var(--ui-secondary-text);
+.destructive {
+    --color-bg: var(--ui-destructive);
+    --color-text: var(--ui-destructive-text);
 }
 
-.secondary.ghost {
-    color: var(--ui-secondary);
+.info {
+    --color-bg: var(--ui-info);
+    --color-text: var(--ui-info-text);
 }
 
-.secondary.outline {
-    color: var(--ui-secondary);
-    border-color: var(--ui-secondary);
+.contrast {
+    --color-bg: var(--ui-contrast);
+    --color-text: var(--ui-contrast-text);
 }
 
-.destructive:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-destructive);
-    color: var(--ui-destructive-text);
+.muted {
+    --color-bg: var(--ui-muted);
+    --color-text: var(--ui-muted-text);
 }
 
-.destructive.ghost {
-    color: var(--ui-destructive);
+.error {
+    --color-bg: var(--ui-error);
+    --color-text: var(--ui-error-text);
 }
 
-.destructive.outline {
-    color: var(--ui-destructive);
-    border-color: var(--ui-destructive);
+/* Apply colors based on variant */
+.primary:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.secondary:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.success:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.warning:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.destructive:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.info:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.contrast:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.muted:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
+.error:not(.ghost):not(.outline):not(a):not(button):not([role="button"]) {
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 
-.muted:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-muted);
-    color: var(--ui-muted-text);
-}
-
-.muted.ghost {
-    color: var(--ui-muted);
-}
-
-.muted.outline {
-    color: var(--ui-muted);
-    border-color: var(--ui-muted);
-}
-
-.success:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-success);
-    color: var(--ui-success-text);
-}
-
-.success.ghost {
-    color: var(--ui-success);
-}
-
-.success.outline {
-    color: var(--ui-success);
-    border-color: var(--ui-success);
-}
-
-.info:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-info);
-    color: var(--ui-info-text);
-}
-
-.info.ghost {
-    color: var(--ui-info);
-}
-
-.info.outline {
-    color: var(--ui-info);
-    border-color: var(--ui-info);
-}
-
-.warning:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-warning);
-    color: var(--ui-warning-text);
-}
-
-.warning.ghost {
-    color: var(--ui-warning);
-}
-
-.warning.outline {
-    color: var(--ui-warning);
-    border-color: var(--ui-warning);
-}
-
-.error:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-error);
-    color: var(--ui-error-text);
-}
-
+/* Ghost variant - text color only */
+.primary.ghost,
+.secondary.ghost,
+.success.ghost,
+.warning.ghost,
+.destructive.ghost,
+.info.ghost,
+.contrast.ghost,
+.muted.ghost,
 .error.ghost {
-    color: var(--ui-error);
+    color: var(--color-bg);
+    background-color: transparent;
 }
 
+/* Outline variant - border and text color */
+.primary.outline,
+.secondary.outline,
+.success.outline,
+.warning.outline,
+.destructive.outline,
+.info.outline,
+.contrast.outline,
+.muted.outline,
 .error.outline {
-    color: var(--ui-error);
-    border-color: var(--ui-error);
-}
-
-.contrast:not(.ghost):not(.outline):not(a) {
-    background-color: var(--ui-contrast);
-    color: var(--ui-contrast-text);
-}
-
-.contrast.ghost {
-    color: var(--ui-contrast);
-}
-
-.contrast.outline {
-    color: var(--ui-contrast);
-    border-color: var(--ui-contrast);
+    color: var(--color-bg);
+    border-color: var(--color-bg);
+    background-color: transparent;
 }

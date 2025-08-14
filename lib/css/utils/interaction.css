@@ -1,0 +1,283 @@
+/* Interaction Utilities */
+
+/* User Selection */
+.select-none {
+    user-select: none;
+}
+
+.select-text {
+    user-select: text;
+}
+
+.select-all {
+    user-select: all;
+}
+
+.select-auto {
+    user-select: auto;
+}
+
+/* Pointer Events */
+.pointer-events-none {
+    pointer-events: none;
+}
+
+.pointer-events-auto {
+    pointer-events: auto;
+}
+
+/* Touch Actions */
+.touch-none {
+    touch-action: none;
+}
+
+.touch-auto {
+    touch-action: auto;
+}
+
+.touch-manipulation {
+    touch-action: manipulation;
+}
+
+/* Cursor Styles */
+.cursor-auto {
+    cursor: auto;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-wait {
+    cursor: wait;
+}
+
+.cursor-text {
+    cursor: text;
+}
+
+.cursor-move {
+    cursor: move;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+
+.cursor-grab {
+    cursor: grab;
+}
+
+.cursor-grabbing {
+    cursor: grabbing;
+}
+
+/* Scroll Behavior */
+.scroll-auto {
+    scroll-behavior: auto;
+}
+
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+/* Overflow */
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-visible {
+    overflow: visible;
+}
+
+.overflow-scroll {
+    overflow: scroll;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+.overflow-x-visible {
+    overflow-x: visible;
+}
+
+.overflow-x-scroll {
+    overflow-x: scroll;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+
+.overflow-y-visible {
+    overflow-y: visible;
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll;
+}
+
+/* Scrollbar Hiding */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Resize */
+.resize-none {
+    resize: none;
+}
+
+.resize {
+    resize: both;
+}
+
+.resize-x {
+    resize: horizontal;
+}
+
+.resize-y {
+    resize: vertical;
+}
+
+/* Will Change */
+.will-change-auto {
+    will-change: auto;
+}
+
+.will-change-transform {
+    will-change: transform;
+}
+
+.will-change-opacity {
+    will-change: opacity;
+}
+
+.will-change-scroll {
+    will-change: scroll-position;
+}
+
+/* User Drag */
+.draggable {
+    -webkit-user-drag: element;
+    user-select: none;
+}
+
+.not-draggable {
+    -webkit-user-drag: none;
+}
+
+/* Tap Highlight */
+.tap-highlight-transparent {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus Within */
+.focus-within\:outline:focus-within {
+    outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+}
+
+/* Transition Utilities */
+.transition-none {
+    transition: none;
+}
+
+.transition-all {
+    transition: all 0.25s ease-in-out;
+}
+
+.transition-colors {
+    transition: background-color 0.25s ease-in-out,
+                border-color 0.25s ease-in-out,
+                color 0.25s ease-in-out;
+}
+
+.transition-opacity {
+    transition: opacity 0.25s ease-in-out;
+}
+
+.transition-transform {
+    transition: transform 0.25s ease-in-out;
+}
+
+/* Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25%);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.animate-none {
+    animation: none;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .transition-all,
+    .transition-colors,
+    .transition-opacity,
+    .transition-transform {
+        transition-duration: 0.01ms;
+    }
+
+    .animate-spin,
+    .animate-pulse,
+    .animate-bounce {
+        animation: none;
+    }
+}

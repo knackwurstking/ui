@@ -1,16 +1,18 @@
 /* Card Component */
 
 .card {
+    --card-padding: calc(var(--ui-spacing) * 1.5);
+
     display: block;
     background-color: var(--ui-bg);
-    border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+    border: var(--ui-border-width) solid var(--ui-border-color);
     border-radius: var(--ui-radius);
     overflow: hidden;
+    position: relative;
     transition:
         transform 0.2s ease-in-out,
         box-shadow 0.2s ease-in-out,
         border-color 0.2s ease-in-out;
-    position: relative;
 }
 
 .card:hover {
@@ -25,7 +27,24 @@
     outline-offset: 2px;
 }
 
-/* Card variants */
+/* Card Structure */
+.card-header,
+.card-body,
+.card-footer {
+    padding: var(--card-padding);
+}
+
+.card-header {
+    border-bottom: var(--ui-border-width) solid var(--ui-border-color);
+    background-color: var(--ui-color-50);
+}
+
+.card-footer {
+    border-top: var(--ui-border-width) solid var(--ui-border-color);
+    background-color: var(--ui-color-50);
+}
+
+/* Card Variants */
 .card.elevated {
     border: none;
     box-shadow:
@@ -59,11 +78,15 @@
     background-color: var(--ui-color-50);
 }
 
-/* Interactive card */
+.card.seamless .card-header,
+.card.seamless .card-footer {
+    border: none;
+    background-color: transparent;
+}
+
+/* Interactive Card */
 .card.interactive {
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     user-select: none;
 }
 
@@ -76,7 +99,7 @@
     outline-offset: 2px;
 }
 
-/* Card sizes */
+/* Card Sizes */
 .card.compact {
     --card-padding: calc(var(--ui-spacing) * 1);
 }
@@ -89,33 +112,7 @@
     --card-padding: calc(var(--ui-spacing) * 2);
 }
 
-/* Card structure */
-.card-header {
-    padding: var(--card-padding, calc(var(--ui-spacing) * 1.5));
-    border-bottom: var(--ui-border-width) var(--ui-border-style)
-        var(--ui-border-color);
-    background-color: var(--ui-color-50);
-}
-
-.card-body {
-    padding: var(--card-padding, calc(var(--ui-spacing) * 1.5));
-}
-
-.card-footer {
-    padding: var(--card-padding, calc(var(--ui-spacing) * 1.5));
-    border-top: var(--ui-border-width) var(--ui-border-style)
-        var(--ui-border-color);
-    background-color: var(--ui-color-50);
-}
-
-/* Remove borders for seamless sections */
-.card.seamless .card-header,
-.card.seamless .card-footer {
-    border: none;
-    background-color: transparent;
-}
-
-/* Card image */
+/* Card Image */
 .card-image {
     width: 100%;
     height: auto;
@@ -135,16 +132,18 @@
     aspect-ratio: 3 / 4;
 }
 
-/* Card content helpers */
+/* Card Content */
 .card-title {
     margin: 0 0 calc(var(--ui-spacing) / 2) 0;
     font-weight: 600;
+    font-size: 1.25rem;
     line-height: 1.3;
     color: var(--ui-text);
 }
 
 .card-subtitle {
     margin: 0 0 var(--ui-spacing) 0;
+    font-size: 0.875rem;
     color: var(--ui-muted-text);
     line-height: 1.4;
 }
@@ -156,11 +155,12 @@
 }
 
 .card-meta {
-    color: var(--ui-muted-text);
     margin: 0;
+    font-size: 0.75rem;
+    color: var(--ui-muted-text);
 }
 
-/* Card actions */
+/* Card Actions */
 .card-actions {
     display: flex;
     gap: calc(var(--ui-spacing) / 2);
@@ -189,7 +189,7 @@
     flex: 1;
 }
 
-/* Special card layouts */
+/* Horizontal Layout */
 .card.horizontal {
     display: flex;
     flex-direction: row;
@@ -213,7 +213,7 @@
     flex: 1;
 }
 
-/* Media card variant */
+/* Media Card */
 .card.media {
     overflow: hidden;
 }
@@ -226,7 +226,7 @@
     transform: scale(1.05);
 }
 
-/* Card group/grid utilities */
+/* Card Grid */
 .card-grid {
     display: grid;
     gap: var(--ui-spacing);
@@ -241,7 +241,104 @@
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
-/* Responsive adjustments */
+/* Color Variants - Using CSS Custom Properties */
+.card.primary {
+    --card-color: var(--ui-primary);
+    --card-color-hover: var(--ui-primary-hover);
+    --card-color-text: var(--ui-primary-text);
+    border-color: var(--card-color);
+}
+
+.card.secondary {
+    --card-color: var(--ui-secondary);
+    --card-color-hover: var(--ui-secondary-hover);
+    --card-color-text: var(--ui-secondary-text);
+    border-color: var(--card-color);
+}
+
+.card.success {
+    --card-color: var(--ui-success);
+    --card-color-hover: var(--ui-success-hover);
+    --card-color-text: var(--ui-success-text);
+    border-color: var(--card-color);
+}
+
+.card.warning {
+    --card-color: var(--ui-warning);
+    --card-color-hover: var(--ui-warning-hover);
+    --card-color-text: var(--ui-warning-text);
+    border-color: var(--card-color);
+}
+
+.card.destructive {
+    --card-color: var(--ui-destructive);
+    --card-color-hover: var(--ui-destructive-hover);
+    --card-color-text: var(--ui-destructive-text);
+    border-color: var(--card-color);
+}
+
+.card.info {
+    --card-color: var(--ui-info);
+    --card-color-hover: var(--ui-info-hover);
+    --card-color-text: var(--ui-info-text);
+    border-color: var(--card-color);
+}
+
+.card.contrast {
+    --card-color: var(--ui-contrast);
+    --card-color-hover: var(--ui-contrast-hover);
+    --card-color-text: var(--ui-contrast-text);
+    border-color: var(--card-color);
+}
+
+.card.muted {
+    --card-color: var(--ui-muted);
+    --card-color-hover: var(--ui-color-300);
+    --card-color-text: var(--ui-muted-text);
+    border-color: var(--card-color);
+}
+
+/* Apply color to headers for colored cards */
+.card.primary .card-header,
+.card.secondary .card-header,
+.card.success .card-header,
+.card.warning .card-header,
+.card.destructive .card-header,
+.card.info .card-header,
+.card.contrast .card-header,
+.card.muted .card-header {
+    background-color: var(--card-color);
+    color: var(--card-color-text);
+    border-color: var(--card-color);
+}
+
+/* Outlined colored cards */
+.card.outlined.primary .card-header,
+.card.outlined.secondary .card-header,
+.card.outlined.success .card-header,
+.card.outlined.warning .card-header,
+.card.outlined.destructive .card-header,
+.card.outlined.info .card-header,
+.card.outlined.contrast .card-header,
+.card.outlined.muted .card-header {
+    background-color: transparent;
+    color: var(--card-color);
+    border-color: transparent;
+}
+
+/* Hover effects for colored cards */
+.card.primary:hover,
+.card.secondary:hover,
+.card.success:hover,
+.card.warning:hover,
+.card.destructive:hover,
+.card.info:hover,
+.card.contrast:hover,
+.card.muted:hover {
+    border-color: var(--card-color-hover);
+}
+
+/* Responsive */
 @media (max-width: 640px) {
     .card.horizontal {
         flex-direction: column;
@@ -258,176 +355,7 @@
     }
 }
 
-/* Color variants */
-.card.primary {
-    border-color: var(--ui-primary);
-}
-
-.card.primary .card-header {
-    background-color: var(--ui-primary);
-    color: var(--ui-primary-text);
-    border-color: var(--ui-primary);
-}
-
-.card.outlined.primary .card-header {
-    color: var(--ui-primary);
-}
-
-.card.primary:hover {
-    border-color: var(--ui-primary--hover);
-}
-
-.card.secondary {
-    border-color: var(--ui-secondary);
-}
-
-.card.secondary .card-header {
-    background-color: var(--ui-secondary);
-    color: var(--ui-secondary-text);
-    border-color: var(--ui-secondary);
-}
-
-.card.outlined.secondary .card-header {
-    color: var(--ui-secondary);
-}
-
-.card.secondary:hover {
-    border-color: var(--ui-secondary--hover);
-}
-
-.card.info {
-    border-color: var(--ui-info);
-}
-
-.card.info .card-header {
-    background-color: var(--ui-info);
-    color: var(--ui-info-text);
-    border-color: var(--ui-info);
-}
-
-.card.outlined.info .card-header {
-    color: var(--ui-info);
-}
-
-.card.info:hover {
-    border-color: var(--ui-info--hover);
-}
-
-.card.success {
-    border-color: var(--ui-success);
-}
-
-.card.success .card-header {
-    background-color: var(--ui-success);
-    color: var(--ui-success-text);
-    border-color: var(--ui-success);
-}
-
-.card.outlined.success .card-header {
-    color: var(--ui-success);
-}
-
-.card.success:hover {
-    border-color: var(--ui-success--hover);
-}
-
-.card.warning {
-    border-color: var(--ui-warning);
-}
-
-.card.warning .card-header {
-    background-color: var(--ui-warning);
-    color: var(--ui-warning-text);
-    border-color: var(--ui-warning);
-}
-
-.card.outlined.warning .card-header {
-    color: var(--ui-warning);
-}
-
-.card.warning:hover {
-    border-color: var(--ui-warning--hover);
-}
-
-.card.destructive {
-    border-color: var(--ui-destructive);
-}
-
-.card.destructive .card-header {
-    background-color: var(--ui-destructive);
-    color: var(--ui-destructive-text);
-    border-color: var(--ui-destructive);
-}
-
-.card.outlined.destructive .card-header {
-    color: var(--ui-destructive);
-}
-
-.card.destructive:hover {
-    border-color: var(--ui-destructive--hover);
-}
-
-.card.contrast {
-    border-color: var(--ui-contrast);
-}
-
-.card.contrast .card-header {
-    background-color: var(--ui-contrast);
-    color: var(--ui-contrast-text);
-    border-color: var(--ui-contrast);
-}
-
-.card.outlined.contrast .card-header {
-    color: var(--ui-contrast);
-}
-
-.card.contrast:hover {
-    border-color: var(--ui-contrast--hover);
-}
-
-.card.muted {
-    border-color: var(--ui-muted);
-}
-
-.card.muted .card-header {
-    background-color: var(--ui-muted);
-    color: var(--ui-muted-text);
-    border-color: var(--ui-muted);
-}
-
-.card.outlined.muted .card-header {
-    color: var(--ui-muted);
-}
-
-.card.muted:hover {
-    border-color: var(--ui-color-300);
-}
-
-.card.error {
-    border-color: var(--ui-error);
-}
-
-.card.error .card-header {
-    background-color: var(--ui-error);
-    color: var(--ui-error-text);
-    border-color: var(--ui-error);
-}
-
-.card.outlined.error .card-header {
-    color: var(--ui-error);
-}
-
-.card.error:hover {
-    border-color: var(--ui-destructive--hover);
-}
-
-/* Override for all outlined cards - must come after color variants */
-.card.outlined .card-header {
-    background-color: transparent;
-    border-color: transparent;
-}
-
-/* Accessibility improvements */
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     .card,
     .card.media .card-image {
@@ -435,7 +363,6 @@
     }
 }
 
-/* High contrast mode */
 @media (prefers-contrast: high) {
     .card {
         border-width: calc(var(--ui-border-width) * 2);
