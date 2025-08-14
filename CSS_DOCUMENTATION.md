@@ -27,6 +27,9 @@
         - [Button Classes](#button-classes)
             - [Button Variants](#button-variants)
             - [Button Group](#button-group)
+        - [Dialog Classes](#dialog-classes)
+        - [Input/Form Classes](#inputform-classes)
+        - [Select Classes](#select-classes)
     - [Utility Classes](#utility-classes)
         - [Flexbox Utilities](#flexbox-utilities)
             - [Display](#display)
@@ -297,6 +300,46 @@
 | Class           | Description                   |
 | --------------- | ----------------------------- |
 | `.button-group` | Container for grouped buttons |
+
+#### Dialog Classes
+
+| Class          | Description                             |
+| -------------- | --------------------------------------- |
+| `.clean`       | Removes border and background           |
+| `.fullscreen`  | Makes dialog fullscreen with safe areas |
+| `.primary`     | Primary color dialog                    |
+| `.secondary`   | Secondary color dialog                  |
+| `.success`     | Success color dialog                    |
+| `.warning`     | Warning color dialog                    |
+| `.destructive` | Destructive/danger color dialog         |
+| `.info`        | Info color dialog                       |
+| `.contrast`    | High contrast dialog                    |
+
+#### Input/Form Classes
+
+| Class          | Description                             |
+| -------------- | --------------------------------------- |
+| `.primary`     | Primary color input/textarea            |
+| `.secondary`   | Secondary color input/textarea          |
+| `.success`     | Success color input/textarea            |
+| `.warning`     | Warning color input/textarea            |
+| `.destructive` | Destructive/danger color input/textarea |
+| `.info`        | Info color input/textarea               |
+| `.contrast`    | High contrast input/textarea            |
+
+#### Select Classes
+
+| Class          | Description                     |
+| -------------- | ------------------------------- |
+| `.primary`     | Primary color select            |
+| `.secondary`   | Secondary color select          |
+| `.success`     | Success color select            |
+| `.warning`     | Warning color select            |
+| `.destructive` | Destructive/danger color select |
+| `.info`        | Info color select               |
+| `.contrast`    | High contrast select            |
+| `.small`       | Small size select               |
+| `.large`       | Large size select               |
 
 ### Utility Classes
 
