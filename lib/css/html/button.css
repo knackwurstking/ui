@@ -3,8 +3,7 @@ button,
 [role="button"],
 input[type="button"],
 input[type="submit"],
-input[type="reset"],
-a[role="button"] {
+input[type="reset"] {
     /* Layout */
     display: inline-flex;
     align-items: center;
@@ -44,8 +43,7 @@ button:hover,
 [role="button"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover,
-input[type="reset"]:hover,
-a[role="button"]:hover {
+input[type="reset"]:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -56,7 +54,6 @@ button:active,
 input[type="button"]:active,
 input[type="submit"]:active,
 input[type="reset"]:active,
-a[role="button"]:active,
 button.active,
 [role="button"].active {
     transform: translateY(1px);
@@ -69,16 +66,14 @@ button:focus-visible,
 [role="button"]:focus-visible,
 input[type="button"]:focus-visible,
 input[type="submit"]:focus-visible,
-input[type="reset"]:focus-visible,
-a[role="button"]:focus-visible {
+input[type="reset"]:focus-visible {
     outline: 2px solid var(--ui-primary);
     outline-offset: 2px;
 }
 
 /* Color Variants - Using data attributes for cleaner CSS */
 button,
-[role="button"],
-a[role="button"] {
+[role="button"] {
     /* Primary (default) */
     --btn-bg: var(--ui-primary);
     --btn-bg-hover: var(--ui-primary-hover);
@@ -89,8 +84,7 @@ a[role="button"] {
 
 /* Secondary */
 button.secondary,
-[role="button"].secondary,
-a[role="button"].secondary {
+[role="button"].secondary {
     --btn-bg: var(--ui-secondary);
     --btn-bg-hover: var(--ui-secondary-hover);
     --btn-bg-active: var(--ui-secondary-active);
@@ -99,8 +93,7 @@ a[role="button"].secondary {
 
 /* Success */
 button.success,
-[role="button"].success,
-a[role="button"].success {
+[role="button"].success {
     --btn-bg: var(--ui-success);
     --btn-bg-hover: var(--ui-success-hover);
     --btn-bg-active: var(--ui-success-active);
@@ -109,8 +102,7 @@ a[role="button"].success {
 
 /* Warning */
 button.warning,
-[role="button"].warning,
-a[role="button"].warning {
+[role="button"].warning {
     --btn-bg: var(--ui-warning);
     --btn-bg-hover: var(--ui-warning-hover);
     --btn-bg-active: var(--ui-warning-active);
@@ -120,8 +112,7 @@ a[role="button"].warning {
 /* Destructive */
 button.destructive,
 [role="button"].destructive,
-input[type="reset"],
-a[role="button"].destructive {
+input[type="reset"] {
     --btn-bg: var(--ui-destructive);
     --btn-bg-hover: var(--ui-destructive-hover);
     --btn-bg-active: var(--ui-destructive-active);
@@ -130,8 +121,7 @@ a[role="button"].destructive {
 
 /* Info */
 button.info,
-[role="button"].info,
-a[role="button"].info {
+[role="button"].info {
     --btn-bg: var(--ui-info);
     --btn-bg-hover: var(--ui-info-hover);
     --btn-bg-active: var(--ui-info-active);
@@ -140,8 +130,7 @@ a[role="button"].info {
 
 /* Contrast */
 button.contrast,
-[role="button"].contrast,
-a[role="button"].contrast {
+[role="button"].contrast {
     --btn-bg: var(--ui-contrast);
     --btn-bg-hover: var(--ui-contrast-hover);
     --btn-bg-active: var(--ui-contrast-active);
@@ -150,8 +139,7 @@ a[role="button"].contrast {
 
 /* Muted */
 button.muted,
-[role="button"].muted,
-a[role="button"].muted {
+[role="button"].muted {
     --btn-bg: var(--ui-muted);
     --btn-bg-hover: var(--ui-color-200);
     --btn-bg-active: var(--ui-color-300);
@@ -163,8 +151,7 @@ button:not(.outline):not(.ghost),
 [role="button"]:not(.outline):not(.ghost),
 input[type="button"]:not(.outline):not(.ghost),
 input[type="submit"]:not(.outline):not(.ghost),
-input[type="reset"]:not(.outline):not(.ghost),
-a[role="button"]:not(.outline):not(.ghost) {
+input[type="reset"]:not(.outline):not(.ghost) {
     background-color: var(--btn-bg);
     color: var(--btn-text);
     border-color: var(--btn-border);
@@ -174,8 +161,7 @@ button:not(.outline):not(.ghost):hover,
 [role="button"]:not(.outline):not(.ghost):hover,
 input[type="button"]:not(.outline):not(.ghost):hover,
 input[type="submit"]:not(.outline):not(.ghost):hover,
-input[type="reset"]:not(.outline):not(.ghost):hover,
-a[role="button"]:not(.outline):not(.ghost):hover {
+input[type="reset"]:not(.outline):not(.ghost):hover {
     background-color: var(--btn-bg-hover);
 }
 
@@ -183,8 +169,7 @@ button:not(.outline):not(.ghost):active,
 [role="button"]:not(.outline):not(.ghost):active,
 input[type="button"]:not(.outline):not(.ghost):active,
 input[type="submit"]:not(.outline):not(.ghost):active,
-input[type="reset"]:not(.outline):not(.ghost):active,
-a[role="button"]:not(.outline):not(.ghost):active {
+input[type="reset"]:not(.outline):not(.ghost):active {
     background-color: var(--btn-bg-active);
 }
 
@@ -192,99 +177,93 @@ a[role="button"]:not(.outline):not(.ghost):active {
 
 /* Outline variant */
 button.outline,
-[role="button"].outline,
-a[role="button"].outline {
+[role="button"].outline {
     background-color: transparent;
     color: var(--btn-bg);
     border-color: currentColor;
 }
 
 button.outline:hover,
-[role="button"].outline:hover,
-a[role="button"].outline:hover {
+[role="button"].outline:hover {
     background-color: transparent;
     color: var(--btn-bg-hover);
 }
 
 button.outline:active,
-[role="button"].outline:active,
-a[role="button"].outline:active {
+[role="button"].outline:active {
     background-color: transparent;
     color: var(--btn-bg-active);
 }
 
 /* Ghost variant */
 button.ghost,
-[role="button"].ghost,
-a[role="button"].ghost {
+[role="button"].ghost {
     background-color: transparent;
     color: var(--btn-bg);
     border-color: transparent;
 }
 
 button.ghost:hover,
-[role="button"].ghost:hover,
-a[role="button"].ghost:hover {
+[role="button"].ghost:hover {
     background-color: var(--ui-color-100);
     color: var(--btn-bg-hover);
 }
 
 button.ghost:active,
-[role="button"].ghost:active,
-a[role="button"].ghost:active {
+[role="button"].ghost:active {
     background-color: transparent;
     color: var(--btn-bg-active);
 }
 
 /* Size Variants */
 button.small,
-[role="button"].small,
-a[role="button"].small {
+[role="button"].small {
     padding: calc(var(--ui-spacing) / 4) calc(var(--ui-spacing) / 1.5);
     font-size: 0.875rem;
 }
 
 button.large,
-[role="button"].large,
-a[role="button"].large {
+[role="button"].large {
     padding: calc(var(--ui-spacing) * 0.75) calc(var(--ui-spacing) * 1.5);
     font-size: 1.25rem;
 }
 
 /* Shape Variants */
 button.round,
-[role="button"].round,
-a[role="button"].round {
+[role="button"].round {
     border-radius: 9999px;
 }
 
 button.icon,
-[role="button"].icon,
-a[role="button"].icon {
+[role="button"].icon {
     padding: calc(var(--ui-spacing) / 2);
     aspect-ratio: 1;
     min-width: 2.5rem;
     min-height: 2.5rem;
 }
 
+/* Keyboard Navigation Focus for Icon Buttons */
+/* Show focus outline only when using keyboard navigation */
+button.icon:focus,
+[role="button"].icon:focus {
+    outline: none;
+}
+
 /* Width Variant */
 button.full,
-[role="button"].full,
-a[role="button"].full {
+[role="button"].full {
     width: 100%;
 }
 
 /* Loading State */
 button.loading,
-[role="button"].loading,
-a[role="button"].loading {
+[role="button"].loading {
     color: transparent;
     pointer-events: none;
 }
 
 button.loading::after,
-[role="button"].loading::after,
-a[role="button"].loading::after {
+[role="button"].loading::after {
     content: "";
     position: absolute;
     width: 1rem;
@@ -304,8 +283,7 @@ a[role="button"].loading::after {
 
 /* Icon Support */
 button > svg,
-[role="button"] > svg,
-a[role="button"] > svg {
+[role="button"] > svg {
     width: 1.25em;
     height: 1.25em;
     vertical-align: middle;
@@ -313,14 +291,12 @@ a[role="button"] > svg {
 }
 
 button > svg:first-child:not(:last-child),
-[role="button"] > svg:first-child:not(:last-child),
-a[role="button"] > svg:first-child:not(:last-child) {
+[role="button"] > svg:first-child:not(:last-child) {
     margin-right: calc(var(--ui-spacing) / 2);
 }
 
 button > svg:last-child:not(:first-child),
-[role="button"] > svg:last-child:not(:first-child),
-a[role="button"] > svg:last-child:not(:first-child) {
+[role="button"] > svg:last-child:not(:first-child) {
     margin-left: calc(var(--ui-spacing) / 2);
 }
 
@@ -331,8 +307,7 @@ a[role="button"] > svg:last-child:not(:first-child) {
 }
 
 .button-group > button,
-.button-group > [role="button"],
-.button-group > a[role="button"] {
+.button-group > [role="button"] {
     border-radius: 0;
     margin-left: calc(var(--ui-border-width) * -1);
 }
@@ -356,8 +331,7 @@ a[role="button"] > svg:last-child:not(:first-child) {
     [role="button"],
     input[type="button"],
     input[type="submit"],
-    input[type="reset"],
-    a[role="button"] {
+    input[type="reset"] {
         transition: none;
     }
 }
@@ -367,8 +341,7 @@ a[role="button"] > svg:last-child:not(:first-child) {
     [role="button"]:focus-visible,
     input[type="button"]:focus-visible,
     input[type="submit"]:focus-visible,
-    input[type="reset"]:focus-visible,
-    a[role="button"]:focus-visible {
+    input[type="reset"]:focus-visible {
         outline-width: 3px;
         outline-offset: 3px;
     }
@@ -380,8 +353,7 @@ a[role="button"] > svg:last-child:not(:first-child) {
     [role="button"],
     input[type="button"],
     input[type="submit"],
-    input[type="reset"],
-    a[role="button"] {
+    input[type="reset"] {
         min-height: 44px;
         min-width: 44px;
     }
