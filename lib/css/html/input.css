@@ -4,6 +4,8 @@ form > * {
 }
 
 /* Text Inputs Base */
+input:not([type]),
+input[type=""],
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -36,6 +38,8 @@ textarea {
 }
 
 /* Hover & Focus States */
+input:not([type]):hover,
+input[type=""]:hover,
 input[type="text"]:hover,
 input[type="email"]:hover,
 input[type="password"]:hover,
@@ -52,6 +56,8 @@ textarea:hover {
     border-color: var(--ui-primary);
 }
 
+input:not([type]):focus,
+input[type=""]:focus,
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus,
@@ -69,6 +75,8 @@ textarea:focus {
     border-color: var(--ui-primary);
 }
 
+input:not([type]):focus-visible,
+input[type=""]:focus-visible,
 input[type="text"]:focus-visible,
 input[type="email"]:focus-visible,
 input[type="password"]:focus-visible,
