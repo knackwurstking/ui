@@ -1,367 +1,303 @@
 /* Base anchor styles */
-a:not([role="button"]) {
+a {
+    color: var(--ui-primary);
     text-decoration: underline;
-    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
     text-underline-offset: 0.125em;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    border-radius: calc(var(--ui-radius) * 0.5);
-    outline: none;
-}
-
-/* Hover state */
-a:not([role="button"]):hover {
-    text-decoration-color: currentColor;
-    transform: translateY(-1px);
-}
-
-/* Active state */
-a:not([role="button"]):active {
-    text-decoration-color: currentColor;
-    transform: translateY(1px);
-}
-
-/* Focus state for accessibility */
-a:not([role="button"]):focus-visible {
-    text-decoration-color: currentColor;
-    outline: 2px solid var(--ui-secondary);
+    transition:
+        color 0.2s ease,
+        text-decoration-color 0.2s ease,
+        text-decoration-thickness 0.2s ease,
+        opacity 0.2s ease;
     outline-offset: 2px;
 }
 
-/* Visited state - base */
-a:not([role="button"]):visited {
+/* Remove default styles for anchors with role="button" - handled in button.css */
+a[role="button"] {
+    all: unset;
+}
+
+/* Visited state */
+a:visited:not([role="button"]) {
+    color: var(--ui-primary);
     opacity: 0.85;
-    text-decoration-style: dotted;
 }
 
-a:not([role="button"]):visited:hover {
-    opacity: 1;
-    text-decoration-style: solid;
-    text-decoration-color: currentColor;
-    transform: translateY(-1px);
-}
-
-a:not([role="button"]):visited:active {
-    opacity: 0.75;
-    text-decoration-style: solid;
-    text-decoration-color: currentColor;
-    transform: translateY(1px);
-}
-
-/* Primary Color Variant */
-a.primary:not([role="button"]) {
-    color: var(--ui-primary);
-}
-
-a.primary:not([role="button"]):hover {
+/* Hover state */
+a:hover:not([role="button"]) {
     color: var(--ui-primary--hover);
-    transform: translateY(-1px);
+    text-decoration-thickness: 2px;
 }
 
-a.primary:not([role="button"]):active {
+/* Active state */
+a:active:not([role="button"]) {
     color: var(--ui-primary--active);
-    transform: translateY(1px);
+    opacity: 0.9;
 }
 
-a.primary:not([role="button"]):focus-visible {
-    color: var(--ui-primary--hover);
+/* Focus state for accessibility */
+a:focus:not([role="button"]) {
+    outline: none;
+}
+
+/* Focus visible - only show outline when keyboard navigating */
+a:focus-visible:not([role="button"]) {
     outline: 2px solid var(--ui-primary);
+    outline-offset: 2px;
+    border-radius: var(--ui-radius);
 }
 
-a.primary:not([role="button"]):visited {
-    color: var(--ui-primary);
-    opacity: 0.8;
-    text-decoration-style: dotted;
+/* External link indicator */
+a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
+a[target="_blank"]:not([role="button"]):after {
+    content: " ↗";
+    font-size: 0.875rem;
+    opacity: 0.7;
+    display: inline-block;
+    margin-left: 0.125em;
+    transition: opacity 0.2s ease;
 }
 
-a.primary:not([role="button"]):visited:hover {
-    color: var(--ui-primary--hover);
+a[href^="http"]:not([href*="localhost"]):not([role="button"]):hover:after,
+a[target="_blank"]:not([role="button"]):hover:after {
     opacity: 1;
-    text-decoration-style: solid;
 }
 
-/* Secondary Color Variant */
+/* Email links */
+a[href^="mailto:"]:not([role="button"]):before {
+    content: "✉ ";
+    opacity: 0.7;
+    margin-right: 0.125em;
+}
+
+/* Phone links */
+a[href^="tel:"]:not([role="button"]):before {
+    content: "☎ ";
+    opacity: 0.7;
+    margin-right: 0.125em;
+}
+
+/* Anchor as header link (common pattern) */
+a.anchor-link,
+a.header-link {
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    margin-left: 0.5em;
+}
+
+h1:hover > a.anchor-link,
+h2:hover > a.anchor-link,
+h3:hover > a.anchor-link,
+h4:hover > a.anchor-link,
+h5:hover > a.anchor-link,
+h6:hover > a.anchor-link,
+h1:hover > a.header-link,
+h2:hover > a.header-link,
+h3:hover > a.header-link,
+h4:hover > a.header-link,
+h5:hover > a.header-link,
+h6:hover > a.header-link {
+    opacity: 0.7;
+}
+
+a.anchor-link:hover,
+a.header-link:hover {
+    opacity: 1 !important;
+}
+
+/* Disabled anchor state */
+a[aria-disabled="true"]:not([role="button"]),
+a.disabled:not([role="button"]) {
+    color: var(--ui-muted-text);
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-decoration-color: var(--ui-muted-text);
+}
+
+/* Color variants for anchors */
 a.secondary:not([role="button"]) {
     color: var(--ui-secondary);
 }
 
 a.secondary:not([role="button"]):hover {
     color: var(--ui-secondary--hover);
-    transform: translateY(-1px);
 }
 
 a.secondary:not([role="button"]):active {
     color: var(--ui-secondary--active);
-    transform: translateY(1px);
 }
 
-a.secondary:not([role="button"]):focus-visible {
-    color: var(--ui-secondary--hover);
-    outline: 2px solid var(--ui-secondary);
-}
-
-a.secondary:not([role="button"]):visited {
-    color: var(--ui-secondary);
-    opacity: 0.8;
-    text-decoration-style: dotted;
-}
-
-a.secondary:not([role="button"]):visited:hover {
-    color: var(--ui-secondary--hover);
-    opacity: 1;
-    text-decoration-style: solid;
-}
-
-/* Info Color Variant */
-a.info:not([role="button"]) {
-    color: var(--ui-info);
-}
-
-a.info:not([role="button"]):hover {
-    color: var(--ui-info--hover);
-    transform: translateY(-1px);
-}
-
-a.info:not([role="button"]):active {
-    color: var(--ui-info--active);
-    transform: translateY(1px);
-}
-
-a.info:not([role="button"]):focus-visible {
-    color: var(--ui-info--hover);
-    outline: 2px solid var(--ui-info);
-}
-
-a.info:not([role="button"]):visited {
-    color: var(--ui-info);
-    opacity: 0.8;
-    text-decoration-style: dotted;
-}
-
-a.info:not([role="button"]):visited:hover {
-    color: var(--ui-info--hover);
-    opacity: 1;
-    text-decoration-style: solid;
-}
-
-/* Warning Color Variant */
-a.warning:not([role="button"]) {
-    color: var(--ui-warning);
-}
-
-a.warning:not([role="button"]):hover {
-    color: var(--ui-warning--hover);
-    transform: translateY(-1px);
-}
-
-a.warning:not([role="button"]):active {
-    color: var(--ui-warning--active);
-    transform: translateY(1px);
-}
-
-a.warning:not([role="button"]):focus-visible {
-    color: var(--ui-warning--hover);
-    outline: 2px solid var(--ui-warning);
-}
-
-a.warning:not([role="button"]):visited {
-    color: var(--ui-warning);
-    opacity: 0.8;
-    text-decoration-style: dotted;
-}
-
-a.warning:not([role="button"]):visited:hover {
-    color: var(--ui-warning--hover);
-    opacity: 1;
-    text-decoration-style: solid;
-}
-
-/* Success Color Variant */
 a.success:not([role="button"]) {
     color: var(--ui-success);
 }
 
 a.success:not([role="button"]):hover {
     color: var(--ui-success--hover);
-    transform: translateY(-1px);
 }
 
 a.success:not([role="button"]):active {
     color: var(--ui-success--active);
-    transform: translateY(1px);
 }
 
-a.success:not([role="button"]):focus-visible {
-    color: var(--ui-success--hover);
-    outline: 2px solid var(--ui-success);
+a.warning:not([role="button"]) {
+    color: var(--ui-warning);
 }
 
-a.success:not([role="button"]):visited {
-    color: var(--ui-success);
-    opacity: 0.8;
-    text-decoration-style: dotted;
+a.warning:not([role="button"]):hover {
+    color: var(--ui-warning--hover);
 }
 
-a.success:not([role="button"]):visited:hover {
-    color: var(--ui-success--hover);
-    opacity: 1;
-    text-decoration-style: solid;
+a.warning:not([role="button"]):active {
+    color: var(--ui-warning--active);
 }
 
-/* Destructive/Error Color Variant */
-a.destructive:not([role="button"]),
-a.error:not([role="button"]) {
+a.destructive:not([role="button"]) {
     color: var(--ui-destructive);
 }
 
-a.destructive:not([role="button"]):hover,
-a.error:not([role="button"]):hover {
+a.destructive:not([role="button"]):hover {
     color: var(--ui-destructive--hover);
-    transform: translateY(-1px);
 }
 
-a.destructive:not([role="button"]):active,
-a.error:not([role="button"]):active {
+a.destructive:not([role="button"]):active {
     color: var(--ui-destructive--active);
-    transform: translateY(1px);
 }
 
-a.destructive:not([role="button"]):focus-visible,
-a.error:not([role="button"]):focus-visible {
-    color: var(--ui-destructive--hover);
-    outline: 2px solid var(--ui-destructive);
+a.info:not([role="button"]) {
+    color: var(--ui-info);
 }
 
-a.destructive:not([role="button"]):visited,
-a.error:not([role="button"]):visited {
-    color: var(--ui-destructive);
-    opacity: 0.8;
-    text-decoration-style: dotted;
+a.info:not([role="button"]):hover {
+    color: var(--ui-info--hover);
 }
 
-a.destructive:not([role="button"]):visited:hover,
-a.error:not([role="button"]):visited:hover {
-    color: var(--ui-destructive--hover);
+a.info:not([role="button"]):active {
+    color: var(--ui-info--active);
+}
+
+a.muted:not([role="button"]) {
+    color: var(--ui-muted-text);
+    opacity: 0.85;
+}
+
+a.muted:not([role="button"]):hover {
     opacity: 1;
-    text-decoration-style: solid;
 }
 
-/* Contrast Color Variant */
 a.contrast:not([role="button"]) {
     color: var(--ui-contrast);
 }
 
 a.contrast:not([role="button"]):hover {
     color: var(--ui-contrast--hover);
-    transform: translateY(-1px);
 }
 
 a.contrast:not([role="button"]):active {
     color: var(--ui-contrast--active);
-    transform: translateY(1px);
 }
 
-a.contrast:not([role="button"]):focus-visible {
-    color: var(--ui-contrast--hover);
-    outline: 2px solid var(--ui-contrast);
-}
-
-a.contrast:not([role="button"]):visited {
-    color: var(--ui-contrast);
-    opacity: 0.8;
-    text-decoration-style: dotted;
-}
-
-a.contrast:not([role="button"]):visited:hover {
-    color: var(--ui-contrast--hover);
-    opacity: 1;
-    text-decoration-style: solid;
-}
-
-/* Muted Color Variant */
-a.muted:not([role="button"]) {
-    color: var(--ui-muted-text);
-}
-
-a.muted:not([role="button"]):hover {
-    color: var(--ui-muted-text);
-    opacity: 0.8;
-    transform: translateY(-1px);
-}
-
-a.muted:not([role="button"]):active {
-    color: var(--ui-muted-text);
-    opacity: 0.6;
-    transform: translateY(1px);
-}
-
-a.muted:not([role="button"]):focus-visible {
-    color: var(--ui-muted-text);
-    outline: 2px solid var(--ui-muted);
-}
-
-a.muted:not([role="button"]):visited {
-    color: var(--ui-muted-text);
-    opacity: 0.7;
-    text-decoration-style: dotted;
-}
-
-a.muted:not([role="button"]):visited:hover {
-    color: var(--ui-muted-text);
-    opacity: 0.8;
-    text-decoration-style: solid;
-}
-
-/* External link indicator */
-a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
-a[target="_blank"]:not([role="button"]):after {
-    content: "↗";
-    margin-left: 4px;
-    opacity: 0.7;
-}
-
-/* Visited external links get a slightly different indicator */
-a[href^="http"]:not([href*="localhost"]):not([role="button"]):visited:after,
-a[target="_blank"]:not([role="button"]):visited:after {
-    opacity: 0.5;
-}
-
-/* Disabled state */
-a[aria-disabled="true"]:not([role="button"]),
-a[disabled]:not([role="button"]),
-a.disabled:not([role="button"]) {
-    color: var(--ui-muted-text);
-    cursor: not-allowed;
-    text-decoration: none;
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-/* No decoration variant */
-a.no-decoration:not([role="button"]) {
+/* No underline variant */
+a.no-underline:not([role="button"]) {
     text-decoration: none;
 }
 
-a.no-decoration:not([role="button"]):hover {
-    text-decoration: none;
-    transform: translateY(-1px);
+a.no-underline:not([role="button"]):hover {
+    text-decoration: underline;
 }
 
-a.no-decoration:not([role="button"]):active {
-    text-decoration: none;
-    transform: translateY(1px);
+/* Block link variant */
+a.block:not([role="button"]) {
+    display: block;
+    width: 100%;
 }
 
-a.no-decoration:not([role="button"]):focus-visible {
-    text-decoration: none;
+/* Inline-block link variant */
+a.inline-block:not([role="button"]) {
+    display: inline-block;
 }
 
-a.no-decoration:not([role="button"]):visited {
+/* Navigation link styles */
+nav a:not([role="button"]),
+a.nav-link:not([role="button"]) {
     text-decoration: none;
-    opacity: 0.85;
+    padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
+    border-radius: var(--ui-radius);
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-a.no-decoration:not([role="button"]):visited:hover {
+nav a:not([role="button"]):hover,
+a.nav-link:not([role="button"]):hover {
+    background-color: var(--ui-color-100);
+}
+
+nav a.active:not([role="button"]),
+a.nav-link.active:not([role="button"]) {
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
+}
+
+/* Breadcrumb link styles */
+.breadcrumb a:not([role="button"]),
+a.breadcrumb-link:not([role="button"]) {
     text-decoration: none;
-    opacity: 1;
+    color: var(--ui-muted-text);
+}
+
+.breadcrumb a:not([role="button"]):hover,
+a.breadcrumb-link:not([role="button"]):hover {
+    color: var(--ui-primary);
+    text-decoration: underline;
+}
+
+/* Card link overlay pattern */
+a.card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    text-indent: -9999px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    a:not([role="button"]) {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    a:not([role="button"]) {
+        text-decoration-thickness: 2px;
+    }
+
+    a:not([role="button"]):hover {
+        text-decoration-thickness: 3px;
+    }
+
+    a:focus-visible:not([role="button"]) {
+        outline-width: 3px;
+        outline-offset: 3px;
+    }
+}
+
+/* Print styles */
+@media print {
+    a[href]:not([role="button"]):after {
+        content: " (" attr(href) ")";
+        font-size: 0.875rem;
+        font-weight: normal;
+    }
+
+    a[href^="javascript:"]:not([role="button"]):after,
+    a[href^="#"]:not([role="button"]):after {
+        content: "";
+    }
 }
