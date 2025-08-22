@@ -140,6 +140,107 @@ input[type="file"] {
     font-size: 1rem;
 }
 
+/* Readonly States */
+input[readonly],
+textarea[readonly] {
+    /* Visual distinction */
+    opacity: 0.7;
+    background-color: var(--ui-muted, rgba(128, 128, 128, 0.05));
+    cursor: not-allowed;
+    user-select: none;
+
+    /* Keep border subtle */
+    border-color: var(--ui-border-color) !important;
+}
+
+/* Disable all hover effects for readonly */
+input[readonly]:hover,
+textarea[readonly]:hover {
+    border-color: var(--ui-border-color) !important;
+}
+
+/* Disable all focus effects for readonly */
+input[readonly]:focus,
+textarea[readonly]:focus,
+input[readonly]:focus-visible,
+textarea[readonly]:focus-visible {
+    outline: none !important;
+    border-color: var(--ui-border-color) !important;
+    box-shadow: none !important;
+}
+
+/* Disabled States */
+input:disabled,
+textarea:disabled,
+select:disabled {
+    /* Stronger visual distinction than readonly */
+    opacity: 0.5;
+    background-color: var(--ui-muted, rgba(128, 128, 128, 0.1));
+    cursor: not-allowed;
+    user-select: none;
+
+    /* Remove all borders and effects */
+    border-style: dashed;
+    border-color: var(--ui-border-color) !important;
+}
+
+/* Disable all hover effects for disabled */
+input:disabled:hover,
+textarea:disabled:hover,
+select:disabled:hover {
+    border-color: var(--ui-border-color) !important;
+}
+
+/* Disable all focus effects for disabled */
+input:disabled:focus,
+textarea:disabled:focus,
+select:disabled:focus,
+input:disabled:focus-visible,
+textarea:disabled:focus-visible,
+select:disabled:focus-visible {
+    outline: none !important;
+    border-color: var(--ui-border-color) !important;
+    box-shadow: none !important;
+}
+
+/* Readonly checkbox and radio */
+input[type="checkbox"][readonly],
+input[type="radio"][readonly] {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Disabled checkbox and radio */
+input[type="checkbox"]:disabled,
+input[type="radio"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Readonly color picker */
+input[type="color"][readonly] {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Disabled color picker */
+input[type="color"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Readonly file input */
+input[type="file"][readonly] {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Disabled file input */
+input[type="file"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 /* Validation States */
 input[aria-invalid="true"],
 textarea[aria-invalid="true"],
@@ -211,52 +312,23 @@ textarea.contrast {
 }
 
 /* Apply color variant hover states */
-input.primary:hover,
-textarea.primary:hover,
-input.secondary:hover,
-textarea.secondary:hover,
-input.success:hover,
-textarea.success:hover,
-input.warning:hover,
-textarea.warning:hover,
-input.destructive:hover,
-textarea.destructive:hover,
-input.info:hover,
-textarea.info:hover,
-input.contrast:hover,
-textarea.contrast:hover {
+input:hover,
+textarea:hover {
     border-color: var(--input-hover);
 }
 
 /* Apply color variant focus states */
-input.primary:focus,
-input.primary:focus-visible,
-textarea.primary:focus,
-textarea.primary:focus-visible,
-input.secondary:focus,
-input.secondary:focus-visible,
-textarea.secondary:focus,
-textarea.secondary:focus-visible,
-input.success:focus,
-input.success:focus-visible,
-textarea.success:focus,
-textarea.success:focus-visible,
-input.warning:focus,
-input.warning:focus-visible,
-textarea.warning:focus,
-textarea.warning:focus-visible,
-input.destructive:focus,
-input.destructive:focus-visible,
-textarea.destructive:focus,
-textarea.destructive:focus-visible,
-input.info:focus,
-input.info:focus-visible,
-textarea.info:focus,
-textarea.info:focus-visible,
-input.contrast:focus,
-input.contrast:focus-visible,
-textarea.contrast:focus,
-textarea.contrast:focus-visible {
+input:focus:not([readonly]):not(:disabled),
+input:focus-visible:not([readonly]):not(:disabled),
+textarea:focus:not([readonly]):not(:disabled),
+textarea:focus-visible:not([readonly]):not(:disabled) {
     border-color: var(--input-color);
     outline-color: var(--input-color);
+}
+
+/* Override color variants for readonly and disabled states */
+input[readonly],
+textarea[readonly] {
+    border-color: var(--ui-border-color) !important;
+    accent-color: var(--ui-border-color) !important;
 }
