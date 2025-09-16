@@ -60,7 +60,7 @@
     --ui-success: hsl(140, 85%, 55%);
     --ui-success-hover: hsl(140, 85%, 50%);
     --ui-success-active: hsl(140, 85%, 40%);
-    --ui-success-text: hsl(140, 95%, 12%);
+    --ui-success-text: hsl(0, 0%, 100%);
 
     /* Warning */
     --ui-warning: hsl(42, 95%, 58%);
@@ -130,7 +130,7 @@
         --ui-success: hsl(140, 75%, 65%);
         --ui-success-hover: hsl(140, 75%, 60%);
         --ui-success-active: hsl(140, 75%, 50%);
-        --ui-success-text: hsl(140, 85%, 85%);
+        --ui-success-text: hsl(140, 50%, 15%);
 
         /* Warning */
         --ui-warning: hsl(42, 90%, 65%);
@@ -200,7 +200,7 @@
     --ui-success: hsl(140, 75%, 65%);
     --ui-success-hover: hsl(140, 75%, 60%);
     --ui-success-active: hsl(140, 75%, 50%);
-    --ui-success-text: hsl(140, 85%, 85%);
+    --ui-success-text: hsl(140, 50%, 15%);
 
     /* Warning */
     --ui-warning: hsl(42, 90%, 65%);
