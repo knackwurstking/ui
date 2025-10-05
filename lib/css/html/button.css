@@ -242,6 +242,14 @@ button.icon,
     min-height: 2.5rem;
 }
 
+/* Small icon buttons */
+button.small.icon,
+[role="button"].small.icon {
+    padding: calc(var(--ui-spacing) / 4);
+    min-width: 2rem;
+    min-height: 2rem;
+}
+
 /* Keyboard Navigation Focus for Icon Buttons */
 /* Show focus outline only when using keyboard navigation */
 button.icon:focus,
