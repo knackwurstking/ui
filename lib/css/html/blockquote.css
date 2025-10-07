@@ -1,104 +1,70 @@
 /* Blockquote Base Styles */
 blockquote {
     position: relative;
-    margin: calc(var(--ui-spacing) * 2) 0;
-    padding: var(--ui-spacing) calc(var(--ui-spacing) * 3);
-    padding-left: calc(var(--ui-spacing) * 4);
-    background-color: var(--ui-color-50);
-    border-left: 4px solid var(--ui-primary);
+    margin: calc(var(--ui-spacing) * 3) 0;
+    padding: calc(var(--ui-spacing) * 2);
+    padding-left: calc(var(--ui-spacing) * 3);
+
+    background-color: var(--ui-color-100);
+    border-left: 3px solid var(--ui-primary);
     border-radius: var(--ui-radius);
-    font-style: italic;
-    color: var(--ui-text);
+
+    --wght: 350;
+    --slnt: -5;
     line-height: 1.6;
-    overflow: hidden;
 }
 
-/* Quotation mark decoration */
-blockquote::before {
-    content: "\201C";
-    position: absolute;
-    left: calc(var(--ui-spacing) * 1.5);
-    top: calc(var(--ui-spacing) * 0.5);
-    font-size: 3rem;
-    color: var(--ui-primary);
-    opacity: 0.25;
-    font-style: normal;
-    line-height: 1;
-    font-weight: 700;
+/* Content styling */
+blockquote p {
+    margin: 0;
+}
+
+blockquote p + p {
+    margin-top: var(--ui-spacing);
+}
+
+/* Citation styles */
+blockquote cite,
+blockquote footer {
+    display: block;
+    margin-top: calc(var(--ui-spacing) * 1.5);
+    font-size: 0.875rem;
+    color: var(--ui-muted-text);
+    text-align: right;
+    --wght: 400;
+    --slnt: 0;
+}
+
+blockquote cite::before,
+blockquote footer::before {
+    content: "\2014\00A0";
 }
 
 /* Nested blockquotes */
 blockquote blockquote {
     margin: var(--ui-spacing) 0;
-    border-left-width: 3px;
-    opacity: 0.95;
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+    border-left-width: 2px;
+    background-color: transparent;
+    opacity: 0.9;
 }
 
-/* Citation styles */
-blockquote cite {
-    display: block;
-    margin-top: var(--ui-spacing);
-    font-size: 0.875rem;
-    font-style: normal;
-    color: var(--ui-muted-text);
-    text-align: right;
-}
-
-blockquote cite::before {
-    content: "\2014\00A0";
-}
-
-/* Footer within blockquote (alternative to cite) */
-blockquote footer {
-    margin-top: var(--ui-spacing);
-    font-size: 0.875rem;
-    font-style: normal;
-    color: var(--ui-muted-text);
-}
-
-blockquote footer::before {
-    content: "\2014\00A0";
-}
-
-/* Paragraph spacing within blockquote */
-blockquote p {
-    margin: 0;
-    padding: 0;
-}
-
-blockquote p:not(:last-child) {
-    margin-bottom: var(--ui-spacing);
-}
-
-blockquote p:first-child {
-    margin-top: 0;
-}
-
-/* Clean variant - no background */
+/* Variant: Clean (no background) */
 blockquote.clean {
     background-color: transparent;
-    padding-left: calc(var(--ui-spacing) * 3);
+    padding-left: calc(var(--ui-spacing) * 2.5);
 }
 
-blockquote.clean::before {
-    left: var(--ui-spacing);
-}
-
-/* Centered variant */
+/* Variant: Centered */
 blockquote.centered {
     text-align: center;
     border-left: none;
     border-top: 2px solid var(--ui-primary);
     border-bottom: 2px solid var(--ui-primary);
-    padding: calc(var(--ui-spacing) * 2) var(--ui-spacing);
+    padding: calc(var(--ui-spacing) * 2);
     max-width: 40rem;
     margin-left: auto;
     margin-right: auto;
-}
-
-blockquote.centered::before {
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 blockquote.centered cite,
@@ -106,103 +72,46 @@ blockquote.centered footer {
     text-align: center;
 }
 
-/* Large variant */
+/* Variant: Large */
 blockquote.large {
-    font-size: 1.25rem;
-    padding: calc(var(--ui-spacing) * 3) calc(var(--ui-spacing) * 4);
-    padding-left: calc(var(--ui-spacing) * 5);
+    font-size: 1.125rem;
+    padding: calc(var(--ui-spacing) * 3);
+    padding-left: calc(var(--ui-spacing) * 4);
+    --wght: 400;
 }
 
-blockquote.large::before {
-    font-size: 4rem;
-}
-
-/* Small variant */
+/* Variant: Small */
 blockquote.small {
     font-size: 0.875rem;
-    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
-    padding-left: calc(var(--ui-spacing) * 3);
-    border-left-width: 3px;
-}
-
-blockquote.small::before {
-    font-size: 2rem;
-    left: var(--ui-spacing);
-}
-
-/* Callout variant - for important quotes */
-blockquote.callout {
-    background-color: var(--ui-primary);
-    color: var(--ui-primary-text);
-    border-left-color: var(--ui-primary-text);
-    font-style: normal;
-    font-weight: 500;
-}
-
-blockquote.callout::before {
-    color: var(--ui-primary-text);
-    opacity: 0.15;
-}
-
-blockquote.callout cite,
-blockquote.callout footer {
-    color: var(--ui-primary-text);
-    opacity: 0.85;
+    padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
+    padding-left: calc(var(--ui-spacing) * 2.5);
+    border-left-width: 2px;
 }
 
 /* Color Variants */
-blockquote.primary {
-    border-left-color: var(--ui-primary);
-    background-color: hsla(120, 85%, 55%, 0.05);
-}
-
-blockquote.primary::before {
-    color: var(--ui-primary);
-}
-
 blockquote.secondary {
     border-left-color: var(--ui-secondary);
-    background-color: var(--ui-color-100);
-}
-
-blockquote.secondary::before {
-    color: var(--ui-secondary);
+    background-color: var(--ui-color-200);
 }
 
 blockquote.success {
     border-left-color: var(--ui-success);
-    background-color: hsla(140, 85%, 55%, 0.05);
-}
-
-blockquote.success::before {
-    color: var(--ui-success);
+    background-color: var(--ui-color-100);
 }
 
 blockquote.warning {
     border-left-color: var(--ui-warning);
-    background-color: hsla(42, 95%, 58%, 0.05);
-}
-
-blockquote.warning::before {
-    color: var(--ui-warning);
+    background-color: var(--ui-color-100);
 }
 
 blockquote.destructive {
     border-left-color: var(--ui-destructive);
-    background-color: hsla(0, 85%, 60%, 0.05);
-}
-
-blockquote.destructive::before {
-    color: var(--ui-destructive);
+    background-color: var(--ui-color-100);
 }
 
 blockquote.info {
     border-left-color: var(--ui-info);
-    background-color: hsla(200, 85%, 50%, 0.05);
-}
-
-blockquote.info::before {
-    color: var(--ui-info);
+    background-color: var(--ui-color-100);
 }
 
 blockquote.muted {
@@ -211,109 +120,45 @@ blockquote.muted {
     color: var(--ui-muted-text);
 }
 
-blockquote.muted::before {
-    color: var(--ui-muted-text);
+/* Variant: Callout (prominent) */
+blockquote.callout {
+    background-color: var(--ui-primary);
+    color: var(--ui-primary-text);
+    border-left-color: var(--ui-primary-text);
+    --wght: 450;
+    --slnt: 0;
 }
 
-/* Pull quote variant */
+blockquote.callout cite,
+blockquote.callout footer {
+    color: var(--ui-primary-text);
+    opacity: 0.85;
+}
+
+/* Variant: Pull quotes */
 blockquote.pull-left,
 blockquote.pull-right {
     width: 40%;
-    margin: var(--ui-spacing);
-    font-size: 1.125rem;
+    margin: var(--ui-spacing) 0;
+    font-size: 1rem;
+    border: none;
     border-top: 2px solid var(--ui-primary);
     border-bottom: 2px solid var(--ui-primary);
-    border-left: none;
-    padding: calc(var(--ui-spacing) * 2) 0;
+    padding: calc(var(--ui-spacing) * 1.5) 0;
     background-color: transparent;
+    --wght: 400;
 }
 
 blockquote.pull-left {
     float: left;
-    margin-left: 0;
-    margin-right: calc(var(--ui-spacing) * 3);
+    margin-right: calc(var(--ui-spacing) * 2);
     text-align: left;
 }
 
 blockquote.pull-right {
     float: right;
-    margin-right: 0;
-    margin-left: calc(var(--ui-spacing) * 3);
+    margin-left: calc(var(--ui-spacing) * 2);
     text-align: right;
-}
-
-blockquote.pull-left::before,
-blockquote.pull-right::before {
-    display: none;
-}
-
-/* Testimonial variant */
-blockquote.testimonial {
-    text-align: center;
-    border: none;
-    background-color: var(--ui-color-50);
-    padding: calc(var(--ui-spacing) * 3);
-    border-radius: calc(var(--ui-radius) * 2);
-    position: relative;
-    margin: calc(var(--ui-spacing) * 4) auto;
-    max-width: 40rem;
-}
-
-blockquote.testimonial::before {
-    content: "\201C";
-    position: absolute;
-    top: calc(var(--ui-spacing) * -1);
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 5rem;
-    color: var(--ui-primary);
-    opacity: 0.15;
-}
-
-blockquote.testimonial::after {
-    content: "\201D";
-    position: absolute;
-    bottom: calc(var(--ui-spacing) * -2);
-    right: 50%;
-    transform: translateX(50%);
-    font-size: 5rem;
-    color: var(--ui-primary);
-    opacity: 0.15;
-}
-
-blockquote.testimonial cite,
-blockquote.testimonial footer {
-    margin-top: calc(var(--ui-spacing) * 2);
-    text-align: center;
-}
-
-/* Twitter/Tweet style variant */
-blockquote.tweet {
-    border-left-color: #1da1f2;
-    background-color: hsla(203, 89%, 53%, 0.05);
-    position: relative;
-    padding-right: calc(var(--ui-spacing) * 5);
-}
-
-blockquote.tweet::before {
-    content: "\1D54F";
-    color: #1da1f2;
-    font-weight: bold;
-    font-style: normal;
-}
-
-/* Code blockquote variant */
-blockquote.code {
-    font-family: monospace;
-    font-style: normal;
-    background-color: var(--ui-muted);
-    border-left-color: var(--ui-secondary);
-}
-
-blockquote.code::before {
-    content: "</>";
-    font-family: monospace;
-    color: var(--ui-secondary);
 }
 
 /* Accessibility improvements */
@@ -326,8 +171,7 @@ blockquote.code::before {
 /* High contrast mode */
 @media (prefers-contrast: high) {
     blockquote {
-        border-left-width: 6px;
-        border-left-style: solid;
+        border-left-width: 4px;
     }
 
     blockquote.centered {
@@ -340,31 +184,34 @@ blockquote.code::before {
 @media print {
     blockquote {
         page-break-inside: avoid;
-        border-left-width: 2pt;
         background-color: transparent;
-    }
-
-    blockquote::before {
-        display: none;
+        border-left-width: 2pt;
     }
 }
 
 /* Responsive adjustments */
 @media (max-width: 640px) {
+    blockquote {
+        margin: calc(var(--ui-spacing) * 2) 0;
+        padding: var(--ui-spacing) calc(var(--ui-spacing) * 1.5);
+        padding-left: calc(var(--ui-spacing) * 2.5);
+    }
+
     blockquote.pull-left,
     blockquote.pull-right {
         float: none;
         width: 100%;
         margin: calc(var(--ui-spacing) * 2) 0;
+        text-align: left;
     }
 
     blockquote.large {
-        font-size: 1.125rem;
-        padding: calc(var(--ui-spacing) * 2) calc(var(--ui-spacing) * 3);
-        padding-left: calc(var(--ui-spacing) * 4);
+        font-size: 1rem;
+        padding: calc(var(--ui-spacing) * 2);
+        padding-left: calc(var(--ui-spacing) * 3);
     }
 
-    blockquote.testimonial {
-        padding: calc(var(--ui-spacing) * 2);
+    blockquote.centered {
+        padding: calc(var(--ui-spacing) * 1.5);
     }
 }
