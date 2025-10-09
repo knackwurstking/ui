@@ -2,7 +2,7 @@ code,
 pre {
     background-color: var(--ui-muted);
     color: var(--ui-muted-text);
-    padding: 16px;
+    padding: var(--ui-spacing);
     line-height: var(--ui-line-height-code);
     border: none;
     border-radius: 8px;
