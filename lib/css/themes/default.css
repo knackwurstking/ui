@@ -2,266 +2,442 @@
 
 /* Core Theme Variables */
 :root {
-    /* Typography */
-    --ui-font-family: "Recursive", system-ui, sans-serif;
-    --ui-font-size: 1rem;
-    --ui-line-height: 1.5;
-    --ui-line-height-code: 1.25;
+	/* Typography */
+	--ui-font-family: "Recursive", system-ui, sans-serif;
+	--ui-font-size: 1rem;
+	--ui-line-height: 1.5;
+	--ui-line-height-code: 1.25;
 
-    /* Layout */
-    --ui-spacing: 0.5rem;
-    --ui-radius: 0.25rem;
-    --ui-border-width: 1px;
-    --ui-border-style: solid;
-    --ui-app-bar-height: 3rem;
+	/* Layout */
+	--ui-spacing: 0.5rem;
+	--ui-radius: 0.25rem;
+	--ui-border-width: 1px;
+	--ui-border-style: solid;
+	--ui-app-bar-height: 3rem;
 
-    /* Base palette */
-    --ui-hue: 225;
-    --ui-saturation: 10%;
+	/* Elevation/Shadow System */
+	--ui-shadow-sm: 0 1px 2px
+		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.05);
+	--ui-shadow:
+		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
+		0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
+	--ui-shadow-md:
+		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.07),
+		0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
+	--ui-shadow-lg:
+		0 10px 15px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
+		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.05);
+	--ui-shadow-xl:
+		0 20px 25px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
+		0 10px 10px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.04);
+	--ui-shadow-2xl: 0 25px 50px
+		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.25);
+	--ui-shadow-inner: inset 0 2px 4px
+		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
+
+	/* Base palette */
+	--ui-hue: 225;
+	--ui-saturation: 10%;
 }
 
 /* Light Theme Colors */
 :root,
 [data-theme="light"] {
-    /* Grayscale */
-    --ui-color-50: hsl(var(--ui-hue), 0%, 98%);
-    --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 95%);
-    --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 88%);
-    --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 78%);
-    --ui-color-400: hsl(var(--ui-hue), var(--ui-saturation), 60%);
-    --ui-color-500: hsl(var(--ui-hue), var(--ui-saturation), 42%);
-    --ui-color-600: hsl(var(--ui-hue), var(--ui-saturation), 32%);
-    --ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 24%);
-    --ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 15%);
-    --ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 8%);
-    --ui-color-950: hsl(var(--ui-hue), 0%, 3%);
+	/* Grayscale */
+	--ui-color-50: hsl(var(--ui-hue), 0%, 98%);
+	--ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 95%);
+	--ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 88%);
+	--ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 78%);
+	--ui-color-400: hsl(var(--ui-hue), var(--ui-saturation), 60%);
+	--ui-color-500: hsl(var(--ui-hue), var(--ui-saturation), 42%);
+	--ui-color-600: hsl(var(--ui-hue), var(--ui-saturation), 32%);
+	--ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 24%);
+	--ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 15%);
+	--ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 8%);
+	--ui-color-950: hsl(var(--ui-hue), 0%, 3%);
 
-    /* Semantic colors */
-    --ui-bg: var(--ui-color-50);
-    --ui-text: var(--ui-color-950);
-    --ui-text-input: hsla(var(--ui-hue), 0%, 0%, 0.85);
-    --ui-muted-text: hsl(var(--ui-hue), 15%, 25%);
-    --ui-border-color: hsla(var(--ui-hue), 20%, 20%, 0.2);
-    --ui-backdrop-color: hsla(var(--ui-hue), 25%, 98%, 0.85);
+	/* Semantic colors */
+	--ui-bg: var(--ui-color-50);
+	--ui-text: var(--ui-color-950);
+	--ui-text-input: hsla(var(--ui-hue), 0%, 0%, 0.85);
+	--ui-muted-text: hsl(var(--ui-hue), 15%, 25%);
+	--ui-border-color: hsla(var(--ui-hue), 20%, 20%, 0.2);
+	--ui-backdrop-color: hsla(var(--ui-hue), 25%, 98%, 0.85);
 
-    /* Primary */
-    --ui-primary: hsl(120, 85%, 55%);
-    --ui-primary-hover: hsl(120, 85%, 50%);
-    --ui-primary-active: hsl(120, 85%, 40%);
-    --ui-primary-text: var(--ui-bg);
+	/* Primary */
+	--ui-primary: hsl(120, 85%, 55%);
+	--ui-primary-hover: hsl(120, 85%, 50%);
+	--ui-primary-active: hsl(120, 85%, 40%);
+	--ui-primary-text: var(--ui-bg);
 
-    /* Secondary */
-    --ui-secondary: hsl(var(--ui-hue), 10%, 60%);
-    --ui-secondary-hover: hsl(var(--ui-hue), 10%, 52%);
-    --ui-secondary-active: hsl(var(--ui-hue), 10%, 40%);
-    --ui-secondary-text: var(--ui-text);
+	/* Secondary */
+	--ui-secondary: hsl(var(--ui-hue), 10%, 60%);
+	--ui-secondary-hover: hsl(var(--ui-hue), 10%, 52%);
+	--ui-secondary-active: hsl(var(--ui-hue), 10%, 40%);
+	--ui-secondary-text: var(--ui-text);
 
-    /* Success */
-    --ui-success: hsl(140, 85%, 55%);
-    --ui-success-hover: hsl(140, 85%, 50%);
-    --ui-success-active: hsl(140, 85%, 40%);
-    --ui-success-text: hsl(0, 0%, 100%);
+	/* Success */
+	--ui-success: hsl(140, 85%, 55%);
+	--ui-success-hover: hsl(140, 85%, 50%);
+	--ui-success-active: hsl(140, 85%, 40%);
+	--ui-success-text: hsl(0, 0%, 100%);
 
-    /* Warning */
-    --ui-warning: hsl(42, 95%, 58%);
-    --ui-warning-hover: hsl(42, 95%, 53%);
-    --ui-warning-active: hsl(42, 95%, 43%);
-    --ui-warning-text: hsl(32, 95%, 12%);
+	/* Warning */
+	--ui-warning: hsl(42, 95%, 58%);
+	--ui-warning-hover: hsl(42, 95%, 53%);
+	--ui-warning-active: hsl(42, 95%, 43%);
+	--ui-warning-text: hsl(32, 95%, 12%);
 
-    /* Destructive/Error */
-    --ui-destructive: hsl(0, 85%, 60%);
-    --ui-destructive-hover: hsl(0, 85%, 55%);
-    --ui-destructive-active: hsl(0, 85%, 45%);
-    --ui-destructive-text: hsl(0, 93%, 94%);
-    --ui-error: var(--ui-destructive);
-    --ui-error-text: var(--ui-destructive-text);
+	/* Destructive/Error */
+	--ui-destructive: hsl(0, 85%, 60%);
+	--ui-destructive-hover: hsl(0, 85%, 55%);
+	--ui-destructive-active: hsl(0, 85%, 45%);
+	--ui-destructive-text: hsl(0, 93%, 94%);
+	--ui-error: var(--ui-destructive);
+	--ui-error-text: var(--ui-destructive-text);
 
-    /* Info */
-    --ui-info: hsl(200, 85%, 50%);
-    --ui-info-hover: hsl(200, 85%, 45%);
-    --ui-info-active: hsl(200, 85%, 35%);
-    --ui-info-text: hsl(200, 95%, 95%);
+	/* Info */
+	--ui-info: hsl(200, 85%, 50%);
+	--ui-info-hover: hsl(200, 85%, 45%);
+	--ui-info-active: hsl(200, 85%, 35%);
+	--ui-info-text: hsl(200, 95%, 95%);
 
-    /* Muted */
-    --ui-muted: hsl(var(--ui-hue), 12%, 85%);
+	/* Muted */
+	--ui-muted: hsl(var(--ui-hue), 12%, 85%);
 
-    /* Contrast */
-    --ui-contrast: var(--ui-color-950);
-    --ui-contrast-hover: hsl(var(--ui-hue), 0%, 10%);
-    --ui-contrast-active: hsl(var(--ui-hue), 0%, 15%);
-    --ui-contrast-text: var(--ui-color-50);
+	/* Contrast */
+	--ui-contrast: var(--ui-color-950);
+	--ui-contrast-hover: hsl(var(--ui-hue), 0%, 10%);
+	--ui-contrast-active: hsl(var(--ui-hue), 0%, 15%);
+	--ui-contrast-text: var(--ui-color-50);
 
-    color-scheme: light;
+	color-scheme: light;
 }
 
 /* Dark Theme Colors */
 @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        /* Grayscale - inverted */
-        --ui-color-50: hsl(var(--ui-hue), 0%, 0%);
-        --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 8%);
-        --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 12%);
-        --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 18%);
-        --ui-color-400: hsl(var(--ui-hue), var(--ui-saturation), 28%);
-        --ui-color-500: hsl(var(--ui-hue), var(--ui-saturation), 42%);
-        --ui-color-600: hsl(var(--ui-hue), var(--ui-saturation), 58%);
-        --ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 72%);
-        --ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 85%);
-        --ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 92%);
-        --ui-color-950: hsl(var(--ui-hue), 0%, 98%);
+	:root:not([data-theme="light"]) {
+		/* Grayscale - inverted */
+		--ui-color-50: hsl(var(--ui-hue), 0%, 0%);
+		--ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 8%);
+		--ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 12%);
+		--ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 18%);
+		--ui-color-400: hsl(var(--ui-hue), var(--ui-saturation), 28%);
+		--ui-color-500: hsl(var(--ui-hue), var(--ui-saturation), 42%);
+		--ui-color-600: hsl(var(--ui-hue), var(--ui-saturation), 58%);
+		--ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 72%);
+		--ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 85%);
+		--ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 92%);
+		--ui-color-950: hsl(var(--ui-hue), 0%, 98%);
 
-        /* Semantic colors */
-        --ui-text-input: hsla(var(--ui-hue), 0%, 100%, 0.85);
-        --ui-muted-text: hsl(var(--ui-hue), 15%, 75%);
-        --ui-border-color: hsla(var(--ui-hue), 20%, 80%, 0.25);
-        --ui-backdrop-color: hsla(var(--ui-hue), 25%, 5%, 0.85);
+		/* Semantic colors */
+		--ui-text-input: hsla(var(--ui-hue), 0%, 100%, 0.85);
+		--ui-muted-text: hsl(var(--ui-hue), 15%, 75%);
+		--ui-border-color: hsla(var(--ui-hue), 20%, 80%, 0.25);
+		--ui-backdrop-color: hsla(var(--ui-hue), 25%, 5%, 0.85);
 
-        /* Primary */
-        --ui-primary: hsl(120, 90%, 68%);
-        --ui-primary-hover: hsl(120, 90%, 63%);
-        --ui-primary-active: hsl(120, 90%, 53%);
+		/* Dark theme shadow adjustments - Enhanced visibility */
+		--ui-shadow-sm: 0 1px 2px
+			hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.6);
+		--ui-shadow:
+			0 1px 3px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.7
+				),
+			0 1px 2px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.5
+				);
+		--ui-shadow-md:
+			0 4px 6px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.7
+				),
+			0 2px 4px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.6
+				);
+		--ui-shadow-lg:
+			0 10px 15px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.8
+				),
+			0 4px 6px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.65
+				);
+		--ui-shadow-xl:
+			0 20px 25px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.85
+				),
+			0 10px 10px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					25%,
+					0.6
+				);
+		--ui-shadow-2xl: 0 25px 50px
+			hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.9);
+		--ui-shadow-inner: inset 0 2px 4px
+			hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7);
 
-        /* Secondary */
-        --ui-secondary: hsl(var(--ui-hue), 10%, 42%);
-        --ui-secondary-hover: hsl(var(--ui-hue), 10%, 50%);
-        --ui-secondary-active: hsl(var(--ui-hue), 10%, 62%);
+		/* Primary */
+		--ui-primary: hsl(120, 90%, 68%);
+		--ui-primary-hover: hsl(120, 90%, 63%);
+		--ui-primary-active: hsl(120, 90%, 53%);
 
-        /* Success */
-        --ui-success: hsl(140, 75%, 65%);
-        --ui-success-hover: hsl(140, 75%, 60%);
-        --ui-success-active: hsl(140, 75%, 50%);
-        --ui-success-text: hsl(140, 50%, 15%);
+		/* Secondary */
+		--ui-secondary: hsl(var(--ui-hue), 10%, 42%);
+		--ui-secondary-hover: hsl(var(--ui-hue), 10%, 50%);
+		--ui-secondary-active: hsl(var(--ui-hue), 10%, 62%);
 
-        /* Warning */
-        --ui-warning: hsl(42, 90%, 65%);
-        --ui-warning-hover: hsl(42, 90%, 60%);
-        --ui-warning-active: hsl(42, 90%, 50%);
-        --ui-warning-text: hsl(32, 85%, 15%);
+		/* Success */
+		--ui-success: hsl(140, 75%, 65%);
+		--ui-success-hover: hsl(140, 75%, 60%);
+		--ui-success-active: hsl(140, 75%, 50%);
+		--ui-success-text: hsl(140, 50%, 15%);
 
-        /* Destructive/Error */
-        --ui-destructive: hsl(0, 85%, 72%);
-        --ui-destructive-hover: hsl(0, 85%, 67%);
-        --ui-destructive-active: hsl(0, 85%, 52%);
-        --ui-destructive-text: hsl(0, 75%, 25%);
+		/* Warning */
+		--ui-warning: hsl(42, 90%, 65%);
+		--ui-warning-hover: hsl(42, 90%, 60%);
+		--ui-warning-active: hsl(42, 90%, 50%);
+		--ui-warning-text: hsl(32, 85%, 15%);
 
-        /* Info */
-        --ui-info: hsl(200, 85%, 25%);
-        --ui-info-hover: hsl(200, 85%, 30%);
-        --ui-info-active: hsl(200, 85%, 40%);
-        --ui-info-text: var(--ui-text);
+		/* Destructive/Error */
+		--ui-destructive: hsl(0, 85%, 72%);
+		--ui-destructive-hover: hsl(0, 85%, 67%);
+		--ui-destructive-active: hsl(0, 85%, 52%);
+		--ui-destructive-text: hsl(0, 75%, 25%);
 
-        /* Muted */
-        --ui-muted: hsl(var(--ui-hue), 18%, 15%);
+		/* Info */
+		--ui-info: hsl(200, 85%, 25%);
+		--ui-info-hover: hsl(200, 85%, 30%);
+		--ui-info-active: hsl(200, 85%, 40%);
+		--ui-info-text: var(--ui-text);
 
-        /* Contrast */
-        --ui-contrast: var(--ui-color-950);
-        --ui-contrast-hover: hsl(var(--ui-hue), 0%, 90%);
-        --ui-contrast-active: hsl(var(--ui-hue), 0%, 85%);
+		/* Muted */
+		--ui-muted: hsl(var(--ui-hue), 18%, 15%);
 
-        color-scheme: dark;
-    }
+		/* Contrast */
+		--ui-contrast: var(--ui-color-950);
+		--ui-contrast-hover: hsl(var(--ui-hue), 0%, 90%);
+		--ui-contrast-active: hsl(var(--ui-hue), 0%, 85%);
+
+		/* Dark theme shadow adjustments - Enhanced visibility */
+		--ui-shadow-sm: 0 1px 2px
+			hsla(var(--ui-hue), var(--ui-saturation), 0%, 0.4);
+		--ui-shadow:
+			0 1px 3px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.5
+				),
+			0 1px 2px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.35
+				);
+		--ui-shadow-md:
+			0 4px 6px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.5
+				),
+			0 2px 4px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.4
+				);
+		--ui-shadow-lg:
+			0 10px 15px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.6
+				),
+			0 4px 6px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.45
+				);
+		--ui-shadow-xl:
+			0 20px 25px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.65
+				),
+			0 10px 10px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					0%,
+					0.4
+				);
+		--ui-shadow-2xl: 0 25px 50px
+			hsla(var(--ui-hue), var(--ui-saturation), 0%, 0.8);
+		--ui-shadow-inner: inset 0 2px 4px
+			hsla(var(--ui-hue), var(--ui-saturation), 0%, 0.5);
+
+		color-scheme: dark;
+	}
 }
 
 [data-theme="dark"] {
-    /* Grayscale - inverted */
-    --ui-color-50: hsl(var(--ui-hue), 0%, 0%);
-    --ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 8%);
-    --ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 12%);
-    --ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 18%);
-    --ui-color-400: hsl(var(--ui-hue), var(--ui-saturation), 28%);
-    --ui-color-500: hsl(var(--ui-hue), var(--ui-saturation), 42%);
-    --ui-color-600: hsl(var(--ui-hue), var(--ui-saturation), 58%);
-    --ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 72%);
-    --ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 85%);
-    --ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 92%);
-    --ui-color-950: hsl(var(--ui-hue), 0%, 98%);
+	/* Grayscale - inverted */
+	--ui-color-50: hsl(var(--ui-hue), 0%, 0%);
+	--ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 8%);
+	--ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 12%);
+	--ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 18%);
+	--ui-color-400: hsl(var(--ui-hue), var(--ui-saturation), 28%);
+	--ui-color-500: hsl(var(--ui-hue), var(--ui-saturation), 42%);
+	--ui-color-600: hsl(var(--ui-hue), var(--ui-saturation), 58%);
+	--ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 72%);
+	--ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 85%);
+	--ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 92%);
+	--ui-color-950: hsl(var(--ui-hue), 0%, 98%);
 
-    /* Semantic colors */
-    --ui-bg: var(--ui-color-50);
-    --ui-text: var(--ui-color-950);
-    --ui-text-input: hsla(var(--ui-hue), 0%, 100%, 0.85);
-    --ui-muted-text: hsl(var(--ui-hue), 15%, 75%);
-    --ui-border-color: hsla(var(--ui-hue), 20%, 80%, 0.25);
-    --ui-backdrop-color: hsla(var(--ui-hue), 25%, 5%, 0.85);
+	/* Semantic colors */
+	--ui-bg: var(--ui-color-50);
+	--ui-text: var(--ui-color-950);
+	--ui-text-input: hsla(var(--ui-hue), 0%, 100%, 0.85);
+	--ui-muted-text: hsl(var(--ui-hue), 15%, 75%);
+	--ui-border-color: hsla(var(--ui-hue), 20%, 80%, 0.25);
+	--ui-backdrop-color: hsla(var(--ui-hue), 25%, 5%, 0.85);
 
-    /* Primary */
-    --ui-primary: hsl(120, 90%, 68%);
-    --ui-primary-hover: hsl(120, 90%, 63%);
-    --ui-primary-active: hsl(120, 90%, 53%);
-    --ui-primary-text: var(--ui-bg);
+	/* Dark theme shadow adjustments - Enhanced visibility */
+	--ui-shadow-sm: 0 1px 2px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.6);
+	--ui-shadow:
+		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7),
+		0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.5);
+	--ui-shadow-md:
+		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7),
+		0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.6);
+	--ui-shadow-lg:
+		0 10px 15px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.8),
+		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.65);
+	--ui-shadow-xl:
+		0 20px 25px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.85),
+		0 10px 10px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.6);
+	--ui-shadow-2xl: 0 25px 50px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.9);
+	--ui-shadow-inner: inset 0 2px 4px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7);
 
-    /* Secondary */
-    --ui-secondary: hsl(var(--ui-hue), 10%, 42%);
-    --ui-secondary-hover: hsl(var(--ui-hue), 10%, 50%);
-    --ui-secondary-active: hsl(var(--ui-hue), 10%, 62%);
-    --ui-secondary-text: var(--ui-text);
+	/* Primary */
+	--ui-primary: hsl(120, 90%, 68%);
+	--ui-primary-hover: hsl(120, 90%, 63%);
+	--ui-primary-active: hsl(120, 90%, 53%);
+	--ui-primary-text: var(--ui-bg);
 
-    /* Success */
-    --ui-success: hsl(140, 75%, 65%);
-    --ui-success-hover: hsl(140, 75%, 60%);
-    --ui-success-active: hsl(140, 75%, 50%);
-    --ui-success-text: hsl(140, 50%, 15%);
+	/* Secondary */
+	--ui-secondary: hsl(var(--ui-hue), 10%, 42%);
+	--ui-secondary-hover: hsl(var(--ui-hue), 10%, 50%);
+	--ui-secondary-active: hsl(var(--ui-hue), 10%, 62%);
+	--ui-secondary-text: var(--ui-text);
 
-    /* Warning */
-    --ui-warning: hsl(42, 90%, 65%);
-    --ui-warning-hover: hsl(42, 90%, 60%);
-    --ui-warning-active: hsl(42, 90%, 50%);
-    --ui-warning-text: hsl(32, 85%, 15%);
+	/* Success */
+	--ui-success: hsl(140, 75%, 65%);
+	--ui-success-hover: hsl(140, 75%, 60%);
+	--ui-success-active: hsl(140, 75%, 50%);
+	--ui-success-text: hsl(140, 50%, 15%);
 
-    /* Destructive/Error */
-    --ui-destructive: hsl(0, 85%, 72%);
-    --ui-destructive-hover: hsl(0, 85%, 67%);
-    --ui-destructive-active: hsl(0, 85%, 52%);
-    --ui-destructive-text: hsl(0, 75%, 25%);
-    --ui-error: var(--ui-destructive);
-    --ui-error-text: var(--ui-destructive-text);
+	/* Warning */
+	--ui-warning: hsl(42, 90%, 65%);
+	--ui-warning-hover: hsl(42, 90%, 60%);
+	--ui-warning-active: hsl(42, 90%, 50%);
+	--ui-warning-text: hsl(32, 85%, 15%);
 
-    /* Info */
-    --ui-info: hsl(200, 85%, 25%);
-    --ui-info-hover: hsl(200, 85%, 30%);
-    --ui-info-active: hsl(200, 85%, 40%);
-    --ui-info-text: var(--ui-text);
+	/* Destructive/Error */
+	--ui-destructive: hsl(0, 85%, 72%);
+	--ui-destructive-hover: hsl(0, 85%, 67%);
+	--ui-destructive-active: hsl(0, 85%, 52%);
+	--ui-destructive-text: hsl(0, 75%, 25%);
+	--ui-error: var(--ui-destructive);
+	--ui-error-text: var(--ui-destructive-text);
 
-    /* Muted */
-    --ui-muted: hsl(var(--ui-hue), 18%, 15%);
+	/* Info */
+	--ui-info: hsl(200, 85%, 25%);
+	--ui-info-hover: hsl(200, 85%, 30%);
+	--ui-info-active: hsl(200, 85%, 40%);
+	--ui-info-text: var(--ui-text);
 
-    /* Contrast */
-    --ui-contrast: var(--ui-color-950);
-    --ui-contrast-hover: hsl(var(--ui-hue), 0%, 90%);
-    --ui-contrast-active: hsl(var(--ui-hue), 0%, 85%);
-    --ui-contrast-text: var(--ui-color-50);
+	/* Muted */
+	--ui-muted: hsl(var(--ui-hue), 18%, 15%);
 
-    color-scheme: dark;
+	/* Contrast */
+	--ui-contrast: var(--ui-color-950);
+	--ui-contrast-hover: hsl(var(--ui-hue), 0%, 90%);
+	--ui-contrast-active: hsl(var(--ui-hue), 0%, 85%);
+	--ui-contrast-text: var(--ui-color-50);
+
+	color-scheme: dark;
 }
 
 /* Base styles */
 html {
-    font-family: var(--ui-font-family);
-    font-size: var(--ui-font-size);
-    background-color: var(--ui-bg);
-    color: var(--ui-text);
+	font-family: var(--ui-font-family);
+	font-size: var(--ui-font-size);
+	background-color: var(--ui-bg);
+	color: var(--ui-text);
 }
 
 body {
-    line-height: var(--ui-line-height);
+	line-height: var(--ui-line-height);
 }
 
 /* Variable font settings */
 :root {
-    --mono: 0;
-    --casl: 1;
-    --wght: 400;
-    --slnt: 0;
-    --CRSV: 0.5;
+	--mono: 0;
+	--casl: 1;
+	--wght: 400;
+	--slnt: 0;
+	--CRSV: 0.5;
 }
 
 * {
-    font-variation-settings:
-        "MONO" var(--mono),
-        "CASL" var(--casl),
-        "wght" var(--wght),
-        "slnt" var(--slnt),
-        "CRSV" var(--CRSV);
+	font-variation-settings:
+		"MONO" var(--mono),
+		"CASL" var(--casl),
+		"wght" var(--wght),
+		"slnt" var(--slnt),
+		"CRSV" var(--CRSV);
 }
 
 /* Typography presets */
@@ -271,33 +447,33 @@ h3,
 h4,
 h5,
 h6 {
-    --wght: 700;
-    --slnt: -3;
+	--wght: 700;
+	--slnt: -3;
 }
 
 b,
 strong {
-    --wght: 600;
+	--wght: 600;
 }
 
 i,
 em {
-    --slnt: -10;
+	--slnt: -10;
 }
 
 code,
 kbd,
 pre,
 samp {
-    --mono: 1;
-    --casl: 0;
+	--mono: 1;
+	--casl: 0;
 }
 
 small {
-    --wght: 300;
+	--wght: 300;
 }
 
 blockquote {
-    --wght: 350;
-    --slnt: -10;
+	--wght: 350;
+	--slnt: -10;
 }

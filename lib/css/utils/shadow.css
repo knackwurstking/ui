@@ -1,0 +1,554 @@
+/* Shadow/Elevation Utilities */
+
+/* Base Shadow Classes */
+.shadow-none {
+	box-shadow: none !important;
+}
+
+.shadow-sm {
+	box-shadow: var(--ui-shadow-sm);
+}
+
+.shadow {
+	box-shadow: var(--ui-shadow);
+}
+
+.shadow-md {
+	box-shadow: var(--ui-shadow-md);
+}
+
+.shadow-lg {
+	box-shadow: var(--ui-shadow-lg);
+}
+
+.shadow-xl {
+	box-shadow: var(--ui-shadow-xl);
+}
+
+.shadow-2xl {
+	box-shadow: var(--ui-shadow-2xl);
+}
+
+.shadow-inner {
+	box-shadow: var(--ui-shadow-inner);
+}
+
+/* Hover Shadow Effects */
+.hover\:shadow-none:hover {
+	box-shadow: none;
+}
+
+.hover\:shadow-sm:hover {
+	box-shadow: var(--ui-shadow-sm);
+}
+
+.hover\:shadow:hover {
+	box-shadow: var(--ui-shadow);
+}
+
+.hover\:shadow-md:hover {
+	box-shadow: var(--ui-shadow-md);
+}
+
+.hover\:shadow-lg:hover {
+	box-shadow: var(--ui-shadow-lg);
+}
+
+.hover\:shadow-xl:hover {
+	box-shadow: var(--ui-shadow-xl);
+}
+
+.hover\:shadow-2xl:hover {
+	box-shadow: var(--ui-shadow-2xl);
+}
+
+/* Focus Shadow Effects */
+.focus\:shadow-none:focus {
+	box-shadow: none;
+}
+
+.focus\:shadow-sm:focus {
+	box-shadow: var(--ui-shadow-sm);
+}
+
+.focus\:shadow:focus {
+	box-shadow: var(--ui-shadow);
+}
+
+.focus\:shadow-md:focus {
+	box-shadow: var(--ui-shadow-md);
+}
+
+.focus\:shadow-lg:focus {
+	box-shadow: var(--ui-shadow-lg);
+}
+
+.focus\:shadow-xl:focus {
+	box-shadow: var(--ui-shadow-xl);
+}
+
+.focus\:shadow-2xl:focus {
+	box-shadow: var(--ui-shadow-2xl);
+}
+
+/* Animated Shadow Transitions */
+.shadow-transition {
+	transition: box-shadow 0.25s ease-in-out;
+}
+
+.shadow-transition-fast {
+	transition: box-shadow 0.15s ease-in-out;
+}
+
+.shadow-transition-slow {
+	transition: box-shadow 0.4s ease-in-out;
+}
+
+/* Elevation with Transform */
+.elevation-1 {
+	box-shadow: var(--ui-shadow-sm);
+	transform: translateY(0);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-1:hover {
+	box-shadow: var(--ui-shadow-md);
+	transform: translateY(-1px);
+}
+
+.elevation-2 {
+	box-shadow: var(--ui-shadow);
+	transform: translateY(0);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-2:hover {
+	box-shadow: var(--ui-shadow-lg);
+	transform: translateY(-2px);
+}
+
+.elevation-3 {
+	box-shadow: var(--ui-shadow-md);
+	transform: translateY(0);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-3:hover {
+	box-shadow: var(--ui-shadow-xl);
+	transform: translateY(-2px);
+}
+
+.elevation-4 {
+	box-shadow: var(--ui-shadow-lg);
+	transform: translateY(0);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-4:hover {
+	box-shadow: var(--ui-shadow-2xl);
+	transform: translateY(-3px);
+}
+
+/* Pressed/Active States */
+.elevation-1:active,
+.elevation-2:active,
+.elevation-3:active,
+.elevation-4:active {
+	transform: translateY(1px);
+	box-shadow: var(--ui-shadow-sm);
+	transition: none;
+}
+
+/* Colored Shadows */
+.shadow-primary {
+	box-shadow: 0 4px 14px hsla(120, 85%, 55%, 0.3);
+}
+
+.shadow-secondary {
+	box-shadow: 0 4px 14px hsla(var(--ui-hue), 10%, 60%, 0.3);
+}
+
+.shadow-success {
+	box-shadow: 0 4px 14px hsla(140, 85%, 55%, 0.3);
+}
+
+.shadow-warning {
+	box-shadow: 0 4px 14px hsla(42, 95%, 58%, 0.3);
+}
+
+.shadow-destructive {
+	box-shadow: 0 4px 14px hsla(0, 85%, 60%, 0.3);
+}
+
+.shadow-info {
+	box-shadow: 0 4px 14px hsla(200, 85%, 50%, 0.3);
+}
+
+/* Glow Effects */
+.glow {
+	box-shadow: 0 0 20px hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.3);
+}
+
+.glow-sm {
+	box-shadow: 0 0 10px hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.2);
+}
+
+.glow-lg {
+	box-shadow: 0 0 40px hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.4);
+}
+
+.glow-primary {
+	box-shadow: 0 0 20px hsla(120, 85%, 55%, 0.4);
+}
+
+.glow-success {
+	box-shadow: 0 0 20px hsla(140, 85%, 55%, 0.4);
+}
+
+.glow-warning {
+	box-shadow: 0 0 20px hsla(42, 95%, 58%, 0.4);
+}
+
+.glow-destructive {
+	box-shadow: 0 0 20px hsla(0, 85%, 60%, 0.4);
+}
+
+/* Inset/Depth Effects */
+.inset {
+	box-shadow: var(--ui-shadow-inner);
+}
+
+.inset-deep {
+	box-shadow:
+		inset 0 2px 6px
+			hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.15),
+		inset 0 1px 3px
+			hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1);
+}
+
+.pressed {
+	box-shadow: var(--ui-shadow-inner);
+	transform: translateY(1px);
+}
+
+/* Floating/Lifted Effects */
+.floating {
+	box-shadow: var(--ui-shadow-2xl);
+	animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-6px);
+	}
+}
+
+.floating-subtle {
+	box-shadow: var(--ui-shadow-lg);
+	animation: float-subtle 4s ease-in-out infinite;
+}
+
+@keyframes float-subtle {
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-3px);
+	}
+}
+
+/* Drop Shadow Text Effect */
+.text-shadow {
+	text-shadow: 0 1px 3px
+		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.3);
+}
+
+.text-shadow-lg {
+	text-shadow: 0 2px 6px
+		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.4);
+}
+
+.text-shadow-none {
+	text-shadow: none;
+}
+
+/* Interactive Shadow States */
+.interactive-shadow {
+	box-shadow: var(--ui-shadow);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.interactive-shadow:hover {
+	box-shadow: var(--ui-shadow-lg);
+	transform: translateY(-1px);
+}
+
+.interactive-shadow:active {
+	box-shadow: var(--ui-shadow-sm);
+	transform: translateY(0);
+}
+
+/* Focus Ring Shadows */
+.focus-ring-shadow:focus {
+	outline: none;
+	box-shadow:
+		var(--ui-shadow),
+		0 0 0 3px hsla(var(--ui-hue), 85%, 55%, 0.3);
+}
+
+.focus-ring-shadow-primary:focus {
+	outline: none;
+	box-shadow:
+		var(--ui-shadow),
+		0 0 0 3px hsla(120, 85%, 55%, 0.3);
+}
+
+.focus-ring-shadow-destructive:focus {
+	outline: none;
+	box-shadow:
+		var(--ui-shadow),
+		0 0 0 3px hsla(0, 85%, 60%, 0.3);
+}
+
+/* Border Shadow Combinations */
+.border-shadow {
+	border: var(--ui-border-width) solid var(--ui-border-color);
+	box-shadow: var(--ui-shadow-sm);
+}
+
+.border-shadow-md {
+	border: var(--ui-border-width) solid var(--ui-border-color);
+	box-shadow: var(--ui-shadow-md);
+}
+
+/* Layered Shadows */
+.shadow-layered {
+	box-shadow:
+		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.12),
+		0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.24),
+		0 4px 8px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.08);
+}
+
+.shadow-complex {
+	box-shadow:
+		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.15),
+		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
+		0 8px 16px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.08),
+		0 16px 32px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.04);
+}
+
+/* Responsive Shadow Utilities */
+@media (max-width: 768px) {
+	.mobile\:shadow-none {
+		box-shadow: none;
+	}
+
+	.mobile\:shadow {
+		box-shadow: var(--ui-shadow);
+	}
+
+	.mobile\:shadow-md {
+		box-shadow: var(--ui-shadow-md);
+	}
+}
+
+@media (min-width: 769px) {
+	.desktop\:shadow-none {
+		box-shadow: none;
+	}
+
+	.desktop\:shadow {
+		box-shadow: var(--ui-shadow);
+	}
+
+	.desktop\:shadow-lg {
+		box-shadow: var(--ui-shadow-lg);
+	}
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+	.shadow-transition,
+	.shadow-transition-fast,
+	.shadow-transition-slow,
+	.elevation-1,
+	.elevation-2,
+	.elevation-3,
+	.elevation-4,
+	.interactive-shadow,
+	.floating,
+	.floating-subtle {
+		transition: none;
+		animation: none;
+	}
+}
+
+/* High contrast mode adjustments */
+/* Enhanced Dark Theme Shadow Utilities */
+.shadow-dark-sm {
+	box-shadow: 0 2px 4px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7);
+}
+
+.shadow-dark {
+	box-shadow:
+		0 2px 6px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.8),
+		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.6);
+}
+
+.shadow-dark-md {
+	box-shadow:
+		0 6px 12px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.8),
+		0 3px 6px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7);
+}
+
+.shadow-dark-lg {
+	box-shadow:
+		0 12px 24px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.9),
+		0 6px 12px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.75);
+}
+
+.shadow-dark-xl {
+	box-shadow:
+		0 24px 48px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.95),
+		0 12px 24px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.8);
+}
+
+.shadow-dark-2xl {
+	box-shadow: 0 36px 72px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 1);
+}
+
+/* Enhanced Glow Effects for Dark Mode */
+.glow-dark {
+	box-shadow: 0 0 30px hsla(0, 0%, 100%, 0.3);
+}
+
+.glow-dark-primary {
+	box-shadow: 0 0 30px hsla(120, 85%, 55%, 0.6);
+}
+
+.glow-dark-success {
+	box-shadow: 0 0 30px hsla(140, 85%, 55%, 0.6);
+}
+
+.glow-dark-warning {
+	box-shadow: 0 0 30px hsla(42, 95%, 58%, 0.6);
+}
+
+.glow-dark-destructive {
+	box-shadow: 0 0 30px hsla(0, 85%, 60%, 0.6);
+}
+
+/* Dramatic Elevation for Dark Mode */
+.elevation-dark-1 {
+	box-shadow: 0 3px 8px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-dark-1:hover {
+	box-shadow: 0 8px 20px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.85);
+	transform: translateY(-2px);
+}
+
+.elevation-dark-2 {
+	box-shadow: 0 6px 16px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.8);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-dark-2:hover {
+	box-shadow: 0 12px 32px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.9);
+	transform: translateY(-3px);
+}
+
+.elevation-dark-3 {
+	box-shadow: 0 12px 32px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.85);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-dark-3:hover {
+	box-shadow: 0 20px 48px
+		hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.95);
+	transform: translateY(-4px);
+}
+
+/* Neon/Bright Edge Effects */
+.shadow-neon-primary {
+	box-shadow:
+		0 0 5px hsla(120, 85%, 55%, 0.8),
+		0 0 10px hsla(120, 85%, 55%, 0.6),
+		0 0 15px hsla(120, 85%, 55%, 0.4);
+}
+
+.shadow-neon-info {
+	box-shadow:
+		0 0 5px hsla(200, 85%, 50%, 0.8),
+		0 0 10px hsla(200, 85%, 50%, 0.6),
+		0 0 15px hsla(200, 85%, 50%, 0.4);
+}
+
+.shadow-neon-warning {
+	box-shadow:
+		0 0 5px hsla(42, 95%, 58%, 0.8),
+		0 0 10px hsla(42, 95%, 58%, 0.6),
+		0 0 15px hsla(42, 95%, 58%, 0.4);
+}
+
+.shadow-neon-destructive {
+	box-shadow:
+		0 0 5px hsla(0, 85%, 60%, 0.8),
+		0 0 10px hsla(0, 85%, 60%, 0.6),
+		0 0 15px hsla(0, 85%, 60%, 0.4);
+}
+
+/* Ultra Deep Shadows */
+.shadow-ultra {
+	box-shadow:
+		0 4px 12px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.9),
+		0 12px 36px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.8),
+		0 36px 72px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.7);
+}
+
+.shadow-ultra-xl {
+	box-shadow:
+		0 8px 24px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.95),
+		0 24px 48px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.85),
+		0 48px 96px hsla(var(--ui-hue), var(--ui-saturation), 25%, 0.75);
+}
+
+@media (prefers-contrast: high) {
+	.shadow-sm,
+	.shadow,
+	.shadow-md,
+	.shadow-lg,
+	.shadow-xl,
+	.shadow-2xl {
+		box-shadow: 0 0 0 2px var(--ui-border-color);
+	}
+}

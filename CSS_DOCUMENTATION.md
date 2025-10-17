@@ -3,74 +3,74 @@
 ## Table of Contents
 
 - [CSS Variables](#css-variables)
-    - [Core Theme Variables](#core-theme-variables)
-    - [Color Variables](#color-variables)
-        - [Grayscale Colors](#grayscale-colors)
-        - [Semantic Colors](#semantic-colors)
-        - [Theme Colors](#theme-colors)
-    - [Variable Font Settings](#variable-font-settings)
+  - [Core Theme Variables](#core-theme-variables)
+  - [Color Variables](#color-variables)
+    - [Grayscale Colors](#grayscale-colors)
+    - [Semantic Colors](#semantic-colors)
+    - [Theme Colors](#theme-colors)
+  - [Variable Font Settings](#variable-font-settings)
 - [CSS Classes](#css-classes)
-    - [Global Classes](#global-classes)
-    - [Component Classes](#component-classes)
-        - [App Bar Component](#app-bar-component)
-        - [Card Component](#card-component)
-            - [Card Variants](#card-variants)
-            - [Card Sizes](#card-sizes)
-            - [Card Colors](#card-colors)
-            - [Card Actions Alignment](#card-actions-alignment)
-            - [Card Image Aspects](#card-image-aspects)
-            - [Card Grid Variants](#card-grid-variants)
-        - [Container Component](#container-component)
-        - [Drawer Component](#drawer-component)
-        - [Spinner Component](#spinner-component)
-    - [HTML Element Classes](#html-element-classes)
-        - [Button Classes](#button-classes)
-            - [Button Variants](#button-variants)
-            - [Button Group](#button-group)
-        - [Dialog Classes](#dialog-classes)
-        - [Input/Form Classes](#inputform-classes)
-        - [Select Classes](#select-classes)
-    - [Utility Classes](#utility-classes)
-        - [Flexbox Utilities](#flexbox-utilities)
-            - [Display](#display)
-            - [Direction](#direction)
-            - [Wrap](#wrap)
-            - [Alignment](#alignment)
-            - [Justification](#justification)
-            - [Gap](#gap)
-            - [Flex Properties](#flex-properties)
-        - [Spacing Utilities](#spacing-utilities)
-            - [Padding](#padding)
-            - [Margin](#margin)
-            - [Width](#width)
-            - [Height](#height)
-            - [Min/Max Width](#minmax-width)
-            - [Min/Max Height](#minmax-height)
-            - [Aspect Ratio](#aspect-ratio)
-            - [Position](#position)
-            - [Position Values](#position-values)
-            - [Z-Index](#z-index)
-            - [Display](#display-1)
-            - [Visibility & Opacity](#visibility--opacity)
-        - [Text Utilities](#text-utilities)
-            - [Text Alignment](#text-alignment)
-            - [Text Transform](#text-transform)
-            - [Font Size](#font-size)
-            - [Font Weight](#font-weight)
-            - [Font Style](#font-style)
-            - [Line Height](#line-height)
-            - [Text Decoration](#text-decoration)
-            - [Text Overflow](#text-overflow)
-            - [White Space](#white-space)
-            - [Word Break](#word-break)
-            - [Special Effects](#special-effects)
-        - [Color Utilities](#color-utilities)
-            - [Color Variants (for non-button elements)](#color-variants-for-non-button-elements)
-            - [Color Style Modifiers](#color-style-modifiers)
-        - [Border Utilities](#border-utilities)
-        - [Interaction Utilities](#interaction-utilities)
-        - [Safe Area Utilities](#safe-area-utilities)
-        - [Debug Utilities](#debug-utilities)
+  - [Global Classes](#global-classes)
+  - [Component Classes](#component-classes)
+    - [App Bar Component](#app-bar-component)
+    - [Card Component](#card-component)
+      - [Card Variants](#card-variants)
+      - [Card Sizes](#card-sizes)
+      - [Card Colors](#card-colors)
+      - [Card Actions Alignment](#card-actions-alignment)
+      - [Card Image Aspects](#card-image-aspects)
+      - [Card Grid Variants](#card-grid-variants)
+    - [Container Component](#container-component)
+    - [Drawer Component](#drawer-component)
+    - [Spinner Component](#spinner-component)
+  - [HTML Element Classes](#html-element-classes)
+    - [Button Classes](#button-classes)
+      - [Button Variants](#button-variants)
+      - [Button Group](#button-group)
+    - [Dialog Classes](#dialog-classes)
+    - [Input/Form Classes](#inputform-classes)
+    - [Select Classes](#select-classes)
+  - [Utility Classes](#utility-classes)
+    - [Flexbox Utilities](#flexbox-utilities)
+      - [Display](#display)
+      - [Direction](#direction)
+      - [Wrap](#wrap)
+      - [Alignment](#alignment)
+      - [Justification](#justification)
+      - [Gap](#gap)
+      - [Flex Properties](#flex-properties)
+    - [Spacing Utilities](#spacing-utilities)
+      - [Padding](#padding)
+      - [Margin](#margin)
+      - [Width](#width)
+      - [Height](#height)
+      - [Min/Max Width](#minmax-width)
+      - [Min/Max Height](#minmax-height)
+      - [Aspect Ratio](#aspect-ratio)
+      - [Position](#position)
+      - [Position Values](#position-values)
+      - [Z-Index](#z-index)
+      - [Display](#display-1)
+      - [Visibility & Opacity](#visibility--opacity)
+    - [Text Utilities](#text-utilities)
+      - [Text Alignment](#text-alignment)
+      - [Text Transform](#text-transform)
+      - [Font Size](#font-size)
+      - [Font Weight](#font-weight)
+      - [Font Style](#font-style)
+      - [Line Height](#line-height)
+      - [Text Decoration](#text-decoration)
+      - [Text Overflow](#text-overflow)
+      - [White Space](#white-space)
+      - [Word Break](#word-break)
+      - [Special Effects](#special-effects)
+    - [Color Utilities](#color-utilities)
+      - [Color Variants (for non-button elements)](#color-variants-for-non-button-elements)
+      - [Color Style Modifiers](#color-style-modifiers)
+    - [Border Utilities](#border-utilities)
+    - [Interaction Utilities](#interaction-utilities)
+    - [Safe Area Utilities](#safe-area-utilities)
+    - [Debug Utilities](#debug-utilities)
 - [Theme Support](#theme-support)
 - [Responsive Design](#responsive-design)
 - [Browser Support](#browser-support)
@@ -137,6 +137,35 @@
 | **Info**        | `--ui-info`, `--ui-info-hover`, `--ui-info-active`, `--ui-info-text`                             |
 | **Contrast**    | `--ui-contrast`, `--ui-contrast-hover`, `--ui-contrast-active`, `--ui-contrast-text`             |
 | **Muted**       | `--ui-muted`                                                                                     |
+
+### Shadow Variables
+
+The shadow system provides a comprehensive elevation hierarchy with theme-aware shadows:
+
+```css
+:root {
+  /* Light theme shadows */
+  --ui-shadow-sm: 0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.05);
+  --ui-shadow:
+    0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
+    0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
+  --ui-shadow-md:
+    0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.07),
+    0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
+  --ui-shadow-lg:
+    0 10px 15px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
+    0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.05);
+  --ui-shadow-xl:
+    0 20px 25px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1),
+    0 10px 10px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.04);
+  --ui-shadow-2xl: 0 25px 50px
+    hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.25);
+  --ui-shadow-inner: inset 0 2px 4px
+    hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.06);
+}
+```
+
+**Note:** Dark theme automatically adjusts these shadows with higher opacity and darker colors for better contrast.
 
 ### Variable Font Settings
 
@@ -741,6 +770,122 @@
 | `.border-right`  | Right border only       |
 | `.border-bottom` | Bottom border only      |
 | `.border-left`   | Left border only        |
+
+#### Shadow Utilities
+
+The shadow system provides comprehensive elevation hierarchy with theme-aware shadows and interactive effects.
+
+##### Basic Shadow Classes
+
+| Class           | Description            |
+| --------------- | ---------------------- |
+| `.shadow-none`  | Removes all shadows    |
+| `.shadow-sm`    | Very subtle shadow     |
+| `.shadow`       | Standard shadow        |
+| `.shadow-md`    | Medium shadow          |
+| `.shadow-lg`    | Large shadow           |
+| `.shadow-xl`    | Extra large shadow     |
+| `.shadow-2xl`   | Maximum shadow         |
+| `.shadow-inner` | Inset shadow for depth |
+
+##### Elevation System
+
+Interactive elevation classes with hover and active states:
+
+| Class          | Description                         |
+| -------------- | ----------------------------------- |
+| `.elevation-1` | Low elevation with hover effect     |
+| `.elevation-2` | Medium elevation with hover effect  |
+| `.elevation-3` | High elevation with hover effect    |
+| `.elevation-4` | Maximum elevation with hover effect |
+
+##### Interactive Shadow States
+
+| Class                 | Description                 |
+| --------------------- | --------------------------- |
+| `.hover:shadow-sm`    | Subtle hover shadow         |
+| `.hover:shadow`       | Standard hover shadow       |
+| `.hover:shadow-lg`    | Large hover shadow          |
+| `.focus:shadow`       | Focus shadow                |
+| `.shadow-transition`  | Smooth shadow transitions   |
+| `.interactive-shadow` | Complete interactive shadow |
+
+##### Colored Shadows
+
+| Class                 | Description                |
+| --------------------- | -------------------------- |
+| `.shadow-primary`     | Green primary color shadow |
+| `.shadow-secondary`   | Gray secondary shadow      |
+| `.shadow-success`     | Green success shadow       |
+| `.shadow-warning`     | Yellow warning shadow      |
+| `.shadow-destructive` | Red destructive shadow     |
+| `.shadow-info`        | Blue info shadow           |
+
+##### Special Effects
+
+| Class              | Description               |
+| ------------------ | ------------------------- |
+| `.glow`            | Standard glow effect      |
+| `.glow-sm`         | Subtle glow               |
+| `.glow-lg`         | Large glow                |
+| `.glow-primary`    | Primary colored glow      |
+| `.inset`           | Basic inset shadow        |
+| `.inset-deep`      | Deep inset shadow         |
+| `.pressed`         | Pressed button effect     |
+| `.floating`        | Gentle floating animation |
+| `.floating-subtle` | Subtle floating animation |
+
+##### Focus Ring Shadows
+
+Enhanced focus states for better accessibility:
+
+| Class                            | Description                    |
+| -------------------------------- | ------------------------------ |
+| `.focus-ring-shadow`             | Standard focus ring            |
+| `.focus-ring-shadow-primary`     | Primary colored focus ring     |
+| `.focus-ring-shadow-destructive` | Destructive colored focus ring |
+
+##### Text Shadows
+
+| Class               | Description        |
+| ------------------- | ------------------ |
+| `.text-shadow`      | Subtle text shadow |
+| `.text-shadow-lg`   | Large text shadow  |
+| `.text-shadow-none` | Remove text shadow |
+
+##### Responsive Shadows
+
+| Class                 | Description             |
+| --------------------- | ----------------------- |
+| `.mobile:shadow-none` | No shadow on mobile     |
+| `.mobile:shadow`      | Shadow on mobile        |
+| `.desktop:shadow-lg`  | Large shadow on desktop |
+
+**Usage Examples:**
+
+```html
+<!-- Elevated card with transition -->
+<div class="card shadow-md shadow-transition hover:shadow-lg">
+  Card with interactive shadow
+</div>
+
+<!-- Primary button with colored shadow -->
+<button class="elevation-2 shadow-primary">Primary Action</button>
+
+<!-- Input with enhanced focus -->
+<input type="text" class="focus-ring-shadow" placeholder="Enhanced focus" />
+
+<!-- Floating action button -->
+<button class="icon round shadow-lg floating">
+  <svg><!-- icon --></svg>
+</button>
+```
+
+**Accessibility Notes:**
+
+- All shadow animations respect `prefers-reduced-motion: reduce`
+- High contrast mode replaces shadows with borders
+- Focus ring shadows improve keyboard navigation visibility
 
 #### Interaction Utilities
 
