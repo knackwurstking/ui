@@ -52,12 +52,6 @@
 		0 1px 4px hsla(var(--card-shadow-color), 0.08);
 }
 
-.card.elevated:hover {
-	box-shadow:
-		0 4px 12px hsla(var(--card-shadow-color), 0.2),
-		0 2px 6px hsla(var(--card-shadow-color), 0.12);
-}
-
 .card.flat {
 	border: none;
 	box-shadow: none;
@@ -256,7 +250,6 @@
 /* Color Variants - Using CSS Custom Properties */
 .card.primary {
 	--card-color: var(--ui-primary);
-	--card-color-hover: var(--ui-primary-hover);
 	--card-color-text: var(--ui-primary-text);
 	--card-shadow-color: 120, 85%, 55%;
 	border-color: var(--card-color);
@@ -264,7 +257,6 @@
 
 .card.secondary {
 	--card-color: var(--ui-secondary);
-	--card-color-hover: var(--ui-secondary-hover);
 	--card-color-text: var(--ui-secondary-text);
 	--card-shadow-color: var(--ui-hue), 10%, 60%;
 	border-color: var(--card-color);
@@ -272,7 +264,6 @@
 
 .card.success {
 	--card-color: var(--ui-success);
-	--card-color-hover: var(--ui-success-hover);
 	--card-color-text: var(--ui-success-text);
 	--card-shadow-color: 140, 85%, 55%;
 	border-color: var(--card-color);
@@ -280,7 +271,6 @@
 
 .card.warning {
 	--card-color: var(--ui-warning);
-	--card-color-hover: var(--ui-warning-hover);
 	--card-color-text: var(--ui-warning-text);
 	--card-shadow-color: 42, 95%, 58%;
 	border-color: var(--card-color);
@@ -288,7 +278,6 @@
 
 .card.destructive {
 	--card-color: var(--ui-destructive);
-	--card-color-hover: var(--ui-destructive-hover);
 	--card-color-text: var(--ui-destructive-text);
 	--card-shadow-color: 0, 85%, 60%;
 	border-color: var(--card-color);
@@ -296,7 +285,6 @@
 
 .card.info {
 	--card-color: var(--ui-info);
-	--card-color-hover: var(--ui-info-hover);
 	--card-color-text: var(--ui-info-text);
 	--card-shadow-color: 200, 85%, 50%;
 	border-color: var(--card-color);
@@ -304,7 +292,6 @@
 
 .card.contrast {
 	--card-color: var(--ui-contrast);
-	--card-color-hover: var(--ui-contrast-hover);
 	--card-color-text: var(--ui-contrast-text);
 	--card-shadow-color: var(--ui-hue), 0%, 3%;
 	border-color: var(--card-color);
@@ -312,7 +299,6 @@
 
 .card.muted {
 	--card-color: var(--ui-muted);
-	--card-color-hover: var(--ui-color-300);
 	--card-color-text: var(--ui-muted-text);
 	--card-shadow-color: var(--ui-hue), 12%, 85%;
 	border-color: var(--card-color);
@@ -496,14 +482,6 @@
 		0 4px 12px hsla(var(--card-shadow-color), 0.2);
 }
 
-/* Better mobile touch */
-@media (hover: none) and (pointer: coarse) {
-	.card:active {
-		transform: scale(0.98);
-		transition: transform 0.1s ease-out;
-	}
-}
-
 /* Performance */
 .card {
 	contain: layout style paint;
@@ -551,18 +529,6 @@
 					0.3
 				),
 			0 1px 6px hsla(var(--card-shadow-color), 0.2);
-	}
-
-	.card.elevated:hover {
-		box-shadow:
-			0 6px 20px
-				hsla(
-					var(--ui-hue),
-					var(--ui-saturation),
-					85%,
-					0.35
-				),
-			0 3px 10px hsla(var(--card-shadow-color), 0.25);
 	}
 
 	.card.interactive:hover {
@@ -625,12 +591,6 @@
 	box-shadow:
 		0 3px 12px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.3),
 		0 1px 6px hsla(var(--card-shadow-color), 0.2);
-}
-
-[data-theme="dark"] .card.elevated:hover {
-	box-shadow:
-		0 6px 20px hsla(var(--ui-hue), var(--ui-saturation), 85%, 0.35),
-		0 3px 10px hsla(var(--card-shadow-color), 0.25);
 }
 
 [data-theme="dark"] .card.interactive:hover {
@@ -726,24 +686,5 @@
 
 	.card-grid {
 		grid-template-columns: 1fr;
-	}
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-	.card,
-	.card.media .card-image {
-		transition: none;
-	}
-}
-
-@media (prefers-contrast: high) {
-	.card {
-		border-width: calc(var(--ui-border-width) * 2);
-	}
-
-	.card:focus-within {
-		outline-width: 3px;
-		outline-offset: 3px;
 	}
 }
