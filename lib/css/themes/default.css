@@ -115,71 +115,71 @@
 	:root:not([data-theme="light"]) {
 		/* Enhanced shadows for dark theme */
 		--ui-shadow-sm: 0 1px 2px
-			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
+			hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.05);
 		--ui-shadow:
 			0 1px 3px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.2
+					80%,
+					0.1
 				),
 			0 1px 2px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.1
+					80%,
+					0.06
 				);
 		--ui-shadow-md:
 			0 4px 6px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.2
+					80%,
+					0.07
 				),
 			0 2px 4px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.15
+					80%,
+					0.06
 				);
 		--ui-shadow-lg:
 			0 10px 15px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.25
+					80%,
+					0.1
 				),
 			0 4px 6px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.15
+					80%,
+					0.05
 				);
 		--ui-shadow-xl:
 			0 20px 25px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.3
+					80%,
+					0.1
 				),
 			0 10px 10px
 				hsla(
 					var(--ui-hue),
 					var(--ui-saturation),
-					75%,
-					0.2
+					80%,
+					0.04
 				);
 		--ui-shadow-2xl: 0 25px 50px
-			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.35);
+			hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.25);
 		--ui-shadow-inner: inset 0 2px 4px
-			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2);
+			hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.06);
 
 		/* Inverted grayscale */
 		--ui-color-50: hsl(var(--ui-hue), 0%, 0%);
@@ -243,23 +243,23 @@
 [data-theme="dark"] {
 	/* Enhanced shadows for dark theme */
 	--ui-shadow-sm: 0 1px 2px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
+		hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.05);
 	--ui-shadow:
-		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2),
-		0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.1);
+		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.1),
+		0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.06);
 	--ui-shadow-md:
-		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2),
-		0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
+		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.07),
+		0 2px 4px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.06);
 	--ui-shadow-lg:
-		0 10px 15px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25),
-		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
+		0 10px 15px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.1),
+		0 4px 6px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.05);
 	--ui-shadow-xl:
-		0 20px 25px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.3),
-		0 10px 10px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2);
+		0 20px 25px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.1),
+		0 10px 10px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.04);
 	--ui-shadow-2xl: 0 25px 50px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.35);
+		hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.25);
 	--ui-shadow-inner: inset 0 2px 4px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2);
+		hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.06);
 
 	/* Inverted grayscale */
 	--ui-color-50: hsl(var(--ui-hue), 0%, 0%);
