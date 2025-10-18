@@ -33,9 +33,7 @@ input[type="reset"] {
 	overflow: hidden;
 
 	/* Default color-matched shadow */
-	box-shadow:
-		0 2px 8px hsla(120, 85%, 55%, 0.3),
-		0 1px 4px hsla(120, 85%, 55%, 0.15);
+	box-shadow: var(--ui-btn-shadow);
 }
 
 /* Reset link styles for button role */
@@ -50,9 +48,7 @@ input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
 	transform: translateY(-1px);
-	box-shadow:
-		0 6px 20px hsla(120, 85%, 55%, 0.4),
-		0 3px 10px hsla(120, 85%, 55%, 0.25);
+	box-shadow: var(--ui-btn-shadow-hover);
 }
 
 /* Active State */
@@ -64,7 +60,7 @@ input[type="reset"]:active,
 button.active,
 [role="button"].active {
 	transform: translateY(1px);
-	box-shadow: 0 1px 4px hsla(120, 85%, 55%, 0.2);
+	box-shadow: var(--ui-btn-shadow-active);
 	transition: none;
 }
 
@@ -387,7 +383,7 @@ button.elevated:active,
 
 button.flat,
 [role="button"].flat {
-	box-shadow: none;
+	box-shadow: var(--ui-btn-flat-shadow);
 }
 
 button.flat:hover,
@@ -397,7 +393,7 @@ button.flat:hover,
 
 button.flat:active,
 [role="button"].flat:active {
-	box-shadow: none;
+	box-shadow: var(--ui-btn-flat-shadow-active);
 }
 
 button.icon,
@@ -504,6 +500,7 @@ button > svg:last-child:not(:first-child),
 /* Dark Theme Enhancements */
 @media (prefers-color-scheme: dark) {
 	/* Enhanced shadows with black base + colored accents */
+	/* Default buttons in dark theme get deeper shadows */
 	button:not(.flat):not(.outline):not(.ghost),
 	[role="button"]:not(.flat):not(.outline):not(.ghost),
 	input[type="button"]:not(.flat),
