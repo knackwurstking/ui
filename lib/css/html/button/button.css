@@ -4,7 +4,6 @@ button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-	/* TODO: Need to make sure the input (type: button, ...) are updating this variables */
 	--btn-bg: var(--ui-primary);
 	--btn-bg-hover: var(--ui-primary-hover);
 	--btn-bg-active: var(--ui-primary-active);

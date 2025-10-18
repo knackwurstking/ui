@@ -47,7 +47,6 @@
 }
 
 /* Elevation with Transform */
-/* TODO: Add color support to this elevation stuff */
 .elevation-1 {
 	box-shadow: var(--ui-shadow-sm);
 	transform: translateY(0);
@@ -101,7 +100,6 @@
 }
 
 /* Pressed/Active States */
-/* TODO: Also support .active class */
 .elevation-1:active,
 .elevation-2:active,
 .elevation-3:active,
