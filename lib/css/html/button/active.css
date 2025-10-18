@@ -1,0 +1,84 @@
+button:active,
+[role="button"]:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+button.active,
+[role="button"].active {
+	transform: translateY(1px);
+	/* TODO: Add box shadow
+	box-shadow: ;
+	*/
+	transition: none;
+}
+
+button.ghost:active,
+[role="button"].ghost:active {
+	background-color: transparent;
+	color: var(--btn-bg-active);
+	box-shadow: 0 1px 2px hsla(var(--btn-shadow-color), 0.08);
+}
+
+button.elevated:active,
+[role="button"].elevated:active {
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+	transform: translateY(0);
+}
+
+button.flat:active,
+[role="button"].flat:active {
+	box-shadow: var(--ui-btn-flat-shadow-active);
+}
+
+button.secondary:active,
+[role="button"].secondary:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+button.success:active,
+[role="button"].success:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
+}
+
+button.warning:active,
+[role="button"].warning:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
+}
+
+button.destructive:active,
+[role="button"].destructive:active,
+input[type="reset"]:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
+}
+
+button.info:active,
+[role="button"].info:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
+}
+
+button.contrast:active,
+[role="button"].contrast:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
+}
+
+button.muted:active,
+[role="button"].muted:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+button:not(.outline):not(.ghost):active,
+[role="button"]:not(.outline):not(.ghost):active,
+input[type="button"]:not(.outline):not(.ghost):active,
+input[type="submit"]:not(.outline):not(.ghost):active,
+input[type="reset"]:not(.outline):not(.ghost):active {
+	background-color: var(--btn-bg-active);
+}
+
+button.outline:active,
+[role="button"].outline:active {
+	background-color: transparent;
+	color: var(--btn-bg-active);
+	box-shadow: 0 1px 3px hsla(var(--btn-shadow-color), 0.15);
+}

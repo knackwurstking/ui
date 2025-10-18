@@ -1,0 +1,312 @@
+/* Button Base Styles */
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	/* Layout */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
+
+	/* Typography */
+	font-size: 1.1rem;
+	font-weight: 500;
+	line-height: 1.5;
+	text-transform: capitalize;
+	text-decoration: none;
+	white-space: nowrap;
+	vertical-align: middle;
+
+	/* Appearance */
+	border: var(--ui-border-width) solid transparent;
+	border-radius: var(--ui-radius);
+	background-color: var(--ui-primary);
+	color: var(--ui-primary-text);
+
+	/* Interaction */
+	cursor: pointer;
+	user-select: none;
+	transition: all 0.25s ease-in-out;
+	position: relative;
+	overflow: hidden;
+
+	/* Default color-matched shadow */
+	box-shadow: var(--ui-btn-shadow);
+}
+
+/* Reset link styles for button role */
+a[role="button"] {
+	text-underline-offset: initial;
+}
+
+/* Color Variants */
+button,
+[role="button"] {
+	--btn-bg: var(--ui-primary);
+	--btn-bg-hover: var(--ui-primary-hover);
+	--btn-bg-active: var(--ui-primary-active);
+	--btn-text: var(--ui-primary-text);
+	--btn-border: transparent;
+	--btn-shadow-color: 120, 85%, 55%;
+}
+
+/* Secondary */
+button.secondary,
+[role="button"].secondary {
+	--btn-bg: var(--ui-secondary);
+	--btn-bg-hover: var(--ui-secondary-hover);
+	--btn-bg-active: var(--ui-secondary-active);
+	--btn-text: var(--ui-secondary-text);
+	--btn-shadow-color: var(--ui-hue), 10%, 60%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.25),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.12);
+}
+
+/* Success */
+button.success,
+[role="button"].success {
+	--btn-bg: var(--ui-success);
+	--btn-bg-hover: var(--ui-success-hover);
+	--btn-bg-active: var(--ui-success-active);
+	--btn-text: var(--ui-success-text);
+	--btn-shadow-color: 140, 85%, 55%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+/* Warning */
+button.warning,
+[role="button"].warning {
+	--btn-bg: var(--ui-warning);
+	--btn-bg-hover: var(--ui-warning-hover);
+	--btn-bg-active: var(--ui-warning-active);
+	--btn-text: var(--ui-warning-text);
+	--btn-shadow-color: 42, 95%, 58%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+/* Destructive */
+button.destructive,
+[role="button"].destructive,
+input[type="reset"] {
+	--btn-bg: var(--ui-destructive);
+	--btn-bg-hover: var(--ui-destructive-hover);
+	--btn-bg-active: var(--ui-destructive-active);
+	--btn-text: var(--ui-destructive-text);
+	--btn-shadow-color: 0, 85%, 60%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+/* Info */
+button.info,
+[role="button"].info {
+	--btn-bg: var(--ui-info);
+	--btn-bg-hover: var(--ui-info-hover);
+	--btn-bg-active: var(--ui-info-active);
+	--btn-text: var(--ui-info-text);
+	--btn-shadow-color: 200, 85%, 50%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+/* Contrast */
+button.contrast,
+[role="button"].contrast {
+	--btn-bg: var(--ui-contrast);
+	--btn-bg-hover: var(--ui-contrast-hover);
+	--btn-bg-active: var(--ui-contrast-active);
+	--btn-text: var(--ui-contrast-text);
+	--btn-shadow-color: var(--ui-hue), 0%, 3%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+/* Muted */
+button.muted,
+[role="button"].muted {
+	--btn-bg: var(--ui-muted);
+	--btn-bg-hover: var(--ui-color-200);
+	--btn-bg-active: var(--ui-color-300);
+	--btn-text: var(--ui-muted-text);
+	--btn-shadow-color: var(--ui-hue), 12%, 85%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.25),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.12);
+}
+
+/* Apply button colors */
+button:not(.outline):not(.ghost),
+[role="button"]:not(.outline):not(.ghost),
+input[type="button"]:not(.outline):not(.ghost),
+input[type="submit"]:not(.outline):not(.ghost),
+input[type="reset"]:not(.outline):not(.ghost) {
+	background-color: var(--btn-bg);
+	color: var(--btn-text);
+	border-color: var(--btn-border);
+}
+
+/* Style Variants */
+
+/* Outline variant */
+button.outline,
+[role="button"].outline {
+	background-color: transparent;
+	color: var(--btn-bg);
+	border-color: currentColor;
+	box-shadow: 0 2px 6px hsla(var(--btn-shadow-color), 0.2);
+}
+
+/* Ghost variant */
+button.ghost,
+[role="button"].ghost {
+	background-color: transparent;
+	color: var(--btn-bg);
+	border-color: transparent;
+	box-shadow: 0 1px 3px hsla(var(--btn-shadow-color), 0.1);
+}
+
+/* Size Variants */
+button.small,
+[role="button"].small {
+	padding: calc(var(--ui-spacing) / 4) calc(var(--ui-spacing) / 1.5);
+	font-size: 0.875rem;
+}
+
+button.large,
+[role="button"].large {
+	padding: calc(var(--ui-spacing) * 0.75) calc(var(--ui-spacing) * 1.5);
+	font-size: 1.25rem;
+}
+
+/* Shape Variants */
+button.round,
+[role="button"].round {
+	border-radius: 9999px;
+}
+
+/* Elevation Variants */
+button.elevated,
+[role="button"].elevated {
+	box-shadow:
+		0 4px 12px hsla(var(--btn-shadow-color), 0.4),
+		0 2px 6px hsla(var(--btn-shadow-color), 0.25);
+}
+
+button.flat,
+[role="button"].flat {
+	box-shadow: var(--ui-btn-flat-shadow);
+}
+
+button.icon,
+[role="button"].icon {
+	padding: calc(var(--ui-spacing) / 2);
+	aspect-ratio: 1;
+	min-width: 2.5rem;
+	min-height: 2.5rem;
+}
+
+/* Small icon buttons */
+button.small.icon,
+[role="button"].small.icon {
+	padding: calc(var(--ui-spacing) / 4);
+	min-width: 2rem;
+	min-height: 2rem;
+}
+
+/* Width Variant */
+button.full,
+[role="button"].full {
+	width: 100%;
+}
+
+/* Loading State */
+button.loading,
+[role="button"].loading {
+	color: transparent;
+	pointer-events: none;
+}
+
+button.loading::after,
+[role="button"].loading::after {
+	content: "";
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	margin: auto;
+	border: 2px solid transparent;
+	border-radius: 50%;
+	border-top-color: currentColor;
+	animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* Icon Support */
+button > svg,
+[role="button"] > svg {
+	width: 1.25em;
+	height: 1.25em;
+	vertical-align: middle;
+	fill: currentColor;
+}
+
+button > svg:first-child:not(:last-child),
+[role="button"] > svg:first-child:not(:last-child) {
+	margin-right: calc(var(--ui-spacing) / 2);
+}
+
+button > svg:last-child:not(:first-child),
+[role="button"] > svg:last-child:not(:first-child) {
+	margin-left: calc(var(--ui-spacing) / 2);
+}
+
+/* Button Group */
+.button-group {
+	display: inline-flex;
+	gap: 0;
+}
+
+.button-group > button,
+.button-group > [role="button"] {
+	border-radius: 0;
+	margin-left: calc(var(--ui-border-width) * -1);
+}
+
+.button-group > :first-child {
+	border-radius: var(--ui-radius) 0 0 var(--ui-radius);
+	margin-left: 0;
+}
+
+.button-group > :last-child {
+	border-radius: 0 var(--ui-radius) var(--ui-radius) 0;
+}
+
+.button-group > :focus {
+	z-index: 1;
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+	button,
+	[role="button"],
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"] {
+		min-height: 44px;
+		min-width: 44px;
+	}
+}
