@@ -4,6 +4,14 @@ button,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
+	/* TODO: Need to make sure the input (type: button, ...) are updating this variables */
+	--btn-bg: var(--ui-primary);
+	--btn-bg-hover: var(--ui-primary-hover);
+	--btn-bg-active: var(--ui-primary-active);
+	--btn-text: var(--ui-primary-text);
+	--btn-border: transparent;
+	--btn-shadow-color: var(--ui-primary-color);
+
 	/* Layout */
 	display: inline-flex;
 	align-items: center;
@@ -20,10 +28,10 @@ input[type="reset"] {
 	vertical-align: middle;
 
 	/* Appearance */
-	border: var(--ui-border-width) solid transparent;
+	border: var(--btn-border);
 	border-radius: var(--ui-radius);
-	background-color: var(--ui-primary);
-	color: var(--ui-primary-text);
+	background-color: var(--btn-bg);
+	color: var(--btn-text);
 
 	/* Interaction */
 	cursor: pointer;
@@ -33,23 +41,14 @@ input[type="reset"] {
 	overflow: hidden;
 
 	/* Default color-matched shadow */
-	box-shadow: var(--ui-btn-shadow);
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
 }
 
 /* Reset link styles for button role */
 a[role="button"] {
 	text-underline-offset: initial;
-}
-
-/* Color Variants */
-button,
-[role="button"] {
-	--btn-bg: var(--ui-primary);
-	--btn-bg-hover: var(--ui-primary-hover);
-	--btn-bg-active: var(--ui-primary-active);
-	--btn-text: var(--ui-primary-text);
-	--btn-border: transparent;
-	--btn-shadow-color: var(--ui-primary-color);
 }
 
 /* Secondary */
@@ -61,8 +60,8 @@ button.secondary,
 	--btn-text: var(--ui-secondary-text);
 	--btn-shadow-color: var(--ui-secondary-color);
 	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.25),
-		0 1px 4px hsla(var(--btn-shadow-color), 0.12);
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
 }
 
 /* Success */
@@ -101,8 +100,8 @@ input[type="reset"] {
 	--btn-text: var(--ui-destructive-text);
 	--btn-shadow-color: var(--ui-destructive-color);
 	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
-		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+		0 2px 8px hsla(var(--btn-shadow-color), 0.4),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.25);
 }
 
 /* Info */
@@ -114,8 +113,8 @@ button.info,
 	--btn-text: var(--ui-info-text);
 	--btn-shadow-color: var(--ui-info-color);
 	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
-		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+		0 2px 8px hsla(var(--btn-shadow-color), 0.4),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.25);
 }
 
 /* Contrast */
@@ -127,8 +126,8 @@ button.contrast,
 	--btn-text: var(--ui-contrast-text);
 	--btn-shadow-color: var(--ui-contrast-color);
 	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
-		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+		0 2px 8px hsla(var(--btn-shadow-color), 0.4),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.25);
 }
 
 /* Muted */
@@ -140,8 +139,8 @@ button.muted,
 	--btn-text: var(--ui-muted-text);
 	--btn-shadow-color: var(--ui-muted-color);
 	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.25),
-		0 1px 4px hsla(var(--btn-shadow-color), 0.12);
+		0 2px 8px hsla(var(--btn-shadow-color), 0.4),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.25);
 }
 
 /* Apply button colors */
@@ -163,7 +162,7 @@ button.outline,
 	background-color: transparent;
 	color: var(--btn-bg);
 	border-color: currentColor;
-	box-shadow: 0 2px 6px hsla(var(--btn-shadow-color), 0.2);
+	box-shadow: 0 2px 6px hsla(var(--btn-shadow-color), 0.5);
 }
 
 /* Ghost variant */
@@ -172,7 +171,7 @@ button.ghost,
 	background-color: transparent;
 	color: var(--btn-bg);
 	border-color: transparent;
-	box-shadow: 0 1px 3px hsla(var(--btn-shadow-color), 0.1);
+	box-shadow: 0 1px 3px hsla(var(--btn-shadow-color), 0.3);
 }
 
 /* Size Variants */
@@ -198,8 +197,8 @@ button.round,
 button.elevated,
 [role="button"].elevated {
 	box-shadow:
-		0 4px 12px hsla(var(--btn-shadow-color), 0.4),
-		0 2px 6px hsla(var(--btn-shadow-color), 0.25);
+		0 4px 12px hsla(var(--btn-shadow-color), 0.5),
+		0 2px 6px hsla(var(--btn-shadow-color), 0.35);
 }
 
 button.icon,

@@ -13,7 +13,7 @@ button.ghost:hover,
 [role="button"].ghost:hover {
 	background-color: var(--ui-color-100);
 	color: var(--btn-bg-hover);
-	box-shadow: 0 3px 8px hsla(var(--btn-shadow-color), 0.15);
+	box-shadow: 0 3px 8px hsla(var(--btn-shadow-color), 0.3);
 }
 
 button.elevated:hover,
@@ -28,7 +28,7 @@ button.outline:hover,
 [role="button"].outline:hover {
 	background-color: transparent;
 	color: var(--btn-bg-hover);
-	box-shadow: 0 4px 12px hsla(var(--btn-shadow-color), 0.25);
+	box-shadow: 0 4px 12px hsla(var(--btn-shadow-color), 0.5);
 }
 
 button:not(.outline):not(.ghost):hover,

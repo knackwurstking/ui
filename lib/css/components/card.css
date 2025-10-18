@@ -49,8 +49,8 @@
 .card.elevated {
 	border: none;
 	box-shadow:
-		0 2px 8px hsla(var(--card-shadow-color), 0.15),
-		0 1px 4px hsla(var(--card-shadow-color), 0.08);
+		0 4px 12px hsla(var(--card-shadow-color), 0.5),
+		0 2px 6px hsla(var(--card-shadow-color), 0.35);
 }
 
 .card.flat {
@@ -252,62 +252,62 @@
 .card.primary {
 	--card-color: var(--ui-primary);
 	--card-color-text: var(--ui-primary-text);
-	--card-shadow-color: 120, 85%, 55%;
+	--card-shadow-color: var(--ui-primary-color);
 	border-color: var(--card-color);
 }
 
 .card.secondary {
 	--card-color: var(--ui-secondary);
 	--card-color-text: var(--ui-secondary-text);
-	--card-shadow-color: var(--ui-hue), 10%, 60%;
+	--card-shadow-color: var(--ui-secondary-color);
 	border-color: var(--card-color);
 }
 
 .card.success {
 	--card-color: var(--ui-success);
 	--card-color-text: var(--ui-success-text);
-	--card-shadow-color: 140, 85%, 55%;
+	--card-shadow-color: var(--ui-success-color);
 	border-color: var(--card-color);
 }
 
 .card.warning {
 	--card-color: var(--ui-warning);
 	--card-color-text: var(--ui-warning-text);
-	--card-shadow-color: 42, 95%, 58%;
+	--card-shadow-color: var(--ui-warning-color);
 	border-color: var(--card-color);
 }
 
 .card.destructive {
 	--card-color: var(--ui-destructive);
 	--card-color-text: var(--ui-destructive-text);
-	--card-shadow-color: 0, 85%, 60%;
+	--card-shadow-color: var(--ui-destructive-color);
 	border-color: var(--card-color);
 }
 
 .card.info {
 	--card-color: var(--ui-info);
 	--card-color-text: var(--ui-info-text);
-	--card-shadow-color: 200, 85%, 50%;
+	--card-shadow-color: var(--ui-info-color);
 	border-color: var(--card-color);
 }
 
 .card.contrast {
 	--card-color: var(--ui-contrast);
 	--card-color-text: var(--ui-contrast-text);
-	--card-shadow-color: var(--ui-hue), 0%, 3%;
+	--card-shadow-color: var(--ui-contrast-color);
 	border-color: var(--card-color);
 }
 
 .card.muted {
 	--card-color: var(--ui-muted);
 	--card-color-text: var(--ui-muted-text);
-	--card-shadow-color: var(--ui-hue), 12%, 85%;
+	--card-shadow-color: var(--ui-muted-color);
 	border-color: var(--card-color);
 }
 
 /* Default shadow color for base cards */
 .card {
-	--card-shadow-color: var(--ui-hue), var(--ui-saturation), 20%;
+	--card-shadow-color: var(--ui-contrast-color);
 }
 
 /* Apply color to headers for colored cards */

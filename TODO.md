@@ -1,6 +1,3 @@
 # TODOs
 
-- [ ] FIXME: Shadows for the dark theme
-- [ ] FIXME: Check shadows for ghost buttons, something is overriding the color specific styles (see: `button.ghost, [role="button"].ghost`)
-- [ ] FIXME: Elevated cards needs some bigger shadows on dark mode (or lower the opacity?)
-- [ ] FIXME: Try out some better opacity on button shadows (dark mode)
+- [ ] Try out a different approach on shadows, remove it from button and cards completely, and update shadow.css to include some classes for colors (primary, secondary, warning, ...)

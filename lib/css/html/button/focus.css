@@ -20,32 +20,6 @@ button.ghost:focus-visible,
 button.outline:focus-visible,
 [role="button"].outline:focus-visible {
 	outline-color: var(--btn-bg);
-	box-shadow: 0 0 0 3px hsla(var(--btn-shadow-color), 0.2);
-}
-
-button.elevated:focus-visible,
-[role="button"].elevated:focus-visible {
-	box-shadow:
-		0 6px 20px hsla(var(--btn-shadow-color), 0.4),
-		0 3px 10px hsla(var(--btn-shadow-color), 0.25),
-		0 0 0 3px hsla(var(--btn-shadow-color), 0.3);
-}
-
-/* Keyboard Navigation Focus for Icon Buttons */
-button.icon:focus-visible,
-[role="button"].icon:focus-visible {
-	outline: none;
-	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
-		0 0 0 3px hsla(var(--btn-shadow-color), 0.25);
-}
-
-button.icon:focus,
-[role="button"].icon:focus {
-	outline: none;
-	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
-		0 0 0 3px hsla(var(--btn-shadow-color), 0.25);
 }
 
 /* Focus within button groups */
