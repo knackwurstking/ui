@@ -33,64 +33,6 @@
 	box-shadow: var(--ui-shadow-inner);
 }
 
-/* Hover Shadow Effects */
-.hover\:shadow-none:hover {
-	box-shadow: none;
-}
-
-.hover\:shadow-sm:hover {
-	box-shadow: var(--ui-shadow-sm);
-}
-
-.hover\:shadow:hover {
-	box-shadow: var(--ui-shadow);
-}
-
-.hover\:shadow-md:hover {
-	box-shadow: var(--ui-shadow-md);
-}
-
-.hover\:shadow-lg:hover {
-	box-shadow: var(--ui-shadow-lg);
-}
-
-.hover\:shadow-xl:hover {
-	box-shadow: var(--ui-shadow-xl);
-}
-
-.hover\:shadow-2xl:hover {
-	box-shadow: var(--ui-shadow-2xl);
-}
-
-/* Focus Shadow Effects */
-.focus\:shadow-none:focus {
-	box-shadow: none;
-}
-
-.focus\:shadow-sm:focus {
-	box-shadow: var(--ui-shadow-sm);
-}
-
-.focus\:shadow:focus {
-	box-shadow: var(--ui-shadow);
-}
-
-.focus\:shadow-md:focus {
-	box-shadow: var(--ui-shadow-md);
-}
-
-.focus\:shadow-lg:focus {
-	box-shadow: var(--ui-shadow-lg);
-}
-
-.focus\:shadow-xl:focus {
-	box-shadow: var(--ui-shadow-xl);
-}
-
-.focus\:shadow-2xl:focus {
-	box-shadow: var(--ui-shadow-2xl);
-}
-
 /* Animated Shadow Transitions */
 .shadow-transition {
 	transition: box-shadow 0.25s ease-in-out;
@@ -105,6 +47,7 @@
 }
 
 /* Elevation with Transform */
+/* TODO: Add color support to this elevation stuff */
 .elevation-1 {
 	box-shadow: var(--ui-shadow-sm);
 	transform: translateY(0);
@@ -158,6 +101,7 @@
 }
 
 /* Pressed/Active States */
+/* TODO: Also support .active class */
 .elevation-1:active,
 .elevation-2:active,
 .elevation-3:active,
@@ -169,27 +113,27 @@
 
 /* Colored Shadows */
 .shadow-primary {
-	box-shadow: 0 4px 14px hsla(120, 85%, 55%, 0.3);
+	box-shadow: 0 4px 14px hsla(var(--ui-primary), 0.3);
 }
 
 .shadow-secondary {
-	box-shadow: 0 4px 14px hsla(var(--ui-hue), 10%, 60%, 0.3);
+	box-shadow: 0 4px 14px hsla(var(--ui-secondary), 0.3);
 }
 
 .shadow-success {
-	box-shadow: 0 4px 14px hsla(140, 85%, 55%, 0.3);
+	box-shadow: 0 4px 14px hsla(var(--ui-success), 0.3);
 }
 
 .shadow-warning {
-	box-shadow: 0 4px 14px hsla(42, 95%, 58%, 0.3);
+	box-shadow: 0 4px 14px hsla(var(--ui-warning), 0.3);
 }
 
 .shadow-destructive {
-	box-shadow: 0 4px 14px hsla(0, 85%, 60%, 0.3);
+	box-shadow: 0 4px 14px hsla(var(--ui-destructive), 0.3);
 }
 
 .shadow-info {
-	box-shadow: 0 4px 14px hsla(200, 85%, 50%, 0.3);
+	box-shadow: 0 4px 14px hsla(var(--ui-info), 0.3);
 }
 
 /* Glow Effects */
@@ -206,19 +150,19 @@
 }
 
 .glow-primary {
-	box-shadow: 0 0 20px hsla(120, 85%, 55%, 0.4);
+	box-shadow: 0 0 20px hsla(var(--ui-primary), 0.4);
 }
 
 .glow-success {
-	box-shadow: 0 0 20px hsla(140, 85%, 55%, 0.4);
+	box-shadow: 0 0 20px hsla(var(--ui-success), 0.4);
 }
 
 .glow-warning {
-	box-shadow: 0 0 20px hsla(42, 95%, 58%, 0.4);
+	box-shadow: 0 0 20px hsla(var(--ui-warning), 0.4);
 }
 
 .glow-destructive {
-	box-shadow: 0 0 20px hsla(0, 85%, 60%, 0.4);
+	box-shadow: 0 0 20px hsla(var(--ui-destructive), 0.4);
 }
 
 /* Inset/Depth Effects */
@@ -232,11 +176,6 @@
 			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15),
 		inset 0 1px 3px
 			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.1);
-}
-
-.pressed {
-	box-shadow: var(--ui-shadow-inner);
-	transform: translateY(1px);
 }
 
 /* Floating/Lifted Effects */
@@ -303,28 +242,6 @@
 	transform: translateY(0);
 }
 
-/* Focus Ring Shadows */
-.focus-ring-shadow:focus {
-	outline: none;
-	box-shadow:
-		var(--ui-shadow),
-		0 0 0 3px hsla(var(--ui-hue), 85%, 55%, 0.3);
-}
-
-.focus-ring-shadow-primary:focus {
-	outline: none;
-	box-shadow:
-		var(--ui-shadow),
-		0 0 0 3px hsla(120, 85%, 55%, 0.3);
-}
-
-.focus-ring-shadow-destructive:focus {
-	outline: none;
-	box-shadow:
-		var(--ui-shadow),
-		0 0 0 3px hsla(0, 85%, 60%, 0.3);
-}
-
 /* Border Shadow Combinations */
 .border-shadow {
 	border: var(--ui-border-width) solid var(--ui-border-color);
@@ -352,133 +269,33 @@
 		0 16px 32px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.04);
 }
 
-/* High contrast mode adjustments */
-/* Enhanced Dark Theme Shadow Utilities */
-.shadow-dark-sm {
-	box-shadow: 0 2px 4px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2);
-}
-
-.shadow-dark {
-	box-shadow:
-		0 2px 6px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25),
-		0 1px 3px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
-}
-
-.shadow-dark-md {
-	box-shadow:
-		0 6px 12px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25),
-		0 3px 6px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2);
-}
-
-.shadow-dark-lg {
-	box-shadow:
-		0 12px 24px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.3),
-		0 6px 12px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2);
-}
-
-.shadow-dark-xl {
-	box-shadow:
-		0 24px 48px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.35),
-		0 12px 24px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
-}
-
-.shadow-dark-2xl {
-	box-shadow: 0 36px 72px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.4);
-}
-
-/* Enhanced Glow Effects for Dark Mode */
-.glow-dark {
-	box-shadow: 0 0 30px hsla(0, 0%, 100%, 0.3);
-}
-
-.glow-dark-primary {
-	box-shadow: 0 0 30px hsla(120, 85%, 55%, 0.6);
-}
-
-.glow-dark-success {
-	box-shadow: 0 0 30px hsla(140, 85%, 55%, 0.6);
-}
-
-.glow-dark-warning {
-	box-shadow: 0 0 30px hsla(42, 95%, 58%, 0.6);
-}
-
-.glow-dark-destructive {
-	box-shadow: 0 0 30px hsla(0, 85%, 60%, 0.6);
-}
-
-/* Dramatic Elevation for Dark Mode */
-.elevation-dark-1 {
-	box-shadow: 0 3px 8px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2);
-	transition:
-		box-shadow 0.25s ease-in-out,
-		transform 0.25s ease-in-out;
-}
-
-.elevation-dark-1:hover {
-	box-shadow: 0 8px 20px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
-	transform: translateY(-2px);
-}
-
-.elevation-dark-2 {
-	box-shadow: 0 6px 16px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
-	transition:
-		box-shadow 0.25s ease-in-out,
-		transform 0.25s ease-in-out;
-}
-
-.elevation-dark-2:hover {
-	box-shadow: 0 12px 32px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.3);
-	transform: translateY(-3px);
-}
-
-.elevation-dark-3 {
-	box-shadow: 0 12px 32px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.3);
-	transition:
-		box-shadow 0.25s ease-in-out,
-		transform 0.25s ease-in-out;
-}
-
-.elevation-dark-3:hover {
-	box-shadow: 0 20px 48px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.35);
-	transform: translateY(-4px);
-}
-
 /* Neon/Bright Edge Effects */
 .shadow-neon-primary {
 	box-shadow:
-		0 0 5px hsla(120, 85%, 55%, 0.8),
-		0 0 10px hsla(120, 85%, 55%, 0.6),
-		0 0 15px hsla(120, 85%, 55%, 0.4);
+		0 0 5px hsla(var(--ui-primary-color), 0.8),
+		0 0 10px hsla(var(--ui-primary-color), 0.6),
+		0 0 15px hsla(var(--ui-primary-color), 0.4);
 }
 
 .shadow-neon-info {
 	box-shadow:
-		0 0 5px hsla(200, 85%, 50%, 0.8),
-		0 0 10px hsla(200, 85%, 50%, 0.6),
-		0 0 15px hsla(200, 85%, 50%, 0.4);
+		0 0 5px hsla(var(--ui-info-color), 0.8),
+		0 0 10px hsla(var(--ui-info-color), 0.6),
+		0 0 15px hsla(var(--ui-info-color), 0.4);
 }
 
 .shadow-neon-warning {
 	box-shadow:
-		0 0 5px hsla(42, 95%, 58%, 0.8),
-		0 0 10px hsla(42, 95%, 58%, 0.6),
-		0 0 15px hsla(42, 95%, 58%, 0.4);
+		0 0 5px hsla(var(--ui-warning-color), 0.8),
+		0 0 10px hsla(var(--ui-warning-color), 0.6),
+		0 0 15px hsla(var(--ui-warning-color), 0.4);
 }
 
 .shadow-neon-destructive {
 	box-shadow:
-		0 0 5px hsla(0, 85%, 60%, 0.8),
-		0 0 10px hsla(0, 85%, 60%, 0.6),
-		0 0 15px hsla(0, 85%, 60%, 0.4);
+		0 0 5px hsla(var(--ui-destructive-color), 0.8),
+		0 0 10px hsla(var(--ui-destructive-color), 0.6),
+		0 0 15px hsla(var(--ui-destructive-color), 0.4);
 }
 
 /* Ultra Deep Shadows */
@@ -494,136 +311,4 @@
 		0 8px 24px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.35),
 		0 24px 48px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.3),
 		0 48px 96px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
-}
-
-/* Automatic Dark Theme Shadow Adaptation */
-:root {
-	--ui-shadow-color-light: 20%;
-	--ui-shadow-color-alpha-light: 0.1;
-	--ui-shadow-color-dark: 75%;
-	--ui-shadow-color-alpha-dark: 0.2;
-}
-
-/* Light theme shadow colors (default) */
-:root {
-	--ui-adaptive-shadow-color: var(--ui-shadow-color-light);
-	--ui-adaptive-shadow-alpha: var(--ui-shadow-color-alpha-light);
-}
-
-/* Enhanced shadow utilities with automatic adaptation */
-.shadow-adaptive-sm {
-	box-shadow: 0 1px 2px
-		hsla(
-			var(--ui-hue),
-			var(--ui-saturation),
-			var(--ui-adaptive-shadow-color),
-			var(--ui-adaptive-shadow-alpha)
-		);
-}
-
-.shadow-adaptive {
-	box-shadow:
-		0 1px 3px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				calc(var(--ui-adaptive-shadow-alpha) * 1.2)
-			),
-		0 1px 2px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				var(--ui-adaptive-shadow-alpha)
-			);
-}
-
-.shadow-adaptive-md {
-	box-shadow:
-		0 4px 6px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				calc(var(--ui-adaptive-shadow-alpha) * 1.2)
-			),
-		0 2px 4px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				var(--ui-adaptive-shadow-alpha)
-			);
-}
-
-.shadow-adaptive-lg {
-	box-shadow:
-		0 10px 15px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				calc(var(--ui-adaptive-shadow-alpha) * 1.5)
-			),
-		0 4px 6px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				var(--ui-adaptive-shadow-alpha)
-			);
-}
-
-.shadow-adaptive-xl {
-	box-shadow:
-		0 20px 25px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				calc(var(--ui-adaptive-shadow-alpha) * 1.8)
-			),
-		0 10px 10px
-			hsla(
-				var(--ui-hue),
-				var(--ui-saturation),
-				var(--ui-adaptive-shadow-color),
-				calc(var(--ui-adaptive-shadow-alpha) * 1.2)
-			);
-}
-
-.shadow-adaptive-2xl {
-	box-shadow: 0 25px 50px
-		hsla(
-			var(--ui-hue),
-			var(--ui-saturation),
-			var(--ui-adaptive-shadow-color),
-			calc(var(--ui-adaptive-shadow-alpha) * 2)
-		);
-}
-
-/* Adaptive elevation effects */
-.elevation-adaptive {
-	box-shadow: 0 2px 6px
-		hsla(
-			var(--ui-hue),
-			var(--ui-saturation),
-			var(--ui-adaptive-shadow-color),
-			var(--ui-adaptive-shadow-alpha)
-		);
-	transition:
-		box-shadow 0.25s ease-in-out,
-		transform 0.25s ease-in-out;
-}
-
-.elevation-adaptive:hover {
-	box-shadow: 0 8px 16px
-		hsla(
-			var(--ui-hue),
-			var(--ui-saturation),
-			var(--ui-adaptive-shadow-color),
-			calc(var(--ui-adaptive-shadow-alpha) * 1.5)
-		);
-	transform: translateY(-2px);
 }

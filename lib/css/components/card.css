@@ -1,5 +1,4 @@
 /* Card Component */
-/* TODO: Fix box shadows for the dark theme, but keep it simple and use the fucking theme variables */
 
 .card {
 	--card-padding: calc(var(--ui-spacing) * 1.5);
@@ -14,7 +13,6 @@
 	will-change: auto;
 	transition:
 		transform 0.2s ease-in-out,
-		box-shadow 0.2s ease-in-out,
 		border-color 0.2s ease-in-out;
 }
 
@@ -46,16 +44,9 @@
 }
 
 /* Card Variants */
-.card.elevated {
-	border: none;
-	box-shadow:
-		0 4px 12px hsla(var(--card-shadow-color), 0.5),
-		0 2px 6px hsla(var(--card-shadow-color), 0.35);
-}
 
 .card.flat {
 	border: none;
-	box-shadow: none;
 	background-color: var(--ui-muted);
 }
 
@@ -78,33 +69,6 @@
 .card.seamless .card-footer {
 	border: none;
 	background-color: transparent;
-}
-
-/* Interactive Card */
-.card.interactive {
-	cursor: pointer;
-	user-select: none;
-	will-change: transform, box-shadow;
-}
-
-.card.interactive:hover {
-	box-shadow:
-		0 4px 12px hsla(var(--card-shadow-color), 0.18),
-		0 2px 6px hsla(var(--card-shadow-color), 0.1);
-	transform: translateY(-1px);
-}
-
-.card.interactive:active {
-	transition: transform 0.1s ease-in-out;
-	transform: translateY(1px);
-	box-shadow:
-		0 2px 6px hsla(var(--card-shadow-color), 0.15),
-		0 1px 2px hsla(var(--card-shadow-color), 0.08);
-}
-
-.card.interactive:focus {
-	outline: 2px solid var(--ui-primary);
-	outline-offset: 2px;
 }
 
 /* Card Sizes */
@@ -252,62 +216,49 @@
 .card.primary {
 	--card-color: var(--ui-primary);
 	--card-color-text: var(--ui-primary-text);
-	--card-shadow-color: var(--ui-primary-color);
 	border-color: var(--card-color);
 }
 
 .card.secondary {
 	--card-color: var(--ui-secondary);
 	--card-color-text: var(--ui-secondary-text);
-	--card-shadow-color: var(--ui-secondary-color);
 	border-color: var(--card-color);
 }
 
 .card.success {
 	--card-color: var(--ui-success);
 	--card-color-text: var(--ui-success-text);
-	--card-shadow-color: var(--ui-success-color);
 	border-color: var(--card-color);
 }
 
 .card.warning {
 	--card-color: var(--ui-warning);
 	--card-color-text: var(--ui-warning-text);
-	--card-shadow-color: var(--ui-warning-color);
 	border-color: var(--card-color);
 }
 
 .card.destructive {
 	--card-color: var(--ui-destructive);
 	--card-color-text: var(--ui-destructive-text);
-	--card-shadow-color: var(--ui-destructive-color);
 	border-color: var(--card-color);
 }
 
 .card.info {
 	--card-color: var(--ui-info);
 	--card-color-text: var(--ui-info-text);
-	--card-shadow-color: var(--ui-info-color);
 	border-color: var(--card-color);
 }
 
 .card.contrast {
 	--card-color: var(--ui-contrast);
 	--card-color-text: var(--ui-contrast-text);
-	--card-shadow-color: var(--ui-contrast-color);
 	border-color: var(--card-color);
 }
 
 .card.muted {
 	--card-color: var(--ui-muted);
 	--card-color-text: var(--ui-muted-text);
-	--card-shadow-color: var(--ui-muted-color);
 	border-color: var(--card-color);
-}
-
-/* Default shadow color for base cards */
-.card {
-	--card-shadow-color: var(--ui-contrast-color);
 }
 
 /* Apply color to headers for colored cards */
@@ -468,21 +419,6 @@
 	border-radius: 50%;
 }
 
-/* Enhanced Interactions */
-
-.card.disabled {
-	opacity: 0.6;
-	pointer-events: none;
-	filter: grayscale(0.5);
-}
-
-.card.selected {
-	border-color: var(--ui-primary);
-	box-shadow:
-		0 0 0 2px var(--ui-primary),
-		0 4px 12px hsla(var(--card-shadow-color), 0.2);
-}
-
 /* Performance */
 .card {
 	contain: layout style paint;
@@ -490,7 +426,7 @@
 }
 
 .card.interactive {
-	will-change: transform, box-shadow;
+	will-change: transform;
 }
 
 .card.media .card-image {
@@ -504,18 +440,6 @@
 
 .card-grid {
 	contain: layout;
-}
-
-/* Glass Morphism */
-.card.glass {
-	background: hsla(var(--ui-hue), var(--ui-saturation), 95%, 0.8);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	border: 1px solid hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.18);
-	box-shadow:
-		0 8px 32px hsla(var(--card-shadow-color), 0.15),
-		inset 0 1px 1px
-			hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
 }
 
 /* Enhanced Focus */
