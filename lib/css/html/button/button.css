@@ -1,3 +1,31 @@
+/* Button-specific CSS variables */
+:root {
+	--ui-btn-shadow: var(--ui-shadow);
+	--ui-btn-flat-shadow: 0 1px 2px
+		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.05);
+	--ui-btn-flat-shadow-active: 0 1px 3px
+		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.12);
+}
+
+/* Dark theme overrides for button variables */
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--ui-btn-shadow: var(--ui-shadow);
+		--ui-btn-flat-shadow: 0 1px 2px
+			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
+		--ui-btn-flat-shadow-active: 0 1px 3px
+			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
+	}
+}
+
+[data-theme="dark"] {
+	--ui-btn-shadow: var(--ui-shadow);
+	--ui-btn-flat-shadow: 0 1px 2px
+		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
+	--ui-btn-flat-shadow-active: 0 1px 3px
+		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
+}
+
 /* Button Base Styles */
 button,
 [role="button"],

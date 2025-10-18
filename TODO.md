@@ -1,4 +1,4 @@
 # TODOs
 
-- [ ] Fix shadow on ghost buttons (contrast), it is way to big on dark mode
-- [ ] Simplify the whole box shadow system
+- [ ] Fix box shadow color for the dark theme
+- [ ] Think about the variables in `button/button.css`, if they should be moved to the theme

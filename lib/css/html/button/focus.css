@@ -6,13 +6,103 @@ input[type="submit"]:focus-visible,
 input[type="reset"]:focus-visible {
 	outline: 2px solid var(--ui-primary);
 	outline-offset: 2px;
+	position: relative;
+	z-index: 1;
+}
+
+/* Enhanced focus for different button variants */
+button.ghost:focus-visible,
+[role="button"].ghost:focus-visible {
+	outline-color: var(--btn-bg);
+	background-color: var(--ui-color-100);
+}
+
+button.outline:focus-visible,
+[role="button"].outline:focus-visible {
+	outline-color: var(--btn-bg);
+	box-shadow: 0 0 0 3px hsla(var(--btn-shadow-color), 0.2);
+}
+
+button.elevated:focus-visible,
+[role="button"].elevated:focus-visible {
+	box-shadow:
+		0 6px 20px hsla(var(--btn-shadow-color), 0.4),
+		0 3px 10px hsla(var(--btn-shadow-color), 0.25),
+		0 0 0 3px hsla(var(--btn-shadow-color), 0.3);
 }
 
 /* Keyboard Navigation Focus for Icon Buttons */
+button.icon:focus-visible,
+[role="button"].icon:focus-visible {
+	outline: none;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
+		0 0 0 3px hsla(var(--btn-shadow-color), 0.25);
+}
+
 button.icon:focus,
 [role="button"].icon:focus {
 	outline: none;
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
 		0 0 0 3px hsla(var(--btn-shadow-color), 0.25);
+}
+
+/* Focus within button groups */
+.button-group > button:focus-visible,
+.button-group > [role="button"]:focus-visible {
+	z-index: 2;
+	position: relative;
+}
+
+/* Focus for color variants */
+button.success:focus-visible,
+[role="button"].success:focus-visible {
+	outline-color: var(--ui-success);
+}
+
+button.warning:focus-visible,
+[role="button"].warning:focus-visible {
+	outline-color: var(--ui-warning);
+}
+
+button.destructive:focus-visible,
+[role="button"].destructive:focus-visible,
+input[type="reset"]:focus-visible {
+	outline-color: var(--ui-destructive);
+}
+
+button.info:focus-visible,
+[role="button"].info:focus-visible {
+	outline-color: var(--ui-info);
+}
+
+button.secondary:focus-visible,
+[role="button"].secondary:focus-visible {
+	outline-color: var(--ui-secondary);
+}
+
+button.contrast:focus-visible,
+[role="button"].contrast:focus-visible {
+	outline-color: var(--ui-contrast);
+}
+
+button.muted:focus-visible,
+[role="button"].muted:focus-visible {
+	outline-color: var(--ui-muted-text);
+}
+
+/* Hide default focus for non-keyboard users */
+button:focus:not(:focus-visible),
+[role="button"]:focus:not(:focus-visible),
+input[type="button"]:focus:not(:focus-visible),
+input[type="submit"]:focus:not(:focus-visible),
+input[type="reset"]:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Enhanced focus for loading state */
+button.loading:focus-visible,
+[role="button"].loading:focus-visible {
+	outline-color: var(--ui-muted-text);
 }
