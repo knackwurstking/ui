@@ -1,300 +1,326 @@
 /* Card Component */
 
 .card {
-    --card-padding: calc(var(--ui-spacing) * 1.5);
+	--card-padding: calc(var(--ui-spacing) * 1.5);
 
-    display: block;
-    background-color: var(--ui-bg);
-    border: var(--ui-border-width) solid var(--ui-border-color);
-    border-radius: var(--ui-radius);
-    overflow: hidden;
-    position: relative;
-    contain: layout style paint;
-    will-change: auto;
-    transition:
-        transform 0.2s ease-in-out,
-        box-shadow 0.2s ease-in-out,
-        border-color 0.2s ease-in-out;
+	display: block;
+	background-color: var(--ui-bg);
+	border: var(--ui-border-width) solid var(--ui-border-color);
+	border-radius: var(--ui-radius);
+	overflow: hidden;
+	position: relative;
+	contain: layout style paint;
+	will-change: auto;
+	transition:
+		transform 0.2s ease-in-out,
+		box-shadow 0.2s ease-in-out,
+		border-color 0.2s ease-in-out;
 }
 
 .card:focus-within {
-    border-color: var(--ui-primary);
-    outline: 2px solid var(--ui-primary);
-    outline-offset: 2px;
+	border-color: var(--ui-primary);
+	outline: 2px solid var(--ui-primary);
+	outline-offset: 2px;
 }
 
 /* Card Structure */
 .card-header,
 .card-body,
 .card-footer {
-    padding: var(--card-padding);
+	padding: var(--card-padding);
 }
 
 .card-header {
-    border-bottom: var(--ui-border-width) solid var(--ui-border-color);
-    background-color: var(--ui-color-50);
-    --wght: 600;
-    font-size: 1.125rem;
-    line-height: 1.4;
-    letter-spacing: -0.025em;
+	border-bottom: var(--ui-border-width) solid var(--ui-border-color);
+	background-color: var(--ui-color-50);
+	--wght: 600;
+	font-size: 1.125rem;
+	line-height: 1.4;
+	letter-spacing: -0.025em;
 }
 
 .card-footer {
-    border-top: var(--ui-border-width) solid var(--ui-border-color);
-    background-color: var(--ui-color-50);
+	border-top: var(--ui-border-width) solid var(--ui-border-color);
+	background-color: var(--ui-color-50);
 }
 
 /* Card Variants */
 .card.elevated {
-    border: none;
-    box-shadow:
-        0 2px 8px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.08),
-        0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.04);
+	border: none;
+	box-shadow:
+		0 2px 8px hsla(var(--card-shadow-color), 0.15),
+		0 1px 4px hsla(var(--card-shadow-color), 0.08);
+}
+
+.card.elevated:hover {
+	box-shadow:
+		0 4px 12px hsla(var(--card-shadow-color), 0.2),
+		0 2px 6px hsla(var(--card-shadow-color), 0.12);
 }
 
 .card.flat {
-    border: none;
-    box-shadow: none;
-    background-color: var(--ui-muted);
+	border: none;
+	box-shadow: none;
+	background-color: var(--ui-muted);
 }
 
 .card.outline {
-    background-color: transparent;
-    border-width: calc(var(--ui-border-width) * 1.5);
+	background-color: transparent;
+	border-width: calc(var(--ui-border-width) * 1.5);
 }
 
 .card.outline .card-header {
-    border-bottom: var(--ui-border-width) solid var(--ui-border-color);
-    background-color: transparent;
+	border-bottom: var(--ui-border-width) solid var(--ui-border-color);
+	background-color: transparent;
 }
 
 .card.outline .card-footer {
-    border-top: var(--ui-border-width) solid var(--ui-border-color);
-    background-color: transparent;
+	border-top: var(--ui-border-width) solid var(--ui-border-color);
+	background-color: transparent;
 }
 
 .card.seamless .card-header,
 .card.seamless .card-footer {
-    border: none;
-    background-color: transparent;
+	border: none;
+	background-color: transparent;
 }
 
 /* Interactive Card */
 .card.interactive {
-    cursor: pointer;
-    user-select: none;
-    will-change: transform, box-shadow;
+	cursor: pointer;
+	user-select: none;
+	will-change: transform, box-shadow;
+}
+
+.card.interactive:hover {
+	box-shadow:
+		0 4px 12px hsla(var(--card-shadow-color), 0.18),
+		0 2px 6px hsla(var(--card-shadow-color), 0.1);
+	transform: translateY(-1px);
 }
 
 .card.interactive:active {
-    transition: transform 0.1s ease-in-out;
-    transform: translateY(1px);
-    box-shadow:
-        0 2px 6px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.15),
-        0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1);
+	transition: transform 0.1s ease-in-out;
+	transform: translateY(1px);
+	box-shadow:
+		0 2px 6px hsla(var(--card-shadow-color), 0.15),
+		0 1px 2px hsla(var(--card-shadow-color), 0.08);
 }
 
 .card.interactive:focus {
-    outline: 2px solid var(--ui-primary);
-    outline-offset: 2px;
+	outline: 2px solid var(--ui-primary);
+	outline-offset: 2px;
 }
 
 /* Card Sizes */
 .card.compact {
-    --card-padding: calc(var(--ui-spacing) * 1);
+	--card-padding: calc(var(--ui-spacing) * 1);
 }
 
 .card.comfortable {
-    --card-padding: calc(var(--ui-spacing) * 1.5);
+	--card-padding: calc(var(--ui-spacing) * 1.5);
 }
 
 .card.spacious {
-    --card-padding: calc(var(--ui-spacing) * 2);
+	--card-padding: calc(var(--ui-spacing) * 2);
 }
 
 /* Card Image */
 .card-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
 }
 
 .card-image.aspect-video {
-    aspect-ratio: 16 / 9;
+	aspect-ratio: 16 / 9;
 }
 
 .card-image.aspect-square {
-    aspect-ratio: 1 / 1;
+	aspect-ratio: 1 / 1;
 }
 
 .card-image.aspect-portrait {
-    aspect-ratio: 3 / 4;
+	aspect-ratio: 3 / 4;
 }
 
 /* Card Content */
 .card-title {
-    margin: 0 0 calc(var(--ui-spacing) / 2) 0;
-    --wght: 700;
-    font-size: 1.375rem;
-    line-height: 1.25;
-    letter-spacing: -0.025em;
-    color: var(--ui-text);
+	margin: 0 0 calc(var(--ui-spacing) / 2) 0;
+	--wght: 700;
+	font-size: 1.375rem;
+	line-height: 1.25;
+	letter-spacing: -0.025em;
+	color: var(--ui-text);
 }
 
 .card-subtitle {
-    margin: 0 0 var(--ui-spacing) 0;
-    font-size: 0.875rem;
-    color: var(--ui-muted-text);
-    line-height: 1.4;
+	margin: 0 0 var(--ui-spacing) 0;
+	font-size: 0.875rem;
+	color: var(--ui-muted-text);
+	line-height: 1.4;
 }
 
 .card-description {
-    margin: 0 0 var(--ui-spacing) 0;
-    color: var(--ui-text);
-    line-height: 1.5;
+	margin: 0 0 var(--ui-spacing) 0;
+	color: var(--ui-text);
+	line-height: 1.5;
 }
 
 .card-meta {
-    margin: 0;
-    font-size: 0.75rem;
-    color: var(--ui-muted-text);
+	margin: 0;
+	font-size: 0.75rem;
+	color: var(--ui-muted-text);
 }
 
 /* Card Actions */
 .card-actions {
-    display: flex;
-    gap: calc(var(--ui-spacing) / 2);
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+	display: flex;
+	gap: calc(var(--ui-spacing) / 2);
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 }
 
 .card-actions.center {
-    justify-content: center;
+	justify-content: center;
 }
 
 .card-actions.end {
-    justify-content: flex-end;
+	justify-content: flex-end;
 }
 
 .card-actions.between {
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .card-actions.stretch {
-    justify-content: stretch;
+	justify-content: stretch;
 }
 
 .card-actions.stretch > * {
-    flex: 1;
+	flex: 1;
 }
 
 /* Horizontal Layout */
 .card.horizontal {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
 }
 
 .card.horizontal .card-image {
-    width: auto;
-    min-width: 120px;
-    max-width: 200px;
-    flex-shrink: 0;
+	width: auto;
+	min-width: 120px;
+	max-width: 200px;
+	flex-shrink: 0;
 }
 
 .card.horizontal .card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 
 .card.horizontal .card-body {
-    flex: 1;
+	flex: 1;
 }
 
 /* Media Card */
 .card.media {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .card.media .card-image {
-    transition: transform 0.3s ease-in-out;
-    will-change: transform;
+	transition: transform 0.3s ease-in-out;
+	will-change: transform;
 }
 
 /* Card Grid */
 .card-grid {
-    display: grid;
-    gap: var(--ui-spacing);
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    contain: layout;
+	display: grid;
+	gap: var(--ui-spacing);
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	contain: layout;
 }
 
 .card-grid.compact {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 .card-grid.wide {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
 /* Color Variants - Using CSS Custom Properties */
 .card.primary {
-    --card-color: var(--ui-primary);
-    --card-color-hover: var(--ui-primary-hover);
-    --card-color-text: var(--ui-primary-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-primary);
+	--card-color-hover: var(--ui-primary-hover);
+	--card-color-text: var(--ui-primary-text);
+	--card-shadow-color: 120, 85%, 55%;
+	border-color: var(--card-color);
 }
 
 .card.secondary {
-    --card-color: var(--ui-secondary);
-    --card-color-hover: var(--ui-secondary-hover);
-    --card-color-text: var(--ui-secondary-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-secondary);
+	--card-color-hover: var(--ui-secondary-hover);
+	--card-color-text: var(--ui-secondary-text);
+	--card-shadow-color: var(--ui-hue), 10%, 60%;
+	border-color: var(--card-color);
 }
 
 .card.success {
-    --card-color: var(--ui-success);
-    --card-color-hover: var(--ui-success-hover);
-    --card-color-text: var(--ui-success-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-success);
+	--card-color-hover: var(--ui-success-hover);
+	--card-color-text: var(--ui-success-text);
+	--card-shadow-color: 140, 85%, 55%;
+	border-color: var(--card-color);
 }
 
 .card.warning {
-    --card-color: var(--ui-warning);
-    --card-color-hover: var(--ui-warning-hover);
-    --card-color-text: var(--ui-warning-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-warning);
+	--card-color-hover: var(--ui-warning-hover);
+	--card-color-text: var(--ui-warning-text);
+	--card-shadow-color: 42, 95%, 58%;
+	border-color: var(--card-color);
 }
 
 .card.destructive {
-    --card-color: var(--ui-destructive);
-    --card-color-hover: var(--ui-destructive-hover);
-    --card-color-text: var(--ui-destructive-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-destructive);
+	--card-color-hover: var(--ui-destructive-hover);
+	--card-color-text: var(--ui-destructive-text);
+	--card-shadow-color: 0, 85%, 60%;
+	border-color: var(--card-color);
 }
 
 .card.info {
-    --card-color: var(--ui-info);
-    --card-color-hover: var(--ui-info-hover);
-    --card-color-text: var(--ui-info-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-info);
+	--card-color-hover: var(--ui-info-hover);
+	--card-color-text: var(--ui-info-text);
+	--card-shadow-color: 200, 85%, 50%;
+	border-color: var(--card-color);
 }
 
 .card.contrast {
-    --card-color: var(--ui-contrast);
-    --card-color-hover: var(--ui-contrast-hover);
-    --card-color-text: var(--ui-contrast-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-contrast);
+	--card-color-hover: var(--ui-contrast-hover);
+	--card-color-text: var(--ui-contrast-text);
+	--card-shadow-color: var(--ui-hue), 0%, 3%;
+	border-color: var(--card-color);
 }
 
 .card.muted {
-    --card-color: var(--ui-muted);
-    --card-color-hover: var(--ui-color-300);
-    --card-color-text: var(--ui-muted-text);
-    border-color: var(--card-color);
+	--card-color: var(--ui-muted);
+	--card-color-hover: var(--ui-color-300);
+	--card-color-text: var(--ui-muted-text);
+	--card-shadow-color: var(--ui-hue), 12%, 85%;
+	border-color: var(--card-color);
+}
+
+/* Default shadow color for base cards */
+.card {
+	--card-shadow-color: var(--ui-hue), var(--ui-saturation), 20%;
 }
 
 /* Apply color to headers for colored cards */
@@ -306,9 +332,9 @@
 .card.info .card-header,
 .card.contrast .card-header,
 .card.muted .card-header {
-    background-color: var(--card-color);
-    color: var(--card-color-text);
-    border-color: var(--card-color);
+	background-color: var(--card-color);
+	color: var(--card-color-text);
+	border-color: var(--card-color);
 }
 
 /* Outline colored cards */
@@ -320,9 +346,9 @@
 .card.outline.info .card-header,
 .card.outline.contrast .card-header,
 .card.outline.muted .card-header {
-    background-color: transparent;
-    color: var(--card-color);
-    border-bottom-color: var(--card-color);
+	background-color: transparent;
+	color: var(--card-color);
+	border-bottom-color: var(--card-color);
 }
 
 .card.outline.primary .card-footer,
@@ -333,276 +359,391 @@
 .card.outline.info .card-footer,
 .card.outline.contrast .card-footer,
 .card.outline.muted .card-footer {
-    background-color: transparent;
-    color: var(--card-color);
-    border-top-color: var(--card-color);
+	background-color: transparent;
+	color: var(--card-color);
+	border-top-color: var(--card-color);
 }
 
 /* Loading States */
 .card.loading {
-    position: relative;
-    overflow: hidden;
-    pointer-events: none;
+	position: relative;
+	overflow: hidden;
+	pointer-events: none;
 }
 
 .card.loading::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.1),
-        transparent
-    );
-    animation: shimmer 1.5s infinite;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.1),
+		transparent
+	);
+	animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
-    to {
-        left: 100%;
-    }
+	to {
+		left: 100%;
+	}
 }
 
 /* Content Overflow */
 .card-title.truncate,
 .card-subtitle.truncate,
 .card-description.truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .card-description.clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 .card-description.clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 .card.expandable .card-description {
-    cursor: pointer;
-    position: relative;
+	cursor: pointer;
+	position: relative;
 }
 
 .card.expandable .card-description::after {
-    content: "Show more";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: var(--ui-bg);
-    color: var(--ui-primary);
-    font-size: 0.875rem;
-    padding-left: 1rem;
+	content: "Show more";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: var(--ui-bg);
+	color: var(--ui-primary);
+	font-size: 0.875rem;
+	padding-left: 1rem;
 }
 
 /* Card Badges */
 .card-badge {
-    position: absolute;
-    top: var(--ui-spacing);
-    right: var(--ui-spacing);
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    border-radius: calc(var(--ui-radius) / 2);
-    background: var(--ui-primary);
-    color: var(--ui-primary-text);
-    z-index: 1;
+	position: absolute;
+	top: var(--ui-spacing);
+	right: var(--ui-spacing);
+	padding: 0.25rem 0.5rem;
+	font-size: 0.75rem;
+	font-weight: 500;
+	border-radius: calc(var(--ui-radius) / 2);
+	background: var(--ui-primary);
+	color: var(--ui-primary-text);
+	z-index: 1;
 }
 
 .card-badge.new {
-    background: var(--ui-success);
-    color: var(--ui-success-text);
+	background: var(--ui-success);
+	color: var(--ui-success-text);
 }
 .card-badge.hot {
-    background: var(--ui-warning);
-    color: var(--ui-warning-text);
+	background: var(--ui-warning);
+	color: var(--ui-warning-text);
 }
 .card-badge.sale {
-    background: var(--ui-destructive);
-    color: var(--ui-destructive-text);
+	background: var(--ui-destructive);
+	color: var(--ui-destructive-text);
 }
 
 .card-corner-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 2rem 2rem 0;
-    border-color: transparent var(--ui-primary) transparent transparent;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 2rem 2rem 0;
+	border-color: transparent var(--ui-primary) transparent transparent;
 }
 
 .card-corner-badge::after {
-    content: "";
-    position: absolute;
-    top: 0.25rem;
-    right: -1.75rem;
-    width: 1rem;
-    height: 1rem;
-    background: var(--ui-primary-text);
-    border-radius: 50%;
+	content: "";
+	position: absolute;
+	top: 0.25rem;
+	right: -1.75rem;
+	width: 1rem;
+	height: 1rem;
+	background: var(--ui-primary-text);
+	border-radius: 50%;
 }
 
 /* Enhanced Interactions */
-.card.interactive:active {
-    transform: translateY(1px);
-    box-shadow:
-        0 2px 6px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.15),
-        0 1px 2px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1);
-}
 
 .card.disabled {
-    opacity: 0.6;
-    pointer-events: none;
-    filter: grayscale(0.5);
+	opacity: 0.6;
+	pointer-events: none;
+	filter: grayscale(0.5);
 }
 
 .card.selected {
-    border-color: var(--ui-primary);
-    box-shadow:
-        0 0 0 2px var(--ui-primary),
-        0 4px 12px hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.1);
+	border-color: var(--ui-primary);
+	box-shadow:
+		0 0 0 2px var(--ui-primary),
+		0 4px 12px hsla(var(--card-shadow-color), 0.2);
 }
 
 /* Better mobile touch */
 @media (hover: none) and (pointer: coarse) {
-    .card:active {
-        transform: scale(0.98);
-        transition: transform 0.1s ease-out;
-    }
+	.card:active {
+		transform: scale(0.98);
+		transition: transform 0.1s ease-out;
+	}
 }
 
 /* Performance */
 .card {
-    contain: layout style paint;
-    will-change: auto;
+	contain: layout style paint;
+	will-change: auto;
 }
 
 .card.interactive {
-    will-change: transform, box-shadow;
+	will-change: transform, box-shadow;
 }
 
 .card.media .card-image {
-    will-change: transform;
+	will-change: transform;
 }
 
 /* Remove will-change after animation */
 .card:not(:hover):not(:focus):not(:active) {
-    will-change: auto;
+	will-change: auto;
 }
 
 .card-grid {
-    contain: layout;
+	contain: layout;
 }
 
 /* Glass Morphism */
 .card.glass {
-    background: hsla(var(--ui-hue), var(--ui-saturation), 95%, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.18);
-    box-shadow:
-        0 8px 32px hsla(var(--ui-hue), var(--ui-saturation), 0%, 0.1),
-        inset 0 1px 1px hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
+	background: hsla(var(--ui-hue), var(--ui-saturation), 95%, 0.8);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.18);
+	box-shadow:
+		0 8px 32px hsla(var(--card-shadow-color), 0.15),
+		inset 0 1px 1px
+			hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
+}
+
+/* Dark Theme Card Shadows */
+@media (prefers-color-scheme: dark) {
+	.card.elevated {
+		box-shadow:
+			0 3px 12px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					80%,
+					0.3
+				),
+			0 1px 6px hsla(var(--card-shadow-color), 0.2);
+	}
+
+	.card.elevated:hover {
+		box-shadow:
+			0 6px 20px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					85%,
+					0.35
+				),
+			0 3px 10px hsla(var(--card-shadow-color), 0.25);
+	}
+
+	.card.interactive:hover {
+		box-shadow:
+			0 6px 16px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					80%,
+					0.25
+				),
+			0 2px 8px hsla(var(--card-shadow-color), 0.2);
+	}
+
+	.card.interactive:active {
+		box-shadow:
+			0 2px 8px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					75%,
+					0.2
+				),
+			0 1px 4px hsla(var(--card-shadow-color), 0.15);
+	}
+
+	.card.selected {
+		box-shadow:
+			0 0 0 2px var(--ui-primary),
+			0 6px 16px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					80%,
+					0.25
+				),
+			0 2px 8px hsla(var(--card-shadow-color), 0.25);
+	}
+
+	.card.glass {
+		box-shadow:
+			0 8px 32px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					85%,
+					0.15
+				),
+			inset 0 1px 1px
+				hsla(
+					var(--ui-hue),
+					var(--ui-saturation),
+					100%,
+					0.9
+				);
+	}
+}
+
+[data-theme="dark"] .card.elevated {
+	box-shadow:
+		0 3px 12px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.3),
+		0 1px 6px hsla(var(--card-shadow-color), 0.2);
+}
+
+[data-theme="dark"] .card.elevated:hover {
+	box-shadow:
+		0 6px 20px hsla(var(--ui-hue), var(--ui-saturation), 85%, 0.35),
+		0 3px 10px hsla(var(--card-shadow-color), 0.25);
+}
+
+[data-theme="dark"] .card.interactive:hover {
+	box-shadow:
+		0 6px 16px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.25),
+		0 2px 8px hsla(var(--card-shadow-color), 0.2);
+}
+
+[data-theme="dark"] .card.interactive:active {
+	box-shadow:
+		0 2px 8px hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.2),
+		0 1px 4px hsla(var(--card-shadow-color), 0.15);
+}
+
+[data-theme="dark"] .card.selected {
+	box-shadow:
+		0 0 0 2px var(--ui-primary),
+		0 6px 16px hsla(var(--ui-hue), var(--ui-saturation), 80%, 0.25),
+		0 2px 8px hsla(var(--card-shadow-color), 0.25);
+}
+
+[data-theme="dark"] .card.glass {
+	box-shadow:
+		0 8px 32px hsla(var(--ui-hue), var(--ui-saturation), 85%, 0.15),
+		inset 0 1px 1px
+			hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
 }
 
 /* Enhanced Focus */
 .card:focus-visible {
-    outline: 2px solid var(--ui-primary);
-    outline-offset: 4px;
-    border-color: var(--ui-primary);
+	outline: 2px solid var(--ui-primary);
+	outline-offset: 4px;
+	border-color: var(--ui-primary);
 }
 
 .card.interactive:focus-visible::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border: 2px solid var(--ui-primary);
-    border-radius: calc(var(--ui-radius) + 2px);
-    pointer-events: none;
-    animation: focus-pulse 2s infinite;
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border: 2px solid var(--ui-primary);
+	border-radius: calc(var(--ui-radius) + 2px);
+	pointer-events: none;
+	animation: focus-pulse 2s infinite;
 }
 
 @keyframes focus-pulse {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
 }
 
 /* Masonry Layout */
 .card-masonry {
-    column-count: 3;
-    column-gap: var(--ui-spacing);
-    column-fill: balance;
+	column-count: 3;
+	column-gap: var(--ui-spacing);
+	column-fill: balance;
 }
 
 .card-masonry .card {
-    break-inside: avoid;
-    margin-bottom: var(--ui-spacing);
-    display: inline-block;
-    width: 100%;
+	break-inside: avoid;
+	margin-bottom: var(--ui-spacing);
+	display: inline-block;
+	width: 100%;
 }
 
 @media (max-width: 768px) {
-    .card-masonry {
-        column-count: 2;
-    }
+	.card-masonry {
+		column-count: 2;
+	}
 }
 
 @media (max-width: 480px) {
-    .card-masonry {
-        column-count: 1;
-    }
+	.card-masonry {
+		column-count: 1;
+	}
 }
 
 /* Responsive */
 @media (max-width: 640px) {
-    .card.horizontal {
-        flex-direction: column;
-    }
+	.card.horizontal {
+		flex-direction: column;
+	}
 
-    .card.horizontal .card-image {
-        width: 100%;
-        min-width: auto;
-        max-width: none;
-    }
+	.card.horizontal .card-image {
+		width: 100%;
+		min-width: auto;
+		max-width: none;
+	}
 
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
+	.card-grid {
+		grid-template-columns: 1fr;
+	}
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .card,
-    .card.media .card-image {
-        transition: none;
-    }
+	.card,
+	.card.media .card-image {
+		transition: none;
+	}
 }
 
 @media (prefers-contrast: high) {
-    .card {
-        border-width: calc(var(--ui-border-width) * 2);
-    }
+	.card {
+		border-width: calc(var(--ui-border-width) * 2);
+	}
 
-    .card:focus-within {
-        outline-width: 3px;
-        outline-offset: 3px;
-    }
+	.card:focus-within {
+		outline-width: 3px;
+		outline-offset: 3px;
+	}
 }
