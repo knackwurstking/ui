@@ -1,4 +1,5 @@
 /* Card Component */
+/* TODO: Fix box shadows for the dark theme, but keep it simple and use the fucking theme variables */
 
 .card {
 	--card-padding: calc(var(--ui-spacing) * 1.5);
