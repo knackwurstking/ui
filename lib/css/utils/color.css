@@ -2,9 +2,9 @@
 
 /* Backdrop effect */
 .backdrop {
-    background-color: var(--ui-backdrop-color);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+	background-color: var(--ui-backdrop-color);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 }
 
 /* Base color application */
@@ -17,48 +17,48 @@
 .contrast,
 .muted,
 .error {
-    --color-bg: var(--ui-primary);
-    --color-text: var(--ui-primary-text);
+	--color-bg: var(--ui-primary);
+	--color-text: var(--ui-primary-text);
 }
 
 .secondary {
-    --color-bg: var(--ui-secondary);
-    --color-text: var(--ui-secondary-text);
+	--color-bg: var(--ui-secondary);
+	--color-text: var(--ui-secondary-text);
 }
 
 .success {
-    --color-bg: var(--ui-success);
-    --color-text: var(--ui-success-text);
+	--color-bg: var(--ui-success);
+	--color-text: var(--ui-success-text);
 }
 
 .warning {
-    --color-bg: var(--ui-warning);
-    --color-text: var(--ui-warning-text);
+	--color-bg: var(--ui-warning);
+	--color-text: var(--ui-warning-text);
 }
 
 .destructive {
-    --color-bg: var(--ui-destructive);
-    --color-text: var(--ui-destructive-text);
+	--color-bg: var(--ui-destructive);
+	--color-text: var(--ui-destructive-text);
 }
 
 .info {
-    --color-bg: var(--ui-info);
-    --color-text: var(--ui-info-text);
+	--color-bg: var(--ui-info);
+	--color-text: var(--ui-info-text);
 }
 
 .contrast {
-    --color-bg: var(--ui-contrast);
-    --color-text: var(--ui-contrast-text);
+	--color-bg: var(--ui-contrast);
+	--color-text: var(--ui-contrast-text);
 }
 
 .muted {
-    --color-bg: var(--ui-muted);
-    --color-text: var(--ui-muted-text);
+	--color-bg: var(--ui-muted);
+	--color-text: var(--ui-muted-text);
 }
 
 .error {
-    --color-bg: var(--ui-error);
-    --color-text: var(--ui-error-text);
+	--color-bg: var(--ui-error);
+	--color-text: var(--ui-error-text);
 }
 
 /* Apply colors based on variant */
@@ -71,8 +71,8 @@
 .contrast:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
 .muted:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
 .error:not(.ghost):not(.outline):not(a):not(button):not([role="button"]) {
-    background-color: var(--color-bg);
-    color: var(--color-text);
+	background-color: var(--color-bg);
+	color: var(--color-text);
 }
 
 /* Ghost variant - text color only */
@@ -85,8 +85,8 @@
 .contrast.ghost,
 .muted.ghost,
 .error.ghost {
-    color: var(--color-bg);
-    background-color: transparent;
+	color: var(--color-bg);
+	background-color: transparent;
 }
 
 /* Outline variant - border and text color */
@@ -99,7 +99,7 @@
 .contrast.outline,
 .muted.outline,
 .error.outline {
-    color: var(--color-bg);
-    border-color: var(--color-bg);
-    background-color: transparent;
+	color: var(--color-bg);
+	border-color: var(--color-bg);
+	background-color: transparent;
 }

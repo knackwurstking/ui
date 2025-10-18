@@ -1,34 +1,121 @@
 /* Shadow/Elevation Utilities */
-/* TODO: Add colors (primary, secondary, ...) */
+
+/* TODO: Continue adding shadow colors */
 
 /* Base Shadow Classes */
 .shadow-none {
 	box-shadow: none !important;
 }
 
+/* Shadow SM */
+
 .shadow-sm {
 	box-shadow: var(--ui-shadow-sm);
 }
+
+.shadow-sm.primary {
+	box-shadow: var(--ui-shadow-sm-primary);
+}
+
+.shadow-sm.secondary {
+	box-shadow: var(--ui-shadow-sm-secondary);
+}
+
+.shadow-sm.success {
+	box-shadow: var(--ui-shadow-sm-success);
+}
+
+.shadow-sm.warning {
+	box-shadow: var(--ui-shadow-sm-warning);
+}
+
+.shadow-sm.destructive {
+	box-shadow: var(--ui-shadow-sm-destructive);
+}
+
+.shadow-sm.info {
+	box-shadow: var(--ui-shadow-sm-info);
+}
+
+.shadow-sm.contrast {
+	box-shadow: var(--ui-shadow-sm-contrast);
+}
+
+.shadow-sm.muted {
+	box-shadow: var(--ui-shadow-sm-muted);
+}
+
+.shadow-sm.error {
+	box-shadow: var(--ui-shadow-sm-error);
+}
+
+/* Shadow */
 
 .shadow {
 	box-shadow: var(--ui-shadow);
 }
 
+.shadow.primary {
+	box-shadow: var(--ui-shadow-primary);
+}
+
+.shadow.secondary {
+	box-shadow: var(--ui-shadow-secondary);
+}
+
+.shadow.success {
+	box-shadow: var(--ui-shadow-success);
+}
+
+.shadow.warning {
+	box-shadow: var(--ui-shadow-warning);
+}
+
+.shadow.destructive {
+	box-shadow: var(--ui-shadow-destructive);
+}
+
+.shadow.info {
+	box-shadow: var(--ui-shadow-info);
+}
+
+.shadow.contrast {
+	box-shadow: var(--ui-shadow-contrast);
+}
+
+.shadow.muted {
+	box-shadow: var(--ui-shadow-muted);
+}
+
+.shadow.error {
+	box-shadow: var(--ui-shadow-error);
+}
+
+/* Shadow MD */
+
 .shadow-md {
 	box-shadow: var(--ui-shadow-md);
 }
+
+/* Shadow LG */
 
 .shadow-lg {
 	box-shadow: var(--ui-shadow-lg);
 }
 
+/* Shadow XL */
+
 .shadow-xl {
 	box-shadow: var(--ui-shadow-xl);
 }
 
+/* Shadow 2XL */
+
 .shadow-2xl {
 	box-shadow: var(--ui-shadow-2xl);
 }
+
+/* Shadow Inner */
 
 .shadow-inner {
 	box-shadow: var(--ui-shadow-inner);
@@ -48,6 +135,9 @@
 }
 
 /* Elevation with Transform */
+
+/* Elevation 1 */
+
 .elevation-1 {
 	box-shadow: var(--ui-shadow-sm);
 	transform: translateY(0);
@@ -61,6 +151,8 @@
 	transform: translateY(-1px);
 }
 
+/* Elevation 2 */
+
 .elevation-2 {
 	box-shadow: var(--ui-shadow);
 	transform: translateY(0);
@@ -69,10 +161,84 @@
 		transform 0.25s ease-in-out;
 }
 
+.elevation-2.primary {
+	box-shadow: var(--ui-shadow-primary);
+}
+
+.elevation-2.secondary {
+	box-shadow: var(--ui-shadow-secondary);
+}
+
+.elevation-2.success {
+	box-shadow: var(--ui-shadow-success);
+}
+
+.elevation-2.warning {
+	box-shadow: var(--ui-shadow-warning);
+}
+
+.elevation-2.destructive {
+	box-shadow: var(--ui-shadow-destructive);
+}
+
+.elevation-2.info {
+	box-shadow: var(--ui-shadow-info);
+}
+
+.elevation-2.contrast {
+	box-shadow: var(--ui-shadow-contrast);
+}
+
+.elevation-2.muted {
+	box-shadow: var(--ui-shadow-muted);
+}
+
+.elevation-2.error {
+	box-shadow: var(--ui-shadow-error);
+}
+
 .elevation-2:hover {
 	box-shadow: var(--ui-shadow-lg);
 	transform: translateY(-2px);
 }
+
+.elevation-2.primary:hover {
+	box-shadow: var(--ui-shadow-lg-primary);
+}
+
+.elevation-2.secondary:hover {
+	box-shadow: var(--ui-shadow-lg-secondary);
+}
+
+.elevation-2.success:hover {
+	box-shadow: var(--ui-shadow-lg-success);
+}
+
+.elevation-2.warning:hover {
+	box-shadow: var(--ui-shadow-lg-warning);
+}
+
+.elevation-2.destructive:hover {
+	box-shadow: var(--ui-shadow-lg-destructive);
+}
+
+.elevation-2.info:hover {
+	box-shadow: var(--ui-shadow-lg-info);
+}
+
+.elevation-2.contrast:hover {
+	box-shadow: var(--ui-shadow-lg-contrast);
+}
+
+.elevation-2.muted:hover {
+	box-shadow: var(--ui-shadow-lg-muted);
+}
+
+.elevation-2.error:hover {
+	box-shadow: var(--ui-shadow-lg-error);
+}
+
+/* Elevation 3 */
 
 .elevation-3 {
 	box-shadow: var(--ui-shadow-md);

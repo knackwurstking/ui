@@ -28,9 +28,9 @@
 @import "./utils/badge.css";
 @import "./utils/flex.css";
 @import "./utils/spacing.css";
-@import "./utils/shadow.css";
 @import "./utils/border.css";
 @import "./utils/color.css";
+@import "./utils/shadow.css";
 @import "./utils/text.css";
 @import "./utils/interaction.css";
 @import "./utils/safe-area.css";
