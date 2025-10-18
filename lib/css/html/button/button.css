@@ -1,31 +1,3 @@
-/* Button-specific CSS variables */
-:root {
-	--ui-btn-shadow: var(--ui-shadow);
-	--ui-btn-flat-shadow: 0 1px 2px
-		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.05);
-	--ui-btn-flat-shadow-active: 0 1px 3px
-		hsla(var(--ui-hue), var(--ui-saturation), 20%, 0.12);
-}
-
-/* Dark theme overrides for button variables */
-@media (prefers-color-scheme: dark) {
-	:root:not([data-theme="light"]) {
-		--ui-btn-shadow: var(--ui-shadow);
-		--ui-btn-flat-shadow: 0 1px 2px
-			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
-		--ui-btn-flat-shadow-active: 0 1px 3px
-			hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
-	}
-}
-
-[data-theme="dark"] {
-	--ui-btn-shadow: var(--ui-shadow);
-	--ui-btn-flat-shadow: 0 1px 2px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.15);
-	--ui-btn-flat-shadow-active: 0 1px 3px
-		hsla(var(--ui-hue), var(--ui-saturation), 75%, 0.25);
-}
-
 /* Button Base Styles */
 button,
 [role="button"],
@@ -77,7 +49,7 @@ button,
 	--btn-bg-active: var(--ui-primary-active);
 	--btn-text: var(--ui-primary-text);
 	--btn-border: transparent;
-	--btn-shadow-color: 120, 85%, 55%;
+	--btn-shadow-color: var(--ui-primary-color);
 }
 
 /* Secondary */
@@ -87,7 +59,7 @@ button.secondary,
 	--btn-bg-hover: var(--ui-secondary-hover);
 	--btn-bg-active: var(--ui-secondary-active);
 	--btn-text: var(--ui-secondary-text);
-	--btn-shadow-color: var(--ui-hue), 10%, 60%;
+	--btn-shadow-color: var(--ui-secondary-color);
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.25),
 		0 1px 4px hsla(var(--btn-shadow-color), 0.12);
@@ -100,7 +72,7 @@ button.success,
 	--btn-bg-hover: var(--ui-success-hover);
 	--btn-bg-active: var(--ui-success-active);
 	--btn-text: var(--ui-success-text);
-	--btn-shadow-color: 140, 85%, 55%;
+	--btn-shadow-color: var(--ui-success-color);
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
 		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
@@ -113,7 +85,7 @@ button.warning,
 	--btn-bg-hover: var(--ui-warning-hover);
 	--btn-bg-active: var(--ui-warning-active);
 	--btn-text: var(--ui-warning-text);
-	--btn-shadow-color: 42, 95%, 58%;
+	--btn-shadow-color: var(--ui-warning-color);
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
 		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
@@ -127,7 +99,7 @@ input[type="reset"] {
 	--btn-bg-hover: var(--ui-destructive-hover);
 	--btn-bg-active: var(--ui-destructive-active);
 	--btn-text: var(--ui-destructive-text);
-	--btn-shadow-color: 0, 85%, 60%;
+	--btn-shadow-color: var(--ui-destructive-color);
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
 		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
@@ -140,7 +112,7 @@ button.info,
 	--btn-bg-hover: var(--ui-info-hover);
 	--btn-bg-active: var(--ui-info-active);
 	--btn-text: var(--ui-info-text);
-	--btn-shadow-color: 200, 85%, 50%;
+	--btn-shadow-color: var(--ui-info-color);
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
 		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
@@ -153,7 +125,7 @@ button.contrast,
 	--btn-bg-hover: var(--ui-contrast-hover);
 	--btn-bg-active: var(--ui-contrast-active);
 	--btn-text: var(--ui-contrast-text);
-	--btn-shadow-color: var(--ui-hue), 0%, 3%;
+	--btn-shadow-color: var(--ui-contrast-color);
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
 		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
@@ -166,7 +138,7 @@ button.muted,
 	--btn-bg-hover: var(--ui-color-200);
 	--btn-bg-active: var(--ui-color-300);
 	--btn-text: var(--ui-muted-text);
-	--btn-shadow-color: var(--ui-hue), 12%, 85%;
+	--btn-shadow-color: var(--ui-muted-color);
 	box-shadow:
 		0 2px 8px hsla(var(--btn-shadow-color), 0.25),
 		0 1px 4px hsla(var(--btn-shadow-color), 0.12);
@@ -228,11 +200,6 @@ button.elevated,
 	box-shadow:
 		0 4px 12px hsla(var(--btn-shadow-color), 0.4),
 		0 2px 6px hsla(var(--btn-shadow-color), 0.25);
-}
-
-button.flat,
-[role="button"].flat {
-	box-shadow: var(--ui-btn-flat-shadow);
 }
 
 button.icon,

@@ -25,11 +25,6 @@ button.elevated:active,
 	transform: translateY(0);
 }
 
-button.flat:active,
-[role="button"].flat:active {
-	box-shadow: var(--ui-btn-flat-shadow-active);
-}
-
 button.secondary:active,
 [role="button"].secondary:active {
 	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.15);

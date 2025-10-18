@@ -24,11 +24,6 @@ button.elevated:hover,
 	transform: translateY(-2px);
 }
 
-button.flat:hover,
-[role="button"].flat:hover {
-	box-shadow: 0 1px 3px hsla(var(--btn-shadow-color), 0.15);
-}
-
 button.outline:hover,
 [role="button"].outline:hover {
 	background-color: transparent;

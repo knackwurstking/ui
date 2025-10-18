@@ -2,385 +2,370 @@
 
 /* Base Badge */
 .badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1;
-    padding: 0.25em 0.5em;
-    border-radius: var(--ui-radius);
-    white-space: nowrap;
-    vertical-align: baseline;
-    transition: all 0.2s ease-in-out;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.75rem;
+	font-weight: 600;
+	line-height: 1;
+	padding: 0.25em 0.5em;
+	border-radius: var(--ui-radius);
+	white-space: nowrap;
+	vertical-align: baseline;
+	transition: all 0.2s ease-in-out;
 }
 
 /* Badge Sizes */
 .badge-xs {
-    font-size: 0.625rem;
-    padding: 0.125em 0.375em;
+	font-size: 0.625rem;
+	padding: 0.125em 0.375em;
 }
 
 .badge-sm {
-    font-size: 0.6875rem;
-    padding: 0.1875em 0.4375em;
+	font-size: 0.6875rem;
+	padding: 0.1875em 0.4375em;
 }
 
 .badge-md {
-    font-size: 0.75rem;
-    padding: 0.25em 0.5em;
+	font-size: 0.75rem;
+	padding: 0.25em 0.5em;
 }
 
 .badge-lg {
-    font-size: 0.875rem;
-    padding: 0.375em 0.625em;
+	font-size: 0.875rem;
+	padding: 0.375em 0.625em;
 }
 
 .badge-xl {
-    font-size: 1rem;
-    padding: 0.5em 0.75em;
+	font-size: 1rem;
+	padding: 0.5em 0.75em;
 }
 
 /* Badge Shapes */
 .badge-pill {
-    border-radius: 9999px;
+	border-radius: 9999px;
 }
 
 .badge-square {
-    border-radius: 0;
+	border-radius: 0;
 }
 
 .badge-rounded {
-    border-radius: var(--ui-radius);
+	border-radius: var(--ui-radius);
 }
 
 /* Dot Badge (Indicator) */
 .badge-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    padding: 0;
-    border-radius: 50%;
-    display: inline-block;
+	width: 0.5rem;
+	height: 0.5rem;
+	padding: 0;
+	border-radius: 50%;
+	display: inline-block;
 }
 
 .badge-dot-sm {
-    width: 0.375rem;
-    height: 0.375rem;
+	width: 0.375rem;
+	height: 0.375rem;
 }
 
 .badge-dot-lg {
-    width: 0.625rem;
-    height: 0.625rem;
+	width: 0.625rem;
+	height: 0.625rem;
 }
 
 .badge-dot-xl {
-    width: 0.75rem;
-    height: 0.75rem;
+	width: 0.75rem;
+	height: 0.75rem;
 }
 
 /* Badge with Close Button */
 .badge-dismissible {
-    padding-right: 1.5em;
-    position: relative;
+	padding-right: 1.5em;
+	position: relative;
 }
 
 .badge-dismissible .badge-close {
-    position: absolute;
-    right: 0.25em;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1em;
-    height: 1em;
-    padding: 0;
-    background: none;
-    border: none;
-    color: inherit;
-    opacity: 0.7;
-    cursor: pointer;
-    transition: opacity 0.2s;
+	position: absolute;
+	right: 0.25em;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1em;
+	height: 1em;
+	padding: 0;
+	background: none;
+	border: none;
+	color: inherit;
+	opacity: 0.7;
+	cursor: pointer;
+	transition: opacity 0.2s;
 }
 
 .badge-dismissible .badge-close:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 /* Badge Positioning (for absolute positioning on parent) */
 .badge-container {
-    position: relative;
-    display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .badge-top-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(50%, -50%);
 }
 
 .badge-top-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(-50%, -50%);
 }
 
 .badge-bottom-right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translate(50%, 50%);
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	transform: translate(50%, 50%);
 }
 
 .badge-bottom-left {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: translate(-50%, 50%);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform: translate(-50%, 50%);
 }
 
 /* Badge Counter (for notification counts) */
 .badge-counter {
-    min-width: 1.5em;
-    height: 1.5em;
-    padding: 0.25em;
-    border-radius: 50%;
-    font-size: 0.625rem;
-    font-weight: 700;
+	min-width: 1.5em;
+	height: 1.5em;
+	padding: 0.25em;
+	border-radius: 50%;
+	font-size: 0.625rem;
+	font-weight: 700;
 }
 
 .badge-counter-sm {
-    min-width: 1.25em;
-    height: 1.25em;
-    font-size: 0.5625rem;
+	min-width: 1.25em;
+	height: 1.25em;
+	font-size: 0.5625rem;
 }
 
 .badge-counter-lg {
-    min-width: 1.75em;
-    height: 1.75em;
-    font-size: 0.75rem;
+	min-width: 1.75em;
+	height: 1.75em;
+	font-size: 0.75rem;
 }
 
 /* Badge with Max Count */
 .badge-max-count {
-    min-width: 2em;
+	min-width: 2em;
 }
 
 /* Badge Group */
 .badge-group {
-    display: inline-flex;
-    gap: 0.25rem;
-    flex-wrap: wrap;
-    align-items: center;
+	display: inline-flex;
+	gap: 0.25rem;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
 .badge-group-vertical {
-    flex-direction: column;
-    align-items: flex-start;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 /* Badge List */
 .badge-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
 /* Badge Animations */
 @keyframes badge-pulse {
-    0% {
-        box-shadow: 0 0 0 0 currentColor;
-    }
-    70% {
-        box-shadow: 0 0 0 0.5rem transparent;
-    }
-    100% {
-        box-shadow: 0 0 0 0 transparent;
-    }
+	0% {
+		box-shadow: 0 0 0 0 currentColor;
+	}
+	70% {
+		box-shadow: 0 0 0 0.5rem transparent;
+	}
+	100% {
+		box-shadow: 0 0 0 0 transparent;
+	}
 }
 
 @keyframes badge-ping {
-    75%, 100% {
-        transform: scale(2);
-        opacity: 0;
-    }
+	75%,
+	100% {
+		transform: scale(2);
+		opacity: 0;
+	}
 }
 
 @keyframes badge-bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-25%);
-    }
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-25%);
+	}
 }
 
 .badge-pulse {
-    animation: badge-pulse 2s infinite;
+	animation: badge-pulse 2s infinite;
 }
 
 .badge-ping {
-    position: relative;
+	position: relative;
 }
 
 .badge-ping::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background-color: currentColor;
-    animation: badge-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background-color: currentColor;
+	animation: badge-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .badge-bounce {
-    animation: badge-bounce 1s ease-in-out infinite;
+	animation: badge-bounce 1s ease-in-out infinite;
 }
 
 /* Badge with Icon */
 .badge-icon {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25em;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25em;
 }
 
 .badge-icon svg,
 .badge-icon img {
-    width: 1em;
-    height: 1em;
-    flex-shrink: 0;
+	width: 1em;
+	height: 1em;
+	flex-shrink: 0;
 }
 
 /* Badge Outline Variant */
 .badge-outline {
-    background-color: transparent;
-    border: 1px solid currentColor;
+	background-color: transparent;
+	border: 1px solid currentColor;
 }
 
 /* Badge Ghost Variant */
 .badge-ghost {
-    background-color: transparent;
-    border: 1px solid transparent;
+	background-color: transparent;
+	border: 1px solid transparent;
 }
 
 /* Badge States */
 .badge-disabled,
 .badge:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
 }
 
 .badge-clickable {
-    cursor: pointer;
-    transition: transform 0.1s ease-in-out;
+	cursor: pointer;
+	transition: transform 0.1s ease-in-out;
 }
 
 .badge-clickable:hover {
-    transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .badge-clickable:active {
-    transform: scale(0.95);
+	transform: scale(0.95);
 }
 
 /* Badge with Status Indicator */
 .badge-status {
-    position: relative;
-    padding-left: 1.5em;
+	position: relative;
+	padding-left: 1.5em;
 }
 
 .badge-status::before {
-    content: "";
-    position: absolute;
-    left: 0.5em;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 50%;
-    background-color: currentColor;
+	content: "";
+	position: absolute;
+	left: 0.5em;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 50%;
+	background-color: currentColor;
 }
 
 .badge-status-online::before {
-    background-color: var(--ui-success, #10b981);
+	background-color: var(--ui-success, #10b981);
 }
 
 .badge-status-offline::before {
-    background-color: var(--ui-muted, #6b7280);
+	background-color: var(--ui-muted, #6b7280);
 }
 
 .badge-status-busy::before {
-    background-color: var(--ui-warning, #f59e0b);
+	background-color: var(--ui-warning, #f59e0b);
 }
 
 .badge-status-away::before {
-    background-color: var(--ui-info, #3b82f6);
+	background-color: var(--ui-info, #3b82f6);
 }
 
 /* Badge with Loading State */
 .badge-loading {
-    position: relative;
-    color: transparent;
+	position: relative;
+	color: transparent;
 }
 
 .badge-loading::after {
-    content: "";
-    position: absolute;
-    width: 1em;
-    height: 1em;
-    top: 50%;
-    left: 50%;
-    margin-left: -0.5em;
-    margin-top: -0.5em;
-    border: 0.125em solid currentColor;
-    border-right-color: transparent;
-    border-radius: 50%;
-    animation: spin 0.75s linear infinite;
+	content: "";
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	top: 50%;
+	left: 50%;
+	margin-left: -0.5em;
+	margin-top: -0.5em;
+	border: 0.125em solid currentColor;
+	border-right-color: transparent;
+	border-radius: 50%;
+	animation: spin 0.75s linear infinite;
 }
 
 /* Floating Badge */
 .badge-float {
-    position: fixed;
-    z-index: 1000;
+	position: fixed;
+	z-index: 1000;
 }
 
 .badge-float-top {
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+	top: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .badge-float-bottom {
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 /* Badge with Gradient Background */
 .badge-gradient {
-    background: linear-gradient(135deg, var(--ui-primary), var(--ui-secondary));
-    color: white;
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-    .badge-pulse,
-    .badge-ping::after,
-    .badge-bounce,
-    .badge-loading::after {
-        animation: none;
-    }
-
-    .badge-clickable:hover {
-        transform: none;
-    }
-}
-
-/* Dark Mode Adjustments */
-@media (prefers-color-scheme: dark) {
-    .badge-outline {
-        border-color: rgba(255, 255, 255, 0.2);
-    }
+	background: linear-gradient(
+		135deg,
+		var(--ui-primary),
+		var(--ui-secondary)
+	);
+	color: white;
 }
