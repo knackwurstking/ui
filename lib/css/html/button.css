@@ -557,6 +557,27 @@ button > svg:last-child:not(:first-child),
 		box-shadow: 0 4px 12px hsla(var(--btn-shadow-color), 0.25);
 	}
 
+	/* Contrast buttons need lighter shadows in dark theme */
+	button.contrast,
+	[role="button"].contrast {
+		--btn-shadow-color: var(--ui-hue), 0%, 85%;
+		box-shadow:
+			0 2px 8px hsla(var(--btn-shadow-color), 0.25),
+			0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+	}
+
+	button.contrast:hover,
+	[role="button"].contrast:hover {
+		box-shadow:
+			0 6px 20px hsla(var(--btn-shadow-color), 0.35),
+			0 3px 10px hsla(var(--btn-shadow-color), 0.25);
+	}
+
+	button.contrast:active,
+	[role="button"].contrast:active {
+		box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+	}
+
 	/* Elevated buttons get extra glow */
 	button.elevated,
 	[role="button"].elevated {
@@ -631,33 +652,31 @@ button > svg:last-child:not(:first-child),
 		0 3px 12px hsla(var(--btn-shadow-color), 0.4);
 }
 
+[data-theme="dark"] button.contrast,
+[data-theme="dark"] [role="button"].contrast {
+	--btn-shadow-color: var(--ui-hue), 0%, 85%;
+	box-shadow:
+		0 2px 8px hsla(var(--btn-shadow-color), 0.25),
+		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
+[data-theme="dark"] button.contrast:hover,
+[data-theme="dark"] [role="button"].contrast:hover {
+	box-shadow:
+		0 6px 20px hsla(var(--btn-shadow-color), 0.35),
+		0 3px 10px hsla(var(--btn-shadow-color), 0.25);
+}
+
+[data-theme="dark"] button.contrast:active,
+[data-theme="dark"] [role="button"].contrast:active {
+	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+}
+
 [data-theme="dark"] button.elevated:hover,
 [data-theme="dark"] [role="button"].elevated:hover {
 	box-shadow:
 		0 12px 35px hsla(0, 0%, 0%, 0.9),
 		0 6px 20px hsla(var(--btn-shadow-color), 0.5);
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-	button,
-	[role="button"],
-	input[type="button"],
-	input[type="submit"],
-	input[type="reset"] {
-		transition: none;
-	}
-}
-
-@media (prefers-contrast: high) {
-	button:focus-visible,
-	[role="button"]:focus-visible,
-	input[type="button"]:focus-visible,
-	input[type="submit"]:focus-visible,
-	input[type="reset"]:focus-visible {
-		outline-width: 3px;
-		outline-offset: 3px;
-	}
 }
 
 /* Touch device improvements */
