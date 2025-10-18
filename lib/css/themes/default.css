@@ -28,7 +28,7 @@
 			var(--ui-hue),
 			var(--ui-saturation),
 			var(--ui-shadow-color-light),
-			0.05
+			0.1
 		);
 	--ui-shadow:
 		0 1px 3px
@@ -43,7 +43,7 @@
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-light),
-				0.06
+				0.05
 			);
 	--ui-shadow-md:
 		0 4px 6px
@@ -51,14 +51,14 @@
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-light),
-				0.07
+				0.1
 			),
 		0 2px 4px
 			hsla(
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-light),
-				0.06
+				0.05
 			);
 	--ui-shadow-lg:
 		0 10px 15px
@@ -88,26 +88,26 @@
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-light),
-				0.04
+				0.05
 			);
 	--ui-shadow-2xl: 0 25px 50px
 		hsla(
 			var(--ui-hue),
 			var(--ui-saturation),
 			var(--ui-shadow-color-light),
-			0.25
+			0.1
 		);
 	--ui-shadow-inner: inset 0 2px 4px
 		hsla(
 			var(--ui-hue),
 			var(--ui-saturation),
 			var(--ui-shadow-color-light),
-			0.06
+			0.1
 		);
 
 	/* Grayscale */
-	--ui-color-50: hsl(var(--ui-hue), 0%, 98%);
-	--ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 95%);
+	--ui-color-50: hsl(var(--ui-hue), 0%, 96%);
+	--ui-color-100: hsl(var(--ui-hue), var(--ui-saturation), 92%);
 	--ui-color-200: hsl(var(--ui-hue), var(--ui-saturation), 88%);
 	--ui-color-300: hsl(var(--ui-hue), var(--ui-saturation), 78%);
 	--ui-color-400: hsl(var(--ui-hue), var(--ui-saturation), 60%);
@@ -187,27 +187,27 @@
 /* Dark Theme Overrides (System Preference) */
 [data-theme="dark"] {
 	/* Enhanced shadows for dark theme */
-	--ui-shadow-sm: 0 1px 2px
+	--ui-shadow-sm: 0 1px 3px
 		hsla(
 			var(--ui-hue),
 			var(--ui-saturation),
 			var(--ui-shadow-color-dark),
-			0.05
+			0.25
 		);
 	--ui-shadow:
-		0 1px 3px
+		0 2px 4px
 			hsla(
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.1
+				0.25
 			),
 		0 1px 2px
 			hsla(
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.06
+				0.15
 			);
 	--ui-shadow-md:
 		0 4px 6px
@@ -215,14 +215,14 @@
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.07
+				0.25
 			),
 		0 2px 4px
 			hsla(
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.06
+				0.15
 			);
 	--ui-shadow-lg:
 		0 10px 15px
@@ -230,14 +230,14 @@
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.1
+				0.25
 			),
 		0 4px 6px
 			hsla(
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.05
+				0.15
 			);
 	--ui-shadow-xl:
 		0 20px 25px
@@ -245,14 +245,14 @@
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.1
+				0.25
 			),
 		0 10px 10px
 			hsla(
 				var(--ui-hue),
 				var(--ui-saturation),
 				var(--ui-shadow-color-dark),
-				0.04
+				0.15
 			);
 	--ui-shadow-2xl: 0 25px 50px
 		hsla(
@@ -266,7 +266,7 @@
 			var(--ui-hue),
 			var(--ui-saturation),
 			var(--ui-shadow-color-dark),
-			0.06
+			0.25
 		);
 
 	/* Inverted grayscale */
@@ -280,7 +280,7 @@
 	--ui-color-700: hsl(var(--ui-hue), var(--ui-saturation), 72%);
 	--ui-color-800: hsl(var(--ui-hue), var(--ui-saturation), 85%);
 	--ui-color-900: hsl(var(--ui-hue), var(--ui-saturation), 92%);
-	--ui-color-950: hsl(var(--ui-hue), 0%, 98%);
+	--ui-color-950: hsl(var(--ui-hue), 0%, 95%);
 
 	/* Semantic overrides */
 	--ui-text-input: hsla(var(--ui-hue), 0%, 100%, 0.85);
