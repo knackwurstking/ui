@@ -130,6 +130,14 @@
 	--ui-contrast-active: hsl(18, 7%, 30%);
 	--ui-contrast-text: var(--ui-color-50);
 
+	/* Heading colors - Gruvbox specific */
+	--ui-h1-color: hsl(18, 7%, 30%); /* fg2 - most prominent */
+	--ui-h2-color: hsl(25, 10%, 37%); /* fg3 */
+	--ui-h3-color: hsl(25, 10%, 37%); /* fg3 */
+	--ui-h4-color: hsl(30, 11%, 44%); /* fg4 */
+	--ui-h5-color: hsl(30, 11%, 44%); /* fg4 */
+	--ui-h6-color: hsl(30, 11%, 44%); /* fg4 */
+
 	color-scheme: light;
 }
 
@@ -222,6 +230,14 @@
 	--ui-contrast-hover: hsl(36, 52%, 80%);
 	--ui-contrast-active: hsl(40, 38%, 73%);
 
+	/* Heading colors - Gruvbox specific (dark) */
+	--ui-h1-color: hsl(49, 78%, 88%); /* fg0 - brightest */
+	--ui-h2-color: hsl(40, 38%, 73%); /* fg2 */
+	--ui-h3-color: hsl(40, 38%, 73%); /* fg2 */
+	--ui-h4-color: hsl(36, 27%, 66%); /* fg3 */
+	--ui-h5-color: hsl(36, 27%, 66%); /* fg3 */
+	--ui-h6-color: hsl(36, 27%, 66%); /* fg3 */
+
 	color-scheme: dark;
 }
 
@@ -264,6 +280,30 @@ h5,
 h6 {
 	--wght: 700;
 	--slnt: -3;
+}
+
+h1 {
+	color: var(--ui-h1-color);
+}
+
+h2 {
+	color: var(--ui-h2-color);
+}
+
+h3 {
+	color: var(--ui-h3-color);
+}
+
+h4 {
+	color: var(--ui-h4-color);
+}
+
+h5 {
+	color: var(--ui-h5-color);
+}
+
+h6 {
+	color: var(--ui-h6-color);
 }
 
 b,
