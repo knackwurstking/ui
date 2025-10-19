@@ -5,8 +5,8 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 button.active,
 [role="button"].active {
-	transform: translateY(1px);
-	box-shadow: 0 0 2px hsla(var(--btn-shadow-color), 0.65);
+	transform: var(--ui-active-transition);
+	box-shadow: var(--ui-shadow-sm);
 	transition: none;
 }
 
@@ -14,51 +14,7 @@ button.ghost:active,
 [role="button"].ghost:active {
 	background-color: transparent;
 	color: var(--btn-bg-active);
-	box-shadow: 0 1px 2px hsla(var(--btn-shadow-color), 0.8);
-}
-
-button.elevated:active,
-[role="button"].elevated:active {
-	box-shadow:
-		0 2px 8px hsla(var(--btn-shadow-color), 0.3),
-		0 1px 4px hsla(var(--btn-shadow-color), 0.15);
-	transform: translateY(0);
-}
-
-button.secondary:active,
-[role="button"].secondary:active {
-	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.15);
-}
-
-button.success:active,
-[role="button"].success:active {
-	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
-}
-
-button.warning:active,
-[role="button"].warning:active {
-	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
-}
-
-button.destructive:active,
-[role="button"].destructive:active,
-input[type="reset"]:active {
-	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
-}
-
-button.info:active,
-[role="button"].info:active {
-	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
-}
-
-button.contrast:active,
-[role="button"].contrast:active {
-	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.2);
-}
-
-button.muted:active,
-[role="button"].muted:active {
-	box-shadow: 0 1px 4px hsla(var(--btn-shadow-color), 0.15);
+	box-shadow: 0 0 0 hsla(var(--ui-shadow-color), 0.3);
 }
 
 button:not(.outline):not(.ghost):active,
@@ -73,5 +29,4 @@ button.outline:active,
 [role="button"].outline:active {
 	background-color: transparent;
 	color: var(--btn-bg-active);
-	box-shadow: 0 1px 3px hsla(var(--btn-shadow-color), 0.15);
 }

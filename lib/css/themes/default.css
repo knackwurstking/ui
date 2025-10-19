@@ -17,186 +17,44 @@
 	--ui-border-style: solid;
 	--ui-app-bar-height: 3rem;
 
+	--ui-hover-transition: translateY(-1px);
+	--ui-active-transition: translateY(1px);
+
 	/* Base palette */
 	--ui-hue: 225;
 	--ui-saturation: 10%;
 
 	--ui-shadow-color-light: 20%;
-	--ui-shadow-color-dark: 80%;
+	--ui-shadow-color-dark: 85%;
 
 	/* Elevation/Shadow System */
 	--ui-shadow-color:
 		var(--ui-hue), var(--ui-saturation),
 		var(--ui-shadow-color-light);
 
-	--ui-shadow-sm: 0 1px 2px hsla(var(--ui-shadow-color), 0.1);
-	--ui-shadow-sm-primary: 0 1px 2px hsla(var(--ui-primary-color), 0.1);
-	--ui-shadow-sm-secondary: 0 1px 2px hsla(var(--ui-secondary-color), 0.1);
-	--ui-shadow-sm-success: 0 1px 2px hsla(var(--ui-success-color), 0.1);
-	--ui-shadow-sm-warning: 0 1px 2px hsla(var(--ui-warning-color), 0.1);
-	--ui-shadow-sm-destructive: 0 1px 2px
-		hsla(var(--ui-destructive-color), 0.1);
-	--ui-shadow-sm-info: 0 1px 2px hsla(var(--ui-info-color), 0.1);
-	--ui-shadow-sm-contrast: 0 1px 2px hsla(var(--ui-contrast-color), 0.1);
-	--ui-shadow-sm-muted: 0 1px 2px hsla(var(--ui-muted-color), 0.1);
-	--ui-shadow-sm-error: 0 1px 2px hsla(var(--ui-error-color), 0.1);
+	--ui-shadow-sm: 0 1px 4px hsla(var(--ui-shadow-color), 0.3);
 
 	--ui-shadow:
-		0 1px 3px hsla(var(--ui-shadow-color), 0.1),
-		0 1px 2px hsla(var(--ui-shadow-color), 0.05);
-	--ui-shadow-primary:
-		0 1px 3px hsla(var(--ui-primary-color), 0.1),
-		0 1px 2px hsla(var(--ui-primary-color), 0.05);
-	--ui-shadow-secondary:
-		0 1px 3px hsla(var(--ui-secondary-color), 0.1),
-		0 1px 2px hsla(var(--ui-secondary-color), 0.05);
-	--ui-shadow-success:
-		0 1px 3px hsla(var(--ui-success-color), 0.1),
-		0 1px 2px hsla(var(--ui-success-color), 0.05);
-	--ui-shadow-warning:
-		0 1px 3px hsla(var(--ui-warning-color), 0.1),
-		0 1px 2px hsla(var(--ui-warning-color), 0.05);
-	--ui-shadow-destructive:
-		0 1px 3px hsla(var(--ui-destructive-color), 0.1),
-		0 1px 2px hsla(var(--ui-destructive-color), 0.05);
-	--ui-shadow-info:
-		0 1px 3px hsla(var(--ui-info-color), 0.1),
-		0 1px 2px hsla(var(--ui-info-color), 0.05);
-	--ui-shadow-contrast:
-		0 1px 3px hsla(var(--ui-contrast-color), 0.1),
-		0 1px 2px hsla(var(--ui-contrast-color), 0.05);
-	--ui-shadow-muted:
-		0 1px 3px hsla(var(--ui-muted-color), 0.1),
-		0 1px 2px hsla(var(--ui-muted-color), 0.05);
-	--ui-shadow-error:
-		0 1px 3px hsla(var(--ui-error-color), 0.1),
-		0 1px 2px hsla(var(--ui-error-color), 0.05);
+		0 2px 8px hsla(var(--ui-shadow-color), 0.3),
+		0 1px 4px hsla(var(--ui-shadow-color), 0.15);
 
 	--ui-shadow-md:
-		0 4px 6px hsla(var(--ui-shadow-color), 0.1),
-		0 2px 4px hsla(var(--ui-shadow-color), 0.05);
-	--ui-shadow-primary:
-		0 4px 6px hsla(var(--ui-primary-color), 0.1),
-		0 2px 4px hsla(var(--ui-primary-color), 0.05);
-	--ui-shadow-secondary:
-		0 4px 6px hsla(var(--ui-secondary-color), 0.1),
-		0 2px 4px hsla(var(--ui-secondary-color), 0.05);
-	--ui-shadow-success:
-		0 4px 6px hsla(var(--ui-success-color), 0.1),
-		0 2px 4px hsla(var(--ui-success-color), 0.05);
-	--ui-shadow-warning:
-		0 4px 6px hsla(var(--ui-warning-color), 0.1),
-		0 2px 4px hsla(var(--ui-warning-color), 0.05);
-	--ui-shadow-destructive:
-		0 4px 6px hsla(var(--ui-destructive-color), 0.1),
-		0 2px 4px hsla(var(--ui-destructive-color), 0.05);
-	--ui-shadow-info:
-		0 4px 6px hsla(var(--ui-info-color), 0.1),
-		0 2px 4px hsla(var(--ui-info-color), 0.05);
-	--ui-shadow-contrast:
-		0 4px 6px hsla(var(--ui-contrast-color), 0.1),
-		0 2px 4px hsla(var(--ui-contrast-color), 0.05);
-	--ui-shadow-muted:
-		0 4px 6px hsla(var(--ui-muted-color), 0.1),
-		0 2px 4px hsla(var(--ui-muted-color), 0.05);
-	--ui-shadow-error:
-		0 4px 6px hsla(var(--ui-error-color), 0.1),
-		0 2px 4px hsla(var(--ui-error-color), 0.05);
+		0 4px 12px hsla(var(--ui-shadow-color), 0.3),
+		0 2px 8px hsla(var(--ui-shadow-color), 0.15);
 
 	--ui-shadow-lg:
-		0 10px 15px hsla(var(--ui-shadow-color), 0.1),
-		0 4px 6px hsla(var(--ui-shadow-color), 0.05);
-	--ui-shadow-lg-primary:
-		0 10px 15px hsla(var(--ui-primary-color), 0.1),
-		0 4px 6px hsla(var(--ui-primary-color), 0.05);
-	--ui-shadow-lg-secondary:
-		0 10px 15px hsla(var(--ui-secondary-color), 0.1),
-		0 4px 6px hsla(var(--ui-secondary-color), 0.05);
-	--ui-shadow-lg-success:
-		0 10px 15px hsla(var(--ui-success-color), 0.1),
-		0 4px 6px hsla(var(--ui-success-color), 0.05);
-	--ui-shadow-lg-warning:
-		0 10px 15px hsla(var(--ui-warning-color), 0.1),
-		0 4px 6px hsla(var(--ui-warning-color), 0.05);
-	--ui-shadow-lg-destructive:
-		0 10px 15px hsla(var(--ui-destructive-color), 0.1),
-		0 4px 6px hsla(var(--ui-destructive-color), 0.05);
-	--ui-shadow-lg-info:
-		0 10px 15px hsla(var(--ui-info-color), 0.1),
-		0 4px 6px hsla(var(--ui-info-color), 0.05);
-	--ui-shadow-lg-contrast:
-		0 10px 15px hsla(var(--ui-contrast-color), 0.1),
-		0 4px 6px hsla(var(--ui-contrast-color), 0.05);
-	--ui-shadow-lg-muted:
-		0 10px 15px hsla(var(--ui-muted-color), 0.1),
-		0 4px 6px hsla(var(--ui-muted-color), 0.05);
-	--ui-shadow-lg-error:
-		0 10px 15px hsla(var(--ui-error-color), 0.1),
-		0 4px 6px hsla(var(--ui-error-color), 0.05);
+		0 6px 16px hsla(var(--ui-shadow-color), 0.3),
+		0 3px 10px hsla(var(--ui-shadow-color), 0.15);
 
 	--ui-shadow-xl:
-		0 20px 25px hsla(var(--ui-shadow-color), 0.1),
-		0 10px 10px hsla(var(--ui-shadow-color), 0.05);
-	--ui-shadow-xl-primary:
-		0 20px 25px hsla(var(--ui-primary-color), 0.1),
-		0 10px 10px hsla(var(--ui-primary-color), 0.05);
-	--ui-shadow-xl-secondary:
-		0 20px 25px hsla(var(--ui-secondary-color), 0.1),
-		0 10px 10px hsla(var(--ui-secondary-color), 0.05);
-	--ui-shadow-xl-success:
-		0 20px 25px hsla(var(--ui-success-color), 0.1),
-		0 10px 10px hsla(var(--ui-success-color), 0.05);
-	--ui-shadow-xl-warning:
-		0 20px 25px hsla(var(--ui-warning-color), 0.1),
-		0 10px 10px hsla(var(--ui-warning-color), 0.05);
-	--ui-shadow-xl-destructive:
-		0 20px 25px hsla(var(--ui-destructive-color), 0.1),
-		0 10px 10px hsla(var(--ui-destructive-color), 0.05);
-	--ui-shadow-xl-info:
-		0 20px 25px hsla(var(--ui-info-color), 0.1),
-		0 10px 10px hsla(var(--ui-info-color), 0.05);
-	--ui-shadow-xl-contrast:
-		0 20px 25px hsla(var(--ui-contrast-color), 0.1),
-		0 10px 10px hsla(var(--ui-contrast-color), 0.05);
-	--ui-shadow-xl-muted:
-		0 20px 25px hsla(var(--ui-muted-color), 0.1),
-		0 10px 10px hsla(var(--ui-muted-color), 0.05);
-	--ui-shadow-xl-error:
-		0 20px 25px hsla(var(--ui-error-color), 0.1),
-		0 10px 10px hsla(var(--ui-error-color), 0.05);
+		0 10px 20px hsla(var(--ui-shadow-color), 0.3),
+		0 4px 12px hsla(var(--ui-shadow-color), 0.15);
 
-	--ui-shadow-2xl: 0 25px 50px hsla(var(--ui-shadow-color), 0.1);
-	--ui-shadow-2xl-primary: 0 25px 50px hsla(var(--ui-primary-color), 0.1);
-	--ui-shadow-2xl-secondary: 0 25px 50px
-		hsla(var(--ui-secondary-color), 0.1);
-	--ui-shadow-2xl-success: 0 25px 50px hsla(var(--ui-success-color), 0.1);
-	--ui-shadow-2xl-warning: 0 25px 50px hsla(var(--ui-warning-color), 0.1);
-	--ui-shadow-2xl-destructive: 0 25px 50px
-		hsla(var(--ui-destructive-color), 0.1);
-	--ui-shadow-2xl-info: 0 25px 50px hsla(var(--ui-info-color), 0.1);
-	--ui-shadow-2xl-contrast: 0 25px 50px
-		hsla(var(--ui-contrast-color), 0.1);
-	--ui-shadow-2xl-muted: 0 25px 50px hsla(var(--ui-muted-color), 0.1);
-	--ui-shadow-2xl-error: 0 25px 50px hsla(var(--ui-error-color), 0.1);
+	--ui-shadow-2xl:
+		0 15px 25px hsla(var(--ui-shadow-color), 0.3),
+		0 6px 14px hsla(var(--ui-shadow-color), 0.15);
 
-	--ui-shadow-inner: inset 0 2px 4px hsla(var(--ui-shadow-color), 0.1);
-	--ui-shadow-inner-primary: inset 0 2px 4px
-		hsla(var(--ui-primary-color), 0.1);
-	--ui-shadow-inner-secondary: inset 0 2px 4px
-		hsla(var(--ui-secondary-color), 0.1);
-	--ui-shadow-inner-success: inset 0 2px 4px
-		hsla(var(--ui-success-color), 0.1);
-	--ui-shadow-inner-warning: inset 0 2px 4px
-		hsla(var(--ui-warning-color), 0.1);
-	--ui-shadow-inner-destructive: inset 0 2px 4px
-		hsla(var(--ui-destructive-color), 0.1);
-	--ui-shadow-inner-info: inset 0 2px 4px hsla(var(--ui-info-color), 0.1);
-	--ui-shadow-inner-contrast: inset 0 2px 4px
-		hsla(var(--ui-contrast-color), 0.1);
-	--ui-shadow-inner-muted: inset 0 2px 4px
-		hsla(var(--ui-muted-color), 0.1);
-	--ui-shadow-inner-error: inset 0 2px 4px
-		hsla(var(--ui-error-color), 0.1);
+	--ui-shadow-inner: inset 0 1px 4px hsla(var(--ui-shadow-color), 0.3);
 
 	/* Grayscale */
 	--ui-color-50: hsl(var(--ui-hue), 0%, 96%);
@@ -282,176 +140,6 @@
 	/* Enhanced shadows for dark theme */
 	--ui-shadow-color:
 		var(--ui-hue), var(--ui-saturation), var(--ui-shadow-color-dark);
-
-	--ui-shadow-sm: 0 1px 3px hsla(var(--ui-shadow-color), 0.25);
-	--ui-shadow-sm-primary: 0 1px 3px hsla(var(--ui-primary-color), 0.25);
-	--ui-shadow-sm-secondary: 0 1px 3px
-		hsla(var(--ui-secondary-color), 0.25);
-	--ui-shadow-sm-success: 0 1px 3px hsla(var(--ui-success-color), 0.25);
-	--ui-shadow-sm-warning: 0 1px 3px hsla(var(--ui-warning-color), 0.25);
-	--ui-shadow-sm-destructive: 0 1px 3px
-		hsla(var(--ui-destructive-color), 0.25);
-	--ui-shadow-sm-info: 0 1px 3px hsla(var(--ui-info-color), 0.25);
-	--ui-shadow-sm-contrast: 0 1px 3px hsla(var(--ui-contrast-color), 0.25);
-	--ui-shadow-sm-muted: 0 1px 3px hsla(var(--ui-muted-color), 0.25);
-	--ui-shadow-sm-error: 0 1px 3px hsla(var(--ui-error-color), 0.25);
-
-	--ui-shadow:
-		0 2px 4px hsla(var(--ui-shadow-color), 0.25),
-		0 1px 2px hsla(var(--ui-shadow-color), 0.15);
-	--ui-shadow-primary:
-		0 2px 4px hsla(var(--ui-primary-color), 0.25),
-		0 1px 2px hsla(var(--ui-primary-color), 0.15);
-	--ui-shadow-secondary:
-		0 2px 4px hsla(var(--ui-secondary-color), 0.25),
-		0 1px 2px hsla(var(--ui-secondary-color), 0.15);
-	--ui-shadow-success:
-		0 2px 4px hsla(var(--ui-success-color), 0.25),
-		0 1px 2px hsla(var(--ui-success-color), 0.15);
-	--ui-shadow-warning:
-		0 2px 4px hsla(var(--ui-warning-color), 0.25),
-		0 1px 2px hsla(var(--ui-warning-color), 0.15);
-	--ui-shadow-destructive:
-		0 2px 4px hsla(var(--ui-destructive-color), 0.25),
-		0 1px 2px hsla(var(--ui-destructive-color), 0.15);
-	--ui-shadow-info:
-		0 2px 4px hsla(var(--ui-info-color), 0.25),
-		0 1px 2px hsla(var(--ui-info-color), 0.15);
-	--ui-shadow-contrast:
-		0 2px 4px hsla(var(--ui-contrast-color), 0.25),
-		0 1px 2px hsla(var(--ui-contrast-color), 0.15);
-	--ui-shadow-muted:
-		0 2px 4px hsla(var(--ui-muted-color), 0.25),
-		0 1px 2px hsla(var(--ui-muted-color), 0.15);
-	--ui-shadow-error:
-		0 2px 4px hsla(var(--ui-error-color), 0.25),
-		0 1px 2px hsla(var(--ui-error-color), 0.15);
-
-	--ui-shadow-md:
-		0 4px 6px hsla(var(--ui-shadow-color), 0.25),
-		0 2px 4px hsla(var(--ui-shadow-color), 0.15);
-	--ui-shadow-md-primary:
-		0 4px 6px hsla(var(--ui-primary-color), 0.25),
-		0 2px 4px hsla(var(--ui-primary-color), 0.15);
-	--ui-shadow-md-secondary:
-		0 4px 6px hsla(var(--ui-secondary-color), 0.25),
-		0 2px 4px hsla(var(--ui-secondary-color), 0.15);
-	--ui-shadow-md-success:
-		0 4px 6px hsla(var(--ui-success-color), 0.25),
-		0 2px 4px hsla(var(--ui-success-color), 0.15);
-	--ui-shadow-md-warning:
-		0 4px 6px hsla(var(--ui-warning-color), 0.25),
-		0 2px 4px hsla(var(--ui-warning-color), 0.15);
-	--ui-shadow-md-destructive:
-		0 4px 6px hsla(var(--ui-destructive-color), 0.25),
-		0 2px 4px hsla(var(--ui-destructive-color), 0.15);
-	--ui-shadow-md-info:
-		0 4px 6px hsla(var(--ui-info-color), 0.25),
-		0 2px 4px hsla(var(--ui-info-color), 0.15);
-	--ui-shadow-md-contrast:
-		0 4px 6px hsla(var(--ui-contrast-color), 0.25),
-		0 2px 4px hsla(var(--ui-contrast-color), 0.15);
-	--ui-shadow-md-muted:
-		0 4px 6px hsla(var(--ui-muted-color), 0.25),
-		0 2px 4px hsla(var(--ui-muted-color), 0.15);
-	--ui-shadow-md-error:
-		0 4px 6px hsla(var(--ui-shadow-color), 0.25),
-		0 2px 4px hsla(var(--ui-shadow-color), 0.15);
-
-	--ui-shadow-lg:
-		0 10px 15px hsla(var(--ui-shadow-color), 0.25),
-		0 4px 6px hsla(var(--ui-shadow-color), 0.15);
-	--ui-shadow-lg-primary:
-		0 10px 15px hsla(var(--ui-primary-color), 0.25),
-		0 4px 6px hsla(var(--ui-primary-color), 0.15);
-	--ui-shadow-lg-secondary:
-		0 10px 15px hsla(var(--ui-secondary-color), 0.25),
-		0 4px 6px hsla(var(--ui-secondary-color), 0.15);
-	--ui-shadow-lg-success:
-		0 10px 15px hsla(var(--ui-success-color), 0.25),
-		0 4px 6px hsla(var(--ui-success-color), 0.15);
-	--ui-shadow-lg-warning:
-		0 10px 15px hsla(var(--ui-warning-color), 0.25),
-		0 4px 6px hsla(var(--ui-warning-color), 0.15);
-	--ui-shadow-lg-destructive:
-		0 10px 15px hsla(var(--ui-destructive-color), 0.25),
-		0 4px 6px hsla(var(--ui-destructive-color), 0.15);
-	--ui-shadow-lg-info:
-		0 10px 15px hsla(var(--ui-info-color), 0.25),
-		0 4px 6px hsla(var(--ui-info-color), 0.15);
-	--ui-shadow-lg-contrast:
-		0 10px 15px hsla(var(--ui-contrast-color), 0.25),
-		0 4px 6px hsla(var(--ui-contrast-color), 0.15);
-	--ui-shadow-lg-muted:
-		0 10px 15px hsla(var(--ui-muted-color), 0.25),
-		0 4px 6px hsla(var(--ui-muted-color), 0.15);
-	--ui-shadow-lg-error:
-		0 10px 15px hsla(var(--ui-error-color), 0.25),
-		0 4px 6px hsla(var(--ui-error-color), 0.15);
-
-	--ui-shadow-xl:
-		0 20px 25px hsla(var(--ui-shadow-color), 0.25),
-		0 10px 10px hsla(var(--ui-shadow-color), 0.15);
-	--ui-shadow-xl-primary:
-		0 20px 25px hsla(var(--ui-primary-color), 0.25),
-		0 10px 10px hsla(var(--ui-primary-color), 0.15);
-	--ui-shadow-xl-secondary:
-		0 20px 25px hsla(var(--ui-secondary-color), 0.25),
-		0 10px 10px hsla(var(--ui-secondary-color), 0.15);
-	--ui-shadow-xl-success:
-		0 20px 25px hsla(var(--ui-success-color), 0.25),
-		0 10px 10px hsla(var(--ui-success-color), 0.15);
-	--ui-shadow-xl-warning:
-		0 20px 25px hsla(var(--ui-warning-color), 0.25),
-		0 10px 10px hsla(var(--ui-warning-color), 0.15);
-	--ui-shadow-xl-destructive:
-		0 20px 25px hsla(var(--ui-destructive-color), 0.25),
-		0 10px 10px hsla(var(--ui-destructive-color), 0.15);
-	--ui-shadow-xl-info:
-		0 20px 25px hsla(var(--ui-info-color), 0.25),
-		0 10px 10px hsla(var(--ui-info-color), 0.15);
-	--ui-shadow-xl-contrast:
-		0 20px 25px hsla(var(--ui-contrast-color), 0.25),
-		0 10px 10px hsla(var(--ui-contrast-color), 0.15);
-	--ui-shadow-xl-muted:
-		0 20px 25px hsla(var(--ui-muted-color), 0.25),
-		0 10px 10px hsla(var(--ui-muted-color), 0.15);
-	--ui-shadow-xl-error:
-		0 20px 25px hsla(var(--ui-error-color), 0.25),
-		0 10px 10px hsla(var(--ui-error-color), 0.15);
-
-	--ui-shadow-2xl: 0 25px 50px hsla(var(--ui-shadow-color), 0.25);
-	--ui-shadow-2xl-primary: 0 25px 50px hsla(var(--ui-primary-color), 0.25);
-	--ui-shadow-2xl-secondary: 0 25px 50px
-		hsla(var(--ui-secondary-color), 0.25);
-	--ui-shadow-2xl-success: 0 25px 50px hsla(var(--ui-success-color), 0.25);
-	--ui-shadow-2xl-warning: 0 25px 50px hsla(var(--ui-warning-color), 0.25);
-	--ui-shadow-2xl-destructive: 0 25px 50px
-		hsla(var(--ui-destructive-color), 0.25);
-	--ui-shadow-2xl-info: 0 25px 50px hsla(var(--ui-info-color), 0.25);
-	--ui-shadow-2xl-contrast: 0 25px 50px
-		hsla(var(--ui-contrast-color), 0.25);
-	--ui-shadow-2xl-muted: 0 25px 50px hsla(var(--ui-muted-color), 0.25);
-	--ui-shadow-2xl-error: 0 25px 50px hsla(var(--ui-error-color), 0.25);
-
-	--ui-shadow-inner: inset 0 2px 4px hsla(var(--ui-shadow-color), 0.25);
-	--ui-shadow-inner-primary: inset 0 2px 4px
-		hsla(var(--ui-primary-color), 0.25);
-	--ui-shadow-inner-secondary: inset 0 2px 4px
-		hsla(var(--ui-secondary-color), 0.25);
-	--ui-shadow-inner-success: inset 0 2px 4px
-		hsla(var(--ui-success-color), 0.25);
-	--ui-shadow-inner-warning: inset 0 2px 4px
-		hsla(var(--ui-warning-color), 0.25);
-	--ui-shadow-inner-destructive: inset 0 2px 4px
-		hsla(var(--ui-destructive-color), 0.25);
-	--ui-shadow-inner-info: inset 0 2px 4px hsla(var(--ui-info-color), 0.25);
-	--ui-shadow-inner-contrast: inset 0 2px 4px
-		hsla(var(--ui-contrast-color), 0.25);
-	--ui-shadow-inner-muted: inset 0 2px 4px
-		hsla(var(--ui-muted-color), 0.25);
-	--ui-shadow-inner-error: inset 0 2px 4px
-		hsla(var(--ui-error-color), 0.25);
 
 	/* Inverted grayscale */
 	--ui-color-50: hsl(var(--ui-hue), 0%, 0%);
