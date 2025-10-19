@@ -4,14 +4,14 @@ input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
 	transform: var(--ui-hover-transition);
-	box-shadow: var(--ui-shadow-lg);
+	box-shadow: var(--ui-shadow-md);
 }
 
 button.ghost:hover,
 [role="button"].ghost:hover {
 	background-color: var(--ui-color-100);
 	color: var(--btn-bg-hover);
-	box-shadow: var(--ui-shadow-md);
+	box-shadow: var(--ui-shadow);
 }
 
 button.outline:hover,

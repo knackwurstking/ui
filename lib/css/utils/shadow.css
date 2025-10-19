@@ -73,7 +73,7 @@
 }
 
 .elevation-1:hover {
-	box-shadow: var(--ui-shadow-md);
+	box-shadow: var(--ui-shadow);
 	transform: var(--ui-hover-transition);
 }
 
@@ -81,15 +81,14 @@
 
 .elevation-2 {
 	box-shadow: var(--ui-shadow);
-	transform: translateY(0);
 	transition:
 		box-shadow 0.25s ease-in-out,
 		transform 0.25s ease-in-out;
 }
 
 .elevation-2:hover {
-	box-shadow: var(--ui-shadow-lg);
-	transform: translateY(-2px);
+	box-shadow: var(--ui-shadow-md);
+	transform: var(--ui-hover-transition);
 }
 
 /* Elevation 3 */
@@ -103,11 +102,11 @@
 }
 
 .elevation-3:hover {
-	box-shadow: var(--ui-shadow-xl);
-	transform: translateY(-2px);
+	box-shadow: var(--ui-shadow-lg);
+	transform: var(--ui-hover-transition);
 }
 
-/* Elevation 3 */
+/* Elevation 4 */
 
 .elevation-4 {
 	box-shadow: var(--ui-shadow-lg);
@@ -118,15 +117,31 @@
 }
 
 .elevation-4:hover {
+	box-shadow: var(--ui-shadow-xl);
+	transform: var(--ui-hover-transition);
+}
+
+/* Elevation 5 */
+
+.elevation-5 {
+	box-shadow: var(--ui-shadow-xl);
+	transform: translateY(0);
+	transition:
+		box-shadow 0.25s ease-in-out,
+		transform 0.25s ease-in-out;
+}
+
+.elevation-5:hover {
 	box-shadow: var(--ui-shadow-2xl);
-	transform: translateY(-3px);
+	transform: var(--ui-hover-transition);
 }
 
 /* Pressed/Active States */
 .elevation-1:active,
 .elevation-2:active,
 .elevation-3:active,
-.elevation-4:active {
+.elevation-4:active,
+.elevation-5:active {
 	transform: var(--ui-active-transition);
 	box-shadow: var(--ui-shadow-sm);
 	transition: none;
@@ -145,7 +160,8 @@
 	.elevation-1,
 	.elevation-2,
 	.elevation-3,
-	.elevation-4 {
+	.elevation-4,
+	.elevation-5 {
 		transition: none;
 		transform: none;
 	}
@@ -153,7 +169,8 @@
 	.elevation-1:hover,
 	.elevation-2:hover,
 	.elevation-3:hover,
-	.elevation-4:hover {
+	.elevation-4:hover,
+	.elevation-5:hover {
 		transform: none;
 		transition: none;
 	}
@@ -161,7 +178,8 @@
 	.elevation-1:active,
 	.elevation-2:active,
 	.elevation-3:active,
-	.elevation-4:active {
+	.elevation-4:active,
+	.elevation-5:active {
 		transform: none;
 		transition: none;
 	}

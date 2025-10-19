@@ -25,34 +25,34 @@
 	--ui-shadow-color-light: 20%;
 	--ui-shadow-color-dark: 85%;
 
-	/* Elevation/Shadow System */
+	/* Elevation/Shadow System - Optimized for gruvbox warm tones */
 	--ui-shadow-color:
 		var(--ui-hue), var(--ui-saturation),
 		var(--ui-shadow-color-light);
 
-	--ui-shadow-sm: 0 1px 4px hsla(var(--ui-shadow-color), 0.3);
+	--ui-shadow-sm: 0 1px 2px hsla(var(--ui-shadow-color), 0.25);
 
 	--ui-shadow:
-		0 2px 8px hsla(var(--ui-shadow-color), 0.3),
-		0 1px 4px hsla(var(--ui-shadow-color), 0.15);
+		0 2px 4px -1px hsla(var(--ui-shadow-color), 0.35),
+		0 1px 2px hsla(var(--ui-shadow-color), 0.15);
 
 	--ui-shadow-md:
-		0 4px 12px hsla(var(--ui-shadow-color), 0.3),
-		0 2px 8px hsla(var(--ui-shadow-color), 0.15);
+		0 4px 8px -2px hsla(var(--ui-shadow-color), 0.35),
+		0 2px 4px hsla(var(--ui-shadow-color), 0.15);
 
 	--ui-shadow-lg:
-		0 6px 16px hsla(var(--ui-shadow-color), 0.3),
-		0 3px 10px hsla(var(--ui-shadow-color), 0.15);
+		0 8px 16px -4px hsla(var(--ui-shadow-color), 0.35),
+		0 4px 8px -2px hsla(var(--ui-shadow-color), 0.15);
 
 	--ui-shadow-xl:
-		0 10px 20px hsla(var(--ui-shadow-color), 0.3),
-		0 4px 12px hsla(var(--ui-shadow-color), 0.15);
+		0 12px 24px -6px hsla(var(--ui-shadow-color), 0.35),
+		0 6px 12px -3px hsla(var(--ui-shadow-color), 0.15);
 
 	--ui-shadow-2xl:
-		0 15px 25px hsla(var(--ui-shadow-color), 0.3),
-		0 6px 14px hsla(var(--ui-shadow-color), 0.15);
+		0 16px 32px -8px hsla(var(--ui-shadow-color), 0.35),
+		0 8px 16px -4px hsla(var(--ui-shadow-color), 0.15);
 
-	--ui-shadow-inner: inset 0 1px 4px hsla(var(--ui-shadow-color), 0.3);
+	--ui-shadow-inner: inset 0 2px 4px hsla(var(--ui-shadow-color), 0.25);
 
 	/* Grayscale - Gruvbox Light Hard */
 	--ui-color-50: hsl(48, 67%, 91%); /* bg0_h */
@@ -135,9 +135,30 @@
 
 /* Dark Theme Overrides - Gruvbox Dark Hard */
 [data-theme="dark"] {
-	/* Enhanced shadows for dark theme */
-	--ui-shadow-color:
-		var(--ui-hue), var(--ui-saturation), var(--ui-shadow-color-dark);
+	/* Enhanced shadows for dark theme - deeper and more subtle */
+	--ui-shadow-color: 0, 0%, 0%;
+
+	--ui-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+	--ui-shadow:
+		0 2px 4px -1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-md:
+		0 4px 8px -2px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-lg:
+		0 8px 16px -4px rgba(0, 0, 0, 0.6),
+		0 4px 8px -2px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-xl:
+		0 12px 24px -6px rgba(0, 0, 0, 0.6),
+		0 6px 12px -3px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-2xl:
+		0 16px 32px -8px rgba(0, 0, 0, 0.6),
+		0 8px 16px -4px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.5);
 
 	/* Inverted grayscale - Gruvbox Dark Hard */
 	--ui-color-50: hsl(195, 6%, 12%); /* bg0_h */
