@@ -482,3 +482,36 @@
 	display: inline-block;
 	width: 100%;
 }
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.card {
+		transition: none;
+	}
+
+	.card:focus-within {
+		transition: none;
+	}
+
+	.card.media .card-image {
+		transition: none;
+	}
+
+	.card.loading::after {
+		animation: none;
+		/* Show static loading indicator */
+		left: 0;
+		background: hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.1);
+	}
+
+	.card.interactive:focus-visible::after {
+		animation: none;
+	}
+
+	/* Remove will-change optimizations */
+	.card,
+	.card.interactive,
+	.card.media .card-image {
+		will-change: auto;
+	}
+}

@@ -1,85 +1,85 @@
 /* Base anchor styles */
 a {
-    color: var(--ui-primary);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.125em;
-    cursor: pointer;
-    transition:
-        color 0.2s ease,
-        text-decoration-color 0.2s ease,
-        text-decoration-thickness 0.2s ease,
-        opacity 0.2s ease;
-    outline-offset: 2px;
+	color: var(--ui-primary);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.125em;
+	cursor: pointer;
+	transition:
+		color 0.2s ease,
+		text-decoration-color 0.2s ease,
+		text-decoration-thickness 0.2s ease,
+		opacity 0.2s ease;
+	outline-offset: 2px;
 }
 
 /* Visited state */
 a:visited:not([role="button"]) {
-    color: var(--ui-primary);
-    opacity: 0.85;
+	color: var(--ui-primary);
+	opacity: 0.85;
 }
 
 /* Hover state */
 a:hover:not([role="button"]) {
-    color: var(--ui-primary--hover);
-    text-decoration-thickness: 2px;
+	color: var(--ui-primary--hover);
+	text-decoration-thickness: 2px;
 }
 
 /* Active state */
 a:active:not([role="button"]) {
-    color: var(--ui-primary--active);
-    opacity: 0.9;
+	color: var(--ui-primary--active);
+	opacity: 0.9;
 }
 
 /* Focus state for accessibility */
 a:focus:not([role="button"]) {
-    outline: none;
+	outline: none;
 }
 
 /* Focus visible - only show outline when keyboard navigating */
 a:focus-visible:not([role="button"]) {
-    outline: 2px solid var(--ui-primary);
-    outline-offset: 2px;
-    border-radius: var(--ui-radius);
+	outline: 2px solid var(--ui-primary);
+	outline-offset: 2px;
+	border-radius: var(--ui-radius);
 }
 
 /* External link indicator */
 a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
 a[target="_blank"]:not([role="button"]):after {
-    content: " ↗";
-    font-size: 0.875rem;
-    opacity: 0.7;
-    display: inline-block;
-    margin-left: 0.125em;
-    transition: opacity 0.2s ease;
+	content: " ↗";
+	font-size: 0.875rem;
+	opacity: 0.7;
+	display: inline-block;
+	margin-left: 0.125em;
+	transition: opacity 0.2s ease;
 }
 
 a[href^="http"]:not([href*="localhost"]):not([role="button"]):hover:after,
 a[target="_blank"]:not([role="button"]):hover:after {
-    opacity: 1;
+	opacity: 1;
 }
 
 /* Email links */
 a[href^="mailto:"]:not([role="button"]):before {
-    content: "✉ ";
-    opacity: 0.7;
-    margin-right: 0.125em;
+	content: "✉ ";
+	opacity: 0.7;
+	margin-right: 0.125em;
 }
 
 /* Phone links */
 a[href^="tel:"]:not([role="button"]):before {
-    content: "☎ ";
-    opacity: 0.7;
-    margin-right: 0.125em;
+	content: "☎ ";
+	opacity: 0.7;
+	margin-right: 0.125em;
 }
 
 /* Anchor as header link (common pattern) */
 a.anchor-link,
 a.header-link {
-    text-decoration: none;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    margin-left: 0.5em;
+	text-decoration: none;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	margin-left: 0.5em;
 }
 
 h1:hover > a.anchor-link,
@@ -94,205 +94,238 @@ h3:hover > a.header-link,
 h4:hover > a.header-link,
 h5:hover > a.header-link,
 h6:hover > a.header-link {
-    opacity: 0.7;
+	opacity: 0.7;
 }
 
 a.anchor-link:hover,
 a.header-link:hover {
-    opacity: 1 !important;
+	opacity: 1 !important;
 }
 
 /* Disabled anchor state */
 a[aria-disabled="true"]:not([role="button"]),
 a.disabled:not([role="button"]) {
-    color: var(--ui-muted-text);
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-    text-decoration-color: var(--ui-muted-text);
+	color: var(--ui-muted-text);
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+	text-decoration-color: var(--ui-muted-text);
 }
 
 /* Color variants for anchors */
 a.secondary:not([role="button"]) {
-    color: var(--ui-secondary);
+	color: var(--ui-secondary);
 }
 
 a.secondary:not([role="button"]):hover {
-    color: var(--ui-secondary--hover);
+	color: var(--ui-secondary--hover);
 }
 
 a.secondary:not([role="button"]):active {
-    color: var(--ui-secondary--active);
+	color: var(--ui-secondary--active);
 }
 
 a.success:not([role="button"]) {
-    color: var(--ui-success);
+	color: var(--ui-success);
 }
 
 a.success:not([role="button"]):hover {
-    color: var(--ui-success--hover);
+	color: var(--ui-success--hover);
 }
 
 a.success:not([role="button"]):active {
-    color: var(--ui-success--active);
+	color: var(--ui-success--active);
 }
 
 a.warning:not([role="button"]) {
-    color: var(--ui-warning);
+	color: var(--ui-warning);
 }
 
 a.warning:not([role="button"]):hover {
-    color: var(--ui-warning--hover);
+	color: var(--ui-warning--hover);
 }
 
 a.warning:not([role="button"]):active {
-    color: var(--ui-warning--active);
+	color: var(--ui-warning--active);
 }
 
 a.destructive:not([role="button"]) {
-    color: var(--ui-destructive);
+	color: var(--ui-destructive);
 }
 
 a.destructive:not([role="button"]):hover {
-    color: var(--ui-destructive--hover);
+	color: var(--ui-destructive--hover);
 }
 
 a.destructive:not([role="button"]):active {
-    color: var(--ui-destructive--active);
+	color: var(--ui-destructive--active);
 }
 
 a.info:not([role="button"]) {
-    color: var(--ui-info);
+	color: var(--ui-info);
 }
 
 a.info:not([role="button"]):hover {
-    color: var(--ui-info--hover);
+	color: var(--ui-info--hover);
 }
 
 a.info:not([role="button"]):active {
-    color: var(--ui-info--active);
+	color: var(--ui-info--active);
 }
 
 a.muted:not([role="button"]) {
-    color: var(--ui-muted-text);
-    opacity: 0.85;
+	color: var(--ui-muted-text);
+	opacity: 0.85;
 }
 
 a.muted:not([role="button"]):hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 a.contrast:not([role="button"]) {
-    color: var(--ui-contrast);
+	color: var(--ui-contrast);
 }
 
 a.contrast:not([role="button"]):hover {
-    color: var(--ui-contrast--hover);
+	color: var(--ui-contrast--hover);
 }
 
 a.contrast:not([role="button"]):active {
-    color: var(--ui-contrast--active);
+	color: var(--ui-contrast--active);
 }
 
 /* No underline variant */
 a.no-underline:not([role="button"]) {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 a.no-underline:not([role="button"]):hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 /* Block link variant */
 a.block:not([role="button"]) {
-    display: block;
-    width: 100%;
+	display: block;
+	width: 100%;
 }
 
 /* Inline-block link variant */
 a.inline-block:not([role="button"]) {
-    display: inline-block;
+	display: inline-block;
 }
 
 /* Navigation link styles */
 nav a:not([role="button"]),
 a.nav-link:not([role="button"]) {
-    text-decoration: none;
-    padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
-    border-radius: var(--ui-radius);
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+	text-decoration: none;
+	padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
+	border-radius: var(--ui-radius);
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
 }
 
 nav a:not([role="button"]):hover,
 a.nav-link:not([role="button"]):hover {
-    background-color: var(--ui-color-100);
+	background-color: var(--ui-color-100);
 }
 
 nav a.active:not([role="button"]),
 a.nav-link.active:not([role="button"]) {
-    background-color: var(--ui-primary);
-    color: var(--ui-primary-text);
+	background-color: var(--ui-primary);
+	color: var(--ui-primary-text);
 }
 
 /* Breadcrumb link styles */
 .breadcrumb a:not([role="button"]),
 a.breadcrumb-link:not([role="button"]) {
-    text-decoration: none;
-    color: var(--ui-muted-text);
+	text-decoration: none;
+	color: var(--ui-muted-text);
 }
 
 .breadcrumb a:not([role="button"]):hover,
 a.breadcrumb-link:not([role="button"]):hover {
-    color: var(--ui-primary);
-    text-decoration: underline;
+	color: var(--ui-primary);
+	text-decoration: underline;
 }
 
 /* Card link overlay pattern */
 a.card-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    text-indent: -9999px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	text-indent: -9999px;
 }
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
-    a:not([role="button"]) {
-        transition: none;
-    }
+	a:not([role="button"]),
+	a:not([role="button"]):hover,
+	a:not([role="button"]):active,
+	a:not([role="button"]):focus,
+	a:not([role="button"]):focus-visible {
+		transition: none;
+	}
+
+	/* External link indicators */
+	a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
+	a[target="_blank"]:not([role="button"]):after {
+		transition: none;
+	}
+
+	/* Anchor/header links */
+	a.anchor-link,
+	a.header-link {
+		transition: none;
+	}
+
+	/* Navigation links */
+	nav a:not([role="button"]),
+	a.nav-link:not([role="button"]) {
+		transition: none;
+	}
+
+	/* Color variants */
+	a.secondary:not([role="button"]),
+	a.success:not([role="button"]),
+	a.warning:not([role="button"]),
+	a.destructive:not([role="button"]),
+	a.info:not([role="button"]),
+	a.muted:not([role="button"]),
+	a.contrast:not([role="button"]) {
+		transition: none;
+	}
 }
 
 /* High contrast mode */
 @media (prefers-contrast: high) {
-    a:not([role="button"]) {
-        text-decoration-thickness: 2px;
-    }
+	a:not([role="button"]) {
+		text-decoration-thickness: 2px;
+	}
 
-    a:not([role="button"]):hover {
-        text-decoration-thickness: 3px;
-    }
+	a:not([role="button"]):hover {
+		text-decoration-thickness: 3px;
+	}
 
-    a:focus-visible:not([role="button"]) {
-        outline-width: 3px;
-        outline-offset: 3px;
-    }
+	a:focus-visible:not([role="button"]) {
+		outline-width: 3px;
+		outline-offset: 3px;
+	}
 }
 
 /* Print styles */
 @media print {
-    a[href]:not([role="button"]):after {
-        content: " (" attr(href) ")";
-        font-size: 0.875rem;
-        font-weight: normal;
-    }
+	a[href]:not([role="button"]):after {
+		content: " (" attr(href) ")";
+		font-size: 0.875rem;
+		font-weight: normal;
+	}
 
-    a[href^="javascript:"]:not([role="button"]):after,
-    a[href^="#"]:not([role="button"]):after {
-        content: "";
-    }
+	a[href^="javascript:"]:not([role="button"]):after,
+	a[href^="#"]:not([role="button"]):after {
+		content: "";
+	}
 }

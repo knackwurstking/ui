@@ -1,49 +1,56 @@
 .drawer {
-    /* utils: .ui-hide-scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+	/* utils: .ui-hide-scrollbar */
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 
-    /* utils: .ui-backdrop */
-    background-color: var(--ui-backdrop-color);
+	/* utils: .ui-backdrop */
+	background-color: var(--ui-backdrop-color);
 
-    position: absolute;
-    top: 0;
-    left: -100%;
-    overflow: auto;
-    transition:
-        left 0.25s ease-in-out,
-        width 0.25s ease-in-out;
-    width: var(--width, fit-content);
-    max-width: calc(100% - 2.5rem);
-    height: 100%;
-    border-right: var(--ui-border-width) var(--ui-border-style)
-        var(--ui-border-color);
+	position: absolute;
+	top: 0;
+	left: -100%;
+	overflow: auto;
+	transition:
+		left 0.25s ease-in-out,
+		width 0.25s ease-in-out;
+	width: var(--width, fit-content);
+	max-width: calc(100% - 2.5rem);
+	height: 100%;
+	border-right: var(--ui-border-width) var(--ui-border-style)
+		var(--ui-border-color);
 }
 
 /* utils: .ui-hide-scrollbar */
 .drawer::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .drawer.open {
-    left: 0;
+	left: 0;
 }
 
 .drawer.open::before {
-    left: 0;
+	left: 0;
 }
 
 .drawer-backdrop {
-    /* utils: .ui-backdrop */
-    background-color: var(--ui-backdrop-color);
+	/* utils: .ui-backdrop */
+	background-color: var(--ui-backdrop-color);
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .drawer-backdrop:has(~ .drawer:not(.open)) {
-    display: none;
+	display: none;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.drawer {
+		transition: none;
+	}
 }

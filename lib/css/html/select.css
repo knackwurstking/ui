@@ -1,85 +1,85 @@
 /* Select Element Styles */
 
 select {
-    /* Layout */
-    display: inline-block;
-    min-height: calc(var(--ui-spacing) * 2 + 1.5rem);
-    padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
+	/* Layout */
+	display: inline-block;
+	min-height: calc(var(--ui-spacing) * 2 + 1.5rem);
+	padding: var(--ui-spacing) calc(var(--ui-spacing) * 2);
 
-    /* Appearance */
-    background-color: var(--ui-bg);
-    color: var(--ui-text);
-    border: var(--ui-border-width) solid var(--ui-border-color);
-    border-radius: var(--ui-radius);
+	/* Appearance */
+	background-color: var(--ui-bg);
+	color: var(--ui-text);
+	border: var(--ui-border-width) solid var(--ui-border-color);
+	border-radius: var(--ui-radius);
 
-    /* Typography */
-    font-size: 1rem;
+	/* Typography */
+	font-size: 1rem;
 
-    /* Interaction */
-    cursor: pointer;
-    accent-color: var(--ui-primary);
-    transition: border-color 0.25s ease-in-out;
+	/* Interaction */
+	cursor: pointer;
+	accent-color: var(--ui-primary);
+	transition: border-color 0.25s ease-in-out;
 }
 
 /* Hover State */
 select:hover {
-    border-color: var(--ui-primary);
+	border-color: var(--ui-primary);
 }
 
 /* Focus States */
 select:focus {
-    outline: none;
-    border-color: var(--ui-primary);
+	outline: none;
+	border-color: var(--ui-primary);
 }
 
 select:focus-visible {
-    outline: 2px solid var(--ui-primary);
-    outline-offset: 2px;
+	outline: 2px solid var(--ui-primary);
+	outline-offset: 2px;
 }
 
 /* Option Styling */
 option {
-    background-color: var(--ui-bg);
-    color: var(--ui-text);
-    padding: var(--ui-spacing);
+	background-color: var(--ui-bg);
+	color: var(--ui-text);
+	padding: var(--ui-spacing);
 }
 
 /* Validation States */
 select[aria-invalid="true"] {
-    border-color: var(--ui-destructive) !important;
+	border-color: var(--ui-destructive) !important;
 }
 
 select[aria-invalid="false"] {
-    border-color: var(--ui-success) !important;
+	border-color: var(--ui-success) !important;
 }
 
 /* Color Variants */
 select.primary {
-    --select-color: var(--ui-primary);
+	--select-color: var(--ui-primary);
 }
 
 select.secondary {
-    --select-color: var(--ui-secondary);
+	--select-color: var(--ui-secondary);
 }
 
 select.success {
-    --select-color: var(--ui-success);
+	--select-color: var(--ui-success);
 }
 
 select.warning {
-    --select-color: var(--ui-warning);
+	--select-color: var(--ui-warning);
 }
 
 select.destructive {
-    --select-color: var(--ui-destructive);
+	--select-color: var(--ui-destructive);
 }
 
 select.info {
-    --select-color: var(--ui-info);
+	--select-color: var(--ui-info);
 }
 
 select.contrast {
-    --select-color: var(--ui-contrast);
+	--select-color: var(--ui-contrast);
 }
 
 /* Apply color variant styles */
@@ -90,8 +90,8 @@ select[class*="warning"],
 select[class*="destructive"],
 select[class*="info"],
 select[class*="contrast"] {
-    border-color: var(--select-color);
-    accent-color: var(--select-color);
+	border-color: var(--select-color);
+	accent-color: var(--select-color);
 }
 
 select[class*="primary"]:hover,
@@ -101,7 +101,7 @@ select[class*="warning"]:hover,
 select[class*="destructive"]:hover,
 select[class*="info"]:hover,
 select[class*="contrast"]:hover {
-    border-color: var(--select-color);
+	border-color: var(--select-color);
 }
 
 select[class*="primary"]:focus,
@@ -118,43 +118,50 @@ select[class*="warning"]:focus-visible,
 select[class*="destructive"]:focus-visible,
 select[class*="info"]:focus-visible,
 select[class*="contrast"]:focus-visible {
-    outline-color: var(--select-color);
-    border-color: var(--select-color);
+	outline-color: var(--select-color);
+	border-color: var(--select-color);
 }
 
 /* Disabled State */
 select:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
+	opacity: 0.45;
+	cursor: not-allowed;
 }
 
 /* Size Variants */
 select.small {
-    padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
-    font-size: 0.875rem;
-    min-height: calc(var(--ui-spacing) + 1.25rem);
+	padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
+	font-size: 0.875rem;
+	min-height: calc(var(--ui-spacing) + 1.25rem);
 }
 
 select.large {
-    padding: calc(var(--ui-spacing) * 1.5) calc(var(--ui-spacing) * 2.5);
-    font-size: 1.125rem;
-    min-height: calc(var(--ui-spacing) * 3 + 1.75rem);
+	padding: calc(var(--ui-spacing) * 1.5) calc(var(--ui-spacing) * 2.5);
+	font-size: 1.125rem;
+	min-height: calc(var(--ui-spacing) * 3 + 1.75rem);
 }
 
 /* Multiple Select */
 select[multiple] {
-    min-height: auto;
-    padding: var(--ui-spacing);
+	min-height: auto;
+	padding: var(--ui-spacing);
 }
 
 select[multiple] option {
-    padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
+	padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
 }
 
 /* High Contrast Mode */
 @media (prefers-contrast: high) {
-    select:focus-visible {
-        outline-width: 3px;
-        outline-offset: 3px;
-    }
+	select:focus-visible {
+		outline-width: 3px;
+		outline-offset: 3px;
+	}
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	select {
+		transition: none;
+	}
 }

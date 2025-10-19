@@ -201,6 +201,24 @@ button.loading::after,
 	}
 }
 
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	button,
+	[role="button"],
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"] {
+		transition: none;
+	}
+
+	button.loading::after,
+	[role="button"].loading::after {
+		animation: none;
+		/* Show static loading indicator */
+		border-top-width: 3px;
+	}
+}
+
 /* Icon Support */
 button > svg,
 [role="button"] > svg {
