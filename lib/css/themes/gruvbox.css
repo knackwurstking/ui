@@ -1,0 +1,273 @@
+@import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+
+/* Light Theme (Default) - Gruvbox Light Hard */
+:root {
+	/* Typography */
+	--ui-font-family: "Recursive", system-ui, sans-serif;
+	--ui-font-size: 1rem;
+	--ui-line-height: 1.5;
+	--ui-line-height-code: 1.25;
+
+	/* Layout */
+	--ui-spacing: 0.5rem;
+	--ui-radius: 0.25rem;
+	--ui-border-width: 1px;
+	--ui-border-style: solid;
+	--ui-app-bar-height: 3rem;
+
+	--ui-hover-transition: translateY(-1px);
+	--ui-active-transition: translateY(1px);
+
+	/* Base palette - Gruvbox */
+	--ui-hue: 48;
+	--ui-saturation: 40%;
+
+	--ui-shadow-color-light: 20%;
+	--ui-shadow-color-dark: 85%;
+
+	/* Elevation/Shadow System */
+	--ui-shadow-color:
+		var(--ui-hue), var(--ui-saturation),
+		var(--ui-shadow-color-light);
+
+	--ui-shadow-sm: 0 1px 4px hsla(var(--ui-shadow-color), 0.3);
+
+	--ui-shadow:
+		0 2px 8px hsla(var(--ui-shadow-color), 0.3),
+		0 1px 4px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-md:
+		0 4px 12px hsla(var(--ui-shadow-color), 0.3),
+		0 2px 8px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-lg:
+		0 6px 16px hsla(var(--ui-shadow-color), 0.3),
+		0 3px 10px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-xl:
+		0 10px 20px hsla(var(--ui-shadow-color), 0.3),
+		0 4px 12px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-2xl:
+		0 15px 25px hsla(var(--ui-shadow-color), 0.3),
+		0 6px 14px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-inner: inset 0 1px 4px hsla(var(--ui-shadow-color), 0.3);
+
+	/* Grayscale - Gruvbox Light Hard */
+	--ui-color-50: hsl(48, 67%, 91%); /* bg0_h */
+	--ui-color-100: hsl(49, 78%, 88%); /* bg0 */
+	--ui-color-200: hsl(36, 52%, 80%); /* bg1 */
+	--ui-color-300: hsl(40, 38%, 73%); /* bg2 */
+	--ui-color-400: hsl(36, 27%, 66%); /* bg3 */
+	--ui-color-500: hsl(30, 17%, 58%); /* bg4 */
+	--ui-color-600: hsl(26, 13%, 51%); /* gray */
+	--ui-color-700: hsl(30, 11%, 44%); /* fg4 */
+	--ui-color-800: hsl(25, 10%, 37%); /* fg3 */
+	--ui-color-900: hsl(18, 7%, 30%); /* fg2 */
+	--ui-color-950: hsl(0, 0%, 16%); /* fg0 */
+
+	/* Semantic colors */
+	--ui-bg: var(--ui-color-50);
+	--ui-text: var(--ui-color-950);
+	--ui-text-input: hsl(20, 6%, 22%);
+	--ui-muted-text: hsl(25, 10%, 37%);
+	--ui-border-color: rgba(124, 111, 100, 0.4);
+	--ui-backdrop-color: rgba(249, 245, 215, 0.85);
+
+	/* Primary - Gruvbox Green */
+	--ui-primary: hsl(60, 71%, 35%);
+	--ui-primary-color: 60, 71%, 35%;
+	--ui-primary-hover: hsl(59, 80%, 26%);
+	--ui-primary-active: hsl(58, 85%, 19%);
+	--ui-primary-text: var(--ui-bg);
+
+	/* Secondary - Gruvbox Blue */
+	--ui-secondary: hsl(182, 34%, 41%);
+	--ui-secondary-color: 182, 34%, 41%;
+	--ui-secondary-hover: hsl(184, 34%, 33%);
+	--ui-secondary-active: hsl(185, 38%, 24%);
+	--ui-secondary-text: var(--ui-bg);
+
+	/* Success - Gruvbox Aqua */
+	--ui-success: hsl(122, 21%, 51%);
+	--ui-success-color: 122, 21%, 51%;
+	--ui-success-hover: hsl(122, 26%, 42%);
+	--ui-success-active: hsl(121, 29%, 34%);
+	--ui-success-text: hsl(48, 67%, 91%);
+
+	/* Warning - Gruvbox Yellow */
+	--ui-warning: hsl(42, 75%, 49%);
+	--ui-warning-color: 42, 75%, 49%;
+	--ui-warning-hover: hsl(42, 80%, 43%);
+	--ui-warning-active: hsl(40, 85%, 37%);
+	--ui-warning-text: hsl(20, 6%, 22%);
+
+	/* Destructive/Error - Gruvbox Red */
+	--ui-destructive: hsl(2, 74%, 46%);
+	--ui-destructive-color: 2, 74%, 46%;
+	--ui-destructive-hover: hsl(2, 79%, 41%);
+	--ui-destructive-active: hsl(2, 80%, 36%);
+	--ui-destructive-text: hsl(49, 78%, 88%);
+	--ui-error: var(--ui-destructive);
+	--ui-error-text: var(--ui-destructive-text);
+
+	/* Info - Gruvbox Blue (lighter) */
+	--ui-info: hsl(182, 34%, 41%);
+	--ui-info-color: 182, 34%, 41%;
+	--ui-info-hover: hsl(184, 34%, 33%);
+	--ui-info-active: hsl(185, 38%, 24%);
+	--ui-info-text: hsl(49, 78%, 88%);
+
+	/* Muted */
+	--ui-muted: hsl(40, 38%, 73%);
+	--ui-muted-color: 40, 38%, 73%;
+
+	/* Contrast */
+	--ui-contrast: var(--ui-color-950);
+	--ui-contrast-color: 0, 0%, 16%;
+	--ui-contrast-hover: hsl(20, 6%, 22%);
+	--ui-contrast-active: hsl(18, 7%, 30%);
+	--ui-contrast-text: var(--ui-color-50);
+
+	color-scheme: light;
+}
+
+/* Dark Theme Overrides - Gruvbox Dark Hard */
+[data-theme="dark"] {
+	/* Enhanced shadows for dark theme */
+	--ui-shadow-color:
+		var(--ui-hue), var(--ui-saturation), var(--ui-shadow-color-dark);
+
+	/* Inverted grayscale - Gruvbox Dark Hard */
+	--ui-color-50: hsl(195, 6%, 12%); /* bg0_h */
+	--ui-color-100: hsl(0, 0%, 16%); /* bg0 */
+	--ui-color-200: hsl(20, 6%, 22%); /* bg1 */
+	--ui-color-300: hsl(18, 7%, 30%); /* bg2 */
+	--ui-color-400: hsl(25, 10%, 37%); /* bg3 */
+	--ui-color-500: hsl(30, 11%, 44%); /* bg4 */
+	--ui-color-600: hsl(26, 13%, 51%); /* gray */
+	--ui-color-700: hsl(30, 17%, 58%); /* fg4 */
+	--ui-color-800: hsl(36, 27%, 66%); /* fg3 */
+	--ui-color-900: hsl(40, 38%, 73%); /* fg2 */
+	--ui-color-950: hsl(49, 78%, 88%); /* fg0 */
+
+	/* Semantic overrides */
+	--ui-text-input: hsl(36, 52%, 80%);
+	--ui-muted-text: hsl(30, 17%, 58%);
+	--ui-border-color: rgba(146, 131, 116, 0.35);
+	--ui-backdrop-color: rgba(29, 32, 33, 0.85);
+
+	/* Dark theme color adjustments - Gruvbox bright variants */
+	--ui-primary: hsl(61, 66%, 44%);
+	--ui-primary-color: 61, 66%, 44%;
+	--ui-primary-hover: hsl(60, 71%, 35%);
+	--ui-primary-active: hsl(59, 80%, 26%);
+
+	--ui-secondary: hsl(160, 16%, 57%);
+	--ui-secondary-color: 160, 16%, 57%;
+	--ui-secondary-hover: hsl(182, 34%, 41%);
+	--ui-secondary-active: hsl(184, 34%, 33%);
+
+	--ui-success: hsl(104, 35%, 62%);
+	--ui-success-color: 104, 35%, 62%;
+	--ui-success-hover: hsl(122, 21%, 51%);
+	--ui-success-active: hsl(122, 26%, 42%);
+	--ui-success-text: hsl(195, 6%, 12%);
+
+	--ui-warning: hsl(42, 95%, 58%);
+	--ui-warning-color: 42, 95%, 58%;
+	--ui-warning-hover: hsl(42, 75%, 49%);
+	--ui-warning-active: hsl(36, 80%, 39%);
+	--ui-warning-text: hsl(195, 6%, 12%);
+
+	--ui-destructive: hsl(6, 95%, 59%);
+	--ui-destructive-color: 6, 95%, 59%;
+	--ui-destructive-hover: hsl(2, 74%, 46%);
+	--ui-destructive-active: hsl(356, 100%, 31%);
+	--ui-destructive-text: hsl(195, 6%, 12%);
+
+	--ui-info: hsl(160, 16%, 57%);
+	--ui-info-color: 160, 16%, 57%;
+	--ui-info-hover: hsl(182, 34%, 41%);
+	--ui-info-active: hsl(184, 34%, 33%);
+	--ui-info-text: var(--ui-text);
+
+	--ui-muted: hsl(20, 6%, 22%);
+	--ui-muted-color: 20, 6%, 22%;
+
+	--ui-contrast: var(--ui-color-950);
+	--ui-contrast-color: 48, 87%, 88%;
+	--ui-contrast-hover: hsl(36, 52%, 80%);
+	--ui-contrast-active: hsl(40, 38%, 73%);
+
+	color-scheme: dark;
+}
+
+/* Base styles */
+html {
+	font-family: var(--ui-font-family);
+	font-size: var(--ui-font-size);
+	background-color: var(--ui-bg);
+	color: var(--ui-text);
+}
+
+body {
+	line-height: var(--ui-line-height);
+}
+
+/* Variable font settings */
+:root {
+	--mono: 0;
+	--casl: 1;
+	--wght: 400;
+	--slnt: 0;
+	--CRSV: 0.5;
+}
+
+* {
+	font-variation-settings:
+		"MONO" var(--mono),
+		"CASL" var(--casl),
+		"wght" var(--wght),
+		"slnt" var(--slnt),
+		"CRSV" var(--CRSV);
+}
+
+/* Typography presets */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	--wght: 700;
+	--slnt: -3;
+}
+
+b,
+strong {
+	--wght: 600;
+}
+
+i,
+em {
+	--slnt: -10;
+}
+
+code,
+kbd,
+pre,
+samp {
+	--mono: 1;
+	--casl: 0;
+}
+
+small {
+	--wght: 300;
+}
+
+blockquote {
+	--wght: 350;
+	--slnt: -10;
+}
