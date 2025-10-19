@@ -254,19 +254,6 @@
 	flex-shrink: 0;
 }
 
-/* Badge Outline Variant */
-.badge-outline {
-	background-color: transparent;
-	border: 1px solid currentColor;
-}
-
-/* Badge Ghost Variant */
-.badge-ghost {
-	background-color: transparent;
-	border: 1px solid transparent;
-}
-
-/* Badge States */
 .badge-disabled,
 .badge:disabled {
 	opacity: 0.5;
