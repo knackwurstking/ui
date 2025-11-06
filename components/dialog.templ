@@ -1,23 +1,46 @@
+// Package components contains reusable UI components
 package components
 
-import "net/http"
+import (
+	"net/http"
 
+	"github.com/some/templ"
+)
+
+// DialogProps defines the properties for a dialog component
 type DialogProps struct {
-	ID                string
-	Method            string
-	Href              templ.SafeURL
-	SubmitButtonText  string
-	Error             error
-	HxSwapOOB         string
+	// ID is the unique identifier for the dialog
+	ID string
+
+	// Method specifies the HTTP method to use when submitting the form
+	Method string
+
+	// Href is the URL to submit the form data to
+	Href templ.SafeURL
+
+	// SubmitButtonText is the text displayed on the submit button
+	SubmitButtonText string
+
+	// Error is an error that may have occurred, displayed if not nil
+	Error error
+
+	// HxSwapOOB is an additional property used for hx-swap-oob directive
+	HxSwapOOB string
+
+	// AdditionalActions represents additional actions that can be rendered
 	AdditionalActions templ.Component
 }
 
+// Dialog is a reusable dialog component that renders a dialog with form input
+// and optional additional actions.
 templ Dialog(props DialogProps) {
+	// onclose is a script that will remove the dialog when it is closed
 	{{
 		onclose := templ.ComponentScript{
 			Call: `this.remove();`,
 		}
 	}}
+	// Render a dialog element with various attributes and form elements
 	<dialog
 		id={ props.ID }
 		class="fullscreen clean flex flex-col justify-center items-center"
