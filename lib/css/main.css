@@ -24,6 +24,7 @@
 @import "./components/container.css";
 @import "./components/drawer.css";
 @import "./components/spinner.css";
+@import "./components/tabs.css";
 
 @import "./utils/badge.css";
 @import "./utils/flex.css";

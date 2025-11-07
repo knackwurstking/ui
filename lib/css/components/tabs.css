@@ -1,0 +1,40 @@
+.tabs {
+	--border: var(--ui-border-width) var(--ui-border-style)
+		var(--ui-border-color);
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	border-top: var(--border);
+	border-left: var(--border);
+	border-right: var(--border);
+	border-radius: var(--ui-radius);
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.tabs > .tab {
+	flex: 1 1 0%;
+	padding: var(--ui-spacing);
+	text-align: center;
+	border-right: var(--border);
+	border-bottom: var(--border);
+	transition: color 0.3s ease-in-out;
+	box-shadow: none;
+	cursor: pointer;
+}
+
+.tabs > .tab:last-child {
+	border-right: none;
+}
+
+.tabs > .tab.active {
+	border-bottom: none;
+	color: var(--ui-primary);
+}
+
+.tabs > .tab:hover {
+	background-color: var(--ui-color-100);
+}
