@@ -7,8 +7,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-// MiddlewareCache sets appropriate cache headers for static assets with version parameters
-func MiddlewareCache() echo.MiddlewareFunc {
+// EchoMiddlewareCache sets appropriate cache headers for static assets with version parameters
+func EchoMiddlewareCache() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {
 			// Check for version query parameter (e.g., ?v=1763969451)
