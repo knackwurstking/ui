@@ -107,11 +107,11 @@
 }
 
 .gap-lg {
-    gap: calc(var(--ui-spacing) * 2);
+    gap: calc(var(--ui-spacing) * 1.5);
 }
 
 .gap-xl {
-    gap: calc(var(--ui-spacing) * 3);
+    gap: calc(var(--ui-spacing) * 2);
 }
 
 /* Flex Item Properties */
