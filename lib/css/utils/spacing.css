@@ -126,6 +126,10 @@
     margin-top: calc(var(--ui-spacing) * 2);
     margin-bottom: calc(var(--ui-spacing) * 2);
 }
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
 /* Margin Individual Sides */
 .mt {

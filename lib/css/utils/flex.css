@@ -5,8 +5,16 @@
     display: flex;
 }
 
+.flex\! {
+    display: flex !important;
+}
+
 .inline-flex {
     display: inline-flex;
+}
+
+.inline-flex\! {
+    display: inline-flex !important;
 }
 
 /* Direction */
@@ -86,16 +94,16 @@
 }
 
 /* Gap */
-.gap {
-    gap: var(--ui-spacing);
-}
-
 .gap-0 {
     gap: 0;
 }
 
 .gap-sm {
     gap: calc(var(--ui-spacing) / 2);
+}
+
+.gap {
+    gap: var(--ui-spacing);
 }
 
 .gap-lg {
@@ -120,18 +128,18 @@
 }
 
 /* Grow & Shrink */
-.grow {
-    flex-grow: 1;
-}
-
 .grow-0 {
     flex-grow: 0;
 }
 
-.shrink {
-    flex-shrink: 1;
+.grow {
+    flex-grow: 1;
 }
 
 .shrink-0 {
     flex-shrink: 0;
+}
+
+.shrink {
+    flex-shrink: 1;
 }
