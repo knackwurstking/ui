@@ -110,6 +110,10 @@
     gap: calc(var(--ui-spacing) * 2);
 }
 
+.gap-xl {
+    gap: calc(var(--ui-spacing) * 3);
+}
+
 /* Flex Item Properties */
 .flex-1 {
     flex: 1 1 0%;
