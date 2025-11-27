@@ -29,10 +29,14 @@ body {
 /* Interactive States */
 [disabled],
 :disabled {
-    opacity: 0.45;
+    opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
     user-select: none;
+}
+
+[inert] {
+	opacity: 0.4;
 }
 
 /* Utility Classes */
