@@ -18,6 +18,14 @@
 - Use consistent indentation (2 spaces) and line breaks
 - All public APIs must be properly documented with JSDoc comments
 
+## Git Commit Guidelines
+- Use semantic git commit messages following the format: `<type>(<scope>): <subject>`
+- Commit types: feat, fix, docs, style, refactor, test, chore
+- Always use the present tense and imperative mood
+- Keep subject line under 50 characters
+- Add a blank line after the subject line
+- Use the body to explain what and why, not how
+
 ## Special Notes
 - This is a frontend UI library built with TypeScript and Vite
 - CSS is compiled to a single bundle with separate CSS file
