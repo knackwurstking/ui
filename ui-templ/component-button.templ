@@ -1,16 +1,14 @@
 package ui
 
 // Button renders a reusable button component with consistent styling
-templ Button(text string, options ButtonOptions) {
+templ Button(options ButtonOptions) {
 	{{ attr := options.Attributes(nil) }}
 	if options.Anchor {
 		<a { attr... }>
-			{ text }
 			{ children... }
 		</a>
 	} else {
 		<button { attr... }>
-			{ text }
 			{ children... }
 		</button>
 	}
