@@ -68,7 +68,7 @@ type ButtonOptions struct {
 	HxOptions
 	Href     templ.SafeURL
 	Anchor   bool
-	Variant  ButtonVariant
+	Variant  Variant
 	Color    Color
 	Size     ButtonSize
 	Icon     string
