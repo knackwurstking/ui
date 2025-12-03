@@ -2,9 +2,15 @@
 
 all: init build
 
+clean:
+	git clean -xfd
+
 init:
+	npm install
 	go mod tidy
 
-build:
-	npm run build
+generate:
 	templ generate
+
+build: generate
+	npm run build
