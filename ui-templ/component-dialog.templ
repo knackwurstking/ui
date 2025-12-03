@@ -1,37 +1,11 @@
 // Package components contains reusable UI components
-// 
-// TODO: Update this component to fit the new component style, see button component
 package ui
 
 import "net/http"
 
-// DialogProps defines the properties for a dialog component
-type DialogProps struct {
-	// ID is the unique identifier for the dialog
-	ID string
-
-	// Method specifies the HTTP method to use when submitting the form
-	Method string
-
-	// Href is the URL to submit the form data to
-	Href templ.SafeURL
-
-	// SubmitButtonText is the text displayed on the submit button
-	SubmitButtonText string
-
-	// Error is an error that may have occurred, displayed if not nil
-	Error error
-
-	// HxSwapOOB is an additional property used for hx-swap-oob directive
-	HxSwapOOB string
-
-	// AdditionalActions represents additional actions that can be rendered
-	AdditionalActions templ.Component
-}
-
 // Dialog is a reusable dialog component that renders a dialog with form input
 // and optional additional actions.
-templ Dialog(props DialogProps) {
+templ Dialog(o DialogOptions) {
 	// onclose is a script that will remove the dialog when it is closed
 	{{
 		onclose := templ.ComponentScript{
@@ -40,27 +14,27 @@ templ Dialog(props DialogProps) {
 	}}
 	// Render a dialog element with various attributes and form elements
 	<dialog
-		id={ props.ID }
+		id={ o.ID }
 		class="fullscreen clean flex flex-col justify-center items-center"
 		onclose={ onclose }
 		oncancel="event.preventDefault()"
 		onclick="if (event.target === this) event.preventDefault()"
-		if props.HxSwapOOB != "" {
-			hx-swap-oob={ props.HxSwapOOB }
+		if o.HxSwapOOB != "" {
+			hx-swap-oob={ o.HxSwapOOB }
 		}
 	>
 		<form
 			class="flex flex-col gap p w-full"
-			if props.Method == http.MethodPost {
-				hx-post={ props.Href }
+			if o.Method == http.MethodPost {
+				hx-post={ o.Href }
 			}
-			if props.Method == http.MethodPut {
-				hx-put={ props.Href }
+			if o.Method == http.MethodPut {
+				hx-put={ o.Href }
 			}
 			hx-target="body"
 			hx-swap="beforeend"
-			hx-on:htmx:response-error="alert(event.detail.xhr.responseText)"
-			hx-on:htmx:after-request="if (event.detail.successful) this.closest('dialog').close();"
+			hx-on::response-error="alert(event.detail.xhr.responseText)"
+			hx-on::after-request="if (event.detail.successful) this.closest('dialog').close();"
 			enctype="multipart/form-data"
 			onclick="event.stopPropagation()"
 		>
@@ -68,18 +42,18 @@ templ Dialog(props DialogProps) {
 				name="dialog-content"
 				class="flex flex-col gap overflow-y-scroll scroll-smooth no-scrollbar p h-full"
 			>
-				if props.Error != nil {
+				if o.Error != nil {
 					<div class="card compact destructive debug">
 						<div class="card-body">
-							{ props.Error.Error() }
+							{ o.Error.Error() }
 						</div>
 					</div>
 				}
 				{ children... }
 			</div>
 			<footer class="flex gap justify-end">
-				if props.AdditionalActions != nil {
-					@props.AdditionalActions
+				if o.AdditionalActions != nil {
+					@o.AdditionalActions
 				}
 				<button
 					name="close"
@@ -95,12 +69,16 @@ templ Dialog(props DialogProps) {
 					class="flex gap"
 				>
 					<i class="bi bi-check-circle"></i>
-					{ props.SubmitButtonText }
+					if o.SubmitButtonText == "" {
+						Submit
+					} else {
+						{ o.SubmitButtonText }
+					}
 				</button>
 			</footer>
 		</form>
 		<script defer>
-			document.querySelector('#{{ props.ID }}').showModal();
+			document.querySelector('#{{ o.ID }}').showModal();
 		</script>
 	</dialog>
 }
