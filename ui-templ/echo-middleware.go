@@ -3,6 +3,7 @@ package ui
 import (
 	"net/http"
 	"slices"
+	"strings"
 	"time"
 
 	"github.com/labstack/echo/v4"
@@ -16,17 +17,23 @@ func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
 		ctx.Response().Header().Set("Expires", time.Now().AddDate(1, 0, 0).Format(http.TimeFormat))
 	}
 
+	enablePathChecking := false
+	if len(additionalPaths) > 0 {
+		enablePathChecking = true
+	}
+
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {
-			// Check for version query parameter (e.g., ?v=1763969451)
-			path := ctx.Request().URL.Path
-			if slices.Contains(additionalPaths, path) {
-				setCacheHeaders(ctx)
-			} else {
-				query := ctx.Request().URL.Query()
-				if version := query.Get("v"); version != "" {
+			if enablePathChecking {
+				if slices.Contains(additionalPaths, strings.TrimRight(ctx.Request().URL.Path, "/")) {
 					setCacheHeaders(ctx)
+					return next(ctx)
 				}
+			}
+
+			// Check for version query parameter (e.g., ?v=1763969451)
+			if version := ctx.Request().URL.Query().Get("v"); version != "" {
+				setCacheHeaders(ctx)
 			}
 
 			return next(ctx)
