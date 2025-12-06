@@ -23,32 +23,38 @@ func NewEchoRoute(method string, path string, handler echo.HandlerFunc) *EchoRou
 }
 
 func RegisterEchoRoutes(e *echo.Echo, serverPathPrefix string, routes []*EchoRoute) {
-	registerFn := func(fn func(path string, h echo.HandlerFunc, m ...echo.MiddlewareFunc) *echo.Route, path string, handler echo.HandlerFunc) {
-		fn(path, handler)
+	registerFn := func(
+		cb func(path string, h echo.HandlerFunc, m ...echo.MiddlewareFunc) *echo.Route,
+		path string,
+		handler echo.HandlerFunc,
+	) {
+
+		cb(path, handler)
+
 		if !strings.HasSuffix(path, "/") {
-			fn(path+"/", handler)
+			cb(path+"/", handler)
 		}
 	}
 
 	for _, route := range routes {
-		path := filepath.Join(serverPathPrefix, route.Path)
+		var cb func(path string, h echo.HandlerFunc, m ...echo.MiddlewareFunc) *echo.Route
 
-		var fn func(path string, h echo.HandlerFunc, m ...echo.MiddlewareFunc) *echo.Route
 		switch route.Method {
 		case http.MethodGet:
-			fn = e.GET
+			cb = e.GET
 		case http.MethodPost:
-			fn = e.POST
+			cb = e.POST
 		case http.MethodPut:
-			fn = e.PUT
+			cb = e.PUT
 		case http.MethodDelete:
-			fn = e.DELETE
+			cb = e.DELETE
 		case http.MethodPatch:
-			fn = e.PATCH
+			cb = e.PATCH
 		default:
 			panic("unhandled method: " + route.Method)
 		}
 
-		registerFn(fn, path, route.Handler)
+		path := filepath.Join(serverPathPrefix, route.Path)
+		registerFn(cb, path, route.Handler)
 	}
 }
