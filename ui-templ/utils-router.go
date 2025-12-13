@@ -14,11 +14,11 @@ type EchoRoute struct {
 	Handler echo.HandlerFunc
 }
 
-func NewEchoRoute(method string, path string, handler echo.HandlerFunc) *EchoRoute {
+func NewEchoRoute(method string, path string, handler func(ctx echo.Context) *echo.HTTPError) *EchoRoute {
 	return &EchoRoute{
 		Method:  method,
 		Path:    path,
-		Handler: handler,
+		Handler: func(ctx echo.Context) error { return handler(ctx) },
 	}
 }
 
