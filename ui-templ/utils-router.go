@@ -16,9 +16,15 @@ type EchoRoute struct {
 
 func NewEchoRoute(method string, path string, handler func(ctx echo.Context) *echo.HTTPError) *EchoRoute {
 	return &EchoRoute{
-		Method:  method,
-		Path:    path,
-		Handler: func(ctx echo.Context) error { return handler(ctx) },
+		Method: method,
+		Path:   path,
+		Handler: func(ctx echo.Context) error {
+			err := handler(ctx)
+			if err != nil {
+				return err
+			}
+			return nil
+		},
 	}
 }
 
