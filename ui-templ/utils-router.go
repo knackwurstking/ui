@@ -35,11 +35,9 @@ func RegisterEchoRoutes(e *echo.Echo, serverPathPrefix string, routes []*EchoRou
 		handler echo.HandlerFunc,
 	) {
 
+		path = strings.TrimRight(path, "/")
 		cb(path, handler)
-
-		if !strings.HasSuffix(path, "/") {
-			cb(path+"/", handler)
-		}
+		cb(path+"/", handler)
 	}
 
 	for _, route := range routes {
