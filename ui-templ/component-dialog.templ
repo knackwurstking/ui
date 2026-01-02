@@ -24,7 +24,7 @@ templ Dialog(o DialogOptions) {
 		}
 	>
 		<form
-			class="flex flex-col gap p w-full"
+			class={ "flex flex-col gap p w-full " + o.FormClasses.String() }
 			if o.Method == http.MethodPost {
 				hx-post={ o.Href }
 			}

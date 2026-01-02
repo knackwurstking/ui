@@ -26,4 +26,6 @@ type DialogOptions struct {
 
 	// AdditionalActions represents additional actions that can be rendered
 	AdditionalActions templ.Component
+
+	FormClasses templ.CSSClasses
 }
