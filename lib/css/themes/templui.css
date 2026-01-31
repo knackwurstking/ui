@@ -1,0 +1,330 @@
+@import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+
+/* Light Theme - Templui */
+:root {
+	/* Typography */
+	--ui-font-family: "Recursive", system-ui, sans-serif;
+	--ui-font-size: 1rem;
+	--ui-line-height: 1.5;
+	--ui-line-height-code: 1.25;
+
+	/* Layout */
+	--ui-spacing: 0.5rem;
+	--ui-radius: 0.25rem;
+	--ui-border-width: 1px;
+	--ui-border-style: solid;
+	--ui-app-bar-height: 3rem;
+
+	--ui-hover-transition: translateY(-1px);
+	--ui-active-transition: translateY(1px);
+
+	/* Base palette - Templui */
+	--ui-hue: 132;
+	--ui-saturation: 20%;
+
+	--ui-shadow-color-light: 20%;
+	--ui-shadow-color-dark: 85%;
+
+	/* Elevation/Shadow System - Optimized for templui colors */
+	--ui-shadow-color:
+		var(--ui-hue), var(--ui-saturation), var(--ui-shadow-color-light);
+
+	--ui-shadow-sm: 0 1px 2px hsla(var(--ui-shadow-color), 0.25);
+
+	--ui-shadow:
+		0 2px 4px -1px hsla(var(--ui-shadow-color), 0.35),
+		0 1px 2px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-md:
+		0 4px 8px -2px hsla(var(--ui-shadow-color), 0.35),
+		0 2px 4px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-lg:
+		0 8px 16px -4px hsla(var(--ui-shadow-color), 0.35),
+		0 4px 8px -2px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-xl:
+		0 12px 24px -6px hsla(var(--ui-shadow-color), 0.35),
+		0 6px 12px -3px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-2xl:
+		0 16px 32px -8px hsla(var(--ui-shadow-color), 0.35),
+		0 8px 16px -4px hsla(var(--ui-shadow-color), 0.15);
+
+	--ui-shadow-inner: inset 0 2px 4px hsla(var(--ui-shadow-color), 0.25);
+
+	/* Grayscale - Templui Light */
+	--ui-color-50: hsl(132, 0%, 98%); /* background */
+	--ui-color-100: hsl(132, 0%, 96%); /* card */
+	--ui-color-200: hsl(132, 0%, 94%); /* popover */
+	--ui-color-300: hsl(132, 0%, 90%); /* muted */
+	--ui-color-400: hsl(132, 0%, 85%); /* accent */
+	--ui-color-500: hsl(132, 0%, 75%); /* border */
+	--ui-color-600: hsl(132, 0%, 65%); /* input */
+	--ui-color-700: hsl(132, 0%, 55%); /* foreground */
+	--ui-color-800: hsl(132, 0%, 45%); /* selection */
+	--ui-color-900: hsl(132, 0%, 35%); /* text */
+	--ui-color-950: hsl(132, 0%, 25%); /* text */
+
+	/* Semantic colors */
+	--ui-bg: hsl(132, 0%, 98%); /* background */
+	--ui-text: hsl(132, 0%, 25%); /* text */
+	--ui-text-input: hsl(132, 0%, 45%); /* input */
+	--ui-muted-text: hsl(132, 0%, 65%); /* border */
+	--ui-border-color: hsla(132, 0%, 75%, 0.4);
+	--ui-backdrop-color: hsla(132, 0%, 98%, 0.85);
+
+	/* Primary - Templui Green */
+	--ui-primary: hsl(132, 40%, 65%);
+	--ui-primary-color: 132, 40%, 65%;
+	--ui-primary-hover: hsl(132, 40%, 60%);
+	--ui-primary-active: hsl(132, 40%, 55%);
+	--ui-primary-text: hsl(132, 0%, 98%);
+
+	/* Secondary - Templui Blue */
+	--ui-secondary: hsl(210, 20%, 75%);
+	--ui-secondary-color: 210, 20%, 75%;
+	--ui-secondary-hover: hsl(210, 20%, 70%);
+	--ui-secondary-active: hsl(210, 20%, 65%);
+	--ui-secondary-text: hsl(132, 0%, 98%);
+
+	/* Success - Templui Aqua */
+	--ui-success: hsl(160, 30%, 70%);
+	--ui-success-color: 160, 30%, 70%;
+	--ui-success-hover: hsl(160, 30%, 65%);
+	--ui-success-active: hsl(160, 30%, 60%);
+	--ui-success-text: hsl(132, 0%, 98%);
+
+	/* Warning - Templui Yellow */
+	--ui-warning: hsl(42, 60%, 75%);
+	--ui-warning-color: 42, 60%, 75%;
+	--ui-warning-hover: hsl(42, 60%, 70%);
+	--ui-warning-active: hsl(42, 60%, 65%);
+	--ui-warning-text: hsl(132, 0%, 98%);
+
+	/* Destructive/Error - Templui Red */
+	--ui-destructive: hsl(350, 40%, 65%);
+	--ui-destructive-color: 350, 40%, 65%;
+	--ui-destructive-hover: hsl(350, 40%, 60%);
+	--ui-destructive-active: hsl(350, 40%, 55%);
+	--ui-destructive-text: hsl(132, 0%, 98%);
+	--ui-error: var(--ui-destructive);
+	--ui-error-text: var(--ui-destructive-text);
+
+	/* Info - Templui Blue (lighter) */
+	--ui-info: hsl(210, 20%, 75%);
+	--ui-info-color: 210, 20%, 75%;
+	--ui-info-hover: hsl(210, 20%, 70%);
+	--ui-info-active: hsl(210, 20%, 65%);
+	--ui-info-text: hsl(132, 0%, 98%);
+
+	/* Muted */
+	--ui-muted: hsl(132, 0%, 90%);
+	--ui-muted-color: 132, 0%, 90%;
+
+	/* Contrast */
+	--ui-contrast: hsl(132, 0%, 25%);
+	--ui-contrast-color: 132, 0%, 25%;
+	--ui-contrast-hover: hsl(132, 0%, 35%);
+	--ui-contrast-active: hsl(132, 0%, 45%);
+	--ui-contrast-text: hsl(132, 0%, 98%);
+
+	/* Heading colors - Templui specific */
+	--ui-h1-color: hsl(132, 0%, 25%); /* text - most prominent */
+	--ui-h2-color: hsl(132, 0%, 35%); /* text */
+	--ui-h3-color: hsl(132, 0%, 45%); /* text */
+	--ui-h4-color: hsl(132, 0%, 55%); /* selection */
+	--ui-h5-color: hsl(132, 0%, 65%); /* border */
+	--ui-h6-color: hsl(132, 0%, 75%); /* muted */
+
+	color-scheme: light;
+}
+
+/* Dark Theme Overrides - Templui Dark */
+[data-theme="dark"] {
+	/* Enhanced shadows for dark theme - deeper and more subtle */
+	--ui-shadow-color: 0, 0%, 0%;
+
+	--ui-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+	--ui-shadow:
+		0 2px 4px -1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-md:
+		0 4px 8px -2px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-lg:
+		0 8px 16px -4px rgba(0, 0, 0, 0.6), 0 4px 8px -2px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-xl:
+		0 12px 24px -6px rgba(0, 0, 0, 0.6), 0 6px 12px -3px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-2xl:
+		0 16px 32px -8px rgba(0, 0, 0, 0.6), 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+
+	--ui-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+
+	/* Inverted grayscale - Templui Dark */
+	--ui-color-50: hsl(132, 0%, 12%); /* background */
+	--ui-color-100: hsl(132, 0%, 15%); /* card */
+	--ui-color-200: hsl(132, 0%, 20%); /* popover */
+	--ui-color-300: hsl(132, 0%, 25%); /* muted */
+	--ui-color-400: hsl(132, 0%, 30%); /* accent */
+	--ui-color-500: hsl(132, 0%, 35%); /* border */
+	--ui-color-600: hsl(132, 0%, 40%); /* input */
+	--ui-color-700: hsl(132, 0%, 45%); /* foreground */
+	--ui-color-800: hsl(132, 0%, 55%); /* selection */
+	--ui-color-900: hsl(132, 0%, 65%); /* text */
+	--ui-color-950: hsl(132, 0%, 75%); /* text */
+
+	/* Semantic overrides */
+	--ui-text-input: hsl(132, 0%, 45%);
+	--ui-muted-text: hsl(132, 0%, 65%);
+	--ui-border-color: hsla(132, 0%, 40%, 0.35);
+	--ui-backdrop-color: hsla(132, 0%, 10%, 0.85);
+
+	/* Dark theme color adjustments - Templui dark variants */
+	--ui-primary: hsl(132, 40%, 75%);
+	--ui-primary-color: 132, 40%, 75%;
+	--ui-primary-hover: hsl(132, 40%, 70%);
+	--ui-primary-active: hsl(132, 40%, 65%);
+
+	--ui-secondary: hsl(210, 20%, 65%);
+	--ui-secondary-color: 210, 20%, 65%;
+	--ui-secondary-hover: hsl(210, 20%, 70%);
+	--ui-secondary-active: hsl(210, 20%, 75%);
+
+	--ui-success: hsl(160, 30%, 80%);
+	--ui-success-color: 160, 30%, 80%;
+	--ui-success-hover: hsl(160, 30%, 75%);
+	--ui-success-active: hsl(160, 30%, 70%);
+	--ui-success-text: hsl(132, 0%, 12%);
+
+	--ui-warning: hsl(42, 60%, 80%);
+	--ui-warning-color: 42, 60%, 80%;
+	--ui-warning-hover: hsl(42, 60%, 75%);
+	--ui-warning-active: hsl(42, 60%, 70%);
+	--ui-warning-text: hsl(132, 0%, 12%);
+
+	--ui-destructive: hsl(350, 40%, 75%);
+	--ui-destructive-color: 350, 40%, 75%;
+	--ui-destructive-hover: hsl(350, 40%, 70%);
+	--ui-destructive-active: hsl(350, 40%, 65%);
+	--ui-destructive-text: hsl(132, 0%, 12%);
+
+	--ui-info: hsl(210, 20%, 65%);
+	--ui-info-color: 210, 20%, 65%;
+	--ui-info-hover: hsl(210, 20%, 70%);
+	--ui-info-active: hsl(210, 20%, 75%);
+	--ui-info-text: hsl(132, 0%, 98%);
+
+	--ui-muted: hsl(132, 0%, 20%);
+	--ui-muted-color: 132, 0%, 20%;
+
+	--ui-contrast: hsl(132, 0%, 75%);
+	--ui-contrast-color: 132, 0%, 75%;
+	--ui-contrast-hover: hsl(132, 0%, 65%);
+	--ui-contrast-active: hsl(132, 0%, 55%);
+
+	/* Heading colors - Templui specific (dark) */
+	--ui-h1-color: hsl(132, 0%, 75%); /* text - brightest */
+	--ui-h2-color: hsl(132, 0%, 65%); /* text */
+	--ui-h3-color: hsl(132, 0%, 55%); /* selection */
+	--ui-h4-color: hsl(132, 0%, 45%); /* foreground */
+	--ui-h5-color: hsl(132, 0%, 35%); /* border */
+	--ui-h6-color: hsl(132, 0%, 25%); /* muted */
+
+	color-scheme: dark;
+}
+
+/* Base styles */
+html {
+	font-family: var(--ui-font-family);
+	font-size: var(--ui-font-size);
+	background-color: var(--ui-bg);
+	color: var(--ui-text);
+}
+
+body {
+	line-height: var(--ui-line-height);
+}
+
+/* Variable font settings */
+:root {
+	--mono: 0;
+	--casl: 1;
+	--wght: 400;
+	--slnt: 0;
+	--CRSV: 0.5;
+}
+
+* {
+	font-variation-settings:
+		"MONO" var(--mono),
+		"CASL" var(--casl),
+		"wght" var(--wght),
+		"slnt" var(--slnt),
+		"CRSV" var(--CRSV);
+}
+
+/* Typography presets */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	--wght: 700;
+	--slnt: -3;
+}
+
+h1 {
+	color: var(--ui-h1-color);
+}
+
+h2 {
+	color: var(--ui-h2-color);
+}
+
+h3 {
+	color: var(--ui-h3-color);
+}
+
+h4 {
+	color: var(--ui-h4-color);
+}
+
+h5 {
+	color: var(--ui-h5-color);
+}
+
+h6 {
+	color: var(--ui-h6-color);
+}
+
+b,
+strong {
+	--wght: 600;
+}
+
+i,
+em {
+	--slnt: -10;
+}
+
+code,
+kbd,
+pre,
+samp {
+	--mono: 1;
+	--casl: 0;
+}
+
+small {
+	--wght: 300;
+}
+
+blockquote {
+	--wght: 350;
+	--slnt: -10;
+}
