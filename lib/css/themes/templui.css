@@ -54,88 +54,90 @@
 	--ui-shadow-inner: inset 0 2px 4px hsla(var(--ui-shadow-color), 0.25);
 
 	/* Grayscale - Templui Light */
-	--ui-color-50: hsl(240, 0%, 98%); /* background */
-	--ui-color-100: hsl(240, 0%, 96%); /* card */
-	--ui-color-200: hsl(240, 0%, 94%); /* popover */
-	--ui-color-300: hsl(240, 0%, 90%); /* muted */
-	--ui-color-400: hsl(240, 0%, 85%); /* accent */
-	--ui-color-500: hsl(240, 0%, 75%); /* border */
-	--ui-color-600: hsl(240, 0%, 65%); /* input */
-	--ui-color-700: hsl(240, 0%, 55%); /* foreground */
-	--ui-color-800: hsl(240, 0%, 45%); /* selection */
-	--ui-color-900: hsl(240, 0%, 35%); /* text */
-	--ui-color-950: hsl(240, 0%, 25%); /* text */
+	--ui-color-50: oklch(98% 0 240); /* background */
+	--ui-color-100: oklch(96% 0 240); /* card */
+	--ui-color-200: oklch(94% 0 240); /* popover */
+	--ui-color-300: oklch(90% 0 240); /* muted */
+	--ui-color-400: oklch(85% 0 240); /* accent */
+	--ui-color-500: oklch(75% 0 240); /* border */
+	--ui-color-600: oklch(65% 0 240); /* input */
+	--ui-color-700: oklch(55% 0 240); /* foreground */
+	--ui-color-800: oklch(45% 0 240); /* selection */
+	--ui-color-900: oklch(35% 0 240); /* text */
+	--ui-color-950: oklch(25% 0 240); /* text */
 
 	/* Semantic colors */
-	--ui-bg: hsl(240, 0%, 98%); /* background */
-	--ui-text: hsl(240, 0%, 25%); /* text */
-	--ui-text-input: hsl(240, 0%, 45%); /* input */
-	--ui-muted-text: hsl(240, 0%, 65%); /* border */
-	--ui-border-color: hsla(240, 0%, 75%, 0.4);
-	--ui-backdrop-color: hsla(240, 0%, 98%, 0.85);
+	--ui-bg: oklch(98% 0 240); /* background */
+	--ui-text: oklch(25% 0 240); /* text */
+	--ui-text-input: oklch(45% 0 240); /* input */
+	--ui-muted-text: oklch(65% 0 240); /* border */
+	--ui-border-color: oklch(75% 0 240 / 0.4);
+	--ui-backdrop-color: oklch(98% 0 240 / 0.85);
 
 	/* Primary - Templui Green */
-	--ui-primary: hsl(132, 40%, 65%);
-	--ui-primary-color: 132, 40%, 65%;
-	--ui-primary-hover: hsl(132, 40%, 60%);
-	--ui-primary-active: hsl(132, 40%, 55%);
-	--ui-primary-text: hsl(240, 0%, 98%);
+	--ui-primary: oklch(
+		60% 0.2 132
+	); /* Improved contrast version of your primary */
+	--ui-primary-color: 132, 0.2, 132;
+	--ui-primary-hover: oklch(55% 0.2 132);
+	--ui-primary-active: oklch(50% 0.2 132);
+	--ui-primary-text: oklch(98% 0 240);
 
 	/* Secondary - Templui Blue */
-	--ui-secondary: hsl(210, 20%, 75%);
-	--ui-secondary-color: 210, 20%, 75%;
-	--ui-secondary-hover: hsl(210, 20%, 70%);
-	--ui-secondary-active: hsl(210, 20%, 65%);
-	--ui-secondary-text: hsl(240, 0%, 98%);
+	--ui-secondary: oklch(70% 0.15 210);
+	--ui-secondary-color: 210, 0.15, 210;
+	--ui-secondary-hover: oklch(65% 0.15 210);
+	--ui-secondary-active: oklch(60% 0.15 210);
+	--ui-secondary-text: oklch(98% 0 240);
 
 	/* Success - Templui Aqua */
-	--ui-success: hsl(160, 30%, 70%);
-	--ui-success-color: 160, 30%, 70%;
-	--ui-success-hover: hsl(160, 30%, 65%);
-	--ui-success-active: hsl(160, 30%, 60%);
-	--ui-success-text: hsl(240, 0%, 98%);
+	--ui-success: oklch(65% 0.2 160);
+	--ui-success-color: 160, 0.2, 160;
+	--ui-success-hover: oklch(60% 0.2 160);
+	--ui-success-active: oklch(55% 0.2 160);
+	--ui-success-text: oklch(98% 0 240);
 
 	/* Warning - Templui Yellow */
-	--ui-warning: hsl(42, 60%, 75%);
-	--ui-warning-color: 42, 60%, 75%;
-	--ui-warning-hover: hsl(42, 60%, 70%);
-	--ui-warning-active: hsl(42, 60%, 65%);
-	--ui-warning-text: hsl(240, 0%, 98%);
+	--ui-warning: oklch(65% 0.3 42);
+	--ui-warning-color: 42, 0.3, 42;
+	--ui-warning-hover: oklch(60% 0.3 42);
+	--ui-warning-active: oklch(55% 0.3 42);
+	--ui-warning-text: oklch(98% 0 240);
 
 	/* Destructive/Error - Templui Red */
-	--ui-destructive: hsl(350, 40%, 65%);
-	--ui-destructive-color: 350, 40%, 65%;
-	--ui-destructive-hover: hsl(350, 40%, 60%);
-	--ui-destructive-active: hsl(350, 40%, 55%);
-	--ui-destructive-text: hsl(240, 0%, 98%);
+	--ui-destructive: oklch(60% 0.25 350);
+	--ui-destructive-color: 350, 0.25, 350;
+	--ui-destructive-hover: oklch(55% 0.25 350);
+	--ui-destructive-active: oklch(50% 0.25 350);
+	--ui-destructive-text: oklch(98% 0 240);
 	--ui-error: var(--ui-destructive);
 	--ui-error-text: var(--ui-destructive-text);
 
 	/* Info - Templui Blue (lighter) */
-	--ui-info: hsl(210, 20%, 75%);
-	--ui-info-color: 210, 20%, 75%;
-	--ui-info-hover: hsl(210, 20%, 70%);
-	--ui-info-active: hsl(210, 20%, 65%);
-	--ui-info-text: hsl(240, 0%, 98%);
+	--ui-info: oklch(70% 0.15 210);
+	--ui-info-color: 210, 0.15, 210;
+	--ui-info-hover: oklch(65% 0.15 210);
+	--ui-info-active: oklch(60% 0.15 210);
+	--ui-info-text: oklch(98% 0 240);
 
 	/* Muted */
-	--ui-muted: hsl(240, 0%, 90%);
-	--ui-muted-color: 240, 0%, 90%;
+	--ui-muted: oklch(90% 0 240);
+	--ui-muted-color: 240, 0, 240;
 
 	/* Contrast */
-	--ui-contrast: hsl(240, 0%, 25%);
-	--ui-contrast-color: 240, 0%, 25%;
-	--ui-contrast-hover: hsl(240, 0%, 35%);
-	--ui-contrast-active: hsl(240, 0%, 45%);
-	--ui-contrast-text: hsl(240, 0%, 98%);
+	--ui-contrast: oklch(25% 0 240);
+	--ui-contrast-color: 240, 0, 240;
+	--ui-contrast-hover: oklch(35% 0 240);
+	--ui-contrast-active: oklch(45% 0 240);
+	--ui-contrast-text: oklch(98% 0 240);
 
 	/* Heading colors - Templui specific */
-	--ui-h1-color: hsl(240, 0%, 25%); /* text - most prominent */
-	--ui-h2-color: hsl(240, 0%, 35%); /* text */
-	--ui-h3-color: hsl(240, 0%, 45%); /* text */
-	--ui-h4-color: hsl(240, 0%, 55%); /* selection */
-	--ui-h5-color: hsl(240, 0%, 65%); /* border */
-	--ui-h6-color: hsl(240, 0%, 75%); /* muted */
+	--ui-h1-color: oklch(25% 0 240); /* text - most prominent */
+	--ui-h2-color: oklch(35% 0 240); /* text */
+	--ui-h3-color: oklch(45% 0 240); /* text */
+	--ui-h4-color: oklch(55% 0 240); /* selection */
+	--ui-h5-color: oklch(65% 0 240); /* border */
+	--ui-h6-color: oklch(75% 0 240); /* muted */
 
 	color-scheme: light;
 }
@@ -165,76 +167,78 @@
 	--ui-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.5);
 
 	/* Inverted grayscale - Templui Dark */
-	--ui-color-50: hsl(240, 10%, 12%); /* background */
-	--ui-color-100: hsl(240, 10%, 15%); /* card */
-	--ui-color-200: hsl(240, 10%, 20%); /* popover */
-	--ui-color-300: hsl(240, 10%, 25%); /* muted */
-	--ui-color-400: hsl(240, 10%, 30%); /* accent */
-	--ui-color-500: hsl(240, 10%, 35%); /* border */
-	--ui-color-600: hsl(240, 10%, 40%); /* input */
-	--ui-color-700: hsl(240, 10%, 45%); /* foreground */
-	--ui-color-800: hsl(240, 10%, 55%); /* selection */
-	--ui-color-900: hsl(240, 10%, 65%); /* text */
-	--ui-color-950: hsl(240, 10%, 75%); /* text */
+	--ui-color-50: oklch(12% 0 240); /* background */
+	--ui-color-100: oklch(15% 0 240); /* card */
+	--ui-color-200: oklch(20% 0 240); /* popover */
+	--ui-color-300: oklch(25% 0 240); /* muted */
+	--ui-color-400: oklch(30% 0 240); /* accent */
+	--ui-color-500: oklch(35% 0 240); /* border */
+	--ui-color-600: oklch(40% 0 240); /* input */
+	--ui-color-700: oklch(45% 0 240); /* foreground */
+	--ui-color-800: oklch(55% 0 240); /* selection */
+	--ui-color-900: oklch(65% 0 240); /* text */
+	--ui-color-950: oklch(75% 0 240); /* text */
 
-	/* Semantic overrides - Ensure proper dark theme colors */
-	--ui-bg: hsl(240, 10%, 12%); /* background - proper dark theme */
-	--ui-text: hsl(240, 10%, 75%); /* text */
-	--ui-text-input: hsl(240, 10%, 45%); /* input */
-	--ui-muted-text: hsl(240, 10%, 65%); /* border */
-	--ui-border-color: hsla(240, 10%, 40%, 0.35);
-	--ui-backdrop-color: hsla(240, 10%, 10%, 0.85);
+	/* Semantic overrides */
+	--ui-bg: oklch(12% 0 240); /* background - proper dark theme */
+	--ui-text: oklch(75% 0 240); /* text */
+	--ui-text-input: oklch(45% 0 240); /* input */
+	--ui-muted-text: oklch(65% 0 240); /* border */
+	--ui-border-color: oklch(40% 0 240 / 0.35);
+	--ui-backdrop-color: oklch(10% 0 240 / 0.85);
 
 	/* Dark theme color adjustments - Templui dark variants */
-	--ui-primary: hsl(132, 40%, 75%);
-	--ui-primary-color: 132, 40%, 75%;
-	--ui-primary-hover: hsl(132, 40%, 70%);
-	--ui-primary-active: hsl(132, 40%, 65%);
+	--ui-primary: oklch(
+		70% 0.2 132
+	); /* Improved contrast version of your primary */
+	--ui-primary-color: 132, 0.2, 132;
+	--ui-primary-hover: oklch(65% 0.2 132);
+	--ui-primary-active: oklch(60% 0.2 132);
 
-	--ui-secondary: hsl(210, 20%, 65%);
-	--ui-secondary-color: 210, 20%, 65%;
-	--ui-secondary-hover: hsl(210, 20%, 70%);
-	--ui-secondary-active: hsl(210, 20%, 75%);
+	--ui-secondary: oklch(65% 0.15 210);
+	--ui-secondary-color: 210, 0.15, 210;
+	--ui-secondary-hover: oklch(70% 0.15 210);
+	--ui-secondary-active: oklch(75% 0.15 210);
 
-	--ui-success: hsl(160, 30%, 80%);
-	--ui-success-color: 160, 30%, 80%;
-	--ui-success-hover: hsl(160, 30%, 75%);
-	--ui-success-active: hsl(160, 30%, 70%);
-	--ui-success-text: hsl(240, 0%, 12%);
+	--ui-success: oklch(75% 0.2 160);
+	--ui-success-color: 160, 0.2, 160;
+	--ui-success-hover: oklch(70% 0.2 160);
+	--ui-success-active: oklch(65% 0.2 160);
+	--ui-success-text: oklch(12% 0 240);
 
-	--ui-warning: hsl(42, 60%, 80%);
-	--ui-warning-color: 42, 60%, 80%;
-	--ui-warning-hover: hsl(42, 60%, 75%);
-	--ui-warning-active: hsl(42, 60%, 70%);
-	--ui-warning-text: hsl(240, 0%, 12%);
+	--ui-warning: oklch(70% 0.3 42);
+	--ui-warning-color: 42, 0.3, 42;
+	--ui-warning-hover: oklch(65% 0.3 42);
+	--ui-warning-active: oklch(60% 0.3 42);
+	--ui-warning-text: oklch(12% 0 240);
 
-	--ui-destructive: hsl(350, 40%, 75%);
-	--ui-destructive-color: 350, 40%, 75%;
-	--ui-destructive-hover: hsl(350, 40%, 70%);
-	--ui-destructive-active: hsl(350, 40%, 65%);
-	--ui-destructive-text: hsl(240, 0%, 12%);
+	--ui-destructive: oklch(70% 0.25 350);
+	--ui-destructive-color: 350, 0.25, 350;
+	--ui-destructive-hover: oklch(65% 0.25 350);
+	--ui-destructive-active: oklch(60% 0.25 350);
+	--ui-destructive-text: oklch(12% 0 240);
 
-	--ui-info: hsl(210, 20%, 65%);
-	--ui-info-color: 210, 20%, 65%;
-	--ui-info-hover: hsl(210, 20%, 70%);
-	--ui-info-active: hsl(210, 20%, 75%);
-	--ui-info-text: hsl(240, 0%, 98%);
+	--ui-info: oklch(65% 0.15 210);
+	--ui-info-color: 210, 0.15, 210;
+	--ui-info-hover: oklch(70% 0.15 210);
+	--ui-info-active: oklch(75% 0.15 210);
+	--ui-info-text: oklch(98% 0 240);
 
-	--ui-muted: hsl(240, 10%, 20%);
-	--ui-muted-color: 240, 10%, 20%;
+	--ui-muted: oklch(20% 0 240);
+	--ui-muted-color: 240, 0, 240;
 
-	--ui-contrast: hsl(240, 10%, 75%);
-	--ui-contrast-color: 240, 10%, 75%;
-	--ui-contrast-hover: hsl(240, 10%, 65%);
-	--ui-contrast-active: hsl(240, 10%, 55%);
+	--ui-contrast: oklch(75% 0 240);
+	--ui-contrast-color: 240, 0, 240;
+	--ui-contrast-hover: oklch(65% 0 240);
+	--ui-contrast-active: oklch(55% 0 240);
 
 	/* Heading colors - Templui specific (dark) */
-	--ui-h1-color: hsl(240, 10%, 75%); /* text - brightest */
-	--ui-h2-color: hsl(240, 10%, 65%); /* text */
-	--ui-h3-color: hsl(240, 10%, 55%); /* selection */
-	--ui-h4-color: hsl(240, 10%, 45%); /* foreground */
-	--ui-h5-color: hsl(240, 10%, 35%); /* border */
-	--ui-h6-color: hsl(240, 10%, 25%); /* muted */
+	--ui-h1-color: oklch(75% 0 240); /* text - brightest */
+	--ui-h2-color: oklch(65% 0 240); /* text */
+	--ui-h3-color: oklch(55% 0 240); /* selection */
+	--ui-h4-color: oklch(45% 0 240); /* foreground */
+	--ui-h5-color: oklch(35% 0 240); /* border */
+	--ui-h6-color: oklch(25% 0 240); /* muted */
 
 	color-scheme: dark;
 }
