@@ -97,18 +97,18 @@
 	--ui-success-active: oklch(55% 0.2 160);
 	--ui-success-text: oklch(98% 0 240);
 
-	/* Warning - Templui Yellow */
-	--ui-warning: oklch(65% 0.3 42);
-	--ui-warning-color: 42, 0.3, 42;
-	--ui-warning-hover: oklch(60% 0.3 42);
-	--ui-warning-active: oklch(55% 0.3 42);
+	/* Warning - Templui Yellow/Orange */
+	--ui-warning: oklch(65% 0.3 70);
+	--ui-warning-color: 70, 0.3, 70;
+	--ui-warning-hover: oklch(60% 0.3 70);
+	--ui-warning-active: oklch(55% 0.3 70);
 	--ui-warning-text: oklch(98% 0 240);
 
 	/* Destructive/Error - Templui Red */
-	--ui-destructive: oklch(60% 0.25 350);
-	--ui-destructive-color: 350, 0.25, 350;
-	--ui-destructive-hover: oklch(55% 0.25 350);
-	--ui-destructive-active: oklch(50% 0.25 350);
+	--ui-destructive: oklch(60% 0.3 35);
+	--ui-destructive-color: 35, 0.3, 35;
+	--ui-destructive-hover: oklch(55% 0.3 35);
+	--ui-destructive-active: oklch(50% 0.3 35);
 	--ui-destructive-text: oklch(98% 0 240);
 	--ui-error: var(--ui-destructive);
 	--ui-error-text: var(--ui-destructive-text);
@@ -206,16 +206,16 @@
 	--ui-success-active: oklch(65% 0.2 160);
 	--ui-success-text: oklch(12% 0 240);
 
-	--ui-warning: oklch(70% 0.3 42);
-	--ui-warning-color: 42, 0.3, 42;
-	--ui-warning-hover: oklch(65% 0.3 42);
-	--ui-warning-active: oklch(60% 0.3 42);
+	--ui-warning: oklch(70% 0.3 70);
+	--ui-warning-color: 70, 0.3, 70;
+	--ui-warning-hover: oklch(65% 0.3 70);
+	--ui-warning-active: oklch(60% 0.3 70);
 	--ui-warning-text: oklch(12% 0 240);
 
-	--ui-destructive: oklch(70% 0.25 350);
-	--ui-destructive-color: 350, 0.25, 350;
-	--ui-destructive-hover: oklch(65% 0.25 350);
-	--ui-destructive-active: oklch(60% 0.25 350);
+	--ui-destructive: oklch(70% 0.3 35);
+	--ui-destructive-color: 35, 0.3, 35;
+	--ui-destructive-hover: oklch(65% 0.3 35);
+	--ui-destructive-active: oklch(60% 0.3 35);
 	--ui-destructive-text: oklch(12% 0 240);
 
 	--ui-info: oklch(65% 0.15 210);
