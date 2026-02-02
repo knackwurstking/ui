@@ -14,9 +14,18 @@ import (
 // This middleware configures cache headers to tell the browser to check the network first
 // before using cached versions, ensuring users always get the latest content.
 func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
-	setCacheHeaders := func(ctx echo.Context) {
-		// Set cache headers to check network first before using cached version
-		ctx.Response().Header().Set("Cache-Control", "public, must-revalidate")
+	// Set cache headers for assets with version query parameters
+	setAssetCacheHeaders := func(ctx echo.Context) {
+		// For assets with version query params, allow long-term caching
+		ctx.Response().Header().Set("Cache-Control", "public, max-age=31536000")
+		ctx.Response().Header().Set("Expires", time.Now().AddDate(1, 0, 0).Format(http.TimeFormat))
+	}
+
+	// Set cache headers for pages in additionalPaths
+	setPageCacheHeaders := func(ctx echo.Context) {
+		// For pages passed through additionalPaths, allow caching but not online freshness
+		// This allows offline use while still allowing some cache control
+		ctx.Response().Header().Set("Cache-Control", "public, max-age=0, must-revalidate")
 		ctx.Response().Header().Set("Expires", time.Now().AddDate(1, 0, 0).Format(http.TimeFormat))
 	}
 
@@ -28,15 +37,16 @@ func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {
 			if enablePathChecking {
-				if slices.Contains(additionalPaths, strings.TrimRight(ctx.Request().URL.Path, "/")) {
-					setCacheHeaders(ctx)
+				path := strings.TrimRight(ctx.Request().URL.Path, "/")
+				if slices.Contains(additionalPaths, path) {
+					setPageCacheHeaders(ctx)
 					return next(ctx)
 				}
 			}
 
 			// Check for version query parameter (e.g., ?v=1763969451)
 			if version := ctx.Request().URL.Query().Get("v"); version != "" {
-				setCacheHeaders(ctx)
+				setAssetCacheHeaders(ctx)
 			}
 
 			return next(ctx)
