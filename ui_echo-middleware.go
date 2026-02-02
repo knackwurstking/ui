@@ -17,7 +17,7 @@ func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
 	// Set cache headers for assets with version query parameters
 	setAssetCacheHeaders := func(ctx echo.Context) {
 		// For assets with version query params, allow long-term caching
-		ctx.Response().Header().Set("Cache-Control", "public, max-age=31536000")
+		ctx.Response().Header().Set("Cache-Control", "private, max-age=31536000")
 		ctx.Response().Header().Set("Expires", time.Now().AddDate(1, 0, 0).Format(http.TimeFormat))
 	}
 
@@ -25,7 +25,7 @@ func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
 	setPageCacheHeaders := func(ctx echo.Context) {
 		// For pages passed through additionalPaths, allow caching but not online freshness
 		// This allows offline use while still allowing some cache control
-		ctx.Response().Header().Set("Cache-Control", "public, max-age=0, must-revalidate")
+		ctx.Response().Header().Set("Cache-Control", "no-cache")
 		ctx.Response().Header().Set("Expires", time.Now().AddDate(1, 0, 0).Format(http.TimeFormat))
 	}
 
