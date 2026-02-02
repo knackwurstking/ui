@@ -1,4 +1,3 @@
-// NOTE: Removed
 package ui
 
 import (
