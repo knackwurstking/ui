@@ -10,10 +10,13 @@ import (
 )
 
 // EchoMiddlewareCache sets appropriate cache headers for static assets with version parameters
+//
+// This middleware configures cache headers to tell the browser to check the network first
+// before using cached versions, ensuring users always get the latest content.
 func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
 	setCacheHeaders := func(ctx echo.Context) {
-		// Set long cache headers for cached assets
-		ctx.Response().Header().Set("Cache-Control", "public, max-age=31536000, immutable")
+		// Set cache headers to check network first before using cached version
+		ctx.Response().Header().Set("Cache-Control", "public, must-revalidate")
 		ctx.Response().Header().Set("Expires", time.Now().AddDate(1, 0, 0).Format(http.TimeFormat))
 	}
 
