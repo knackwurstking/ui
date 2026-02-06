@@ -3,15 +3,15 @@
 @import "./reset.css";
 @import "./global.css";
 
-@import "./html/input.css";
-@import "./html/anchor.css";
 @import "./html/button/main.css";
+@import "./html/anchor.css";
 @import "./html/blockquote.css";
 @import "./html/code.css";
 @import "./html/container.css";
 @import "./html/details.css";
 @import "./html/dialog.css";
 @import "./html/fieldset.css";
+@import "./html/input.css";
 @import "./html/list.css";
 @import "./html/select.css";
 @import "./html/separator.css";
@@ -28,6 +28,7 @@
 @import "./components/drawer-extended.css";
 @import "./components/pagination.css";
 @import "./components/progress.css";
+@import "./components/radio.css";
 @import "./components/spinner.css";
 @import "./components/switch.css";
 @import "./components/tabs.css";
