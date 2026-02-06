@@ -1,0 +1,93 @@
+/* Extended Drawer Component */
+.drawer {
+	/* utils: .ui-hide-scrollbar */
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	/* utils: .ui-backdrop */
+	background-color: var(--ui-backdrop-color);
+
+	position: absolute;
+	top: 0;
+	left: -100%;
+	overflow: auto;
+	transition:
+		left 0.25s ease-in-out,
+		width 0.25s ease-in-out;
+	width: var(--width, fit-content);
+	max-width: calc(100% - 2.5rem);
+	height: 100%;
+	border-right: var(--ui-border-width) var(--ui-border-style)
+		var(--ui-border-color);
+}
+
+/* utils: .ui-hide-scrollbar */
+.drawer::-webkit-scrollbar {
+	display: none;
+}
+
+.drawer.open {
+	left: 0;
+}
+
+.drawer.open::before {
+	left: 0;
+}
+
+.drawer-backdrop {
+	/* utils: .ui-backdrop */
+	background-color: var(--ui-backdrop-color);
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.drawer-backdrop:has(~ .drawer:not(.open)) {
+	display: none;
+}
+
+/* Drawer with close button */
+.drawer-close {
+	position: absolute;
+	top: calc(var(--ui-spacing) / 2);
+	right: calc(var(--ui-spacing) / 2);
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: var(--ui-color-100);
+	color: var(--ui-text);
+	border: none;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.drawer-close:hover {
+	background-color: var(--ui-color-200);
+}
+
+/* Drawer sizes */
+.drawer.small {
+	width: 20rem;
+}
+
+.drawer.medium {
+	width: 30rem;
+}
+
+.drawer.large {
+	width: 40rem;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.drawer {
+		transition: none;
+	}
+}
+

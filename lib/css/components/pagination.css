@@ -1,0 +1,100 @@
+/* Pagination Component */
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--ui-spacing);
+	padding: var(--ui-spacing);
+}
+
+.pagination > * {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2rem;
+	height: 2rem;
+	padding: 0 var(--ui-spacing);
+	border-radius: var(--ui-radius);
+}
+
+.pagination > .page-button {
+	background-color: var(--ui-bg);
+	color: var(--ui-text);
+	border: var(--ui-border-width) solid var(--ui-border-color);
+	transition:
+		background-color 0.2s ease-in-out,
+		border-color 0.2s ease-in-out;
+}
+
+.pagination > .page-button:hover {
+	background-color: var(--ui-color-100);
+}
+
+.pagination > .page-button.active {
+	background-color: var(--ui-primary);
+	color: var(--ui-primary-text);
+	border-color: var(--ui-primary);
+}
+
+.pagination > .page-button.disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.pagination > .page-button.previous,
+.pagination > .page-button.next {
+	width: 3rem;
+}
+
+/* Pagination with ellipsis */
+.pagination > .ellipsis {
+	color: var(--ui-muted-text);
+	cursor: default;
+	opacity: 0.7;
+}
+
+/* Compact pagination */
+.pagination.compact {
+	gap: calc(var(--ui-spacing) / 2);
+}
+
+.pagination.compact > * {
+	min-width: 1.5rem;
+	height: 1.5rem;
+	padding: 0 calc(var(--ui-spacing) / 2);
+	font-size: 0.875rem;
+}
+
+/* Large pagination */
+.pagination.large {
+	gap: calc(var(--ui-spacing) * 1.5);
+}
+
+.pagination.large > * {
+	min-width: 2.5rem;
+	height: 2.5rem;
+	padding: 0 calc(var(--ui-spacing) * 1.5);
+	font-size: 1.125rem;
+}
+
+/* Pagination with icons */
+.pagination > .page-button.icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+}
+
+/* Accessibility */
+.pagination > .page-button:focus-visible {
+	outline: 2px solid var(--ui-primary);
+	outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+	.pagination > .page-button {
+		transition: none;
+	}
+}
+

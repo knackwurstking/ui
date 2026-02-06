@@ -34,16 +34,16 @@ Or include individual components as needed:
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="path/to/lib/css/main.css" />
-    </head>
-    <body>
-        <button class="primary">Primary Button</button>
-        <button class="success outline">Success Outline</button>
-        <div class="flex gap align-center">
-            <span class="text-lg text-semibold">Hello World</span>
-        </div>
-    </body>
+  <head>
+    <link rel="stylesheet" href="path/to/lib/css/main.css" />
+  </head>
+  <body>
+    <button class="primary">Primary Button</button>
+    <button class="success outline">Success Outline</button>
+    <div class="flex gap align-center">
+      <span class="text-lg text-semibold">Hello World</span>
+    </div>
+  </body>
 </html>
 ```
 
@@ -81,15 +81,15 @@ The library automatically adapts to system preferences:
 ```css
 /* Automatically switches based on prefers-color-scheme */
 @media (prefers-color-scheme: dark) {
-    /* Dark theme colors */
+  /* Dark theme colors */
 }
 
 /* Manual theme override */
 [data-theme="light"] {
-    /* Light theme */
+  /* Light theme */
 }
 [data-theme="dark"] {
-    /* Dark theme */
+  /* Dark theme */
 }
 ```
 
@@ -113,6 +113,64 @@ The library automatically adapts to system preferences:
 <div role="button" class="primary">Custom Button</div>
 ```
 
+### Checkboxes and Radio Buttons
+
+```html
+<!-- Checkbox variants -->
+<input type="checkbox" class="primary" />
+<label class="checkbox primary">Primary Checkbox</label>
+
+<input type="checkbox" class="secondary" />
+<label class="checkbox secondary">Secondary Checkbox</label>
+
+<input type="checkbox" class="success" />
+<label class="checkbox success">Success Checkbox</label>
+
+<!-- Radio button group -->
+<div class="radio-group">
+  <input type="radio" name="group1" class="primary" />
+  <label class="radio primary">Option 1</label>
+
+  <input type="radio" name="group1" class="secondary" />
+  <label class="radio secondary">Option 2</label>
+
+  <input type="radio" name="group1" class="success" />
+  <label class="radio success">Option 3</label>
+</div>
+
+<!-- Disabled states -->
+<input type="checkbox" disabled />
+<label class="checkbox">Disabled Checkbox</label>
+
+<input type="radio" name="group2" disabled />
+<label class="radio">Disabled Radio</label>
+```
+
+### Switches
+
+```html
+<!-- Switch variants -->
+<input type="checkbox" class="primary" />
+<label class="switch primary">Primary Switch</label>
+
+<input type="checkbox" class="secondary" />
+<label class="switch secondary">Secondary Switch</label>
+
+<input type="checkbox" class="success" />
+<label class="switch success">Success Switch</label>
+
+<!-- Large and small switches -->
+<input type="checkbox" class="large" />
+<label class="switch large">Large Switch</label>
+
+<input type="checkbox" class="small" />
+<label class="switch small">Small Switch</label>
+
+<!-- Disabled switch -->
+<input type="checkbox" disabled />
+<label class="switch">Disabled Switch</label>
+```
+
 ### Forms
 
 ```html
@@ -126,8 +184,8 @@ The library automatically adapts to system preferences:
 
 <!-- Select dropdown -->
 <select>
-    <option>Option 1</option>
-    <option>Option 2</option>
+  <option>Option 1</option>
+  <option>Option 2</option>
 </select>
 
 <!-- Range slider -->
@@ -139,25 +197,25 @@ The library automatically adapts to system preferences:
 ```html
 <!-- App Bar -->
 <div class="app-bar top fixed">
-    <div class="app-bar-left">
-        <button class="ghost">Menu</button>
-    </div>
-    <div class="app-bar-center">
-        <h1>App Title</h1>
-    </div>
-    <div class="app-bar-right">
-        <button class="ghost">Settings</button>
-    </div>
+  <div class="app-bar-left">
+    <button class="ghost">Menu</button>
+  </div>
+  <div class="app-bar-center">
+    <h1>App Title</h1>
+  </div>
+  <div class="app-bar-right">
+    <button class="ghost">Settings</button>
+  </div>
 </div>
 
 <!-- Container -->
 <div class="container">
-    <p>Centered content with max-width</p>
+  <p>Centered content with max-width</p>
 </div>
 
 <!-- Drawer -->
 <div class="drawer">
-    <nav>Navigation content</nav>
+  <nav>Navigation content</nav>
 </div>
 
 <!-- Spinner -->
@@ -165,19 +223,19 @@ The library automatically adapts to system preferences:
 
 <!-- Card -->
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Card Title</h3>
-        <p class="card-subtitle">Optional subtitle</p>
+  <div class="card-header">
+    <h3 class="card-title">Card Title</h3>
+    <p class="card-subtitle">Optional subtitle</p>
+  </div>
+  <div class="card-body">
+    <p class="card-description">Card content goes here.</p>
+  </div>
+  <div class="card-footer">
+    <div class="card-actions">
+      <button class="primary">Action</button>
+      <button class="secondary outline">Cancel</button>
     </div>
-    <div class="card-body">
-        <p class="card-description">Card content goes here.</p>
-    </div>
-    <div class="card-footer">
-        <div class="card-actions">
-            <button class="primary">Action</button>
-            <button class="secondary outline">Cancel</button>
-        </div>
-    </div>
+  </div>
 </div>
 ```
 
@@ -186,22 +244,22 @@ The library automatically adapts to system preferences:
 ```html
 <!-- Basic card -->
 <div class="card">
-    <div class="card-body">
-        <h3 class="card-title">Basic Card</h3>
-        <p class="card-description">Simple card content.</p>
-    </div>
+  <div class="card-body">
+    <h3 class="card-title">Basic Card</h3>
+    <p class="card-description">Simple card content.</p>
+  </div>
 </div>
 
 <!-- Card with image -->
 <div class="card">
-    <img src="image.jpg" alt="Card image" class="card-image aspect-video" />
-    <div class="card-body">
-        <h3 class="card-title">Image Card</h3>
-        <p class="card-description">Card with header image.</p>
-        <div class="card-actions">
-            <button class="primary">Learn More</button>
-        </div>
+  <img src="image.jpg" alt="Card image" class="card-image aspect-video" />
+  <div class="card-body">
+    <h3 class="card-title">Image Card</h3>
+    <p class="card-description">Card with header image.</p>
+    <div class="card-actions">
+      <button class="primary">Learn More</button>
     </div>
+  </div>
 </div>
 
 <!-- Card variants -->
@@ -211,35 +269,35 @@ The library automatically adapts to system preferences:
 
 <!-- Interactive card -->
 <div class="card interactive" tabindex="0">
-    <div class="card-body">
-        <h3 class="card-title">Clickable Card</h3>
-        <p class="card-description">This card can be clicked or focused.</p>
-    </div>
+  <div class="card-body">
+    <h3 class="card-title">Clickable Card</h3>
+    <p class="card-description">This card can be clicked or focused.</p>
+  </div>
 </div>
 
 <!-- Horizontal card layout -->
 <div class="card horizontal">
-    <img src="image.jpg" alt="Card image" class="card-image" />
-    <div class="card-content">
-        <div class="card-body">
-            <h3 class="card-title">Horizontal Card</h3>
-            <p class="card-description">Side-by-side layout.</p>
-        </div>
+  <img src="image.jpg" alt="Card image" class="card-image" />
+  <div class="card-content">
+    <div class="card-body">
+      <h3 class="card-title">Horizontal Card</h3>
+      <p class="card-description">Side-by-side layout.</p>
     </div>
+  </div>
 </div>
 
 <!-- Card grid -->
 <div class="card-grid">
-    <div class="card">Card 1</div>
-    <div class="card">Card 2</div>
-    <div class="card">Card 3</div>
+  <div class="card">Card 1</div>
+  <div class="card">Card 2</div>
+  <div class="card">Card 3</div>
 </div>
 
 <!-- Color variants -->
 <div class="card primary">
-    <div class="card-header">
-        <h3 class="card-title">Primary Card</h3>
-    </div>
+  <div class="card-header">
+    <h3 class="card-title">Primary Card</h3>
+  </div>
 </div>
 ```
 
@@ -248,14 +306,14 @@ The library automatically adapts to system preferences:
 ```html
 <!-- Modal dialog -->
 <dialog open>
-    <h2>Dialog Title</h2>
-    <p>Dialog content goes here.</p>
-    <button>Close</button>
+  <h2>Dialog Title</h2>
+  <p>Dialog content goes here.</p>
+  <button>Close</button>
 </dialog>
 
 <!-- Fullscreen dialog -->
 <dialog class="fullscreen">
-    <div class="content">Fullscreen content</div>
+  <div class="content">Fullscreen content</div>
 </dialog>
 ```
 
@@ -266,8 +324,8 @@ The library automatically adapts to system preferences:
 ```html
 <!-- Flex container -->
 <div class="flex gap align-center justify-between">
-    <div class="flex-item">Item 1</div>
-    <div class="flex-item">Item 2</div>
+  <div class="flex-item">Item 1</div>
+  <div class="flex-item">Item 2</div>
 </div>
 
 <!-- Flex directions -->
@@ -339,6 +397,79 @@ The library automatically adapts to system preferences:
 <div class="border-left">Left border only</div>
 ```
 
+### Forms
+
+```html
+<!-- Form layout -->
+<form class="flex column gap">
+  <label for="name">Name</label>
+  <input type="text" id="name" placeholder="Enter your name" />
+
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="Enter your email" />
+
+  <div class="flex gap">
+    <button type="submit" class="success">Submit</button>
+    <button type="reset" class="destructive outline">Reset</button>
+  </div>
+</form>
+
+<!-- Form with checkboxes and radio buttons -->
+<form class="flex column gap">
+  <div class="checkbox">
+    <input type="checkbox" id="newsletter" />
+    <label for="newsletter">Subscribe to newsletter</label>
+  </div>
+
+  <div class="radio-group horizontal">
+    <div class="radio">
+      <input type="radio" name="contact" id="email-contact" />
+      <label for="email-contact">Email</label>
+    </div>
+
+    <div class="radio">
+      <input type="radio" name="contact" id="phone-contact" />
+      <label for="phone-contact">Phone</label>
+    </div>
+  </div>
+
+  <div class="switch">
+    <input type="checkbox" id="notifications" />
+    <label for="notifications">Enable Notifications</label>
+  </div>
+</form>
+```
+
+### Progress Indicators
+
+```html
+<!-- Basic progress bar -->
+<div class="progress">
+  <div class="progress-bar" style="width: 60%"></div>
+</div>
+
+<!-- Indeterminate progress -->
+<div class="progress progress-indeterminate"></div>
+
+<!-- Progress with different sizes -->
+<div class="progress small">
+  <div class="progress-bar" style="width: 40%"></div>
+</div>
+
+<div class="progress large">
+  <div class="progress-bar" style="width: 70%"></div>
+</div>
+
+<!-- Progress with color variants -->
+<div class="progress success">
+  <div class="progress-bar" style="width: 80%"></div>
+</div>
+
+<div class="progress warning">
+  <div class="progress-bar" style="width: 30%"></div>
+</div>
+```
+
 ### Spacing & Sizing
 
 The library uses a consistent spacing system based on `--ui-spacing` (default: 0.5rem):
@@ -359,16 +490,16 @@ The library provides comprehensive focus styles for keyboard navigation:
 ```css
 /* Automatic focus-visible support */
 *:focus-visible {
-    outline: 2px solid var(--ui-primary);
-    outline-offset: 2px;
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-    *:focus-visible {
-        outline: 3px solid var(--ui-primary);
-        outline-offset: 3px;
-    }
+  *:focus-visible {
+    outline: 3px solid var(--ui-primary);
+    outline-offset: 3px;
+  }
 }
 ```
 
@@ -377,9 +508,9 @@ The library provides comprehensive focus styles for keyboard navigation:
 ```css
 /* Respects user motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    *:focus-visible {
-        transition: none;
-    }
+  *:focus-visible {
+    transition: none;
+  }
 }
 ```
 
@@ -405,19 +536,19 @@ Override default values by setting custom properties:
 
 ```css
 :root {
-    /* Spacing */
-    --ui-spacing: 0.75rem;
+  /* Spacing */
+  --ui-spacing: 0.75rem;
 
-    /* Typography */
-    --ui-font-size: 1.125rem;
-    --ui-line-height: 1.6;
+  /* Typography */
+  --ui-font-size: 1.125rem;
+  --ui-line-height: 1.6;
 
-    /* Colors (override specific colors) */
-    --ui-primary: hsl(260, 80%, 55%);
+  /* Colors (override specific colors) */
+  --ui-primary: hsl(260, 80%, 55%);
 
-    /* Borders */
-    --ui-radius: 0.5rem;
-    --ui-border-width: 2px;
+  /* Borders */
+  --ui-radius: 0.5rem;
+  --ui-border-width: 2px;
 }
 ```
 
@@ -427,11 +558,11 @@ Customize the Recursive font settings:
 
 ```css
 .custom-text {
-    --mono: 0; /* 0 = Sans, 1 = Mono */
-    --casl: 1; /* 0 = Linear, 1 = Casual */
-    --wght: 500; /* 300-1000 */
-    --slnt: -5; /* -15 to 0 */
-    --CRSV: 0.5; /* 0 to 1 */
+  --mono: 0; /* 0 = Sans, 1 = Mono */
+  --casl: 1; /* 0 = Linear, 1 = Casual */
+  --wght: 500; /* 300-1000 */
+  --slnt: -5; /* -15 to 0 */
+  --CRSV: 0.5; /* 0 to 1 */
 }
 ```
 
@@ -490,26 +621,26 @@ The CSS files are imported in a specific order to ensure proper cascading:
 
 ```html
 <div class="card elevated">
-    <div class="card-header">
-        <h3 class="card-title">Product Card</h3>
-        <p class="card-subtitle">Premium Collection</p>
+  <div class="card-header">
+    <h3 class="card-title">Product Card</h3>
+    <p class="card-subtitle">Premium Collection</p>
+  </div>
+  <img src="product.jpg" alt="Product" class="card-image aspect-video" />
+  <div class="card-body">
+    <p class="card-description">
+      High-quality product with exceptional features and design.
+    </p>
+    <p class="card-meta">In stock • Free shipping</p>
+  </div>
+  <div class="card-footer">
+    <div class="card-actions between">
+      <span class="text-lg text-bold">$99.99</span>
+      <div class="flex gap">
+        <button class="success">Add to Cart</button>
+        <button class="secondary outline">Details</button>
+      </div>
     </div>
-    <img src="product.jpg" alt="Product" class="card-image aspect-video" />
-    <div class="card-body">
-        <p class="card-description">
-            High-quality product with exceptional features and design.
-        </p>
-        <p class="card-meta">In stock • Free shipping</p>
-    </div>
-    <div class="card-footer">
-        <div class="card-actions between">
-            <span class="text-lg text-bold">$99.99</span>
-            <div class="flex gap">
-                <button class="success">Add to Cart</button>
-                <button class="secondary outline">Details</button>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 ```
 
@@ -517,16 +648,16 @@ The CSS files are imported in a specific order to ensure proper cascading:
 
 ```html
 <form class="flex column gap">
-    <label for="name">Name</label>
-    <input type="text" id="name" placeholder="Enter your name" />
+  <label for="name">Name</label>
+  <input type="text" id="name" placeholder="Enter your name" />
 
-    <label for="email">Email</label>
-    <input type="email" id="email" placeholder="Enter your email" />
+  <label for="email">Email</label>
+  <input type="email" id="email" placeholder="Enter your email" />
 
-    <div class="flex gap">
-        <button type="submit" class="success">Submit</button>
-        <button type="reset" class="destructive outline">Reset</button>
-    </div>
+  <div class="flex gap">
+    <button type="submit" class="success">Submit</button>
+    <button type="reset" class="destructive outline">Reset</button>
+  </div>
 </form>
 ```
 
@@ -534,16 +665,16 @@ The CSS files are imported in a specific order to ensure proper cascading:
 
 ```html
 <nav class="app-bar top fixed">
-    <div class="app-bar-left">
-        <h1 class="text-xl text-bold">App Name</h1>
+  <div class="app-bar-left">
+    <h1 class="text-xl text-bold">App Name</h1>
+  </div>
+  <div class="app-bar-right">
+    <div class="flex gap">
+      <button class="ghost">Home</button>
+      <button class="ghost">About</button>
+      <button class="primary">Sign In</button>
     </div>
-    <div class="app-bar-right">
-        <div class="flex gap">
-            <button class="ghost">Home</button>
-            <button class="ghost">About</button>
-            <button class="primary">Sign In</button>
-        </div>
-    </div>
+  </div>
 </nav>
 ```
 
