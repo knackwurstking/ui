@@ -275,6 +275,20 @@
 	border-color: var(--card-color);
 }
 
+/* Apply color to footers for colored cards */
+.card.primary .card-footer,
+.card.secondary .card-footer,
+.card.success .card-footer,
+.card.warning .card-footer,
+.card.destructive .card-footer,
+.card.info .card-footer,
+.card.contrast .card-footer,
+.card.muted .card-footer {
+	background-color: var(--card-color);
+	color: var(--card-color-text);
+	border-color: var(--card-color);
+}
+
 /* Outline colored cards */
 .card.outline.primary .card-header,
 .card.outline.secondary .card-header,

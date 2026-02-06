@@ -25,138 +25,24 @@
 				color: var(--ui-h2-color);
 			}
 
-			.card-demo {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 1rem;
-				margin-top: 1rem;
-			}
-
-			.card {
-				background-color: var(--ui-color-100);
-				border: var(--ui-border-width) solid var(--ui-border-color);
-				border-radius: var(--ui-radius);
-				padding: 1rem;
-				box-shadow: var(--ui-shadow);
-			}
-
-			.card h3 {
-				margin-top: 0;
-				color: var(--ui-h3-color);
-			}
-
-			.form-demo {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 1rem;
-			}
-
-			.form-group {
-				margin-bottom: 1rem;
-			}
-
-			.form-group label {
-				display: block;
-				margin-bottom: 0.25rem;
-				font-weight: 500;
-			}
-
-			.form-group input,
-			.form-group select,
-			.form-group textarea {
-				width: 100%;
-				padding: 0.5rem;
-				border: var(--ui-border-width) solid var(--ui-border-color);
-				border-radius: var(--ui-radius);
-				background-color: var(--ui-bg);
-				color: var(--ui-text);
-				font-family: inherit;
-			}
-
-			.button-demo {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5rem;
-				margin-top: 1rem;
-			}
-
-			.button-demo button {
-				margin: 0.25rem;
-			}
-
-			.flex-container {
-				display: flex;
-				gap: 1rem;
-				margin-bottom: 1rem;
-				flex-wrap: wrap;
-			}
-
-			.flex-item {
-				padding: 1rem;
-				background-color: var(--ui-color-200);
-				border-radius: var(--ui-radius);
-			}
-
-			.progress-demo {
-				margin-top: 1rem;
-			}
-
-			.progress-bar {
-				height: 1rem;
-				background-color: var(--ui-color-300);
-				border-radius: 999px;
-				overflow: hidden;
-				margin-bottom: 0.5rem;
-			}
-
-			.progress-fill {
-				height: 100%;
-				background-color: var(--ui-primary);
-				border-radius: 999px;
-				transition: width 0.3s ease;
-			}
-
-			.theme-toggle {
-				margin-bottom: 1rem;
-				padding: 0.5rem;
-				background-color: var(--ui-color-200);
-				border-radius: var(--ui-radius);
-				border: none;
-				cursor: pointer;
-			}
-
-			.color-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-				gap: 1rem;
-				margin-top: 1rem;
-			}
-
 			.color-item {
-				padding: 1rem;
+				padding: var(--ui-spacing);
 				border-radius: var(--ui-radius);
 				text-align: center;
 			}
 
-			.color-name {
-				font-weight: 500;
-				margin-bottom: 0.25rem;
-			}
-
-			.color-value {
-				font-size: 0.875rem;
+			.color-item .color-value {
 				opacity: 0.8;
-			}
-
-			.button-group-demo {
-				margin-top: 1rem;
-				display: flex;
-				gap: 0.5rem;
-				flex-wrap: wrap;
 			}
 		</style>
 	</head>
 	<body>
+		<!-- TODO: ...
+			- Add Progress Bar Demo
+			- Add Spinner Demo
+			- Add App Bar Demo
+			- ...
+		-->
 		<h1>UI CSS Library Demo</h1>
 		<p>
 			This demo showcases the features of the UI CSS library, including
@@ -182,12 +68,12 @@
 		<div class="demo-section">
 			<h2>Buttons</h2>
 			<p>Default button:</p>
-			<div class="button-demo">
+			<div class="button-demo flex flex-wrap gap">
 				<button>Default Button</button>
 			</div>
 
 			<p>Button variants:</p>
-			<div class="button-demo">
+			<div class="button-demo flex flex-wrap gap">
 				<button class="primary">Primary Button</button>
 				<button class="secondary">Secondary Button</button>
 				<button class="success">Success Button</button>
@@ -198,20 +84,20 @@
 			</div>
 
 			<p>Button sizes:</p>
-			<div class="button-demo">
+			<div class="button-demo flex flex-wrap gap">
 				<button class="small">Small Button</button>
 				<button>Default Size</button>
 				<button class="large">Large Button</button>
 			</div>
 
 			<p>Button states:</p>
-			<div class="button-demo">
+			<div class="button-demo flex flex-wrap gap">
 				<button disabled>Disabled Button</button>
 				<button class="loading">Loading Button</button>
 			</div>
 
 			<p>Button groups:</p>
-			<div class="button-group-demo">
+			<div class="button-group-demo button-group">
 				<button class="primary">Grouped</button>
 				<button class="primary">Button</button>
 				<button class="primary">Example</button>
@@ -251,42 +137,64 @@
 				</div>
 
 				<div class="form-group">
-					<label for="checkbox">Checkbox</label>
+					<h5>Checkbox</h5>
 					<input type="checkbox" id="checkbox" />
 					<label for="checkbox">I agree to the terms</label>
 				</div>
 
-				<div class="form-group">
-					<label for="radio">Radio Buttons</label>
-					<input type="radio" id="radio1" name="radio-group" />
-					<label for="radio1">Option 1</label>
-					<input type="radio" id="radio2" name="radio-group" />
-					<label for="radio2">Option 2</label>
+				<div class="form-group radio-group">
+					<h5>Radio Buttons</h5>
+					<span>
+						<input type="radio" id="radio1" name="radio-group" />
+						<label for="radio1">Option 1</label>
+					</span>
+					<span>
+						<input type="radio" id="radio2" name="radio-group" />
+						<label for="radio2">Option 2</label>
+					</span>
 				</div>
 			</form>
 		</div>
 
 		<div class="demo-section">
 			<h2>Cards</h2>
-			<div class="card-demo">
-				<div class="card">
-					<h3>Card Title</h3>
-					<p>
-						This is a sample card demonstrating the card component with content.
-					</p>
-					<button class="primary">Action</button>
+			<div class="card-demo flex flex-col gap">
+				<div class="card compact">
+					<div class="card-header">
+						<h4>Card Header</h4>
+					</div>
+
+					<div class="card-body">
+						<h3>Card Title</h3>
+						<p>
+							This is a sample card demonstrating the card component with
+							content.
+						</p>
+					</div>
+
+					<div class="card-footer">
+						<button class="primary">Action</button>
+					</div>
 				</div>
 
 				<div class="card">
-					<h3>Another Card</h3>
-					<p>This card shows how cards can be used in a grid layout.</p>
-					<button class="secondary">Another Action</button>
+					<div class="card-body">
+						<h3>Another Card</h3>
+						<p>This card shows how cards can be used in a flex layout.</p>
+					</div>
+					<div class="card-footer">
+						<button class="secondary">Another Action</button>
+					</div>
 				</div>
 
 				<div class="card primary">
-					<h3>Colored Card</h3>
-					<p>This card demonstrates a colored variant.</p>
-					<button class="secondary">Action</button>
+					<div class="card-body">
+						<h3>Colored Card</h3>
+						<p>This card demonstrates a colored variant.</p>
+					</div>
+					<div class="card-footer">
+						<button class="secondary">Action</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -294,47 +202,52 @@
 		<div class="demo-section">
 			<h2>Layout Components</h2>
 			<p>Flexbox layout:</p>
-			<div class="flex-container">
+			<div class="flex flex-wrap gap">
+				<style>
+					.flex-item {
+						padding: 1rem;
+						background-color: var(--ui-color-200);
+						border-radius: var(--ui-radius);
+					}
+				</style>
 				<div class="flex-item">Flex Item 1</div>
 				<div class="flex-item">Flex Item 2</div>
 				<div class="flex-item">Flex Item 3</div>
-			</div>
-
-			<p>Progress indicators:</p>
-			<div class="progress-demo">
-				<div class="progress-bar">
-					<div class="progress-fill" style="width: 65%"></div>
-				</div>
-				<p>Progress: 65%</p>
 			</div>
 		</div>
 
 		<div class="demo-section">
 			<h2>Color System</h2>
-			<div class="color-grid">
+			<!-- Alternative grid layout
+				<div class="color-grid grid grid-gap grid-flow-col">
+			-->
+			<div
+				style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))"
+				class="color-grid grid grid-gap"
+			>
 				<div class="color-item" style="background-color: var(--ui-primary)">
-					<div class="color-name">Primary</div>
-					<div class="color-value">oklch(60% 0.2 132)</div>
+					<div class="color-name text-bold">Primary</div>
+					<div class="color-value text-sm">oklch(60% 0.2 132)</div>
 				</div>
 				<div class="color-item" style="background-color: var(--ui-secondary)">
-					<div class="color-name">Secondary</div>
-					<div class="color-value">oklch(70% 0.15 210)</div>
+					<div class="color-name text-bold">Secondary</div>
+					<div class="color-value text-sm">oklch(70% 0.15 210)</div>
 				</div>
 				<div class="color-item" style="background-color: var(--ui-success)">
-					<div class="color-name">Success</div>
-					<div class="color-value">oklch(65% 0.2 160)</div>
+					<div class="color-name text-bold">Success</div>
+					<div class="color-value text-sm">oklch(65% 0.2 160)</div>
 				</div>
 				<div class="color-item" style="background-color: var(--ui-warning)">
-					<div class="color-name">Warning</div>
-					<div class="color-value">oklch(65% 0.3 70)</div>
+					<div class="color-name text-bold">Warning</div>
+					<div class="color-value text-sm">oklch(65% 0.3 70)</div>
 				</div>
 				<div class="color-item" style="background-color: var(--ui-destructive)">
-					<div class="color-name">Destructive</div>
-					<div class="color-value">oklch(60% 0.3 35)</div>
+					<div class="color-name text-bold">Destructive</div>
+					<div class="color-value text-sm">oklch(60% 0.3 35)</div>
 				</div>
 				<div class="color-item" style="background-color: var(--ui-info)">
-					<div class="color-name">Info</div>
-					<div class="color-value">oklch(70% 0.15 210)</div>
+					<div class="color-name text-bold">Info</div>
+					<div class="color-value text-sm">oklch(70% 0.15 210)</div>
 				</div>
 			</div>
 		</div>
