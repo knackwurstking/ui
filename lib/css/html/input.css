@@ -133,239 +133,6 @@ input[type="checkbox"] {
 	width: 1.5rem;
 }
 
-.form-group {
-	margin-bottom: 1rem;
-}
-
-.form-group label {
-	display: block;
-	margin-bottom: 0.25rem;
-	font-weight: 500;
-}
-
-.form-group input:not([type="checkbox"]):not([type="radio"]),
-.form-group select,
-.form-group textarea {
-	width: 100%;
-	padding: 0.5rem;
-	border: var(--ui-border-width) solid var(--ui-border-color);
-	border-radius: var(--ui-radius);
-	background-color: var(--ui-bg);
-	color: var(--ui-text);
-	font-family: inherit;
-}
-
-/* Label alignment for form elements */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-.form-group label[for] {
-	display: inline;
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-/* Improved checkbox/radio label alignment */
-.form-group input[type="checkbox"] + label,
-.form-group input[type="radio"] + label {
-	vertical-align: middle;
-	display: inline-block;
-	margin-left: calc(var(--ui-spacing) / 4);
-}
-
-/* Ensure checkbox and radio inputs are properly aligned in forms */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-/* Improved checkbox/radio container alignment */
-.form-group .checkbox-container,
-.form-group .radio-container {
-	display: flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 2);
-	margin-bottom: calc(var(--ui-spacing) / 4);
-}
-
-/* Ensure proper inline display for form elements */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-.form-group label[for] {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-/* Fix for direct label/input combinations in forms */
-.form-group input[type="checkbox"] + label,
-.form-group input[type="radio"] + label {
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: calc(var(--ui-spacing) / 4);
-}
-
-/* Ensure proper inline display for form elements */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-/* For direct label/input combinations in forms */
-.form-group input[type="checkbox"] + label,
-.form-group input[type="radio"] + label {
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: calc(var(--ui-spacing) / 4);
-}
-
-/* Better form layout for checkbox/radio groups */
-.form-group .checkbox,
-.form-group .radio {
-	display: inline-flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 4);
-}
-
-/* Ensure checkbox and radio labels appear properly aligned */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-.form-group label[for] {
-	vertical-align: middle;
-}
-
-/* Enhanced form layout for checkbox and radio elements */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-/* For direct label alignment */
-.form-group input[type="checkbox"] + label,
-.form-group input[type="radio"] + label {
-	vertical-align: middle;
-	display: inline-block;
-	margin-left: calc(var(--ui-spacing) / 4);
-}
-
-/* Better handling of checkbox and radio groups */
-.form-group .checkbox,
-.form-group .radio {
-	display: flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 4);
-	margin-bottom: calc(var(--ui-spacing) / 4);
-}
-
-/* Checkbox and Radio Label Alignment */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-.form-group label[for] {
-	display: inline;
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-/* Improved checkbox/radio label alignment */
-.form-group input[type="checkbox"] + label,
-.form-group input[type="radio"] + label {
-	vertical-align: middle;
-	display: inline-block;
-	margin-left: calc(var(--ui-spacing) / 4);
-}
-
-/* Improved checkbox/radio label alignment */
-.form-group input[type="checkbox"] + label,
-.form-group input[type="radio"] + label {
-	vertical-align: middle;
-	display: inline-block;
-	margin-left: calc(var(--ui-spacing) / 4);
-}
-
-/* Improved layout for checkbox and radio groups */
-.form-group .checkbox,
-.form-group .radio {
-	display: inline-flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 2);
-	margin-right: calc(var(--ui-spacing) / 2);
-}
-
-/* Radio button group styling */
-.form-group .radio-group {
-	display: flex;
-	flex-direction: column;
-	gap: calc(var(--ui-spacing) / 4);
-}
-
-.form-group .radio-group.horizontal {
-	flex-direction: row;
-	flex-wrap: wrap;
-	gap: calc(var(--ui-spacing) / 2);
-}
-
-/* Better spacing for form elements with checkboxes/radios */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	margin: 0 calc(var(--ui-spacing) / 4) 0 0;
-}
-
-.form-group label[for] {
-	margin: 0 calc(var(--ui-spacing) / 4) 0 0;
-}
-
-/* Enhanced form layout for checkbox and radio elements */
-.form-group input[type="checkbox"],
-.form-group input[type="radio"] {
-	vertical-align: middle;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-.form-group label[for] {
-	vertical-align: middle;
-	display: inline-block;
-	margin-right: calc(var(--ui-spacing) / 4);
-}
-
-/* Better handling of checkbox and radio groups */
-.form-group .checkbox,
-.form-group .radio {
-	display: flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 4);
-	margin-bottom: calc(var(--ui-spacing) / 4);
-}
-
-/* Better handling of checkbox and radio groups */
-.form-group .checkbox,
-.form-group .radio {
-	display: flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 4);
-	margin-bottom: calc(var(--ui-spacing) / 4);
-}
-
 /* Color picker */
 input[type="color"] {
 	cursor: pointer;
@@ -625,74 +392,235 @@ textarea.focus-ring:focus {
 		0 0 0 4px var(--ui-primary);
 }
 
-/* Accessibility - Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-	input:not([type]),
-	input[type=""],
-	input[type="text"],
-	input[type="email"],
-	input[type="password"],
-	input[type="tel"],
-	input[type="url"],
-	input[type="search"],
-	input[type="number"],
-	input[type="date"],
-	input[type="time"],
-	input[type="datetime-local"],
-	input[type="month"],
-	input[type="week"],
-	textarea {
-		transition: none;
-	}
+.form-group {
+	margin-bottom: 1rem;
+}
 
-	input:not([type]):hover,
-	input[type=""]:hover,
-	input[type="text"]:hover,
-	input[type="email"]:hover,
-	input[type="password"]:hover,
-	input[type="tel"]:hover,
-	input[type="url"]:hover,
-	input[type="search"]:hover,
-	input[type="number"]:hover,
-	input[type="date"]:hover,
-	input[type="time"]:hover,
-	input[type="datetime-local"]:hover,
-	input[type="month"]:hover,
-	input[type="week"]:hover,
-	textarea:hover {
-		transition: none;
-	}
+.form-group label {
+	display: block;
+	margin-bottom: 0.25rem;
+	font-weight: 500;
+}
 
-	input:not([type]):focus,
-	input[type=""]:focus,
-	input[type="text"]:focus,
-	input[type="email"]:focus,
-	input[type="password"]:focus,
-	input[type="tel"]:focus,
-	input[type="url"]:focus,
-	input[type="search"]:focus,
-	input[type="number"]:focus,
-	input[type="date"]:focus,
-	input[type="time"]:focus,
-	input[type="datetime-local"]:focus,
-	input[type="month"]:focus,
-	input[type="week"]:focus,
-	textarea:focus,
-	input:not([type]):focus-visible,
-	input[type=""]:focus-visible,
-	input[type="text"]:focus-visible,
-	input[type="email"]:focus-visible,
-	input[type="password"]:focus-visible,
-	input[type="tel"]:focus-visible,
-	input[type="url"]:focus-visible,
-	input[type="search"]:focus-visible,
-	input[type="number"]:focus-visible,
-	input[type="date"]:focus-visible,
-	input[type="time"]:focus-visible,
-	input[type="datetime-local"]:focus-visible,
-	input[type="month"]:focus-visible,
-	input[type="week"]:focus-visible,
-	textarea:focus-visible {
-		transition: none;
-	}
+.form-group input:not([type="checkbox"]):not([type="radio"]),
+.form-group select,
+.form-group textarea {
+	width: 100%;
+	padding: 0.5rem;
+	border: var(--ui-border-width) solid var(--ui-border-color);
+	border-radius: var(--ui-radius);
+	background-color: var(--ui-bg);
+	color: var(--ui-text);
+	font-family: inherit;
+}
+
+/* Label alignment for form elements */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+.form-group label[for] {
+	display: inline;
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+/* Improved checkbox/radio label alignment */
+.form-group input[type="checkbox"] + label,
+.form-group input[type="radio"] + label {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: calc(var(--ui-spacing) / 4);
+}
+
+/* Ensure checkbox and radio inputs are properly aligned in forms */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+/* Improved checkbox/radio container alignment */
+.form-group .checkbox-container,
+.form-group .radio-container {
+	display: flex;
+	align-items: center;
+	gap: calc(var(--ui-spacing) / 2);
+	margin-bottom: calc(var(--ui-spacing) / 4);
+}
+
+/* Ensure proper inline display for form elements */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+.form-group label[for] {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+/* Fix for direct label/input combinations in forms */
+.form-group input[type="checkbox"] + label,
+.form-group input[type="radio"] + label {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: calc(var(--ui-spacing) / 4);
+}
+
+/* Ensure proper inline display for form elements */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+/* For direct label/input combinations in forms */
+.form-group input[type="checkbox"] + label,
+.form-group input[type="radio"] + label {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: calc(var(--ui-spacing) / 4);
+}
+
+/* Better form layout for checkbox/radio groups */
+.form-group .checkbox,
+.form-group .radio {
+	display: inline-flex;
+	align-items: center;
+	gap: calc(var(--ui-spacing) / 4);
+}
+
+/* Ensure checkbox and radio labels appear properly aligned */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+.form-group label[for] {
+	vertical-align: middle;
+}
+
+/* Enhanced form layout for checkbox and radio elements */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+/* For direct label alignment */
+.form-group input[type="checkbox"] + label,
+.form-group input[type="radio"] + label {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: calc(var(--ui-spacing) / 4);
+}
+
+/* Better handling of checkbox and radio groups */
+.form-group .checkbox,
+.form-group .radio {
+	display: flex;
+	align-items: center;
+	gap: calc(var(--ui-spacing) / 4);
+	margin-bottom: calc(var(--ui-spacing) / 4);
+}
+
+/* Checkbox and Radio Label Alignment */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+.form-group label[for] {
+	display: inline;
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+/* Improved checkbox/radio label alignment */
+.form-group input[type="checkbox"] + label,
+.form-group input[type="radio"] + label {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: calc(var(--ui-spacing) / 4);
+}
+
+/* Improved checkbox/radio label alignment */
+.form-group input[type="checkbox"] + label,
+.form-group input[type="radio"] + label {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: calc(var(--ui-spacing) / 4);
+}
+
+/* Improved layout for checkbox and radio groups */
+.form-group .checkbox,
+.form-group .radio {
+	display: inline-flex;
+	align-items: center;
+	gap: calc(var(--ui-spacing) / 2);
+	margin-right: calc(var(--ui-spacing) / 2);
+}
+
+/* Radio button group styling */
+.form-group .radio-group {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--ui-spacing) / 4);
+}
+
+.form-group .radio-group.horizontal {
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: calc(var(--ui-spacing) / 2);
+}
+
+/* Better spacing for form elements with checkboxes/radios */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	margin: 0 calc(var(--ui-spacing) / 4) 0 0;
+}
+
+.form-group label[for] {
+	margin: 0 calc(var(--ui-spacing) / 4) 0 0;
+}
+
+/* Enhanced form layout for checkbox and radio elements */
+.form-group input[type="checkbox"],
+.form-group input[type="radio"] {
+	vertical-align: middle;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+.form-group label[for] {
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: calc(var(--ui-spacing) / 4);
+}
+
+/* Better handling of checkbox and radio groups */
+.form-group .checkbox,
+.form-group .radio {
+	display: flex;
+	align-items: center;
+	gap: calc(var(--ui-spacing) / 4);
+	margin-bottom: calc(var(--ui-spacing) / 4);
+}
+
+/* Better handling of checkbox and radio groups */
+.form-group .checkbox,
+.form-group .radio {
+	display: flex;
+	align-items: center;
+	gap: calc(var(--ui-spacing) / 4);
+	margin-bottom: calc(var(--ui-spacing) / 4);
 }

@@ -331,19 +331,6 @@
 	outline-offset: 2px;
 }
 
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-	.checkbox > span,
-	.radio > span {
-		transition: none;
-	}
-
-	.checkbox:hover > span,
-	.radio:hover > span {
-		transition: none;
-	}
-}
-
 /* Dark theme support */
 @media (prefers-color-scheme: dark) {
 	.checkbox > span,
