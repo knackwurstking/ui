@@ -1,363 +1,372 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UI CSS Library Demo</title>
-    <link rel="stylesheet" href="lib/css/main.css">
-    <style>
-        body {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            font-family: var(--ui-font-family);
-        }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>UI CSS Library Demo</title>
+		<link rel="stylesheet" href="lib/css/main.css" />
+		<style>
+			body {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 1rem;
+				font-family: var(--ui-font-family);
+			}
 
-        .demo-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: var(--ui-radius);
-            background-color: var(--ui-color-100);
-        }
+			.demo-section {
+				margin-bottom: 2rem;
+				padding: 1.5rem;
+				border-radius: var(--ui-radius);
+				background-color: var(--ui-color-100);
+			}
 
-        .demo-section h2 {
-            margin-top: 0;
-            color: var(--ui-h2-color);
-        }
+			.demo-section h2 {
+				margin-top: 0;
+				color: var(--ui-h2-color);
+			}
 
-        .card-demo {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
+			.card-demo {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 1rem;
+				margin-top: 1rem;
+			}
 
-        .card {
-            background-color: var(--ui-color-100);
-            border: var(--ui-border-width) solid var(--ui-border-color);
-            border-radius: var(--ui-radius);
-            padding: 1rem;
-            box-shadow: var(--ui-shadow);
-        }
+			.card {
+				background-color: var(--ui-color-100);
+				border: var(--ui-border-width) solid var(--ui-border-color);
+				border-radius: var(--ui-radius);
+				padding: 1rem;
+				box-shadow: var(--ui-shadow);
+			}
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--ui-h3-color);
-        }
+			.card h3 {
+				margin-top: 0;
+				color: var(--ui-h3-color);
+			}
 
-        .form-demo {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
+			.form-demo {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1rem;
+			}
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
+			.form-group {
+				margin-bottom: 1rem;
+			}
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.25rem;
-            font-weight: 500;
-        }
+			.form-group label {
+				display: block;
+				margin-bottom: 0.25rem;
+				font-weight: 500;
+			}
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.5rem;
-            border: var(--ui-border-width) solid var(--ui-border-color);
-            border-radius: var(--ui-radius);
-            background-color: var(--ui-bg);
-            color: var(--ui-text);
-            font-family: inherit;
-        }
+			.form-group input,
+			.form-group select,
+			.form-group textarea {
+				width: 100%;
+				padding: 0.5rem;
+				border: var(--ui-border-width) solid var(--ui-border-color);
+				border-radius: var(--ui-radius);
+				background-color: var(--ui-bg);
+				color: var(--ui-text);
+				font-family: inherit;
+			}
 
-        .button-demo {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
+			.button-demo {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-top: 1rem;
+			}
 
-        .button-demo button {
-            margin: 0.25rem;
-        }
+			.button-demo button {
+				margin: 0.25rem;
+			}
 
-        .flex-container {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
+			.flex-container {
+				display: flex;
+				gap: 1rem;
+				margin-bottom: 1rem;
+				flex-wrap: wrap;
+			}
 
-        .flex-item {
-            padding: 1rem;
-            background-color: var(--ui-color-200);
-            border-radius: var(--ui-radius);
-        }
+			.flex-item {
+				padding: 1rem;
+				background-color: var(--ui-color-200);
+				border-radius: var(--ui-radius);
+			}
 
-        .progress-demo {
-            margin-top: 1rem;
-        }
+			.progress-demo {
+				margin-top: 1rem;
+			}
 
-        .progress-bar {
-            height: 1rem;
-            background-color: var(--ui-color-300);
-            border-radius: 999px;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-        }
+			.progress-bar {
+				height: 1rem;
+				background-color: var(--ui-color-300);
+				border-radius: 999px;
+				overflow: hidden;
+				margin-bottom: 0.5rem;
+			}
 
-        .progress-fill {
-            height: 100%;
-            background-color: var(--ui-primary);
-            border-radius: 999px;
-            transition: width 0.3s ease;
-        }
+			.progress-fill {
+				height: 100%;
+				background-color: var(--ui-primary);
+				border-radius: 999px;
+				transition: width 0.3s ease;
+			}
 
-        .theme-toggle {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            background-color: var(--ui-color-200);
-            border-radius: var(--ui-radius);
-            border: none;
-            cursor: pointer;
-        }
+			.theme-toggle {
+				margin-bottom: 1rem;
+				padding: 0.5rem;
+				background-color: var(--ui-color-200);
+				border-radius: var(--ui-radius);
+				border: none;
+				cursor: pointer;
+			}
 
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
+			.color-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1rem;
+				margin-top: 1rem;
+			}
 
-        .color-item {
-            padding: 1rem;
-            border-radius: var(--ui-radius);
-            text-align: center;
-        }
+			.color-item {
+				padding: 1rem;
+				border-radius: var(--ui-radius);
+				text-align: center;
+			}
 
-        .color-name {
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
+			.color-name {
+				font-weight: 500;
+				margin-bottom: 0.25rem;
+			}
 
-        .color-value {
-            font-size: 0.875rem;
-            opacity: 0.8;
-        }
+			.color-value {
+				font-size: 0.875rem;
+				opacity: 0.8;
+			}
 
-        .button-group-demo {
-            margin-top: 1rem;
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-    </style>
-</head>
-<body>
-    <h1>UI CSS Library Demo</h1>
-    <p>This demo showcases the features of the UI CSS library, including components, themes, and utility classes.</p>
+			.button-group-demo {
+				margin-top: 1rem;
+				display: flex;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>UI CSS Library Demo</h1>
+		<p>
+			This demo showcases the features of the UI CSS library, including
+			components, themes, and utility classes.
+		</p>
 
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+		<button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
 
-    <div class="demo-section">
-        <h2>Typography</h2>
-        <p>This is a paragraph with normal text.</p>
-        <h1>Heading 1 - H1</h1>
-        <h2>Heading 2 - H2</h2>
-        <h3>Heading 3 - H3</h3>
-        <h4>Heading 4 - H4</h4>
-        <h5>Heading 5 - H5</h5>
-        <h6>Heading 6 - H6</h6>
+		<div class="demo-section">
+			<h2>Typography</h2>
+			<p>This is a paragraph with normal text.</p>
+			<h1>Heading 1 - H1</h1>
+			<h2>Heading 2 - H2</h2>
+			<h3>Heading 3 - H3</h3>
+			<h4>Heading 4 - H4</h4>
+			<h5>Heading 5 - H5</h5>
+			<h6>Heading 6 - H6</h6>
 
-        <p><strong>Bold text</strong> and <em>italic text</em></p>
-        <p><code>Code example</code> and <kbd>Keyboard input</kbd></p>
-    </div>
+			<p><strong>Bold text</strong> and <em>italic text</em></p>
+			<p><code>Code example</code> and <kbd>Keyboard input</kbd></p>
+		</div>
 
-    <div class="demo-section">
-        <h2>Buttons</h2>
-        <p>Default button:</p>
-        <div class="button-demo">
-            <button>Default Button</button>
-        </div>
+		<div class="demo-section">
+			<h2>Buttons</h2>
+			<p>Default button:</p>
+			<div class="button-demo">
+				<button>Default Button</button>
+			</div>
 
-        <p>Button variants:</p>
-        <div class="button-demo">
-            <button class="primary">Primary Button</button>
-            <button class="secondary">Secondary Button</button>
-            <button class="success">Success Button</button>
-            <button class="warning">Warning Button</button>
-            <button class="destructive">Destructive Button</button>
-            <button class="info">Info Button</button>
-            <button class="contrast">Contrast Button</button>
-        </div>
+			<p>Button variants:</p>
+			<div class="button-demo">
+				<button class="primary">Primary Button</button>
+				<button class="secondary">Secondary Button</button>
+				<button class="success">Success Button</button>
+				<button class="warning">Warning Button</button>
+				<button class="destructive">Destructive Button</button>
+				<button class="info">Info Button</button>
+				<button class="contrast">Contrast Button</button>
+			</div>
 
-        <p>Button sizes:</p>
-        <div class="button-demo">
-            <button class="small">Small Button</button>
-            <button>Default Size</button>
-            <button class="large">Large Button</button>
-        </div>
+			<p>Button sizes:</p>
+			<div class="button-demo">
+				<button class="small">Small Button</button>
+				<button>Default Size</button>
+				<button class="large">Large Button</button>
+			</div>
 
-        <p>Button states:</p>
-        <div class="button-demo">
-            <button disabled>Disabled Button</button>
-            <button class="loading">Loading Button</button>
-        </div>
+			<p>Button states:</p>
+			<div class="button-demo">
+				<button disabled>Disabled Button</button>
+				<button class="loading">Loading Button</button>
+			</div>
 
-        <p>Button groups:</p>
-        <div class="button-group-demo">
-            <button class="primary">Grouped</button>
-            <button class="primary">Button</button>
-            <button class="primary">Example</button>
-        </div>
-    </div>
+			<p>Button groups:</p>
+			<div class="button-group-demo">
+				<button class="primary">Grouped</button>
+				<button class="primary">Button</button>
+				<button class="primary">Example</button>
+			</div>
+		</div>
 
-    <div class="demo-section">
-        <h2>Form Elements</h2>
-        <form class="form-demo">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter your name">
-            </div>
+		<div class="demo-section">
+			<h2>Form Elements</h2>
+			<form class="form-demo">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" id="name" placeholder="Enter your name" />
+				</div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email">
-            </div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" id="email" placeholder="Enter your email" />
+				</div>
 
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" rows="3" placeholder="Enter your message"></textarea>
-            </div>
+				<div class="form-group">
+					<label for="message">Message</label>
+					<textarea
+						id="message"
+						rows="3"
+						placeholder="Enter your message"
+					></textarea>
+				</div>
 
-            <div class="form-group">
-                <label for="select">Select Option</label>
-                <select id="select">
-                    <option value="">Choose an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-            </div>
+				<div class="form-group">
+					<label for="select">Select Option</label>
+					<select id="select">
+						<option value="">Choose an option</option>
+						<option value="option1">Option 1</option>
+						<option value="option2">Option 2</option>
+						<option value="option3">Option 3</option>
+					</select>
+				</div>
 
-            <div class="form-group">
-                <label for="checkbox">Checkbox</label>
-                <input type="checkbox" id="checkbox">
-                <label for="checkbox">I agree to the terms</label>
-            </div>
+				<div class="form-group">
+					<label for="checkbox">Checkbox</label>
+					<input type="checkbox" id="checkbox" />
+					<label for="checkbox">I agree to the terms</label>
+				</div>
 
-            <div class="form-group">
-                <label for="radio">Radio Buttons</label>
-                <input type="radio" id="radio1" name="radio-group">
-                <label for="radio1">Option 1</label>
-                <input type="radio" id="radio2" name="radio-group">
-                <label for="radio2">Option 2</label>
-            </div>
-        </form>
-    </div>
+				<div class="form-group">
+					<label for="radio">Radio Buttons</label>
+					<input type="radio" id="radio1" name="radio-group" />
+					<label for="radio1">Option 1</label>
+					<input type="radio" id="radio2" name="radio-group" />
+					<label for="radio2">Option 2</label>
+				</div>
+			</form>
+		</div>
 
-    <div class="demo-section">
-        <h2>Cards</h2>
-        <div class="card-demo">
-            <div class="card">
-                <h3>Card Title</h3>
-                <p>This is a sample card demonstrating the card component with content.</p>
-                <button class="primary">Action</button>
-            </div>
+		<div class="demo-section">
+			<h2>Cards</h2>
+			<div class="card-demo">
+				<div class="card">
+					<h3>Card Title</h3>
+					<p>
+						This is a sample card demonstrating the card component with content.
+					</p>
+					<button class="primary">Action</button>
+				</div>
 
-            <div class="card">
-                <h3>Another Card</h3>
-                <p>This card shows how cards can be used in a grid layout.</p>
-                <button class="secondary">Another Action</button>
-            </div>
+				<div class="card">
+					<h3>Another Card</h3>
+					<p>This card shows how cards can be used in a grid layout.</p>
+					<button class="secondary">Another Action</button>
+				</div>
 
-            <div class="card primary">
-                <h3>Colored Card</h3>
-                <p>This card demonstrates a colored variant.</p>
-                <button class="secondary">Action</button>
-            </div>
-        </div>
-    </div>
+				<div class="card primary">
+					<h3>Colored Card</h3>
+					<p>This card demonstrates a colored variant.</p>
+					<button class="secondary">Action</button>
+				</div>
+			</div>
+		</div>
 
-    <div class="demo-section">
-        <h2>Layout Components</h2>
-        <p>Flexbox layout:</p>
-        <div class="flex-container">
-            <div class="flex-item">Flex Item 1</div>
-            <div class="flex-item">Flex Item 2</div>
-            <div class="flex-item">Flex Item 3</div>
-        </div>
+		<div class="demo-section">
+			<h2>Layout Components</h2>
+			<p>Flexbox layout:</p>
+			<div class="flex-container">
+				<div class="flex-item">Flex Item 1</div>
+				<div class="flex-item">Flex Item 2</div>
+				<div class="flex-item">Flex Item 3</div>
+			</div>
 
-        <p>Progress indicators:</p>
-        <div class="progress-demo">
-            <div class="progress-bar">
-                <div class="progress-fill" style="width: 65%"></div>
-            </div>
-            <p>Progress: 65%</p>
-        </div>
-    </div>
+			<p>Progress indicators:</p>
+			<div class="progress-demo">
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 65%"></div>
+				</div>
+				<p>Progress: 65%</p>
+			</div>
+		</div>
 
-    <div class="demo-section">
-        <h2>Color System</h2>
-        <div class="color-grid">
-            <div class="color-item" style="background-color: var(--ui-primary);">
-                <div class="color-name">Primary</div>
-                <div class="color-value">oklch(60% 0.2 132)</div>
-            </div>
-            <div class="color-item" style="background-color: var(--ui-secondary);">
-                <div class="color-name">Secondary</div>
-                <div class="color-value">oklch(70% 0.15 210)</div>
-            </div>
-            <div class="color-item" style="background-color: var(--ui-success);">
-                <div class="color-name">Success</div>
-                <div class="color-value">oklch(65% 0.2 160)</div>
-            </div>
-            <div class="color-item" style="background-color: var(--ui-warning);">
-                <div class="color-name">Warning</div>
-                <div class="color-value">oklch(65% 0.3 70)</div>
-            </div>
-            <div class="color-item" style="background-color: var(--ui-destructive);">
-                <div class="color-name">Destructive</div>
-                <div class="color-value">oklch(60% 0.3 35)</div>
-            </div>
-            <div class="color-item" style="background-color: var(--ui-info);">
-                <div class="color-name">Info</div>
-                <div class="color-value">oklch(70% 0.15 210)</div>
-            </div>
-        </div>
-    </div>
+		<div class="demo-section">
+			<h2>Color System</h2>
+			<div class="color-grid">
+				<div class="color-item" style="background-color: var(--ui-primary)">
+					<div class="color-name">Primary</div>
+					<div class="color-value">oklch(60% 0.2 132)</div>
+				</div>
+				<div class="color-item" style="background-color: var(--ui-secondary)">
+					<div class="color-name">Secondary</div>
+					<div class="color-value">oklch(70% 0.15 210)</div>
+				</div>
+				<div class="color-item" style="background-color: var(--ui-success)">
+					<div class="color-name">Success</div>
+					<div class="color-value">oklch(65% 0.2 160)</div>
+				</div>
+				<div class="color-item" style="background-color: var(--ui-warning)">
+					<div class="color-name">Warning</div>
+					<div class="color-value">oklch(65% 0.3 70)</div>
+				</div>
+				<div class="color-item" style="background-color: var(--ui-destructive)">
+					<div class="color-name">Destructive</div>
+					<div class="color-value">oklch(60% 0.3 35)</div>
+				</div>
+				<div class="color-item" style="background-color: var(--ui-info)">
+					<div class="color-name">Info</div>
+					<div class="color-value">oklch(70% 0.15 210)</div>
+				</div>
+			</div>
+		</div>
 
-    <div class="demo-section">
-        <h2>Utility Classes</h2>
-        <p class="text-primary">This text has primary color</p>
-        <p class="text-secondary">This text has secondary color</p>
-        <p class="text-success">This text has success color</p>
-        <p class="text-warning">This text has warning color</p>
-        <p class="text-destructive">This text has destructive color</p>
+		<div class="demo-section">
+			<h2>Utility Classes</h2>
+			<p class="primary ghost">This text has primary color</p>
+			<p class="secondary ghost">This text has secondary color</p>
+			<p class="success ghost">This text has success color</p>
+			<p class="warning ghost">This text has warning color</p>
+			<p class="destructive ghost">This text has destructive color</p>
 
-        <div class="border-primary" style="padding: 0.5rem; margin-top: 1rem;">
-            This div has a primary border
-        </div>
+			<div class="primary" style="padding: 0.5rem; margin-top: 1rem">
+				This div has a primary background
+			</div>
 
-        <div class="bg-muted" style="padding: 0.5rem; margin-top: 1rem;">
-            This div has a muted background
-        </div>
-    </div>
+			<div class="muted" style="padding: 0.5rem; margin-top: 1rem">
+				This div has a muted background
+			</div>
+		</div>
 
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+		<script>
+			function toggleTheme() {
+				const html = document.documentElement;
+				const currentTheme = html.getAttribute("data-theme");
+				const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-            html.setAttribute('data-theme', newTheme);
-        }
+				html.setAttribute("data-theme", newTheme);
+			}
 
-        // Initialize with light theme
-        document.documentElement.setAttribute('data-theme', 'light');
-    </script>
-</body>
+			// Initialize with light theme
+			document.documentElement.setAttribute("data-theme", "light");
+		</script>
+	</body>
 </html>
