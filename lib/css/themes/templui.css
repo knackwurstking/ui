@@ -83,11 +83,11 @@
 	--ui-primary-active: oklch(50% 0.2 132);
 	--ui-primary-text: oklch(98% 0 240);
 
-	/* Secondary - Templui Blue */
-	--ui-secondary: oklch(75% 0.2 210);
-	--ui-secondary-color: 210, 0.2, 210;
-	--ui-secondary-hover: oklch(70% 0.2 210);
-	--ui-secondary-active: oklch(65% 0.2 210);
+	/* Secondary - Templui Purple */
+	--ui-secondary: oklch(75% 0.2 270);
+	--ui-secondary-color: 270, 0.2, 270;
+	--ui-secondary-hover: oklch(70% 0.2 270);
+	--ui-secondary-active: oklch(65% 0.2 270);
 	--ui-secondary-text: oklch(98% 0 240);
 
 	/* Success - Templui Aqua */
@@ -195,10 +195,10 @@
 	--ui-primary-hover: oklch(65% 0.2 132);
 	--ui-primary-active: oklch(60% 0.2 132);
 
-	--ui-secondary: oklch(75% 0.2 210);
-	--ui-secondary-color: 210, 0.2, 210;
-	--ui-secondary-hover: oklch(70% 0.2 210);
-	--ui-secondary-active: oklch(65% 0.2 210);
+	--ui-secondary: oklch(75% 0.2 270);
+	--ui-secondary-color: 270, 0.2, 270;
+	--ui-secondary-hover: oklch(70% 0.2 270);
+	--ui-secondary-active: oklch(65% 0.2 270);
 
 	--ui-success: oklch(75% 0.2 160);
 	--ui-success-color: 160, 0.2, 160;
