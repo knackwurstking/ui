@@ -336,8 +336,8 @@
 			<h2>App Bar</h2>
 			<p>Top app bar with navigation:</p>
 
-			<div class="app-bar-demo">
-				<nav class="app-bar top">
+			<div class="app-bar-demo border">
+				<nav class="app-bar top" style="z-index: 1;">
 					<div class="app-bar-left">
 						<button>Menu</button>
 					</div>
@@ -350,8 +350,10 @@
 					</div>
 				</nav>
 
-				<!-- TODO: Fix alignment -->
-				<div style="margin-top: var(--ui-app-bar-height); padding: 2rem; min-height: 100px;">
+				<div
+					style="padding: 2rem; padding-top: calc(var(--ui-app-bar-height) + var(--ui-spacing)); min-height: 100px;"
+					class="container fluid"
+				>
 					Main content area
 				</div>
 
