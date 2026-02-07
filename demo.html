@@ -37,12 +37,6 @@
 		</style>
 	</head>
 	<body>
-		<!-- TODO: ...
-			- Add Progress Bar Demo
-			- Add Spinner Demo
-			- Add App Bar Demo
-			- ...
-		-->
 		<h1>UI CSS Library Demo</h1>
 		<p>
 			This demo showcases the features of the UI CSS library, including
@@ -269,6 +263,124 @@
 			</div>
 		</div>
 
+		<div class="demo-section">
+			<h2>Progress Bar</h2>
+			<p>Progress bar sizes:</p>
+			<div class="progress-demo">
+				<div class="progress small">
+					<div class="progress-bar" style="width: 30%"></div>
+				</div>
+				<div class="progress medium">
+					<div class="progress-bar" style="width: 50%"></div>
+				</div>
+				<div class="progress large">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+			</div>
+
+			<p>Progress bar color variants:</p>
+			<div class="progress-demo">
+				<div class="progress primary">
+					<div class="progress-bar" style="width: 40%"></div>
+				</div>
+				<div class="progress secondary">
+					<div class="progress-bar" style="width: 60%"></div>
+				</div>
+				<div class="progress success">
+					<div class="progress-bar" style="width: 80%"></div>
+				</div>
+				<div class="progress warning">
+					<div class="progress-bar" style="width: 45%"></div>
+				</div>
+				<div class="progress destructive">
+					<div class="progress-bar" style="width: 25%"></div>
+				</div>
+			</div>
+
+			<p>Indeterminate progress:</p>
+			<div class="progress-demo">
+				<div class="progress indeterminate"></div>
+			</div>
+
+			<style>
+				.progress-demo {
+					display: flex;
+					flex-direction: column;
+					gap: 1rem;
+				}
+			</style>
+		</div>
+
+		<div class="demo-section">
+			<h2>Spinner</h2>
+			<p>The spinner component demonstrates loading states:</p>
+			<div class="spinner-demo">
+				<div class="spinner"></div>
+				<div style="position: relative; height: 50px;">
+					Content loading...
+				</div>
+			</div>
+
+			<style>
+				.spinner-demo {
+					position: relative;
+					height: 100px;
+					border: 1px dashed var(--ui-border-color);
+					border-radius: var(--ui-radius);
+					padding: 1rem;
+				}
+			</style>
+		</div>
+
+		<div class="demo-section">
+			<h2>App Bar</h2>
+			<p>Top app bar with navigation:</p>
+
+			<div class="app-bar-demo">
+				<nav class="app-bar top">
+					<div class="app-bar-left">
+						<button>Menu</button>
+					</div>
+					<div class="app-bar-center">
+						<h3>App Title</h3>
+					</div>
+					<div class="app-bar-right">
+						<button>Search</button>
+						<button>Profile</button>
+					</div>
+				</nav>
+
+				<!-- TODO: Fix alignment -->
+				<div style="margin-top: var(--ui-app-bar-height); padding: 2rem; min-height: 100px;">
+					Main content area
+				</div>
+
+				<nav class="app-bar bottom">
+					<div class="app-bar-left">
+						<button>Home</button>
+					</div>
+					<div class="app-bar-center">
+						<span>Bottom Navigation</span>
+					</div>
+					<div class="app-bar-right">
+						<button>Settings</button>
+					</div>
+				</nav>
+			</div>
+
+			<style>
+				.app-bar-demo {
+					position: relative;
+					min-height: 200px;
+					background-color: var(--ui-color-100);
+					border-radius: var(--ui-radius);
+					margin-top: 1rem;
+				}
+			</style>
+		</div>
+	</body>
+</html>
+
 		<script>
 			function toggleTheme() {
 				const html = document.documentElement;
@@ -280,6 +392,22 @@
 
 			// Initialize with light theme
 			document.documentElement.setAttribute("data-theme", "light");
+
+			// Animate progress bars
+			function animateProgressBars() {
+				const progressBars = document.querySelectorAll('.progress-bar');
+				progressBars.forEach((bar, index) => {
+					setTimeout(() => {
+						bar.style.width = '100%';
+						setTimeout(() => {
+							bar.style.width = `${Math.random() * 80 + 10}%`;
+						}, 2000);
+					}, index * 500);
+				});
+			}
+
+			// Start animation after page load
+			window.addEventListener('load', animateProgressBars);
 		</script>
 	</body>
 </html>
