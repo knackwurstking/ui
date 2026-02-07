@@ -147,6 +147,81 @@
 						<label for="radio2">Option 2</label>
 					</span>
 				</div>
+
+				<div class="form-group">
+					<h5>Number Input</h5>
+					<input type="number" id="quantity" min="1" max="100" placeholder="Quantity" />
+				</div>
+
+				<div class="form-group">
+					<h5>Range Slider</h5>
+					<input type="range" id="volume" min="0" max="100" value="50" />
+					<span id="volume-value">50</span>
+				</div>
+
+				<div class="form-group">
+					<h5>Date Picker</h5>
+					<input type="date" id="birthday" />
+				</div>
+
+				<div class="form-group">
+					<h5>Time Picker</h5>
+					<input type="time" id="appointment-time" />
+				</div>
+
+				<div class="form-group">
+					<h5>Color Picker</h5>
+					<input type="color" id="accent-color" value="#6200ee" />
+				</div>
+
+				<div class="form-group">
+					<h5>File Upload</h5>
+					<input type="file" id="document-upload" multiple />
+				</div>
+
+				<div class="form-group">
+					<h5>Search Input</h5>
+					<input type="search" id="site-search" placeholder="Search..." />
+				</div>
+
+				<div class="form-group">
+					<h5>Password Input</h5>
+					<input type="password" id="user-password" placeholder="Enter password" />
+				</div>
+
+				<div class="form-group">
+					<h5>URL Input</h5>
+					<input type="url" id="website-url" placeholder="https://example.com" />
+				</div>
+
+				<div class="form-group">
+					<h5>Phone Number</h5>
+					<input type="tel" id="phone-number" placeholder="+1 (555) 0123" />
+				</div>
+
+				<div class="form-group">
+					<h5>Multi-select Dropdown</h5>
+					<select id="multi-select" multiple size="3">
+						<option value="option1">Option 1</option>
+						<option value="option2">Option 2</option>
+						<option value="option3">Option 3</option>
+						<option value="option4">Option 4</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<h5>Switch Toggle</h5>
+					<label class="switch">
+						<input type="checkbox" id="toggle-switch" />
+						<span class="slider"></span>
+					</label>
+				</div>
+
+				<div class="form-group">
+					<h5>Form Actions</h5>
+					<button type="submit" class="primary">Submit Form</button>
+					<button type="reset" class="destructive">Reset Form</button>
+				</div>
 			</form>
 		</div>
 
@@ -386,8 +461,8 @@
 		<script>
 			function toggleTheme() {
 				const html = document.documentElement;
-				const currentTheme = html.getAttribute("data-theme");
-				const newTheme = currentTheme === "dark" ? "light" : "dark";
+			 const currentTheme = html.getAttribute("data-theme");
+			 const newTheme = currentTheme === "dark" ? "light" : "dark";
 
 				html.setAttribute("data-theme", newTheme);
 			}
@@ -397,7 +472,7 @@
 
 			// Animate progress bars
 			function animateProgressBars() {
-				const progressBars = document.querySelectorAll('.progress-bar');
+			 const progressBars = document.querySelectorAll('.progress-bar');
 				progressBars.forEach((bar, index) => {
 					setTimeout(() => {
 						bar.style.width = '100%';
@@ -405,6 +480,16 @@
 							bar.style.width = `${Math.random() * 80 + 10}%`;
 						}, 2000);
 					}, index * 500);
+				});
+			}
+
+			// Update range slider value display
+		 const volumeSlider = document.getElementById('volume');
+		 const volumeValue = document.getElementById('volume-value');
+
+			if (volumeSlider && volumeValue) {
+				volumeSlider.addEventListener('input', function() {
+					volumeValue.textContent = this.value;
 				});
 			}
 
