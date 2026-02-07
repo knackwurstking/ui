@@ -13,13 +13,6 @@
 	margin-bottom: calc(var(--ui-spacing) / 2);
 }
 
-/* Checkbox container for better form alignment */
-.checkbox-container {
-	display: flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 2);
-}
-
 /* Hide the actual checkbox */
 .checkbox input[type="checkbox"] {
 	position: absolute;

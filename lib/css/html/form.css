@@ -49,15 +49,6 @@
 	margin-right: calc(var(--ui-spacing) / 4);
 }
 
-/* Improved checkbox/radio container alignment */
-.form-group .checkbox-container,
-.form-group .radio-container {
-	display: flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 2);
-	margin-bottom: calc(var(--ui-spacing) / 4);
-}
-
 /* Ensure proper inline display for form elements */
 .form-group input[type="checkbox"],
 .form-group input[type="radio"] {

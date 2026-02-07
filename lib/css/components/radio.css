@@ -13,13 +13,6 @@
 	margin-bottom: calc(var(--ui-spacing) / 2);
 }
 
-/* Radio button container for better form alignment */
-.radio-container {
-	display: flex;
-	align-items: center;
-	gap: calc(var(--ui-spacing) / 2);
-}
-
 /* Hide the actual radio button */
 .radio input[type="radio"] {
 	position: absolute;
