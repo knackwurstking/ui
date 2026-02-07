@@ -3,108 +3,186 @@ package ui
 
 import "net/http"
 
-// DialogOptions defines the properties for a dialog component
-type DialogOptions struct {
-	// ID is the unique identifier for the dialog
+type DialogProps struct {
 	ID string
 
-	// Method specifies the HTTP method to use when submitting the form
-	Method string
+	// CSS classes to apply to the dialog element
+	Fullscreen bool
+	Clean      bool
 
-	// Href is the URL to submit the form data to
-	Href templ.SafeURL
+	// Form Enabled
+	FormEnabled bool // FormEnabled specifies whether the dialog contains a form
+	FormCSS     templ.CSSClasses
 
-	// SubmitButtonText is the text displayed on the submit button
-	SubmitButtonText string
+	Href   templ.SafeURL // Href is the URL to submit the form data to
+	Method string        // Method is the HTTP method to use when submitting the form (e.g., "POST", "PUT", etc.) [default: "POST"]
+
+	// HTMX Enabled, this is only useful if FormEnabled is true
+	HxEnabled bool   // HxEnabled specifies whether HTMX attributes should be included in the form
+	HxSwapOOB string // HxSwapOOB specifies the HTMX swap strategy for out-of-band swaps (e.g., "true", "false", "outerHTML", etc.)
 
 	// Error is an error that may have occurred, displayed if not nil
-	Error error
-
-	// HxSwapOOB is an additional property used for hx-swap-oob directive
-	HxSwapOOB string
+	Error []error
 
 	// AdditionalActions represents additional actions that can be rendered
+	ActionSubmit      string // ActionSubmit is the text displayed on the submit button
+	ActionCancel      string // ActionCancel is the text displayed on the cancel button
 	AdditionalActions templ.Component
-
-	FormClasses templ.CSSClasses
 }
 
 // Dialog is a reusable dialog component that renders a dialog with form input
 // and optional additional actions.
-templ Dialog(o DialogOptions) {
+templ Dialog(props *DialogProps) {
 	// onclose is a script that will remove the dialog when it is closed
 	{{
+		if props == nil {
+			props = &DialogProps{}
+		}
+
 		onclose := templ.ComponentScript{
 			Call: `this.remove();`,
 		}
 	}}
 	// Render a dialog element with various attributes and form elements
 	<dialog
-		id={ o.ID }
-		class="fullscreen clean flex flex-col justify-center items-center"
+		id={ props.ID }
+		class={
+			templ.KV("fullscreen", props.Fullscreen),
+			templ.KV("clean", props.Clean),
+			templ.CSSClasses{
+				"flex",
+				"flex-col",
+				"justify-center",
+				"items-center",
+			},
+		}
 		onclose={ onclose }
 		oncancel="event.preventDefault()"
 		onclick="if (event.target === this) event.preventDefault()"
-		if o.HxSwapOOB != "" {
-			hx-swap-oob={ o.HxSwapOOB }
+		if props.HxSwapOOB != "" {
+			hx-swap-oob={ props.HxSwapOOB }
 		}
 	>
-		<form
-			class={ "flex flex-col gap p w-full " + o.FormClasses.String() }
-			if o.Method == http.MethodPost {
-				hx-post={ o.Href }
-			}
-			if o.Method == http.MethodPut {
-				hx-put={ o.Href }
-			}
-			hx-target="body"
-			hx-swap="beforeend"
-			hx-on::response-error="alert(event.detail.xhr.responseText)"
-			hx-on::after-request="if (event.detail.successful) this.closest('dialog').close();"
-			enctype="multipart/form-data"
-			onclick="event.stopPropagation()"
-		>
+		{{ hasFooter := props.AdditionalActions != nil || (props.ActionCancel != "" || props.ActionSubmit != "") }}
+		if props.FormEnabled {
+			<form
+				class={
+					templ.CSSClasses{
+						"flex",
+						"flex-col",
+						"gap",
+						"p",
+						"w-full",
+					},
+					props.FormCSS,
+				}
+				if props.HxEnabled && props.Method == http.MethodPost {
+					hx-post={ props.Href }
+				}
+				if props.HxEnabled && props.Method == http.MethodPut {
+					hx-put={ props.Href }
+				}
+				if props.HxEnabled {
+					hx-target="body"
+					hx-swap="beforeend"
+					hx-on::response-error="alert(event.detail.xhr.responseText)"
+					hx-on::after-request="if (event.detail.successful) this.closest('dialog').close();"
+				} else {
+					action={ props.Href }
+					method={ props.Method }
+				}
+				enctype="multipart/form-data"
+				onclick="event.stopPropagation()"
+			>
+				<div
+					name="dialog-content"
+					class="flex flex-col gap overflow-y-scroll scroll-smooth no-scrollbar p h-full"
+				>
+					if len(props.Error) > 0 {
+						for _, e := range props.Error {
+							<div class="card compact destructive debug">
+								<div class="card-body">
+									{ e.Error() }
+								</div>
+							</div>
+						}
+					}
+					{ children... }
+				</div>
+				if hasFooter {
+					<footer class="flex gap justify-end">
+						if props.AdditionalActions != nil {
+							@props.AdditionalActions
+						}
+						if props.ActionCancel != "" {
+							<button
+								name="close"
+								class="secondary flex gap"
+								type="button"
+								onclick="this.closest('dialog').close()"
+							>
+								<i class="bi bi-x-circle"></i>
+								{ props.ActionCancel }
+							</button>
+						}
+						if props.ActionSubmit != "" {
+							<button
+								type="submit"
+								class="flex gap"
+							>
+								<i class="bi bi-check-circle"></i>
+								{ props.ActionSubmit }
+							</button>
+						}
+					</footer>
+				}
+			</form>
+		} else {
 			<div
 				name="dialog-content"
 				class="flex flex-col gap overflow-y-scroll scroll-smooth no-scrollbar p h-full"
 			>
-				if o.Error != nil {
-					<div class="card compact destructive debug">
-						<div class="card-body">
-							{ o.Error.Error() }
+				if len(props.Error) > 0 {
+					for _, e := range props.Error {
+						<div class="card compact destructive debug">
+							<div class="card-body">
+								{ e.Error() }
+							</div>
 						</div>
-					</div>
+					}
 				}
 				{ children... }
 			</div>
-			<footer class="flex gap justify-end">
-				if o.AdditionalActions != nil {
-					@o.AdditionalActions
-				}
-				<button
-					name="close"
-					class="secondary flex gap"
-					type="button"
-					onclick="this.closest('dialog').close()"
-				>
-					<i class="bi bi-x-circle"></i>
-					Abbrechen
-				</button>
-				<button
-					type="submit"
-					class="flex gap"
-				>
-					<i class="bi bi-check-circle"></i>
-					if o.SubmitButtonText == "" {
-						Submit
-					} else {
-						{ o.SubmitButtonText }
+			if hasFooter {
+				<footer class="flex gap justify-end">
+					if props.AdditionalActions != nil {
+						@props.AdditionalActions
 					}
-				</button>
-			</footer>
-		</form>
+					if props.ActionCancel != "" {
+						<button
+							name="close"
+							class="secondary flex gap"
+							type="button"
+							onclick="this.closest('dialog').close()"
+						>
+							<i class="bi bi-x-circle"></i>
+							{ props.ActionCancel }
+						</button>
+					}
+					if props.ActionSubmit != "" {
+						<button
+							type="submit"
+							class="flex gap"
+						>
+							<i class="bi bi-check-circle"></i>
+							{ props.ActionSubmit }
+						</button>
+					}
+				</footer>
+			}
+		}
 		<script defer>
-			document.querySelector('#{{ o.ID }}').showModal();
+			document.querySelector('#{{ props.ID }}').showModal();
 		</script>
 	</dialog>
 }
