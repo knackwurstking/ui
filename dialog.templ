@@ -100,7 +100,7 @@ templ Dialog(props *DialogProps) {
 				>
 					if len(props.Error) > 0 {
 						for _, e := range props.Error {
-							<div class="card compact destructive debug">
+							<div class="card compact destructive">
 								<div class="card-body">
 									{ e.Error() }
 								</div>
@@ -117,7 +117,7 @@ templ Dialog(props *DialogProps) {
 						if props.ActionCancel != "" {
 							<button
 								name="close"
-								class="secondary flex gap debug"
+								class="secondary flex gap"
 								type="button"
 								onclick="this.closest('dialog').close()"
 							>
@@ -128,7 +128,7 @@ templ Dialog(props *DialogProps) {
 						if props.ActionSubmit != "" {
 							<button
 								type="submit"
-								class="flex gap debug"
+								class="flex gap"
 							>
 								<i class="bi bi-check-circle"></i>
 								{ props.ActionSubmit }
