@@ -300,7 +300,7 @@ func Dialog(props *DialogProps) templ.Component {
 					}
 				}
 				if props.ActionCancel != "" {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<button name=\"close\" class=\"secondary flex gap\" type=\"button\" onclick=\"this.closest('dialog').close()\"><i class=\"bi bi-x-circle\"></i> ")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<button name=\"close\" class=\"secondary flex gap debug\" type=\"button\" onclick=\"this.closest('dialog').close()\"><i class=\"bi bi-x-circle\"></i> ")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -319,7 +319,7 @@ func Dialog(props *DialogProps) templ.Component {
 					}
 				}
 				if props.ActionSubmit != "" {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<button type=\"submit\" class=\"flex gap\"><i class=\"bi bi-check-circle\"></i> ")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 25, "<button type=\"submit\" class=\"flex gap debug\"><i class=\"bi bi-check-circle\"></i> ")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -353,7 +353,7 @@ func Dialog(props *DialogProps) templ.Component {
 			}
 			if len(props.Error) > 0 {
 				for _, e := range props.Error {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "<div class=\"card compact destructive debug\"><div class=\"card-body\">")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "<div class=\"card compact destructive\"><div class=\"card-body\">")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -392,7 +392,7 @@ func Dialog(props *DialogProps) templ.Component {
 					}
 				}
 				if props.ActionCancel != "" {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "<button name=\"close\" class=\"secondary flex gap\" type=\"button\" onclick=\"this.closest('dialog').close()\"><i class=\"bi bi-x-circle\"></i> ")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "<button name=\"close\" class=\"secondary flex gap small\" type=\"button\" onclick=\"this.closest('dialog').close()\"><i class=\"bi bi-x-circle\"></i> ")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
@@ -411,7 +411,7 @@ func Dialog(props *DialogProps) templ.Component {
 					}
 				}
 				if props.ActionSubmit != "" {
-					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "<button type=\"submit\" class=\"flex gap\"><i class=\"bi bi-check-circle\"></i> ")
+					templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 36, "<button type=\"submit\" class=\"flex gap small\"><i class=\"bi bi-check-circle\"></i> ")
 					if templ_7745c5c3_Err != nil {
 						return templ_7745c5c3_Err
 					}
