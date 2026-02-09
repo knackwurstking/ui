@@ -110,31 +110,7 @@ templ Dialog(props *DialogProps) {
 					{ children... }
 				</div>
 				if hasFooter {
-					<footer class="flex gap justify-end">
-						if props.AdditionalActions != nil {
-							@props.AdditionalActions
-						}
-						if props.ActionCancel != "" {
-							<button
-								name="close"
-								class="secondary flex gap"
-								type="button"
-								onclick="this.closest('dialog').close()"
-							>
-								<i class="bi bi-x-circle"></i>
-								{ props.ActionCancel }
-							</button>
-						}
-						if props.ActionSubmit != "" {
-							<button
-								type="submit"
-								class="flex gap"
-							>
-								<i class="bi bi-check-circle"></i>
-								{ props.ActionSubmit }
-							</button>
-						}
-					</footer>
+					@dialogFooter(props)
 				}
 			</form>
 		} else {
@@ -154,35 +130,39 @@ templ Dialog(props *DialogProps) {
 				{ children... }
 			</div>
 			if hasFooter {
-				<footer class="flex gap justify-end">
-					if props.AdditionalActions != nil {
-						@props.AdditionalActions
-					}
-					if props.ActionCancel != "" {
-						<button
-							name="close"
-							class="secondary flex gap small"
-							type="button"
-							onclick="this.closest('dialog').close()"
-						>
-							<i class="bi bi-x-circle"></i>
-							{ props.ActionCancel }
-						</button>
-					}
-					if props.ActionSubmit != "" {
-						<button
-							type="submit"
-							class="flex gap small"
-						>
-							<i class="bi bi-check-circle"></i>
-							{ props.ActionSubmit }
-						</button>
-					}
-				</footer>
+				@dialogFooter(props)
 			}
 		}
 		<script defer>
 			document.querySelector('#{{ props.ID }}').showModal();
 		</script>
 	</dialog>
+}
+
+templ dialogFooter(props *DialogProps) {
+	<footer class="flex gap justify-end">
+		if props.AdditionalActions != nil {
+			@props.AdditionalActions
+		}
+		if props.ActionCancel != "" {
+			<button
+				name="close"
+				class="secondary flex gap small"
+				type="button"
+				onclick="this.closest('dialog').close()"
+			>
+				<i class="bi bi-x-circle"></i>
+				{ props.ActionCancel }
+			</button>
+		}
+		if props.ActionSubmit != "" {
+			<button
+				type="submit"
+				class="flex gap small"
+			>
+				<i class="bi bi-check-circle"></i>
+				{ props.ActionSubmit }
+			</button>
+		}
+	</footer>
 }
