@@ -133,6 +133,14 @@ a[target="_blank"]:not([role="button"]):after {
 	font-size: 0.875rem;
 }
 
+small {
+	font-size: 0.75rem;
+}
+
+large {
+	font-size: 1.25rem;
+}
+
 /* Font Size Utility Classes */
 .text-xs {
 	font-size: 0.75rem;
