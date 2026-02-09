@@ -133,6 +133,11 @@ input[type="checkbox"] {
 	width: 1.5rem;
 }
 
+/* Range input - Safari zoom prevention */
+input[type="range"] {
+	font-size: 1rem; /* Prevents iOS zoom */
+}
+
 /* Color picker */
 input[type="color"] {
 	cursor: pointer;

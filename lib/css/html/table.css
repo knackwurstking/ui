@@ -23,6 +23,7 @@ td {
     padding: var(--ui-spacing);
     background-color: transparent;
     text-align: center;
+    font-size: 0.9rem;
 }
 
 tr.left > *,
@@ -122,9 +123,11 @@ table.borderless tr {
 table.compact th,
 table.compact td {
     padding: 8px;
+    font-size: 0.85rem;
 }
 /* Spacious table variant */
 table.spacious th,
 table.spacious td {
     padding: 24px;
+    font-size: 1rem;
 }
