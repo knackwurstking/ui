@@ -71,7 +71,12 @@ type DialogCloseProps struct {
 }
 
 templ DialogClose(props DialogCloseProps) {
-	<button id={ props.ID } class={ props.Class } { props.Attributes... }>
+	{{
+		onclick := templ.ComponentScript{
+			Call: `this.closest('dialog').close();`,
+		}
+	}}
+	<button id={ props.ID } class={ props.Class } onclick={ onclick } { props.Attributes... }>
 		<i class="bi bi-x-lg"></i>
 	</button>
 }
