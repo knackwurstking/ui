@@ -1,0 +1,78 @@
+package dialog
+
+const (
+	VariantClean       Variant = "clean"
+	VariantGlass       Variant = "glass"
+	VariantPrimary     Variant = "primary"
+	VariantSecondary   Variant = "secondary"
+	VariantInfo        Variant = "info"
+	VariantSuccess     Variant = "success"
+	VariantWarning     Variant = "warning"
+	VariantDestructive Variant = "destructive"
+	VariantContrast    Variant = "contrast"
+
+	SizeSmall  Size = "small"
+	SizeMedium Size = "medium"
+	SizeLarge  Size = "large"
+
+	TypeElevated Type = "elevated"
+	TypeFloating Type = "floating"
+	TypeSubtle   Type = "subtle"
+)
+
+type Variant string
+
+func (v Variant) GetClass() templ.CSSClasses {
+	return templ.CSSClasses{v}
+}
+
+type Size string
+
+func (s Size) GetClass() templ.CSSClasses {
+	return templ.CSSClasses{string(s)}
+}
+
+type Type string
+
+func (t Type) GetClass() templ.CSSClasses {
+	return templ.CSSClasses{string(t)}
+}
+
+type DialogProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	Fullscreen bool
+	Clean      bool
+	Type       Type
+	Size       Size
+	Variant    Variant
+}
+
+templ Dialog(props DialogProps) {
+	<dialog
+		id={ props.ID }
+		class={
+			templ.KV("fullscreen", props.Fullscreen),
+			templ.KV("clean", props.Clean),
+			props.Type.GetClass(),
+			props.Size.GetClass(),
+			props.Variant.GetClass(),
+			props.Class,
+		}
+		{ props.Attributes... }
+	></dialog>
+}
+
+type DialogCloseProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+}
+
+templ DialogClose(props DialogCloseProps) {
+	<button id={ props.ID } class={ props.Class } { props.Attributes... }>
+		<i class="bi bi-x-lg"></i>
+	</button>
+}

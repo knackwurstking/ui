@@ -9,7 +9,6 @@
 @import "./html/code.css";
 @import "./html/container.css";
 @import "./html/details.css";
-@import "./html/dialog.css";
 @import "./html/fieldset.css";
 @import "./html/form.css";
 @import "./html/input.css";
@@ -24,7 +23,7 @@
 @import "./components/card.css";
 @import "./components/checkbox.css";
 @import "./components/container.css";
-@import "./components/dialog-extended.css";
+@import "./components/dialog.css";
 @import "./components/drawer.css";
 @import "./components/drawer-extended.css";
 @import "./components/pagination.css";

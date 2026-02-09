@@ -11,8 +11,7 @@ dialog {
 	padding: var(--ui-spacing);
 	margin: auto auto;
 
-	border: var(--ui-border-width) var(--ui-border-style)
-		var(--ui-border-color);
+	border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
 	border-radius: var(--ui-radius);
 
 	/* Enhanced shadows */
@@ -38,10 +37,7 @@ dialog.clean {
 dialog.fullscreen {
 	width: 100%;
 	height: 100%;
-	padding: env(safe-area-inset-top, var(--ui-spacing))
-		env(safe-area-inset-right, var(--ui-spacing))
-		env(safe-area-inset-bottom, var(--ui-spacing))
-		env(safe-area-inset-left, var(--ui-spacing));
+	padding: env(safe-area-inset-top, var(--ui-spacing)) env(safe-area-inset-right, var(--ui-spacing)) env(safe-area-inset-bottom, var(--ui-spacing)) env(safe-area-inset-left, var(--ui-spacing));
 	box-shadow: none;
 }
 
@@ -69,8 +65,7 @@ dialog.glass {
 	border: 1px solid hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.18);
 	box-shadow:
 		var(--ui-shadow-2xl),
-		inset 0 1px 1px
-			hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
+		inset 0 1px 1px hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
 }
 
 dialog.glass::backdrop {
@@ -160,40 +155,6 @@ dialog .dialog-close:hover {
 	background-color: var(--ui-color-200);
 }
 
-/* Confirm dialog variant */
-dialog.confirm {
-	border-color: var(--ui-primary);
-	background-color: var(--ui-bg);
-	color: var(--ui-text);
-}
-
-dialog.confirm .dialog-content {
-	margin-bottom: var(--ui-spacing);
-}
-
-dialog.confirm .dialog-actions {
-	display: flex;
-	gap: calc(var(--ui-spacing) / 2);
-	justify-content: flex-end;
-}
-
-/* Alert dialog variant */
-dialog.alert {
-	border-color: var(--ui-destructive);
-	background-color: var(--ui-bg);
-	color: var(--ui-text);
-}
-
-dialog.alert .dialog-content {
-	margin-bottom: var(--ui-spacing);
-}
-
-dialog.alert .dialog-actions {
-	display: flex;
-	gap: calc(var(--ui-spacing) / 2);
-	justify-content: flex-end;
-}
-
 /* Dialog sizes */
 dialog.small {
 	width: 30rem;
@@ -208,19 +169,6 @@ dialog.medium {
 dialog.large {
 	width: 50rem;
 	max-width: 90vw;
-}
-
-/* Dialog content */
-dialog .dialog-content {
-	padding: var(--ui-spacing) 0;
-}
-
-/* Dialog actions */
-dialog .dialog-actions {
-	display: flex;
-	gap: calc(var(--ui-spacing) / 2);
-	justify-content: flex-end;
-	padding-top: calc(var(--ui-spacing) / 2);
 }
 
 /* Accessibility - Reduced Motion */
@@ -244,4 +192,3 @@ dialog .dialog-actions {
 		box-shadow: 0 0 0 2px var(--ui-border-color);
 	}
 }
-
