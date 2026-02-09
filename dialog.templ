@@ -140,14 +140,14 @@ templ Dialog(props *DialogProps) {
 }
 
 templ dialogFooter(props *DialogProps) {
-	<footer class="flex gap justify-end">
+	<footer class="flex flex-wrap gap justify-end">
 		if props.AdditionalActions != nil {
 			@props.AdditionalActions
 		}
 		if props.ActionCancel != "" {
 			<button
 				name="close"
-				class="secondary flex gap small"
+				class="secondary flex gap"
 				type="button"
 				onclick="this.closest('dialog').close()"
 			>
@@ -158,7 +158,7 @@ templ dialogFooter(props *DialogProps) {
 		if props.ActionSubmit != "" {
 			<button
 				type="submit"
-				class="flex gap small"
+				class="flex gap"
 			>
 				<i class="bi bi-check-circle"></i>
 				{ props.ActionSubmit }
