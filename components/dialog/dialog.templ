@@ -61,7 +61,9 @@ templ Dialog(props DialogProps) {
 			props.Class,
 		}
 		{ props.Attributes... }
-	></dialog>
+	>
+		{ children... }
+	</dialog>
 }
 
 type DialogCloseProps struct {
