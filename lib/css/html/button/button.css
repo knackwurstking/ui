@@ -16,7 +16,6 @@ input[type="reset"] {
 	padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
 
 	/* Typography */
-	font-size: 1.0rem;
 	font-weight: 500;
 	line-height: 1.5;
 	text-transform: capitalize;
@@ -144,13 +143,11 @@ button.ghost,
 button.small,
 [role="button"].small {
 	padding: calc(var(--ui-spacing) / 4) calc(var(--ui-spacing) / 1.5);
-	font-size: 0.775rem;
 }
 
 button.large,
 [role="button"].large {
 	padding: calc(var(--ui-spacing) * 0.75) calc(var(--ui-spacing) * 1.5);
-	font-size: 1.15rem;
 }
 
 button.icon,
