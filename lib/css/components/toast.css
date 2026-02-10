@@ -183,24 +183,3 @@
 	height: 2rem;
 	font-size: 1rem;
 }
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-	.toast {
-		transition: none;
-	}
-
-	.toast.show,
-	.toast.hide {
-		transform: none;
-		opacity: 1;
-	}
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-	.toast {
-		transition: none;
-	}
-}
-
