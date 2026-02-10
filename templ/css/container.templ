@@ -1,0 +1,24 @@
+package css
+
+const (
+	Container      = "container"
+	ContainerFluid = "fluid"
+)
+
+templ StylesContainer() {
+	<style>
+		.container {
+			display: block;
+			width: 100%;
+			max-width: 65rem;
+			margin: 0 auto;
+			padding: var(--ui-spacing);
+			overflow: auto;
+		}
+
+		.container.fluid {
+			width: 100%;
+			max-width: 100%;
+		}
+	</style>
+}
