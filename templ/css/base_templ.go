@@ -10,6 +10,17 @@ import templruntime "github.com/a-h/templ/runtime"
 
 const (
 	FormGroup = "form-group"
+
+	ButtonSmall = "small"
+	ButtonLarge = "large"
+	ButtonIcon  = "icon"
+	ButtonGroup = "button-group"
+
+	BlockquoteSmall = "small"
+	BlockquoteLarge = "large"
+
+	SelectSmall = "small"
+	SelectLarge = "large"
 )
 
 func StylesGlobal() templ.Component {
