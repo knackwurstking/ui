@@ -29,14 +29,14 @@ func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
 		ctx.Response().Header().Set("Expires", time.Now().AddDate(1, 0, 0).Format(http.TimeFormat))
 	}
 
-	enablePathChecking := false
+	hasAdditionalPaths := false
 	if len(additionalPaths) > 0 {
-		enablePathChecking = true
+		hasAdditionalPaths = true
 	}
 
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(ctx echo.Context) error {
-			if enablePathChecking {
+			if hasAdditionalPaths {
 				path := strings.TrimRight(ctx.Request().URL.Path, "/")
 				if slices.Contains(additionalPaths, path) {
 					setPageCacheHeaders(ctx)
