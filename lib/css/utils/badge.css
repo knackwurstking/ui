@@ -193,15 +193,18 @@
 	0% {
 		box-shadow: 0 0 0 0 currentColor;
 	}
+
 	70% {
 		box-shadow: 0 0 0 0.5rem transparent;
 	}
+
 	100% {
 		box-shadow: 0 0 0 0 transparent;
 	}
 }
 
 @keyframes badge-ping {
+
 	75%,
 	100% {
 		transform: scale(2);
@@ -210,10 +213,12 @@
 }
 
 @keyframes badge-bounce {
+
 	0%,
 	100% {
 		transform: translateY(0);
 	}
+
 	50% {
 		transform: translateY(-25%);
 	}
@@ -349,84 +354,8 @@
 
 /* Badge with Gradient Background */
 .badge-gradient {
-	background: linear-gradient(
-		135deg,
-		var(--ui-primary),
-		var(--ui-secondary)
-	);
+	background: linear-gradient(135deg,
+			var(--ui-primary),
+			var(--ui-secondary));
 	color: white;
-}
-
-/* Accessibility - Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-	.badge {
-		transition: none;
-	}
-
-	.badge-dismissible .badge-close {
-		transition: none;
-	}
-
-	.badge-clickable {
-		transition: none;
-	}
-
-	.badge-clickable:hover {
-		transform: none;
-	}
-
-	.badge-clickable:active {
-		transform: none;
-	}
-
-	.badge-pulse {
-		animation: none;
-	}
-
-	.badge-ping::after {
-		animation: none;
-	}
-
-	.badge-bounce {
-		animation: none;
-	}
-
-	.badge-loading::after {
-		animation: none;
-		/* Show static loading indicator */
-		border-right-width: 0.25em;
-	}
-
-	/* Remove transform effects for positioned badges */
-	.badge-top-right,
-	.badge-top-left,
-	.badge-bottom-right,
-	.badge-bottom-left {
-		transform: translate(0, 0);
-	}
-
-	.badge-top-right {
-		top: -0.5em;
-		right: -0.5em;
-	}
-
-	.badge-top-left {
-		top: -0.5em;
-		left: -0.5em;
-	}
-
-	.badge-bottom-right {
-		bottom: -0.5em;
-		right: -0.5em;
-	}
-
-	.badge-bottom-left {
-		bottom: -0.5em;
-		left: -0.5em;
-	}
-
-	.badge-float-top,
-	.badge-float-bottom {
-		transform: translateX(-50%);
-	}
 }
