@@ -21,6 +21,13 @@ const (
 
 	SelectSmall = "small"
 	SelectLarge = "large"
+
+	TableStriped    = "striped"
+	TableBordered   = "bordered"
+	TableHover      = "hover"
+	TableBorderless = "borderless"
+	TableCompact    = "compact"
+	TableSpacious   = "spacious"
 )
 
 func StylesGlobal() templ.Component {
