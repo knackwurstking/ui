@@ -20,6 +20,8 @@ const (
 	TableBorderless = "borderless"
 	TableCompact    = "compact"
 	TableSpacious   = "spacious"
+	TableLeft       = "left"
+	TableRight      = "right"
 )
 
 templ StylesGlobal() {
@@ -2477,7 +2479,7 @@ templ globalTableStyles() {
 		}
 
 		/* Table hover effects */
-		table.hover tbody tr:hover {
+		table tbody tr:hover {
 			background-color: var(--ui-color-100);
 		}
 
