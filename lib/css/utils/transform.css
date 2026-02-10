@@ -495,6 +495,7 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
 	.transform-style-flat,
 	.transform-style-3d,
 	.perspective,
@@ -508,4 +509,3 @@
 		transition: none !important;
 	}
 }
-

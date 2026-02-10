@@ -1,0 +1,209 @@
+package css
+
+const (
+	ShadowNone           = "shadow-none"
+	ShadowSm             = "shadow-sm"
+	Shadow               = "shadow"
+	ShadowMd             = "shadow-md"
+	ShadowLg             = "shadow-lg"
+	ShadowXl             = "shadow-xl"
+	Shadow2xl            = "shadow-2xl"
+	ShadowInner          = "shadow-inner"
+	ShadowTransition     = "shadow-transition"
+	ShadowTransitionFast = "shadow-transition-fast"
+	ShadowTransitionSlow = "shadow-transition-slow"
+	Elevation1           = "elevation-1"
+	Elevation2           = "elevation-2"
+	Elevation3           = "elevation-3"
+	Elevation4           = "elevation-4"
+	Elevation5           = "elevation-5"
+)
+
+templ StylesShadow() {
+	<style>
+		/* Base Shadow Classes */
+		.shadow-none {
+			box-shadow: none !important;
+		}
+
+		/* Shadow SM */
+
+		.shadow-sm {
+			box-shadow: var(--ui-shadow-sm);
+		}
+
+		/* Shadow */
+
+		.shadow {
+			box-shadow: var(--ui-shadow);
+		}
+
+		/* Shadow MD */
+
+		.shadow-md {
+			box-shadow: var(--ui-shadow-md);
+		}
+
+		/* Shadow LG */
+
+		.shadow-lg {
+			box-shadow: var(--ui-shadow-lg);
+		}
+
+		/* Shadow XL */
+
+		.shadow-xl {
+			box-shadow: var(--ui-shadow-xl);
+		}
+
+		/* Shadow 2XL */
+
+		.shadow-2xl {
+			box-shadow: var(--ui-shadow-2xl);
+		}
+
+		/* Shadow Inner */
+
+		.shadow-inner {
+			box-shadow: var(--ui-shadow-inner);
+		}
+
+		/* Animated Shadow Transitions */
+		.shadow-transition {
+			transition: box-shadow 0.25s ease-in-out;
+		}
+
+		.shadow-transition-fast {
+			transition: box-shadow 0.15s ease-in-out;
+		}
+
+		.shadow-transition-slow {
+			transition: box-shadow 0.4s ease-in-out;
+		}
+
+		/* Elevation with Transform */
+
+		/* Elevation 1 */
+
+		.elevation-1 {
+			box-shadow: var(--ui-shadow-sm);
+			transform: translateY(0);
+			transition:
+				box-shadow 0.25s ease-in-out,
+				transform 0.25s ease-in-out;
+		}
+
+		.elevation-1:hover {
+			box-shadow: var(--ui-shadow);
+			transform: var(--ui-hover-transition);
+		}
+
+		/* Elevation 2 */
+
+		.elevation-2 {
+			box-shadow: var(--ui-shadow);
+			transition:
+				box-shadow 0.25s ease-in-out,
+				transform 0.25s ease-in-out;
+		}
+
+		.elevation-2:hover {
+			box-shadow: var(--ui-shadow-md);
+			transform: var(--ui-hover-transition);
+		}
+
+		/* Elevation 3 */
+
+		.elevation-3 {
+			box-shadow: var(--ui-shadow-md);
+			transform: translateY(0);
+			transition:
+				box-shadow 0.25s ease-in-out,
+				transform 0.25s ease-in-out;
+		}
+
+		.elevation-3:hover {
+			box-shadow: var(--ui-shadow-lg);
+			transform: var(--ui-hover-transition);
+		}
+
+		/* Elevation 4 */
+
+		.elevation-4 {
+			box-shadow: var(--ui-shadow-lg);
+			transform: translateY(0);
+			transition:
+				box-shadow 0.25s ease-in-out,
+				transform 0.25s ease-in-out;
+		}
+
+		.elevation-4:hover {
+			box-shadow: var(--ui-shadow-xl);
+			transform: var(--ui-hover-transition);
+		}
+
+		/* Elevation 5 */
+
+		.elevation-5 {
+			box-shadow: var(--ui-shadow-xl);
+			transform: translateY(0);
+			transition:
+				box-shadow 0.25s ease-in-out,
+				transform 0.25s ease-in-out;
+		}
+
+		.elevation-5:hover {
+			box-shadow: var(--ui-shadow-2xl);
+			transform: var(--ui-hover-transition);
+		}
+
+		/* Pressed/Active States */
+		.elevation-1:active,
+		.elevation-2:active,
+		.elevation-3:active,
+		.elevation-4:active,
+		.elevation-5:active {
+			transform: var(--ui-active-transition);
+			box-shadow: var(--ui-shadow-sm);
+			transition: none;
+		}
+
+		/* Accessibility - Reduced Motion */
+		@media (prefers-reduced-motion: reduce) {
+			/* Remove transitions from shadow transition utilities */
+			.shadow-transition,
+			.shadow-transition-fast,
+			.shadow-transition-slow {
+				transition: none;
+			}
+
+			/* Remove transforms and transitions from elevation utilities */
+			.elevation-1,
+			.elevation-2,
+			.elevation-3,
+			.elevation-4,
+			.elevation-5 {
+				transition: none;
+				transform: none;
+			}
+
+			.elevation-1:hover,
+			.elevation-2:hover,
+			.elevation-3:hover,
+			.elevation-4:hover,
+			.elevation-5:hover {
+				transform: none;
+				transition: none;
+			}
+
+			.elevation-1:active,
+			.elevation-2:active,
+			.elevation-3:active,
+			.elevation-4:active,
+			.elevation-5:active {
+				transform: none;
+				transition: none;
+			}
+		}
+	</style>
+}
