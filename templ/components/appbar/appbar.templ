@@ -1,6 +1,9 @@
 package appbar
 
-import "github.com/knackwurstking/ui/templ/css"
+import (
+	"fmt"
+	"github.com/knackwurstking/ui/templ/css"
+)
 
 const (
 	AppBarPositionTop    AppBarPosition = "top"
@@ -31,6 +34,7 @@ type AppBarProps struct {
 }
 
 templ AppBar(props AppBarProps) {
+	{{ fmt.Printf("%#v, %#v\n", props.Position, props.Type) }}
 	<span
 		id={ props.ID }
 		class={ css.AppBar, props.Class, props.Position.GetClass(), props.Type.GetClass() }
