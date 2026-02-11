@@ -1,5 +1,11 @@
 package components
 
+import "github.com/knackwurstking/ui/templ/css"
+
+type CardVariant string
+type CardSize string
+type CardLayout string
+
 const (
 	CardVariantFlat     CardVariant = "flat"
 	CardVariantOutline  CardVariant = "outline"
@@ -12,12 +18,6 @@ const (
 	CardLayoutHorizontal CardLayout = "horizontal"
 )
 
-type CardVariant string
-
-type CardSize string
-
-type CardLayout string
-
 type CardProps struct {
 	ID         string
 	Class      templ.CSSClasses
@@ -28,6 +28,13 @@ type CardProps struct {
 }
 
 templ Card(props CardProps) {
+	<span
+		id={ props.ID }
+		class={ css.Card, string(props.Variant), string(props.Size), props.Class }
+		{ props.Attributes... }
+	>
+		{ children... }
+	</span>
 }
 
 type CardHeaderProps struct {
@@ -37,6 +44,9 @@ type CardHeaderProps struct {
 }
 
 templ CardHeader(props CardHeaderProps) {
+	<header id={ props.ID } class={ css.CardHeader, props.Class } { props.Attributes... }>
+		{ children... }
+	</header>
 }
 
 type CardBodyProps struct {
@@ -46,6 +56,9 @@ type CardBodyProps struct {
 }
 
 templ CardBody(props CardBodyProps) {
+	<div id={ props.ID } class={ css.CardBody, props.Class } { props.Attributes... }>
+		{ children... }
+	</div>
 }
 
 type CardFooterProps struct {
@@ -55,17 +68,38 @@ type CardFooterProps struct {
 }
 
 templ CardFooter(props CardFooterProps) {
+	<footer id={ props.ID } class={ css.CardFooter, props.Class } { props.Attributes... }>
+		{ children... }
+	</footer>
 }
+
+type CardImageAspect string
+
+const (
+	CardImageAspectVideo    CardImageAspect = "aspect-video"
+	CardImageAspectSquare   CardImageAspect = "aspect-square"
+	CardImageAspectPortrait CardImageAspect = "aspect-portrait"
+)
 
 type CardImageProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 
-	// ...
+	Aspect CardImageAspect
+
+	Src templ.SafeURL
+	Alt string
 }
 
 templ CardImage(props CardImageProps) {
+	<img
+		id={ props.ID }
+		class={ css.CardImage, string(props.Aspect), props.Class }
+		src={ props.Src }
+		alt={ props.Alt }
+		{ props.Attributes... }
+	/>
 }
 
 type CardTitleProps struct {
@@ -73,10 +107,18 @@ type CardTitleProps struct {
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 
-	// ...
+	Truncate bool
 }
 
-templ CardTitle(props CardTitleProps) {
+templ CardTitle(text string, props CardTitleProps) {
+	<span
+		id={ props.ID }
+		class={ css.CardTitle, templ.KV(css.CardTitleTruncate, props.Truncate), props.Class }
+		{ props.Attributes... }
+	>
+		{ text }
+		{ children... }
+	</span>
 }
 
 type CardSubtitleProps struct {
@@ -84,19 +126,43 @@ type CardSubtitleProps struct {
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 
-	// ...
+	Truncate bool
 }
 
-templ CardSubtitle(props CardSubtitleProps) {
+templ CardSubtitle(text string, props CardSubtitleProps) {
+	<span
+		id={ props.ID }
+		class={ css.CardSubtitle, templ.KV(css.CardSubtitleTruncate, props.Truncate), props.Class }
+		{ props.Attributes... }
+	>
+		{ text }
+		{ children... }
+	</span>
 }
+
+type CardActionsJustify string
+
+const (
+	CardActionsJustifyCenter  CardActionsJustify = "center"
+	CardActionsJustifyEnd     CardActionsJustify = "end"
+	CardActionsJustifyBetween CardActionsJustify = "between"
+	CardActionsJustifyStretch CardActionsJustify = "stretch"
+)
 
 type CardActionsProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 
-	// ...
+	Justify CardActionsJustify
 }
 
 templ CardActions(props CardActionsProps) {
+	<span
+		id={ props.ID }
+		class={ css.CardActions, string(props.Justify), props.Class }
+		{ props.Attributes... }
+	>
+		{ children... }
+	</span>
 }
