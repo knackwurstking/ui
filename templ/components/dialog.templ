@@ -1,22 +1,24 @@
 package components
 
+import "github.com/knackwurstking/ui/templ/css"
+
 const (
-	DialogVariantGlass       DialogVariant = "glass"
-	DialogVariantPrimary     DialogVariant = "primary"
-	DialogVariantSecondary   DialogVariant = "secondary"
-	DialogVariantInfo        DialogVariant = "info"
-	DialogVariantSuccess     DialogVariant = "success"
-	DialogVariantWarning     DialogVariant = "warning"
-	DialogVariantDestructive DialogVariant = "destructive"
-	DialogVariantContrast    DialogVariant = "contrast"
+	DialogVariantGlass       DialogVariant = css.DialogGlass
+	DialogVariantPrimary     DialogVariant = css.DialogPrimary
+	DialogVariantSecondary   DialogVariant = css.DialogSecondary
+	DialogVariantInfo        DialogVariant = css.DialogInfo
+	DialogVariantSuccess     DialogVariant = css.DialogSuccess
+	DialogVariantWarning     DialogVariant = css.DialogWarning
+	DialogVariantDestructive DialogVariant = css.DialogDestructive
+	DialogVariantContrast    DialogVariant = css.DialogContrast
 
-	DialogSizeSmall  DialogSize = "small"
-	DialogSizeMedium DialogSize = "medium"
-	DialogSizeLarge  DialogSize = "large"
+	DialogSizeSmall  DialogSize = css.DialogSmall
+	DialogSizeMedium DialogSize = css.DialogMedium
+	DialogSizeLarge  DialogSize = css.DialogLarge
 
-	DialogTypeElevated DialogType = "elevated"
-	DialogTypeFloating DialogType = "floating"
-	DialogTypeSubtle   DialogType = "subtle"
+	DialogTypeElevated DialogType = css.DialogElevated
+	DialogTypeFloating DialogType = css.DialogFloating
+	DialogTypeSubtle   DialogType = css.DialogSubtle
 )
 
 type DialogVariant string

@@ -12,18 +12,25 @@ import "github.com/knackwurstking/ui/templ/css"
 
 type CardVariant string
 type CardSize string
-type CardLayout string
+type CardColor string
 
 const (
-	CardVariantFlat     CardVariant = "flat"
-	CardVariantOutline  CardVariant = "outline"
-	CardVariantSeamless CardVariant = "seamless"
+	CardVariantFlat     CardVariant = css.CardFlat
+	CardVariantOutline  CardVariant = css.CardOutline
+	CardVariantSeamless CardVariant = css.CardSeamless
 
-	CardSizeCompact      CardSize = "compact"
-	CardSizeCompfortable CardSize = "comfortable"
-	CardSizeSpacious     CardSize = "spacious"
+	CardSizeCompact      CardSize = css.CardCompact
+	CardSizeCompfortable CardSize = css.CardComfortable
+	CardSizeSpacious     CardSize = css.CardSpacious
 
-	CardLayoutHorizontal CardLayout = "horizontal"
+	CardColorPrimary     CardColor = css.CardPrimary
+	CardColorSecondary   CardColor = css.CardSecondary
+	CardColorSuccess     CardColor = css.CardSuccess
+	CardColorWarning     CardColor = css.CardWarning
+	CardColorDestructive CardColor = css.CardDestructive
+	CardColorInfo        CardColor = css.CardInfo
+	CardColorContrast    CardColor = css.CardContrast
+	CardColorMuted       CardColor = css.CardMuted
 )
 
 type CardProps struct {
@@ -33,6 +40,7 @@ type CardProps struct {
 
 	Variant CardVariant
 	Size    CardSize
+	Color   CardColor
 }
 
 func Card(props CardProps) templ.Component {
@@ -56,7 +64,7 @@ func Card(props CardProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{css.Card, string(props.Variant), string(props.Size), props.Class}
+		var templ_7745c5c3_Var2 = []any{css.Card, string(props.Variant), string(props.Size), string(props.Color), props.Class}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -68,7 +76,7 @@ func Card(props CardProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 32, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 40, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -150,7 +158,7 @@ func CardHeader(props CardHeaderProps) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 47, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 55, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -232,7 +240,7 @@ func CardBody(props CardBodyProps) templ.Component {
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 59, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 67, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
@@ -314,7 +322,7 @@ func CardFooter(props CardFooterProps) templ.Component {
 		var templ_7745c5c3_Var15 string
 		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 71, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 79, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 		if templ_7745c5c3_Err != nil {
@@ -360,9 +368,9 @@ func CardFooter(props CardFooterProps) templ.Component {
 type CardImageAspect string
 
 const (
-	CardImageAspectVideo    CardImageAspect = "aspect-video"
-	CardImageAspectSquare   CardImageAspect = "aspect-square"
-	CardImageAspectPortrait CardImageAspect = "aspect-portrait"
+	CardImageAspectVideo    CardImageAspect = css.CardImageAspectVideo
+	CardImageAspectSquare   CardImageAspect = css.CardImageAspectSquare
+	CardImageAspectPortrait CardImageAspect = css.CardImageAspectPortrait
 )
 
 type CardImageProps struct {
@@ -409,7 +417,7 @@ func CardImage(props CardImageProps) templ.Component {
 		var templ_7745c5c3_Var19 string
 		templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 97, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 105, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 		if templ_7745c5c3_Err != nil {
@@ -435,7 +443,7 @@ func CardImage(props CardImageProps) templ.Component {
 		var templ_7745c5c3_Var21 string
 		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(props.Src)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 99, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 107, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 		if templ_7745c5c3_Err != nil {
@@ -448,7 +456,7 @@ func CardImage(props CardImageProps) templ.Component {
 		var templ_7745c5c3_Var22 string
 		templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(props.Alt)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 100, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 108, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 		if templ_7745c5c3_Err != nil {
@@ -511,7 +519,7 @@ func CardTitle(text string, props CardTitleProps) templ.Component {
 		var templ_7745c5c3_Var25 string
 		templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 115, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 123, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 		if templ_7745c5c3_Err != nil {
@@ -545,7 +553,7 @@ func CardTitle(text string, props CardTitleProps) templ.Component {
 		var templ_7745c5c3_Var27 string
 		templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 119, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 127, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 		if templ_7745c5c3_Err != nil {
@@ -604,7 +612,7 @@ func CardSubtitle(text string, props CardSubtitleProps) templ.Component {
 		var templ_7745c5c3_Var30 string
 		templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 134, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 142, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 		if templ_7745c5c3_Err != nil {
@@ -638,7 +646,7 @@ func CardSubtitle(text string, props CardSubtitleProps) templ.Component {
 		var templ_7745c5c3_Var32 string
 		templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 138, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 146, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 		if templ_7745c5c3_Err != nil {
@@ -659,10 +667,10 @@ func CardSubtitle(text string, props CardSubtitleProps) templ.Component {
 type CardActionsJustify string
 
 const (
-	CardActionsJustifyCenter  CardActionsJustify = "center"
-	CardActionsJustifyEnd     CardActionsJustify = "end"
-	CardActionsJustifyBetween CardActionsJustify = "between"
-	CardActionsJustifyStretch CardActionsJustify = "stretch"
+	CardActionsJustifyCenter  CardActionsJustify = css.CardActionsCenter
+	CardActionsJustifyEnd     CardActionsJustify = css.CardActionsEnd
+	CardActionsJustifyBetween CardActionsJustify = css.CardActionsBetween
+	CardActionsJustifyStretch CardActionsJustify = css.CardActionsStretch
 )
 
 type CardActionsProps struct {
@@ -706,7 +714,7 @@ func CardActions(props CardActionsProps) templ.Component {
 		var templ_7745c5c3_Var35 string
 		templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 162, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/card.templ`, Line: 170, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 		if templ_7745c5c3_Err != nil {

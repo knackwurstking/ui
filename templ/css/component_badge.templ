@@ -21,14 +21,6 @@ const (
 	BadgeRounded = "badge-rounded"
 )
 
-// Dot badge (indicator) styles
-const (
-	BadgeDot   = "badge-dot"
-	BadgeDotSM = "badge-dot-sm"
-	BadgeDotLG = "badge-dot-lg"
-	BadgeDotXL = "badge-dot-xl"
-)
-
 // Badge with close button
 const (
 	BadgeDismissible = "badge-dismissible"
@@ -155,30 +147,6 @@ templ StylesComponentBadge() {
 
 		.badge-rounded {
 			border-radius: var(--ui-radius);
-		}
-
-		/* Dot Badge (Indicator) */
-		.badge-dot {
-			width: 0.5rem;
-			height: 0.5rem;
-			padding: 0;
-			border-radius: 50%;
-			display: inline-block;
-		}
-
-		.badge-dot-sm {
-			width: 0.375rem;
-			height: 0.375rem;
-		}
-
-		.badge-dot-lg {
-			width: 0.625rem;
-			height: 0.625rem;
-		}
-
-		.badge-dot-xl {
-			width: 0.75rem;
-			height: 0.75rem;
 		}
 
 		/* Badge with Close Button */

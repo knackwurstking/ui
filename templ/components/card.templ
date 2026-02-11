@@ -4,18 +4,25 @@ import "github.com/knackwurstking/ui/templ/css"
 
 type CardVariant string
 type CardSize string
-type CardLayout string
+type CardColor string
 
 const (
-	CardVariantFlat     CardVariant = "flat"
-	CardVariantOutline  CardVariant = "outline"
-	CardVariantSeamless CardVariant = "seamless"
+	CardVariantFlat     CardVariant = css.CardFlat
+	CardVariantOutline  CardVariant = css.CardOutline
+	CardVariantSeamless CardVariant = css.CardSeamless
 
-	CardSizeCompact      CardSize = "compact"
-	CardSizeCompfortable CardSize = "comfortable"
-	CardSizeSpacious     CardSize = "spacious"
+	CardSizeCompact      CardSize = css.CardCompact
+	CardSizeCompfortable CardSize = css.CardComfortable
+	CardSizeSpacious     CardSize = css.CardSpacious
 
-	CardLayoutHorizontal CardLayout = "horizontal"
+	CardColorPrimary     CardColor = css.CardPrimary
+	CardColorSecondary   CardColor = css.CardSecondary
+	CardColorSuccess     CardColor = css.CardSuccess
+	CardColorWarning     CardColor = css.CardWarning
+	CardColorDestructive CardColor = css.CardDestructive
+	CardColorInfo        CardColor = css.CardInfo
+	CardColorContrast    CardColor = css.CardContrast
+	CardColorMuted       CardColor = css.CardMuted
 )
 
 type CardProps struct {
@@ -25,12 +32,13 @@ type CardProps struct {
 
 	Variant CardVariant
 	Size    CardSize
+	Color   CardColor
 }
 
 templ Card(props CardProps) {
 	<span
 		id={ props.ID }
-		class={ css.Card, string(props.Variant), string(props.Size), props.Class }
+		class={ css.Card, string(props.Variant), string(props.Size), string(props.Color), props.Class }
 		{ props.Attributes... }
 	>
 		{ children... }
@@ -76,9 +84,9 @@ templ CardFooter(props CardFooterProps) {
 type CardImageAspect string
 
 const (
-	CardImageAspectVideo    CardImageAspect = "aspect-video"
-	CardImageAspectSquare   CardImageAspect = "aspect-square"
-	CardImageAspectPortrait CardImageAspect = "aspect-portrait"
+	CardImageAspectVideo    CardImageAspect = css.CardImageAspectVideo
+	CardImageAspectSquare   CardImageAspect = css.CardImageAspectSquare
+	CardImageAspectPortrait CardImageAspect = css.CardImageAspectPortrait
 )
 
 type CardImageProps struct {
@@ -143,10 +151,10 @@ templ CardSubtitle(text string, props CardSubtitleProps) {
 type CardActionsJustify string
 
 const (
-	CardActionsJustifyCenter  CardActionsJustify = "center"
-	CardActionsJustifyEnd     CardActionsJustify = "end"
-	CardActionsJustifyBetween CardActionsJustify = "between"
-	CardActionsJustifyStretch CardActionsJustify = "stretch"
+	CardActionsJustifyCenter  CardActionsJustify = css.CardActionsCenter
+	CardActionsJustifyEnd     CardActionsJustify = css.CardActionsEnd
+	CardActionsJustifyBetween CardActionsJustify = css.CardActionsBetween
+	CardActionsJustifyStretch CardActionsJustify = css.CardActionsStretch
 )
 
 type CardActionsProps struct {
