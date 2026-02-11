@@ -1,6 +1,12 @@
 package app
 
 import "github.com/knackwurstking/ui/pkg/css"
+import "github.com/knackwurstking/ui/pkg/components"
+
+const (
+	IDTopAppBar      = "top-app-bar"
+	IDTopAppBarTitle = "top-app-bar-title"
+)
 
 templ Layout() {
 	<!DOCTYPE html>
@@ -38,7 +44,19 @@ templ layoutStyles() {
 }
 
 templ appBar() {
-	// TODO: ...
+	@components.AppBar(components.AppBarProps{
+		ID:       IDTopAppBar,
+		Class:    templ.CSSClasses{css.ShadowSm},
+		Position: components.AppBarPositionTop,
+		Type:     components.AppBarTypeFixed,
+	}) {
+		@components.AppBarLeft(components.AppBarLeftProps{}) {
+			// TODO: Icon button for opening the drawer, e.g. a hamburger menu icon
+		}
+		@components.AppBarCenter(components.AppBarCenterProps{}) {
+			<h5 id={ IDTopAppBarTitle }>UI</h5>
+		}
+	}
 }
 
 templ drawer() {
