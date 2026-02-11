@@ -10,16 +10,7 @@ const (
 )
 
 type AppBarPosition string
-
-func (p AppBarPosition) String() string {
-	return string(p)
-}
-
 type AppBarType string
-
-func (t AppBarType) String() string {
-	return string(t)
-}
 
 type AppBarProps struct {
 	ID         string
@@ -33,7 +24,7 @@ type AppBarProps struct {
 templ AppBar(props AppBarProps) {
 	<span
 		id={ props.ID }
-		class={ css.AppBar, props.Position, props.Type, props.Class }
+		class={ css.AppBar, string(props.Position), string(props.Type), props.Class }
 		{ props.Attributes... }
 	>
 		{ children... }
