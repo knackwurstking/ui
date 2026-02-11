@@ -144,10 +144,21 @@ const (
 	PerspectiveOriginLeft        = "perspective-origin-left"
 	PerspectiveOriginTopLeft     = "perspective-origin-top-left"
 
+	// Transform
+	Transform     = "transform"
+	TransformNone = "transform-none"
+	TransformGPU  = "transform-gpu"
+	TransformCPU  = "transform-cpu"
+
 	// Transition Transform
 	TransitionTransform     = "transition-transform"
 	TransitionTransformFast = "transition-transform-fast"
 	TransitionTransformSlow = "transition-transform-slow"
+
+	TransitionAll     = "transition-all"
+	TransitionNone    = "transition-none"
+	TransitionColors  = "transition-colors"
+	TransitionOpacity = "transition-opacity"
 )
 
 templ StylesUtilTransform() {
@@ -632,51 +643,73 @@ templ StylesUtilTransform() {
 			perspective-origin: top left;
 		}
 
-		/* Transition Transform */
-		.transition-none {
-			transition: none;
-		}
+	/* Transform */
+	.transform {
+		--tw-translate-x: 0;
+		--tw-translate-y: 0;
+		--tw-rotate: 0;
+		--tw-skew-x: 0;
+		--tw-skew-y: 0;
+		--tw-scale-x: 1;
+		--tw-scale-y: 1;
+		transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+	}
 
-		.transition-all {
-			transition: all 0.25s ease-in-out;
-		}
+	.transform-none {
+		transform: none;
+	}
 
-		.transition-colors {
-			transition: background-color 0.25s ease-in-out,
-						border-color 0.25s ease-in-out,
-						color 0.25s ease-in-out;
-		}
+	.transform-gpu {
+		--tw-translate-x: 0;
+		--tw-translate-y: 0;
+		--tw-rotate: 0;
+		--tw-skew-x: 0;
+		--tw-skew-y: 0;
+		--tw-scale-x: 1;
+		--tw-scale-y: 1;
+		transform: translate3d(var(--tw-translate-x), var(--tw-translate-y), 0) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+	}
 
-		.transition-transform {
-			transition: transform 0.25s ease-in-out;
-		}
+	.transform-cpu {
+		--tw-translate-x: 0;
+		--tw-translate-y: 0;
+		--tw-rotate: 0;
+		--tw-skew-x: 0;
+		--tw-skew-y: 0;
+		--tw-scale-x: 1;
+		--tw-scale-y: 1;
+		transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+	}
 
-		.transition-opacity {
-			transition: opacity 0.25s ease-in-out;
-		}
+	/* Transition Transform */
+	.transition-none {
+		transition: none;
+	}
 
-		.transition-transform-fast {
-			transition: transform 0.15s ease-in-out;
-		}
+	.transition-all {
+		transition: all 0.25s ease-in-out;
+	}
 
-		.transition-transform-slow {
-			transition: transform 0.4s ease-in-out;
-		}
+	.transition-colors {
+		transition: background-color 0.25s ease-in-out,
+					border-color 0.25s ease-in-out,
+					color 0.25s ease-in-out;
+	}
 
-		/* Reduced Motion Support */
-		@media (prefers-reduced-motion: reduce) {
-			.transform-style-flat,
-			.transform-style-3d,
-			.perspective,
-			.perspective-none {
-				transform: none !important;
-			}
+	.transition-transform {
+		transition: transform 0.25s ease-in-out;
+	}
 
-			.transition-transform,
-			.transition-transform-fast,
-			.transition-transform-slow {
-				transition: none !important;
-			}
-		}
+	.transition-opacity {
+		transition: opacity 0.25s ease-in-out;
+	}
+
+	.transition-transform-fast {
+		transition: transform 0.15s ease-in-out;
+	}
+
+	.transition-transform-slow {
+		transition: transform 0.4s ease-in-out;
+	}
 	</style>
 }
