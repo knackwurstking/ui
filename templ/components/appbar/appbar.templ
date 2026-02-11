@@ -24,7 +24,7 @@ type AppBarProps struct {
 templ AppBar(props AppBarProps) {
 	<span
 		id={ props.ID }
-		class={ css.AppBar, props.Position, props.Type, props.Class }
+		class={ css.AppBar, string(props.Position), string(props.Type), props.Class }
 		{ props.Attributes... }
 	>
 		{ children... }
