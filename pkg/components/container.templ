@@ -1,3 +1,21 @@
 package components
 
-// TODO: ...
+import "github.com/knackwurstking/ui/pkg/css"
+
+type ContainerProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	Fluid bool
+}
+
+templ Container(props ContainerProps) {
+	<span
+		id={ props.ID }
+		class={ css.Container, templ.KV(props.Fluid, css.ContainerFluid), props.Class }
+		{ props.Attributes... }
+	>
+		{ children... }
+	</span>
+}
