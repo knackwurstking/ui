@@ -449,7 +449,129 @@
 		</style>
 	</div>
 
-	<!-- TODO: Add badge demo -->
+	<div class="demo-section">
+		<h2>Badges</h2>
+		<p>Basic badge styles:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge">Default Badge</span>
+			<span class="badge primary">Primary Badge</span>
+			<span class="badge secondary">Secondary Badge</span>
+			<span class="badge success">Success Badge</span>
+			<span class="badge warning">Warning Badge</span>
+			<span class="badge destructive">Destructive Badge</span>
+			<span class="badge info">Info Badge</span>
+		</div>
+
+		<p>Badge sizes:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge badge-xs">Extra Small</span>
+			<span class="badge badge-sm">Small</span>
+			<span class="badge badge-md">Medium</span>
+			<span class="badge badge-lg">Large</span>
+			<span class="badge badge-xl">Extra Large</span>
+		</div>
+
+		<p>Badge shapes:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge primary badge-pill">Pill</span>
+			<span class="badge primary badge-square">Square</span>
+			<span class="badge primary badge-rounded">Rounded</span>
+		</div>
+
+		<p>Badge with close button:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge badge-dismissible">
+				Dismissible Badge
+				<button class="badge-close">&times;</button>
+			</span>
+		</div>
+
+		<p>Badge positioning:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<div class="badge-container"
+				style="position: relative; display: inline-block; width: 100px; height: 50px; background-color: var(--ui-color-200); border-radius: var(--ui-radius);">
+				<span class="badge badge-top-right">Top Right</span>
+			</div>
+			<div class="badge-container"
+				style="position: relative; display: inline-block; width: 100px; height: 50px; background-color: var(--ui-color-200); border-radius: var(--ui-radius);">
+				<span class="badge badge-top-left">Top Left</span>
+			</div>
+			<div class="badge-container"
+				style="position: relative; display: inline-block; width: 100px; height: 50px; background-color: var(--ui-color-200); border-radius: var(--ui-radius);">
+				<span class="badge badge-bottom-right">Bottom Right</span>
+			</div>
+			<div class="badge-container"
+				style="position: relative; display: inline-block; width: 100px; height: 50px; background-color: var(--ui-color-200); border-radius: var(--ui-radius);">
+				<span class="badge badge-bottom-left">Bottom Left</span>
+			</div>
+		</div>
+
+		<p>Badge counters:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge primary badge-counter">555</span>
+			<span class="badge primary badge-counter-sm">10</span>
+			<span class="badge primary badge-counter-lg">99+</span>
+		</div>
+
+		<p>Badge groups:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge-group">
+				<span class="badge primary">Grouped</span>
+				<span class="badge secondary">Badge</span>
+				<span class="badge success">Example</span>
+			</span>
+		</div>
+
+		<p>Badge lists:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<ul class="badge-list">
+				<li><span class="badge">List Item 1</span></li>
+				<li><span class="badge primary">List Item 2</span></li>
+				<li><span class="badge secondary">List Item 3</span></li>
+			</ul>
+		</div>
+
+		<p>Badge animations:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge badge-pulse primary">Pulsing</span>
+			<span class="badge badge-ping warning">Pinging</span>
+			<span class="badge badge-bounce info">Bouncing</span>
+		</div>
+
+		<p>Badge with status indicators:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge badge-status badge-status-online">Online</span>
+			<span class="badge badge-status badge-status-offline">Offline</span>
+			<span class="badge badge-status badge-status-busy">Busy</span>
+			<span class="badge badge-status badge-status-away">Away</span>
+		</div>
+
+		<p>Badge with loading state:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge badge-loading">Loading...</span>
+		</div>
+
+		<p>Floating badges:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge badge-float badge-float-top primary">Floating Top</span>
+			<span class="badge badge-float badge-float-bottom warning">Floating Bottom</span>
+		</div>
+
+		<p>Badge with gradient:</p>
+		<div class="badge-demo flex flex-wrap gap">
+			<span class="badge badge-gradient">Gradient Badge</span>
+		</div>
+
+		<style>
+			.badge-demo {
+				padding: 1rem;
+				background-color: var(--ui-color-100);
+				border-radius: var(--ui-radius);
+				margin-bottom: 1rem;
+			}
+		</style>
+	</div>
+
 </body>
 
 </html>
