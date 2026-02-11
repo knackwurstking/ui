@@ -1,0 +1,102 @@
+package components
+
+const (
+	CardVariantFlat     CardVariant = "flat"
+	CardVariantOutline  CardVariant = "outline"
+	CardVariantSeamless CardVariant = "seamless"
+
+	CardSizeCompact      CardSize = "compact"
+	CardSizeCompfortable CardSize = "comfortable"
+	CardSizeSpacious     CardSize = "spacious"
+
+	CardLayoutHorizontal CardLayout = "horizontal"
+)
+
+type CardVariant string
+
+type CardSize string
+
+type CardLayout string
+
+type CardProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	Variant CardVariant
+	Size    CardSize
+}
+
+templ Card(props CardProps) {
+}
+
+type CardHeaderProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+}
+
+templ CardHeader(props CardHeaderProps) {
+}
+
+type CardBodyProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+}
+
+templ CardBody(props CardBodyProps) {
+}
+
+type CardFooterProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+}
+
+templ CardFooter(props CardFooterProps) {
+}
+
+type CardImageProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	// ...
+}
+
+templ CardImage(props CardImageProps) {
+}
+
+type CardTitleProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	// ...
+}
+
+templ CardTitle(props CardTitleProps) {
+}
+
+type CardSubtitleProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	// ...
+}
+
+templ CardSubtitle(props CardSubtitleProps) {
+}
+
+type CardActionsProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	// ...
+}
+
+templ CardActions(props CardActionsProps) {
+}
