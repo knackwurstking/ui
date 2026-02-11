@@ -18,7 +18,16 @@ const (
 )
 
 type AppBarPosition string
+
+func (p AppBarPosition) String() string {
+	return string(p)
+}
+
 type AppBarType string
+
+func (t AppBarType) String() string {
+	return string(t)
+}
 
 type AppBarProps struct {
 	ID         string
@@ -50,7 +59,7 @@ func AppBar(props AppBarProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{css.AppBar, string(props.Position), string(props.Type), props.Class}
+		var templ_7745c5c3_Var2 = []any{css.AppBar, props.Position, props.Type, props.Class}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -62,7 +71,7 @@ func AppBar(props AppBarProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 26, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 35, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -144,7 +153,7 @@ func AppBarLeft(props AppBarLeftProps) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 41, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 50, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -226,7 +235,7 @@ func AppBarCenter(props AppBarCenterProps) templ.Component {
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 53, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 62, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {
@@ -308,7 +317,7 @@ func AppBarRight(props AppBarRightProps) templ.Component {
 		var templ_7745c5c3_Var15 string
 		templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 65, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/appbar/appbar.templ`, Line: 74, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 		if templ_7745c5c3_Err != nil {
