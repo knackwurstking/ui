@@ -8,6 +8,17 @@ package css
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+const (
+	// Drawer
+	Drawer         = "drawer"
+	DrawerOpen     = "open"
+	DrawerBackdrop = "drawer-backdrop"
+	DrawerClose    = "drawer-close"
+	DrawerSmall    = "small"
+	DrawerMedium   = "medium"
+	DrawerLarge    = "large"
+)
+
 // TODO: Create constants with css selectors for the drawer component,
 // e.g. Drawer, DrawerOpen, DrawerBackdrop, etc.
 func StylesComponentDrawer() templ.Component {
