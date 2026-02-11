@@ -45,7 +45,7 @@ func (t Type) GetClass() templ.CSSClasses {
 	return templ.CSSClasses{string(t)}
 }
 
-type DialogProps struct {
+type Props struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
@@ -57,7 +57,7 @@ type DialogProps struct {
 	Variant    Variant
 }
 
-func Dialog(props DialogProps) templ.Component {
+func Dialog(props Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -139,13 +139,13 @@ func Dialog(props DialogProps) templ.Component {
 	})
 }
 
-type DialogCloseProps struct {
+type CloseButtonProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 }
 
-func DialogClose(props DialogCloseProps) templ.Component {
+func CloseButton(props CloseButtonProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
