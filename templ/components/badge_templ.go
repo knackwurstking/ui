@@ -12,7 +12,9 @@ import "github.com/knackwurstking/ui/templ/css"
 
 type BadgeSize string
 type BadgeShape string
-type BadgePosition string
+type BadgeStatus string
+type BadgeFloating string
+type BadgeAnimation string
 
 const (
 	BadgeSizeXS BadgeSize = css.BadgeXS
@@ -24,11 +26,17 @@ const (
 	BadgeShapeSquare  BadgeShape = css.BadgeSquare
 	BadgeShapeRounded BadgeShape = css.BadgeRounded
 
-	BadgePositionContainer   BadgePosition = css.BadgeContainer
-	BadgePositionTopRight    BadgePosition = css.BadgeTopRight
-	BadgePositionTopLeft     BadgePosition = css.BadgeTopLeft
-	BadgePositionBottomRight BadgePosition = css.BadgeBottomRight
-	BadgePositionBottomLeft  BadgePosition = css.BadgeBottomLeft
+	BadgeStatusOnline  BadgeStatus = css.BadgeStatusOnline
+	BadgeStatusOffline BadgeStatus = css.BadgeStatusOffline
+	BadgeStatusBusy    BadgeStatus = css.BadgeStatusBusy
+	BadgeStatusAway    BadgeStatus = css.BadgeStatusAway
+
+	BadgeFloatingTop    BadgeFloating = css.BadgeFloatTop
+	BadgeFloatingBottom BadgeFloating = css.BadgeFloatBottom
+
+	BadgeAnimationPulse  BadgeAnimation = css.BadgePulse
+	BadgeAnimationPing   BadgeAnimation = css.BadgePing
+	BadgeAnimationBounce BadgeAnimation = css.BadgeBounce
 )
 
 type BadgeProps struct {
@@ -36,9 +44,15 @@ type BadgeProps struct {
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 
-	Position BadgePosition
-	Size     BadgeSize
-	Shape    BadgeShape
+	Size      BadgeSize
+	Shape     BadgeShape
+	Status    BadgeStatus
+	Floating  BadgeFloating
+	Animation BadgeAnimation
+
+	Clickable    bool
+	Counter      bool
+	CounterSmall bool
 }
 
 func Badge(props BadgeProps) templ.Component {
@@ -62,7 +76,21 @@ func Badge(props BadgeProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{css.Badge, string(props.Position), string(props.Size), string(props.Shape), props.Class}
+		status := ""
+		if props.Status != "" {
+			status = css.BadgeStatus + " " + string(props.Status)
+		}
+
+		floating := ""
+		if props.Floating != "" {
+			floating = css.BadgeFloat + " " + string(props.Floating)
+		}
+		var templ_7745c5c3_Var2 = []any{css.Badge, string(props.Size), string(props.Shape), string(status), string(floating), string(props.Animation),
+			templ.KV(css.BadgeClickable, props.Clickable),
+			templ.KV(css.BadgeCounterSM, props.Counter && props.CounterSmall),
+			templ.KV(css.BadgeCounterLG, props.Counter && !props.CounterSmall),
+			props.Class,
+		}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -74,7 +102,7 @@ func Badge(props BadgeProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/badge.templ`, Line: 38, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/badge.templ`, Line: 63, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
