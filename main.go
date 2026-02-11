@@ -6,12 +6,15 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"path/filepath"
 
 	"github.com/SuperPaintman/nice/cli"
 	"github.com/knackwurstking/ui/internal/app"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
@@ -77,9 +80,56 @@ func generateCmd(cmd *cli.Command) cli.ActionRunner {
 
 func serveCmd(cmd *cli.Command) cli.ActionRunner {
 	return func(cmd *cli.Command) error {
-		// For now, just print a message. Could be extended to start a file server
-		fmt.Println("Serve command not implemented yet")
-		fmt.Println("Use 'python3 -m http.server 8000' or similar in the docs directory")
-		return nil
+		dir := "docs"
+
+		// Check if directory exists
+		if _, err := os.Stat(dir); os.IsNotExist(err) {
+			fmt.Printf("Directory %s does not exist. Running 'ui generate' first...\n", dir)
+			if err := generateStaticFiles(dir); err != nil {
+				return fmt.Errorf("failed to generate static files: %w", err)
+			}
+		}
+
+		// Create Echo instance
+		e := echo.New()
+
+		// Middleware
+		e.Use(middleware.Logger())
+		e.Use(middleware.Recover())
+		e.Use(middleware.CORS())
+
+		// Serve static files
+		e.Static("/*", dir)
+
+		// Start server
+		addr := "localhost:8080"
+		fmt.Printf("Serving %s at http://%s\n", dir, addr)
+		fmt.Println("Press Ctrl+C to stop the server")
+
+		return e.Start(addr)
 	}
+}
+
+func generateStaticFiles(outputDir string) error {
+	// Create output directory if it doesn't exist
+	if err := os.MkdirAll(outputDir, 0755); err != nil {
+		return fmt.Errorf("failed to create output directory: %w", err)
+	}
+
+	// Generate main index.html
+	layout := app.Layout()
+	indexPath := filepath.Join(outputDir, "index.html")
+	file, err := os.Create(indexPath)
+	if err != nil {
+		return fmt.Errorf("failed to create index.html: %w", err)
+	}
+	defer file.Close()
+
+	ctx := context.Background()
+	if err := layout.Render(ctx, file); err != nil {
+		return fmt.Errorf("failed to render layout: %w", err)
+	}
+
+	fmt.Printf("Generated static files to %s/\n", outputDir)
+	return nil
 }
