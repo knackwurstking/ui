@@ -33,7 +33,7 @@ type AppBarProps struct {
 templ AppBar(props AppBarProps) {
 	<span
 		id={ props.ID }
-		class={ css.AppBar, props.Class, props.Position.GetClass(), props.Type.GetClass() }
+		class={ css.AppBar, props.Class.String(), props.Position.GetClass().String(), props.Type.GetClass().String() }
 		{ props.Attributes... }
 	>
 		{ children... }

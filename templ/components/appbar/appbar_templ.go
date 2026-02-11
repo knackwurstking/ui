@@ -59,7 +59,7 @@ func AppBar(props AppBarProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{css.AppBar, props.Class, props.Position.GetClass(), props.Type.GetClass()}
+		var templ_7745c5c3_Var2 = []any{css.AppBar, props.Class.String(), props.Position.GetClass().String(), props.Type.GetClass().String()}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
