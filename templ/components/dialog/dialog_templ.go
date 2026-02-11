@@ -9,39 +9,39 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 const (
-	VariantGlass       Variant = "glass"
-	VariantPrimary     Variant = "primary"
-	VariantSecondary   Variant = "secondary"
-	VariantInfo        Variant = "info"
-	VariantSuccess     Variant = "success"
-	VariantWarning     Variant = "warning"
-	VariantDestructive Variant = "destructive"
-	VariantContrast    Variant = "contrast"
+	DialogVariantGlass       DialogVariant = "glass"
+	DialogVariantPrimary     DialogVariant = "primary"
+	DialogVariantSecondary   DialogVariant = "secondary"
+	DialogVariantInfo        DialogVariant = "info"
+	DialogVariantSuccess     DialogVariant = "success"
+	DialogVariantWarning     DialogVariant = "warning"
+	DialogVariantDestructive DialogVariant = "destructive"
+	DialogVariantContrast    DialogVariant = "contrast"
 
-	SizeSmall  Size = "small"
-	SizeMedium Size = "medium"
-	SizeLarge  Size = "large"
+	DialogSizeSmall  DialogSize = "small"
+	DialogSizeMedium DialogSize = "medium"
+	DialogSizeLarge  DialogSize = "large"
 
-	TypeElevated Type = "elevated"
-	TypeFloating Type = "floating"
-	TypeSubtle   Type = "subtle"
+	DialogTypeElevated DialogType = "elevated"
+	DialogTypeFloating DialogType = "floating"
+	DialogTypeSubtle   DialogType = "subtle"
 )
 
-type Variant string
+type DialogVariant string
 
-func (v Variant) GetClass() templ.CSSClasses {
+func (v DialogVariant) GetClass() templ.CSSClasses {
 	return templ.CSSClasses{v}
 }
 
-type Size string
+type DialogSize string
 
-func (s Size) GetClass() templ.CSSClasses {
+func (s DialogSize) GetClass() templ.CSSClasses {
 	return templ.CSSClasses{string(s)}
 }
 
-type Type string
+type DialogType string
 
-func (t Type) GetClass() templ.CSSClasses {
+func (t DialogType) GetClass() templ.CSSClasses {
 	return templ.CSSClasses{string(t)}
 }
 
@@ -52,9 +52,9 @@ type DialogProps struct {
 
 	Fullscreen bool
 	Clean      bool
-	Type       Type
-	Size       Size
-	Variant    Variant
+	Type       DialogType
+	Size       DialogSize
+	Variant    DialogVariant
 }
 
 func Dialog(props DialogProps) templ.Component {
