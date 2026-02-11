@@ -43,7 +43,6 @@ type ButtonProps struct {
 	Variant ButtonVariant
 	Size    ButtonSize
 
-	Small   bool
 	Icon    bool // Icon buttons will change padding
 	Loading bool
 }
@@ -72,7 +71,6 @@ func Button(props ButtonProps) templ.Component {
 		var templ_7745c5c3_Var2 = []any{string(props.Color),
 			string(props.Variant),
 			string(props.Size),
-			templ.KV(css.ButtonSmall, props.Small),
 			templ.KV(css.ButtonIcon, props.Icon),
 			templ.KV(css.ButtonLoading, props.Loading),
 			props.Class,
@@ -88,7 +86,7 @@ func Button(props ButtonProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 45, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 44, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
