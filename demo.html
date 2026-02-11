@@ -1,500 +1,497 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>UI CSS Library Demo</title>
-		<link rel="stylesheet" href="lib/css/main.css" />
-		<style>
-			body {
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 1rem;
-				font-family: var(--ui-font-family);
-			}
 
-			.demo-section {
-				margin-bottom: 2rem;
-				padding: 1.5rem;
-				border-radius: var(--ui-radius);
-				background-color: var(--ui-color-100);
-			}
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>UI CSS Library Demo</title>
+	<link rel="stylesheet" href="lib/css/main.css" />
+	<style>
+		body {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 1rem;
+			font-family: var(--ui-font-family);
+		}
 
-			.demo-section h2 {
-				margin-top: 0;
-				color: var(--ui-h2-color);
-			}
+		.demo-section {
+			margin-bottom: 2rem;
+			padding: 1.5rem;
+			border-radius: var(--ui-radius);
+			background-color: var(--ui-color-100);
+		}
 
-			.color-item {
-				padding: var(--ui-spacing);
-				border-radius: var(--ui-radius);
-				text-align: center;
-			}
+		.demo-section h2 {
+			margin-top: 0;
+			color: var(--ui-h2-color);
+		}
 
-			.color-item .color-value {
-				opacity: 0.8;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>UI CSS Library Demo</h1>
-		<p>
-			This demo showcases the features of the UI CSS library, including
-			components, themes, and utility classes.
-		</p>
+		.color-item {
+			padding: var(--ui-spacing);
+			border-radius: var(--ui-radius);
+			text-align: center;
+		}
 
-		<button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+		.color-item .color-value {
+			opacity: 0.8;
+		}
+	</style>
+</head>
 
-		<div class="demo-section">
-			<h2>Typography</h2>
-			<p>This is a paragraph with normal text.</p>
-			<h1>Heading 1 - H1</h1>
-			<h2>Heading 2 - H2</h2>
-			<h3>Heading 3 - H3</h3>
-			<h4>Heading 4 - H4</h4>
-			<h5>Heading 5 - H5</h5>
-			<h6>Heading 6 - H6</h6>
+<body>
+	<h1>UI CSS Library Demo</h1>
+	<p>
+		This demo showcases the features of the UI CSS library, including
+		components, themes, and utility classes.
+	</p>
 
-			<p><strong>Bold text</strong> and <em>italic text</em></p>
-			<p><code>Code example</code> and <kbd>Keyboard input</kbd></p>
+	<button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+	<div class="demo-section">
+		<h2>Typography</h2>
+		<p>This is a paragraph with normal text.</p>
+		<h1>Heading 1 - H1</h1>
+		<h2>Heading 2 - H2</h2>
+		<h3>Heading 3 - H3</h3>
+		<h4>Heading 4 - H4</h4>
+		<h5>Heading 5 - H5</h5>
+		<h6>Heading 6 - H6</h6>
+
+		<p><strong>Bold text</strong> and <em>italic text</em></p>
+		<p><code>Code example</code> and <kbd>Keyboard input</kbd></p>
+	</div>
+
+	<div class="demo-section">
+		<h2>Buttons</h2>
+		<p>Default button:</p>
+		<div class="button-demo flex flex-wrap gap">
+			<button>Default Button</button>
 		</div>
 
-		<div class="demo-section">
-			<h2>Buttons</h2>
-			<p>Default button:</p>
-			<div class="button-demo flex flex-wrap gap">
-				<button>Default Button</button>
-			</div>
-
-			<p>Button variants:</p>
-			<div class="button-demo flex flex-wrap gap">
-				<button class="primary">Primary Button</button>
-				<button class="secondary">Secondary Button</button>
-				<button class="success">Success Button</button>
-				<button class="warning">Warning Button</button>
-				<button class="destructive">Destructive Button</button>
-				<button class="info">Info Button</button>
-				<button class="contrast">Contrast Button</button>
-			</div>
-
-			<p>Button sizes:</p>
-			<div class="button-demo flex flex-wrap gap">
-				<button class="small">Small Button</button>
-				<button>Default Size</button>
-				<button class="large">Large Button</button>
-			</div>
-
-			<p>Button states:</p>
-			<div class="button-demo flex flex-wrap gap">
-				<button disabled>Disabled Button</button>
-				<button class="loading">Loading Button</button>
-			</div>
-
-			<p>Button groups:</p>
-			<div class="button-group-demo button-group">
-				<button class="primary">Grouped</button>
-				<button class="primary">Button</button>
-				<button class="primary">Example</button>
-			</div>
+		<p>Button variants:</p>
+		<div class="button-demo flex flex-wrap gap">
+			<button class="primary">Primary Button</button>
+			<button class="secondary">Secondary Button</button>
+			<button class="success">Success Button</button>
+			<button class="warning">Warning Button</button>
+			<button class="destructive">Destructive Button</button>
+			<button class="info">Info Button</button>
+			<button class="contrast">Contrast Button</button>
 		</div>
 
-		<div class="demo-section">
-			<h2>Form Elements</h2>
-			<form class="form-demo">
-				<div class="form-group">
-					<label for="name">Name</label>
-					<input type="text" id="name" placeholder="Enter your name" />
-				</div>
-
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" placeholder="Enter your email" />
-				</div>
-
-				<div class="form-group">
-					<label for="message">Message</label>
-					<textarea
-						id="message"
-						rows="3"
-						placeholder="Enter your message"
-					></textarea>
-				</div>
-
-				<div class="form-group">
-					<label for="select">Select Option</label>
-					<select id="select">
-						<option value="">Choose an option</option>
-						<option value="option1">Option 1</option>
-						<option value="option2">Option 2</option>
-						<option value="option3">Option 3</option>
-					</select>
-				</div>
-
-				<div class="form-group">
-					<h5>Checkbox</h5>
-					<input type="checkbox" id="checkbox" />
-					<label for="checkbox">I agree to the terms</label>
-				</div>
-
-				<div class="form-group">
-					<h5>Radio Buttons</h5>
-					<span>
-						<input type="radio" id="radio1" name="radio-group" />
-						<label for="radio1">Option 1</label>
-					</span>
-					<span>
-						<input type="radio" id="radio2" name="radio-group" />
-						<label for="radio2">Option 2</label>
-					</span>
-				</div>
-
-				<div class="form-group">
-					<h5>Number Input</h5>
-					<input type="number" id="quantity" min="1" max="100" placeholder="Quantity" />
-				</div>
-
-				<div class="form-group">
-					<h5>Range Slider</h5>
-					<input type="range" id="volume" min="0" max="100" value="50" />
-					<span id="volume-value">50</span>
-				</div>
-
-				<div class="form-group">
-					<h5>Date Picker</h5>
-					<input type="date" id="birthday" />
-				</div>
-
-				<div class="form-group">
-					<h5>Time Picker</h5>
-					<input type="time" id="appointment-time" />
-				</div>
-
-				<div class="form-group">
-					<h5>Color Picker</h5>
-					<input type="color" id="accent-color" value="#6200ee" />
-				</div>
-
-				<div class="form-group">
-					<h5>File Upload</h5>
-					<input type="file" id="document-upload" multiple />
-				</div>
-
-				<div class="form-group">
-					<h5>Search Input</h5>
-					<input type="search" id="site-search" placeholder="Search..." />
-				</div>
-
-				<div class="form-group">
-					<h5>Password Input</h5>
-					<input type="password" id="user-password" placeholder="Enter password" />
-				</div>
-
-				<div class="form-group">
-					<h5>URL Input</h5>
-					<input type="url" id="website-url" placeholder="https://example.com" />
-				</div>
-
-				<div class="form-group">
-					<h5>Phone Number</h5>
-					<input type="tel" id="phone-number" placeholder="+1 (555) 0123" />
-				</div>
-
-				<div class="form-group">
-					<h5>Multi-select Dropdown</h5>
-					<select id="multi-select" multiple size="3">
-						<option value="option1">Option 1</option>
-						<option value="option2">Option 2</option>
-						<option value="option3">Option 3</option>
-						<option value="option4">Option 4</option>
-					</select>
-				</div>
-
-				<div class="form-group">
-					<h5>Switch Toggle</h5>
-					<label class="switch">
-						<input type="checkbox" id="toggle-switch" />
-						<span class="slider"></span>
-					</label>
-				</div>
-
-				<div class="form-group">
-					<h5>Form Actions</h5>
-					<button type="submit" class="primary">Submit Form</button>
-					<button type="reset" class="destructive">Reset Form</button>
-				</div>
-			</form>
+		<p>Button sizes:</p>
+		<div class="button-demo flex flex-wrap gap">
+			<button class="small">Small Button</button>
+			<button>Default Size</button>
+			<button class="large">Large Button</button>
 		</div>
 
-		<div class="demo-section">
-			<h2>Cards</h2>
-			<div class="card-demo flex flex-col gap">
-				<div class="card compact">
-					<div class="card-header">
-						<h4>Card Header</h4>
-					</div>
+		<p>Button states:</p>
+		<div class="button-demo flex flex-wrap gap">
+			<button disabled>Disabled Button</button>
+			<button class="loading">Loading Button</button>
+		</div>
 
-					<div class="card-body">
-						<h3>Card Title</h3>
-						<p>
-							This is a sample card demonstrating the card component with
-							content.
-						</p>
-					</div>
+		<p>Button groups:</p>
+		<div class="button-group-demo button-group">
+			<button class="primary">Grouped</button>
+			<button class="primary">Button</button>
+			<button class="primary">Example</button>
+		</div>
+	</div>
 
-					<div class="card-footer">
-						<button class="primary">Action</button>
-					</div>
+	<div class="demo-section">
+		<h2>Form Elements</h2>
+		<form class="form-demo">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" id="name" placeholder="Enter your name" />
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" id="email" placeholder="Enter your email" />
+			</div>
+
+			<div class="form-group">
+				<label for="message">Message</label>
+				<textarea id="message" rows="3" placeholder="Enter your message"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="select">Select Option</label>
+				<select id="select">
+					<option value="">Choose an option</option>
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<h5>Checkbox</h5>
+				<input type="checkbox" id="checkbox" />
+				<label for="checkbox">I agree to the terms</label>
+			</div>
+
+			<div class="form-group">
+				<h5>Radio Buttons</h5>
+				<span>
+					<input type="radio" id="radio1" name="radio-group" />
+					<label for="radio1">Option 1</label>
+				</span>
+				<span>
+					<input type="radio" id="radio2" name="radio-group" />
+					<label for="radio2">Option 2</label>
+				</span>
+			</div>
+
+			<div class="form-group">
+				<h5>Number Input</h5>
+				<input type="number" id="quantity" min="1" max="100" placeholder="Quantity" />
+			</div>
+
+			<div class="form-group">
+				<h5>Range Slider</h5>
+				<input type="range" id="volume" min="0" max="100" value="50" />
+				<span id="volume-value">50</span>
+			</div>
+
+			<div class="form-group">
+				<h5>Date Picker</h5>
+				<input type="date" id="birthday" />
+			</div>
+
+			<div class="form-group">
+				<h5>Time Picker</h5>
+				<input type="time" id="appointment-time" />
+			</div>
+
+			<div class="form-group">
+				<h5>Color Picker</h5>
+				<input type="color" id="accent-color" value="#6200ee" />
+			</div>
+
+			<div class="form-group">
+				<h5>File Upload</h5>
+				<input type="file" id="document-upload" multiple />
+			</div>
+
+			<div class="form-group">
+				<h5>Search Input</h5>
+				<input type="search" id="site-search" placeholder="Search..." />
+			</div>
+
+			<div class="form-group">
+				<h5>Password Input</h5>
+				<input type="password" id="user-password" placeholder="Enter password" />
+			</div>
+
+			<div class="form-group">
+				<h5>URL Input</h5>
+				<input type="url" id="website-url" placeholder="https://example.com" />
+			</div>
+
+			<div class="form-group">
+				<h5>Phone Number</h5>
+				<input type="tel" id="phone-number" placeholder="+1 (555) 0123" />
+			</div>
+
+			<div class="form-group">
+				<h5>Multi-select Dropdown</h5>
+				<select id="multi-select" multiple size="3">
+					<option value="option1">Option 1</option>
+					<option value="option2">Option 2</option>
+					<option value="option3">Option 3</option>
+					<option value="option4">Option 4</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<h5>Switch Toggle</h5>
+				<label class="switch">
+					<input type="checkbox" id="toggle-switch" />
+					<span class="slider"></span>
+				</label>
+			</div>
+
+			<div class="form-group">
+				<h5>Form Actions</h5>
+				<button type="submit" class="primary">Submit Form</button>
+				<button type="reset" class="destructive">Reset Form</button>
+			</div>
+		</form>
+	</div>
+
+	<div class="demo-section">
+		<h2>Cards</h2>
+		<div class="card-demo flex flex-col gap">
+			<div class="card compact">
+				<div class="card-header">
+					<h4>Card Header</h4>
 				</div>
 
-				<div class="card">
-					<div class="card-body">
-						<h3>Another Card</h3>
-						<p>This card shows how cards can be used in a flex layout.</p>
-					</div>
-					<div class="card-footer">
-						<button class="secondary">Another Action</button>
-					</div>
+				<div class="card-body">
+					<h3>Card Title</h3>
+					<p>
+						This is a sample card demonstrating the card component with
+						content.
+					</p>
 				</div>
 
-				<div class="card primary">
-					<div class="card-body">
-						<h3>Colored Card</h3>
-						<p>This card demonstrates a colored variant.</p>
-					</div>
-					<div class="card-footer">
-						<button class="secondary">Action</button>
-					</div>
+				<div class="card-footer">
+					<button class="primary">Action</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-body">
+					<h3>Another Card</h3>
+					<p>This card shows how cards can be used in a flex layout.</p>
+				</div>
+				<div class="card-footer">
+					<button class="secondary">Another Action</button>
+				</div>
+			</div>
+
+			<div class="card primary">
+				<div class="card-body">
+					<h3>Colored Card</h3>
+					<p>This card demonstrates a colored variant.</p>
+				</div>
+				<div class="card-footer">
+					<button class="secondary">Action</button>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="demo-section">
-			<h2>Layout Components</h2>
-			<p>Flexbox layout:</p>
-			<div class="flex flex-wrap gap">
-				<style>
-					.flex-item {
-						padding: 1rem;
-						background-color: var(--ui-color-200);
-						border-radius: var(--ui-radius);
-					}
-				</style>
-				<div class="flex-item">Flex Item 1</div>
-				<div class="flex-item">Flex Item 2</div>
-				<div class="flex-item">Flex Item 3</div>
-			</div>
+	<div class="demo-section">
+		<h2>Layout Components</h2>
+		<p>Flexbox layout:</p>
+		<div class="flex flex-wrap gap">
+			<style>
+				.flex-item {
+					padding: 1rem;
+					background-color: var(--ui-color-200);
+					border-radius: var(--ui-radius);
+				}
+			</style>
+			<div class="flex-item">Flex Item 1</div>
+			<div class="flex-item">Flex Item 2</div>
+			<div class="flex-item">Flex Item 3</div>
 		</div>
+	</div>
 
-		<div class="demo-section">
-			<h2>Color System</h2>
-			<!-- Alternative grid layout
+	<div class="demo-section">
+		<h2>Color System</h2>
+		<!-- Alternative grid layout
 				<div class="color-grid grid grid-gap grid-flow-col">
 			-->
-			<div
-				style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))"
-				class="color-grid grid grid-gap"
-			>
-				<div class="color-item primary">
-					<div class="color-name text-bold">Primary</div>
-					<div class="color-value text-sm">oklch(60% 0.2 132)</div>
-				</div>
-				<div class="color-item secondary">
-					<div class="color-name text-bold">Secondary</div>
-					<div class="color-value text-sm">oklch(70% 0.15 210)</div>
-				</div>
-				<div class="color-item success">
-					<div class="color-name text-bold">Success</div>
-					<div class="color-value text-sm">oklch(65% 0.2 160)</div>
-				</div>
-				<div class="color-item warning">
-					<div class="color-name text-bold">Warning</div>
-					<div class="color-value text-sm">oklch(65% 0.3 70)</div>
-				</div>
-				<div class="color-item destructive">
-					<div class="color-name text-bold">Destructive</div>
-					<div class="color-value text-sm">oklch(60% 0.3 35)</div>
-				</div>
-				<div class="color-item info">
-					<div class="color-name text-bold">Info</div>
-					<div class="color-value text-sm">oklch(70% 0.15 210)</div>
-				</div>
+		<div style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))" class="color-grid grid grid-gap">
+			<div class="color-item primary">
+				<div class="color-name text-bold">Primary</div>
+				<div class="color-value text-sm">oklch(60% 0.2 132)</div>
+			</div>
+			<div class="color-item secondary">
+				<div class="color-name text-bold">Secondary</div>
+				<div class="color-value text-sm">oklch(70% 0.15 210)</div>
+			</div>
+			<div class="color-item success">
+				<div class="color-name text-bold">Success</div>
+				<div class="color-value text-sm">oklch(65% 0.2 160)</div>
+			</div>
+			<div class="color-item warning">
+				<div class="color-name text-bold">Warning</div>
+				<div class="color-value text-sm">oklch(65% 0.3 70)</div>
+			</div>
+			<div class="color-item destructive">
+				<div class="color-name text-bold">Destructive</div>
+				<div class="color-value text-sm">oklch(60% 0.3 35)</div>
+			</div>
+			<div class="color-item info">
+				<div class="color-name text-bold">Info</div>
+				<div class="color-value text-sm">oklch(70% 0.15 210)</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="demo-section">
+		<h2>Utility Classes</h2>
+		<p class="primary ghost">This text has primary color</p>
+		<p class="secondary ghost">This text has secondary color</p>
+		<p class="success ghost">This text has success color</p>
+		<p class="warning ghost">This text has warning color</p>
+		<p class="destructive ghost">This text has destructive color</p>
+
+		<div class="primary" style="padding: 0.5rem; margin-top: 1rem">
+			This div has a primary background
+		</div>
+
+		<div class="muted" style="padding: 0.5rem; margin-top: 1rem">
+			This div has a muted background
+		</div>
+	</div>
+
+	<div class="demo-section">
+		<h2>Progress Bar</h2>
+		<p>Progress bar sizes:</p>
+		<div class="progress-demo">
+			<div class="progress small">
+				<div class="progress-bar" style="width: 30%"></div>
+			</div>
+			<div class="progress medium">
+				<div class="progress-bar" style="width: 50%"></div>
+			</div>
+			<div class="progress large">
+				<div class="progress-bar" style="width: 70%"></div>
 			</div>
 		</div>
 
-		<div class="demo-section">
-			<h2>Utility Classes</h2>
-			<p class="primary ghost">This text has primary color</p>
-			<p class="secondary ghost">This text has secondary color</p>
-			<p class="success ghost">This text has success color</p>
-			<p class="warning ghost">This text has warning color</p>
-			<p class="destructive ghost">This text has destructive color</p>
-
-			<div class="primary" style="padding: 0.5rem; margin-top: 1rem">
-				This div has a primary background
+		<p>Progress bar color variants:</p>
+		<div class="progress-demo">
+			<div class="progress primary">
+				<div class="progress-bar" style="width: 40%"></div>
 			</div>
-
-			<div class="muted" style="padding: 0.5rem; margin-top: 1rem">
-				This div has a muted background
+			<div class="progress secondary">
+				<div class="progress-bar" style="width: 60%"></div>
+			</div>
+			<div class="progress success">
+				<div class="progress-bar" style="width: 80%"></div>
+			</div>
+			<div class="progress warning">
+				<div class="progress-bar" style="width: 45%"></div>
+			</div>
+			<div class="progress destructive">
+				<div class="progress-bar" style="width: 25%"></div>
 			</div>
 		</div>
 
-		<div class="demo-section">
-			<h2>Progress Bar</h2>
-			<p>Progress bar sizes:</p>
-			<div class="progress-demo">
-				<div class="progress small">
-					<div class="progress-bar" style="width: 30%"></div>
-				</div>
-				<div class="progress medium">
-					<div class="progress-bar" style="width: 50%"></div>
-				</div>
-				<div class="progress large">
-					<div class="progress-bar" style="width: 70%"></div>
-				</div>
-			</div>
-
-			<p>Progress bar color variants:</p>
-			<div class="progress-demo">
-				<div class="progress primary">
-					<div class="progress-bar" style="width: 40%"></div>
-				</div>
-				<div class="progress secondary">
-					<div class="progress-bar" style="width: 60%"></div>
-				</div>
-				<div class="progress success">
-					<div class="progress-bar" style="width: 80%"></div>
-				</div>
-				<div class="progress warning">
-					<div class="progress-bar" style="width: 45%"></div>
-				</div>
-				<div class="progress destructive">
-					<div class="progress-bar" style="width: 25%"></div>
-				</div>
-			</div>
-
-			<p>Indeterminate progress:</p>
-			<div class="progress-demo">
-				<div class="progress indeterminate"></div>
-			</div>
-
-			<style>
-				.progress-demo {
-					display: flex;
-					flex-direction: column;
-					gap: 1rem;
-				}
-			</style>
+		<p>Indeterminate progress:</p>
+		<div class="progress-demo">
+			<div class="progress indeterminate"></div>
 		</div>
 
-		<div class="demo-section">
-			<h2>Spinner</h2>
-			<p>The spinner component demonstrates loading states:</p>
-			<div class="spinner-demo">
-				<div class="spinner"></div>
-				<div style="position: relative; height: 50px;">
-					Content loading...
-				</div>
-			</div>
+		<style>
+			.progress-demo {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+		</style>
+	</div>
 
-			<style>
-				.spinner-demo {
-					position: relative;
-					height: 100px;
-					border: 1px dashed var(--ui-border-color);
-					border-radius: var(--ui-radius);
-					padding: 1rem;
-				}
-			</style>
+	<div class="demo-section">
+		<h2>Spinner</h2>
+		<p>The spinner component demonstrates loading states:</p>
+		<div class="spinner-demo">
+			<div class="spinner"></div>
+			<div style="position: relative; height: 50px;">
+				Content loading...
+			</div>
 		</div>
 
-		<div class="demo-section">
-			<h2>App Bar</h2>
-			<p>Top app bar with navigation:</p>
+		<style>
+			.spinner-demo {
+				position: relative;
+				height: 100px;
+				border: 1px dashed var(--ui-border-color);
+				border-radius: var(--ui-radius);
+				padding: 1rem;
+			}
+		</style>
+	</div>
 
-			<div class="app-bar-demo border">
-				<nav class="app-bar top" style="z-index: 1;">
-					<div class="app-bar-left">
-						<button>Menu</button>
-					</div>
-					<div class="app-bar-center">
-						<h3>App Title</h3>
-					</div>
-					<div class="app-bar-right">
-						<button>Search</button>
-						<button>Profile</button>
-					</div>
-				</nav>
+	<div class="demo-section">
+		<h2>App Bar</h2>
+		<p>Top app bar with navigation:</p>
 
-				<div
-					style="padding: 2rem; padding-top: calc(var(--ui-app-bar-height) + var(--ui-spacing)); min-height: 100px;"
-					class="container fluid"
-				>
-					Main content area
+		<div class="app-bar-demo border">
+			<nav class="app-bar top" style="z-index: 1;">
+				<div class="app-bar-left">
+					<button>Menu</button>
 				</div>
+				<div class="app-bar-center">
+					<h3>App Title</h3>
+				</div>
+				<div class="app-bar-right">
+					<button>Search</button>
+					<button>Profile</button>
+				</div>
+			</nav>
 
-				<nav class="app-bar bottom">
-					<div class="app-bar-left">
-						<button>Home</button>
-					</div>
-					<div class="app-bar-center">
-						<span>Bottom Navigation</span>
-					</div>
-					<div class="app-bar-right">
-						<button>Settings</button>
-					</div>
-				</nav>
+			<div style="padding: 2rem; padding-top: calc(var(--ui-app-bar-height) + var(--ui-spacing)); min-height: 100px;"
+				class="container fluid">
+				Main content area
 			</div>
 
-			<style>
-				.app-bar-demo {
-					position: relative;
-					min-height: 200px;
-					background-color: var(--ui-color-100);
-					border-radius: var(--ui-radius);
-					margin-top: 1rem;
-				}
-			</style>
+			<nav class="app-bar bottom">
+				<div class="app-bar-left">
+					<button>Home</button>
+				</div>
+				<div class="app-bar-center">
+					<span>Bottom Navigation</span>
+				</div>
+				<div class="app-bar-right">
+					<button>Settings</button>
+				</div>
+			</nav>
 		</div>
-	</body>
+
+		<style>
+			.app-bar-demo {
+				position: relative;
+				min-height: 200px;
+				background-color: var(--ui-color-100);
+				border-radius: var(--ui-radius);
+				margin-top: 1rem;
+			}
+		</style>
+	</div>
+
+	<!-- TODO: Add badge demo -->
+</body>
+
 </html>
 
-		<script>
-			function toggleTheme() {
-				const html = document.documentElement;
-			 const currentTheme = html.getAttribute("data-theme");
-			 const newTheme = currentTheme === "dark" ? "light" : "dark";
+<script>
+	function toggleTheme() {
+		const html = document.documentElement;
+		const currentTheme = html.getAttribute("data-theme");
+		const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-				html.setAttribute("data-theme", newTheme);
-			}
+		html.setAttribute("data-theme", newTheme);
+	}
 
-			// Initialize with light theme
-			document.documentElement.setAttribute("data-theme", "light");
+	// Initialize with light theme
+	document.documentElement.setAttribute("data-theme", "light");
 
-			// Animate progress bars
-			function animateProgressBars() {
-			 const progressBars = document.querySelectorAll('.progress-bar');
-				progressBars.forEach((bar, index) => {
-					setTimeout(() => {
-						bar.style.width = '100%';
-						setTimeout(() => {
-							bar.style.width = `${Math.random() * 80 + 10}%`;
-						}, 2000);
-					}, index * 500);
-				});
-			}
+	// Animate progress bars
+	function animateProgressBars() {
+		const progressBars = document.querySelectorAll('.progress-bar');
+		progressBars.forEach((bar, index) => {
+			setTimeout(() => {
+				bar.style.width = '100%';
+				setTimeout(() => {
+					bar.style.width = `${Math.random() * 80 + 10}%`;
+				}, 2000);
+			}, index * 500);
+		});
+	}
 
-			// Update range slider value display
-		 const volumeSlider = document.getElementById('volume');
-		 const volumeValue = document.getElementById('volume-value');
+	// Update range slider value display
+	const volumeSlider = document.getElementById('volume');
+	const volumeValue = document.getElementById('volume-value');
 
-			if (volumeSlider && volumeValue) {
-				volumeSlider.addEventListener('input', function() {
-					volumeValue.textContent = this.value;
-				});
-			}
+	if (volumeSlider && volumeValue) {
+		volumeSlider.addEventListener('input', function () {
+			volumeValue.textContent = this.value;
+		});
+	}
 
-			// Start animation after page load
-			window.addEventListener('load', animateProgressBars);
-		</script>
-	</body>
+	// Start animation after page load
+	window.addEventListener('load', animateProgressBars);
+</script>
+</body>
+
 </html>
