@@ -1,50 +1,77 @@
 package appbar
 
-// TODO: Add AppBar component
+import "github.com/knackwurstking/ui/templ/css"
+
+const (
+	AppBarPositionTop    AppBarPosition = "top"
+	AppBarPositionBottom AppBarPosition = "bottom"
+
+	AppBarTypeFixed AppBarType = "fixed"
+)
+
+type AppBarPosition string
+
+func (abp AppBarPosition) GetClass() templ.CSSClasses {
+	return templ.CSSClasses{abp}
+}
+
+type AppBarType string
+
+func (abt AppBarType) GetClass() templ.CSSClasses {
+	return templ.CSSClasses{abt}
+}
+
 type AppBarProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 
-	// ...
+	Position AppBarPosition
+	Type     AppBarType
 }
 
 templ AppBar(props AppBarProps) {
-	// ...
+	<span
+		id={ props.ID }
+		class={ css.AppBar, props.Class, props.Position.GetClass(), props.Type.GetClass() }
+		{ props.Attributes... }
+	>
+		{ children... }
+	</span>
 }
 
 type AppBarLeftProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
-
-	// ...
 }
 
 templ AppBarLeft(props AppBarLeftProps) {
-	// ...
+	<span id={ props.ID } class={ css.AppBarLeft, props.Class } { props.Attributes... }>
+		{ children... }
+	</span>
 }
 
 type AppBarCenterProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
-
-	// ...
 }
 
 templ AppBarCenter(props AppBarCenterProps) {
-	// ...
+	<span id={ props.ID } class={ css.AppBarCenter, props.Class } { props.Attributes... }>
+		{ children... }
+	</span>
 }
 
 type AppBarRightProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
-
-	// ...
 }
 
 templ AppBarRight(props AppBarRightProps) {
-	// ...
+	<span id={ props.ID } class={ css.AppBarRight, props.Class } { props.Attributes... }>
+		{ children... }
+	</span>
 }
