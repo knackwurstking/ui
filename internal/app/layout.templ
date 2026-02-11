@@ -4,8 +4,9 @@ import "github.com/knackwurstking/ui/pkg/css"
 import "github.com/knackwurstking/ui/pkg/components"
 
 const (
-	IDTopAppBar      = "top-app-bar"
-	IDTopAppBarTitle = "top-app-bar-title"
+	IDTopAppBar          = "top-app-bar"
+	IDTopAppBarTitle     = "top-app-bar-title"
+	IDDrawerToggleButton = "drawer-toggle-button"
 )
 
 templ Layout() {
@@ -51,7 +52,17 @@ templ appBar() {
 		Type:     components.AppBarTypeFixed,
 	}) {
 		@components.AppBarLeft(components.AppBarLeftProps{}) {
-			// TODO: Icon button for opening the drawer, e.g. A hamburger menu icon
+			// Icon button for opening the drawer, e.g. A hamburger menu icon
+			@components.Button(components.ButtonProps{
+				ID:      IDDrawerToggleButton,
+				Variant: components.ButtonVariantGhost,
+				Icon:    true,
+				Attributes: templ.Attributes{
+					"onclick": "document.querySelector('." + css.Drawer + "').classList.toggle('" + css.DrawerOpen + "');",
+				},
+			}) {
+				<i class="bi bi-list"></i>
+			}
 		}
 		@components.AppBarCenter(components.AppBarCenterProps{}) {
 			<h5 id={ IDTopAppBarTitle }>UI</h5>
