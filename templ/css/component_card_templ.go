@@ -30,8 +30,6 @@ const (
 	CardActionsEnd          = "end"
 	CardActionsBetween      = "between"
 	CardActionsStretch      = "stretch"
-	CardHorizontal          = "horizontal"
-	CardContent             = "card-content"
 	CardPrimary             = "primary"
 	CardSecondary           = "secondary"
 	CardSuccess             = "success"
@@ -43,14 +41,7 @@ const (
 	CardLoading             = "loading"
 	CardTitleTruncate       = "truncate"
 	CardSubtitleTruncate    = "truncate"
-	CardExpandable          = "expandable"
-	CardBadge               = "card-badge"
-	CardBadgeNew            = "new"
-	CardBadgeHot            = "hot"
-	CardBadgeSale           = "sale"
-	CardCornerBadge         = "card-corner-badge"
 	CardInteractive         = "interactive"
-	CardMasonry             = "card-masonry"
 )
 
 func StylesComponentCard() templ.Component {
