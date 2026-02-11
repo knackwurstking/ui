@@ -21,30 +21,11 @@ const (
 	BadgeRounded = "badge-rounded"
 )
 
-// Badge with close button
-const (
-	BadgeDismissible = "badge-dismissible"
-	BadgeClose       = "badge-close"
-)
-
-// Badge positioning
-const (
-	BadgeContainer   = "badge-container"
-	BadgeTopRight    = "badge-top-right"
-	BadgeTopLeft     = "badge-bottom-right"
-	BadgeBottomRight = "badge-bottom-right"
-	BadgeBottomLeft  = "badge-bottom-left"
-)
-
 // Badge counter
 const (
-	BadgeCounter   = "badge-counter"
 	BadgeCounterSM = "badge-counter-sm"
 	BadgeCounterLG = "badge-counter-lg"
 )
-
-// Badge max count
-const BadgeMaxCount = "badge-max-count"
 
 // Badge group
 const (
@@ -52,18 +33,12 @@ const (
 	BadgeGroupVertical = "badge-group-vertical"
 )
 
-// Badge list
-const BadgeList = "badge-list"
-
 // Badge animations
 const (
 	BadgePulse  = "badge-pulse"
 	BadgePing   = "badge-ping"
 	BadgeBounce = "badge-bounce"
 )
-
-// Badge with icon
-const BadgeIcon = "badge-icon"
 
 // Badge states
 const (
@@ -80,18 +55,12 @@ const (
 	BadgeStatusAway    = "badge-status-away"
 )
 
-// Badge loading state
-const BadgeLoading = "badge-loading"
-
 // Floating badge
 const (
 	BadgeFloat       = "badge-float"
 	BadgeFloatTop    = "badge-float-top"
 	BadgeFloatBottom = "badge-float-bottom"
 )
-
-// Badge gradient
-const BadgeGradient = "badge-gradient"
 
 templ StylesComponentBadge() {
 	<style>
@@ -149,76 +118,7 @@ templ StylesComponentBadge() {
 			border-radius: var(--ui-radius);
 		}
 
-		/* Badge with Close Button */
-		.badge-dismissible {
-			padding-right: 1.5em;
-			position: relative;
-		}
-
-		.badge-dismissible .badge-close {
-			position: absolute;
-			right: 0.25em;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 1em;
-			height: 1em;
-			padding: 0;
-			background: none;
-			border: none;
-			color: inherit;
-			opacity: 0.7;
-			cursor: pointer;
-			transition: opacity 0.2s;
-		}
-
-		.badge-dismissible .badge-close:hover {
-			opacity: 1;
-		}
-
-		/* Badge Positioning (for absolute positioning on parent) */
-		.badge-container {
-			position: relative;
-			display: inline-block;
-		}
-
-		.badge-top-right {
-			position: absolute;
-			top: 0;
-			right: 0;
-			transform: translate(50%, -50%);
-		}
-
-		.badge-top-left {
-			position: absolute;
-			top: 0;
-			left: 0;
-			transform: translate(-50%, -50%);
-		}
-
-		.badge-bottom-right {
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			transform: translate(50%, 50%);
-		}
-
-		.badge-bottom-left {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			transform: translate(-50%, 50%);
-		}
-
 		/* Badge Counter (for notification counts) */
-		.badge-counter {
-			min-width: 1.5em;
-			height: 1.5em;
-			padding: 0.25em;
-			border-radius: 50%;
-			font-size: 0.625rem;
-			font-weight: 700;
-		}
-
 		.badge-counter-sm {
 			min-width: 1.25em;
 			height: 1.25em;
@@ -229,11 +129,6 @@ templ StylesComponentBadge() {
 			min-width: 1.75em;
 			height: 1.75em;
 			font-size: 0.75rem;
-		}
-
-		/* Badge with Max Count */
-		.badge-max-count {
-			min-width: 2em;
 		}
 
 		/* Badge Group */
@@ -247,16 +142,6 @@ templ StylesComponentBadge() {
 		.badge-group-vertical {
 			flex-direction: column;
 			align-items: flex-start;
-		}
-
-		/* Badge List */
-		.badge-list {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.5rem;
-			padding: 0;
-			margin: 0;
-			list-style: none;
 		}
 
 		/* Badge Animations */
@@ -316,27 +201,6 @@ templ StylesComponentBadge() {
 			animation: badge-bounce 1s ease-in-out infinite;
 		}
 
-		/* Badge with Icon */
-		.badge-icon {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.25em;
-		}
-
-		.badge-icon svg,
-		.badge-icon img {
-			width: 1em;
-			height: 1em;
-			flex-shrink: 0;
-		}
-
-		.badge-disabled,
-		.badge:disabled {
-			opacity: 0.5;
-			cursor: not-allowed;
-			pointer-events: none;
-		}
-
 		.badge-clickable {
 			cursor: pointer;
 			transition: transform 0.1s ease-in-out;
@@ -384,27 +248,6 @@ templ StylesComponentBadge() {
 			background-color: var(--ui-info, #3b82f6);
 		}
 
-		/* Badge with Loading State */
-		.badge-loading {
-			position: relative;
-			color: transparent;
-		}
-
-		.badge-loading::after {
-			content: "";
-			position: absolute;
-			width: 1em;
-			height: 1em;
-			top: 50%;
-			left: 50%;
-			margin-left: -0.5em;
-			margin-top: -0.5em;
-			border: 0.125em solid currentColor;
-			border-right-color: transparent;
-			border-radius: 50%;
-			animation: spin 0.75s linear infinite;
-		}
-
 		/* Floating Badge */
 		.badge-float {
 			position: fixed;
@@ -421,14 +264,6 @@ templ StylesComponentBadge() {
 			bottom: 1rem;
 			left: 50%;
 			transform: translateX(-50%);
-		}
-
-		/* Badge with Gradient Background */
-		.badge-gradient {
-			background: linear-gradient(135deg,
-					var(--ui-primary),
-					var(--ui-secondary));
-			color: white;
 		}
 	</style>
 }
