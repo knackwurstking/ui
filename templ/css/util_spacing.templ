@@ -49,6 +49,11 @@ const (
 	MR = "mr"
 	MB = "mb"
 	ML = "ml"
+
+	MTAuto = "mt-auto"
+	MRAuto = "mr-auto"
+	MBAuto = "mb-auto"
+	MLAuto = "ml-auto"
 )
 
 // Width constants
@@ -329,14 +334,26 @@ templ StylesUtilSpacing() {
 		.mt {
 			margin-top: var(--ui-spacing);
 		}
+		.mt-auto {
+			margin-top: auto;
+		}
 		.mr {
 			margin-right: var(--ui-spacing);
+		}
+		.mr-auto {
+			margin-right: auto;
 		}
 		.mb {
 			margin-bottom: var(--ui-spacing);
 		}
+		.mb-auto {
+			margin-bottom: auto;
+		}
 		.ml {
 			margin-left: var(--ui-spacing);
+		}
+		.ml-auto {
+			margin-left: auto;
 		}
 
 		/* Width */
