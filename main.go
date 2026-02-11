@@ -1,4 +1,4 @@
-// Demo Project, generating static files from templates and public assets using
+// Demo Project, generating static files to "/docs/" from templates and public assets using
 // (a-h) templ. For command line parsing we use nice/cli
 //
 // - "github.com/a-h/templ"
