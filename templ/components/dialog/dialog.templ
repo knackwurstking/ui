@@ -37,7 +37,7 @@ func (t Type) GetClass() templ.CSSClasses {
 	return templ.CSSClasses{string(t)}
 }
 
-type Props struct {
+type DialogProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
@@ -49,7 +49,7 @@ type Props struct {
 	Variant    Variant
 }
 
-templ Dialog(props Props) {
+templ Dialog(props DialogProps) {
 	<dialog
 		id={ props.ID }
 		class={
@@ -66,13 +66,13 @@ templ Dialog(props Props) {
 	</dialog>
 }
 
-type CloseButtonProps struct {
+type DialogCloseButtonProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 }
 
-templ CloseButton(props CloseButtonProps) {
+templ DialogCloseButton(props DialogCloseButtonProps) {
 	{{
 		onclick := templ.ComponentScript{
 			Call: `this.closest('dialog').close();`,
