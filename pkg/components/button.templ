@@ -1,0 +1,59 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type ButtonColor string
+type ButtonVariant string
+type ButtonSize string
+
+const (
+	// Colors
+	ButtonColorSecondary   ButtonColor = css.ButtonSecondary
+	ButtonColorSuccess     ButtonColor = css.ButtonSuccess
+	ButtonColorWarning     ButtonColor = css.ButtonWarning
+	ButtonColorDestructive ButtonColor = css.ButtonDestructive
+	ButtonColorInfo        ButtonColor = css.ButtonInfo
+	ButtonColorContrast    ButtonColor = css.ButtonContrast
+	ButtonColorMuted       ButtonColor = css.ButtonMuted
+
+	// Variants
+	ButtonVariantOutline ButtonVariant = css.ButtonOutline
+	ButtonVariantGhost   ButtonVariant = css.ButtonGhost
+	ButtonVariantFull    ButtonVariant = css.ButtonFull
+
+	// Sizes
+	ButtonSizeSmall ButtonSize = css.ButtonSmall
+	ButtonSizeLarge ButtonSize = css.ButtonLarge
+)
+
+type ButtonProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+
+	Color   ButtonColor
+	Variant ButtonVariant
+	Size    ButtonSize
+
+	Small   bool
+	Icon    bool // Icon buttons will change padding
+	Loading bool
+}
+
+templ Button(props ButtonProps) {
+	<button
+		id={ props.ID }
+		class={
+			string(props.Color),
+			string(props.Variant),
+			string(props.Size),
+			templ.KV(css.ButtonSmall, props.Small),
+			templ.KV(css.ButtonIcon, props.Icon),
+			templ.KV(css.ButtonLoading, props.Loading),
+			props.Class,
+		}
+		{ props.Attributes... }
+	>
+		{ children... }
+	</button>
+}
