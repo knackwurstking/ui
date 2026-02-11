@@ -6,12 +6,14 @@ templ Layout() {
 	<!DOCTYPE html>
 	<html>
 		<head>
+			@layoutMeta()
+			@layoutLinks()
 			@layoutStyles()
 			<title>UI</title>
 		</head>
 		<body>
-			// TODO: App Bar
-			// TODO: Drawer
+			@appBar()
+			@drawer()
 			<main class={ css.Container, css.ContainerFluid }>
 				{ children... }
 			</main>
@@ -19,9 +21,26 @@ templ Layout() {
 	</html>
 }
 
+templ layoutMeta() {
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+}
+
+templ layoutLinks() {
+	// TODO: Add links to stylesheets or whatever
+}
+
 templ layoutStyles() {
 	@css.StylesReset()
 	@css.StylesGlobal()
 	@css.StylesUtils()
 	@css.StylesComponents()
+}
+
+templ appBar() {
+	// TODO: ...
+}
+
+templ drawer() {
+	// TODO: ...
 }
