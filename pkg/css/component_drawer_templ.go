@@ -8,6 +8,8 @@ package css
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+// TODO: Create constants with css selectors for the drawer component,
+// e.g. Drawer, DrawerOpen, DrawerBackdrop, etc.
 func StylesComponentDrawer() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
