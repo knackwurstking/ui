@@ -8,20 +8,44 @@ package css
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+// Form
 const (
 	FormGroup = "form-group"
+)
+
+// Button
+const (
+	ButtonGroup = "button-group"
+	ButtonIcon  = "icon"
 
 	ButtonSmall = "small"
 	ButtonLarge = "large"
-	ButtonIcon  = "icon"
-	ButtonGroup = "button-group"
 
+	ButtonOutline = "outline"
+	ButtonGhost   = "ghost"
+	ButtonFull    = "full"
+
+	ButtonSecondary   = "secondary"
+	ButtonSuccess     = "success"
+	ButtonWarning     = "warning"
+	ButtonDestructive = "destructive"
+	ButtonInfo        = "info"
+	ButtonContrast    = "contrast"
+	ButtonMuted       = "muted"
+
+	ButtonLoading = "loading"
+)
+
+const (
+	// Blockquote
 	BlockquoteSmall = "small"
 	BlockquoteLarge = "large"
 
+	// Select
 	SelectSmall = "small"
 	SelectLarge = "large"
 
+	// Table
 	TableStriped    = "striped"
 	TableBordered   = "bordered"
 	TableHover      = "hover"
