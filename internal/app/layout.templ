@@ -1,0 +1,27 @@
+package app
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+templ Layout() {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			@layoutStyles()
+			<title>UI</title>
+		</head>
+		<body>
+			// TODO: App Bar
+			// TODO: Drawer
+			<main class={ css.Container, css.ContainerFluid }>
+				{ children... }
+			</main>
+		</body>
+	</html>
+}
+
+templ layoutStyles() {
+	@css.StylesReset()
+	@css.StylesGlobal()
+	@css.StylesUtils()
+	@css.StylesComponents()
+}
