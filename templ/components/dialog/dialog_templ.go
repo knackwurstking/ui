@@ -28,22 +28,8 @@ const (
 )
 
 type DialogVariant string
-
-func (v DialogVariant) GetClass() templ.CSSClasses {
-	return templ.CSSClasses{v}
-}
-
 type DialogSize string
-
-func (s DialogSize) GetClass() templ.CSSClasses {
-	return templ.CSSClasses{string(s)}
-}
-
 type DialogType string
-
-func (t DialogType) GetClass() templ.CSSClasses {
-	return templ.CSSClasses{string(t)}
-}
 
 type DialogProps struct {
 	ID         string
@@ -80,9 +66,9 @@ func Dialog(props DialogProps) templ.Component {
 		ctx = templ.ClearChildren(ctx)
 		var templ_7745c5c3_Var2 = []any{templ.KV("fullscreen", props.Fullscreen),
 			templ.KV("clean", props.Clean),
-			props.Type.GetClass(),
-			props.Size.GetClass(),
-			props.Variant.GetClass(),
+			string(props.Type),
+			string(props.Size),
+			string(props.Variant),
 			props.Class,
 		}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
@@ -96,7 +82,7 @@ func Dialog(props DialogProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/dialog/dialog.templ`, Line: 54, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/dialog/dialog.templ`, Line: 40, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -185,7 +171,7 @@ func DialogCloseButton(props DialogCloseButtonProps) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/dialog/dialog.templ`, Line: 81, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templ/components/dialog/dialog.templ`, Line: 67, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {

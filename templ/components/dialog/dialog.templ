@@ -20,22 +20,8 @@ const (
 )
 
 type DialogVariant string
-
-func (v DialogVariant) GetClass() templ.CSSClasses {
-	return templ.CSSClasses{v}
-}
-
 type DialogSize string
-
-func (s DialogSize) GetClass() templ.CSSClasses {
-	return templ.CSSClasses{string(s)}
-}
-
 type DialogType string
-
-func (t DialogType) GetClass() templ.CSSClasses {
-	return templ.CSSClasses{string(t)}
-}
 
 type DialogProps struct {
 	ID         string
@@ -55,9 +41,9 @@ templ Dialog(props DialogProps) {
 		class={
 			templ.KV("fullscreen", props.Fullscreen),
 			templ.KV("clean", props.Clean),
-			props.Type.GetClass(),
-			props.Size.GetClass(),
-			props.Variant.GetClass(),
+			string(props.Type),
+			string(props.Size),
+			string(props.Variant),
 			props.Class,
 		}
 		{ props.Attributes... }
