@@ -7,8 +7,13 @@ const (
 
 templ StylesUtilDebug() {
 	<style>
-		.debug,
-		.debug * {
+		.debug {
+			border: var(--ui-border-width) var(--ui-border-style) red;
+			border-radius: var(--ui-radius);
+		}
+
+		.debug-all,
+		.debug-all * {
 			border: var(--ui-border-width) var(--ui-border-style) red;
 			border-radius: var(--ui-radius);
 		}
