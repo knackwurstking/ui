@@ -1,6 +1,9 @@
 package components
 
-import "github.com/knackwurstking/ui/pkg/css"
+import (
+	"fmt"
+	"github.com/knackwurstking/ui/pkg/css"
+)
 
 const (
 	VarAppBarHeight = css.VarAppBarHeight
@@ -21,12 +24,18 @@ type AppBarProps struct {
 
 	Position AppBarPosition
 	Type     AppBarType
+	ZIndex   int
 }
 
 templ AppBar(props AppBarProps) {
+	{{ style, _ := props.Attributes["style"] }}
 	<span
 		id={ props.ID }
 		class={ css.AppBar, string(props.Position), string(props.Type), props.Class }
+		style={
+			templ.KV(fmt.Sprintf("z-index: %d", props.ZIndex), props.ZIndex > 0),
+			style,
+		}
 		{ props.Attributes... }
 	>
 		{ children... }

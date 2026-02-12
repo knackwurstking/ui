@@ -1,24 +1,35 @@
 package components
 
-import "github.com/knackwurstking/ui/pkg/css"
+import (
+	"fmt"
+	"github.com/knackwurstking/ui/pkg/css"
+)
 
 type DrawerProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
 
-	Open bool
+	Open   bool
+	ZIndex int
 }
 
-// TODO: Add drawer close button
 templ Drawer(props DrawerProps) {
-	<span class={ css.DrawerBackdrop }></span>
+	{{ style, _ := props.Attributes["style"] }}
+	<span
+		class={ css.DrawerBackdrop }
+		style={ templ.KV(fmt.Sprintf("z-index: %d", props.ZIndex), props.ZIndex > 0) }
+	></span>
 	<span
 		id={ props.ID }
 		class={
 			css.Drawer,
 			props.Class,
 			templ.KV(css.DrawerOpen, props.Open),
+		}
+		style={
+			templ.KV(fmt.Sprintf("z-index: %d", props.ZIndex), props.ZIndex > 0),
+			style,
 		}
 		{ props.Attributes... }
 	>
