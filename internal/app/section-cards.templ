@@ -140,29 +140,13 @@ templ SectionCards() {
 					@components.Card(nil) {
 						@components.CardHeader(nil) {
 							@components.CardTitle("Card with Header", nil)
+							@components.CardSubtitle("Card subtitle", nil)
 						}
 						@components.CardBody(nil) {
 							<p>This card has a header, body, and footer.</p>
-							@components.CardSubtitle("Card subtitle", nil)
 						}
 						@components.CardFooter(nil) {
 							<small>Footer content</small>
-						}
-					}
-					@components.Card(&components.CardProps{
-						Variant: components.CardVariantOutline,
-					}) {
-						@components.CardBody(nil) {
-							@components.CardTitle("Truncated Title", &components.CardTitleProps{
-								Truncate: true,
-							})
-							@components.CardSubtitle(
-								"This is a very long subtitle that will be truncated when it exceeds the available width",
-								&components.CardSubtitleProps{
-									Truncate: true,
-								},
-							)
-							<p>Example of truncated text in cards.</p>
 						}
 					}
 				</div>
