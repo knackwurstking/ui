@@ -73,9 +73,7 @@ templ appBar() {
 				Color:   components.ButtonColorContrast,
 				Variant: components.ButtonVariantGhost,
 				Icon:    true,
-				Attributes: templ.Attributes{
-					"onclick": "document.querySelector('." + css.Drawer + "').classList.toggle('" + css.DrawerOpen + "');",
-				},
+				OnClick: toggleDrawer("."+css.Drawer, "."+css.DrawerOpen),
 			}) {
 				<i class="bi bi-list"></i>
 			}
@@ -84,23 +82,11 @@ templ appBar() {
 			<h5 id={ IDTopAppBarTitle }>UI</h5>
 		}
 		@components.AppBarRight(components.AppBarRightProps{}) {
-			{{
-				themeToggle := `
-					document.documentElement.setAttribute(
-						'data-theme',
-						document.documentElement.getAttribute('data-theme') === 'light'
-							? 'dark'
-							: 'light',
-					);
-				`
-			}}
 			@components.Button(components.ButtonProps{
 				Color:   components.ButtonColorContrast,
 				Variant: components.ButtonVariantGhost,
 				Icon:    true,
-				Attributes: templ.Attributes{
-					"onclick": themeToggle,
-				},
+				OnClick: toggleTheme(),
 			}) {
 				<i class="bi bi-sun"></i>
 			}
@@ -110,4 +96,21 @@ templ appBar() {
 
 templ drawer() {
 	// TODO: ...
+}
+
+// -----------------------------------------------------------------------------
+// Scripts
+// -----------------------------------------------------------------------------
+
+script toggleDrawer(drawer, drawerOpen string) {
+	document.querySelector(drawer).classList.toggle(drawerOpen);
+}
+
+script toggleTheme() {
+	document.documentElement.setAttribute(
+		'data-theme',
+		document.documentElement.getAttribute('data-theme') === 'light'
+			? 'dark'
+			: 'light',
+	);
 }
