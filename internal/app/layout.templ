@@ -17,6 +17,12 @@ const (
 	IDNavTop = "nav-top"
 )
 
+templ App() {
+	@Layout() {
+		// TODO: Add text section for showing ui components and css selectors
+	}
+}
+
 templ Layout() {
 	<!DOCTYPE html>
 	<html>
@@ -30,9 +36,12 @@ templ Layout() {
 		<body>
 			@appBar()
 			@drawer()
-			<main id={ IDNavTop } class={ css.Container, css.ContainerFluid }>
+			@components.Container(components.ContainerProps{
+				ID:    IDNavTop,
+				Fluid: true,
+			}) {
 				{ children... }
-			</main>
+			}
 		</body>
 	</html>
 }
