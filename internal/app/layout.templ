@@ -119,7 +119,9 @@ templ drawer() {
 	}) {
 		<h4 class={ css.TextCenter }>UI</h4>
 		<ul id={ IDAppDrawerItems }>
-			@drawerItem("#"+IDNavTop, toggleDrawer("."+css.Drawer, css.DrawerOpen))
+			@drawerItem("#"+IDSectionText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Text Elements
+			}
 		</ul>
 	}
 }
@@ -131,7 +133,7 @@ templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {
 			href={ href }
 			onclick={ onclick }
 		>
-			Go to Top
+			{ children... }
 		</a>
 	</li>
 }

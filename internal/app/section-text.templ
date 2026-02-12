@@ -12,6 +12,7 @@ const (
 templ SectionText() {
 	<section
 		style={ fmt.Sprintf("padding-top: %s", css.VarAppBarHeight) }
+		ID={ IDSectionText }
 		class={ css.P, css.MT }
 	>
 		@SectionTitle() {
