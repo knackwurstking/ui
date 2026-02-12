@@ -42,7 +42,9 @@ type BadgeProps struct {
 	Floating  BadgeFloating
 	Animation BadgeAnimation
 
-	Clickable    bool
+	Clickable bool
+	OnClick   templ.ComponentScript
+
 	Counter      bool
 	CounterSmall bool
 }
@@ -73,6 +75,7 @@ templ Badge(props *BadgeProps) {
 			templ.KV(css.BadgeCounterLG, props.Counter && !props.CounterSmall),
 			props.Class,
 		}
+		onclick={ props.OnClick }
 		{ props.Attributes... }
 	>
 		{ children... }
