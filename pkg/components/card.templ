@@ -35,7 +35,12 @@ type CardProps struct {
 	Color   CardColor
 }
 
-templ Card(props CardProps) {
+templ Card(props *CardProps) {
+	{{
+		if props == nil {
+			props = &CardProps{}
+		}
+	}}
 	<span
 		id={ props.ID }
 		class={ css.Card, string(props.Variant), string(props.Size), string(props.Color), props.Class }
@@ -51,7 +56,12 @@ type CardHeaderProps struct {
 	Attributes templ.Attributes
 }
 
-templ CardHeader(props CardHeaderProps) {
+templ CardHeader(props *CardHeaderProps) {
+	{{
+		if props == nil {
+			props = &CardHeaderProps{}
+		}
+	}}
 	<header id={ props.ID } class={ css.CardHeader, props.Class } { props.Attributes... }>
 		{ children... }
 	</header>
@@ -63,7 +73,12 @@ type CardBodyProps struct {
 	Attributes templ.Attributes
 }
 
-templ CardBody(props CardBodyProps) {
+templ CardBody(props *CardBodyProps) {
+	{{
+		if props == nil {
+			props = &CardBodyProps{}
+		}
+	}}
 	<div id={ props.ID } class={ css.CardBody, props.Class } { props.Attributes... }>
 		{ children... }
 	</div>
@@ -75,7 +90,12 @@ type CardFooterProps struct {
 	Attributes templ.Attributes
 }
 
-templ CardFooter(props CardFooterProps) {
+templ CardFooter(props *CardFooterProps) {
+	{{
+		if props == nil {
+			props = &CardFooterProps{}
+		}
+	}}
 	<footer id={ props.ID } class={ css.CardFooter, props.Class } { props.Attributes... }>
 		{ children... }
 	</footer>
@@ -100,7 +120,12 @@ type CardImageProps struct {
 	Alt string
 }
 
-templ CardImage(props CardImageProps) {
+templ CardImage(props *CardImageProps) {
+	{{
+		if props == nil {
+			props = &CardImageProps{}
+		}
+	}}
 	<img
 		id={ props.ID }
 		class={ css.CardImage, string(props.Aspect), props.Class }
@@ -118,7 +143,12 @@ type CardTitleProps struct {
 	Truncate bool
 }
 
-templ CardTitle(text string, props CardTitleProps) {
+templ CardTitle(text string, props *CardTitleProps) {
+	{{
+		if props == nil {
+			props = &CardTitleProps{}
+		}
+	}}
 	<span
 		id={ props.ID }
 		class={ css.CardTitle, templ.KV(css.CardTitleTruncate, props.Truncate), props.Class }
@@ -137,7 +167,12 @@ type CardSubtitleProps struct {
 	Truncate bool
 }
 
-templ CardSubtitle(text string, props CardSubtitleProps) {
+templ CardSubtitle(text string, props *CardSubtitleProps) {
+	{{
+		if props == nil {
+			props = &CardSubtitleProps{}
+		}
+	}}
 	<span
 		id={ props.ID }
 		class={ css.CardSubtitle, templ.KV(css.CardSubtitleTruncate, props.Truncate), props.Class }
@@ -165,7 +200,12 @@ type CardActionsProps struct {
 	Justify CardActionsJustify
 }
 
-templ CardActions(props CardActionsProps) {
+templ CardActions(props *CardActionsProps) {
+	{{
+		if props == nil {
+			props = &CardActionsProps{}
+		}
+	}}
 	<span
 		id={ props.ID }
 		class={ css.CardActions, string(props.Justify), props.Class }
