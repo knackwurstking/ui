@@ -74,7 +74,7 @@ templ appBar() {
 				Color:   components.ButtonColorContrast,
 				Variant: components.ButtonVariantGhost,
 				Icon:    true,
-				OnClick: toggleDrawer("."+css.Drawer, "."+css.DrawerOpen),
+				OnClick: toggleDrawer("."+css.Drawer, css.DrawerOpen),
 			}) {
 				<i class="bi bi-list"></i>
 			}
@@ -107,9 +107,9 @@ templ drawer() {
 // Scripts
 // -----------------------------------------------------------------------------
 
-script toggleDrawer(drawer, drawerOpen string) {
+script toggleDrawer(drawerSelector string, drawerOpenClass string) {
 	try {
-		document.querySelector(drawer).classList.toggle(drawerOpen);
+		document.querySelector(drawerSelector).classList.toggle(drawerOpenClass);
 	} catch (error) {
 		console.error('Error toggling drawer:', error);
 	}

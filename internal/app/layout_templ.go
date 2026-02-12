@@ -309,7 +309,7 @@ func appBar() templ.Component {
 					Color:   components.ButtonColorContrast,
 					Variant: components.ButtonVariantGhost,
 					Icon:    true,
-					OnClick: toggleDrawer("."+css.Drawer, "."+css.DrawerOpen),
+					OnClick: toggleDrawer("."+css.Drawer, css.DrawerOpen),
 				}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
@@ -471,17 +471,17 @@ func drawer() templ.Component {
 // -----------------------------------------------------------------------------
 // Scripts
 // -----------------------------------------------------------------------------
-func toggleDrawer(drawer, drawerOpen string) templ.ComponentScript {
+func toggleDrawer(drawerSelector string, drawerOpenClass string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_toggleDrawer_49a0`,
-		Function: `function __templ_toggleDrawer_49a0(drawer, drawerOpen){try {
-		document.querySelector(drawer).classList.toggle(drawerOpen);
+		Name: `__templ_toggleDrawer_5a2f`,
+		Function: `function __templ_toggleDrawer_5a2f(drawerSelector, drawerOpenClass){try {
+		document.querySelector(drawerSelector).classList.toggle(drawerOpenClass);
 	} catch (error) {
 		console.error('Error toggling drawer:', error);
 	}
 }`,
-		Call:       templ.SafeScript(`__templ_toggleDrawer_49a0`, drawer, drawerOpen),
-		CallInline: templ.SafeScriptInline(`__templ_toggleDrawer_49a0`, drawer, drawerOpen),
+		Call:       templ.SafeScript(`__templ_toggleDrawer_5a2f`, drawerSelector, drawerOpenClass),
+		CallInline: templ.SafeScriptInline(`__templ_toggleDrawer_5a2f`, drawerSelector, drawerOpenClass),
 	}
 }
 
