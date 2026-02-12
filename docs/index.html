@@ -5612,7 +5612,7 @@
 			/* utils: .ui-backdrop */
 			background-color: var(--ui-backdrop-color);
 
-			position: absolute;
+			position: fixed;
 			top: 0;
 			left: 0;
 			width: 100%;
@@ -6124,7 +6124,7 @@
 		} else {
 			document.documentElement.setAttribute('data-theme', 'light');
 		}
-	</script><title>UI</title></head><body><span id="top-app-bar" class="app-bar top fixed shadow-sm z-40"><span id="" class="app-bar-left"> <script>function __templ_toggleDrawer_5a2f(drawerSelector, drawerOpenClass){try {
+	</script><title>UI</title></head><body><span id="top-app-bar" class="app-bar top fixed shadow-sm" style="z-index: 50;"><span id="" class="app-bar-left"> <script>function __templ_toggleDrawer_5a2f(drawerSelector, drawerOpenClass){try {
 		document.querySelector(drawerSelector).classList.toggle(drawerOpenClass);
 	} catch (error) {
 		console.error('Error toggling drawer:', error);
@@ -6139,4 +6139,4 @@
 	} catch (error) {
 		console.error('Error toggling theme:', error);
 	}
-}</script><button id="" class="contrast ghost  icon" onclick="__templ_toggleTheme_014b()"><i class="bi bi-sun"></i></button></span></span><span class="drawer-backdrop"></span> <span id="app-drawer" class="drawer z-50 debug"><ul id="app-drawer-items"><li><a href="#nav-top" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Go to Top</a></li></ul></span><main id="nav-top" class="container fluid"></main></body></html>
+}</script><button id="" class="contrast ghost  icon" onclick="__templ_toggleTheme_014b()"><i class="bi bi-sun"></i></button></span></span><span class="drawer-backdrop" style="z-index: 50;"></span> <span id="app-drawer" class="drawer debug" style="z-index: 50;"><ul id="app-drawer-items"><li><a role="button" id="" class="contrast ghost " onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)" Href="#nav-top">Go to Top</a></li></ul></span><main id="nav-top" class="container fluid"></main></body></html>
