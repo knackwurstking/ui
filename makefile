@@ -1,4 +1,4 @@
-.PHONY: all, clean, init, build
+.PHONY: all, clean, init, build, serve
 
 all: init build
 
@@ -11,3 +11,6 @@ init:
 generate:
 	templ generate
 	go run . generate
+
+serve: generate
+	go run . serve
