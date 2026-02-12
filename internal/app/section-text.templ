@@ -1,9 +1,6 @@
 package app
 
-import (
-	"fmt"
-	"github.com/knackwurstking/ui/pkg/css"
-)
+import "github.com/knackwurstking/ui/pkg/css"
 
 const (
 	IDText           = "section-text"
@@ -13,11 +10,7 @@ const (
 )
 
 templ SectionText() {
-	<section
-		style={ fmt.Sprintf("padding-top: %s", css.VarAppBarHeight) }
-		id={ IDText }
-		class={ css.P, css.MT }
-	>
+	<section id={ IDText } class={ css.P, css.MT }>
 		@SectionTitle() {
 			Text
 		}
