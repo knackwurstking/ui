@@ -54,26 +54,9 @@ func rootCmd(cmd *cli.Command) cli.ActionRunner {
 func generateCmd(cmd *cli.Command) cli.ActionRunner {
 	return func(cmd *cli.Command) error {
 		outputDir := "docs" // Fixed output directory for now
-
-		// Create output directory if it doesn't exist
-		if err := os.MkdirAll(outputDir, 0755); err != nil {
-			return fmt.Errorf("failed to create output directory: %w", err)
+		if err := generateStaticFiles(outputDir); err != nil {
+			return fmt.Errorf("failed to generate static files: %w", err)
 		}
-
-		// Generate main index.html
-		layout := app.Layout()
-		indexPath := filepath.Join(outputDir, "index.html")
-		file, err := os.Create(indexPath)
-		if err != nil {
-			return fmt.Errorf("failed to create index.html: %w", err)
-		}
-		defer file.Close()
-
-		if err := layout.Render(cmd.Context(), file); err != nil {
-			return fmt.Errorf("failed to render layout: %w", err)
-		}
-
-		fmt.Printf("Generated static files to %s/\n", outputDir)
 		return nil
 	}
 }
