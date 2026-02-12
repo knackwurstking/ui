@@ -4,10 +4,17 @@ import "github.com/knackwurstking/ui/pkg/css"
 import "github.com/knackwurstking/ui/pkg/components"
 
 const (
+	// App Bar
 	IDTopAppBar          = "top-app-bar"
 	IDTopAppBarTitle     = "top-app-bar-title"
 	IDDrawerToggleButton = "drawer-toggle-button"
-	IDAppDrawer          = "app-drawer"
+
+	// Drawer
+	IDAppDrawer      = "app-drawer"
+	IDAppDrawerItems = "app-drawer-items"
+
+	// Navigation
+	IDNavTop = "nav-top"
 )
 
 templ Layout() {
@@ -23,7 +30,7 @@ templ Layout() {
 		<body>
 			@appBar()
 			@drawer()
-			<main class={ css.Container, css.ContainerFluid }>
+			<main id={ IDNavTop } class={ css.Container, css.ContainerFluid }>
 				{ children... }
 			</main>
 		</body>
@@ -63,7 +70,7 @@ templ layoutScripts() {
 templ appBar() {
 	@components.AppBar(components.AppBarProps{
 		ID:       IDTopAppBar,
-		Class:    templ.CSSClasses{css.ShadowSm},
+		Class:    templ.CSSClasses{css.ShadowSm, css.Z40},
 		Position: components.AppBarPositionTop,
 		Type:     components.AppBarTypeFixed,
 	}) {
@@ -97,9 +104,12 @@ templ appBar() {
 
 templ drawer() {
 	@components.Drawer(components.DrawerProps{
-		ID: IDAppDrawer,
+		ID:    IDAppDrawer,
+		Class: templ.CSSClasses{css.Z50, css.Debug},
 	}) {
-		// TODO: ...
+		<ul id={ IDAppDrawerItems }>
+			<li><a href={ "#" + IDNavTop }>Go to Top</a></li>
+		</ul>
 	}
 }
 
