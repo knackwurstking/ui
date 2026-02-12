@@ -100,7 +100,7 @@ func generateStaticFiles(outputDir string) error {
 	}
 
 	// Generate main index.html
-	layout := app.Layout()
+	app := app.App()
 	indexPath := filepath.Join(outputDir, "index.html")
 	file, err := os.Create(indexPath)
 	if err != nil {
@@ -109,8 +109,8 @@ func generateStaticFiles(outputDir string) error {
 	defer file.Close()
 
 	ctx := context.Background()
-	if err := layout.Render(ctx, file); err != nil {
-		return fmt.Errorf("failed to render layout: %w", err)
+	if err := app.Render(ctx, file); err != nil {
+		return fmt.Errorf("failed to render app: %w", err)
 	}
 
 	fmt.Printf("Generated static files to %s/\n", outputDir)
