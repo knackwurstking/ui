@@ -6,18 +6,21 @@ import (
 )
 
 const (
-	IDSectionButtons = "section-buttons"
+	IDButtons               = "section-buttons"
+	IDDefaultButtons        = "section-default-buttons"
+	IDOutlineButtonVariants = "section-outline-button-variants"
+	IDGhostButtonVariants   = "section-ghost-button-variants"
 )
 
 templ SectionButtons() {
-	<section id={ IDSectionButtons } class={ css.P, css.MT }>
+	<section id={ IDButtons } class={ css.P, css.MT }>
 		@SectionTitle() {
 			Buttons
 		}
 		@SectionContent() {
 			<!-- Default Buttons -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Default Buttons</h3>
+				<h3 id={ IDDefaultButtons } class={ css.MB }>Default Buttons</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(nil) {
 						Default
@@ -61,7 +64,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Outline Variants -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Outline Variants</h3>
+				<h3 id={ IDOutlineButtonVariants } class={ css.MB }>Outline Variants</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Variant: components.ButtonVariantOutline,
@@ -109,7 +112,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Ghost Variants -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Ghost Variants</h3>
+				<h3 id={ IDGhostButtonVariants } class={ css.MB }>Ghost Variants</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Variant: components.ButtonVariantGhost,

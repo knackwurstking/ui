@@ -122,6 +122,7 @@ templ drawer() {
 		ZIndex: 50,
 	}) {
 		<ul id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
+			// Section: Text
 			@drawerItem("#"+IDSectionText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text
 			}
@@ -134,14 +135,26 @@ templ drawer() {
 			@drawerSubItem("#"+IDSectionTextFormatting, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text Formatting	
 			}
-			@drawerItem("#"+IDSectionButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			// Section: Buttons
+			@drawerItem("#"+IDButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Buttons
 			}
+			@drawerSubItem("#"+IDDefaultButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Default Buttons
+			}
+			@drawerSubItem("#"+IDOutlineButtonVariants, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Outline Variants
+			}
+			@drawerSubItem("#"+IDGhostButtonVariants, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Ghost Variants
+			}
 			// TODO: Add sub items for button section
+			// Section: Cards
 			@drawerItem("#"+IDSectionCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Cards
 			}
 			// TODO: Add sub items for card section
+			// Section: Badges
 			@drawerItem("#"+IDSectionBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Badges
 			}
