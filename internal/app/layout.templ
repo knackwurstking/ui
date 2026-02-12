@@ -70,9 +70,10 @@ templ layoutScripts() {
 templ appBar() {
 	@components.AppBar(components.AppBarProps{
 		ID:       IDTopAppBar,
-		Class:    templ.CSSClasses{css.ShadowSm, css.Z40},
+		Class:    templ.CSSClasses{css.ShadowSm},
 		Position: components.AppBarPositionTop,
 		Type:     components.AppBarTypeFixed,
+		ZIndex:   50,
 	}) {
 		@components.AppBarLeft(components.AppBarLeftProps{}) {
 			// Icon button for opening the drawer, e.g. A hamburger menu icon
@@ -104,12 +105,21 @@ templ appBar() {
 
 templ drawer() {
 	@components.Drawer(components.DrawerProps{
-		ID:    IDAppDrawer,
-		Class: templ.CSSClasses{css.Z50, css.Debug},
+		ID:     IDAppDrawer,
+		Class:  templ.CSSClasses{css.Debug},
+		ZIndex: 50,
 	}) {
 		<ul id={ IDAppDrawerItems }>
-			// TODO: Maybe use a linked button here
-			<li><a href={ "#" + IDNavTop } onclick={ toggleDrawer("."+css.Drawer, css.DrawerOpen) }>Go to Top</a></li>
+			<li>
+				@components.Button(components.ButtonProps{
+					Link:    "#" + IDNavTop,
+					Color:   components.ButtonColorContrast,
+					Variant: components.ButtonVariantGhost,
+					OnClick: toggleDrawer("."+css.Drawer, css.DrawerOpen),
+				}) {
+					Go to Top
+				}
+			</li>
 		</ul>
 	}
 }
