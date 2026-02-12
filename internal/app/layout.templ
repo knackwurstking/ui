@@ -106,21 +106,24 @@ templ appBar() {
 templ drawer() {
 	@components.Drawer(components.DrawerProps{
 		ID:     IDAppDrawer,
-		Class:  templ.CSSClasses{css.Debug},
 		ZIndex: 50,
 	}) {
 		<ul id={ IDAppDrawerItems }>
-			<li>
-				<a
-					class={ css.P, css.PXLg }
-					href={ "#" + IDNavTop }
-					onclick={ toggleDrawer("."+css.Drawer, css.DrawerOpen) }
-				>
-					Go to Top
-				</a>
-			</li>
+			@drawerItem("#"+IDNavTop, toggleDrawer("."+css.Drawer, css.DrawerOpen))
 		</ul>
 	}
+}
+
+templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {
+	<li>
+		<a
+			class={ css.P, css.PXLg, css.Contrast, css.NoUnderline }
+			href={ href }
+			onclick={ onclick }
+		>
+			Go to Top
+		</a>
+	</li>
 }
 
 // -----------------------------------------------------------------------------
