@@ -111,14 +111,13 @@ templ drawer() {
 	}) {
 		<ul id={ IDAppDrawerItems }>
 			<li>
-				@components.Button(components.ButtonProps{
-					Link:    "#" + IDNavTop,
-					Color:   components.ButtonColorContrast,
-					Variant: components.ButtonVariantGhost,
-					OnClick: toggleDrawer("."+css.Drawer, css.DrawerOpen),
-				}) {
+				<a
+					class={ css.P, css.PXLg }
+					href={ "#" + IDNavTop }
+					onclick={ toggleDrawer("."+css.Drawer, css.DrawerOpen) }
+				>
 					Go to Top
-				}
+				</a>
 			</li>
 		</ul>
 	}
