@@ -9,4 +9,3 @@
 - [ ] Input
 - [ ] Select
 - [ ] Form
-- [-] Accordion / Details
