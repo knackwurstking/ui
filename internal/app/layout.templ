@@ -44,15 +44,20 @@ templ Layout() {
 			@appBar()
 			@drawer()
 			// Fix top padding if page is loading with a hash
-			@components.Container(&components.ContainerProps{
-				ID:    IDNavTop,
-				Fluid: true,
-				Attributes: templ.Attributes{
-					"style": fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight),
-				},
-			}) {
-				{ children... }
-			}
+			<div
+				style={ fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight) }
+			>
+				@components.Container(&components.ContainerProps{
+					ID:    IDNavTop,
+					Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
+					Fluid: true,
+					Attributes: templ.Attributes{
+						"style": fmt.Sprintf("height: calc(100vh - %s);", css.VarAppBarHeight),
+					},
+				}) {
+					{ children... }
+				}
+			</div>
 		</body>
 	</html>
 }
