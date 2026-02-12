@@ -117,7 +117,6 @@ templ drawer() {
 		ID:     IDAppDrawer,
 		ZIndex: 50,
 	}) {
-		<h4 class={ css.TextCenter }>Index</h4>
 		<ul id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
 			@drawerItem("#"+IDSectionTextElements, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text Elements
