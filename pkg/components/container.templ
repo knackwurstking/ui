@@ -18,7 +18,7 @@ templ Container(props *ContainerProps) {
 	}}
 	<span
 		id={ props.ID }
-		class={ css.Container, templ.KV(props.Fluid, css.ContainerFluid), props.Class }
+		class={ css.Container, templ.KV(css.ContainerFluid, props.Fluid), props.Class }
 		{ props.Attributes... }
 	>
 		{ children... }

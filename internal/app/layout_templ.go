@@ -8,8 +8,11 @@ package app
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-import "github.com/knackwurstking/ui/pkg/css"
-import "github.com/knackwurstking/ui/pkg/components"
+import (
+	"fmt"
+	"github.com/knackwurstking/ui/pkg/components"
+	"github.com/knackwurstking/ui/pkg/css"
+)
 
 const (
 	// App Bar
@@ -174,6 +177,9 @@ func Layout() templ.Component {
 		templ_7745c5c3_Err = components.Container(&components.ContainerProps{
 			ID:    IDNavTop,
 			Fluid: true,
+			Attributes: templ.Attributes{
+				"style": fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight),
+			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -424,7 +430,7 @@ func appBar() templ.Component {
 				var templ_7745c5c3_Var14 string
 				templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(IDTopAppBarTitle)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 104, Col: 28}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 111, Col: 28}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 				if templ_7745c5c3_Err != nil {
@@ -550,7 +556,7 @@ func drawer() templ.Component {
 			var templ_7745c5c3_Var20 string
 			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(IDAppDrawerItems)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 124, Col: 27}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 131, Col: 27}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
@@ -871,7 +877,7 @@ func drawer() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "Link Buttons")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "Combined Examples")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -996,7 +1002,7 @@ func drawerItem(href templ.SafeURL, onclick templ.ComponentScript) templ.Compone
 		var templ_7745c5c3_Var41 templ.SafeURL
 		templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinURLErrs(href)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 187, Col: 14}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 194, Col: 14}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 		if templ_7745c5c3_Err != nil {
@@ -1068,7 +1074,7 @@ func drawerSubItem(href templ.SafeURL, onclick templ.ComponentScript) templ.Comp
 		var templ_7745c5c3_Var45 string
 		templ_7745c5c3_Var45, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues("margin-left: 1.5rem")
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 198, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 205, Col: 32}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
 		if templ_7745c5c3_Err != nil {
@@ -1094,7 +1100,7 @@ func drawerSubItem(href templ.SafeURL, onclick templ.ComponentScript) templ.Comp
 		var templ_7745c5c3_Var47 templ.SafeURL
 		templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinURLErrs(href)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 200, Col: 14}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/layout.templ`, Line: 207, Col: 14}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 		if templ_7745c5c3_Err != nil {

@@ -1,7 +1,10 @@
 package app
 
-import "github.com/knackwurstking/ui/pkg/css"
-import "github.com/knackwurstking/ui/pkg/components"
+import (
+	"fmt"
+	"github.com/knackwurstking/ui/pkg/components"
+	"github.com/knackwurstking/ui/pkg/css"
+)
 
 const (
 	// App Bar
@@ -40,9 +43,13 @@ templ Layout() {
 		<body>
 			@appBar()
 			@drawer()
+			// Fix top padding if page is loading with a hash
 			@components.Container(&components.ContainerProps{
 				ID:    IDNavTop,
 				Fluid: true,
+				Attributes: templ.Attributes{
+					"style": fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight),
+				},
 			}) {
 				{ children... }
 			}
@@ -164,7 +171,7 @@ templ drawer() {
 				Link Buttons
 			}
 			@drawerSubItem("#"+IDButtonsCombinedExamples, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Link Buttons
+				Combined Examples
 			}
 			// Section: Cards
 			@drawerItem("#"+IDCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {

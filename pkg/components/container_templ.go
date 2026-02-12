@@ -42,7 +42,7 @@ func Container(props *ContainerProps) templ.Component {
 		if props == nil {
 			props = &ContainerProps{}
 		}
-		var templ_7745c5c3_Var2 = []any{css.Container, templ.KV(props.Fluid, css.ContainerFluid), props.Class}
+		var templ_7745c5c3_Var2 = []any{css.Container, templ.KV(css.ContainerFluid, props.Fluid), props.Class}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
