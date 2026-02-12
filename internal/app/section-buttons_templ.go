@@ -195,7 +195,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Button(nil).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -217,7 +217,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Color: components.ButtonColorSecondary,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var14), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -241,7 +241,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Color: components.ButtonColorSuccess,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -265,7 +265,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Color: components.ButtonColorWarning,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var16), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -289,7 +289,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Color: components.ButtonColorDestructive,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var17), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -313,7 +313,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Color: components.ButtonColorInfo,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var18), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -337,7 +337,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Color: components.ButtonColorContrast,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var19), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -361,7 +361,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Color: components.ButtonColorMuted,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var20), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -455,7 +455,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorSecondary,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var27), templ_7745c5c3_Buffer)
@@ -480,7 +480,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorSuccess,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var28), templ_7745c5c3_Buffer)
@@ -505,7 +505,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorWarning,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var29), templ_7745c5c3_Buffer)
@@ -530,7 +530,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorDestructive,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var30), templ_7745c5c3_Buffer)
@@ -555,7 +555,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorInfo,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var31), templ_7745c5c3_Buffer)
@@ -580,7 +580,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorContrast,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var32), templ_7745c5c3_Buffer)
@@ -605,7 +605,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorMuted,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var33), templ_7745c5c3_Buffer)
@@ -700,7 +700,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantGhost,
 				Color:   components.ButtonColorSecondary,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var40), templ_7745c5c3_Buffer)
@@ -725,7 +725,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantGhost,
 				Color:   components.ButtonColorSuccess,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var41), templ_7745c5c3_Buffer)
@@ -750,7 +750,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantGhost,
 				Color:   components.ButtonColorWarning,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var42), templ_7745c5c3_Buffer)
@@ -775,7 +775,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantGhost,
 				Color:   components.ButtonColorDestructive,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var43), templ_7745c5c3_Buffer)
@@ -800,7 +800,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantGhost,
 				Color:   components.ButtonColorInfo,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var44), templ_7745c5c3_Buffer)
@@ -825,7 +825,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantGhost,
 				Color:   components.ButtonColorContrast,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var45), templ_7745c5c3_Buffer)
@@ -850,7 +850,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantGhost,
 				Color:   components.ButtonColorMuted,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var46), templ_7745c5c3_Buffer)
@@ -945,7 +945,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantFull,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var53), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -969,7 +969,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantFull,
 				Color:   components.ButtonColorSecondary,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var54), templ_7745c5c3_Buffer)
@@ -994,7 +994,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantFull,
 				Color:   components.ButtonColorSuccess,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var55), templ_7745c5c3_Buffer)
@@ -1089,7 +1089,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Size: components.ButtonSizeSmall,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var62), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -1113,7 +1113,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var63), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var63), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -1135,7 +1135,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Size: components.ButtonSizeLarge,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var64), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -1229,7 +1229,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Icon: true,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var71), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -1253,7 +1253,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Icon:  true,
 				Color: components.ButtonColorSecondary,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var72), templ_7745c5c3_Buffer)
@@ -1278,7 +1278,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Icon:  true,
 				Color: components.ButtonColorSuccess,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var73), templ_7745c5c3_Buffer)
@@ -1303,7 +1303,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Icon:  true,
 				Color: components.ButtonColorWarning,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var74), templ_7745c5c3_Buffer)
@@ -1328,7 +1328,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Icon:  true,
 				Color: components.ButtonColorDestructive,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var75), templ_7745c5c3_Buffer)
@@ -1353,7 +1353,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Icon:    true,
 				Variant: components.ButtonVariantOutline,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var76), templ_7745c5c3_Buffer)
@@ -1378,7 +1378,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Icon:    true,
 				Variant: components.ButtonVariantGhost,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var77), templ_7745c5c3_Buffer)
@@ -1473,7 +1473,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Loading: true,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var84), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -1497,7 +1497,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Loading: true,
 				Color:   components.ButtonColorSecondary,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var85), templ_7745c5c3_Buffer)
@@ -1522,7 +1522,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Loading: true,
 				Color:   components.ButtonColorSuccess,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var86), templ_7745c5c3_Buffer)
@@ -1547,7 +1547,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Loading: true,
 				Variant: components.ButtonVariantOutline,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var87), templ_7745c5c3_Buffer)
@@ -1642,7 +1642,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Link: "#",
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var94), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
@@ -1666,7 +1666,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Link:  "#",
 				Color: components.ButtonColorSecondary,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var95), templ_7745c5c3_Buffer)
@@ -1691,7 +1691,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Link:    "#",
 				Variant: components.ButtonVariantOutline,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var96), templ_7745c5c3_Buffer)
@@ -1716,7 +1716,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Link:    "#",
 				Variant: components.ButtonVariantGhost,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var97), templ_7745c5c3_Buffer)
@@ -1811,7 +1811,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Size:    components.ButtonSizeSmall,
 				Variant: components.ButtonVariantOutline,
 				Color:   components.ButtonColorInfo,
@@ -1837,7 +1837,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Size:  components.ButtonSizeLarge,
 				Color: components.ButtonColorSuccess,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var105), templ_7745c5c3_Buffer)
@@ -1862,7 +1862,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Size:  components.ButtonSizeLarge,
 				Color: components.ButtonColorWarning,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var106), templ_7745c5c3_Buffer)
@@ -1887,7 +1887,7 @@ func SectionButtons() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Button(components.ButtonProps{
+			templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 				Variant: components.ButtonVariantFull,
 				Color:   components.ButtonColorDestructive,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var107), templ_7745c5c3_Buffer)

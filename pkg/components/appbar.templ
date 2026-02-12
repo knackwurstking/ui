@@ -27,8 +27,14 @@ type AppBarProps struct {
 	ZIndex   int
 }
 
-templ AppBar(props AppBarProps) {
-	{{ style, _ := props.Attributes["style"] }}
+templ AppBar(props *AppBarProps) {
+	{{
+		if props == nil {
+			props = &AppBarProps{}
+		}
+
+		style, _ := props.Attributes["style"]
+	}}
 	<span
 		id={ props.ID }
 		class={ css.AppBar, string(props.Position), string(props.Type), props.Class }
@@ -48,7 +54,12 @@ type AppBarLeftProps struct {
 	Attributes templ.Attributes
 }
 
-templ AppBarLeft(props AppBarLeftProps) {
+templ AppBarLeft(props *AppBarLeftProps) {
+	{{
+		if props == nil {
+			props = &AppBarLeftProps{}
+		}
+	}}
 	<span id={ props.ID } class={ css.AppBarLeft, props.Class } { props.Attributes... }>
 		{ children... }
 	</span>
@@ -60,7 +71,12 @@ type AppBarCenterProps struct {
 	Attributes templ.Attributes
 }
 
-templ AppBarCenter(props AppBarCenterProps) {
+templ AppBarCenter(props *AppBarCenterProps) {
+	{{
+		if props == nil {
+			props = &AppBarCenterProps{}
+		}
+	}}
 	<span id={ props.ID } class={ css.AppBarCenter, props.Class } { props.Attributes... }>
 		{ children... }
 	</span>
@@ -72,7 +88,12 @@ type AppBarRightProps struct {
 	Attributes templ.Attributes
 }
 
-templ AppBarRight(props AppBarRightProps) {
+templ AppBarRight(props *AppBarRightProps) {
+	{{
+		if props == nil {
+			props = &AppBarRightProps{}
+		}
+	}}
 	<span id={ props.ID } class={ css.AppBarRight, props.Class } { props.Attributes... }>
 		{ children... }
 	</span>

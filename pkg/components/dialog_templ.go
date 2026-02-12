@@ -45,7 +45,7 @@ type DialogProps struct {
 	Variant    DialogVariant
 }
 
-func Dialog(props DialogProps) templ.Component {
+func Dialog(props *DialogProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -66,6 +66,9 @@ func Dialog(props DialogProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		if props == nil {
+			props = &DialogProps{}
+		}
 		var templ_7745c5c3_Var2 = []any{templ.KV("fullscreen", props.Fullscreen),
 			templ.KV("clean", props.Clean),
 			string(props.Type),
@@ -84,7 +87,7 @@ func Dialog(props DialogProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 42, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 47, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -133,7 +136,7 @@ type DialogCloseButtonProps struct {
 	Attributes templ.Attributes
 }
 
-func DialogCloseButton(props DialogCloseButtonProps) templ.Component {
+func DialogCloseButton(props *DialogCloseButtonProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -154,6 +157,9 @@ func DialogCloseButton(props DialogCloseButtonProps) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		if props == nil {
+			props = &DialogCloseButtonProps{}
+		}
 		onclick := templ.ComponentScript{
 			Call: `this.closest('dialog').close();`,
 		}
@@ -173,7 +179,7 @@ func DialogCloseButton(props DialogCloseButtonProps) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 69, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 79, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {

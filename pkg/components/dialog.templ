@@ -37,7 +37,12 @@ type DialogProps struct {
 	Variant    DialogVariant
 }
 
-templ Dialog(props DialogProps) {
+templ Dialog(props *DialogProps) {
+	{{
+		if props == nil {
+			props = &DialogProps{}
+		}
+	}}
 	<dialog
 		id={ props.ID }
 		class={
@@ -60,7 +65,12 @@ type DialogCloseButtonProps struct {
 	Attributes templ.Attributes
 }
 
-templ DialogCloseButton(props DialogCloseButtonProps) {
+templ DialogCloseButton(props *DialogCloseButtonProps) {
+	{{
+		if props == nil {
+			props = &DialogCloseButtonProps{}
+		}
+	}}
 	{{
 		onclick := templ.ComponentScript{
 			Call: `this.closest('dialog').close();`,

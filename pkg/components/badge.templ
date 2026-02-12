@@ -47,7 +47,12 @@ type BadgeProps struct {
 	CounterSmall bool
 }
 
-templ Badge(props BadgeProps) {
+templ Badge(props *BadgeProps) {
+	{{
+		if props == nil {
+			props = &BadgeProps{}
+		}
+	}}
 	{{
 		status := ""
 		if props.Status != "" {

@@ -55,7 +55,7 @@ type BadgeProps struct {
 	CounterSmall bool
 }
 
-func Badge(props BadgeProps) templ.Component {
+func Badge(props *BadgeProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -76,6 +76,9 @@ func Badge(props BadgeProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
+		if props == nil {
+			props = &BadgeProps{}
+		}
 		status := ""
 		if props.Status != "" {
 			status = css.BadgeStatus + " " + string(props.Status)
@@ -102,7 +105,7 @@ func Badge(props BadgeProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/badge.templ`, Line: 63, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/badge.templ`, Line: 68, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

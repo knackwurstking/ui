@@ -40,7 +40,7 @@ templ Layout() {
 		<body>
 			@appBar()
 			@drawer()
-			@components.Container(components.ContainerProps{
+			@components.Container(&components.ContainerProps{
 				ID:    IDNavTop,
 				Fluid: true,
 			}) {
@@ -81,16 +81,16 @@ templ layoutScripts() {
 }
 
 templ appBar() {
-	@components.AppBar(components.AppBarProps{
+	@components.AppBar(&components.AppBarProps{
 		ID:       IDTopAppBar,
 		Class:    templ.CSSClasses{css.ShadowSm},
 		Position: components.AppBarPositionTop,
 		Type:     components.AppBarTypeFixed,
 		ZIndex:   50,
 	}) {
-		@components.AppBarLeft(components.AppBarLeftProps{}) {
+		@components.AppBarLeft(nil) {
 			// Icon button for opening the drawer, e.g. A hamburger menu icon
-			@components.Button(components.ButtonProps{
+			@components.Button(&components.ButtonProps{
 				ID:      IDDrawerToggleButton,
 				Color:   components.ButtonColorContrast,
 				Variant: components.ButtonVariantGhost,
@@ -100,11 +100,11 @@ templ appBar() {
 				<i class="bi bi-list"></i>
 			}
 		}
-		@components.AppBarCenter(components.AppBarCenterProps{}) {
+		@components.AppBarCenter(nil) {
 			<h5 id={ IDTopAppBarTitle }>UI</h5>
 		}
-		@components.AppBarRight(components.AppBarRightProps{}) {
-			@components.Button(components.ButtonProps{
+		@components.AppBarRight(nil) {
+			@components.Button(&components.ButtonProps{
 				Color:   components.ButtonColorContrast,
 				Variant: components.ButtonVariantGhost,
 				Icon:    true,
@@ -117,7 +117,7 @@ templ appBar() {
 }
 
 templ drawer() {
-	@components.Drawer(components.DrawerProps{
+	@components.Drawer(&components.DrawerProps{
 		ID:     IDAppDrawer,
 		ZIndex: 50,
 	}) {

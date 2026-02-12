@@ -42,7 +42,12 @@ type ButtonProps struct {
 	OnClick templ.ComponentScript
 }
 
-templ Button(props ButtonProps) {
+templ Button(props *ButtonProps) {
+	{{
+		if props == nil {
+			props = &ButtonProps{}
+		}
+	}}
 	if props.Link != "" {
 		<a
 			role="button"

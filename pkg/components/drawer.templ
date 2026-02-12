@@ -14,7 +14,12 @@ type DrawerProps struct {
 	ZIndex int
 }
 
-templ Drawer(props DrawerProps) {
+templ Drawer(props *DrawerProps) {
+	{{
+		if props == nil {
+			props = &DrawerProps{}
+		}
+	}}
 	{{ style, _ := props.Attributes["style"] }}
 	<span
 		class={ css.DrawerBackdrop }

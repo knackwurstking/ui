@@ -163,7 +163,7 @@ func Layout() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.Container(components.ContainerProps{
+		templ_7745c5c3_Err = components.Container(&components.ContainerProps{
 			ID:    IDNavTop,
 			Fluid: true,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var4), templ_7745c5c3_Buffer)
@@ -377,7 +377,7 @@ func appBar() templ.Component {
 					}
 					return nil
 				})
-				templ_7745c5c3_Err = components.Button(components.ButtonProps{
+				templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 					ID:      IDDrawerToggleButton,
 					Color:   components.ButtonColorContrast,
 					Variant: components.ButtonVariantGhost,
@@ -389,7 +389,7 @@ func appBar() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.AppBarLeft(components.AppBarLeftProps{}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.AppBarLeft(nil).Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -428,7 +428,7 @@ func appBar() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.AppBarCenter(components.AppBarCenterProps{}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.AppBarCenter(nil).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -466,7 +466,7 @@ func appBar() templ.Component {
 					}
 					return nil
 				})
-				templ_7745c5c3_Err = components.Button(components.ButtonProps{
+				templ_7745c5c3_Err = components.Button(&components.ButtonProps{
 					Color:   components.ButtonColorContrast,
 					Variant: components.ButtonVariantGhost,
 					Icon:    true,
@@ -477,13 +477,13 @@ func appBar() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.AppBarRight(components.AppBarRightProps{}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.AppBarRight(nil).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.AppBar(components.AppBarProps{
+		templ_7745c5c3_Err = components.AppBar(&components.AppBarProps{
 			ID:       IDTopAppBar,
 			Class:    templ.CSSClasses{css.ShadowSm},
 			Position: components.AppBarPositionTop,
@@ -659,7 +659,7 @@ func drawer() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.Drawer(components.DrawerProps{
+		templ_7745c5c3_Err = components.Drawer(&components.DrawerProps{
 			ID:     IDAppDrawer,
 			ZIndex: 50,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var18), templ_7745c5c3_Buffer)

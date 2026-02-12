@@ -10,7 +10,12 @@ type ContainerProps struct {
 	Fluid bool
 }
 
-templ Container(props ContainerProps) {
+templ Container(props *ContainerProps) {
+	{{
+		if props == nil {
+			props = &ContainerProps{}
+		}
+	}}
 	<span
 		id={ props.ID }
 		class={ css.Container, templ.KV(props.Fluid, css.ContainerFluid), props.Class }
