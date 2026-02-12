@@ -37,14 +37,15 @@ type ButtonProps struct {
 
 	Icon    bool // Icon buttons will change padding
 	Loading bool
-	Link    bool
+	Link    string
 
 	OnClick templ.ComponentScript
 }
 
 templ Button(props ButtonProps) {
-	if props.Link {
+	if props.Link != "" {
 		<a
+			role="button"
 			id={ props.ID }
 			class={
 				string(props.Color),
@@ -55,6 +56,7 @@ templ Button(props ButtonProps) {
 				props.Class,
 			}
 			onclick={ props.OnClick }
+			Href={ props.Link }
 			{ props.Attributes... }
 		>
 			{ children... }
