@@ -7,6 +7,7 @@ const (
 	IDTopAppBar          = "top-app-bar"
 	IDTopAppBarTitle     = "top-app-bar-title"
 	IDDrawerToggleButton = "drawer-toggle-button"
+	IDAppDrawer          = "app-drawer"
 )
 
 templ Layout() {
@@ -95,7 +96,11 @@ templ appBar() {
 }
 
 templ drawer() {
-	// TODO: ...
+	@components.Drawer(components.DrawerProps{
+		ID: IDAppDrawer,
+	}) {
+		// TODO: ...
+	}
 }
 
 // -----------------------------------------------------------------------------
