@@ -6,14 +6,22 @@ type DrawerProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
+
+	Open bool
 }
 
+// TODO: Add drawer close button
 templ Drawer(props DrawerProps) {
-	<div
+	<span class={ css.DrawerBackdrop }></span>
+	<span
 		id={ props.ID }
-		class={ css.Drawer, props.Class }
+		class={
+			css.Drawer,
+			props.Class,
+			templ.KV(css.DrawerOpen, props.Open),
+		}
 		{ props.Attributes... }
 	>
 		{ children... }
-	</div>
+	</span>
 }
