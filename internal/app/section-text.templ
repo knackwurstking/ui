@@ -6,20 +6,23 @@ import (
 )
 
 const (
-	IDSectionText = "section-text"
+	IDSectionTextElements   = "section-text-elements"
+	IDSectionTextHeadings   = "section-text-headings"
+	IDSectionTextParagraph  = "section-text-paragraph"
+	IDSectionTextFormatting = "section-text-formatting"
 )
 
 templ SectionText() {
 	<section
 		style={ fmt.Sprintf("padding-top: %s", css.VarAppBarHeight) }
-		ID={ IDSectionText }
+		ID={ IDSectionTextElements }
 		class={ css.P, css.MT }
 	>
 		@SectionTitle() {
 			Text Elements
 		}
 		@SectionContent() {
-			<fieldset>
+			<fieldset id={ IDSectionTextHeadings }>
 				<legend>Headings</legend>
 				<h1>Heading 1</h1>
 				<h2>Heading 2</h2>
@@ -28,14 +31,14 @@ templ SectionText() {
 				<h5>Heading 5</h5>
 				<h6>Heading 6</h6>
 			</fieldset>
-			<fieldset>
+			<fieldset id={ IDSectionTextParagraph }>
 				<legend>Paragraph</legend>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
 					labore et dolore magna aliqua.
 				</p>
 			</fieldset>
-			<fieldset>
+			<fieldset id={ IDSectionTextFormatting }>
 				<legend>Text Formatting</legend>
 				<div class={ css.Flex, css.FlexCol, css.Gap }>
 					<span>

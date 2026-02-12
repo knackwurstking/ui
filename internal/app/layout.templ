@@ -119,8 +119,17 @@ templ drawer() {
 	}) {
 		<h4 class={ css.TextCenter }>UI</h4>
 		<ul id={ IDAppDrawerItems }>
-			@drawerItem("#"+IDSectionText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerItem("#"+IDSectionTextElements, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text Elements
+			}
+			@drawerSubItem("#"+IDSectionTextHeadings, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Headings
+			}
+			@drawerSubItem("#"+IDSectionTextParagraph, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Paragraph	
+			}
+			@drawerSubItem("#"+IDSectionTextFormatting, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Text Formatting	
 			}
 		</ul>
 	}
@@ -133,6 +142,20 @@ templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {
 			href={ href }
 			onclick={ onclick }
 		>
+			{ children... }
+		</a>
+	</li>
+}
+
+templ drawerSubItem(href templ.SafeURL, onclick templ.ComponentScript) {
+	<li>
+		<a
+			style={ "margin-left: 1.5rem" }
+			class={ css.P, css.PXLg, css.Contrast, css.NoUnderline, css.Flex, css.Gap }
+			href={ href }
+			onclick={ onclick }
+		>
+			<i class="bi bi-dot"></i>
 			{ children... }
 		</a>
 	</li>
