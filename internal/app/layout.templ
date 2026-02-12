@@ -22,7 +22,7 @@ templ App() {
 		@SectionText()
 		@SectionButtons()
 		@SectionCards()
-		// TODO: Badges
+		@SectionBadges()
 		// TODO: Dialogs
 	}
 }
@@ -133,6 +133,15 @@ templ drawer() {
 			}
 			@drawerSubItem("#"+IDSectionTextFormatting, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text Formatting	
+			}
+			@drawerItem("#"+IDSectionButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Buttons
+			}
+			@drawerItem("#"+IDSectionCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Cards
+			}
+			@drawerItem("#"+IDSectionBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Badges
 			}
 		</ul>
 	}
