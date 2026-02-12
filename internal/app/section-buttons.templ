@@ -6,10 +6,12 @@ import (
 )
 
 const (
-	IDButtons               = "section-buttons"
-	IDDefaultButtons        = "section-default-buttons"
-	IDOutlineButtonVariants = "section-outline-button-variants"
-	IDGhostButtonVariants   = "section-ghost-button-variants"
+	IDButtons                  = "section-buttons"
+	IDDefaultButtons           = "section-default-buttons"
+	IDOutlineButtonVariants    = "section-outline-button-variants"
+	IDGhostButtonVariants      = "section-ghost-button-variants"
+	IDButtonsFullWidthVariants = "section-buttons-full-width-variants"
+	IDButtonSizes              = "section-button-sizes"
 )
 
 templ SectionButtons() {
@@ -160,7 +162,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Full Width Variants -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Full Width Variants</h3>
+				<h3 id={ IDButtonsFullWidthVariants } class={ css.MB }>Full Width Variants</h3>
 				<div class={ css.Flex, css.FlexCol, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Variant: components.ButtonVariantFull,
@@ -183,7 +185,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Sizes -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Sizes</h3>
+				<h3 id={ IDButtonSizes } class={ css.MB }>Sizes</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.ItemsCenter, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Size: components.ButtonSizeSmall,
