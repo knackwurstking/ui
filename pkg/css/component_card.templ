@@ -37,10 +37,8 @@ const (
 
 // Card Content Elements
 const (
-	CardTitle            = "card-title"
-	CardSubtitle         = "card-subtitle"
-	CardTitleTruncate    = "truncate"
-	CardSubtitleTruncate = "truncate"
+	CardTitle    = "card-title"
+	CardSubtitle = "card-subtitle"
 )
 
 // Card Actions
@@ -353,14 +351,6 @@ templ StylesComponentCard() {
 			to {
 				left: 100%;
 			}
-		}
-
-		/* Content Overflow */
-		.card-title.truncate,
-		.card-subtitle.truncate {
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
 		}
 
 		/* Performance */

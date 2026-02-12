@@ -139,8 +139,6 @@ type CardTitleProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
-
-	Truncate bool
 }
 
 templ CardTitle(text string, props *CardTitleProps) {
@@ -151,7 +149,7 @@ templ CardTitle(text string, props *CardTitleProps) {
 	}}
 	<span
 		id={ props.ID }
-		class={ css.CardTitle, templ.KV(css.CardTitleTruncate, props.Truncate), props.Class }
+		class={ css.CardTitle, css.Block, props.Class }
 		{ props.Attributes... }
 	>
 		{ text }
@@ -163,8 +161,6 @@ type CardSubtitleProps struct {
 	ID         string
 	Class      templ.CSSClasses
 	Attributes templ.Attributes
-
-	Truncate bool
 }
 
 templ CardSubtitle(text string, props *CardSubtitleProps) {
@@ -175,7 +171,7 @@ templ CardSubtitle(text string, props *CardSubtitleProps) {
 	}}
 	<span
 		id={ props.ID }
-		class={ css.CardSubtitle, templ.KV(css.CardSubtitleTruncate, props.Truncate), props.Class }
+		class={ css.CardSubtitle, css.Block, props.Class }
 		{ props.Attributes... }
 	>
 		{ text }
