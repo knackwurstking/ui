@@ -43,7 +43,7 @@ templ Layout() {
 		<body>
 			@appBar()
 			@drawer()
-			// Fix top padding if page is loading with a hash
+			// TODO: Create a new component: `AppBarContent`
 			<div
 				style={ fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight) }
 			>
