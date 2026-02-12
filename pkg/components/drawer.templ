@@ -1,0 +1,19 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type DrawerProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+}
+
+templ Drawer(props DrawerProps) {
+	<div
+		id={ props.ID }
+		class={ css.Drawer, props.Class }
+		{ props.Attributes... }
+	>
+		{ children... }
+	</div>
+}
