@@ -37,6 +37,8 @@ type ButtonProps struct {
 
 	Icon    bool // Icon buttons will change padding
 	Loading bool
+
+	OnClick templ.ComponentScript
 }
 
 templ Button(props ButtonProps) {
@@ -50,6 +52,7 @@ templ Button(props ButtonProps) {
 			templ.KV(css.ButtonLoading, props.Loading),
 			props.Class,
 		}
+		onclick={ props.OnClick }
 		{ props.Attributes... }
 	>
 		{ children... }
