@@ -108,7 +108,8 @@ templ drawer() {
 		Class: templ.CSSClasses{css.Z50, css.Debug},
 	}) {
 		<ul id={ IDAppDrawerItems }>
-			<li><a href={ "#" + IDNavTop }>Go to Top</a></li>
+			// TODO: Maybe use a linked button here
+			<li><a href={ "#" + IDNavTop } onclick={ toggleDrawer("."+css.Drawer, css.DrawerOpen) }>Go to Top</a></li>
 		</ul>
 	}
 }
