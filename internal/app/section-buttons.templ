@@ -6,12 +6,16 @@ import (
 )
 
 const (
-	IDButtons                  = "section-buttons"
-	IDDefaultButtons           = "section-default-buttons"
-	IDOutlineButtonVariants    = "section-outline-button-variants"
-	IDGhostButtonVariants      = "section-ghost-button-variants"
-	IDButtonsFullWidthVariants = "section-buttons-full-width-variants"
-	IDButtonSizes              = "section-button-sizes"
+	IDButtons                 = "section-buttons"
+	IDButtonsDefault          = "section-default-buttons"
+	IDButtonsOutlineVariant   = "section-outline-button-variant"
+	IDButtonsGhostVariant     = "section-ghost-button-variant"
+	IDButtonsFullWidth        = "section-buttons-full-width"
+	IDButtonsSizes            = "section-button-sizes"
+	IDButtonsIcon             = "section-icon-buttons"
+	IDButtonsLoading          = "section-buttons-loading"
+	IDButtonsLink             = "section-buttons-link"
+	IDButtonsCombinedExamples = "section-buttons-combined-examples"
 )
 
 templ SectionButtons() {
@@ -22,7 +26,7 @@ templ SectionButtons() {
 		@SectionContent() {
 			<!-- Default Buttons -->
 			<div class={ css.MB }>
-				<h3 id={ IDDefaultButtons } class={ css.MB }>Default Buttons</h3>
+				<h3 id={ IDButtonsDefault } class={ css.MB }>Default Buttons</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(nil) {
 						Default
@@ -66,7 +70,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Outline Variants -->
 			<div class={ css.MB }>
-				<h3 id={ IDOutlineButtonVariants } class={ css.MB }>Outline Variants</h3>
+				<h3 id={ IDButtonsOutlineVariant } class={ css.MB }>Outline Variants</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Variant: components.ButtonVariantOutline,
@@ -114,7 +118,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Ghost Variants -->
 			<div class={ css.MB }>
-				<h3 id={ IDGhostButtonVariants } class={ css.MB }>Ghost Variants</h3>
+				<h3 id={ IDButtonsOutlineVariant } class={ css.MB }>Ghost Variants</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Variant: components.ButtonVariantGhost,
@@ -162,7 +166,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Full Width Variants -->
 			<div class={ css.MB }>
-				<h3 id={ IDButtonsFullWidthVariants } class={ css.MB }>Full Width Variants</h3>
+				<h3 id={ IDButtonsFullWidth } class={ css.MB }>Full Width Variants</h3>
 				<div class={ css.Flex, css.FlexCol, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Variant: components.ButtonVariantFull,
@@ -185,7 +189,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Sizes -->
 			<div class={ css.MB }>
-				<h3 id={ IDButtonSizes } class={ css.MB }>Sizes</h3>
+				<h3 id={ IDButtonsSizes } class={ css.MB }>Sizes</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.ItemsCenter, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Size: components.ButtonSizeSmall,
@@ -204,7 +208,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Icon Buttons -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Icon Buttons</h3>
+				<h3 id={ IDButtonsIcon } class={ css.MB }>Icon Buttons</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Icon: true,
@@ -251,7 +255,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Loading State -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Loading State</h3>
+				<h3 id={ IDButtonsLoading } class={ css.MB }>Loading State</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Loading: true,
@@ -280,7 +284,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Link Buttons -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Link Buttons</h3>
+				<h3 id={ IDButtonsLink } class={ css.MB }>Link Buttons</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Link: "#",
@@ -309,7 +313,7 @@ templ SectionButtons() {
 			</div>
 			<!-- Combined Examples -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Combined Examples</h3>
+				<h3 id={ IDButtonsCombinedExamples } class={ css.MB }>Combined Examples</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 					@components.Button(&components.ButtonProps{
 						Size:    components.ButtonSizeSmall,

@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	IDSectionBadges = "section-badges"
+	IDBadges = "section-badges"
 )
 
 func SectionBadges() templ.Component {
@@ -48,9 +48,9 @@ func SectionBadges() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionBadges)
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(IDBadges)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-badges.templ`, Line: 13, Col: 30}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-badges.templ`, Line: 13, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

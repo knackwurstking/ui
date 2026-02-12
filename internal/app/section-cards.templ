@@ -6,26 +6,26 @@ import (
 )
 
 const (
-	IDSectionCards          = "section-cards"
-	IDSectionCardsBasic     = "section-cards-basic"
-	IDSectionCardsVariants  = "section-cards-variants"
-	IDSectionCardsSizes     = "section-cards-sizes"
-	IDSectionCardsColors    = "section-cards-colors"
-	IDSectionCardsStructure = "section-cards-structure"
-	IDSectionCardsImages    = "section-cards-images"
-	IDSectionCardsActions   = "section-cards-actions"
+	IDCards          = "section-cards"
+	IDCardsBasic     = "section-cards-basic"
+	IDCardsVariants  = "section-cards-variants"
+	IDCardsSizes     = "section-cards-sizes"
+	IDCardsColors    = "section-cards-colors"
+	IDCardsStructure = "section-cards-structure"
+	IDCardsImages    = "section-cards-images"
+	IDCardsActions   = "section-cards-actions"
 )
 
 templ SectionCards() {
 	<section
-		id={ IDSectionCards }
+		id={ IDCards }
 		class={ css.P, css.MT }
 	>
 		@SectionTitle() {
 			Cards
 		}
 		@SectionContent() {
-			<fieldset id={ IDSectionCardsBasic }>
+			<fieldset id={ IDCardsBasic }>
 				<legend>Basic Cards</legend>
 				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 					@components.Card(nil) {
@@ -52,7 +52,7 @@ templ SectionCards() {
 					}
 				</div>
 			</fieldset>
-			<fieldset id={ IDSectionCardsSizes }>
+			<fieldset id={ IDCardsSizes }>
 				<legend>Card Sizes</legend>
 				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 					@components.Card(&components.CardProps{
@@ -81,7 +81,7 @@ templ SectionCards() {
 					}
 				</div>
 			</fieldset>
-			<fieldset id={ IDSectionCardsColors }>
+			<fieldset id={ IDCardsColors }>
 				<legend>Card Colors</legend>
 				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 					@components.Card(&components.CardProps{
@@ -134,7 +134,7 @@ templ SectionCards() {
 					}
 				</div>
 			</fieldset>
-			<fieldset id={ IDSectionCardsStructure }>
+			<fieldset id={ IDCardsStructure }>
 				<legend>Card Structure</legend>
 				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 					@components.Card(nil) {
@@ -151,7 +151,7 @@ templ SectionCards() {
 					}
 				</div>
 			</fieldset>
-			<fieldset id={ IDSectionCardsImages }>
+			<fieldset id={ IDCardsImages }>
 				<legend>Card Images</legend>
 				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 					@components.Card(nil) {
@@ -189,7 +189,7 @@ templ SectionCards() {
 					}
 				</div>
 			</fieldset>
-			<fieldset id={ IDSectionCardsActions }>
+			<fieldset id={ IDCardsActions }>
 				<legend>Card Actions</legend>
 				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 					@components.Card(nil) {

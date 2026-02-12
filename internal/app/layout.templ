@@ -123,45 +123,56 @@ templ drawer() {
 	}) {
 		<ul id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
 			// Section: Text
-			@drawerItem("#"+IDSectionText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerItem("#"+IDText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text
 			}
-			@drawerSubItem("#"+IDSectionTextHeadings, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDTextHeadings, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Headings
 			}
-			@drawerSubItem("#"+IDSectionTextParagraph, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDTextParagraph, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Paragraph	
 			}
-			@drawerSubItem("#"+IDSectionTextFormatting, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDTextFormatting, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text Formatting	
 			}
 			// Section: Buttons
 			@drawerItem("#"+IDButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Buttons
 			}
-			@drawerSubItem("#"+IDDefaultButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDButtonsDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Default Buttons
 			}
-			@drawerSubItem("#"+IDOutlineButtonVariants, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDButtonsOutlineVariant, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Outline Variants
 			}
-			@drawerSubItem("#"+IDGhostButtonVariants, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDButtonsGhostVariant, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Ghost Variants
 			}
-			@drawerSubItem("#"+IDButtonsFullWidthVariants, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDButtonsFullWidth, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Full Width Variants
 			}
-			@drawerSubItem("#"+IDButtonSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerSubItem("#"+IDButtonsSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Sizes
 			}
-			// TODO: Add sub items for button section
+			@drawerSubItem("#"+IDButtonsIcon, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Icon Buttons
+			}
+			@drawerSubItem("#"+IDButtonsLoading, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Loading State
+			}
+			@drawerSubItem("#"+IDButtonsLink, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Link Buttons
+			}
+			@drawerSubItem("#"+IDButtonsCombinedExamples, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Link Buttons
+			}
 			// Section: Cards
-			@drawerItem("#"+IDSectionCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerItem("#"+IDCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Cards
 			}
 			// TODO: Add sub items for card section
 			// Section: Badges
-			@drawerItem("#"+IDSectionBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+			@drawerItem("#"+IDBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Badges
 			}
 			// TODO: Add sub items for badge section

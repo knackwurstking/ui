@@ -14,14 +14,14 @@ import (
 )
 
 const (
-	IDSectionCards          = "section-cards"
-	IDSectionCardsBasic     = "section-cards-basic"
-	IDSectionCardsVariants  = "section-cards-variants"
-	IDSectionCardsSizes     = "section-cards-sizes"
-	IDSectionCardsColors    = "section-cards-colors"
-	IDSectionCardsStructure = "section-cards-structure"
-	IDSectionCardsImages    = "section-cards-images"
-	IDSectionCardsActions   = "section-cards-actions"
+	IDCards          = "section-cards"
+	IDCardsBasic     = "section-cards-basic"
+	IDCardsVariants  = "section-cards-variants"
+	IDCardsSizes     = "section-cards-sizes"
+	IDCardsColors    = "section-cards-colors"
+	IDCardsStructure = "section-cards-structure"
+	IDCardsImages    = "section-cards-images"
+	IDCardsActions   = "section-cards-actions"
 )
 
 func SectionCards() templ.Component {
@@ -55,9 +55,9 @@ func SectionCards() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionCards)
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(IDCards)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 21, Col: 21}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 21, Col: 14}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -119,9 +119,9 @@ func SectionCards() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var7 string
-			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionCardsBasic)
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsBasic)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 28, Col: 37}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 28, Col: 30}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -294,9 +294,9 @@ func SectionCards() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionCardsSizes)
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsSizes)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 55, Col: 37}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 55, Col: 30}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -471,9 +471,9 @@ func SectionCards() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var25 string
-			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionCardsColors)
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsColors)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 84, Col: 38}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 84, Col: 31}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
@@ -786,9 +786,9 @@ func SectionCards() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var40 string
-			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionCardsStructure)
+			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsStructure)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 137, Col: 41}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 137, Col: 34}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
@@ -925,9 +925,9 @@ func SectionCards() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var47 string
-			templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionCardsImages)
+			templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsImages)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 154, Col: 38}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 154, Col: 31}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 			if templ_7745c5c3_Err != nil {
@@ -1132,9 +1132,9 @@ func SectionCards() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var56 string
-			templ_7745c5c3_Var56, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionCardsActions)
+			templ_7745c5c3_Var56, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsActions)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 192, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-cards.templ`, Line: 192, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var56))
 			if templ_7745c5c3_Err != nil {
