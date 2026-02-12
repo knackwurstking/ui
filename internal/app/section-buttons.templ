@@ -1,5 +1,20 @@
 package app
 
+import "github.com/knackwurstking/ui/pkg/css"
+
+const (
+	IDSectionButtons = "section-buttons"
+)
+
 templ SectionButtons() {
-	// TODO: ...
+	<section ID={ IDSectionButtons } class={ css.P, css.MT }>
+		@SectionTitle() {
+			Buttons
+		}
+		@SectionContent() {
+			<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+				// TODO: ...
+			</div>
+		}
+	</section>
 }

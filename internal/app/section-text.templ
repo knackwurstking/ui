@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	IDSectionTextElements   = "section-text-elements"
+	IDSectionText           = "section-text"
 	IDSectionTextHeadings   = "section-text-headings"
 	IDSectionTextParagraph  = "section-text-paragraph"
 	IDSectionTextFormatting = "section-text-formatting"
@@ -15,11 +15,11 @@ const (
 templ SectionText() {
 	<section
 		style={ fmt.Sprintf("padding-top: %s", css.VarAppBarHeight) }
-		ID={ IDSectionTextElements }
+		ID={ IDSectionText }
 		class={ css.P, css.MT }
 	>
 		@SectionTitle() {
-			Text Elements
+			Text
 		}
 		@SectionContent() {
 			<fieldset id={ IDSectionTextHeadings }>

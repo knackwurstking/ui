@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	IDSectionTextElements   = "section-text-elements"
+	IDSectionText           = "section-text"
 	IDSectionTextHeadings   = "section-text-headings"
 	IDSectionTextParagraph  = "section-text-paragraph"
 	IDSectionTextFormatting = "section-text-formatting"
@@ -64,9 +64,9 @@ func SectionText() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionTextElements)
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(IDSectionText)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-text.templ`, Line: 18, Col: 28}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section-text.templ`, Line: 18, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -101,7 +101,7 @@ func SectionText() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "Text Elements")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "Text")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

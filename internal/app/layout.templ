@@ -119,8 +119,8 @@ templ drawer() {
 		ZIndex: 50,
 	}) {
 		<ul id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
-			@drawerItem("#"+IDSectionTextElements, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Text Elements
+			@drawerItem("#"+IDSectionText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Text
 			}
 			@drawerSubItem("#"+IDSectionTextHeadings, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Headings
