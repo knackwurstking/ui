@@ -1,0 +1,24 @@
+package app
+
+import (
+	"fmt"
+	"github.com/knackwurstking/ui/pkg/css"
+)
+
+templ SectionTitle() {
+	<h2 class={ css.Underline, css.TextCenter }>
+		{ children... }
+	</h2>
+}
+
+templ SectionContent() {
+	<div
+		style={
+			fmt.Sprintf("background-color: %s", css.VarColor100),
+			fmt.Sprintf("border-radius: %s", css.VarRadius),
+		}
+		class={ css.PLg }
+	>
+		{ children... }
+	</div>
+}
