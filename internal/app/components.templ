@@ -1,9 +1,6 @@
 package app
 
-import (
-	"fmt"
-	"github.com/knackwurstking/ui/pkg/css"
-)
+import "github.com/knackwurstking/ui/pkg/css"
 
 templ SectionTitle() {
 	<h2 class={ css.Underline, css.TextCenter }>
@@ -12,13 +9,7 @@ templ SectionTitle() {
 }
 
 templ SectionContent() {
-	<div
-		style={
-			fmt.Sprintf("background-color: %s", css.VarColor100),
-			fmt.Sprintf("border-radius: %s", css.VarRadius),
-		}
-		class={ css.PLg, css.Flex, css.FlexCol, css.Gap }
-	>
+	<div class={ css.PLg, css.Flex, css.FlexCol, css.Gap }>
 		{ children... }
 	</div>
 }
