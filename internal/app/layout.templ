@@ -117,8 +117,8 @@ templ drawer() {
 		ID:     IDAppDrawer,
 		ZIndex: 50,
 	}) {
-		<h4 class={ css.TextCenter }>UI</h4>
-		<ul id={ IDAppDrawerItems }>
+		<h4 class={ css.TextCenter }>Index</h4>
+		<ul id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
 			@drawerItem("#"+IDSectionTextElements, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Text Elements
 			}
@@ -136,7 +136,7 @@ templ drawer() {
 }
 
 templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {
-	<li>
+	<li style="padding: 0">
 		<a
 			class={ css.P, css.PXLg, css.Contrast, css.NoUnderline }
 			href={ href }
@@ -148,7 +148,7 @@ templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {
 }
 
 templ drawerSubItem(href templ.SafeURL, onclick templ.ComponentScript) {
-	<li>
+	<li style="padding: 0">
 		<a
 			style={ "margin-left: 1.5rem" }
 			class={ css.P, css.PXLg, css.Contrast, css.NoUnderline, css.Flex, css.Gap }
