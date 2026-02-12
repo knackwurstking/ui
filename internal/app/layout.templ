@@ -11,11 +11,12 @@ const (
 
 templ Layout() {
 	<!DOCTYPE html>
-	<html data-theme="dark">
+	<html>
 		<head>
 			@layoutMeta()
 			@layoutLinks()
 			@layoutStyles()
+			@layoutScripts()
 			<title>UI</title>
 		</head>
 		<body>
@@ -48,6 +49,16 @@ templ layoutStyles() {
 	@css.StylesComponents()
 }
 
+templ layoutScripts() {
+	<script>
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+		} else {
+			document.documentElement.setAttribute('data-theme', 'light');
+		}
+	</script>
+}
+
 templ appBar() {
 	@components.AppBar(components.AppBarProps{
 		ID:       IDTopAppBar,
@@ -73,7 +84,26 @@ templ appBar() {
 			<h5 id={ IDTopAppBarTitle }>UI</h5>
 		}
 		@components.AppBarRight(components.AppBarRightProps{}) {
-			// TODO: A "primary" color theme toggle button
+			{{
+				themeToggle := `
+					document.documentElement.setAttribute(
+						'data-theme',
+						document.documentElement.getAttribute('data-theme') === 'light'
+							? 'dark'
+							: 'light',
+					);
+				`
+			}}
+			@components.Button(components.ButtonProps{
+				Color:   components.ButtonColorContrast,
+				Variant: components.ButtonVariantGhost,
+				Icon:    true,
+				Attributes: templ.Attributes{
+					"onclick": themeToggle,
+				},
+			}) {
+				<i class="bi bi-sun"></i>
+			}
 		}
 	}
 }
