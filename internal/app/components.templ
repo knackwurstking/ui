@@ -17,7 +17,7 @@ templ SectionContent() {
 			fmt.Sprintf("background-color: %s", css.VarColor100),
 			fmt.Sprintf("border-radius: %s", css.VarRadius),
 		}
-		class={ css.PLg }
+		class={ css.PLg, css.Flex, css.FlexCol, css.Gap }
 	>
 		{ children... }
 	</div>
