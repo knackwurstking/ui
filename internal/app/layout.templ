@@ -103,14 +103,22 @@ templ drawer() {
 // -----------------------------------------------------------------------------
 
 script toggleDrawer(drawer, drawerOpen string) {
-	document.querySelector(drawer).classList.toggle(drawerOpen);
+	try {
+		document.querySelector(drawer).classList.toggle(drawerOpen);
+	} catch (error) {
+		console.error('Error toggling drawer:', error);
+	}
 }
 
 script toggleTheme() {
-	document.documentElement.setAttribute(
-		'data-theme',
-		document.documentElement.getAttribute('data-theme') === 'light'
-			? 'dark'
-			: 'light',
-	);
+	try {
+		document.documentElement.setAttribute(
+			'data-theme',
+			document.documentElement.getAttribute('data-theme') === 'light'
+				? 'dark'
+				: 'light',
+		);
+	} catch (error) {
+		console.error('Error toggling theme:', error);
+	}
 }

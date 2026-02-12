@@ -452,26 +452,34 @@ func drawer() templ.Component {
 // -----------------------------------------------------------------------------
 func toggleDrawer(drawer, drawerOpen string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_toggleDrawer_4426`,
-		Function: `function __templ_toggleDrawer_4426(drawer, drawerOpen){document.querySelector(drawer).classList.toggle(drawerOpen);
+		Name: `__templ_toggleDrawer_49a0`,
+		Function: `function __templ_toggleDrawer_49a0(drawer, drawerOpen){try {
+		document.querySelector(drawer).classList.toggle(drawerOpen);
+	} catch (error) {
+		console.error('Error toggling drawer:', error);
+	}
 }`,
-		Call:       templ.SafeScript(`__templ_toggleDrawer_4426`, drawer, drawerOpen),
-		CallInline: templ.SafeScriptInline(`__templ_toggleDrawer_4426`, drawer, drawerOpen),
+		Call:       templ.SafeScript(`__templ_toggleDrawer_49a0`, drawer, drawerOpen),
+		CallInline: templ.SafeScriptInline(`__templ_toggleDrawer_49a0`, drawer, drawerOpen),
 	}
 }
 
 func toggleTheme() templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_toggleTheme_697c`,
-		Function: `function __templ_toggleTheme_697c(){document.documentElement.setAttribute(
-		'data-theme',
-		document.documentElement.getAttribute('data-theme') === 'light'
-			? 'dark'
-			: 'light',
-	);
+		Name: `__templ_toggleTheme_014b`,
+		Function: `function __templ_toggleTheme_014b(){try {
+		document.documentElement.setAttribute(
+			'data-theme',
+			document.documentElement.getAttribute('data-theme') === 'light'
+				? 'dark'
+				: 'light',
+		);
+	} catch (error) {
+		console.error('Error toggling theme:', error);
+	}
 }`,
-		Call:       templ.SafeScript(`__templ_toggleTheme_697c`),
-		CallInline: templ.SafeScriptInline(`__templ_toggleTheme_697c`),
+		Call:       templ.SafeScript(`__templ_toggleTheme_014b`),
+		CallInline: templ.SafeScriptInline(`__templ_toggleTheme_014b`),
 	}
 }
 
