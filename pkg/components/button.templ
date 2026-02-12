@@ -37,24 +37,43 @@ type ButtonProps struct {
 
 	Icon    bool // Icon buttons will change padding
 	Loading bool
+	Link    bool
 
 	OnClick templ.ComponentScript
 }
 
 templ Button(props ButtonProps) {
-	<button
-		id={ props.ID }
-		class={
-			string(props.Color),
-			string(props.Variant),
-			string(props.Size),
-			templ.KV(css.ButtonIcon, props.Icon),
-			templ.KV(css.ButtonLoading, props.Loading),
-			props.Class,
-		}
-		onclick={ props.OnClick }
-		{ props.Attributes... }
-	>
-		{ children... }
-	</button>
+	if props.Link {
+		<a
+			id={ props.ID }
+			class={
+				string(props.Color),
+				string(props.Variant),
+				string(props.Size),
+				templ.KV(css.ButtonIcon, props.Icon),
+				templ.KV(css.ButtonLoading, props.Loading),
+				props.Class,
+			}
+			onclick={ props.OnClick }
+			{ props.Attributes... }
+		>
+			{ children... }
+		</a>
+	} else {
+		<button
+			id={ props.ID }
+			class={
+				string(props.Color),
+				string(props.Variant),
+				string(props.Size),
+				templ.KV(css.ButtonIcon, props.Icon),
+				templ.KV(css.ButtonLoading, props.Loading),
+				props.Class,
+			}
+			onclick={ props.OnClick }
+			{ props.Attributes... }
+		>
+			{ children... }
+		</button>
+	}
 }
