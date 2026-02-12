@@ -1,4 +1,341 @@
-<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+<!doctype html><html data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"><style>
+		@import "https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap";
+
+		/* Light Theme - Templui */
+		:root {
+			/* Typography */
+			--ui-font-family: "Recursive", system-ui, sans-serif;
+			--ui-font-size: 1rem;
+			--ui-line-height: 1.5;
+			--ui-line-height-code: 1.25;
+
+			/* Layout */
+			--ui-spacing: 0.5rem;
+			--ui-radius: 0.25rem;
+			--ui-border-width: 1px;
+			--ui-border-style: solid;
+			--ui-app-bar-height: 3rem;
+
+			--ui-hover-transition: translateY(-1px);
+			--ui-active-transition: translateY(1px);
+
+			/* Base palette - Templui */
+			--ui-hue: 240;
+			--ui-saturation: 10%;
+
+			--ui-shadow-color-light: 20%;
+			--ui-shadow-color-dark: 85%;
+
+			/* Elevation/Shadow System - Optimized for templui colors */
+			--ui-shadow-color:
+				var(--ui-hue), var(--ui-saturation), var(--ui-shadow-color-light);
+
+			--ui-shadow-sm: 0 1px 2px hsla(var(--ui-shadow-color), 0.25);
+
+			--ui-shadow:
+				0 2px 4px -1px hsla(var(--ui-shadow-color), 0.35),
+				0 1px 2px hsla(var(--ui-shadow-color), 0.15);
+
+			--ui-shadow-md:
+				0 4px 8px -2px hsla(var(--ui-shadow-color), 0.35),
+				0 2px 4px hsla(var(--ui-shadow-color), 0.15);
+
+			--ui-shadow-lg:
+				0 8px 16px -4px hsla(var(--ui-shadow-color), 0.35),
+				0 4px 8px -2px hsla(var(--ui-shadow-color), 0.15);
+
+			--ui-shadow-xl:
+				0 12px 24px -6px hsla(var(--ui-shadow-color), 0.35),
+				0 6px 12px -3px hsla(var(--ui-shadow-color), 0.15);
+
+			--ui-shadow-2xl:
+				0 16px 32px -8px hsla(var(--ui-shadow-color), 0.35),
+				0 8px 16px -4px hsla(var(--ui-shadow-color), 0.15);
+
+			--ui-shadow-inner: inset 0 2px 4px hsla(var(--ui-shadow-color), 0.25);
+
+			/* Grayscale - Templui Light */
+			--ui-color-50: oklch(98% 0 240); /* background */
+			--ui-color-100: oklch(96% 0 240); /* card */
+			--ui-color-200: oklch(94% 0 240); /* popover */
+			--ui-color-300: oklch(90% 0 240); /* muted */
+			--ui-color-400: oklch(85% 0 240); /* accent */
+			--ui-color-500: oklch(75% 0 240); /* border */
+			--ui-color-600: oklch(65% 0 240); /* input */
+			--ui-color-700: oklch(55% 0 240); /* foreground */
+			--ui-color-800: oklch(45% 0 240); /* selection */
+			--ui-color-900: oklch(35% 0 240); /* text */
+			--ui-color-950: oklch(25% 0 240); /* text */
+
+			/* Semantic colors */
+			--ui-bg: oklch(98% 0 240); /* background */
+			--ui-text: oklch(25% 0 240); /* text */
+			--ui-text-input: oklch(45% 0 240); /* input */
+			--ui-muted-text: oklch(65% 0 240); /* border */
+			--ui-border-color: oklch(75% 0 240 / 0.4);
+			--ui-backdrop-color: oklch(98% 0 240 / 0.85);
+
+			/* Primary - Templui Green */
+			--ui-primary: oklch(
+				60% 0.2 132
+			); /* Improved contrast version of your primary */
+			--ui-primary-color: 132, 0.2, 132;
+			--ui-primary-hover: oklch(55% 0.2 132);
+			--ui-primary-active: oklch(50% 0.2 132);
+			--ui-primary-text: oklch(98% 0 240);
+
+			/* Secondary - Templui Purple */
+			--ui-secondary: oklch(75% 0.2 270);
+			--ui-secondary-color: 270, 0.2, 270;
+			--ui-secondary-hover: oklch(70% 0.2 270);
+			--ui-secondary-active: oklch(65% 0.2 270);
+			--ui-secondary-text: oklch(98% 0 240);
+
+			/* Success - Templui Aqua */
+			--ui-success: oklch(65% 0.2 160);
+			--ui-success-color: 160, 0.2, 160;
+			--ui-success-hover: oklch(60% 0.2 160);
+			--ui-success-active: oklch(55% 0.2 160);
+			--ui-success-text: oklch(98% 0 240);
+
+			/* Warning - Templui Yellow/Orange */
+			--ui-warning: oklch(65% 0.3 70);
+			--ui-warning-color: 70, 0.3, 70;
+			--ui-warning-hover: oklch(60% 0.3 70);
+			--ui-warning-active: oklch(55% 0.3 70);
+			--ui-warning-text: oklch(98% 0 240);
+
+			/* Destructive/Error - Templui Red */
+			--ui-destructive: oklch(60% 0.3 35);
+			--ui-destructive-color: 35, 0.3, 35;
+			--ui-destructive-hover: oklch(55% 0.3 35);
+			--ui-destructive-active: oklch(50% 0.3 35);
+			--ui-destructive-text: oklch(98% 0 240);
+			--ui-error: var(--ui-destructive);
+			--ui-error-text: var(--ui-destructive-text);
+
+			/* Info - Templui Light Blue */
+			--ui-info: oklch(75% 0.12 240);
+			--ui-info-color: 240, 0.12, 240;
+			--ui-info-hover: oklch(70% 0.12 240);
+			--ui-info-active: oklch(65% 0.12 240);
+			--ui-info-text: oklch(98% 0 240);
+
+			/* Muted */
+			--ui-muted: oklch(90% 0 240);
+			--ui-muted-color: 240, 0, 240;
+
+			/* Contrast */
+			--ui-contrast: oklch(25% 0 240);
+			--ui-contrast-color: 240, 0, 240;
+			--ui-contrast-hover: oklch(35% 0 240);
+			--ui-contrast-active: oklch(45% 0 240);
+			--ui-contrast-text: oklch(98% 0 240);
+
+			/* Heading colors - Templui specific */
+			--ui-h1-color: oklch(25% 0 240); /* text - most prominent */
+			--ui-h2-color: oklch(35% 0 240); /* text */
+			--ui-h3-color: oklch(45% 0 240); /* text */
+			--ui-h4-color: oklch(55% 0 240); /* selection */
+			--ui-h5-color: oklch(65% 0 240); /* border */
+			--ui-h6-color: oklch(75% 0 240); /* muted */
+
+			color-scheme: light;
+		}
+
+		/* Dark Theme Overrides - Templui Dark */
+		[data-theme="dark"] {
+			/* Enhanced shadows for dark theme - deeper and more subtle */
+			--ui-shadow-color: 0, 0%, 0%;
+
+			--ui-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+			--ui-shadow:
+				0 2px 4px -1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3);
+
+			--ui-shadow-md:
+				0 4px 8px -2px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3);
+
+			--ui-shadow-lg:
+				0 8px 16px -4px rgba(0, 0, 0, 0.6), 0 4px 8px -2px rgba(0, 0, 0, 0.3);
+
+			--ui-shadow-xl:
+				0 12px 24px -6px rgba(0, 0, 0, 0.6), 0 6px 12px -3px rgba(0, 0, 0, 0.3);
+
+			--ui-shadow-2xl:
+				0 16px 32px -8px rgba(0, 0, 0, 0.6), 0 8px 16px -4px rgba(0, 0, 0, 0.3);
+
+			--ui-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+
+			/* Inverted grayscale - Templui Dark */
+			--ui-color-50: oklch(12% 0 240); /* background */
+			--ui-color-100: oklch(15% 0 240); /* card */
+			--ui-color-200: oklch(20% 0 240); /* popover */
+			--ui-color-300: oklch(25% 0 240); /* muted */
+			--ui-color-400: oklch(30% 0 240); /* accent */
+			--ui-color-500: oklch(35% 0 240); /* border */
+			--ui-color-600: oklch(40% 0 240); /* input */
+			--ui-color-700: oklch(45% 0 240); /* foreground */
+			--ui-color-800: oklch(55% 0 240); /* selection */
+			--ui-color-900: oklch(65% 0 240); /* text */
+			--ui-color-950: oklch(75% 0 240); /* text */
+
+			/* Semantic overrides */
+			--ui-bg: oklch(12% 0 240); /* background - proper dark theme */
+			--ui-text: oklch(75% 0 240); /* text */
+			--ui-text-input: oklch(45% 0 240); /* input */
+			--ui-muted-text: oklch(65% 0 240); /* border */
+			--ui-border-color: oklch(40% 0 240 / 0.35);
+			--ui-backdrop-color: oklch(10% 0 240 / 0.85);
+
+			/* Dark theme color adjustments - Templui dark variants */
+			--ui-primary: oklch(
+				70% 0.2 132
+			); /* Improved contrast version of your primary */
+			--ui-primary-color: 132, 0.2, 132;
+			--ui-primary-hover: oklch(65% 0.2 132);
+			--ui-primary-active: oklch(60% 0.2 132);
+
+			--ui-secondary: oklch(75% 0.2 270);
+			--ui-secondary-color: 270, 0.2, 270;
+			--ui-secondary-hover: oklch(70% 0.2 270);
+			--ui-secondary-active: oklch(65% 0.2 270);
+
+			--ui-success: oklch(75% 0.2 160);
+			--ui-success-color: 160, 0.2, 160;
+			--ui-success-hover: oklch(70% 0.2 160);
+			--ui-success-active: oklch(65% 0.2 160);
+			--ui-success-text: oklch(12% 0 240);
+
+			--ui-warning: oklch(70% 0.3 70);
+			--ui-warning-color: 70, 0.3, 70;
+			--ui-warning-hover: oklch(65% 0.3 70);
+			--ui-warning-active: oklch(60% 0.3 70);
+			--ui-warning-text: oklch(12% 0 240);
+
+			--ui-destructive: oklch(70% 0.3 35);
+			--ui-destructive-color: 35, 0.3, 35;
+			--ui-destructive-hover: oklch(65% 0.3 35);
+			--ui-destructive-active: oklch(60% 0.3 35);
+			--ui-destructive-text: oklch(12% 0 240);
+
+			--ui-info: oklch(75% 0.12 240);
+			--ui-info-color: 240, 0.12, 240;
+			--ui-info-hover: oklch(70% 0.12 240);
+			--ui-info-active: oklch(65% 0.12 240);
+			--ui-info-text: oklch(98% 0 240);
+
+			--ui-muted: oklch(20% 0 240);
+			--ui-muted-color: 240, 0, 240;
+
+			--ui-contrast: oklch(75% 0 240);
+			--ui-contrast-color: 240, 0, 240;
+			--ui-contrast-hover: oklch(65% 0 240);
+			--ui-contrast-active: oklch(55% 0 240);
+
+			/* Heading colors - Templui specific (dark) */
+			--ui-h1-color: oklch(75% 0 240); /* text - brightest */
+			--ui-h2-color: oklch(65% 0 240); /* text */
+			--ui-h3-color: oklch(55% 0 240); /* selection */
+			--ui-h4-color: oklch(45% 0 240); /* foreground */
+			--ui-h5-color: oklch(35% 0 240); /* border */
+			--ui-h6-color: oklch(25% 0 240); /* muted */
+
+			color-scheme: dark;
+		}
+
+		/* Base styles */
+		html {
+			font-family: var(--ui-font-family);
+			font-size: var(--ui-font-size);
+			background-color: var(--ui-bg);
+			color: var(--ui-text);
+		}
+
+		body {
+			line-height: var(--ui-line-height);
+		}
+
+		/* Variable font settings */
+		:root {
+			--mono: 0;
+			--casl: 1;
+			--wght: 400;
+			--slnt: 0;
+			--CRSV: 0.5;
+		}
+
+		* {
+			font-variation-settings:
+				"MONO" var(--mono),
+				"CASL" var(--casl),
+				"wght" var(--wght),
+				"slnt" var(--slnt),
+				"CRSV" var(--CRSV);
+		}
+
+		/* Typography presets */
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			--wght: 700;
+			--slnt: -3;
+		}
+
+		h1 {
+			color: var(--ui-h1-color);
+		}
+
+		h2 {
+			color: var(--ui-h2-color);
+		}
+
+		h3 {
+			color: var(--ui-h3-color);
+		}
+
+		h4 {
+			color: var(--ui-h4-color);
+		}
+
+		h5 {
+			color: var(--ui-h5-color);
+		}
+
+		h6 {
+			color: var(--ui-h6-color);
+		}
+
+		b,
+		strong {
+			--wght: 600;
+		}
+
+		i,
+		em {
+			--slnt: -10;
+		}
+
+		code,
+		kbd,
+		pre,
+		samp {
+			--mono: 1;
+			--casl: 0;
+		}
+
+		small {
+			--wght: 300;
+		}
+
+		blockquote {
+			--wght: 350;
+			--slnt: -10;
+		}
+	</style><style>
 		/* Box sizing rules */
 		*,
 		*::before,
@@ -5776,4 +6113,4 @@
 			height: 2rem;
 			font-size: 1rem;
 		}
-	</style><title>UI</title></head><body><main class="container fluid"></main></body></html>
+	</style><title>UI</title></head><body><span id="top-app-bar" class="app-bar top fixed shadow-sm"><span id="" class="app-bar-left"> <button id="drawer-toggle-button" class="contrast ghost  icon" onclick="document.querySelector(&#39;.drawer&#39;).classList.toggle(&#39;open&#39;);"><i class="bi bi-list"></i></button></span> <span id="" class="app-bar-center"><h5 id="top-app-bar-title">UI</h5></span></span><main class="container fluid"></main></body></html>
