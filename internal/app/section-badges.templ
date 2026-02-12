@@ -148,15 +148,9 @@ templ SectionBadges() {
 					</div>
 				</div>
 			</div>
-			<!-- Clickable Badges -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Clickable Badges</h3>
+				<h3 class={ css.MB }>Status Indicators</h3>
 				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.ItemsCenter }>
-					@components.Badge(&components.BadgeProps{
-						Clickable: true,
-					}) {
-						Clickable
-					}
 					@components.Badge(&components.BadgeProps{
 						Clickable: true,
 						Status:    components.BadgeStatusOnline,
@@ -165,16 +159,21 @@ templ SectionBadges() {
 					}
 					@components.Badge(&components.BadgeProps{
 						Clickable: true,
-						Shape:     components.BadgeShapePill,
-						Status:    components.BadgeStatusAway,
+						Status:    components.BadgeStatusOffline,
 					}) {
-						Away
+						Online
 					}
 					@components.Badge(&components.BadgeProps{
 						Clickable: true,
-						Animation: components.BadgeAnimationPulse,
+						Status:    components.BadgeStatusBusy,
 					}) {
-						Pulse
+						Busy
+					}
+					@components.Badge(&components.BadgeProps{
+						Clickable: true,
+						Status:    components.BadgeStatusAway,
+					}) {
+						Away
 					}
 				</div>
 			</div>
@@ -207,51 +206,55 @@ templ SectionBadges() {
 					}
 				</div>
 			</div>
-			<!-- Status Indicators -->
+			<!-- Color Examples -->
 			<div class={ css.MB }>
-				<h3 class={ css.MB }>Status Indicators</h3>
-				<div class={ css.Flex, css.FlexCol, css.Gap }>
-					<div class={ css.Flex, css.FlexRow, css.ItemsCenter, css.Gap }>
-						<span>John Doe</span>
-						@components.Badge(&components.BadgeProps{
-							Size:      components.BadgeSizeXS,
-							Shape:     components.BadgeShapePill,
-							Status:    components.BadgeStatusOnline,
-							Animation: components.BadgeAnimationPulse,
-						}) {
-							●
-						}
-					</div>
-					<div class={ css.Flex, css.FlexRow, css.ItemsCenter, css.Gap }>
-						<span>Jane Smith</span>
-						@components.Badge(&components.BadgeProps{
-							Size:   components.BadgeSizeXS,
-							Shape:  components.BadgeShapePill,
-							Status: components.BadgeStatusBusy,
-						}) {
-							●
-						}
-					</div>
-					<div class={ css.Flex, css.FlexRow, css.ItemsCenter, css.Gap }>
-						<span>Bob Johnson</span>
-						@components.Badge(&components.BadgeProps{
-							Size:   components.BadgeSizeXS,
-							Shape:  components.BadgeShapePill,
-							Status: components.BadgeStatusAway,
-						}) {
-							●
-						}
-					</div>
-					<div class={ css.Flex, css.FlexRow, css.ItemsCenter, css.Gap }>
-						<span>Alice Brown</span>
-						@components.Badge(&components.BadgeProps{
-							Size:   components.BadgeSizeXS,
-							Shape:  components.BadgeShapePill,
-							Status: components.BadgeStatusOffline,
-						}) {
-							●
-						}
-					</div>
+				<h3 class={ css.MB }>Color Examples</h3>
+				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.ItemsCenter }>
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Primary},
+					}) {
+						Primary
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Secondary},
+					}) {
+						Secondary
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Info},
+					}) {
+						Info
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Contrast},
+					}) {
+						Contrast
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Destructive},
+					}) {
+						Destructive
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Muted},
+					}) {
+						Muted
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Success},
+					}) {
+						Success
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Warning},
+					}) {
+						Warning
+					}
+					@components.Badge(&components.BadgeProps{
+						Class: templ.CSSClasses{css.Error},
+					}) {
+						Error
+					}
 				</div>
 			</div>
 		}
