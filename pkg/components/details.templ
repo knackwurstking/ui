@@ -1,2 +1,25 @@
 package components
 
+type DetailsProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+}
+
+templ Details(props DetailsProps) {
+	<details id={ props.ID } class={ props.Class } { props.Attributes... }>
+		{ children... }
+	</details>
+}
+
+type SummaryProps struct {
+	ID         string
+	Class      templ.CSSClasses
+	Attributes templ.Attributes
+}
+
+templ Summary(props SummaryProps) {
+	<summary id={ props.ID } class={ props.Class } { props.Attributes... }>
+		{ children... }
+	</summary>
+}
