@@ -1,0 +1,251 @@
+package app
+
+import (
+	"github.com/knackwurstking/ui/pkg/components"
+	"github.com/knackwurstking/ui/pkg/css"
+)
+
+const (
+	IDSectionCards          = "section-cards"
+	IDSectionCardsBasic     = "section-cards-basic"
+	IDSectionCardsVariants  = "section-cards-variants"
+	IDSectionCardsSizes     = "section-cards-sizes"
+	IDSectionCardsColors    = "section-cards-colors"
+	IDSectionCardsStructure = "section-cards-structure"
+	IDSectionCardsImages    = "section-cards-images"
+	IDSectionCardsActions   = "section-cards-actions"
+)
+
+templ SectionCards() {
+	<section
+		ID={ IDSectionCards }
+		class={ css.P, css.MT }
+	>
+		@SectionTitle() {
+			Cards
+		}
+		@SectionContent() {
+			<fieldset id={ IDSectionCardsBasic }>
+				<legend>Basic Cards</legend>
+				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
+					@components.Card(nil) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Basic Card", nil)
+							<p>A simple card with default styling.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Variant: components.CardVariantOutline,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Outline Card", nil)
+							<p>A card with outline variant.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Variant: components.CardVariantSeamless,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Seamless Card", nil)
+							<p>A card with seamless variant.</p>
+						}
+					}
+				</div>
+			</fieldset>
+			<fieldset id={ IDSectionCardsSizes }>
+				<legend>Card Sizes</legend>
+				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
+					@components.Card(&components.CardProps{
+						Size: components.CardSizeCompact,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Compact", nil)
+							<p>A compact sized card.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Size: components.CardSizeCompfortable,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Comfortable", nil)
+							<p>A comfortable sized card.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Size: components.CardSizeSpacious,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Spacious", nil)
+							<p>A spacious sized card.</p>
+						}
+					}
+				</div>
+			</fieldset>
+			<fieldset id={ IDSectionCardsColors }>
+				<legend>Card Colors</legend>
+				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
+					@components.Card(&components.CardProps{
+						Color: components.CardColorPrimary,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Primary", nil)
+							<p>A primary colored card.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Color: components.CardColorSecondary,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Secondary", nil)
+							<p>A secondary colored card.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Color: components.CardColorSuccess,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Success", nil)
+							<p>A success colored card.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Color: components.CardColorWarning,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Warning", nil)
+							<p>A warning colored card.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Color: components.CardColorDestructive,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Destructive", nil)
+							<p>A destructive colored card.</p>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Color: components.CardColorInfo,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Info", nil)
+							<p>An info colored card.</p>
+						}
+					}
+				</div>
+			</fieldset>
+			<fieldset id={ IDSectionCardsStructure }>
+				<legend>Card Structure</legend>
+				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
+					@components.Card(nil) {
+						@components.CardHeader(nil) {
+							@components.CardTitle("Card with Header", nil)
+						}
+						@components.CardBody(nil) {
+							<p>This card has a header, body, and footer.</p>
+							@components.CardSubtitle("Card subtitle", nil)
+						}
+						@components.CardFooter(nil) {
+							<small>Footer content</small>
+						}
+					}
+					@components.Card(&components.CardProps{
+						Variant: components.CardVariantOutline,
+					}) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Truncated Title", &components.CardTitleProps{
+								Truncate: true,
+							})
+							@components.CardSubtitle(
+								"This is a very long subtitle that will be truncated when it exceeds the available width",
+								&components.CardSubtitleProps{
+									Truncate: true,
+								},
+							)
+							<p>Example of truncated text in cards.</p>
+						}
+					}
+				</div>
+			</fieldset>
+			<fieldset id={ IDSectionCardsImages }>
+				<legend>Card Images</legend>
+				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
+					@components.Card(nil) {
+						@components.CardImage(&components.CardImageProps{
+							Aspect: components.CardImageAspectSquare,
+							Src:    "https://via.placeholder.com/200",
+							Alt:    "Square placeholder",
+						})
+						@components.CardBody(nil) {
+							@components.CardTitle("Square Image", nil)
+							<p>Card with square image aspect.</p>
+						}
+					}
+					@components.Card(nil) {
+						@components.CardImage(&components.CardImageProps{
+							Aspect: components.CardImageAspectVideo,
+							Src:    "https://via.placeholder.com/320x180",
+							Alt:    "Video placeholder",
+						})
+						@components.CardBody(nil) {
+							@components.CardTitle("Video Aspect", nil)
+							<p>Card with video aspect ratio.</p>
+						}
+					}
+					@components.Card(nil) {
+						@components.CardImage(&components.CardImageProps{
+							Aspect: components.CardImageAspectPortrait,
+							Src:    "https://via.placeholder.com/180x320",
+							Alt:    "Portrait placeholder",
+						})
+						@components.CardBody(nil) {
+							@components.CardTitle("Portrait Aspect", nil)
+							<p>Card with portrait aspect ratio.</p>
+						}
+					}
+				</div>
+			</fieldset>
+			<fieldset id={ IDSectionCardsActions }>
+				<legend>Card Actions</legend>
+				<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
+					@components.Card(nil) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Actions Center", nil)
+							<p>Card with center-aligned actions.</p>
+						}
+						@components.CardActions(&components.CardActionsProps{
+							Justify: components.CardActionsJustifyCenter,
+						}) {
+							<button>Cancel</button>
+							<button>Submit</button>
+						}
+					}
+					@components.Card(nil) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Actions End", nil)
+							<p>Card with end-aligned actions.</p>
+						}
+						@components.CardActions(&components.CardActionsProps{
+							Justify: components.CardActionsJustifyEnd,
+						}) {
+							<button>Dismiss</button>
+							<button>Confirm</button>
+						}
+					}
+					@components.Card(nil) {
+						@components.CardBody(nil) {
+							@components.CardTitle("Actions Between", nil)
+							<p>Card with space-between actions.</p>
+						}
+						@components.CardActions(&components.CardActionsProps{
+							Justify: components.CardActionsJustifyBetween,
+						}) {
+							<button>Previous</button>
+							<button>Next</button>
+						}
+					}
+				</div>
+			</fieldset>
+		}
+	</section>
+}
