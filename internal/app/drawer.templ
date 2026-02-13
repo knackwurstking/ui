@@ -64,7 +64,30 @@ templ drawer() {
 			@drawerItem("#"+IDCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Cards
 			}
-			// TODO: Add sub items for card section
+			@drawerSubItem("#"+IDBadgesDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Default Badges
+			}
+			@drawerSubItem("#"+IDBadgesSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Badge Sizes
+			}
+			@drawerSubItem("#"+IDBadgesShapes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Badge Shapes
+			}
+			@drawerSubItem("#"+IDBadgesAnimations, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Badge Animations
+			}
+			@drawerSubItem("#"+IDBadgesCounter, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Counter Badges
+			}
+			@drawerSubItem("#"+IDBadgesIndicators, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Status Indicators
+			}
+			@drawerSubItem("#"+IDBadgesCombined, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Combined Examples
+			}
+			@drawerSubItem("#"+IDBadgesColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Color Examples
+			}
 			// Section: Badges
 			@drawerItem("#"+IDBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Badges
