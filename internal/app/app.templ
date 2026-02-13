@@ -1,0 +1,36 @@
+package app
+
+templ App() {
+	@layout() {
+		@Text()
+		@Buttons()
+		@Cards()
+		@Badges()
+		// TODO: Dialogs
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Scripts
+// -----------------------------------------------------------------------------
+
+script toggleDrawer(drawerSelector string, drawerOpenClass string) {
+	try {
+		document.querySelector(drawerSelector).classList.toggle(drawerOpenClass);
+	} catch (error) {
+		console.error('Error toggling drawer:', error);
+	}
+}
+
+script toggleTheme() {
+	try {
+		document.documentElement.setAttribute(
+			'data-theme',
+			document.documentElement.getAttribute('data-theme') === 'light'
+				? 'dark'
+				: 'light',
+		);
+	} catch (error) {
+		console.error('Error toggling theme:', error);
+	}
+}

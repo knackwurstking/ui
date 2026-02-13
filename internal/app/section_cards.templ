@@ -16,11 +16,8 @@ const (
 	IDCardsActions   = "section-cards-actions"
 )
 
-templ SectionCards() {
-	<section
-		id={ IDCards }
-		class={ css.P, css.MT }
-	>
+templ Cards() {
+	<section id={ IDCards } class={ css.P, css.MT }>
 		@SectionTitle() {
 			Cards
 		}
