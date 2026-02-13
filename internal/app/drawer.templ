@@ -16,107 +16,113 @@ templ Drawer() {
 		ZIndex: 50,
 	}) {
 		<ul id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
-			// Section: Text
-			@drawerItem("#"+IDText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Text
-			}
-			@drawerSubItem("#"+IDTextHeadings, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Headings
-			}
-			@drawerSubItem("#"+IDTextParagraph, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Paragraph	
-			}
-			@drawerSubItem("#"+IDTextFormatting, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Text Formatting	
-			}
-			// Section: Buttons
-			@drawerItem("#"+IDButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Buttons
-			}
-			@drawerSubItem("#"+IDButtonsDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Default Buttons
-			}
-			@drawerSubItem("#"+IDButtonsOutlineVariant, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Outline Variants
-			}
-			@drawerSubItem("#"+IDButtonsGhostVariant, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Ghost Variants
-			}
-			@drawerSubItem("#"+IDButtonsFullWidth, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Full Width Variants
-			}
-			@drawerSubItem("#"+IDButtonsSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Sizes
-			}
-			@drawerSubItem("#"+IDButtonsIcon, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Icon Buttons
-			}
-			@drawerSubItem("#"+IDButtonsLoading, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Loading State
-			}
-			@drawerSubItem("#"+IDButtonsLink, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Link Buttons
-			}
-			@drawerSubItem("#"+IDButtonsCombinedExamples, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Combined Examples
-			}
-			// Section: Cards
-			@drawerItem("#"+IDCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Cards
-			}
-			@drawerSubItem("#"+IDBadgesDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Default Badges
-			}
-			@drawerSubItem("#"+IDBadgesSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Badge Sizes
-			}
-			@drawerSubItem("#"+IDBadgesShapes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Badge Shapes
-			}
-			@drawerSubItem("#"+IDBadgesAnimations, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Badge Animations
-			}
-			@drawerSubItem("#"+IDBadgesCounter, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Counter Badges
-			}
-			@drawerSubItem("#"+IDBadgesIndicators, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Status Indicators
-			}
-			@drawerSubItem("#"+IDBadgesCombined, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Combined Examples
-			}
-			@drawerSubItem("#"+IDBadgesColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Color Examples
-			}
-			// Section: Badges
-			@drawerItem("#"+IDBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Badges
-			}
-			@drawerSubItem("#"+IDBadgesDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Default Badges
-			}
-			@drawerSubItem("#"+IDBadgesSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Badge Sizes
-			}
-			@drawerSubItem("#"+IDBadgesShapes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Badge Shapes
-			}
-			@drawerSubItem("#"+IDBadgesAnimations, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Badge Animations
-			}
-			@drawerSubItem("#"+IDBadgesCounter, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Counter Badges
-			}
-			@drawerSubItem("#"+IDBadgesIndicators, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Status Indicators
-			}
-			@drawerSubItem("#"+IDBadgesCombined, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Combined Examples
-			}
-			@drawerSubItem("#"+IDBadgesColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-				Color Examples
-			}
+			@drawerItemsText()
+			@drawerItemsButtons()
+			@drawerItemsCards()
+			@drawerItemsBadges()
 		</ul>
+	}
+}
+
+templ drawerItemsText() {
+	@drawerItem("#"+IDText, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Text
+	}
+	@drawerSubItem("#"+IDTextHeadings, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Headings
+	}
+	@drawerSubItem("#"+IDTextParagraph, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Paragraph	
+	}
+	@drawerSubItem("#"+IDTextFormatting, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Text Formatting	
+	}
+}
+
+templ drawerItemsButtons() {
+	@drawerItem("#"+IDButtons, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Buttons
+	}
+	@drawerSubItem("#"+IDButtonsDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Default Buttons
+	}
+	@drawerSubItem("#"+IDButtonsOutlineVariant, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Outline Variants
+	}
+	@drawerSubItem("#"+IDButtonsGhostVariant, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Ghost Variants
+	}
+	@drawerSubItem("#"+IDButtonsFullWidth, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Full Width Variants
+	}
+	@drawerSubItem("#"+IDButtonsSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Sizes
+	}
+	@drawerSubItem("#"+IDButtonsIcon, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Icon Buttons
+	}
+	@drawerSubItem("#"+IDButtonsLoading, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Loading State
+	}
+	@drawerSubItem("#"+IDButtonsLink, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Link Buttons
+	}
+	@drawerSubItem("#"+IDButtonsCombinedExamples, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Combined Examples
+	}
+}
+
+templ drawerItemsCards() {
+	@drawerItem("#"+IDCards, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Cards
+	}
+	@drawerSubItem("#"+IDCardsBasic, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Basic Cards
+	}
+	@drawerSubItem("#"+IDCardsSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Card Sizes
+	}
+	@drawerSubItem("#"+IDCardsColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Card Colors
+	}
+	@drawerSubItem("#"+IDCardsStructure, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Card Structure
+	}
+	@drawerSubItem("#"+IDCardsImages, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Card Images
+	}
+	@drawerSubItem("#"+IDCardsActions, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Card Actions
+	}
+}
+
+templ drawerItemsBadges() {
+	@drawerItem("#"+IDBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Badges
+	}
+	@drawerSubItem("#"+IDBadgesDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Default Badges
+	}
+	@drawerSubItem("#"+IDBadgesSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Badge Sizes
+	}
+	@drawerSubItem("#"+IDBadgesShapes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Badge Shapes
+	}
+	@drawerSubItem("#"+IDBadgesAnimations, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Badge Animations
+	}
+	@drawerSubItem("#"+IDBadgesCounter, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Counter Badges
+	}
+	@drawerSubItem("#"+IDBadgesIndicators, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Status Indicators
+	}
+	@drawerSubItem("#"+IDBadgesCombined, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Combined Examples
+	}
+	@drawerSubItem("#"+IDBadgesColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Color Examples
 	}
 }
 
