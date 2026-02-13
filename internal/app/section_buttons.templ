@@ -24,324 +24,351 @@ templ Buttons() {
 			Buttons
 		}
 		@SectionContent() {
-			<!-- Default Buttons -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsDefault } class={ css.MB }>Default Buttons</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-					@components.Button(nil) {
-						Default
-					}
-					@components.Button(&components.ButtonProps{
-						Color: components.ButtonColorSecondary,
-					}) {
-						Secondary
-					}
-					@components.Button(&components.ButtonProps{
-						Color: components.ButtonColorSuccess,
-					}) {
-						Success
-					}
-					@components.Button(&components.ButtonProps{
-						Color: components.ButtonColorWarning,
-					}) {
-						Warning
-					}
-					@components.Button(&components.ButtonProps{
-						Color: components.ButtonColorDestructive,
-					}) {
-						Destructive
-					}
-					@components.Button(&components.ButtonProps{
-						Color: components.ButtonColorInfo,
-					}) {
-						Info
-					}
-					@components.Button(&components.ButtonProps{
-						Color: components.ButtonColorContrast,
-					}) {
-						Contrast
-					}
-					@components.Button(&components.ButtonProps{
-						Color: components.ButtonColorMuted,
-					}) {
-						Muted
-					}
-				</div>
-			</div>
-			<!-- Outline Variants -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsOutlineVariant } class={ css.MB }>Outline Variants</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorSecondary,
-					}) {
-						Secondary
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorSuccess,
-					}) {
-						Success
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorWarning,
-					}) {
-						Warning
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorDestructive,
-					}) {
-						Destructive
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorInfo,
-					}) {
-						Info
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorContrast,
-					}) {
-						Contrast
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorMuted,
-					}) {
-						Muted
-					}
-				</div>
-			</div>
-			<!-- Ghost Variants -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsOutlineVariant } class={ css.MB }>Ghost Variants</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantGhost,
-						Color:   components.ButtonColorSecondary,
-					}) {
-						Secondary
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantGhost,
-						Color:   components.ButtonColorSuccess,
-					}) {
-						Success
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantGhost,
-						Color:   components.ButtonColorWarning,
-					}) {
-						Warning
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantGhost,
-						Color:   components.ButtonColorDestructive,
-					}) {
-						Destructive
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantGhost,
-						Color:   components.ButtonColorInfo,
-					}) {
-						Info
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantGhost,
-						Color:   components.ButtonColorContrast,
-					}) {
-						Contrast
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantGhost,
-						Color:   components.ButtonColorMuted,
-					}) {
-						Muted
-					}
-				</div>
-			</div>
-			<!-- Full Width Variants -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsFullWidth } class={ css.MB }>Full Width Variants</h3>
-				<div class={ css.Flex, css.FlexCol, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantFull,
-					}) {
-						Full Width Default
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantFull,
-						Color:   components.ButtonColorSecondary,
-					}) {
-						Full Width Secondary
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantFull,
-						Color:   components.ButtonColorSuccess,
-					}) {
-						Full Width Success
-					}
-				</div>
-			</div>
-			<!-- Sizes -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsSizes } class={ css.MB }>Sizes</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.ItemsCenter, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Size: components.ButtonSizeSmall,
-					}) {
-						Small
-					}
-					@components.Button(&components.ButtonProps{}) {
-						Default
-					}
-					@components.Button(&components.ButtonProps{
-						Size: components.ButtonSizeLarge,
-					}) {
-						Large
-					}
-				</div>
-			</div>
-			<!-- Icon Buttons -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsIcon } class={ css.MB }>Icon Buttons</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Icon: true,
-					}) {
-						⚙️
-					}
-					@components.Button(&components.ButtonProps{
-						Icon:  true,
-						Color: components.ButtonColorSecondary,
-					}) {
-						📝
-					}
-					@components.Button(&components.ButtonProps{
-						Icon:  true,
-						Color: components.ButtonColorSuccess,
-					}) {
-						✓
-					}
-					@components.Button(&components.ButtonProps{
-						Icon:  true,
-						Color: components.ButtonColorWarning,
-					}) {
-						⚠️
-					}
-					@components.Button(&components.ButtonProps{
-						Icon:  true,
-						Color: components.ButtonColorDestructive,
-					}) {
-						🗑️
-					}
-					@components.Button(&components.ButtonProps{
-						Icon:    true,
-						Variant: components.ButtonVariantOutline,
-					}) {
-						🔍
-					}
-					@components.Button(&components.ButtonProps{
-						Icon:    true,
-						Variant: components.ButtonVariantGhost,
-					}) {
-						❤️
-					}
-				</div>
-			</div>
-			<!-- Loading State -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsLoading } class={ css.MB }>Loading State</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Loading: true,
-					}) {
-						Loading...
-					}
-					@components.Button(&components.ButtonProps{
-						Loading: true,
-						Color:   components.ButtonColorSecondary,
-					}) {
-						Loading...
-					}
-					@components.Button(&components.ButtonProps{
-						Loading: true,
-						Color:   components.ButtonColorSuccess,
-					}) {
-						Loading...
-					}
-					@components.Button(&components.ButtonProps{
-						Loading: true,
-						Variant: components.ButtonVariantOutline,
-					}) {
-						Loading...
-					}
-				</div>
-			</div>
-			<!-- Link Buttons -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsLink } class={ css.MB }>Link Buttons</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Link: "#",
-					}) {
-						Default Link
-					}
-					@components.Button(&components.ButtonProps{
-						Link:  "#",
-						Color: components.ButtonColorSecondary,
-					}) {
-						Secondary Link
-					}
-					@components.Button(&components.ButtonProps{
-						Link:    "#",
-						Variant: components.ButtonVariantOutline,
-					}) {
-						Outline Link
-					}
-					@components.Button(&components.ButtonProps{
-						Link:    "#",
-						Variant: components.ButtonVariantGhost,
-					}) {
-						Ghost Link
-					}
-				</div>
-			</div>
-			<!-- Combined Examples -->
-			<div class={ css.MB }>
-				<h3 id={ IDButtonsCombinedExamples } class={ css.MB }>Combined Examples</h3>
-				<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-					@components.Button(&components.ButtonProps{
-						Size:    components.ButtonSizeSmall,
-						Variant: components.ButtonVariantOutline,
-						Color:   components.ButtonColorInfo,
-					}) {
-						Small Outline Info
-					}
-					@components.Button(&components.ButtonProps{
-						Size:  components.ButtonSizeLarge,
-						Color: components.ButtonColorSuccess,
-					}) {
-						Large Success
-					}
-					@components.Button(&components.ButtonProps{
-						Size:  components.ButtonSizeLarge,
-						Color: components.ButtonColorWarning,
-					}) {
-						🚨 Large Icon
-					}
-					@components.Button(&components.ButtonProps{
-						Variant: components.ButtonVariantFull,
-						Color:   components.ButtonColorDestructive,
-					}) {
-						Full Width Destructive
-					}
-				</div>
-			</div>
+			@buttonsDefault()
+			@buttonsOutlineVariants()
+			@buttonsGhostVariants()
+			@buttonsFullWidth()
+			@buttonsSizes()
+			@buttonsIcon()
+			@buttonsLoading()
+			@buttonsLink()
+			@buttonsCombined()
 		}
 	</section>
+}
+
+templ buttonsDefault() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsDefault } class={ css.MB }>Default Buttons</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+			@components.Button(nil) {
+				Default
+			}
+			@components.Button(&components.ButtonProps{
+				Color: components.ButtonColorSecondary,
+			}) {
+				Secondary
+			}
+			@components.Button(&components.ButtonProps{
+				Color: components.ButtonColorSuccess,
+			}) {
+				Success
+			}
+			@components.Button(&components.ButtonProps{
+				Color: components.ButtonColorWarning,
+			}) {
+				Warning
+			}
+			@components.Button(&components.ButtonProps{
+				Color: components.ButtonColorDestructive,
+			}) {
+				Destructive
+			}
+			@components.Button(&components.ButtonProps{
+				Color: components.ButtonColorInfo,
+			}) {
+				Info
+			}
+			@components.Button(&components.ButtonProps{
+				Color: components.ButtonColorContrast,
+			}) {
+				Contrast
+			}
+			@components.Button(&components.ButtonProps{
+				Color: components.ButtonColorMuted,
+			}) {
+				Muted
+			}
+		</div>
+	</div>
+}
+
+templ buttonsOutlineVariants() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsOutlineVariant } class={ css.MB }>Outline Variants</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorSecondary,
+			}) {
+				Secondary
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorSuccess,
+			}) {
+				Success
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorWarning,
+			}) {
+				Warning
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorDestructive,
+			}) {
+				Destructive
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorInfo,
+			}) {
+				Info
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorContrast,
+			}) {
+				Contrast
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorMuted,
+			}) {
+				Muted
+			}
+		</div>
+	</div>
+}
+
+templ buttonsGhostVariants() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsGhostVariant } class={ css.MB }>Ghost Variants</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantGhost,
+				Color:   components.ButtonColorSecondary,
+			}) {
+				Secondary
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantGhost,
+				Color:   components.ButtonColorSuccess,
+			}) {
+				Success
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantGhost,
+				Color:   components.ButtonColorWarning,
+			}) {
+				Warning
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantGhost,
+				Color:   components.ButtonColorDestructive,
+			}) {
+				Destructive
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantGhost,
+				Color:   components.ButtonColorInfo,
+			}) {
+				Info
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantGhost,
+				Color:   components.ButtonColorContrast,
+			}) {
+				Contrast
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantGhost,
+				Color:   components.ButtonColorMuted,
+			}) {
+				Muted
+			}
+		</div>
+	</div>
+}
+
+templ buttonsFullWidth() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsFullWidth } class={ css.MB }>Full Width Variants</h3>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantFull,
+			}) {
+				Full Width Default
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantFull,
+				Color:   components.ButtonColorSecondary,
+			}) {
+				Full Width Secondary
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantFull,
+				Color:   components.ButtonColorSuccess,
+			}) {
+				Full Width Success
+			}
+		</div>
+	</div>
+}
+
+templ buttonsSizes() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsSizes } class={ css.MB }>Sizes</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.ItemsCenter, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Size: components.ButtonSizeSmall,
+			}) {
+				Small
+			}
+			@components.Button(&components.ButtonProps{}) {
+				Default
+			}
+			@components.Button(&components.ButtonProps{
+				Size: components.ButtonSizeLarge,
+			}) {
+				Large
+			}
+		</div>
+	</div>
+}
+
+templ buttonsIcon() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsIcon } class={ css.MB }>Icon Buttons</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Icon: true,
+			}) {
+				⚙️
+			}
+			@components.Button(&components.ButtonProps{
+				Icon:  true,
+				Color: components.ButtonColorSecondary,
+			}) {
+				📝
+			}
+			@components.Button(&components.ButtonProps{
+				Icon:  true,
+				Color: components.ButtonColorSuccess,
+			}) {
+				✓
+			}
+			@components.Button(&components.ButtonProps{
+				Icon:  true,
+				Color: components.ButtonColorWarning,
+			}) {
+				⚠️
+			}
+			@components.Button(&components.ButtonProps{
+				Icon:  true,
+				Color: components.ButtonColorDestructive,
+			}) {
+				🗑️
+			}
+			@components.Button(&components.ButtonProps{
+				Icon:    true,
+				Variant: components.ButtonVariantOutline,
+			}) {
+				🔍
+			}
+			@components.Button(&components.ButtonProps{
+				Icon:    true,
+				Variant: components.ButtonVariantGhost,
+			}) {
+				❤️
+			}
+		</div>
+	</div>
+}
+
+templ buttonsLoading() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsLoading } class={ css.MB }>Loading State</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Loading: true,
+			}) {
+				Loading...
+			}
+			@components.Button(&components.ButtonProps{
+				Loading: true,
+				Color:   components.ButtonColorSecondary,
+			}) {
+				Loading...
+			}
+			@components.Button(&components.ButtonProps{
+				Loading: true,
+				Color:   components.ButtonColorSuccess,
+			}) {
+				Loading...
+			}
+			@components.Button(&components.ButtonProps{
+				Loading: true,
+				Variant: components.ButtonVariantOutline,
+			}) {
+				Loading...
+			}
+		</div>
+	</div>
+}
+
+templ buttonsLink() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsLink } class={ css.MB }>Link Buttons</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Link: "#",
+			}) {
+				Default Link
+			}
+			@components.Button(&components.ButtonProps{
+				Link:  "#",
+				Color: components.ButtonColorSecondary,
+			}) {
+				Secondary Link
+			}
+			@components.Button(&components.ButtonProps{
+				Link:    "#",
+				Variant: components.ButtonVariantOutline,
+			}) {
+				Outline Link
+			}
+			@components.Button(&components.ButtonProps{
+				Link:    "#",
+				Variant: components.ButtonVariantGhost,
+			}) {
+				Ghost Link
+			}
+		</div>
+	</div>
+}
+
+templ buttonsCombined() {
+	<div class={ css.MB }>
+		<h3 id={ IDButtonsCombinedExamples } class={ css.MB }>Combined Examples</h3>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+			@components.Button(&components.ButtonProps{
+				Size:    components.ButtonSizeSmall,
+				Variant: components.ButtonVariantOutline,
+				Color:   components.ButtonColorInfo,
+			}) {
+				Small Outline Info
+			}
+			@components.Button(&components.ButtonProps{
+				Size:  components.ButtonSizeLarge,
+				Color: components.ButtonColorSuccess,
+			}) {
+				Large Success
+			}
+			@components.Button(&components.ButtonProps{
+				Size:  components.ButtonSizeLarge,
+				Color: components.ButtonColorWarning,
+			}) {
+				🚨 Large Icon
+			}
+			@components.Button(&components.ButtonProps{
+				Variant: components.ButtonVariantFull,
+				Color:   components.ButtonColorDestructive,
+			}) {
+				Full Width Destructive
+			}
+		</div>
+	</div>
 }
