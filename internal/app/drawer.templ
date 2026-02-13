@@ -10,7 +10,7 @@ const (
 	IDAppDrawerItems = "app-drawer-items"
 )
 
-templ drawer() {
+templ Drawer() {
 	@components.Drawer(&components.DrawerProps{
 		ID:     IDAppDrawer,
 		ZIndex: 50,
@@ -92,7 +92,30 @@ templ drawer() {
 			@drawerItem("#"+IDBadges, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 				Badges
 			}
-			// TODO: Add sub items for badge section
+			@drawerSubItem("#"+IDBadgesDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Default Badges
+			}
+			@drawerSubItem("#"+IDBadgesSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Badge Sizes
+			}
+			@drawerSubItem("#"+IDBadgesShapes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Badge Shapes
+			}
+			@drawerSubItem("#"+IDBadgesAnimations, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Badge Animations
+			}
+			@drawerSubItem("#"+IDBadgesCounter, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Counter Badges
+			}
+			@drawerSubItem("#"+IDBadgesIndicators, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Status Indicators
+			}
+			@drawerSubItem("#"+IDBadgesCombined, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Combined Examples
+			}
+			@drawerSubItem("#"+IDBadgesColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+				Color Examples
+			}
 		</ul>
 	}
 }

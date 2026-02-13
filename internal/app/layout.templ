@@ -2,7 +2,7 @@ package app
 
 import "github.com/knackwurstking/ui/pkg/css"
 
-templ layout() {
+templ Layout() {
 	<!DOCTYPE html>
 	<html>
 		<head>
@@ -13,9 +13,9 @@ templ layout() {
 			<title>UI</title>
 		</head>
 		<body>
-			@appBar()
-			@drawer()
-			@appBarContent() {
+			@AppBar()
+			@Drawer()
+			@AppBarContent() {
 				{ children... }
 			}
 		</body>

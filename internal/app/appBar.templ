@@ -12,7 +12,7 @@ const (
 	IDDrawerToggleButton = "drawer-toggle-button"
 )
 
-templ appBar() {
+templ AppBar() {
 	@components.AppBar(&components.AppBarProps{
 		ID:       IDTopAppBar,
 		Class:    templ.CSSClasses{css.ShadowSm},
@@ -48,7 +48,7 @@ templ appBar() {
 	}
 }
 
-templ appBarContent() {
+templ AppBarContent() {
 	<div style={ fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight) }>
 		@components.Container(&components.ContainerProps{
 			Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
