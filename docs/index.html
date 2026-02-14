@@ -6153,4 +6153,32 @@
 	} catch (error) {
 		console.error('Error opening dialog:', error);
 	}
-}</script><button id="" class="" onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section></span></div></body></html>
+}</script><button id="" class="" onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button><pre style="max-width: calc(100% - 2rem)">{{ id := &#34;example-fullscreen-clean-dialog&#34; }}
+@components.Dialog(&amp;components.DialogProps{
+	BaseProps: components.BaseProps{
+		ID:    id,
+		Class: templ.CSSClasses{
+			css.Flex, css.JustifyCenter, css.ItemsCenter,
+		},
+	},
+	Fullscreen: true,
+	Clean:      true,
+}) {
+	@components.DialogCloseButton(&amp;components.BaseProps{
+		Class: templ.CSSClasses{
+			css.FixedImportant, css.Top0, css.Right0, 
+			css.Contrast, css.Ghost, 
+			css.M,
+		},
+	})
+
+	&lt;p&gt;This is a example modal dialog. (fullscreen, clean)&lt;/p&gt;
+}
+
+&lt;p&gt;Open a modal dialog with props (Fullscreen, Clean)&lt;/p&gt;
+
+@components.Button(&amp;components.ButtonProps{
+	OnClick: openModalDialog(id),
+}) {
+	Open
+}</pre></div></div></section></span></div></body></html>
