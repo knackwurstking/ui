@@ -11,9 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import "github.com/knackwurstking/ui/pkg/css"
 
 type ContainerProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 
 	Fluid bool
 }
@@ -54,7 +52,7 @@ func Container(props *ContainerProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/container.templ`, Line: 20, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/container.templ`, Line: 18, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

@@ -120,7 +120,7 @@ func Dialogs() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = components.DialogCloseButton(&components.DialogCloseButtonProps{
+				templ_7745c5c3_Err = components.DialogCloseButton(&components.BaseProps{
 					Class: templ.CSSClasses{css.FixedImportant, css.Top0, css.Right0, css.Contrast, css.Ghost, css.M},
 				}).Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
@@ -133,8 +133,10 @@ func Dialogs() templ.Component {
 				return nil
 			})
 			templ_7745c5c3_Err = components.Dialog(&components.DialogProps{
-				ID:         id,
-				Class:      templ.CSSClasses{css.Flex, css.JustifyCenter, css.ItemsCenter},
+				BaseProps: components.BaseProps{
+					ID:    id,
+					Class: templ.CSSClasses{css.Flex, css.JustifyCenter, css.ItemsCenter},
+				},
 				Fullscreen: true,
 				Clean:      true,
 			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)

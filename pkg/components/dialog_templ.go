@@ -34,9 +34,7 @@ type DialogSize string
 type DialogType string
 
 type DialogProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 
 	Fullscreen bool
 	Clean      bool
@@ -87,7 +85,7 @@ func Dialog(props *DialogProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 47, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 45, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -130,13 +128,7 @@ func Dialog(props *DialogProps) templ.Component {
 	})
 }
 
-type DialogCloseButtonProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
-}
-
-func DialogCloseButton(props *DialogCloseButtonProps) templ.Component {
+func DialogCloseButton(props *BaseProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -158,7 +150,7 @@ func DialogCloseButton(props *DialogCloseButtonProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &DialogCloseButtonProps{}
+			props = &BaseProps{}
 		}
 		onclick := templ.ComponentScript{
 			Call: `this.closest('dialog').close();`,
@@ -179,7 +171,7 @@ func DialogCloseButton(props *DialogCloseButtonProps) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 79, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/dialog.templ`, Line: 71, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {

@@ -26,9 +26,7 @@ const (
 )
 
 type CardProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 
 	Variant CardVariant
 	Size    CardSize
@@ -50,16 +48,10 @@ templ Card(props *CardProps) {
 	</span>
 }
 
-type CardHeaderProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
-}
-
-templ CardHeader(props *CardHeaderProps) {
+templ CardHeader(props *BaseProps) {
 	{{
 		if props == nil {
-			props = &CardHeaderProps{}
+			props = &BaseProps{}
 		}
 	}}
 	<header id={ props.ID } class={ css.CardHeader, props.Class } { props.Attributes... }>
@@ -67,16 +59,10 @@ templ CardHeader(props *CardHeaderProps) {
 	</header>
 }
 
-type CardBodyProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
-}
-
-templ CardBody(props *CardBodyProps) {
+templ CardBody(props *BaseProps) {
 	{{
 		if props == nil {
-			props = &CardBodyProps{}
+			props = &BaseProps{}
 		}
 	}}
 	<div id={ props.ID } class={ css.CardBody, props.Class } { props.Attributes... }>
@@ -85,9 +71,7 @@ templ CardBody(props *CardBodyProps) {
 }
 
 type CardFooterProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 }
 
 templ CardFooter(props *CardFooterProps) {
@@ -110,9 +94,7 @@ const (
 )
 
 type CardImageProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 
 	Aspect CardImageAspect
 
@@ -136,9 +118,7 @@ templ CardImage(props *CardImageProps) {
 }
 
 type CardTitleProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 }
 
 templ CardTitle(text string, props *CardTitleProps) {
@@ -158,9 +138,7 @@ templ CardTitle(text string, props *CardTitleProps) {
 }
 
 type CardSubtitleProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 }
 
 templ CardSubtitle(text string, props *CardSubtitleProps) {
@@ -189,9 +167,7 @@ const (
 )
 
 type CardActionsProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 
 	Justify CardActionsJustify
 }

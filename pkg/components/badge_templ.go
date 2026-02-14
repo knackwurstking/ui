@@ -40,9 +40,7 @@ const (
 )
 
 type BadgeProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 
 	Size      BadgeSize
 	Shape     BadgeShape
@@ -111,7 +109,7 @@ func Badge(props *BadgeProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/badge.templ`, Line: 70, Col: 15}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/badge.templ`, Line: 68, Col: 15}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

@@ -246,47 +246,65 @@ templ badgesColors() {
 		<h3 id={ IDBadgesColors } class={ css.MB }>Color Examples</h3>
 		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.ItemsCenter }>
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Primary},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Primary},
+				},
 			}) {
 				Primary
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Secondary},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Secondary},
+				},
 			}) {
 				Secondary
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Info},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Info},
+				},
 			}) {
 				Info
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Contrast},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Contrast},
+				},
 			}) {
 				Contrast
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Destructive},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Destructive},
+				},
 			}) {
 				Destructive
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Muted},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Muted},
+				},
 			}) {
 				Muted
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Success},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Success},
+				},
 			}) {
 				Success
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Warning},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Warning},
+				},
 			}) {
 				Warning
 			}
 			@components.Badge(&components.BadgeProps{
-				Class: templ.CSSClasses{css.Error},
+				BaseProps: components.BaseProps{
+					Class: templ.CSSClasses{css.Error},
+				},
 			}) {
 				Error
 			}

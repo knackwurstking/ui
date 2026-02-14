@@ -14,8 +14,10 @@ const (
 
 templ AppBar() {
 	@components.AppBar(&components.AppBarProps{
-		ID:       IDTopAppBar,
-		Class:    templ.CSSClasses{css.ShadowSm},
+		BaseProps: components.BaseProps{
+			ID:    IDTopAppBar,
+			Class: templ.CSSClasses{css.ShadowSm},
+		},
 		Position: components.AppBarPositionTop,
 		Type:     components.AppBarTypeFixed,
 		ZIndex:   50,
@@ -23,7 +25,9 @@ templ AppBar() {
 		@components.AppBarLeft(nil) {
 			// Icon button for opening the drawer, e.g. A hamburger menu icon
 			@components.Button(&components.ButtonProps{
-				ID:      IDDrawerToggleButton,
+				BaseProps: components.BaseProps{
+					ID: IDDrawerToggleButton,
+				},
 				Color:   components.ButtonColorContrast,
 				Variant: components.ButtonVariantGhost,
 				Icon:    true,
@@ -51,11 +55,13 @@ templ AppBar() {
 templ AppBarContent() {
 	<div style={ fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight) }>
 		@components.Container(&components.ContainerProps{
-			Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
-			Fluid: true,
-			Attributes: templ.Attributes{
-				"style": fmt.Sprintf("height: calc(100vh - %s);", css.VarAppBarHeight),
+			BaseProps: components.BaseProps{
+				Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
+				Style: []string{
+					fmt.Sprintf("height: calc(100vh - %s)", css.VarAppBarHeight),
+				},
 			},
+			Fluid: true,
 		}) {
 			{ children... }
 		}

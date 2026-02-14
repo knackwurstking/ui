@@ -26,9 +26,7 @@ type DialogSize string
 type DialogType string
 
 type DialogProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
+	BaseProps
 
 	Fullscreen bool
 	Clean      bool
@@ -59,16 +57,10 @@ templ Dialog(props *DialogProps) {
 	</dialog>
 }
 
-type DialogCloseButtonProps struct {
-	ID         string
-	Class      templ.CSSClasses
-	Attributes templ.Attributes
-}
-
-templ DialogCloseButton(props *DialogCloseButtonProps) {
+templ DialogCloseButton(props *BaseProps) {
 	{{
 		if props == nil {
-			props = &DialogCloseButtonProps{}
+			props = &BaseProps{}
 		}
 	}}
 	{{

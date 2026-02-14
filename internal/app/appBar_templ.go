@@ -88,7 +88,9 @@ func AppBar() templ.Component {
 					return nil
 				})
 				templ_7745c5c3_Err = components.Button(&components.ButtonProps{
-					ID:      IDDrawerToggleButton,
+					BaseProps: components.BaseProps{
+						ID: IDDrawerToggleButton,
+					},
 					Color:   components.ButtonColorContrast,
 					Variant: components.ButtonVariantGhost,
 					Icon:    true,
@@ -126,7 +128,7 @@ func AppBar() templ.Component {
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(IDTopAppBarTitle)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/appBar.templ`, Line: 36, Col: 28}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/appBar.templ`, Line: 40, Col: 28}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -194,8 +196,10 @@ func AppBar() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.AppBar(&components.AppBarProps{
-			ID:       IDTopAppBar,
-			Class:    templ.CSSClasses{css.ShadowSm},
+			BaseProps: components.BaseProps{
+				ID:    IDTopAppBar,
+				Class: templ.CSSClasses{css.ShadowSm},
+			},
 			Position: components.AppBarPositionTop,
 			Type:     components.AppBarTypeFixed,
 			ZIndex:   50,
@@ -235,7 +239,7 @@ func AppBarContent() templ.Component {
 		var templ_7745c5c3_Var10 string
 		templ_7745c5c3_Var10, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues(fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/appBar.templ`, Line: 52, Col: 66}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/appBar.templ`, Line: 56, Col: 66}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
@@ -264,11 +268,13 @@ func AppBarContent() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Container(&components.ContainerProps{
-			Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
-			Fluid: true,
-			Attributes: templ.Attributes{
-				"style": fmt.Sprintf("height: calc(100vh - %s);", css.VarAppBarHeight),
+			BaseProps: components.BaseProps{
+				Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
+				Style: []string{
+					fmt.Sprintf("height: calc(100vh - %s)", css.VarAppBarHeight),
+				},
 			},
+			Fluid: true,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
