@@ -1,4 +1,12 @@
 package components
 
+import "github.com/knackwurstking/ui/pkg/css"
+
 templ Spinner(props *BaseProps) {
+	<span
+		style={ props.GetStyles() }
+		id={ props.ID }
+		class={ css.Spinner, props.Class }
+		{ props.Attributes... }
+	></span>
 }
