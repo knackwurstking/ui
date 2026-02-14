@@ -133,6 +133,9 @@ templ drawerItemsDialogs() {
 	@drawerItem("#"+IDDialogs, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 		Dialogs
 	}
+	@drawerSubItem("#"+IDDialogsModalFullscreenClean, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		(Modal) Fullscreen Clean
+	}
 }
 
 templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {

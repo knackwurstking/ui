@@ -6,7 +6,8 @@ import (
 )
 
 const (
-	IDDialogs = "section-dialogs"
+	IDDialogs                     = "section-dialogs"
+	IDDialogsModalFullscreenClean = "section-dialogs-modal-fullscreen-clean"
 )
 
 templ Dialogs() {
@@ -29,7 +30,7 @@ templ Dialogs() {
 				})
 				<p>This is a example modal dialog. (fullscreen, clean)</p>
 			}
-			<div class={ css.Flex, css.FlexCol, css.Gap, css.JustifyCenter, css.ItemsCenter }>
+			<div id={ IDDialogsModalFullscreenClean } class={ css.Flex, css.FlexCol, css.Gap, css.JustifyCenter, css.ItemsCenter }>
 				<p>Open a modal dialog with props (Fullscreen, Clean)</p>
 				@components.Button(&components.ButtonProps{
 					OnClick: openModalDialog(id),
