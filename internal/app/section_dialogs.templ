@@ -22,6 +22,7 @@ templ Dialogs() {
 				Fullscreen: true,
 				Clean:      true,
 			}) {
+				// FIXME: Close button alignment after first init render not at the top right corner
 				@components.DialogCloseButton(&components.DialogCloseButtonProps{
 					Class: templ.CSSClasses{css.Absolute, css.Top0, css.Right0, css.Contrast, css.Ghost},
 					Attributes: templ.Attributes{
