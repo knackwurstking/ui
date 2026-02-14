@@ -29,11 +29,12 @@ templ Dialogs() {
 				})
 				<p>This is a example modal dialog. (fullscreen, clean)</p>
 			}
-			<div class={ css.Flex, css.JustifyCenter, css.ItemsCenter, css.PLg }>
+			<div class={ css.Flex, css.FlexCol, css.Gap, css.JustifyCenter, css.ItemsCenter }>
+				<p>Open a modal dialog with props (Fullscreen, Clean)</p>
 				@components.Button(&components.ButtonProps{
 					OnClick: openModalDialog(id),
 				}) {
-					Open Fullscreen Clean Dialog (Modal)
+					Open
 				}
 			</div>
 		}

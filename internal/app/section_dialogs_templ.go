@@ -147,7 +147,7 @@ func Dialogs() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var8 = []any{css.Flex, css.JustifyCenter, css.ItemsCenter, css.PLg}
+			var templ_7745c5c3_Var8 = []any{css.Flex, css.FlexCol, css.Gap, css.JustifyCenter, css.ItemsCenter}
 			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var8...)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
@@ -165,7 +165,7 @@ func Dialogs() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "\"><p>Open a modal dialog with props (Fullscreen, Clean)</p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -181,7 +181,7 @@ func Dialogs() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "Open Fullscreen Clean Dialog (Modal)")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "Open")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
