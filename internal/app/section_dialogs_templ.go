@@ -125,10 +125,7 @@ func Dialogs() templ.Component {
 					return templ_7745c5c3_Err
 				}
 				templ_7745c5c3_Err = components.DialogCloseButton(&components.DialogCloseButtonProps{
-					Class: templ.CSSClasses{css.Absolute, css.Top0, css.Right0, css.Contrast, css.Ghost},
-					Attributes: templ.Attributes{
-						"style": "margin-top: 1rem; margin-right: 1rem;",
-					},
+					Class: templ.CSSClasses{css.FixedImportant, css.Top0, css.Right0, css.Contrast, css.Ghost, css.M},
 				}).Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
