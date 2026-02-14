@@ -13,12 +13,13 @@ templ Container(props *ContainerProps) {
 		if props == nil {
 			props = &ContainerProps{}
 		}
+		props.Class = append(props.Class, css.Container)
+
+		if props.Fluid {
+			props.Class = append(props.Class, css.ContainerFluid)
+		}
 	}}
-	<span
-		id={ props.ID }
-		class={ css.Container, templ.KV(css.ContainerFluid, props.Fluid), props.Class }
-		{ props.Attributes... }
-	>
+	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }

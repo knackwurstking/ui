@@ -16,7 +16,7 @@ templ AppBar() {
 	@components.AppBar(&components.AppBarProps{
 		BaseProps: components.BaseProps{
 			ID:    IDTopAppBar,
-			Class: templ.CSSClasses{css.ShadowSm},
+			Class: []string{css.ShadowSm},
 		},
 		Position: components.AppBarPositionTop,
 		Type:     components.AppBarTypeFixed,
@@ -56,7 +56,7 @@ templ AppBarContent() {
 	<div style={ fmt.Sprintf("padding-top: %s;", css.VarAppBarHeight) }>
 		@components.Container(&components.ContainerProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
+				Class: []string{css.OverflowScroll, css.NoScrollbar},
 				Style: []string{
 					fmt.Sprintf("height: calc(100vh - %s)", css.VarAppBarHeight),
 				},

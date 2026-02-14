@@ -17,25 +17,20 @@ templ Drawer(props *DrawerProps) {
 		if props == nil {
 			props = &DrawerProps{}
 		}
+		props.Class = append(props.Class, css.Drawer)
+
+		if props.Open {
+			props.Class = append(props.Class, css.DrawerOpen)
+		}
+		if props.ZIndex > 0 {
+			props.Style = append(props.Style, fmt.Sprintf("z-index: %d", props.ZIndex))
+		}
 	}}
-	{{ style, _ := props.Attributes["style"] }}
 	<span
 		class={ css.DrawerBackdrop }
 		style={ templ.KV(fmt.Sprintf("z-index: %d", props.ZIndex), props.ZIndex > 0) }
 	></span>
-	<span
-		id={ props.ID }
-		class={
-			css.Drawer,
-			props.Class,
-			templ.KV(css.DrawerOpen, props.Open),
-		}
-		style={
-			templ.KV(fmt.Sprintf("z-index: %d", props.ZIndex), props.ZIndex > 0),
-			style,
-		}
-		{ props.Attributes... }
-	>
+	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }

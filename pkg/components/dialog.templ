@@ -40,19 +40,26 @@ templ Dialog(props *DialogProps) {
 		if props == nil {
 			props = &DialogProps{}
 		}
-	}}
-	<dialog
-		id={ props.ID }
-		class={
-			templ.KV("fullscreen", props.Fullscreen),
-			templ.KV("clean", props.Clean),
-			string(props.Type),
-			string(props.Size),
-			string(props.Variant),
-			props.Class,
+		props.Class = append(props.Class, css.Dialog)
+
+		if props.Fullscreen {
+			props.Class = append(props.Class, css.DialogFullscreen)
 		}
-		{ props.Attributes... }
-	>
+		if props.Clean {
+			props.Class = append(props.Class, css.DialogClean)
+		}
+
+		if props.Type != "" {
+			props.Class = append(props.Class, string(props.Type))
+		}
+		if props.Size != "" {
+			props.Class = append(props.Class, string(props.Size))
+		}
+		if props.Variant != "" {
+			props.Class = append(props.Class, string(props.Variant))
+		}
+	}}
+	<dialog { props.GetAttributes()... }>
 		{ children... }
 	</dialog>
 }
@@ -62,13 +69,13 @@ templ DialogCloseButton(props *BaseProps) {
 		if props == nil {
 			props = &BaseProps{}
 		}
-	}}
-	{{
+		props.Class = append(props.Class, css.DialogClose)
+
 		onclick := templ.ComponentScript{
 			Call: `this.closest('dialog').close();`,
 		}
 	}}
-	<button id={ props.ID } class={ props.Class } onclick={ onclick } { props.Attributes... }>
+	<button onclick={ onclick } { props.GetAttributes()... }>
 		<i class="bi bi-x-lg"></i>
 	</button>
 }

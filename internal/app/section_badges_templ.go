@@ -1755,7 +1755,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Primary},
+				Class: []string{css.Primary},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var102), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1781,7 +1781,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Secondary},
+				Class: []string{css.Secondary},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var103), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1807,7 +1807,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Info},
+				Class: []string{css.Info},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var104), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1833,7 +1833,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Contrast},
+				Class: []string{css.Contrast},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var105), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1859,7 +1859,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Destructive},
+				Class: []string{css.Destructive},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var106), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1885,7 +1885,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Muted},
+				Class: []string{css.Muted},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var107), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1911,7 +1911,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Success},
+				Class: []string{css.Success},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var108), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1937,7 +1937,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Warning},
+				Class: []string{css.Warning},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var109), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -1963,7 +1963,7 @@ func badgesColors() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Badge(&components.BadgeProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.Error},
+				Class: []string{css.Error},
 			},
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var110), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {

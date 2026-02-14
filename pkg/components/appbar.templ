@@ -30,18 +30,19 @@ templ AppBar(props *AppBarProps) {
 		if props == nil {
 			props = &AppBarProps{}
 		}
+		props.Class = append(props.Class, css.AppBar)
 
-		style, _ := props.Attributes["style"]
-	}}
-	<span
-		id={ props.ID }
-		class={ css.AppBar, string(props.Position), string(props.Type), props.Class }
-		style={
-			templ.KV(fmt.Sprintf("z-index: %d", props.ZIndex), props.ZIndex > 0),
-			style,
+		if props.Position != "" {
+			props.Class = append(props.Class, string(props.Position))
 		}
-		{ props.Attributes... }
-	>
+		if props.Type != "" {
+			props.Class = append(props.Class, string(props.Type))
+		}
+		if props.ZIndex > 0 {
+			props.Style = append(props.Style, fmt.Sprintf("z-index: %d", props.ZIndex))
+		}
+	}}
+	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }
@@ -51,8 +52,9 @@ templ AppBarLeft(props *BaseProps) {
 		if props == nil {
 			props = &BaseProps{}
 		}
+		props.Class = append(props.Class, css.AppBarLeft)
 	}}
-	<span id={ props.ID } class={ css.AppBarLeft, props.Class } { props.Attributes... }>
+	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }
@@ -62,8 +64,9 @@ templ AppBarCenter(props *BaseProps) {
 		if props == nil {
 			props = &BaseProps{}
 		}
+		props.Class = append(props.Class, css.AppBarCenter)
 	}}
-	<span id={ props.ID } class={ css.AppBarCenter, props.Class } { props.Attributes... }>
+	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }
@@ -73,8 +76,9 @@ templ AppBarRight(props *BaseProps) {
 		if props == nil {
 			props = &BaseProps{}
 		}
+		props.Class = append(props.Class, css.AppBarRight)
 	}}
-	<span id={ props.ID } class={ css.AppBarRight, props.Class } { props.Attributes... }>
+	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }

@@ -198,7 +198,7 @@ func AppBar() templ.Component {
 		templ_7745c5c3_Err = components.AppBar(&components.AppBarProps{
 			BaseProps: components.BaseProps{
 				ID:    IDTopAppBar,
-				Class: templ.CSSClasses{css.ShadowSm},
+				Class: []string{css.ShadowSm},
 			},
 			Position: components.AppBarPositionTop,
 			Type:     components.AppBarTypeFixed,
@@ -269,7 +269,7 @@ func AppBarContent() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Container(&components.ContainerProps{
 			BaseProps: components.BaseProps{
-				Class: templ.CSSClasses{css.OverflowScroll, css.NoScrollbar},
+				Class: []string{css.OverflowScroll, css.NoScrollbar},
 				Style: []string{
 					fmt.Sprintf("height: calc(100vh - %s)", css.VarAppBarHeight),
 				},

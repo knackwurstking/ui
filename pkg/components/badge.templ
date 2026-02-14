@@ -52,30 +52,38 @@ templ Badge(props *BadgeProps) {
 		if props == nil {
 			props = &BadgeProps{}
 		}
-	}}
-	{{
-		status := ""
+		props.Class = append(props.Class, css.Badge)
+
 		if props.Status != "" {
-			status = css.BadgeStatus + " " + string(props.Status)
+			props.Class = append(props.Class, css.BadgeStatus+" "+string(props.Status))
 		}
 
-		floating := ""
 		if props.Floating != "" {
-			floating = css.BadgeFloat + " " + string(props.Floating)
+			props.Class = append(props.Class, css.BadgeFloat+" "+string(props.Floating))
+		}
+
+		if props.Size != "" {
+			props.Class = append(props.Class, string(props.Size))
+		}
+		if props.Shape != "" {
+			props.Class = append(props.Class, string(props.Shape))
+		}
+		if props.Animation != "" {
+			props.Class = append(props.Class, string(props.Animation))
+		}
+
+		if props.Clickable {
+			props.Class = append(props.Class, css.BadgeClickable)
+		}
+		if props.Counter {
+			if props.CounterSmall {
+				props.Class = append(props.Class, css.BadgeCounterSM)
+			} else {
+				props.Class = append(props.Class, css.BadgeCounterLG)
+			}
 		}
 	}}
-	<span
-		id={ props.ID }
-		class={
-			css.Badge, string(props.Size), string(props.Shape), string(status), string(floating), string(props.Animation),
-			templ.KV(css.BadgeClickable, props.Clickable),
-			templ.KV(css.BadgeCounterSM, props.Counter && props.CounterSmall),
-			templ.KV(css.BadgeCounterLG, props.Counter && !props.CounterSmall),
-			props.Class,
-		}
-		onclick={ props.OnClick }
-		{ props.Attributes... }
-	>
+	<span onclick={ props.OnClick } { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }

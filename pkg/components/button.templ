@@ -45,39 +45,35 @@ templ Button(props *ButtonProps) {
 		if props == nil {
 			props = &ButtonProps{}
 		}
+
+		if props.Color != "" {
+			props.Class = append(props.Class, string(props.Color))
+		}
+		if props.Variant != "" {
+			props.Class = append(props.Class, string(props.Variant))
+		}
+		if props.Size != "" {
+			props.Class = append(props.Class, string(props.Size))
+		}
+
+		if props.Icon {
+			props.Class = append(props.Class, css.ButtonIcon)
+		}
+		if props.Loading {
+			props.Class = append(props.Class, css.ButtonLoading)
+		}
 	}}
 	if props.Link != "" {
 		<a
 			role="button"
-			id={ props.ID }
-			class={
-				string(props.Color),
-				string(props.Variant),
-				string(props.Size),
-				templ.KV(css.ButtonIcon, props.Icon),
-				templ.KV(css.ButtonLoading, props.Loading),
-				props.Class,
-			}
 			onclick={ props.OnClick }
 			Href={ props.Link }
-			{ props.Attributes... }
+			{ props.GetAttributes()... }
 		>
 			{ children... }
 		</a>
 	} else {
-		<button
-			id={ props.ID }
-			class={
-				string(props.Color),
-				string(props.Variant),
-				string(props.Size),
-				templ.KV(css.ButtonIcon, props.Icon),
-				templ.KV(css.ButtonLoading, props.Loading),
-				props.Class,
-			}
-			onclick={ props.OnClick }
-			{ props.Attributes... }
-		>
+		<button onclick={ props.OnClick } { props.GetAttributes()... }>
 			{ children... }
 		</button>
 	}

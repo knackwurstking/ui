@@ -161,7 +161,7 @@ func dialogsModalFullscreenClean() templ.Component {
 			}
 			ctx = templ.InitializeContext(ctx)
 			templ_7745c5c3_Err = components.DialogCloseButton(&components.BaseProps{
-				Class: templ.CSSClasses{
+				Class: []string{
 					css.FixedImportant, css.Top0, css.Right0,
 					css.Contrast, css.Ghost,
 					css.M,
@@ -178,10 +178,8 @@ func dialogsModalFullscreenClean() templ.Component {
 		})
 		templ_7745c5c3_Err = components.Dialog(&components.DialogProps{
 			BaseProps: components.BaseProps{
-				ID: id,
-				Class: templ.CSSClasses{
-					css.Flex, css.JustifyCenter, css.ItemsCenter,
-				},
+				ID:    id,
+				Class: []string{css.Flex, css.JustifyCenter, css.ItemsCenter},
 			},
 			Fullscreen: true,
 			Clean:      true,
@@ -201,7 +199,7 @@ func dialogsModalFullscreenClean() templ.Component {
 		var templ_7745c5c3_Var10 string
 		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(IDDialogsModalFullscreenClean)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 45, Col: 40}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 43, Col: 40}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {
@@ -283,7 +281,7 @@ func dialogsModalFullscreenClean() templ.Component {
 	Open
 }`)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 82, Col: 2}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 80, Col: 2}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 		if templ_7745c5c3_Err != nil {

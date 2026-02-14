@@ -25,16 +25,14 @@ templ dialogsModalFullscreenClean() {
 	{{ id := "example-fullscreen-clean-dialog" }}
 	@components.Dialog(&components.DialogProps{
 		BaseProps: components.BaseProps{
-			ID: id,
-			Class: templ.CSSClasses{
-				css.Flex, css.JustifyCenter, css.ItemsCenter,
-			},
+			ID:    id,
+			Class: []string{css.Flex, css.JustifyCenter, css.ItemsCenter},
 		},
 		Fullscreen: true,
 		Clean:      true,
 	}) {
 		@components.DialogCloseButton(&components.BaseProps{
-			Class: templ.CSSClasses{
+			Class: []string{
 				css.FixedImportant, css.Top0, css.Right0,
 				css.Contrast, css.Ghost,
 				css.M,

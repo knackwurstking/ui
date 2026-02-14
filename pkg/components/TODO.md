@@ -2,6 +2,6 @@
 
 - [x] Button
 - [x] Drawer
-- [-] Spinner
+- [x] Spinner
 - [ ] Tabs
 - [ ] Toast
