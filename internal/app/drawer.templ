@@ -15,7 +15,7 @@ templ Drawer() {
 		ID:     IDAppDrawer,
 		ZIndex: 50,
 	}) {
-		<ul id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
+		<ul style={ "padding-bottom: 2.5rem" } id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
 			@drawerItemsText()
 			@drawerItemsButtons()
 			@drawerItemsCards()
