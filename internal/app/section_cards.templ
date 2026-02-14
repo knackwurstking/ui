@@ -35,14 +35,22 @@ templ cardsBasic() {
 	<fieldset id={ IDCardsBasic }>
 		<legend>Basic Cards</legend>
 		<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
-			@components.Card(nil) {
+			@components.Card(&components.CardProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.HFit},
+				},
+			}) {
 				@components.CardBody(nil) {
 					@components.CardTitle("Basic Card", nil)
 					<p>A simple card with default styling.</p>
 				}
 			}
 			@components.Card(&components.CardProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.HFit},
+				},
 				Variant: components.CardVariantOutline,
+				Color:   components.CardColorSecondary,
 			}) {
 				@components.CardBody(nil) {
 					@components.CardTitle("Outline Card", nil)
@@ -50,11 +58,25 @@ templ cardsBasic() {
 				}
 			}
 			@components.Card(&components.CardProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.HFit},
+				},
 				Variant: components.CardVariantSeamless,
 			}) {
 				@components.CardBody(nil) {
-					@components.CardTitle("Seamless Card", nil)
-					<p>A card with seamless variant.</p>
+					@components.CardHeader(nil) {
+						@components.CardTitle("Seamless Card", nil)
+					}
+					@components.CardBody(nil) {
+						<p>
+							A card with seamless variant. 
+							<br/>
+							Borders between Header/Body/Footer are removed.
+						</p>
+					}
+					@components.CardFooter(nil) {
+						<small>Footer content</small>
+					}
 				}
 			}
 		</div>
