@@ -142,11 +142,16 @@ const (
 
 // Position constants
 const (
-	Static   = "static"
-	Relative = "relative"
-	Absolute = "absolute"
-	Fixed    = "fixed"
-	Sticky   = "sticky"
+	Static            = "static"
+	StaticImportant   = "static!"
+	Relative          = "relative"
+	RelativeImportant = "relative!"
+	Absolute          = "absolute"
+	AbsoluteImportant = "absolute!"
+	Fixed             = "fixed"
+	FixedImportant    = "fixed!"
+	Sticky            = "sticky"
+	StickyImportant   = "sticky!"
 
 	Inset0     = "inset-0"
 	Top0       = "top-0"
@@ -542,17 +547,32 @@ templ StylesUtilSpacing() {
 		.static {
 			position: static;
 		}
+		.static\! {
+			position: static !important;
+		}
 		.relative {
 			position: relative;
+		}
+		.relative\! {
+			position: relative !important;
 		}
 		.absolute {
 			position: absolute;
 		}
+		.absolute\! {
+			position: absolute !important;
+		}
 		.fixed {
 			position: fixed;
 		}
+		.fixed\! {
+			position: fixed !important;
+		}
 		.sticky {
 			position: sticky;
+		}
+		.sticky\! {
+			position: sticky !important;
 		}
 
 		/* Position Values */
