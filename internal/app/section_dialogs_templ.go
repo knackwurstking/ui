@@ -246,44 +246,7 @@ func dialogsModalFullscreenClean() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<pre style=\"max-width: calc(100% - 2rem)\">")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var13 string
-		templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(`{{ id := "example-fullscreen-clean-dialog" }}
-@components.Dialog(&components.DialogProps{
-	BaseProps: components.BaseProps{
-		ID:    id,
-		Class: []string{css.Flex, css.JustifyCenter, css.ItemsCenter},
-	},
-	Fullscreen: true,
-	Clean:      true,
-}) {
-	@components.DialogCloseButton(&components.BaseProps{
-		Class: []string{
-			css.FixedImportant, css.Top0, css.Right0,
-			css.Contrast, css.Ghost,
-			css.M,
-		},
-	})
-	<p>This is a example modal dialog. (fullscreen, clean)</p>
-}
-
-<p>Open a modal dialog with props (Fullscreen, Clean)</p>
-@components.Button(&components.ButtonProps{
-	OnClick: openModalDialog(id),
-}) {
-	Open
-}`)
-		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 76, Col: 2}
-		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</pre></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
