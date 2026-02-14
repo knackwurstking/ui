@@ -20,6 +20,7 @@ templ Drawer() {
 			@drawerItemsButtons()
 			@drawerItemsCards()
 			@drawerItemsBadges()
+			@drawerItemsDialogs()
 		</ul>
 	}
 }
@@ -123,6 +124,12 @@ templ drawerItemsBadges() {
 	}
 	@drawerSubItem("#"+IDBadgesColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 		Color Examples
+	}
+}
+
+templ drawerItemsDialogs() {
+	@drawerItem("#"+IDDialogs, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Dialogs
 	}
 }
 

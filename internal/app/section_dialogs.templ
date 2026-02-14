@@ -1,0 +1,18 @@
+package app
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+const (
+	IDDialogs = "section-dialogs"
+)
+
+templ Dialogs() {
+	<section id={ IDDialogs } class={ css.P, css.MT }>
+		@SectionTitle() {
+			Dialogs
+		}
+		@SectionContent() {
+			<p>TODO: Dialogs</p>
+		}
+	</section>
+}
