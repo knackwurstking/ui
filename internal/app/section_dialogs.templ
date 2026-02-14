@@ -32,11 +32,7 @@ templ dialogsModalFullscreenClean() {
 		Clean:      true,
 	}) {
 		@components.DialogCloseButton(&components.BaseProps{
-			Class: []string{
-				css.FixedImportant, css.Top0, css.Right0,
-				css.Contrast, css.Ghost,
-				css.M,
-			},
+			Class: []string{css.Contrast, css.Ghost, css.M},
 		})
 		<p>This is a example modal dialog. (fullscreen, clean)</p>
 	}
