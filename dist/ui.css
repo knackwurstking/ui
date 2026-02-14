@@ -5697,15 +5697,6 @@ dialog.large {
   animation: spinner 0.6s linear infinite;
 }
 
-/* Accessibility - Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .spinner::after {
-    animation: none;
-    /* Show a static indicator instead of spinning */
-    border-top-width: 4px;
-  }
-}
-
 .switch {
   --switch-width: 3rem;
   --switch-height: 1.5rem;
