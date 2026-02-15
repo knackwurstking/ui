@@ -1,0 +1,21 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type ToastProps struct {
+	BaseProps
+
+	// TODO: ...
+}
+
+templ Toast(props *ToastProps) {
+	{{
+		if props == nil {
+			props = &ToastProps{}
+		}
+		props.Class = append(props.Class, css.Toast)
+	}}
+	<span { props.GetAttributes()... }>
+		{ children... }
+	</span>
+}

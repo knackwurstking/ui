@@ -3,5 +3,5 @@
 - [x] Button
 - [x] Drawer
 - [x] Spinner
-- [-] Tabs [TESTING...]
+- [x] Tabs
 - [ ] Toasts
