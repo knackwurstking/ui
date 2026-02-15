@@ -1,3 +1,23 @@
 package components
 
-// TODO: Tabs component(s)
+import "github.com/knackwurstking/ui/pkg/css"
+
+type TabsProps struct {
+	BaseProps
+
+	Active int // Active tab index (1-based, 0 for none)
+}
+
+// TODO: After render, set the active tab based on the Active prop
+templ Tabs(props *TabsProps) {
+	{{
+		if props == nil {
+			props = &TabsProps{}
+		}
+		props.Class = append(props.Class, css.Tabs)
+	}}
+	<span { props.GetAttributes()... }>
+		// How the fuck can i iterate through these children
+		{ children... }
+	</span>
+}
