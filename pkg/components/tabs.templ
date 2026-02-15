@@ -82,7 +82,7 @@ script setActiveTab(id string, tabIndex int, cssTabsTabActive string) {
 
 script handleTabClick(onclick templ.ComponentScript, event templ.JSExpression, cssTabs string, cssTabsTab string, cssTabsTabActive string) {
 	// Get current tab
-	var clickedTab = event.target.closest(`.${css.TabsTab}`);
+	var clickedTab = event.target.closest(`.${cssTabsTab}`);
 	if (!clickedTab) {
 		return;
 	}

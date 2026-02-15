@@ -209,9 +209,9 @@ func setActiveTab(id string, tabIndex int, cssTabsTabActive string) templ.Compon
 
 func handleTabClick(onclick templ.ComponentScript, event templ.JSExpression, cssTabs string, cssTabsTab string, cssTabsTabActive string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_handleTabClick_b930`,
-		Function: `function __templ_handleTabClick_b930(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive){// Get current tab
-	var clickedTab = event.target.closest(` + "`" + `.${css.TabsTab}` + "`" + `);
+		Name: `__templ_handleTabClick_3449`,
+		Function: `function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive){// Get current tab
+	var clickedTab = event.target.closest(` + "`" + `.${cssTabsTab}` + "`" + `);
 	if (!clickedTab) {
 		return;
 	}
@@ -241,8 +241,8 @@ func handleTabClick(onclick templ.ComponentScript, event templ.JSExpression, css
 		eval(onclick.CallInline);
 	}
 }`,
-		Call:       templ.SafeScript(`__templ_handleTabClick_b930`, onclick, event, cssTabs, cssTabsTab, cssTabsTabActive),
-		CallInline: templ.SafeScriptInline(`__templ_handleTabClick_b930`, onclick, event, cssTabs, cssTabsTab, cssTabsTabActive),
+		Call:       templ.SafeScript(`__templ_handleTabClick_3449`, onclick, event, cssTabs, cssTabsTab, cssTabsTabActive),
+		CallInline: templ.SafeScriptInline(`__templ_handleTabClick_3449`, onclick, event, cssTabs, cssTabsTab, cssTabsTabActive),
 	}
 }
 
