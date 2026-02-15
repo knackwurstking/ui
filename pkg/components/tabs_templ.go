@@ -78,13 +78,13 @@ func Tabs(props *TabsProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</span><script>\n\t\tdocument.addEventListener(\"DOMContentLoaded\", function() {\n\t\t\tvar tabsContainer = document.querySelector(`")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</span><script>\n\t\tdocument.addEventListener(\"DOMContentLoaded\", function() {\n\t\t\tvar tabsContainer = document.querySelector(`#")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Var3, templ_7745c5c3_Err := templruntime.ScriptContentInsideStringLiteral(props.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 32, Col: 58}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 32, Col: 59}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var3)
 		if templ_7745c5c3_Err != nil {
@@ -102,7 +102,7 @@ func Tabs(props *TabsProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" not found`);\n\t\t\t} else {\n\t\t\t\tvar activeTab = tabsContainer.dataset.activeTab;\n\t\t\t\tfor (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {\n\t\t\t\t\tif (child.dataset.tab === dataActiveTab) {\n\t\t\t\t\t\tchild.classList.add(\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" not found`);\n\t\t\t} else {\n\t\t\t\tvar activeTab = tabsContainer.dataset.activeTab;\n\t\t\t\tfor (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {\n\t\t\t\t\tif (child.dataset.tab === activeTab) {\n\t\t\t\t\t\tchild.classList.add(\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

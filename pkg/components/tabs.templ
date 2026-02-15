@@ -29,13 +29,13 @@ templ Tabs(props *TabsProps) {
 	</span>
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
-			var tabsContainer = document.querySelector(`{{ props.ID }}[data-active-tab]`);
+			var tabsContainer = document.querySelector(`#{{ props.ID }}[data-active-tab]`);
 			if (!tabsContainer) {
 				console.error(`"tabsContainer" with ID "{{ props.ID }}" not found`);
 			} else {
 				var activeTab = tabsContainer.dataset.activeTab;
 				for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
-					if (child.dataset.tab === dataActiveTab) {
+					if (child.dataset.tab === activeTab) {
 						child.classList.add("{{ css.TabsTabActive }}");
 					} else {
 						child.classList.remove("{{ css.TabsTabActive }}");
