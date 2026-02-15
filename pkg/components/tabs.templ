@@ -29,11 +29,10 @@ templ Tabs(props *TabsProps) {
 		}
 		{ props.GetAttributes()... }
 	>
-		// How the fuck can i iterate through these children
 		{ children... }
 	</span>
 	if props.ActiveTab > 0 {
-		@setActiveTab(props.ActiveTab, true)
+		@setActiveTab(props.ID, props.ActiveTab, true)
 	}
 }
 
@@ -50,23 +49,26 @@ templ Tab(props *TabProps) {
 		}
 		props.Class = append(props.Class, css.TabsTab)
 	}}
-	// TODO: onclick: setActiveTab(props.Index)
-	<span data-tab={ props.Index } { props.GetAttributes()... }>
+	<span
+		data-tab={ props.Index }
+		onclick={ handleTabClick(templ.JSExpression("event")) }
+		{ props.GetAttributes()... }
+	>
 		{ children... }
 	</span>
 }
 
-script setActiveTab(tabIndex int, onLoad bool) {
+script setActiveTab(id string, tabIndex int, onLoad bool) {
 	if onLoad {
 		document.addEventListener("DOMContentLoaded", function() {
-			setActiveTab(tabIndex, false)
+			setActiveTab(id, tabIndex, false)
 		})
 		return
 	}
 
-	var tabsContainer = document.querySelector(`#{{ props.ID }}`);
+	var tabsContainer = document.querySelector(`#` + id);
 	if (!tabsContainer) {
-		console.error(`"tabsContainer" with ID "{{ props.ID }}" not found`);
+		console.error(`"tabsContainer" with ID "` + id + `" not found`);
 		return;
 	}
 
@@ -82,4 +84,25 @@ script setActiveTab(tabIndex int, onLoad bool) {
 			child.classList.remove("{{ css.TabsTabActive }}");
 		}
 	}
+}
+
+script handleTabClick(event templ.JSExpression) {
+	// Get current tab
+	var clickedTab = event.target.closest(`.{{ css.TabsTab }}`);
+	if (!clickedTab) {
+		return;
+	}
+
+	// Get tab index
+	var tabIndex = clickedTab.dataset.tab;
+	// Get tabs container
+	var tabsContainer = clickedTab.closest(`.{{ css.Tabs }}`);
+	if (!tabsContainer) {
+		return;
+	}
+
+	// Set active tab
+	tabsContainer.dataset.activeTab = tabIndex;
+	// Update active tab classes
+	setActiveTab(tabsContainer.id, tabIndex, false);
 }
