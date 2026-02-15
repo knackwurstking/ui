@@ -88,6 +88,9 @@ templ cardsSizes() {
 		<legend>Card Sizes</legend>
 		<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 			@components.Card(&components.CardProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.HFit},
+				},
 				Size: components.CardSizeCompact,
 			}) {
 				@components.CardBody(nil) {
@@ -96,6 +99,9 @@ templ cardsSizes() {
 				}
 			}
 			@components.Card(&components.CardProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.HFit},
+				},
 				Size: components.CardSizeCompfortable,
 			}) {
 				@components.CardBody(nil) {
@@ -104,6 +110,9 @@ templ cardsSizes() {
 				}
 			}
 			@components.Card(&components.CardProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.HFit},
+				},
 				Size: components.CardSizeSpacious,
 			}) {
 				@components.CardBody(nil) {
@@ -241,11 +250,13 @@ templ cardsActions() {
 					@components.CardTitle("Actions Center", nil)
 					<p>Card with center-aligned actions.</p>
 				}
-				@components.CardActions(&components.CardActionsProps{
-					Justify: components.CardActionsJustifyCenter,
-				}) {
-					<button>Cancel</button>
-					<button>Submit</button>
+				@components.CardFooter(nil) {
+					@components.CardActions(&components.CardActionsProps{
+						Justify: components.CardActionsJustifyCenter,
+					}) {
+						<button>Cancel</button>
+						<button>Submit</button>
+					}
 				}
 			}
 			@components.Card(nil) {
@@ -253,11 +264,13 @@ templ cardsActions() {
 					@components.CardTitle("Actions End", nil)
 					<p>Card with end-aligned actions.</p>
 				}
-				@components.CardActions(&components.CardActionsProps{
-					Justify: components.CardActionsJustifyEnd,
-				}) {
-					<button>Dismiss</button>
-					<button>Confirm</button>
+				@components.CardFooter(nil) {
+					@components.CardActions(&components.CardActionsProps{
+						Justify: components.CardActionsJustifyEnd,
+					}) {
+						<button>Dismiss</button>
+						<button>Confirm</button>
+					}
 				}
 			}
 			@components.Card(nil) {
@@ -265,11 +278,13 @@ templ cardsActions() {
 					@components.CardTitle("Actions Between", nil)
 					<p>Card with space-between actions.</p>
 				}
-				@components.CardActions(&components.CardActionsProps{
-					Justify: components.CardActionsJustifyBetween,
-				}) {
-					<button>Previous</button>
-					<button>Next</button>
+				@components.CardFooter(nil) {
+					@components.CardActions(&components.CardActionsProps{
+						Justify: components.CardActionsJustifyBetween,
+					}) {
+						<button>Previous</button>
+						<button>Next</button>
+					}
 				}
 			}
 		</div>

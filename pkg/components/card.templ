@@ -174,7 +174,7 @@ templ CardActions(props *CardActionsProps) {
 			props.Class = append(props.Class, string(props.Justify))
 		}
 	}}
-	<span { props.Attributes... }>
+	<div { props.GetAttributes()... }>
 		{ children... }
-	</span>
+	</div>
 }
