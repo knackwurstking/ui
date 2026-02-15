@@ -176,7 +176,7 @@ func tabsExample() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Tab(&components.TabProps{Index: 1}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Tab(&components.TabProps{Index: 1, OnClick: log("Tab 1 clicked")}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var9), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -202,7 +202,7 @@ func tabsExample() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Tab(&components.TabProps{Index: 2}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var10), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Tab(&components.TabProps{Index: 2, OnClick: log("Tab 2 clicked")}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var10), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -228,7 +228,7 @@ func tabsExample() templ.Component {
 				}
 				return nil
 			})
-			templ_7745c5c3_Err = components.Tab(&components.TabProps{Index: 3}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.Tab(&components.TabProps{Index: 3, OnClick: log("Tab 3 clicked")}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

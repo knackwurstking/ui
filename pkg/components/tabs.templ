@@ -1,6 +1,8 @@
 package components
 
 import (
+	"bytes"
+	"context"
 	"github.com/google/uuid"
 	"github.com/knackwurstking/ui/pkg/css"
 )
@@ -39,8 +41,8 @@ templ Tabs(props *TabsProps) {
 type TabProps struct {
 	BaseProps
 
-	Index int // Index (1-based)
-	// TODO: Add OnClick handler prop, so the client can do stuff
+	Index   int // Index (1-based)
+	OnClick templ.ComponentScript
 }
 
 templ Tab(props *TabProps) {
@@ -49,10 +51,15 @@ templ Tab(props *TabProps) {
 			props = &TabProps{}
 		}
 		props.Class = append(props.Class, css.TabsTab)
+
+		var b bytes.Buffer
+		if err := props.OnClick.Render(context.Background(), &b); err != nil {
+			panic(err)
+		}
 	}}
 	<span
 		data-tab={ props.Index }
-		onclick={ handleTabClick(templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive) }
+		onclick={ handleTabClick(b.String(), templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive) }
 		{ props.GetAttributes()... }
 	>
 		{ children... }
@@ -80,7 +87,7 @@ script setActiveTab(id string, tabIndex int, tabsActiveClass string) {
 	}
 }
 
-script handleTabClick(event templ.JSExpression, tabsClass string, tabClass string, tabsActiveClass string) {
+script handleTabClick(onclick string, event templ.JSExpression, tabsClass string, tabClass string, tabsActiveClass string) {
 	// Get current tab
 	var clickedTab = event.target.closest(`.${tabClass}`);
 	if (!clickedTab) {
@@ -105,5 +112,9 @@ script handleTabClick(event templ.JSExpression, tabsClass string, tabClass strin
 		} else {
 			child.classList.remove(tabsActiveClass);
 		}
+	}
+
+	if (onclick !== "") {
+		onclick(event);
 	}
 }

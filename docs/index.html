@@ -6144,7 +6144,7 @@
 	} catch (error) {
 		console.error('Error opening dialog:', error);
 	}
-}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section>  <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="ddca6ea5-fe82-4717-93e7-39424bf8aa9e"><script>function __templ_handleTabClick_2433(event, tabsClass, tabClass, tabsActiveClass){// Get current tab
+}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section>  <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="fbbff576-2c90-49eb-a148-13a8fac1d7d8"><script>function __templ_handleTabClick_89ce(onclick, event, tabsClass, tabClass, tabsActiveClass){// Get current tab
 	var clickedTab = event.target.closest(`.${tabClass}`);
 	if (!clickedTab) {
 		return;
@@ -6169,7 +6169,11 @@
 			child.classList.remove(tabsActiveClass);
 		}
 	}
-}</script><span data-tab="1" onclick="__templ_handleTabClick_2433(event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 1</span> <span data-tab="2" onclick="__templ_handleTabClick_2433(event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 2</span> <span data-tab="3" onclick="__templ_handleTabClick_2433(event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 3</span></span> <script>function __templ_setActiveTab_a326(id, tabIndex, tabsActiveClass){var tabsContainer = document.querySelector(`#` + id);
+
+	if (onclick !== "") {
+		onclick(event);
+	}
+}</script><span data-tab="1" onclick="__templ_handleTabClick_89ce(&#34;\u003cscript\u003efunction __templ_log_72fb(message){console.log(message);\n}\u003c/script\u003e\u003cscript\u003e__templ_log_72fb(\&#34;Tab 1 clicked\&#34;)\u003c/script\u003e&#34;,event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 1</span> <span data-tab="2" onclick="__templ_handleTabClick_89ce(&#34;\u003cscript\u003efunction __templ_log_72fb(message){console.log(message);\n}\u003c/script\u003e\u003cscript\u003e__templ_log_72fb(\&#34;Tab 2 clicked\&#34;)\u003c/script\u003e&#34;,event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 2</span> <span data-tab="3" onclick="__templ_handleTabClick_89ce(&#34;\u003cscript\u003efunction __templ_log_72fb(message){console.log(message);\n}\u003c/script\u003e\u003cscript\u003e__templ_log_72fb(\&#34;Tab 3 clicked\&#34;)\u003c/script\u003e&#34;,event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 3</span></span> <script>function __templ_setActiveTab_a326(id, tabIndex, tabsActiveClass){var tabsContainer = document.querySelector(`#` + id);
 	if (!tabsContainer) {
 		console.error(`"tabsContainer" with ID "` + id + `" not found`);
 		return;
@@ -6187,4 +6191,4 @@
 			child.classList.remove(tabsActiveClass);
 		}
 	}
-}</script><script>__templ_setActiveTab_a326("ddca6ea5-fe82-4717-93e7-39424bf8aa9e",1,"active")</script></div></section> </span></div></body></html>
+}</script><script>__templ_setActiveTab_a326("fbbff576-2c90-49eb-a148-13a8fac1d7d8",1,"active")</script></div></section> </span></div></body></html>

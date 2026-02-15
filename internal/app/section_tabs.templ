@@ -24,13 +24,13 @@ templ tabsExample() {
 	@components.Tabs(&components.TabsProps{
 		ActiveTab: 1,
 	}) {
-		@components.Tab(&components.TabProps{Index: 1}) {
+		@components.Tab(&components.TabProps{Index: 1, OnClick: log("Tab 1 clicked")}) {
 			Tab 1
 		}
-		@components.Tab(&components.TabProps{Index: 2}) {
+		@components.Tab(&components.TabProps{Index: 2, OnClick: log("Tab 2 clicked")}) {
 			Tab 2
 		}
-		@components.Tab(&components.TabProps{Index: 3}) {
+		@components.Tab(&components.TabProps{Index: 3, OnClick: log("Tab 3 clicked")}) {
 			Tab 3
 		}
 	}

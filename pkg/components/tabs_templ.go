@@ -9,6 +9,8 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
+	"bytes"
+	"context"
 	"github.com/google/uuid"
 	"github.com/knackwurstking/ui/pkg/css"
 )
@@ -61,7 +63,7 @@ func Tabs(props *TabsProps) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(props.ActiveTab)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 28, Col: 36}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 30, Col: 36}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -101,8 +103,8 @@ func Tabs(props *TabsProps) templ.Component {
 type TabProps struct {
 	BaseProps
 
-	Index int // Index (1-based)
-	// TODO: Add OnClick handler prop, so the client can do stuff
+	Index   int // Index (1-based)
+	OnClick templ.ComponentScript
 }
 
 func Tab(props *TabProps) templ.Component {
@@ -130,7 +132,12 @@ func Tab(props *TabProps) templ.Component {
 			props = &TabProps{}
 		}
 		props.Class = append(props.Class, css.TabsTab)
-		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, handleTabClick(templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive))
+
+		var b bytes.Buffer
+		if err := props.OnClick.Render(context.Background(), &b); err != nil {
+			panic(err)
+		}
+		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, handleTabClick(b.String(), templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -141,7 +148,7 @@ func Tab(props *TabProps) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(props.Index)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 54, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 61, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -151,7 +158,7 @@ func Tab(props *TabProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var5 templ.ComponentScript = handleTabClick(templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive)
+		var templ_7745c5c3_Var5 templ.ComponentScript = handleTabClick(b.String(), templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive)
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var5.Call)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -207,10 +214,10 @@ func setActiveTab(id string, tabIndex int, tabsActiveClass string) templ.Compone
 	}
 }
 
-func handleTabClick(event templ.JSExpression, tabsClass string, tabClass string, tabsActiveClass string) templ.ComponentScript {
+func handleTabClick(onclick string, event templ.JSExpression, tabsClass string, tabClass string, tabsActiveClass string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_handleTabClick_2433`,
-		Function: `function __templ_handleTabClick_2433(event, tabsClass, tabClass, tabsActiveClass){// Get current tab
+		Name: `__templ_handleTabClick_89ce`,
+		Function: `function __templ_handleTabClick_89ce(onclick, event, tabsClass, tabClass, tabsActiveClass){// Get current tab
 	var clickedTab = event.target.closest(` + "`" + `.${tabClass}` + "`" + `);
 	if (!clickedTab) {
 		return;
@@ -235,9 +242,13 @@ func handleTabClick(event templ.JSExpression, tabsClass string, tabClass string,
 			child.classList.remove(tabsActiveClass);
 		}
 	}
+
+	if (onclick !== "") {
+		onclick(event);
+	}
 }`,
-		Call:       templ.SafeScript(`__templ_handleTabClick_2433`, event, tabsClass, tabClass, tabsActiveClass),
-		CallInline: templ.SafeScriptInline(`__templ_handleTabClick_2433`, event, tabsClass, tabClass, tabsActiveClass),
+		Call:       templ.SafeScript(`__templ_handleTabClick_89ce`, onclick, event, tabsClass, tabClass, tabsActiveClass),
+		CallInline: templ.SafeScriptInline(`__templ_handleTabClick_89ce`, onclick, event, tabsClass, tabClass, tabsActiveClass),
 	}
 }
 

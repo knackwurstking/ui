@@ -135,4 +135,17 @@ func toggleTheme() templ.ComponentScript {
 	}
 }
 
+// -----------------------------------------------------------------------------
+// Utility Scripts
+// -----------------------------------------------------------------------------
+func log(message string) templ.ComponentScript {
+	return templ.ComponentScript{
+		Name: `__templ_log_72fb`,
+		Function: `function __templ_log_72fb(message){console.log(message);
+}`,
+		Call:       templ.SafeScript(`__templ_log_72fb`, message),
+		CallInline: templ.SafeScriptInline(`__templ_log_72fb`, message),
+	}
+}
+
 var _ = templruntime.GeneratedTemplate
