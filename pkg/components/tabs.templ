@@ -23,27 +23,18 @@ templ Tabs(props *TabsProps) {
 			props.ID = uuid.New().String()
 		}
 	}}
-	<span data-active-tab={ props.ActiveTab } { props.GetAttributes()... }>
+	<span
+		if props.ActiveTab > 0 {
+			data-active-tab={ props.ActiveTab }
+		}
+		{ props.GetAttributes()... }
+	>
 		// How the fuck can i iterate through these children
 		{ children... }
 	</span>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var tabsContainer = document.querySelector(`#{{ props.ID }}[data-active-tab]`);
-			if (!tabsContainer) {
-				console.error(`"tabsContainer" with ID "{{ props.ID }}" not found`);
-			} else {
-				var activeTab = tabsContainer.dataset.activeTab;
-				for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
-					if (child.dataset.tab === activeTab) {
-						child.classList.add("{{ css.TabsTabActive }}");
-					} else {
-						child.classList.remove("{{ css.TabsTabActive }}");
-					}
-				}
-			}
-		})
-	</script>
+	if props.ActiveTab > 0 {
+		@setActiveTab(props.ActiveTab, true)
+	}
 }
 
 type TabProps struct {
@@ -59,7 +50,36 @@ templ Tab(props *TabProps) {
 		}
 		props.Class = append(props.Class, css.TabsTab)
 	}}
+	// TODO: onclick: setActiveTab(props.Index)
 	<span data-tab={ props.Index } { props.GetAttributes()... }>
 		{ children... }
 	</span>
+}
+
+script setActiveTab(tabIndex int, onLoad bool) {
+	if onLoad {
+		document.addEventListener("DOMContentLoaded", function() {
+			setActiveTab(tabIndex, false)
+		})
+		return
+	}
+
+	var tabsContainer = document.querySelector(`#{{ props.ID }}`);
+	if (!tabsContainer) {
+		console.error(`"tabsContainer" with ID "{{ props.ID }}" not found`);
+		return;
+	}
+
+	var activeTab = tabsContainer.dataset.activeTab;
+	if (!activeTab) {
+		return;
+	}
+
+	for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
+		if (child.dataset.tab === activeTab) {
+			child.classList.add("{{ css.TabsTabActive }}");
+		} else {
+			child.classList.remove("{{ css.TabsTabActive }}");
+		}
+	}
 }
