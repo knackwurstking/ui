@@ -52,7 +52,10 @@ templ Tab(props *TabProps) {
 	}}
 	<span
 		data-tab={ props.Index }
-		onclick={ handleTabClick(props.OnClick, templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive) }
+		onclick={ handleTabClick(
+			props.OnClick, templ.JSExpression("event"), 
+			css.Tabs, css.TabsTab, css.TabsTabActive,
+		) }
 		{ props.GetAttributes()... }
 	>
 		{ children... }
@@ -80,7 +83,10 @@ script setActiveTab(id string, tabIndex int, cssTabsTabActive string) {
 	}
 }
 
-script handleTabClick(onclick templ.ComponentScript, event templ.JSExpression, cssTabs string, cssTabsTab string, cssTabsTabActive string) {
+script handleTabClick(
+	onclick templ.ComponentScript, event templ.JSExpression,
+	cssTabs string, cssTabsTab string, cssTabsTabActive string,
+) {
 	// Get current tab
 	var clickedTab = event.target.closest(`.${cssTabsTab}`);
 	if (!clickedTab) {

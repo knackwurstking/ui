@@ -130,7 +130,10 @@ func Tab(props *TabProps) templ.Component {
 			props = &TabProps{}
 		}
 		props.Class = append(props.Class, css.TabsTab)
-		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, handleTabClick(props.OnClick, templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive))
+		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, handleTabClick(
+			props.OnClick, templ.JSExpression("event"),
+			css.Tabs, css.TabsTab, css.TabsTabActive,
+		))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -151,7 +154,10 @@ func Tab(props *TabProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var5 templ.ComponentScript = handleTabClick(props.OnClick, templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive)
+		var templ_7745c5c3_Var5 templ.ComponentScript = handleTabClick(
+			props.OnClick, templ.JSExpression("event"),
+			css.Tabs, css.TabsTab, css.TabsTabActive,
+		)
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var5.Call)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -207,10 +213,13 @@ func setActiveTab(id string, tabIndex int, cssTabsTabActive string) templ.Compon
 	}
 }
 
-func handleTabClick(onclick templ.ComponentScript, event templ.JSExpression, cssTabs string, cssTabsTab string, cssTabsTabActive string) templ.ComponentScript {
+func handleTabClick(
+	onclick templ.ComponentScript, event templ.JSExpression,
+	cssTabs string, cssTabsTab string, cssTabsTabActive string,
+) templ.ComponentScript {
 	return templ.ComponentScript{
 		Name: `__templ_handleTabClick_3449`,
-		Function: `function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive){// Get current tab
+		Function: `function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive, ){// Get current tab
 	var clickedTab = event.target.closest(` + "`" + `.${cssTabsTab}` + "`" + `);
 	if (!clickedTab) {
 		return;
