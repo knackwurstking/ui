@@ -1,0 +1,37 @@
+package app
+
+import (
+	"github.com/knackwurstking/ui/pkg/components"
+	"github.com/knackwurstking/ui/pkg/css"
+)
+
+const (
+	IDTabs = "section-tabs"
+)
+
+templ Tabs() {
+	<section id={ IDTabs } class={ css.P, css.MT }>
+		@SectionTitle() {
+			Tabs
+		}
+		@SectionContent() {
+			@tabsExample()
+		}
+	</section>
+}
+
+templ tabsExample() {
+	@components.Tabs(&components.TabsProps{
+		ActiveTab: 1,
+	}) {
+		@components.Tab(&components.TabProps{Index: 1}) {
+			Tab 1
+		}
+		@components.Tab(&components.TabProps{Index: 2}) {
+			Tab 2
+		}
+		@components.Tab(&components.TabProps{Index: 3}) {
+			Tab 3
+		}
+	}
+}

@@ -32,7 +32,7 @@ templ Tabs(props *TabsProps) {
 		{ children... }
 	</span>
 	if props.ActiveTab > 0 {
-		@setActiveTab(props.ID, props.ActiveTab, true)
+		@setActiveTab(props.ID, props.ActiveTab, css.TabsTabActive)
 	}
 }
 
@@ -51,21 +51,14 @@ templ Tab(props *TabProps) {
 	}}
 	<span
 		data-tab={ props.Index }
-		onclick={ handleTabClick(templ.JSExpression("event")) }
+		onclick={ handleTabClick(templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive) }
 		{ props.GetAttributes()... }
 	>
 		{ children... }
 	</span>
 }
 
-script setActiveTab(id string, tabIndex int, onLoad bool) {
-	if onLoad {
-		document.addEventListener("DOMContentLoaded", function() {
-			setActiveTab(id, tabIndex, false)
-		})
-		return
-	}
-
+script setActiveTab(id string, tabIndex int, tabsActiveClass string) {
 	var tabsContainer = document.querySelector(`#` + id);
 	if (!tabsContainer) {
 		console.error(`"tabsContainer" with ID "` + id + `" not found`);
@@ -79,16 +72,16 @@ script setActiveTab(id string, tabIndex int, onLoad bool) {
 
 	for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
 		if (child.dataset.tab === activeTab) {
-			child.classList.add("{{ css.TabsTabActive }}");
+			child.classList.add(tabsActiveClass);
 		} else {
-			child.classList.remove("{{ css.TabsTabActive }}");
+			child.classList.remove(tabsActiveClass);
 		}
 	}
 }
 
-script handleTabClick(event templ.JSExpression) {
+script handleTabClick(event templ.JSExpression, tabsClass string, tabClass string, tabsActiveClass string) {
 	// Get current tab
-	var clickedTab = event.target.closest(`.{{ css.TabsTab }}`);
+	var clickedTab = event.target.closest(`.${tabClass}`);
 	if (!clickedTab) {
 		return;
 	}
@@ -96,13 +89,20 @@ script handleTabClick(event templ.JSExpression) {
 	// Get tab index
 	var tabIndex = clickedTab.dataset.tab;
 	// Get tabs container
-	var tabsContainer = clickedTab.closest(`.{{ css.Tabs }}`);
+	var tabsContainer = clickedTab.closest(`.${tabsClass}`);
 	if (!tabsContainer) {
 		return;
 	}
 
 	// Set active tab
 	tabsContainer.dataset.activeTab = tabIndex;
+
 	// Update active tab classes
-	setActiveTab(tabsContainer.id, tabIndex, false);
+	for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
+		if (child.dataset.tab === tabIndex) {
+			child.classList.add(tabsActiveClass);
+		} else {
+			child.classList.remove(tabsActiveClass);
+		}
+	}
 }

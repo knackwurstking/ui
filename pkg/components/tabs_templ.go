@@ -89,7 +89,7 @@ func Tabs(props *TabsProps) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		if props.ActiveTab > 0 {
-			templ_7745c5c3_Err = setActiveTab(props.ID, props.ActiveTab, true).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = setActiveTab(props.ID, props.ActiveTab, css.TabsTabActive).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -129,7 +129,7 @@ func Tab(props *TabProps) templ.Component {
 			props = &TabProps{}
 		}
 		props.Class = append(props.Class, css.TabsTab)
-		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, handleTabClick(templ.JSExpression("event")))
+		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, handleTabClick(templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -150,7 +150,7 @@ func Tab(props *TabProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var5 templ.ComponentScript = handleTabClick(templ.JSExpression("event"))
+		var templ_7745c5c3_Var5 templ.ComponentScript = handleTabClick(templ.JSExpression("event"), css.Tabs, css.TabsTab, css.TabsTabActive)
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var5.Call)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -179,17 +179,10 @@ func Tab(props *TabProps) templ.Component {
 	})
 }
 
-func setActiveTab(id string, tabIndex int, onLoad bool) templ.ComponentScript {
+func setActiveTab(id string, tabIndex int, tabsActiveClass string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_setActiveTab_1a48`,
-		Function: `function __templ_setActiveTab_1a48(id, tabIndex, onLoad){if onLoad {
-		document.addEventListener("DOMContentLoaded", function() {
-			setActiveTab(id, tabIndex, false)
-		})
-		return
-	}
-
-	var tabsContainer = document.querySelector(` + "`" + `#` + "`" + ` + id);
+		Name: `__templ_setActiveTab_a326`,
+		Function: `function __templ_setActiveTab_a326(id, tabIndex, tabsActiveClass){var tabsContainer = document.querySelector(` + "`" + `#` + "`" + ` + id);
 	if (!tabsContainer) {
 		console.error(` + "`" + `"tabsContainer" with ID "` + "`" + ` + id + ` + "`" + `" not found` + "`" + `);
 		return;
@@ -202,22 +195,22 @@ func setActiveTab(id string, tabIndex int, onLoad bool) templ.ComponentScript {
 
 	for (var child of tabsContainer.querySelectorAll(` + "`" + `[data-tab]` + "`" + `)) {
 		if (child.dataset.tab === activeTab) {
-			child.classList.add("{{ css.TabsTabActive }}");
+			child.classList.add(tabsActiveClass);
 		} else {
-			child.classList.remove("{{ css.TabsTabActive }}");
+			child.classList.remove(tabsActiveClass);
 		}
 	}
 }`,
-		Call:       templ.SafeScript(`__templ_setActiveTab_1a48`, id, tabIndex, onLoad),
-		CallInline: templ.SafeScriptInline(`__templ_setActiveTab_1a48`, id, tabIndex, onLoad),
+		Call:       templ.SafeScript(`__templ_setActiveTab_a326`, id, tabIndex, tabsActiveClass),
+		CallInline: templ.SafeScriptInline(`__templ_setActiveTab_a326`, id, tabIndex, tabsActiveClass),
 	}
 }
 
-func handleTabClick(event templ.JSExpression) templ.ComponentScript {
+func handleTabClick(event templ.JSExpression, tabsClass string, tabClass string, tabsActiveClass string) templ.ComponentScript {
 	return templ.ComponentScript{
-		Name: `__templ_handleTabClick_fe09`,
-		Function: `function __templ_handleTabClick_fe09(event){// Get current tab
-	var clickedTab = event.target.closest(` + "`" + `.{{ css.TabsTab }}` + "`" + `);
+		Name: `__templ_handleTabClick_2433`,
+		Function: `function __templ_handleTabClick_2433(event, tabsClass, tabClass, tabsActiveClass){// Get current tab
+	var clickedTab = event.target.closest(` + "`" + `.${tabClass}` + "`" + `);
 	if (!clickedTab) {
 		return;
 	}
@@ -225,18 +218,25 @@ func handleTabClick(event templ.JSExpression) templ.ComponentScript {
 	// Get tab index
 	var tabIndex = clickedTab.dataset.tab;
 	// Get tabs container
-	var tabsContainer = clickedTab.closest(` + "`" + `.{{ css.Tabs }}` + "`" + `);
+	var tabsContainer = clickedTab.closest(` + "`" + `.${tabsClass}` + "`" + `);
 	if (!tabsContainer) {
 		return;
 	}
 
 	// Set active tab
 	tabsContainer.dataset.activeTab = tabIndex;
+
 	// Update active tab classes
-	setActiveTab(tabsContainer.id, tabIndex, false);
+	for (var child of tabsContainer.querySelectorAll(` + "`" + `[data-tab]` + "`" + `)) {
+		if (child.dataset.tab === tabIndex) {
+			child.classList.add(tabsActiveClass);
+		} else {
+			child.classList.remove(tabsActiveClass);
+		}
+	}
 }`,
-		Call:       templ.SafeScript(`__templ_handleTabClick_fe09`, event),
-		CallInline: templ.SafeScriptInline(`__templ_handleTabClick_fe09`, event),
+		Call:       templ.SafeScript(`__templ_handleTabClick_2433`, event, tabsClass, tabClass, tabsActiveClass),
+		CallInline: templ.SafeScriptInline(`__templ_handleTabClick_2433`, event, tabsClass, tabClass, tabsActiveClass),
 	}
 }
 

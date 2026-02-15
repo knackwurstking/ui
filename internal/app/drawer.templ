@@ -23,6 +23,7 @@ templ Drawer() {
 			@drawerItemsCards()
 			@drawerItemsBadges()
 			@drawerItemsDialogs()
+			@drawerItemsTabs()
 		</ul>
 	}
 }
@@ -135,6 +136,12 @@ templ drawerItemsDialogs() {
 	}
 	@drawerSubItem("#"+IDDialogsModalFullscreenClean, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 		(Modal) Fullscreen Clean
+	}
+}
+
+templ drawerItemsTabs() {
+	@drawerItem("#"+IDTabs, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Tabs
 	}
 }
 
