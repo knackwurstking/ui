@@ -33,8 +33,9 @@ templ Tabs(props *TabsProps) {
 			if (!tabsContainer) {
 				console.error(`"tabsContainer" with ID "{{ props.ID }}" not found`);
 			} else {
+				var activeTab = tabsContainer.dataset.activeTab;
 				for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
-					if (child.dataset.tab == == dataActiveTab) {
+					if (child.dataset.tab === dataActiveTab) {
 						child.classList.add("{{ css.TabsTabActive }}");
 					} else {
 						child.classList.remove("{{ css.TabsTabActive }}");
