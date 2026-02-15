@@ -6144,8 +6144,8 @@
 	} catch (error) {
 		console.error('Error opening dialog:', error);
 	}
-}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section>  <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-9ac9b5ad-4846-4d18-b3f9-67ee3d4cec19"><script>function __templ_handleTabClick_394c(onclick, event, tabsClass, tabClass, tabsActiveClass){// Get current tab
-	var clickedTab = event.target.closest(`.${tabClass}`);
+}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section>  <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-e558c9b8-ce12-45ca-a68e-34fb15df31b3"><script>function __templ_handleTabClick_b930(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive){// Get current tab
+	var clickedTab = event.target.closest(`.${css.TabsTab}`);
 	if (!clickedTab) {
 		return;
 	}
@@ -6153,7 +6153,7 @@
 	// Get tab index
 	var tabIndex = clickedTab.dataset.tab;
 	// Get tabs container
-	var tabsContainer = clickedTab.closest(`.${tabsClass}`);
+	var tabsContainer = clickedTab.closest(`.${cssTabs}`);
 	if (!tabsContainer) {
 		return;
 	}
@@ -6164,9 +6164,9 @@
 	// Update active tab classes
 	for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
 		if (child.dataset.tab === tabIndex) {
-			child.classList.add(tabsActiveClass);
+			child.classList.add(cssTabsTabActive);
 		} else {
-			child.classList.remove(tabsActiveClass);
+			child.classList.remove(cssTabsTabActive);
 		}
 	}
 
@@ -6174,7 +6174,7 @@
 		eval(onclick.Function);
 		eval(onclick.CallInline);
 	}
-}</script><span data-tab="1" onclick="__templ_handleTabClick_394c({&#34;Name&#34;:&#34;__templ_log_72fb&#34;,&#34;Function&#34;:&#34;function __templ_log_72fb(message){console.log(message);\n}&#34;,&#34;Call&#34;:&#34;__templ_log_72fb(\u0026#34;Tab 1 clicked\u0026#34;)&#34;,&#34;CallInline&#34;:&#34;__templ_log_72fb(\&#34;Tab 1 clicked\&#34;)&#34;},event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 1</span> <span data-tab="2" onclick="__templ_handleTabClick_394c({&#34;Name&#34;:&#34;__templ_log_72fb&#34;,&#34;Function&#34;:&#34;function __templ_log_72fb(message){console.log(message);\n}&#34;,&#34;Call&#34;:&#34;__templ_log_72fb(\u0026#34;Tab 2 clicked\u0026#34;)&#34;,&#34;CallInline&#34;:&#34;__templ_log_72fb(\&#34;Tab 2 clicked\&#34;)&#34;},event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 2</span> <span data-tab="3" onclick="__templ_handleTabClick_394c({&#34;Name&#34;:&#34;__templ_log_72fb&#34;,&#34;Function&#34;:&#34;function __templ_log_72fb(message){console.log(message);\n}&#34;,&#34;Call&#34;:&#34;__templ_log_72fb(\u0026#34;Tab 3 clicked\u0026#34;)&#34;,&#34;CallInline&#34;:&#34;__templ_log_72fb(\&#34;Tab 3 clicked\&#34;)&#34;},event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 3</span></span> <script>function __templ_setActiveTab_a326(id, tabIndex, tabsActiveClass){var tabsContainer = document.querySelector(`#` + id);
+}</script><span data-tab="1" onclick="__templ_handleTabClick_b930({&#34;Name&#34;:&#34;__templ_log_72fb&#34;,&#34;Function&#34;:&#34;function __templ_log_72fb(message){console.log(message);\n}&#34;,&#34;Call&#34;:&#34;__templ_log_72fb(\u0026#34;Tab 1 clicked\u0026#34;)&#34;,&#34;CallInline&#34;:&#34;__templ_log_72fb(\&#34;Tab 1 clicked\&#34;)&#34;},event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 1</span> <span data-tab="2" onclick="__templ_handleTabClick_b930({&#34;Name&#34;:&#34;__templ_log_72fb&#34;,&#34;Function&#34;:&#34;function __templ_log_72fb(message){console.log(message);\n}&#34;,&#34;Call&#34;:&#34;__templ_log_72fb(\u0026#34;Tab 2 clicked\u0026#34;)&#34;,&#34;CallInline&#34;:&#34;__templ_log_72fb(\&#34;Tab 2 clicked\&#34;)&#34;},event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 2</span> <span data-tab="3" onclick="__templ_handleTabClick_b930({&#34;Name&#34;:&#34;__templ_log_72fb&#34;,&#34;Function&#34;:&#34;function __templ_log_72fb(message){console.log(message);\n}&#34;,&#34;Call&#34;:&#34;__templ_log_72fb(\u0026#34;Tab 3 clicked\u0026#34;)&#34;,&#34;CallInline&#34;:&#34;__templ_log_72fb(\&#34;Tab 3 clicked\&#34;)&#34;},event,&#34;tabs&#34;,&#34;tab&#34;,&#34;active&#34;)" class="tab">Tab 3</span></span> <script>function __templ_setActiveTab_65a7(id, tabIndex, cssTabsTabActive){var tabsContainer = document.querySelector(`#` + id);
 	if (!tabsContainer) {
 		console.error(`"tabsContainer" with ID "` + id + `" not found`);
 		return;
@@ -6187,9 +6187,9 @@
 
 	for (var child of tabsContainer.querySelectorAll(`[data-tab]`)) {
 		if (child.dataset.tab === activeTab) {
-			child.classList.add(tabsActiveClass);
+			child.classList.add(cssTabsTabActive);
 		} else {
-			child.classList.remove(tabsActiveClass);
+			child.classList.remove(cssTabsTabActive);
 		}
 	}
-}</script><script>__templ_setActiveTab_a326("tabs-9ac9b5ad-4846-4d18-b3f9-67ee3d4cec19",1,"active")</script></div></section> </span></div></body></html>
+}</script><script>__templ_setActiveTab_65a7("tabs-e558c9b8-ce12-45ca-a68e-34fb15df31b3",1,"active")</script></div></section> </span></div></body></html>
