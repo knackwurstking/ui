@@ -3017,6 +3017,10 @@ label:has(input) {
   display: flex;
 }
 
+.flex > * {
+  flex: 1 1 auto;
+}
+
 .flex\! {
   display: flex !important;
 }
@@ -3124,6 +3128,10 @@ label:has(input) {
 
 .gap-xl {
   gap: calc(var(--ui-spacing) * 2);
+}
+
+.flex-0 {
+  flex: 0 0 auto;
 }
 
 /* Flex Item Properties */

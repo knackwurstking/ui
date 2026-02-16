@@ -41,6 +41,7 @@ const (
 	GapXl = "gap-xl"
 
 	// Flex Item Properties
+	Flex0       = "flex-0"
 	Flex1       = "flex-1"
 	FlexAuto    = "flex-auto"
 	FlexInitial = "flex-initial"
@@ -58,6 +59,10 @@ templ StylesUtilFlex() {
 		/* Display */
 		.flex {
 			display: flex;
+		}
+
+		.flex > * {
+			flex: 1 1 auto;
 		}
 
 		.flex\! {
@@ -167,6 +172,10 @@ templ StylesUtilFlex() {
 
 		.gap-xl {
 			gap: calc(var(--ui-spacing) * 2);
+		}
+
+		.flex-0 {
+			flex: 0 0 auto;
 		}
 
 		/* Flex Item Properties */
