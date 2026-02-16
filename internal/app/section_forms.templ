@@ -1,28 +1,26 @@
 package app
 
-import (
-	"github.com/knackwurstking/ui/pkg/css"
-)
+import "github.com/knackwurstking/ui/pkg/css"
 
 const (
-	IDForms               = "section-forms"
-	IDFormsTextInputs     = "section-forms-text-inputs"
-	IDFormsPassword       = "section-forms-password"
-	IDFormsEmail          = "section-forms-email"
-	IDFormsSearch         = "section-forms-search"
-	IDFormsNumber         = "section-forms-number"
-	IDFormsDateTime       = "section-forms-datetime"
-	IDFormsSelect         = "section-forms-select"
-	IDFormsTextarea       = "section-forms-textarea"
-	IDFormsCheckbox       = "section-forms-checkbox"
-	IDFormsRadio          = "section-forms-radio"
-	IDFormsRange          = "section-forms-range"
-	IDFormsColor          = "section-forms-color"
-	IDFormsFile           = "section-forms-file"
-	IDFormsSwitch         = "section-forms-switch"
-	IDFormsDisabled       = "section-forms-disabled"
-	IDFormsValidation     = "section-forms-validation"
-	IDFormsComplete       = "section-forms-complete"
+	IDForms           = "section-forms"
+	IDFormsTextInputs = "section-forms-text-inputs"
+	IDFormsPassword   = "section-forms-password"
+	IDFormsEmail      = "section-forms-email"
+	IDFormsSearch     = "section-forms-search"
+	IDFormsNumber     = "section-forms-number"
+	IDFormsDateTime   = "section-forms-datetime"
+	IDFormsSelect     = "section-forms-select"
+	IDFormsTextarea   = "section-forms-textarea"
+	IDFormsCheckbox   = "section-forms-checkbox"
+	IDFormsRadio      = "section-forms-radio"
+	IDFormsRange      = "section-forms-range"
+	IDFormsColor      = "section-forms-color"
+	IDFormsFile       = "section-forms-file"
+	IDFormsSwitch     = "section-forms-switch"
+	IDFormsDisabled   = "section-forms-disabled"
+	IDFormsValidation = "section-forms-validation"
+	IDFormsComplete   = "section-forms-complete"
 )
 
 templ Forms() {
@@ -58,10 +56,8 @@ templ formsTextInputs() {
 		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
 			<label for="text-default">Default</label>
 			<input type="text" id="text-default" name="text-default" placeholder="Enter text..."/>
-			
 			<label for="text-value">With Value</label>
 			<input type="text" id="text-value" name="text-value" value="Hello World"/>
-			
 			<label for="text-readonly">Readonly</label>
 			<input type="text" id="text-readonly" name="text-readonly" value="Readonly text" readonly/>
 		</div>
@@ -74,7 +70,6 @@ templ formsPassword() {
 		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
 			<label for="password-default">Password</label>
 			<input type="password" id="password-default" name="password-default" placeholder="Enter password..."/>
-			
 			<label for="password-disabled">Disabled</label>
 			<input type="password" id="password-disabled" name="password-disabled" placeholder="Disabled password" disabled/>
 		</div>
@@ -87,7 +82,6 @@ templ formsEmail() {
 		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
 			<label for="email-default">Email</label>
 			<input type="email" id="email-default" name="email-default" placeholder="Enter email..."/>
-			
 			<label for="email-multiple">Multiple Emails</label>
 			<input type="email" id="email-multiple" name="email-multiple" multiple placeholder="Enter emails..."/>
 		</div>
@@ -110,10 +104,8 @@ templ formsNumber() {
 		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
 			<label for="number-default">Number</label>
 			<input type="number" id="number-default" name="number-default" placeholder="Enter number..."/>
-			
 			<label for="number-minmax">Min/Max (1-100)</label>
 			<input type="number" id="number-minmax" name="number-minmax" min="1" max="100" value="50"/>
-			
 			<label for="number-step">Step (0.1)</label>
 			<input type="number" id="number-step" name="number-step" step="0.1" value="0.5"/>
 		</div>
@@ -128,22 +120,18 @@ templ formsDateTime() {
 				<label for="date-default">Date</label>
 				<input type="date" id="date-default" name="date-default"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="time-default">Time</label>
 				<input type="time" id="time-default" name="time-default"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="datetime-default">DateTime Local</label>
 				<input type="datetime-local" id="datetime-default" name="datetime-default"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="month-default">Month</label>
 				<input type="month" id="month-default" name="month-default"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="week-default">Week</label>
 				<input type="week" id="week-default" name="week-default"/>
@@ -165,7 +153,6 @@ templ formsSelect() {
 					<option value="3">Option 3</option>
 				</select>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="select-selected">Pre-selected</label>
 				<select id="select-selected" name="select-selected">
@@ -175,7 +162,6 @@ templ formsSelect() {
 					<option value="3">Option 3</option>
 				</select>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="select-multiple">Multiple</label>
 				<select id="select-multiple" name="select-multiple" multiple size="4">
@@ -185,7 +171,6 @@ templ formsSelect() {
 					<option value="4">Option 4</option>
 				</select>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="select-optgroup">Optgroup</label>
 				<select id="select-optgroup" name="select-optgroup">
@@ -210,11 +195,11 @@ templ formsTextarea() {
 		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
 			<label for="textarea-default">Default</label>
 			<textarea id="textarea-default" name="textarea-default" rows="3" placeholder="Enter text..."></textarea>
-			
 			<label for="textarea-value">With Value</label>
-			<textarea id="textarea-value" name="textarea-value" rows="3">This is some pre-filled text
-that spans multiple lines.</textarea>
-			
+			<textarea id="textarea-value" name="textarea-value" rows="3">
+				This is some pre-filled text
+				that spans multiple lines.
+			</textarea>
 			<label for="textarea-resize">Resizable</label>
 			<textarea id="textarea-resize" name="textarea-resize" rows="3" placeholder="Can resize..."></textarea>
 		</div>
@@ -229,17 +214,10 @@ templ formsCheckbox() {
 				<input type="checkbox" id="checkbox-default" name="checkbox-default"/>
 				<label for="checkbox-default">Default Checkbox</label>
 			</div>
-			
 			<div>
 				<input type="checkbox" id="checkbox-checked" name="checkbox-checked" checked/>
 				<label for="checkbox-checked">Checked Checkbox</label>
 			</div>
-			
-			<div>
-				<label for="checkbox-indeterminate">Indeterminate</label>
-				<input type="checkbox" id="checkbox-indeterminate" name="checkbox-indeterminate"/>
-			</div>
-			
 			<div>
 				<label>Multiple Checkboxes</label>
 			</div>
@@ -282,7 +260,6 @@ templ formsRadio() {
 					<label for="radio-3">Option 3</label>
 				</div>
 			</div>
-			
 			<div>
 				<label>Another Radio Group</label>
 			</div>
@@ -308,17 +285,14 @@ templ formsRange() {
 				<label for="range-default">Default (0-100)</label>
 				<input type="range" id="range-default" name="range-default" min="0" max="100" value="50"/>
 			</div>
-			
 			<div>
 				<label for="range-minmax">Min/Max ( -50 to 50)</label>
 				<input type="range" id="range-minmax" name="range-minmax" min="-50" max="50" value="0"/>
 			</div>
-			
 			<div>
 				<label for="range-step">Step (0-100, step 10)</label>
 				<input type="range" id="range-step" name="range-step" min="0" max="100" step="10" value="50"/>
 			</div>
-			
 			<div>
 				<label for="range-labels">With Labels</label>
 				<input type="range" id="range-labels" name="range-labels" min="0" max="100" value="50" list="range-markers"/>
@@ -342,7 +316,6 @@ templ formsColor() {
 				<label for="color-default">Color Picker</label>
 				<input type="color" id="color-default" name="color-default" value="#3b82f6"/>
 			</div>
-			
 			<div>
 				<label for="color-default-no-value">Default</label>
 				<input type="color" id="color-default-no-value" name="color-default-no-value"/>
@@ -359,17 +332,14 @@ templ formsFile() {
 				<label for="file-default">Default</label>
 				<input type="file" id="file-default" name="file-default"/>
 			</div>
-			
 			<div>
 				<label for="file-multiple">Multiple Files</label>
 				<input type="file" id="file-multiple" name="file-multiple" multiple/>
 			</div>
-			
 			<div>
 				<label for="file-accept">Accept Images</label>
 				<input type="file" id="file-accept" name="file-accept" accept="image/*"/>
 			</div>
-			
 			<div>
 				<label for="file-accept-pdf">Accept PDF</label>
 				<input type="file" id="file-accept-pdf" name="file-accept-pdf" accept=".pdf"/>
@@ -386,7 +356,6 @@ templ formsSwitch() {
 				<input type="checkbox" id="switch-default" name="switch-default" role="switch"/>
 				<label for="switch-default">Default Switch</label>
 			</div>
-			
 			<div>
 				<input type="checkbox" id="switch-checked" name="switch-checked" role="switch" checked/>
 				<label for="switch-checked">Checked Switch</label>
@@ -403,7 +372,6 @@ templ formsDisabled() {
 				<label for="text-disabled">Text Disabled</label>
 				<input type="text" id="text-disabled" name="text-disabled" value="Disabled" disabled/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="select-disabled">Select Disabled</label>
 				<select id="select-disabled" name="select-disabled" disabled>
@@ -411,22 +379,18 @@ templ formsDisabled() {
 					<option value="2">Option 2</option>
 				</select>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="textarea-disabled">Textarea Disabled</label>
 				<textarea id="textarea-disabled" name="textarea-disabled" rows="2" disabled>Disabled</textarea>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="checkbox-disabled">Checkbox Disabled</label>
 				<input type="checkbox" id="checkbox-disabled" name="checkbox-disabled" disabled/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="radio-disabled">Radio Disabled</label>
 				<input type="radio" id="radio-disabled" name="radio-disabled" disabled/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="range-disabled">Range Disabled</label>
 				<input type="range" id="range-disabled" name="range-disabled" disabled/>
@@ -443,32 +407,26 @@ templ formsValidation() {
 				<label for="text-required">Required</label>
 				<input type="text" id="text-required" name="text-required" required/>
 			</div>
-			
 			<div>
 				<label for="text-pattern">Pattern (3 chars)</label>
 				<input type="text" id="text-pattern" name="text-pattern" pattern="..." title="Must be 3 characters"/>
 			</div>
-			
 			<div>
 				<label for="email-validate">Email (validate)</label>
 				<input type="email" id="email-validate" name="email-validate"/>
 			</div>
-			
 			<div>
 				<label for="number-validate">Number (min 0, max 100)</label>
 				<input type="number" id="number-validate" name="number-validate" min="0" max="100"/>
 			</div>
-			
 			<div>
 				<label for="text-minlength">Minlength (5)</label>
 				<input type="text" id="text-minlength" name="text-minlength" minlength="5"/>
 			</div>
-			
 			<div>
 				<label for="text-maxlength">Maxlength (10)</label>
 				<input type="text" id="text-maxlength" name="text-maxlength" maxlength="10"/>
 			</div>
-			
 			<div>
 				<label for="text-autocomplete">Autocomplete</label>
 				<input type="text" id="text-autocomplete" name="text-autocomplete" autocomplete="name"/>
@@ -485,17 +443,14 @@ templ formsComplete() {
 				<label for="form-name">Full Name *</label>
 				<input type="text" id="form-name" name="name" required placeholder="John Doe"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="form-email">Email *</label>
 				<input type="email" id="form-email" name="email" required placeholder="john@example.com"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="form-password">Password *</label>
 				<input type="password" id="form-password" name="password" required placeholder="Min 8 characters" minlength="8"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="form-country">Country</label>
 				<select id="form-country" name="country">
@@ -506,12 +461,10 @@ templ formsComplete() {
 					<option value="fr">France</option>
 				</select>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="form-bio">Bio</label>
 				<textarea id="form-bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label>Interests</label>
 				<div class={ css.Flex, css.FlexCol, css.ML }>
@@ -529,7 +482,6 @@ templ formsComplete() {
 					</div>
 				</div>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label>Newsletter</label>
 				<div>
@@ -537,7 +489,6 @@ templ formsComplete() {
 					<label for="form-newsletter">Subscribe to newsletter</label>
 				</div>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label>Notifications</label>
 				<div class={ css.Flex, css.FlexCol, css.ML }>
@@ -555,17 +506,14 @@ templ formsComplete() {
 					</div>
 				</div>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="form-avatar">Avatar</label>
 				<input type="file" id="form-avatar" name="avatar" accept="image/*"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="form-theme">Preferred Theme</label>
 				<input type="color" id="form-theme" name="theme" value="#3b82f6"/>
 			</div>
-			
 			<div class={ css.FormGroup }>
 				<label for="form-rating">Rating</label>
 				<input type="range" id="form-rating" name="rating" min="1" max="5" value="3" list="rating-markers"/>
@@ -577,7 +525,6 @@ templ formsComplete() {
 					<option value="5"></option>
 				</datalist>
 			</div>
-			
 			<div class={ css.Flex, css.Gap }>
 				<button type="submit">Submit</button>
 				<button type="reset">Reset</button>
