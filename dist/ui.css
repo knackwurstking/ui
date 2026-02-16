@@ -2539,21 +2539,6 @@ select[multiple] option {
   padding: calc(var(--ui-spacing) / 2) var(--ui-spacing);
 }
 
-/* High Contrast Mode */
-@media (prefers-contrast: high) {
-  select:focus-visible {
-    outline-width: 3px;
-    outline-offset: 3px;
-  }
-}
-
-/* Accessibility - Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  select {
-    transition: none;
-  }
-}
-
 hr {
   width: 100%;
   border: none;
