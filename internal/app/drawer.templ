@@ -24,7 +24,6 @@ templ Drawer() {
 			@drawerItemsBadges()
 			@drawerItemsDialogs()
 			@drawerItemsTabs()
-			@drawerItemsForms()
 		</ul>
 	}
 }
@@ -143,33 +142,6 @@ templ drawerItemsDialogs() {
 templ drawerItemsTabs() {
 	@drawerItem("#"+IDTabs, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 		Tabs
-	}
-}
-
-templ drawerItemsForms() {
-	@drawerItem("#"+IDForms, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Forms
-	}
-	@drawerSubItem("#"+IDFormsInput, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Input
-	}
-	@drawerSubItem("#"+IDFormsTextarea, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Textarea
-	}
-	@drawerSubItem("#"+IDFormsCheckbox, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Checkbox
-	}
-	@drawerSubItem("#"+IDFormsRadio, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Radio
-	}
-	@drawerSubItem("#"+IDFormsSelect, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Select
-	}
-	@drawerSubItem("#"+IDFormsValidation, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Validation States
-	}
-	@drawerSubItem("#"+IDFormsComplete, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
-		Complete Form
 	}
 }
 
