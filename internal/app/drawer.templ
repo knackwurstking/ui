@@ -20,6 +20,7 @@ templ Drawer() {
 		<ul style={ "padding-bottom: 2.5rem" } id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
 			@drawerItemsText()
 			@drawerItemsButtons()
+			@drawerItemsForms()
 			@drawerItemsCards()
 			@drawerItemsBadges()
 			@drawerItemsDialogs()
@@ -73,6 +74,63 @@ templ drawerItemsButtons() {
 	}
 	@drawerSubItem("#"+IDButtonsCombinedExamples, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 		Combined Examples
+	}
+}
+
+templ drawerItemsForms() {
+	@drawerItem("#"+IDForms, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Forms
+	}
+	@drawerSubItem("#"+IDFormsTextInputs, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Text Inputs
+	}
+	@drawerSubItem("#"+IDFormsPassword, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Password
+	}
+	@drawerSubItem("#"+IDFormsEmail, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Email
+	}
+	@drawerSubItem("#"+IDFormsSearch, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Search
+	}
+	@drawerSubItem("#"+IDFormsNumber, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Number
+	}
+	@drawerSubItem("#"+IDFormsDateTime, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Date & Time
+	}
+	@drawerSubItem("#"+IDFormsSelect, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Select
+	}
+	@drawerSubItem("#"+IDFormsTextarea, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Textarea
+	}
+	@drawerSubItem("#"+IDFormsCheckbox, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Checkbox
+	}
+	@drawerSubItem("#"+IDFormsRadio, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Radio
+	}
+	@drawerSubItem("#"+IDFormsRange, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Range
+	}
+	@drawerSubItem("#"+IDFormsColor, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Color
+	}
+	@drawerSubItem("#"+IDFormsFile, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		File
+	}
+	@drawerSubItem("#"+IDFormsSwitch, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Switch
+	}
+	@drawerSubItem("#"+IDFormsDisabled, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Disabled Inputs
+	}
+	@drawerSubItem("#"+IDFormsValidation, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Validation
+	}
+	@drawerSubItem("#"+IDFormsComplete, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Complete Form
 	}
 }
 
