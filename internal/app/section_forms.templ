@@ -115,10 +115,12 @@ templ formsNumber() {
 templ formsDateTime() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsDateTime } class={ css.MB }>Date & Time</h3>
-		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
+		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.Flex0 }>
 			<div class={ css.FormGroup }>
-				<label for="date-default">Date</label>
-				<input type="date" id="date-default" name="date-default" class={ css.WFit }/>
+				<label for="date-default" class={ css.Flex, css.FlexCol }>
+					Date
+					<input type="date" id="date-default" name="date-default" class={ css.WFit }/>
+				</label>
 			</div>
 			<div class={ css.FormGroup }>
 				<label for="time-default">Time</label>
