@@ -71,6 +71,7 @@ templ Toast(props *ToastProps) {
 			{ children... }
 		</div>
 		if props.Close {
+			// TODO: Fix close button color
 			<button
 				class={ css.ToastClose }
 				type="button"
