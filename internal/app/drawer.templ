@@ -24,6 +24,7 @@ templ Drawer() {
 			@drawerItemsBadges()
 			@drawerItemsDialogs()
 			@drawerItemsTabs()
+			@drawerItemsToasts()
 		</ul>
 	}
 }
@@ -142,6 +143,27 @@ templ drawerItemsDialogs() {
 templ drawerItemsTabs() {
 	@drawerItem("#"+IDTabs, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 		Tabs
+	}
+}
+
+templ drawerItemsToasts() {
+	@drawerItem("#"+IDToasts, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Toasts
+	}
+	@drawerSubItem("#"+IDToastsVariants, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Variants
+	}
+	@drawerSubItem("#"+IDToastsPositions, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Positions
+	}
+	@drawerSubItem("#"+IDToastsSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Sizes
+	}
+	@drawerSubItem("#"+IDToastsStack, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Toast Stack
+	}
+	@drawerSubItem("#"+IDToastsClose, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		With Close Button
 	}
 }
 
