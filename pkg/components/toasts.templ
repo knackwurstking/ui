@@ -72,7 +72,7 @@ templ Toast(props *ToastProps) {
 		</div>
 		if props.Close {
 			<button
-				class={ css.ToastClose, css.DebugAll }
+				class={ css.ToastClose }
 				type="button"
 				aria-label="Close"
 				onclick="this.closest('.toast').remove()"

@@ -203,7 +203,7 @@ func Toast(props *ToastProps) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		if props.Close {
-			var templ_7745c5c3_Var10 = []any{css.ToastClose, css.DebugAll}
+			var templ_7745c5c3_Var10 = []any{css.ToastClose}
 			templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var10...)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
