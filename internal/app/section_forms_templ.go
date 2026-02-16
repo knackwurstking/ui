@@ -1299,7 +1299,7 @@ func formsSelect() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var91 = []any{css.Flex, css.FlexRow, css.FlexWrap, css.Gap}
+		var templ_7745c5c3_Var91 = []any{css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.FlexAuto}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var91...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
