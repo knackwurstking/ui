@@ -6,14 +6,14 @@ import (
 )
 
 const (
-	IDForms                  = "section-forms"
-	IDFormsInput             = "section-forms-input"
-	IDFormsTextarea          = "section-forms-textarea"
-	IDFormsCheckbox          = "section-forms-checkbox"
-	IDFormsRadio             = "section-forms-radio"
-	IDFormsSelect            = "section-forms-select"
-	IDFormsValidation        = "section-forms-validation"
-	IDFormsComplete          = "section-forms-complete"
+	IDForms           = "section-forms"
+	IDFormsInput      = "section-forms-input"
+	IDFormsTextarea   = "section-forms-textarea"
+	IDFormsCheckbox   = "section-forms-checkbox"
+	IDFormsRadio      = "section-forms-radio"
+	IDFormsSelect     = "section-forms-select"
+	IDFormsValidation = "section-forms-validation"
+	IDFormsComplete   = "section-forms-complete"
 )
 
 templ Forms() {
@@ -100,40 +100,75 @@ templ formsCheckbox() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsCheckbox } class={ css.MB }>Checkbox</h3>
 		<div class={ css.Flex, css.FlexCol, css.Gap }>
-			@components.Checkbox(&components.CheckboxProps{
-				Name:  "checkbox-default",
-				Value: "1",
+			@components.Label(&components.LabelProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.Flex, css.FlexCol, css.Gap},
+				},
+				For: "checkbox-default",
 			}) {
-				Default Checkbox
+				@components.Checkbox(&components.CheckboxProps{
+					Name:  "checkbox-default",
+					Value: "1",
+				}) {
+					Default Checkbox
+				}
 			}
-			@components.Checkbox(&components.CheckboxProps{
-				Name:     "checkbox-checked",
-				Value:    "1",
-				Checked:  true,
+			@components.Label(&components.LabelProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.Flex, css.FlexCol, css.Gap},
+				},
+				For: "checkbox-checked",
 			}) {
-				Checked Checkbox
+				@components.Checkbox(&components.CheckboxProps{
+					Name:    "checkbox-checked",
+					Value:   "1",
+					Checked: true,
+				}) {
+					Checked Checkbox
+				}
 			}
-			@components.Checkbox(&components.CheckboxProps{
-				Name:     "checkbox-disabled",
-				Value:    "1",
-				Disabled: true,
+			@components.Label(&components.LabelProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.Flex, css.FlexCol, css.Gap},
+				},
+				For: "checkbox-disabled",
 			}) {
-				Disabled Checkbox
+				@components.Checkbox(&components.CheckboxProps{
+					Name:     "checkbox-disabled",
+					Value:    "1",
+					Disabled: true,
+				}) {
+					Disabled Checkbox
+				}
 			}
-			@components.Checkbox(&components.CheckboxProps{
-				Name:     "checkbox-disabled-checked",
-				Value:    "1",
-				Disabled: true,
-				Checked:  true,
+			@components.Label(&components.LabelProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.Flex, css.FlexCol, css.Gap},
+				},
+				For: "checkbox-disabled-checked",
 			}) {
-				Disabled Checked Checkbox
+				@components.Checkbox(&components.CheckboxProps{
+					Name:     "checkbox-disabled-checked",
+					Value:    "1",
+					Disabled: true,
+					Checked:  true,
+				}) {
+					Disabled Checked Checkbox
+				}
 			}
-			@components.Checkbox(&components.CheckboxProps{
-				Name:    "checkbox-invalid",
-				Value:   "1",
-				Invalid: true,
+			@components.Label(&components.LabelProps{
+				BaseProps: components.BaseProps{
+					Class: []string{css.Flex, css.FlexCol, css.Gap},
+				},
+				For: "checkbox-invalid",
 			}) {
-				Invalid Checkbox
+				@components.Checkbox(&components.CheckboxProps{
+					Name:    "checkbox-invalid",
+					Value:   "1",
+					Invalid: true,
+				}) {
+					Invalid Checkbox
+				}
 			}
 		</div>
 	</div>

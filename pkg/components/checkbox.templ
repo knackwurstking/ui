@@ -24,17 +24,14 @@ templ Checkbox(props *CheckboxProps) {
 			props.Class = append(props.Class, css.CheckboxInvalid)
 		}
 	}}
-	<label class={ props.Class, css.Flex, css.Gap, css.ItemsCenter }>
-		<input
-			type="checkbox"
-			name={ props.Name }
-			value={ props.Value }
-			checked?={ props.Checked }
-			required?={ props.Required }
-			disabled?={ props.Disabled }
-			aria-invalid={ props.Invalid }
-			{ props.GetAttributes()... }
-		/>
-		{ children... }
-	</label>
+	<input
+		type="checkbox"
+		name={ props.Name }
+		value={ props.Value }
+		checked?={ props.Checked }
+		required?={ props.Required }
+		disabled?={ props.Disabled }
+		aria-invalid={ props.Invalid }
+		{ props.GetAttributes()... }
+	/>
 }

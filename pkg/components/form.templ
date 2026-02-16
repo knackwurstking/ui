@@ -1,13 +1,9 @@
 package components
 
-type FormProps struct {
-	BaseProps
-}
-
-templ Form(props *FormProps) {
+templ Form(props *BaseProps) {
 	{{
 		if props == nil {
-			props = &FormProps{}
+			props = &BaseProps{}
 		}
 	}}
 	<form { props.GetAttributes()... }>

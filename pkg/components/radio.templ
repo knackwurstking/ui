@@ -24,17 +24,14 @@ templ Radio(props *RadioProps) {
 			props.Class = append(props.Class, css.RadioInvalid)
 		}
 	}}
-	<label class={ props.Class, css.Flex, css.Gap, css.ItemsCenter }>
-		<input
-			type="radio"
-			name={ props.Name }
-			value={ props.Value }
-			checked?={ props.Checked }
-			required?={ props.Required }
-			disabled?={ props.Disabled }
-			aria-invalid={ props.Invalid }
-			{ props.GetAttributes()... }
-		/>
-		{ children... }
-	</label>
+	<input
+		type="radio"
+		name={ props.Name }
+		value={ props.Value }
+		checked?={ props.Checked }
+		required?={ props.Required }
+		disabled?={ props.Disabled }
+		aria-invalid={ props.Invalid }
+		{ props.GetAttributes()... }
+	/>
 }
