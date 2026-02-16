@@ -96,7 +96,7 @@ templ ToastStack(props *ToastStackProps) {
 		}
 		props.Class = append(props.Class, css.ToastStack)
 	}}
-	<div class={ props.GetClasses() } style={ props.GetStyles() }>
+	<div { props.GetAttributes()... }>
 		{ children... }
 	</div>
 }
