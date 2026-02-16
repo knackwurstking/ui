@@ -14,7 +14,6 @@ type CheckboxProps struct {
 	Invalid bool
 }
 
-// TODO: Add label {children...}
 templ Checkbox(props *CheckboxProps) {
 	{{
 		if props == nil {
@@ -25,14 +24,17 @@ templ Checkbox(props *CheckboxProps) {
 			props.Class = append(props.Class, css.CheckboxInvalid)
 		}
 	}}
-	<input
-		type="checkbox"
-		name={ props.Name }
-		value={ props.Value }
-		checked?={ props.Checked }
-		required?={ props.Required }
-		disabled?={ props.Disabled }
-		aria-invalid={ props.Invalid }
-		{ props.GetAttributes()... }
-	/>
+	<label class={ props.Class, css.Flex, css.Gap, css.ItemsCenter }>
+		<input
+			type="checkbox"
+			name={ props.Name }
+			value={ props.Value }
+			checked?={ props.Checked }
+			required?={ props.Required }
+			disabled?={ props.Disabled }
+			aria-invalid={ props.Invalid }
+			{ props.GetAttributes()... }
+		/>
+		{ children... }
+	</label>
 }

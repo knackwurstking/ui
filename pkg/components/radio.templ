@@ -14,7 +14,6 @@ type RadioProps struct {
 	Invalid bool
 }
 
-// TODO: Add label {children...}
 templ Radio(props *RadioProps) {
 	{{
 		if props == nil {
@@ -25,14 +24,17 @@ templ Radio(props *RadioProps) {
 			props.Class = append(props.Class, css.RadioInvalid)
 		}
 	}}
-	<input
-		type="radio"
-		name={ props.Name }
-		value={ props.Value }
-		checked?={ props.Checked }
-		required?={ props.Required }
-		disabled?={ props.Disabled }
-		aria-invalid={ props.Invalid }
-		{ props.GetAttributes()... }
-	/>
+	<label class={ props.Class, css.Flex, css.Gap, css.ItemsCenter }>
+		<input
+			type="radio"
+			name={ props.Name }
+			value={ props.Value }
+			checked?={ props.Checked }
+			required?={ props.Required }
+			disabled?={ props.Disabled }
+			aria-invalid={ props.Invalid }
+			{ props.GetAttributes()... }
+		/>
+		{ children... }
+	</label>
 }
