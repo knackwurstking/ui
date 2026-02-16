@@ -1,0 +1,37 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type CheckboxProps struct {
+	BaseProps
+
+	Name     string
+	Value    string
+	Checked  bool
+	Required bool
+	Disabled bool
+
+	Invalid bool
+}
+
+templ Checkbox(props *CheckboxProps) {
+	{{
+		if props == nil {
+			props = &CheckboxProps{}
+		}
+
+		if props.Invalid {
+			props.Class = append(props.Class, css.CheckboxInvalid)
+		}
+	}}
+	<input
+		type="checkbox"
+		name={ props.Name }
+		value={ props.Value }
+		checked={ props.Checked }
+		required={ props.Required }
+		disabled={ props.Disabled }
+		aria-invalid={ props.Invalid }
+		{ props.GetAttributes()... }
+	/>
+}

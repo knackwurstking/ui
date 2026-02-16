@@ -1,0 +1,43 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type TextareaProps struct {
+	BaseProps
+
+	Name        string
+	Value       string
+	Placeholder string
+	Required    bool
+	Disabled    bool
+	ReadOnly    bool
+	Rows        int
+
+	Invalid bool
+}
+
+templ Textarea(props *TextareaProps) {
+	{{
+		if props == nil {
+			props = &TextareaProps{}
+		}
+
+		if props.Rows == 0 {
+			props.Rows = 4
+		}
+
+		if props.Invalid {
+			props.Class = append(props.Class, css.TextareaInvalid)
+		}
+	}}
+	<textarea
+		name={ props.Name }
+		placeholder={ props.Placeholder }
+		required={ props.Required }
+		disabled={ props.Disabled }
+		readonly={ props.ReadOnly }
+		rows={ props.Rows }
+		aria-invalid={ props.Invalid }
+		{ props.GetAttributes()... }
+	>{ props.Value }</textarea>
+}

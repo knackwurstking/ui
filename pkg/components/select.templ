@@ -1,0 +1,38 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type SelectProps struct {
+	BaseProps
+
+	Name     string
+	Value    string
+	Required bool
+	Disabled bool
+	Multiple bool
+
+	Invalid bool
+}
+
+templ Select(props *SelectProps) {
+	{{
+		if props == nil {
+			props = &SelectProps{}
+		}
+
+		if props.Invalid {
+			props.Class = append(props.Class, css.SelectInvalid)
+		}
+	}}
+	<select
+		name={ props.Name }
+		value={ props.Value }
+		required={ props.Required }
+		disabled={ props.Disabled }
+		multiple={ props.Multiple }
+		aria-invalid={ props.Invalid }
+		{ props.GetAttributes()... }
+	>
+		{ children... }
+	</select>
+}

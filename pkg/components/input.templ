@@ -1,0 +1,61 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type InputType string
+
+const (
+	InputTypeText         InputType = "text"
+	InputTypeEmail        InputType = "email"
+	InputTypePassword     InputType = "password"
+	InputTypeTel          InputType = "tel"
+	InputTypeURL          InputType = "url"
+	InputTypeSearch       InputType = "search"
+	InputTypeNumber       InputType = "number"
+	InputTypeDate         InputType = "date"
+	InputTypeTime         InputType = "time"
+	InputTypeDateTime     InputType = "datetime-local"
+	InputTypeMonth        InputType = "month"
+	InputTypeWeek         InputType = "week"
+)
+
+type InputProps struct {
+	BaseProps
+
+	Type        InputType
+	Name        string
+	Value       string
+	Placeholder string
+	Required    bool
+	Disabled    bool
+	ReadOnly    bool
+
+	Invalid bool
+}
+
+templ Input(props *InputProps) {
+	{{
+		if props == nil {
+			props = &InputProps{}
+		}
+
+		if props.Type == "" {
+			props.Type = InputTypeText
+		}
+
+		if props.Invalid {
+			props.Class = append(props.Class, css.InputInvalid)
+		}
+	}}
+	<input
+		type={ string(props.Type) }
+		name={ props.Name }
+		value={ props.Value }
+		placeholder={ props.Placeholder }
+		required={ props.Required }
+		disabled={ props.Disabled }
+		readonly={ props.ReadOnly }
+		aria-invalid={ props.Invalid }
+		{ props.GetAttributes()... }
+	/>
+}

@@ -11,6 +11,21 @@ import templruntime "github.com/a-h/templ/runtime"
 // Form
 const (
 	FormGroup = "form-group"
+
+	// Input
+	InputInvalid = "invalid"
+
+	// Textarea
+	TextareaInvalid = "invalid"
+
+	// Checkbox
+	CheckboxInvalid = "invalid"
+
+	// Radio
+	RadioInvalid = "invalid"
+
+	// Select
+	SelectInvalid = "invalid"
 )
 
 // Button

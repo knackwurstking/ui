@@ -1,0 +1,16 @@
+package components
+
+type FormProps struct {
+	BaseProps
+}
+
+templ Form(props *FormProps) {
+	{{
+		if props == nil {
+			props = &FormProps{}
+		}
+	}}
+	<form { props.GetAttributes()... }>
+		{ children... }
+	</form>
+}

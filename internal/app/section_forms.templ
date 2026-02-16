@@ -1,0 +1,356 @@
+package app
+
+import (
+	"github.com/knackwurstking/ui/pkg/components"
+	"github.com/knackwurstking/ui/pkg/css"
+)
+
+const (
+	IDForms                  = "section-forms"
+	IDFormsInput             = "section-forms-input"
+	IDFormsTextarea          = "section-forms-textarea"
+	IDFormsCheckbox          = "section-forms-checkbox"
+	IDFormsRadio             = "section-forms-radio"
+	IDFormsSelect            = "section-forms-select"
+	IDFormsValidation        = "section-forms-validation"
+	IDFormsComplete          = "section-forms-complete"
+)
+
+templ Forms() {
+	<section id={ IDForms } class={ css.P, css.MT }>
+		@SectionTitle() {
+			Forms
+		}
+		@SectionContent() {
+			@formsInput()
+			@formsTextarea()
+			@formsCheckbox()
+			@formsRadio()
+			@formsSelect()
+			@formsValidation()
+			@formsComplete()
+		}
+	</section>
+}
+
+templ formsInput() {
+	<div class={ css.MB }>
+		<h3 id={ IDFormsInput } class={ css.MB }>Input</h3>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			@components.Input(&components.InputProps{
+				Placeholder: "Text input",
+			})
+			@components.Input(&components.InputProps{
+				Type:        components.InputTypeEmail,
+				Placeholder: "Email input",
+			})
+			@components.Input(&components.InputProps{
+				Type:        components.InputTypePassword,
+				Placeholder: "Password input",
+			})
+			@components.Input(&components.InputProps{
+				Type:        components.InputTypeNumber,
+				Placeholder: "Number input",
+			})
+			@components.Input(&components.InputProps{
+				Type:        components.InputTypeDate,
+				Placeholder: "Date input",
+			})
+			@components.Input(&components.InputProps{
+				Type:        components.InputTypeSearch,
+				Placeholder: "Search input",
+			})
+			@components.Input(&components.InputProps{
+				Placeholder: "Disabled input",
+				Disabled:    true,
+			})
+			@components.Input(&components.InputProps{
+				Placeholder: "Readonly input",
+				ReadOnly:    true,
+				Value:       "Readonly value",
+			})
+		</div>
+	</div>
+}
+
+templ formsTextarea() {
+	<div class={ css.MB }>
+		<h3 id={ IDFormsTextarea } class={ css.MB }>Textarea</h3>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			@components.Textarea(&components.TextareaProps{
+				Placeholder: "Default textarea (4 rows)",
+			})
+			@components.Textarea(&components.TextareaProps{
+				Placeholder: "Textarea with 2 rows",
+				Rows:        2,
+			})
+			@components.Textarea(&components.TextareaProps{
+				Placeholder: "Textarea with 8 rows",
+				Rows:        8,
+			})
+			@components.Textarea(&components.TextareaProps{
+				Placeholder: "Disabled textarea",
+				Disabled:    true,
+			})
+		</div>
+	</div>
+}
+
+templ formsCheckbox() {
+	<div class={ css.MB }>
+		<h3 id={ IDFormsCheckbox } class={ css.MB }>Checkbox</h3>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			@components.Checkbox(&components.CheckboxProps{
+				Name:  "checkbox-default",
+				Value: "1",
+			}) {
+				Default Checkbox
+			}
+			@components.Checkbox(&components.CheckboxProps{
+				Name:     "checkbox-checked",
+				Value:    "1",
+				Checked:  true,
+			}) {
+				Checked Checkbox
+			}
+			@components.Checkbox(&components.CheckboxProps{
+				Name:     "checkbox-disabled",
+				Value:    "1",
+				Disabled: true,
+			}) {
+				Disabled Checkbox
+			}
+			@components.Checkbox(&components.CheckboxProps{
+				Name:     "checkbox-disabled-checked",
+				Value:    "1",
+				Disabled: true,
+				Checked:  true,
+			}) {
+				Disabled Checked Checkbox
+			}
+			@components.Checkbox(&components.CheckboxProps{
+				Name:    "checkbox-invalid",
+				Value:   "1",
+				Invalid: true,
+			}) {
+				Invalid Checkbox
+			}
+		</div>
+	</div>
+}
+
+templ formsRadio() {
+	<div class={ css.MB }>
+		<h3 id={ IDFormsRadio } class={ css.MB }>Radio</h3>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			@components.Radio(&components.RadioProps{
+				Name:  "radio-group",
+				Value: "1",
+			}) {
+				Radio Option 1
+			}
+			@components.Radio(&components.RadioProps{
+				Name:  "radio-group",
+				Value: "2",
+			}) {
+				Radio Option 2
+			}
+			@components.Radio(&components.RadioProps{
+				Name:  "radio-group",
+				Value: "3",
+			}) {
+				Radio Option 3
+			}
+			@components.Radio(&components.RadioProps{
+				Name:     "radio-group-disabled",
+				Value:    "1",
+				Disabled: true,
+			}) {
+				Disabled Radio
+			}
+			@components.Radio(&components.RadioProps{
+				Name:     "radio-group-disabled-checked",
+				Value:    "1",
+				Disabled: true,
+				Checked:  true,
+			}) {
+				Disabled Checked Radio
+			}
+			@components.Radio(&components.RadioProps{
+				Name:    "radio-invalid",
+				Value:   "1",
+				Invalid: true,
+			}) {
+				Invalid Radio
+			}
+		</div>
+	</div>
+}
+
+templ formsSelect() {
+	<div class={ css.MB }>
+		<h3 id={ IDFormsSelect } class={ css.MB }>Select</h3>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			@components.Select(&components.SelectProps{
+				Name: "select-default",
+			}) {
+				<option value="">Select an option</option>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+			}
+			@components.Select(&components.SelectProps{
+				Name:     "select-disabled",
+				Disabled: true,
+			}) {
+				<option value="">Disabled Select</option>
+				<option value="1">Option 1</option>
+			}
+			@components.Select(&components.SelectProps{
+				Name:    "select-invalid",
+				Invalid: true,
+			}) {
+				<option value="">Invalid Select</option>
+				<option value="1">Option 1</option>
+			}
+			@components.Select(&components.SelectProps{
+				Name:     "select-multiple",
+				Multiple: true,
+			}) {
+				<option value="1">Multiple Option 1</option>
+				<option value="2">Multiple Option 2</option>
+				<option value="3">Multiple Option 3</option>
+				<option value="4">Multiple Option 4</option>
+			}
+		</div>
+	</div>
+}
+
+templ formsValidation() {
+	<div class={ css.MB }>
+		<h3 id={ IDFormsValidation } class={ css.MB }>Validation States</h3>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			@components.Input(&components.InputProps{
+				Placeholder: "Valid input",
+				Required:    true,
+			})
+			@components.Input(&components.InputProps{
+				Placeholder: "Invalid input",
+				Invalid:     true,
+				Value:       "Invalid value",
+			})
+			@components.Textarea(&components.TextareaProps{
+				Placeholder: "Valid textarea",
+				Required:    true,
+			})
+			@components.Textarea(&components.TextareaProps{
+				Placeholder: "Invalid textarea",
+				Invalid:     true,
+				Value:       "Invalid value",
+			})
+		</div>
+	</div>
+}
+
+templ formsComplete() {
+	<div class={ css.MB }>
+		<h3 id={ IDFormsComplete } class={ css.MB }>Complete Form Example</h3>
+		@components.Form(nil) {
+			<div class={ css.Flex, css.FlexCol, css.Gap }>
+				<label class={ css.Flex, css.FlexCol, css.Gap }>
+					<span>Full Name</span>
+					@components.Input(&components.InputProps{
+						Name:        "fullname",
+						Type:        components.InputTypeText,
+						Placeholder: "Enter your full name",
+						Required:    true,
+					})
+				</label>
+				<label class={ css.Flex, css.FlexCol, css.Gap }>
+					<span>Email</span>
+					@components.Input(&components.InputProps{
+						Name:        "email",
+						Type:        components.InputTypeEmail,
+						Placeholder: "Enter your email",
+						Required:    true,
+					})
+				</label>
+				<label class={ css.Flex, css.FlexCol, css.Gap }>
+					<span>Password</span>
+					@components.Input(&components.InputProps{
+						Name:        "password",
+						Type:        components.InputTypePassword,
+						Placeholder: "Enter your password",
+						Required:    true,
+					})
+				</label>
+				<label class={ css.Flex, css.FlexCol, css.Gap }>
+					<span>Bio</span>
+					@components.Textarea(&components.TextareaProps{
+						Name:        "bio",
+						Placeholder: "Tell us about yourself",
+						Rows:        4,
+					})
+				</label>
+				<label class={ css.Flex, css.FlexCol, css.Gap }>
+					<span>Country</span>
+					@components.Select(&components.SelectProps{
+						Name: "country",
+					}) {
+						<option value="">Select your country</option>
+						<option value="us">United States</option>
+						<option value="uk">United Kingdom</option>
+						<option value="de">Germany</option>
+						<option value="fr">France</option>
+					}
+				</label>
+				<fieldset>
+					<legend>Notifications</legend>
+					@components.Checkbox(&components.CheckboxProps{
+						Name:  "notifications",
+						Value: "email",
+					}) {
+						Email notifications
+					}
+					@components.Checkbox(&components.CheckboxProps{
+						Name:  "newsletter",
+						Value: "newsletter",
+					}) {
+						Subscribe to newsletter
+					}
+				</fieldset>
+				<fieldset>
+					<legend>Preferred Contact Method</legend>
+					@components.Radio(&components.RadioProps{
+						Name:  "contact",
+						Value: "email",
+					}) {
+						Email
+					}
+					@components.Radio(&components.RadioProps{
+						Name:  "contact",
+						Value: "phone",
+					}) {
+						Phone
+					}
+					@components.Radio(&components.RadioProps{
+						Name:  "contact",
+						Value: "mail",
+					}) {
+						Mail
+					}
+				</fieldset>
+				<div class={ css.Flex, css.FlexRow, css.Gap }>
+					@components.Button(&components.ButtonProps{}) {
+						Submit
+					}
+					@components.Button(&components.ButtonProps{
+						Variant: components.ButtonVariantOutline,
+					}) {
+						Cancel
+					}
+				</div>
+			</div>
+		}
+	</div>
+}
