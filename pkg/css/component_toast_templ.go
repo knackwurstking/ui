@@ -10,7 +10,30 @@ import templruntime "github.com/a-h/templ/runtime"
 
 const (
 	Toast = "toast"
-	// TODO: Add all the other css selectors for the toast component as constants here
+
+	ToastVariantSuccess = "success"
+	ToastVariantWarning = "warning"
+	ToastVariantError   = "error"
+	ToastVariantInfo    = "info"
+
+	ToastPositionTopLeft      = "top-left"
+	ToastPositionTopCenter    = "top-center"
+	ToastPositionBottomLeft   = "bottom-left"
+	ToastPositionBottomCenter = "bottom-center"
+	ToastPositionBottomRight  = "bottom-right"
+
+	ToastSizeSmall = "small"
+	ToastSizeLarge = "large"
+
+	ToastShow        = "show"
+	ToastHide        = "hide"
+	ToastContent     = "toast-content"
+	ToastTitle       = "toast-title"
+	ToastDescription = "toast-description"
+	ToastWithIcon    = "with-icon"
+	ToastIcon        = "toast-icon"
+	ToastClose       = "toast-close"
+	ToastStack       = "toast-stack"
 )
 
 func StylesComponentToast() templ.Component {
