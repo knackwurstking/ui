@@ -174,24 +174,29 @@ templ StylesUtilFlex() {
 			gap: calc(var(--ui-spacing) * 2);
 		}
 
-		.flex-0 {
+		.flex-0,
+		.flex.flex-0 > * {
 			flex: 0 0 auto;
 		}
 
 		/* Flex Item Properties */
-		.flex-1 {
+		.flex-1,
+		.flex.flex-1 > * {
 			flex: 1 1 0%;
 		}
 
-		.flex-auto {
+		.flex-auto,
+		.flex.flex-auto > * {
 			flex: 1 1 auto;
 		}
 
-		.flex-initial {
+		.flex-initial,
+		.flex.flex-initial > * {
 			flex: 0 1 auto;
 		}
 
 		.flex-none {
+		.flex.flex-none > * {
 			flex: none;
 		}
 
