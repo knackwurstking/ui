@@ -1498,6 +1498,7 @@ templ globalFormStyles() {
 
 		.form-group {
 			margin-bottom: 1rem;
+			min-width: 0;
 		}
 
 		.form-group label {
@@ -1510,6 +1511,8 @@ templ globalFormStyles() {
 		.form-group select,
 		.form-group textarea {
 			width: 100%;
+			max-width: 100%;
+			box-sizing: border-box;
 			padding: 0.5rem;
 			border: var(--ui-border-width) solid var(--ui-border-color);
 			border-radius: var(--ui-radius);

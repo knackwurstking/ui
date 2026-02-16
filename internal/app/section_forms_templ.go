@@ -787,7 +787,6 @@ func formsNumber() templ.Component {
 	})
 }
 
-// TODO: Fix alignment, input elements on my iphone 16e have no gap
 func formsDateTime() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
@@ -809,7 +808,7 @@ func formsDateTime() templ.Component {
 			templ_7745c5c3_Var47 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var48 = []any{css.MB, css.DebugAll}
+		var templ_7745c5c3_Var48 = []any{css.MB}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var48...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -843,7 +842,7 @@ func formsDateTime() templ.Component {
 		var templ_7745c5c3_Var51 string
 		templ_7745c5c3_Var51, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsDateTime)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 118, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 117, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var51))
 		if templ_7745c5c3_Err != nil {
@@ -1057,7 +1056,7 @@ func formsSelect() templ.Component {
 		var templ_7745c5c3_Var69 string
 		templ_7745c5c3_Var69, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsSelect)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 146, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 145, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var69))
 		if templ_7745c5c3_Err != nil {
@@ -1249,7 +1248,7 @@ func formsTextarea() templ.Component {
 		var templ_7745c5c3_Var85 string
 		templ_7745c5c3_Var85, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsTextarea)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 195, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 194, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var85))
 		if templ_7745c5c3_Err != nil {
@@ -1353,7 +1352,7 @@ func formsCheckbox() templ.Component {
 		var templ_7745c5c3_Var93 string
 		templ_7745c5c3_Var93, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsCheckbox)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 212, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 211, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var93))
 		if templ_7745c5c3_Err != nil {
@@ -1479,7 +1478,7 @@ func formsRadio() templ.Component {
 		var templ_7745c5c3_Var103 string
 		templ_7745c5c3_Var103, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsRadio)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 245, Col: 23}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 244, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var103))
 		if templ_7745c5c3_Err != nil {
@@ -1627,7 +1626,7 @@ func formsRange() templ.Component {
 		var templ_7745c5c3_Var115 string
 		templ_7745c5c3_Var115, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsRange)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 283, Col: 23}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 282, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var115))
 		if templ_7745c5c3_Err != nil {
@@ -1731,7 +1730,7 @@ func formsColor() templ.Component {
 		var templ_7745c5c3_Var123 string
 		templ_7745c5c3_Var123, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsColor)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 314, Col: 23}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 313, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var123))
 		if templ_7745c5c3_Err != nil {
@@ -1835,7 +1834,7 @@ func formsFile() templ.Component {
 		var templ_7745c5c3_Var131 string
 		templ_7745c5c3_Var131, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsFile)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 330, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 329, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var131))
 		if templ_7745c5c3_Err != nil {
@@ -1939,7 +1938,7 @@ func formsSwitch() templ.Component {
 		var templ_7745c5c3_Var139 string
 		templ_7745c5c3_Var139, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsSwitch)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 354, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 353, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var139))
 		if templ_7745c5c3_Err != nil {
@@ -2043,7 +2042,7 @@ func formsDisabled() templ.Component {
 		var templ_7745c5c3_Var147 string
 		templ_7745c5c3_Var147, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsDisabled)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 370, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 369, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var147))
 		if templ_7745c5c3_Err != nil {
@@ -2279,7 +2278,7 @@ func formsValidation() templ.Component {
 		var templ_7745c5c3_Var167 string
 		templ_7745c5c3_Var167, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsValidation)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 405, Col: 28}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 404, Col: 28}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var167))
 		if templ_7745c5c3_Err != nil {
@@ -2383,7 +2382,7 @@ func formsComplete() templ.Component {
 		var templ_7745c5c3_Var175 string
 		templ_7745c5c3_Var175, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsComplete)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 441, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 440, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var175))
 		if templ_7745c5c3_Err != nil {
