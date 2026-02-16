@@ -5,18 +5,18 @@ import "github.com/knackwurstking/ui/pkg/css"
 type InputType string
 
 const (
-	InputTypeText         InputType = "text"
-	InputTypeEmail        InputType = "email"
-	InputTypePassword     InputType = "password"
-	InputTypeTel          InputType = "tel"
-	InputTypeURL          InputType = "url"
-	InputTypeSearch       InputType = "search"
-	InputTypeNumber       InputType = "number"
-	InputTypeDate         InputType = "date"
-	InputTypeTime         InputType = "time"
-	InputTypeDateTime     InputType = "datetime-local"
-	InputTypeMonth        InputType = "month"
-	InputTypeWeek         InputType = "week"
+	InputTypeText     InputType = "text"
+	InputTypeEmail    InputType = "email"
+	InputTypePassword InputType = "password"
+	InputTypeTel      InputType = "tel"
+	InputTypeURL      InputType = "url"
+	InputTypeSearch   InputType = "search"
+	InputTypeNumber   InputType = "number"
+	InputTypeDate     InputType = "date"
+	InputTypeTime     InputType = "time"
+	InputTypeDateTime InputType = "datetime-local"
+	InputTypeMonth    InputType = "month"
+	InputTypeWeek     InputType = "week"
 )
 
 type InputProps struct {
@@ -52,9 +52,9 @@ templ Input(props *InputProps) {
 		name={ props.Name }
 		value={ props.Value }
 		placeholder={ props.Placeholder }
-		required={ props.Required }
-		disabled={ props.Disabled }
-		readonly={ props.ReadOnly }
+		required?={ props.Required }
+		disabled?={ props.Disabled }
+		readonly?={ props.ReadOnly }
 		aria-invalid={ props.Invalid }
 		{ props.GetAttributes()... }
 	/>

@@ -33,9 +33,9 @@ templ Textarea(props *TextareaProps) {
 	<textarea
 		name={ props.Name }
 		placeholder={ props.Placeholder }
-		required={ props.Required }
-		disabled={ props.Disabled }
-		readonly={ props.ReadOnly }
+		required?={ props.Required }
+		disabled?={ props.Disabled }
+		readonly?={ props.ReadOnly }
 		rows={ props.Rows }
 		aria-invalid={ props.Invalid }
 		{ props.GetAttributes()... }

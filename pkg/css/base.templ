@@ -92,7 +92,7 @@ templ StylesGlobal() {
 		}
 
 		/* Interactive States */
-		[disabled],
+		[disabled]:not([disabled="false"]),
 		:disabled {
 			opacity: 0.4;
 			cursor: not-allowed;
@@ -2693,7 +2693,7 @@ templ StylesReset() {
 		}
 
 		/* Disable cursor on disabled elements */
-		[disabled],
+		[disabled]:not([disabled="false"]),
 		[aria-disabled="true"] {
 			cursor: not-allowed;
 		}

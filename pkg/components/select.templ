@@ -27,9 +27,9 @@ templ Select(props *SelectProps) {
 	<select
 		name={ props.Name }
 		value={ props.Value }
-		required={ props.Required }
-		disabled={ props.Disabled }
-		multiple={ props.Multiple }
+		required?={ props.Required }
+		disabled?={ props.Disabled }
+		multiple?={ props.Multiple }
 		aria-invalid={ props.Invalid }
 		{ props.GetAttributes()... }
 	>

@@ -414,7 +414,7 @@ summary,
 }
 
 /* Disable cursor on disabled elements */
-[disabled],
+[disabled]:not([disabled="false"]),
 [aria-disabled="true"] {
   cursor: not-allowed;
 }
@@ -446,7 +446,7 @@ body {
 }
 
 /* Interactive States */
-[disabled],
+[disabled]:not([disabled="false"]),
 :disabled {
   opacity: 0.4;
   cursor: not-allowed;
