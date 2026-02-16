@@ -10,7 +10,7 @@ import templruntime "github.com/a-h/templ/runtime"
 
 const (
 	Debug    = "debug"
-	DebugAll = "debug *"
+	DebugAll = "debug-all"
 )
 
 func StylesUtilDebug() templ.Component {

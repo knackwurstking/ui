@@ -8,6 +8,9 @@ package css
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+// TODO: Change the "toast-stack" styles to show stack size somehow, maybe
+// by transforming each toast in the stack with a slight offset...
+
 const (
 	Toast = "toast"
 
