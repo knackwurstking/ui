@@ -112,8 +112,9 @@ templ formsNumber() {
 	</div>
 }
 
+// TODO: Fix alignment, input elements on my iphone 16e have no gap
 templ formsDateTime() {
-	<div class={ css.MB }>
+	<div class={ css.MB, css.DebugAll }>
 		<h3 id={ IDFormsDateTime } class={ css.MB }>Date & Time</h3>
 		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
 			<div class={ css.FormGroup }>
