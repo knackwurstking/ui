@@ -12,7 +12,6 @@ import "github.com/knackwurstking/ui/pkg/css"
 
 type ToastVariant string
 type ToastPosition string
-type ToastSize string
 
 const (
 	ToastVariantSuccess ToastVariant = css.ToastVariantSuccess
@@ -26,10 +25,6 @@ const (
 	ToastPositionBottomLeft   ToastPosition = css.ToastPositionBottomLeft
 	ToastPositionBottomCenter ToastPosition = css.ToastPositionBottomCenter
 	ToastPositionBottomRight  ToastPosition = css.ToastPositionBottomRight
-
-	ToastSizeSmall  ToastSize = css.ToastSizeSmall
-	ToastSizeMedium ToastSize = ""
-	ToastSizeLarge  ToastSize = css.ToastSizeLarge
 )
 
 type ToastProps struct {
@@ -37,7 +32,6 @@ type ToastProps struct {
 
 	Variant  ToastVariant
 	Position ToastPosition
-	Size     ToastSize
 
 	Title       string
 	Description string
@@ -77,9 +71,6 @@ func Toast(props *ToastProps) templ.Component {
 		}
 		if props.Position != "" {
 			props.Class = append(props.Class, string(props.Position))
-		}
-		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
 		}
 		if props.Show {
 			props.Class = append(props.Class, css.ToastShow)
@@ -146,7 +137,7 @@ func Toast(props *ToastProps) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(props.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 66, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 57, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -183,7 +174,7 @@ func Toast(props *ToastProps) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(props.Description)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 69, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 60, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {

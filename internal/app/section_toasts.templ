@@ -6,12 +6,12 @@ import (
 )
 
 const (
-	IDToasts           = "section-toasts"
-	IDToastsVariants   = "section-toast-variants"
-	IDToastsPositions  = "section-toast-positions"
-	IDToastsSizes      = "section-toast-sizes"
-	IDToastsStack      = "section-toast-stack"
-	IDToastsClose      = "section-toast-close"
+	IDToasts          = "section-toasts"
+	IDToastsVariants  = "section-toast-variants"
+	IDToastsPositions = "section-toast-positions"
+	IDToastsSizes     = "section-toast-sizes"
+	IDToastsStack     = "section-toast-stack"
+	IDToastsClose     = "section-toast-close"
 )
 
 templ Toasts() {
@@ -20,45 +20,10 @@ templ Toasts() {
 			Toasts
 		}
 		@SectionContent() {
-			@toastsVariants()
-			@toastsPositions()
-			@toastsSizes()
+			//@toastsPositions()
 			@toastsStack()
-			@toastsClose()
 		}
 	</section>
-}
-
-templ toastsVariants() {
-	<div class={ css.MB }>
-		<h3 id={ IDToastsVariants } class={ css.MB }>Variants</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap }>
-			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantSuccess,
-				Title:    "Success",
-				Description: "This is a success toast message.",
-				Show:     true,
-			})
-			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantWarning,
-				Title:    "Warning",
-				Description: "This is a warning toast message.",
-				Show:     true,
-			})
-			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantError,
-				Title:    "Error",
-				Description: "This is an error toast message.",
-				Show:     true,
-			})
-			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantInfo,
-				Title:    "Info",
-				Description: "This is an info toast message.",
-				Show:     true,
-			})
-		</div>
-	</div>
 }
 
 templ toastsPositions() {
@@ -66,54 +31,34 @@ templ toastsPositions() {
 		<h3 id={ IDToastsPositions } class={ css.MB }>Positions</h3>
 		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			@components.Toast(&components.ToastProps{
-				Position: components.ToastPositionTopLeft,
-				Title:    "Top Left",
+				Position:    components.ToastPositionTopLeft,
+				Title:       "Top Left",
 				Description: "This toast is positioned at the top left.",
-				Show:     true,
+				Show:        true,
 			})
 			@components.Toast(&components.ToastProps{
-				Position: components.ToastPositionTopCenter,
-				Title:    "Top Center",
+				Position:    components.ToastPositionTopCenter,
+				Title:       "Top Center",
 				Description: "This toast is positioned at the top center.",
-				Show:     true,
+				Show:        true,
 			})
 			@components.Toast(&components.ToastProps{
-				Position: components.ToastPositionBottomLeft,
-				Title:    "Bottom Left",
+				Position:    components.ToastPositionBottomLeft,
+				Title:       "Bottom Left",
 				Description: "This toast is positioned at the bottom left.",
-				Show:     true,
+				Show:        true,
 			})
 			@components.Toast(&components.ToastProps{
-				Position: components.ToastPositionBottomCenter,
-				Title:    "Bottom Center",
+				Position:    components.ToastPositionBottomCenter,
+				Title:       "Bottom Center",
 				Description: "This toast is positioned at the bottom center.",
-				Show:     true,
+				Show:        true,
 			})
 			@components.Toast(&components.ToastProps{
-				Position: components.ToastPositionBottomRight,
-				Title:    "Bottom Right",
+				Position:    components.ToastPositionBottomRight,
+				Title:       "Bottom Right",
 				Description: "This toast is positioned at the bottom right.",
-				Show:     true,
-			})
-		</div>
-	</div>
-}
-
-templ toastsSizes() {
-	<div class={ css.MB }>
-		<h3 id={ IDToastsSizes } class={ css.MB }>Sizes</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap }>
-			@components.Toast(&components.ToastProps{
-				Size:  components.ToastSizeSmall,
-				Title: "Small Toast",
-				Description: "This is a small toast message.",
-				Show:  true,
-			})
-			@components.Toast(&components.ToastProps{
-				Size:  components.ToastSizeLarge,
-				Title: "Large Toast",
-				Description: "This is a large toast message.",
-				Show:  true,
+				Show:        true,
 			})
 		</div>
 	</div>
@@ -123,46 +68,50 @@ templ toastsStack() {
 	<div class={ css.MB }>
 		<h3 id={ IDToastsStack } class={ css.MB }>Toast Stack</h3>
 		@components.ToastStack(nil) {
+			// Variants
 			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantSuccess,
-				Title:    "Stacked Toast 1",
-				Description: "This is the first toast in the stack.",
-				Show:     true,
+				Variant:     components.ToastVariantSuccess,
+				Title:       "Success",
+				Description: "This is a success toast message.",
+				Show:        true,
+				Close:       true,
 			})
 			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantWarning,
-				Title:    "Stacked Toast 2",
-				Description: "This is the second toast in the stack.",
-				Show:     true,
+				Variant:     components.ToastVariantWarning,
+				Title:       "Warning",
+				Description: "This is a warning toast message.",
+				Show:        true,
+				Close:       true,
 			})
 			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantError,
-				Title:    "Stacked Toast 3",
-				Description: "This is the third toast in the stack.",
-				Show:     true,
+				Variant:     components.ToastVariantError,
+				Title:       "Error",
+				Description: "This is an error toast message.",
+				Show:        true,
+				Close:       true,
+			})
+			@components.Toast(&components.ToastProps{
+				Variant:     components.ToastVariantInfo,
+				Title:       "Info",
+				Description: "This is an info toast message.",
+				Show:        true,
+				Close:       true,
+			})
+			// Size
+			@components.Toast(&components.ToastProps{
+				Variant:     components.ToastVariantInfo,
+				Title:       "Small Toast",
+				Description: "This is a small toast message.",
+				Show:        true,
+				Close:       true,
+			})
+			@components.Toast(&components.ToastProps{
+				Variant:     components.ToastVariantInfo,
+				Title:       "Large Toast",
+				Description: "This is a large toast message.",
+				Show:        true,
+				Close:       true,
 			})
 		}
-	</div>
-}
-
-templ toastsClose() {
-	<div class={ css.MB }>
-		<h3 id={ IDToastsClose } class={ css.MB }>With Close Button</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap }>
-			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantSuccess,
-				Title:    "Closable Toast",
-				Description: "This toast has a close button.",
-				Show:     true,
-				Close:    true,
-			})
-			@components.Toast(&components.ToastProps{
-				Variant:  components.ToastVariantInfo,
-				Title:    "Another Closable",
-				Description: "Click the X button to close.",
-				Show:     true,
-				Close:    true,
-			})
-		</div>
 	</div>
 }

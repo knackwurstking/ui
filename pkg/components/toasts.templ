@@ -4,7 +4,6 @@ import "github.com/knackwurstking/ui/pkg/css"
 
 type ToastVariant string
 type ToastPosition string
-type ToastSize string
 
 const (
 	ToastVariantSuccess ToastVariant = css.ToastVariantSuccess
@@ -18,10 +17,6 @@ const (
 	ToastPositionBottomLeft   ToastPosition = css.ToastPositionBottomLeft
 	ToastPositionBottomCenter ToastPosition = css.ToastPositionBottomCenter
 	ToastPositionBottomRight  ToastPosition = css.ToastPositionBottomRight
-
-	ToastSizeSmall  ToastSize = css.ToastSizeSmall
-	ToastSizeMedium ToastSize = ""
-	ToastSizeLarge  ToastSize = css.ToastSizeLarge
 )
 
 type ToastProps struct {
@@ -29,7 +24,6 @@ type ToastProps struct {
 
 	Variant  ToastVariant
 	Position ToastPosition
-	Size     ToastSize
 
 	Title       string
 	Description string
@@ -50,9 +44,6 @@ templ Toast(props *ToastProps) {
 		}
 		if props.Position != "" {
 			props.Class = append(props.Class, string(props.Position))
-		}
-		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
 		}
 		if props.Show {
 			props.Class = append(props.Class, css.ToastShow)
