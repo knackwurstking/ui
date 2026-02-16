@@ -1887,7 +1887,7 @@ func formsRange() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 142, "\"><div><label for=\"range-default\">Default (0-100)</label> <input type=\"range\" id=\"range-default\" name=\"range-default\" min=\"0\" max=\"100\" value=\"50\"></div><div><label for=\"range-minmax\">Min/Max ( -50 to 50)</label> <input type=\"range\" id=\"range-minmax\" name=\"range-minmax\" min=\"-50\" max=\"50\" value=\"0\"></div><div><label for=\"range-step\">Step (0-100, step 10)</label> <input type=\"range\" id=\"range-step\" name=\"range-step\" min=\"0\" max=\"100\" step=\"10\" value=\"50\"></div><div><label for=\"range-labels\">With Labels</label> <input type=\"range\" id=\"range-labels\" name=\"range-labels\" min=\"0\" max=\"100\" value=\"50\" list=\"range-markers\"> <datalist id=\"range-markers\"><option value=\"0\"></option> <option value=\"25\"></option> <option value=\"50\"></option> <option value=\"75\"></option> <option value=\"100\"></option></datalist></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 142, "\"><div><label for=\"range-default\">Default (0-100)</label> <input type=\"range\" id=\"range-default\" name=\"range-default\" min=\"0\" max=\"100\" value=\"50\"></div><div><label for=\"range-step\">Step (0-100, step 10)</label> <input type=\"range\" id=\"range-step\" name=\"range-step\" min=\"0\" max=\"100\" step=\"10\" value=\"50\"></div><div><label for=\"range-labels\">With Labels</label> <input type=\"range\" id=\"range-labels\" name=\"range-labels\" min=\"0\" max=\"100\" value=\"50\" list=\"range-markers\"> <datalist id=\"range-markers\"><option value=\"0\"></option> <option value=\"25\"></option> <option value=\"50\"></option> <option value=\"75\"></option> <option value=\"100\"></option></datalist></div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -1950,7 +1950,7 @@ func formsColor() templ.Component {
 		var templ_7745c5c3_Var143 string
 		templ_7745c5c3_Var143, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsColor)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 323, Col: 23}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 319, Col: 23}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var143))
 		if templ_7745c5c3_Err != nil {
@@ -2054,7 +2054,7 @@ func formsFile() templ.Component {
 		var templ_7745c5c3_Var151 string
 		templ_7745c5c3_Var151, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsFile)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 339, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 335, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var151))
 		if templ_7745c5c3_Err != nil {
@@ -2158,7 +2158,7 @@ func formsSwitch() templ.Component {
 		var templ_7745c5c3_Var159 string
 		templ_7745c5c3_Var159, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsSwitch)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 363, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 359, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var159))
 		if templ_7745c5c3_Err != nil {
@@ -2262,7 +2262,7 @@ func formsDisabled() templ.Component {
 		var templ_7745c5c3_Var167 string
 		templ_7745c5c3_Var167, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsDisabled)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 379, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 375, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var167))
 		if templ_7745c5c3_Err != nil {
@@ -2498,7 +2498,7 @@ func formsValidation() templ.Component {
 		var templ_7745c5c3_Var187 string
 		templ_7745c5c3_Var187, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsValidation)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 414, Col: 28}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 410, Col: 28}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var187))
 		if templ_7745c5c3_Err != nil {
@@ -2602,7 +2602,7 @@ func formsComplete() templ.Component {
 		var templ_7745c5c3_Var195 string
 		templ_7745c5c3_Var195, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsComplete)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 450, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 446, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var195))
 		if templ_7745c5c3_Err != nil {
