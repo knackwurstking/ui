@@ -85,7 +85,7 @@ func serveCmd(cmd *cli.Command) cli.ActionRunner {
 		e.Static("/*", dir)
 
 		// Start server
-		addr := "localhost:8080"
+		addr := "0.0.0.0:8080"
 		fmt.Printf("Serving %s at http://%s\n", dir, addr)
 		fmt.Println("Press Ctrl+C to stop the server")
 
