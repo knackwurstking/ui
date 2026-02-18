@@ -225,11 +225,7 @@ func Toast(props *ToastProps) templ.Component {
 	})
 }
 
-type ToastStackProps struct {
-	BaseProps
-}
-
-func ToastStack(props *ToastStackProps) templ.Component {
+func ToastStack(props *BaseProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -251,7 +247,7 @@ func ToastStack(props *ToastStackProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &ToastStackProps{}
+			props = &BaseProps{}
 		}
 		props.Class = append(props.Class, css.ToastStack)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div")

@@ -85,14 +85,10 @@ templ Toast(props *ToastProps) {
 	</div>
 }
 
-type ToastStackProps struct {
-	BaseProps
-}
-
-templ ToastStack(props *ToastStackProps) {
+templ ToastStack(props *BaseProps) {
 	{{
 		if props == nil {
-			props = &ToastStackProps{}
+			props = &BaseProps{}
 		}
 		props.Class = append(props.Class, css.ToastStack)
 	}}
