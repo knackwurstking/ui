@@ -10,6 +10,7 @@ const (
 
 	ToastPositionTopLeft      = "top-left"
 	ToastPositionTopCenter    = "top-center"
+	ToastPositionTopRight     = "top-right"
 	ToastPositionBottomLeft   = "bottom-left"
 	ToastPositionBottomCenter = "bottom-center"
 	ToastPositionBottomRight  = "bottom-right"
@@ -145,6 +146,12 @@ templ StylesComponentToast() {
 			left: 50%;
 			transform: translateX(-50%);
 			right: auto;
+		}
+
+		.toast.top-right {
+			top: var(--ui-spacing);
+			right: var(--ui-spacing);
+			left: auto;
 		}
 
 		.toast.bottom-right {

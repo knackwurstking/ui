@@ -6044,6 +6044,12 @@ dialog.large {
   right: auto;
 }
 
+.toast.top-right {
+  top: var(--ui-spacing);
+  right: var(--ui-spacing);
+  left: auto;
+}
+
 .toast.bottom-right {
   bottom: var(--ui-spacing);
   right: var(--ui-spacing);
