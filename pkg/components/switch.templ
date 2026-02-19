@@ -1,0 +1,59 @@
+package components
+
+import "github.com/knackwurstking/ui/pkg/css"
+
+type SwitchProps struct {
+	BaseProps
+
+	Name     string
+	Value    string
+	Checked  bool
+	Disabled bool
+	Size     SwitchSize
+	Color    SwitchColor
+}
+
+type SwitchSize string
+
+const (
+	SwitchSizeSmall SwitchSize = css.SwitchSmall
+	SwitchSizeLarge SwitchSize = css.SwitchLarge
+)
+
+type SwitchColor string
+
+const (
+	SwitchColorPrimary     SwitchColor = css.SwitchPrimary
+	SwitchColorSecondary   SwitchColor = css.SwitchSecondary
+	SwitchColorSuccess     SwitchColor = css.SwitchSuccess
+	SwitchColorWarning     SwitchColor = css.SwitchWarning
+	SwitchColorDestructive SwitchColor = css.SwitchDestructive
+	SwitchColorInfo        SwitchColor = css.SwitchInfo
+)
+
+templ Switch(props *SwitchProps) {
+	{{
+		if props == nil {
+			props = &SwitchProps{}
+		}
+
+		props.Class = append(props.Class, css.Switch)
+		if props.Size != "" {
+			props.Class = append(props.Class, string(props.Size))
+		}
+		if props.Color != "" {
+			props.Class = append(props.Class, string(props.Color))
+		}
+		if props.Disabled {
+			props.Class = append(props.Class, css.SwitchDisabled)
+		}
+	}}
+	<input
+		type="checkbox"
+		name={ props.Name }
+		value={ props.Value }
+		checked?={ props.Checked }
+		disabled?={ props.Disabled }
+		{ props.GetAttributes()... }
+	/>
+}
