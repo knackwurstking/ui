@@ -48,12 +48,14 @@ templ Switch(props *SwitchProps) {
 			props.Class = append(props.Class, css.SwitchDisabled)
 		}
 	}}
-	<input
-		type="checkbox"
-		name={ props.Name }
-		value={ props.Value }
-		checked?={ props.Checked }
-		disabled?={ props.Disabled }
-		{ props.GetAttributes()... }
-	/>
+	<span { props.GetAttributes()... }>
+		<input
+			type="checkbox"
+			name={ props.Name }
+			value={ props.Value }
+			checked?={ props.Checked }
+			disabled?={ props.Disabled }
+		/>
+		<span></span>
+	</span>
 }

@@ -5703,9 +5703,11 @@ dialog.large {
 .switch input[type="checkbox"] {
   position: absolute;
   opacity: 0;
-  width: 0;
-  height: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 /* Switch track */
