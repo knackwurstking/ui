@@ -25,6 +25,7 @@ templ Drawer() {
 			@drawerItemsBadges()
 			@drawerItemsDialogs()
 			@drawerItemsTabs()
+			@drawerItemsSwitches()
 		</ul>
 	}
 }
@@ -200,6 +201,30 @@ templ drawerItemsDialogs() {
 templ drawerItemsTabs() {
 	@drawerItem("#"+IDTabs, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
 		Tabs
+	}
+}
+
+templ drawerItemsSwitches() {
+	@drawerItem("#"+IDSwitches, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Switches
+	}
+	@drawerSubItem("#"+IDSwitchesDefault, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Default Switches
+	}
+	@drawerSubItem("#"+IDSwitchesSizes, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Sizes
+	}
+	@drawerSubItem("#"+IDSwitchesColors, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Colors
+	}
+	@drawerSubItem("#"+IDSwitchesDisabled, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Disabled Switches
+	}
+	@drawerSubItem("#"+IDSwitchesCombined, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Combined Examples
+	}
+	@drawerSubItem("#"+IDSwitchesValidation, toggleDrawer("."+css.Drawer, css.DrawerOpen)) {
+		Validation
 	}
 }
 
