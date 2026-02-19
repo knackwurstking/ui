@@ -34,18 +34,24 @@ templ Switches() {
 templ switchesDefault() {
 	<div class={ css.MB }>
 		<h3 id={ IDSwitchesDefault } class={ css.MB }>Default Switches</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
-				@components.Switch(&components.SwitchProps{})
-				<label for="switch-default">Default Switch</label>
+				<label for="switch-default" class={ css.Flex, css.ItemsCenter, css.Gap }>
+					@components.Switch(nil)
+					Default Switch
+				</label>
 			</div>
 			<div>
-				@components.Switch(&components.SwitchProps{Checked: true})
-				<label for="switch-checked">Checked Switch</label>
+				<label for="switch-checked" class={ css.Flex, css.ItemsCenter, css.Gap }>
+					@components.Switch(&components.SwitchProps{Checked: true})
+					Checked Switch
+				</label>
 			</div>
 			<div>
-				@components.Switch(&components.SwitchProps{Disabled: true})
-				<label for="switch-disabled">Disabled Switch</label>
+				<label for="switch-disabled" class={ css.Flex, css.ItemsCenter, css.Gap }>
+					@components.Switch(&components.SwitchProps{Disabled: true})
+					Disabled Switch
+				</label>
 			</div>
 		</div>
 	</div>

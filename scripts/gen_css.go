@@ -33,8 +33,8 @@ func main() {
 		{"Theme", css.StylesThemeTemplUI()},
 		{"Reset", css.StylesReset()},
 		{"Global", css.StylesGlobal()},
-		{"Utils", css.StylesUtils()},
 		{"Components", css.StylesComponents()},
+		{"Utils", css.StylesUtils()},
 	}
 
 	for _, c := range components {

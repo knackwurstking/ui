@@ -394,25 +394,12 @@
 		button {
 			background: none;
 			border: none;
-			cursor: pointer;
 		}
 
 		/* Remove default link styles */
 		a {
 			color: inherit;
 			text-decoration: none;
-		}
-
-		/* Set cursor on clickable elements */
-		button,
-		[role="button"],
-		input[type="submit"],
-		input[type="button"],
-		label[for],
-		select,
-		summary,
-		[tabindex]:not([tabindex="-1"]) {
-			cursor: pointer;
 		}
 
 		/* Disable cursor on disabled elements */
@@ -539,7 +526,6 @@
 			color: var(--btn-text);
 
 			/* Interaction */
-			cursor: pointer;
 			user-select: none;
 			transition: all 0.25s ease-in-out;
 			position: relative;
@@ -961,7 +947,6 @@
 			text-decoration: underline;
 			text-decoration-thickness: 1px;
 			text-underline-offset: 0.125em;
-			cursor: pointer;
 			transition:
 				color 0.2s ease,
 				text-decoration-color 0.2s ease,
@@ -1545,7 +1530,6 @@
 
 		summary {
 			display: flex;
-			cursor: pointer;
 
 			align-items: center;
 			justify-content: space-between;
@@ -1788,178 +1772,6 @@
 	</style><style>
 		form > * {
 			margin: var(--ui-spacing) 0;
-		}
-
-		.form-group {
-			display: flex;
-			flex-direction: column;
-			margin-bottom: 1rem;
-			min-width: 0;
-		}
-
-		.form-group label {
-			display: block;
-			margin-bottom: 0.25rem;
-			font-weight: 500;
-		}
-
-		.form-group input:not([type="checkbox"]):not([type="radio"]),
-		.form-group select,
-		.form-group textarea {
-			width: 100%;
-			max-width: 100%;
-			box-sizing: border-box;
-			padding: 0.5rem;
-			border: var(--ui-border-width) solid var(--ui-border-color);
-			border-radius: var(--ui-radius);
-			background-color: var(--ui-bg);
-			color: var(--ui-text);
-			font-family: inherit;
-		}
-
-		/* Label alignment for form elements */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		.form-group label[for] {
-			display: inline;
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Improved checkbox/radio label alignment */
-		.form-group input[type="checkbox"] + label,
-		.form-group input[type="radio"] + label {
-			vertical-align: middle;
-			display: inline-block;
-			margin-left: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Ensure checkbox and radio inputs are properly aligned in forms */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			display: inline-block;
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Ensure proper inline display for form elements */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			display: inline-block;
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		.form-group label[for] {
-			display: inline-block;
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Fix for direct label/input combinations in forms */
-		.form-group input[type="checkbox"] + label,
-		.form-group input[type="radio"] + label {
-			display: inline-block;
-			vertical-align: middle;
-			margin-left: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Ensure proper inline display for form elements */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			display: inline-block;
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		/* For direct label/input combinations in forms */
-		.form-group input[type="checkbox"] + label,
-		.form-group input[type="radio"] + label {
-			display: inline-block;
-			vertical-align: middle;
-			margin-left: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Ensure checkbox and radio labels appear properly aligned */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		.form-group label[for] {
-			vertical-align: middle;
-		}
-
-		/* Enhanced form layout for checkbox and radio elements */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		/* For direct label alignment */
-		.form-group input[type="checkbox"] + label,
-		.form-group input[type="radio"] + label {
-			vertical-align: middle;
-			display: inline-block;
-			margin-left: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Checkbox and Radio Label Alignment */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		.form-group label[for] {
-			display: inline;
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Improved checkbox/radio label alignment */
-		.form-group input[type="checkbox"] + label,
-		.form-group input[type="radio"] + label {
-			vertical-align: middle;
-			display: inline-block;
-			margin-left: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Improved checkbox/radio label alignment */
-		.form-group input[type="checkbox"] + label,
-		.form-group input[type="radio"] + label {
-			vertical-align: middle;
-			display: inline-block;
-			margin-left: calc(var(--ui-spacing) / 4);
-		}
-
-		/* Better spacing for form elements with checkboxes/radios */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			margin: 0 calc(var(--ui-spacing) / 4) 0 0;
-		}
-
-		.form-group label[for] {
-			margin: 0 calc(var(--ui-spacing) / 4) 0 0;
-		}
-
-		/* Enhanced form layout for checkbox and radio elements */
-		.form-group input[type="checkbox"],
-		.form-group input[type="radio"] {
-			vertical-align: middle;
-			margin-right: calc(var(--ui-spacing) / 4);
-		}
-
-		.form-group label[for] {
-			vertical-align: middle;
-			display: inline-block;
-			margin-right: calc(var(--ui-spacing) / 4);
 		}
 	</style><style>
 		/* Text Inputs Base */
@@ -2319,7 +2131,6 @@
 			background-size: 1rem;
 			width: fit-content;
 			height: 100%;
-			cursor: pointer;
 			margin: 0;
 		}
 
@@ -2408,7 +2219,6 @@
 			font-size: 1rem;
 
 			/* Interaction */
-			cursor: pointer;
 			accent-color: var(--ui-primary);
 			transition: border-color 0.25s ease-in-out;
 		}
@@ -2848,10 +2658,1306 @@
 		label {
 			padding: var(--ui-spacing);
 		}
+	</style><style>
+		.app-bar {
+			/* utils: .backdrop */
+			background-color: var(--ui-backdrop-color);
+			backdrop-filter: blur(5px);
+			-webkit-backdrop-filter: blur(5px);
 
-		label[for],
-		label:has(input) {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: space-between;
+			padding: calc(var(--ui-spacing) / 2);
+			overflow: hidden;
+			width: 100%;
+			gap: var(--ui-spacing);
+		}
+
+		.app-bar.top,
+		.app-bar.bottom {
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: var(--ui-app-bar-height);
+		}
+
+		.app-bar.fixed {
+			position: fixed;
+		}
+
+		.app-bar.top {
+			top: 0;
+			border-bottom: var(--ui-border-width) var(--ui-border-style)
+				var(--ui-border-color);
+		}
+
+		.app-bar.bottom {
+			bottom: 0;
+			border-top: var(--ui-border-width) var(--ui-border-style)
+				var(--ui-border-color);
+		}
+
+		.app-bar > .app-bar-center {
+			overflow: hidden;
+		}
+
+		.app-bar > .app-bar-left,
+		.app-bar > .app-bar-center,
+		.app-bar > .app-bar-right {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+			gap: var(--ui-spacing);
+		}
+
+		.app-bar > .app-bar-left,
+		.app-bar > .app-bar-right {
+			width: fit-content;
+		}
+
+		.app-bar > .app-bar-left {
+			justify-content: flex-start;
+		}
+
+		.app-bar > .app-bar-right {
+			justify-content: flex-end;
+		}
+	</style><style>
+		/* Base Badge */
+		.badge {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.75rem;
+			font-weight: 600;
+			line-height: 1;
+			padding: 0.25em 0.5em;
+			border-radius: var(--ui-radius);
+			white-space: nowrap;
+			vertical-align: baseline;
+			transition: all 0.2s ease-in-out;
+		}
+
+		/* Badge Sizes */
+		.badge-xs {
+			font-size: 0.625rem;
+			padding: 0.125em 0.375em;
+		}
+
+		.badge-sm {
+			font-size: 0.6875rem;
+			padding: 0.1875em 0.4375em;
+		}
+
+		.badge-md {
+			font-size: 0.75rem;
+			padding: 0.25em 0.5em;
+		}
+
+		.badge-lg {
+			font-size: 0.875rem;
+			padding: 0.375em 0.625em;
+		}
+
+		.badge-xl {
+			font-size: 1rem;
+			padding: 0.5em 0.75em;
+		}
+
+		/* Badge Shapes */
+		.badge-pill {
+			border-radius: 9999px;
+		}
+
+		.badge-square {
+			border-radius: 0;
+		}
+
+		.badge-rounded {
+			border-radius: var(--ui-radius);
+		}
+
+		/* Badge Counter (for notification counts) */
+		.badge-counter-sm {
+			min-width: 1.25em;
+			height: 1.25em;
+			font-size: 0.5625rem;
+		}
+
+		.badge-counter-lg {
+			min-width: 1.75em;
+			height: 1.75em;
+			font-size: 0.75rem;
+		}
+
+		/* Badge Group */
+		.badge-group {
+			display: inline-flex;
+			gap: 0.25rem;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+
+		.badge-group-vertical {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		/* Badge Animations */
+		@keyframes badge-pulse {
+			0% {
+				box-shadow: 0 0 0 0 currentColor;
+			}
+
+			70% {
+				box-shadow: 0 0 0 0.5rem transparent;
+			}
+
+			100% {
+				box-shadow: 0 0 0 0 transparent;
+			}
+		}
+
+		@keyframes badge-ping {
+
+			75%,
+			100% {
+				transform: scale(2);
+				opacity: 0;
+			}
+		}
+
+		@keyframes badge-bounce {
+
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-25%);
+			}
+		}
+
+		.badge-pulse {
+			animation: badge-pulse 2s infinite;
+		}
+
+		.badge-ping {
+			position: relative;
+		}
+
+		.badge-ping::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			border-radius: inherit;
+			background-color: currentColor;
+			animation: badge-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+		}
+
+		.badge-bounce {
+			animation: badge-bounce 1s ease-in-out infinite;
+		}
+
+		.badge-clickable {
 			cursor: pointer;
+			transition: transform 0.1s ease-in-out;
+		}
+
+		.badge-clickable:hover {
+			transform: scale(1.05);
+		}
+
+		.badge-clickable:active {
+			transform: scale(0.95);
+		}
+
+		/* Badge with Status Indicator */
+		.badge-status {
+			position: relative;
+			padding-left: 1.5em;
+		}
+
+		.badge-status::before {
+			content: "";
+			position: absolute;
+			left: 0.5em;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 0.5em;
+			height: 0.5em;
+			border-radius: 50%;
+			background-color: currentColor;
+		}
+
+		.badge-status-online::before {
+			background-color: var(--ui-success, #10b981);
+		}
+
+		.badge-status-offline::before {
+			background-color: var(--ui-muted, #6b7280);
+		}
+
+		.badge-status-busy::before {
+			background-color: var(--ui-warning, #f59e0b);
+		}
+
+		.badge-status-away::before {
+			background-color: var(--ui-info, #3b82f6);
+		}
+
+		/* Floating Badge */
+		.badge-float {
+			position: absolute;
+		}
+
+		.badge-float-top {
+			top: 1rem;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.badge-float-bottom {
+			bottom: 1rem;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	</style><style>
+		.card {
+			--card-padding: calc(var(--ui-spacing) * 1.5);
+
+			display: block;
+			background-color: var(--ui-bg);
+			border: var(--ui-border-width) solid var(--ui-border-color);
+			border-radius: var(--ui-radius);
+			overflow: hidden;
+			position: relative;
+			contain: layout style paint;
+			will-change: auto;
+			transition:
+				transform 0.2s ease-in-out,
+				border-color 0.2s ease-in-out;
+		}
+
+		.card:focus-within {
+			border-color: var(--ui-primary);
+			outline: 2px solid var(--ui-primary);
+			outline-offset: 2px;
+		}
+
+		/* Card Structure */
+		.card-header,
+		.card-body,
+		.card-footer {
+			padding: var(--card-padding);
+		}
+
+		.card-header {
+			border-bottom: var(--ui-border-width) solid var(--ui-border-color);
+			background-color: var(--ui-color-50);
+			--wght: 600;
+			font-size: 1.125rem;
+			line-height: 1.4;
+			letter-spacing: -0.025em;
+		}
+
+		.card-footer {
+			border-top: var(--ui-border-width) solid var(--ui-border-color);
+			background-color: var(--ui-color-50);
+		}
+
+		/* Card Variants */
+
+		.card.flat {
+			border: none;
+			background-color: var(--ui-muted);
+		}
+
+		.card.outline {
+			background-color: transparent;
+			border-width: calc(var(--ui-border-width) * 1.5);
+		}
+
+		.card.outline .card-header {
+			border-bottom: var(--ui-border-width) solid var(--ui-border-color);
+			background-color: transparent;
+		}
+
+		.card.outline .card-footer {
+			border-top: var(--ui-border-width) solid var(--ui-border-color);
+			background-color: transparent;
+		}
+
+		.card.seamless .card-header,
+		.card.seamless .card-footer {
+			border: none;
+			background-color: transparent;
+		}
+
+		/* Card Sizes */
+		.card.compact {
+			--card-padding: calc(var(--ui-spacing) * 1);
+		}
+
+		.card.comfortable {
+			--card-padding: calc(var(--ui-spacing) * 1.5);
+		}
+
+		.card.spacious {
+			--card-padding: calc(var(--ui-spacing) * 2);
+		}
+
+		/* Card Image */
+		.card-image {
+			width: 100%;
+			height: auto;
+			display: block;
+			object-fit: cover;
+		}
+
+		.card-image.aspect-video {
+			aspect-ratio: 16 / 9;
+		}
+
+		.card-image.aspect-square {
+			aspect-ratio: 1 / 1;
+		}
+
+		.card-image.aspect-portrait {
+			aspect-ratio: 3 / 4;
+		}
+
+		/* Card Content */
+		.card-title {
+			margin: 0 0 calc(var(--ui-spacing) / 2) 0;
+			--wght: 700;
+			font-size: 1.375rem;
+			line-height: 1.25;
+			letter-spacing: -0.025em;
+			color: var(--ui-text);
+		}
+
+		.card-subtitle {
+			margin: 0 0 var(--ui-spacing) 0;
+			font-size: 0.875rem;
+			color: var(--ui-muted-text);
+			line-height: 1.4;
+		}
+
+		/* Card Actions */
+		.card-actions {
+			display: flex;
+			gap: calc(var(--ui-spacing) / 2);
+			align-items: center;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
+
+		.card-actions.center {
+			justify-content: center;
+		}
+
+		.card-actions.end {
+			justify-content: flex-end;
+		}
+
+		.card-actions.between {
+			justify-content: space-between;
+		}
+
+		.card-actions.stretch {
+			justify-content: stretch;
+		}
+
+		.card-actions.stretch > * {
+			flex: 1;
+		}
+
+		/* Color Variants - Using CSS Custom Properties */
+		.card.primary {
+			--card-color: var(--ui-primary);
+			--card-color-text: var(--ui-primary-text);
+			border-color: var(--card-color);
+		}
+
+		.card.secondary {
+			--card-color: var(--ui-secondary);
+			--card-color-text: var(--ui-secondary-text);
+			border-color: var(--card-color);
+		}
+
+		.card.success {
+			--card-color: var(--ui-success);
+			--card-color-text: var(--ui-success-text);
+			border-color: var(--card-color);
+		}
+
+		.card.warning {
+			--card-color: var(--ui-warning);
+			--card-color-text: var(--ui-warning-text);
+			border-color: var(--card-color);
+		}
+
+		.card.destructive {
+			--card-color: var(--ui-destructive);
+			--card-color-text: var(--ui-destructive-text);
+			border-color: var(--card-color);
+		}
+
+		.card.info {
+			--card-color: var(--ui-info);
+			--card-color-text: var(--ui-info-text);
+			border-color: var(--card-color);
+		}
+
+		.card.contrast {
+			--card-color: var(--ui-contrast);
+			--card-color-text: var(--ui-contrast-text);
+			border-color: var(--card-color);
+		}
+
+		.card.muted {
+			--card-color: var(--ui-muted);
+			--card-color-text: var(--ui-muted-text);
+			border-color: var(--card-color);
+		}
+
+		/* Apply color to headers for colored cards */
+		.card.primary .card-header,
+		.card.secondary .card-header,
+		.card.success .card-header,
+		.card.warning .card-header,
+		.card.destructive .card-header,
+		.card.info .card-header,
+		.card.contrast .card-header,
+		.card.muted .card-header {
+			background-color: var(--card-color);
+			color: var(--card-color-text);
+			border-color: var(--card-color);
+		}
+
+		/* Apply color to footers for colored cards */
+		.card.primary .card-footer,
+		.card.secondary .card-footer,
+		.card.success .card-footer,
+		.card.warning .card-footer,
+		.card.destructive .card-footer,
+		.card.info .card-footer,
+		.card.contrast .card-footer,
+		.card.muted .card-footer {
+			background-color: var(--card-color);
+			color: var(--card-color-text);
+			border-color: var(--card-color);
+		}
+
+		/* Outline colored cards */
+		.card.outline.primary .card-header,
+		.card.outline.secondary .card-header,
+		.card.outline.success .card-header,
+		.card.outline.warning .card-header,
+		.card.outline.destructive .card-header,
+		.card.outline.info .card-header,
+		.card.outline.contrast .card-header,
+		.card.outline.muted .card-header {
+			background-color: transparent;
+			color: var(--card-color);
+			border-bottom-color: var(--card-color);
+		}
+
+		.card.outline.primary .card-footer,
+		.card.outline.secondary .card-footer,
+		.card.outline.success .card-footer,
+		.card.outline.warning .card-footer,
+		.card.outline.destructive .card-footer,
+		.card.outline.info .card-footer,
+		.card.outline.contrast .card-footer,
+		.card.outline.muted .card-footer {
+			background-color: transparent;
+			color: var(--card-color);
+			border-top-color: var(--card-color);
+		}
+
+		/* Loading States */
+		.card.loading {
+			position: relative;
+			overflow: hidden;
+			pointer-events: none;
+		}
+
+		.card.loading::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				90deg,
+				transparent,
+				hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.1),
+				transparent
+			);
+			animation: shimmer 1.5s infinite;
+		}
+
+		@keyframes shimmer {
+			to {
+				left: 100%;
+			}
+		}
+
+		/* Performance */
+		.card {
+			contain: layout style paint;
+			will-change: auto;
+		}
+
+		.card.interactive {
+			will-change: transform;
+		}
+
+		/* Remove will-change after animation */
+		.card:not(:hover):not(:focus):not(:active) {
+			will-change: auto;
+		}
+
+		/* Enhanced Focus */
+		.card:focus-visible {
+			outline: 2px solid var(--ui-primary);
+			outline-offset: 4px;
+			border-color: var(--ui-primary);
+		}
+
+		.card.interactive:focus-visible::after {
+			content: "";
+			position: absolute;
+			inset: -2px;
+			border: 2px solid var(--ui-primary);
+			border-radius: calc(var(--ui-radius) + 2px);
+			pointer-events: none;
+			animation: focus-pulse 2s infinite;
+		}
+
+		@keyframes focus-pulse {
+			0%,
+			100% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0.5;
+			}
+		}
+	</style><style>
+		.container {
+			display: block;
+			width: 100%;
+			max-width: 65rem;
+			margin: 0 auto;
+			padding: var(--ui-spacing);
+			overflow: auto;
+		}
+
+		.container.fluid {
+			width: 100%;
+			max-width: 100%;
+		}
+	</style><style>
+		dialog {
+			/* utils: .ui-hide-scrollbar */
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+
+			position: fixed;
+			background-color: var(--ui-bg);
+			color: var(--ui-text);
+			padding: var(--ui-spacing);
+			margin: auto auto;
+
+			border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+			border-radius: var(--ui-radius);
+
+			/* Enhanced shadows */
+			box-shadow: var(--ui-shadow-2xl);
+
+			/* Smooth transitions */
+			transition: all 0.2s ease-in-out;
+		}
+
+		dialog::backdrop {
+			background-color: var(--ui-backdrop-color);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			transition: backdrop-filter 0.2s ease-in-out;
+		}
+
+		dialog.clean {
+			border: none;
+			background-color: transparent;
+			box-shadow: none;
+		}
+
+		dialog.fullscreen {
+			width: 100%;
+			height: 100%;
+			padding: env(safe-area-inset-top, var(--ui-spacing)) env(safe-area-inset-right, var(--ui-spacing)) env(safe-area-inset-bottom, var(--ui-spacing)) env(safe-area-inset-left, var(--ui-spacing));
+			box-shadow: none;
+		}
+
+		/* Elevation variants */
+		dialog.elevated {
+			box-shadow: var(--ui-shadow-2xl);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+		}
+
+		dialog.floating {
+			box-shadow: var(--ui-shadow-2xl);
+			transform: scale(1.02);
+		}
+
+		dialog.subtle {
+			box-shadow: var(--ui-shadow-lg);
+		}
+
+		/* Glass morphism variant */
+		dialog.glass {
+			background: hsla(var(--ui-hue), var(--ui-saturation), 95%, 0.8);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border: 1px solid hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.18);
+			box-shadow:
+				var(--ui-shadow-2xl),
+				inset 0 1px 1px hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
+		}
+
+		dialog.glass::backdrop {
+			backdrop-filter: blur(15px);
+			-webkit-backdrop-filter: blur(15px);
+		}
+
+		/* utils: .ui-hide-scrollbar */
+		dialog::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Color variants for dialog */
+		dialog.primary {
+			border-color: var(--ui-primary);
+			background-color: var(--ui-primary);
+			color: var(--ui-primary-text);
+		}
+
+		dialog.secondary {
+			border-color: var(--ui-secondary);
+			background-color: var(--ui-secondary);
+			color: var(--ui-secondary-text);
+		}
+
+		dialog.info {
+			border-color: var(--ui-info);
+			background-color: var(--ui-info);
+			color: var(--ui-info-text);
+		}
+
+		dialog.success {
+			border-color: var(--ui-success);
+			background-color: var(--ui-success);
+			color: var(--ui-success-text);
+		}
+
+		dialog.warning {
+			border-color: var(--ui-warning);
+			background-color: var(--ui-warning);
+			color: var(--ui-warning-text);
+		}
+
+		dialog.destructive {
+			border-color: var(--ui-destructive);
+			background-color: var(--ui-destructive);
+			color: var(--ui-destructive-text);
+		}
+
+		dialog.contrast {
+			border-color: var(--ui-contrast);
+			background-color: var(--ui-contrast);
+			color: var(--ui-contrast-text);
+		}
+
+		/* Enhanced backdrop for colored dialogs */
+		dialog.primary::backdrop,
+		dialog.secondary::backdrop,
+		dialog.info::backdrop,
+		dialog.success::backdrop,
+		dialog.warning::backdrop,
+		dialog.destructive::backdrop,
+		dialog.contrast::backdrop {
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+		}
+
+		/* Dialog with close button */
+		dialog .dialog-close {
+			position: absolute;
+			top: calc(var(--ui-spacing) / 2);
+			right: calc(var(--ui-spacing) / 2);
+			width: 2rem;
+			height: 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			background-color: var(--ui-color-100);
+			color: var(--ui-text);
+			border: none;
+			z-index: 10;
+		}
+
+		dialog .dialog-close:hover {
+			background-color: var(--ui-color-200);
+		}
+
+		/* Dialog sizes */
+		dialog.small {
+			width: 30rem;
+			max-width: 90vw;
+		}
+
+		dialog.medium {
+			width: 40rem;
+			max-width: 90vw;
+		}
+
+		dialog.large {
+			width: 50rem;
+			max-width: 90vw;
+		}
+
+		/* High contrast adjustments */
+		@media (prefers-contrast: high) {
+			dialog {
+				box-shadow: 0 0 0 2px var(--ui-border-color);
+			}
+		}
+	</style><style>
+		.drawer {
+			/* utils: .ui-hide-scrollbar */
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+
+			/* utils: .ui-backdrop */
+			background-color: var(--ui-backdrop-color);
+
+			position: fixed;
+			top: 0;
+			left: -100%;
+			overflow: auto;
+			transition:
+				left 0.25s ease-in-out,
+				width 0.25s ease-in-out;
+			width: var(--width, fit-content);
+			max-width: calc(100% - 2.5rem);
+			height: 100%;
+			border-right: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
+		}
+
+		/* utils: .ui-hide-scrollbar */
+		.drawer::-webkit-scrollbar {
+			display: none;
+		}
+
+		.drawer.open {
+			left: 0;
+		}
+
+		.drawer.open::before {
+			left: 0;
+		}
+
+		.drawer-backdrop {
+			/* utils: .ui-backdrop */
+			background-color: var(--ui-backdrop-color);
+
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.drawer-backdrop:has(~ .drawer:not(.open)) {
+			display: none;
+		}
+
+		/* Drawer with close button */
+		.drawer-close {
+			position: absolute;
+			top: calc(var(--ui-spacing) / 2);
+			right: calc(var(--ui-spacing) / 2);
+			width: 2rem;
+			height: 2rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			background-color: var(--ui-color-100);
+			color: var(--ui-text);
+			border: none;
+			z-index: 10;
+		}
+
+		.drawer-close:hover {
+			background-color: var(--ui-color-200);
+		}
+
+		/* Drawer sizes */
+		.drawer.small {
+			width: 20rem;
+		}
+
+		.drawer.medium {
+			width: 30rem;
+		}
+
+		.drawer.large {
+			width: 40rem;
+		}
+	</style><style>
+		@keyframes spinner {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		.spinner {
+			/* utils: .ui-backdrop */
+			background-color: var(--ui-backdrop-color);
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.spinner::after {
+			z-index: 1;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -1.25rem;
+			margin-left: -1.25rem;
+			content: "";
+			width: 2.5rem;
+			height: 2.5rem;
+			border: 2px var(--ui-border-style) var(--ui-border-color);
+			border-top-color: var(--ui-primary);
+			border-radius: 50%;
+			animation: spinner 0.6s linear infinite;
+		}
+	</style><style>
+		.switch {
+			--switch-width: 3rem;
+			--switch-height: 1.5rem;
+			--switch-thumb-size: 1rem;
+			--switch-padding: 0.25rem;
+
+			display: inline-flex;
+			align-items: center;
+			gap: calc(var(--ui-spacing) / 2);
+			position: relative;
+		}
+
+		/* Hide the actual switch input */
+		.switch input[type="checkbox"] {
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+		}
+
+		/* Switch track */
+		.switch > span {
+			display: inline-block;
+			width: var(--switch-width);
+			height: var(--switch-height);
+			border-radius: 9999px;
+			background-color: var(--ui-border-color);
+			transition:
+				background-color 0.2s ease-in-out,
+				opacity 0.2s ease-in-out;
+			flex-shrink: 0;
+			position: relative;
+		}
+
+		/* Switch thumb */
+		.switch > span::after {
+			content: "";
+			position: absolute;
+			width: var(--switch-thumb-size);
+			height: var(--switch-thumb-size);
+			border-radius: 50%;
+			background-color: var(--ui-bg);
+			transition:
+				transform 0.2s ease-in-out,
+				background-color 0.2s ease-in-out;
+			top: var(--switch-padding);
+			left: var(--switch-padding);
+			box-shadow:
+				0 1px 2px hsla(0, 0%, 0%, 0.1),
+				0 1px 3px hsla(0, 0%, 0%, 0.1);
+		}
+
+		/* Switch checked state */
+		.switch input[type="checkbox"]:checked + span {
+			background-color: var(--ui-primary);
+		}
+
+		.switch input[type="checkbox"]:checked + span::after {
+			transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - (var(--switch-padding) * 2)));
+			background-color: var(--ui-primary-text);
+		}
+
+		/* Switch hover states */
+		.switch:hover > span {
+			background-color: hsla(var(--ui-hue), 10%, 95%, 0.3);
+		}
+
+		.switch input[type="checkbox"]:hover + span {
+			background-color: hsla(var(--ui-hue), 10%, 95%, 0.3);
+		}
+
+		/* Switch focus states */
+		.switch input[type="checkbox"]:focus-visible + span {
+			outline: 2px solid var(--ui-primary);
+			outline-offset: 2px;
+		}
+
+		/* Switch disabled states */
+		.switch.disabled,
+		.switch input[type="checkbox"]:disabled + span {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+
+		/* Switch sizes */
+		.switch.small > span {
+			width: 2.5rem;
+			height: 1.25rem;
+		}
+
+		.switch.small > span::after {
+			width: 0.875rem;
+			height: 0.875rem;
+			top: calc(var(--switch-padding) * 0.75);
+			left: calc(var(--switch-padding) * 0.75);
+		}
+
+		.switch.large > span {
+			width: 3.5rem;
+			height: 1.75rem;
+		}
+
+		.switch.large > span::after {
+			width: 1.25rem;
+			height: 1.25rem;
+			top: calc(var(--switch-padding) * 1.25);
+			left: calc(var(--switch-padding) * 1.25);
+		}
+
+		/* Switch color variants */
+		.switch.primary input[type="checkbox"]:checked + span {
+			background-color: var(--ui-primary);
+		}
+
+		.switch.primary input[type="checkbox"]:checked + span::after {
+			background-color: var(--ui-primary-text);
+		}
+
+		.switch.secondary input[type="checkbox"]:checked + span {
+			background-color: var(--ui-secondary);
+		}
+
+		.switch.secondary input[type="checkbox"]:checked + span::after {
+			background-color: var(--ui-secondary-text);
+		}
+
+		.switch.success input[type="checkbox"]:checked + span {
+			background-color: var(--ui-success);
+		}
+
+		.switch.success input[type="checkbox"]:checked + span::after {
+			background-color: var(--ui-success-text);
+		}
+
+		.switch.warning input[type="checkbox"]:checked + span {
+			background-color: var(--ui-warning);
+		}
+
+		.switch.warning input[type="checkbox"]:checked + span::after {
+			background-color: var(--ui-warning-text);
+		}
+
+		.switch.destructive input[type="checkbox"]:checked + span {
+			background-color: var(--ui-destructive);
+		}
+
+		.switch.destructive input[type="checkbox"]:checked + span::after {
+			background-color: var(--ui-destructive-text);
+		}
+
+		.switch.info input[type="checkbox"]:checked + span {
+			background-color: var(--ui-info);
+		}
+
+		.switch.info input[type="checkbox"]:checked + span::after {
+			background-color: var(--ui-info-text);
+		}
+
+		/* Switch accessibility focus */
+		.switch input[type="checkbox"]:focus-visible + span {
+			outline: 2px solid var(--ui-primary);
+			outline-offset: 2px;
+		}
+
+		/* Reduced Motion Support */
+		@media (prefers-reduced-motion: reduce) {
+			.switch > span,
+			.switch > span::after {
+				transition: none;
+			}
+
+			.switch:hover > span {
+				transition: none;
+			}
+		}
+
+		/* Dark theme support */
+		@media (prefers-color-scheme: dark) {
+			.switch > span {
+				background-color: var(--ui-border-color);
+			}
+
+			.switch:hover > span {
+				background-color: hsla(var(--ui-hue), 10%, 95%, 0.1);
+			}
+
+			.switch input[type="checkbox"]:checked + span {
+				background-color: var(--ui-primary);
+			}
+		}
+	</style><style>
+		.tabs {
+			--border: var(--ui-border-width) var(--ui-border-style)
+				var(--ui-border-color);
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-evenly;
+			align-items: center;
+			border-top: var(--border);
+			border-left: var(--border);
+			border-right: var(--border);
+			border-radius: var(--ui-radius);
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		.tabs > .tab {
+			flex: 1 1 0%;
+			padding: var(--ui-spacing);
+			text-align: center;
+			border-right: var(--border);
+			border-bottom: var(--border);
+			transition: color 0.3s ease-in-out;
+			box-shadow: none;
+			cursor: pointer;
+		}
+
+		.tabs > .tab:last-child {
+			border-right: none;
+		}
+
+		.tabs > .tab.active {
+			border-bottom: none;
+			color: var(--ui-primary);
+		}
+
+		.tabs > .tab:hover {
+			background-color: var(--ui-color-100);
+		}
+	</style><style>
+		.toast {
+			position: fixed;
+			top: var(--ui-spacing);
+			right: var(--ui-spacing);
+			z-index: 1000;
+			width: 30rem;
+			max-width: 90vw;
+			padding: calc(var(--ui-spacing) * 1.5);
+			border-radius: var(--ui-radius);
+			box-shadow: var(--ui-shadow-xl);
+			transition:
+				transform 0.3s ease-in-out,
+				opacity 0.3s ease-in-out;
+			display: flex;
+			align-items: flex-start;
+			gap: var(--ui-spacing);
+		}
+
+		.toast.show {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.toast.hide {
+			opacity: 0;
+			transform: translateY(-2rem);
+		}
+
+		/* Toast content */
+		.toast-content {
+			flex: 1;
+		}
+
+		.toast-title {
+			font-weight: 600;
+			margin-bottom: calc(var(--ui-spacing) / 2);
+		}
+
+		.toast-description {
+			font-size: 0.875rem;
+			line-height: 1.4;
+		}
+
+		/* Toast actions */
+		.toast-actions {
+			display: flex;
+			gap: calc(var(--ui-spacing) / 2);
+			margin-top: calc(var(--ui-spacing) / 2);
+		}
+
+		/* Toast variants */
+		.toast.success {
+			background-color: var(--ui-success);
+			color: var(--ui-success-text);
+			border-left: 4px solid var(--ui-success);
+		}
+
+		.toast.warning {
+			background-color: var(--ui-warning);
+			color: var(--ui-warning-text);
+			border-left: 4px solid var(--ui-warning);
+		}
+
+		.toast.error {
+			background-color: var(--ui-destructive);
+			color: var(--ui-destructive-text);
+			border-left: 4px solid var(--ui-destructive);
+		}
+
+		.toast.info {
+			background-color: var(--ui-info);
+			color: var(--ui-info-text);
+			border-left: 4px solid var(--ui-info);
+		}
+
+		/* Toast close button */
+		.toast-close {
+			width: 1.5rem;
+			height: 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			border-radius: 50%;
+			background-color: transparent !important;
+			color: currentColor !important;
+			border: none;
+			flex-shrink: 0;
+		}
+
+		.toast-close:hover {
+			background-color: hsla(0, 0%, 100%, 0.2);
+		}
+
+		/* Toast with icon */
+		.toast.with-icon {
+			align-items: center;
+		}
+
+		.toast.with-icon .toast-content {
+			display: flex;
+			flex-direction: column;
+			gap: calc(var(--ui-spacing) / 2);
+		}
+
+		/* Toast positioning */
+		.toast.top-left {
+			top: var(--ui-spacing);
+			left: var(--ui-spacing);
+			right: auto;
+		}
+
+		.toast.top-center {
+			top: var(--ui-spacing);
+			left: 50%;
+			transform: translateX(-50%);
+			right: auto;
+		}
+
+		.toast.top-right {
+			top: var(--ui-spacing);
+			right: var(--ui-spacing);
+			left: auto;
+		}
+
+		.toast.bottom-right {
+			bottom: var(--ui-spacing);
+			right: var(--ui-spacing);
+			top: auto;
+			left: auto;
+		}
+
+		.toast.bottom-center {
+			bottom: var(--ui-spacing);
+			left: 50%;
+			transform: translateX(-50%);
+			top: auto;
+			right: auto;
+		}
+
+		.toast.bottom-left {
+			bottom: var(--ui-spacing);
+			left: var(--ui-spacing);
+			top: auto;
+			right: auto;
+		}
+
+		/* Toast stack */
+		.toast-stack {
+			position: fixed;
+			top: var(--ui-spacing);
+			right: var(--ui-spacing);
+			z-index: 1000;
+			width: 30rem;
+			max-width: 90vw;
+		}
+
+		.toast-stack .toast {
+			position: static;
+			margin-bottom: var(--ui-spacing);
+			transform: none;
+			opacity: 1;
 		}
 	</style><style>
 		.border {
@@ -4778,1310 +5884,6 @@
 	.transition-transform-slow {
 		transition: transform 0.4s ease-in-out;
 	}
-	</style><style>
-		.app-bar {
-			/* utils: .backdrop */
-			background-color: var(--ui-backdrop-color);
-			backdrop-filter: blur(5px);
-			-webkit-backdrop-filter: blur(5px);
-
-			display: flex;
-			flex-flow: row nowrap;
-			align-items: center;
-			justify-content: space-between;
-			padding: calc(var(--ui-spacing) / 2);
-			overflow: hidden;
-			width: 100%;
-			gap: var(--ui-spacing);
-		}
-
-		.app-bar.top,
-		.app-bar.bottom {
-			position: absolute;
-			left: 0;
-			right: 0;
-			height: var(--ui-app-bar-height);
-		}
-
-		.app-bar.fixed {
-			position: fixed;
-		}
-
-		.app-bar.top {
-			top: 0;
-			border-bottom: var(--ui-border-width) var(--ui-border-style)
-				var(--ui-border-color);
-		}
-
-		.app-bar.bottom {
-			bottom: 0;
-			border-top: var(--ui-border-width) var(--ui-border-style)
-				var(--ui-border-color);
-		}
-
-		.app-bar > .app-bar-center {
-			overflow: hidden;
-		}
-
-		.app-bar > .app-bar-left,
-		.app-bar > .app-bar-center,
-		.app-bar > .app-bar-right {
-			display: flex;
-			flex-flow: row nowrap;
-			align-items: center;
-			justify-content: center;
-			height: 100%;
-			width: 100%;
-			gap: var(--ui-spacing);
-		}
-
-		.app-bar > .app-bar-left,
-		.app-bar > .app-bar-right {
-			width: fit-content;
-		}
-
-		.app-bar > .app-bar-left {
-			justify-content: flex-start;
-		}
-
-		.app-bar > .app-bar-right {
-			justify-content: flex-end;
-		}
-	</style><style>
-		/* Base Badge */
-		.badge {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 0.75rem;
-			font-weight: 600;
-			line-height: 1;
-			padding: 0.25em 0.5em;
-			border-radius: var(--ui-radius);
-			white-space: nowrap;
-			vertical-align: baseline;
-			transition: all 0.2s ease-in-out;
-		}
-
-		/* Badge Sizes */
-		.badge-xs {
-			font-size: 0.625rem;
-			padding: 0.125em 0.375em;
-		}
-
-		.badge-sm {
-			font-size: 0.6875rem;
-			padding: 0.1875em 0.4375em;
-		}
-
-		.badge-md {
-			font-size: 0.75rem;
-			padding: 0.25em 0.5em;
-		}
-
-		.badge-lg {
-			font-size: 0.875rem;
-			padding: 0.375em 0.625em;
-		}
-
-		.badge-xl {
-			font-size: 1rem;
-			padding: 0.5em 0.75em;
-		}
-
-		/* Badge Shapes */
-		.badge-pill {
-			border-radius: 9999px;
-		}
-
-		.badge-square {
-			border-radius: 0;
-		}
-
-		.badge-rounded {
-			border-radius: var(--ui-radius);
-		}
-
-		/* Badge Counter (for notification counts) */
-		.badge-counter-sm {
-			min-width: 1.25em;
-			height: 1.25em;
-			font-size: 0.5625rem;
-		}
-
-		.badge-counter-lg {
-			min-width: 1.75em;
-			height: 1.75em;
-			font-size: 0.75rem;
-		}
-
-		/* Badge Group */
-		.badge-group {
-			display: inline-flex;
-			gap: 0.25rem;
-			flex-wrap: wrap;
-			align-items: center;
-		}
-
-		.badge-group-vertical {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-
-		/* Badge Animations */
-		@keyframes badge-pulse {
-			0% {
-				box-shadow: 0 0 0 0 currentColor;
-			}
-
-			70% {
-				box-shadow: 0 0 0 0.5rem transparent;
-			}
-
-			100% {
-				box-shadow: 0 0 0 0 transparent;
-			}
-		}
-
-		@keyframes badge-ping {
-
-			75%,
-			100% {
-				transform: scale(2);
-				opacity: 0;
-			}
-		}
-
-		@keyframes badge-bounce {
-
-			0%,
-			100% {
-				transform: translateY(0);
-			}
-
-			50% {
-				transform: translateY(-25%);
-			}
-		}
-
-		.badge-pulse {
-			animation: badge-pulse 2s infinite;
-		}
-
-		.badge-ping {
-			position: relative;
-		}
-
-		.badge-ping::after {
-			content: "";
-			position: absolute;
-			inset: 0;
-			border-radius: inherit;
-			background-color: currentColor;
-			animation: badge-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-		}
-
-		.badge-bounce {
-			animation: badge-bounce 1s ease-in-out infinite;
-		}
-
-		.badge-clickable {
-			cursor: pointer;
-			transition: transform 0.1s ease-in-out;
-		}
-
-		.badge-clickable:hover {
-			transform: scale(1.05);
-		}
-
-		.badge-clickable:active {
-			transform: scale(0.95);
-		}
-
-		/* Badge with Status Indicator */
-		.badge-status {
-			position: relative;
-			padding-left: 1.5em;
-		}
-
-		.badge-status::before {
-			content: "";
-			position: absolute;
-			left: 0.5em;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 0.5em;
-			height: 0.5em;
-			border-radius: 50%;
-			background-color: currentColor;
-		}
-
-		.badge-status-online::before {
-			background-color: var(--ui-success, #10b981);
-		}
-
-		.badge-status-offline::before {
-			background-color: var(--ui-muted, #6b7280);
-		}
-
-		.badge-status-busy::before {
-			background-color: var(--ui-warning, #f59e0b);
-		}
-
-		.badge-status-away::before {
-			background-color: var(--ui-info, #3b82f6);
-		}
-
-		/* Floating Badge */
-		.badge-float {
-			position: absolute;
-		}
-
-		.badge-float-top {
-			top: 1rem;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-
-		.badge-float-bottom {
-			bottom: 1rem;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-	</style><style>
-		.card {
-			--card-padding: calc(var(--ui-spacing) * 1.5);
-
-			display: block;
-			background-color: var(--ui-bg);
-			border: var(--ui-border-width) solid var(--ui-border-color);
-			border-radius: var(--ui-radius);
-			overflow: hidden;
-			position: relative;
-			contain: layout style paint;
-			will-change: auto;
-			transition:
-				transform 0.2s ease-in-out,
-				border-color 0.2s ease-in-out;
-		}
-
-		.card:focus-within {
-			border-color: var(--ui-primary);
-			outline: 2px solid var(--ui-primary);
-			outline-offset: 2px;
-		}
-
-		/* Card Structure */
-		.card-header,
-		.card-body,
-		.card-footer {
-			padding: var(--card-padding);
-		}
-
-		.card-header {
-			border-bottom: var(--ui-border-width) solid var(--ui-border-color);
-			background-color: var(--ui-color-50);
-			--wght: 600;
-			font-size: 1.125rem;
-			line-height: 1.4;
-			letter-spacing: -0.025em;
-		}
-
-		.card-footer {
-			border-top: var(--ui-border-width) solid var(--ui-border-color);
-			background-color: var(--ui-color-50);
-		}
-
-		/* Card Variants */
-
-		.card.flat {
-			border: none;
-			background-color: var(--ui-muted);
-		}
-
-		.card.outline {
-			background-color: transparent;
-			border-width: calc(var(--ui-border-width) * 1.5);
-		}
-
-		.card.outline .card-header {
-			border-bottom: var(--ui-border-width) solid var(--ui-border-color);
-			background-color: transparent;
-		}
-
-		.card.outline .card-footer {
-			border-top: var(--ui-border-width) solid var(--ui-border-color);
-			background-color: transparent;
-		}
-
-		.card.seamless .card-header,
-		.card.seamless .card-footer {
-			border: none;
-			background-color: transparent;
-		}
-
-		/* Card Sizes */
-		.card.compact {
-			--card-padding: calc(var(--ui-spacing) * 1);
-		}
-
-		.card.comfortable {
-			--card-padding: calc(var(--ui-spacing) * 1.5);
-		}
-
-		.card.spacious {
-			--card-padding: calc(var(--ui-spacing) * 2);
-		}
-
-		/* Card Image */
-		.card-image {
-			width: 100%;
-			height: auto;
-			display: block;
-			object-fit: cover;
-		}
-
-		.card-image.aspect-video {
-			aspect-ratio: 16 / 9;
-		}
-
-		.card-image.aspect-square {
-			aspect-ratio: 1 / 1;
-		}
-
-		.card-image.aspect-portrait {
-			aspect-ratio: 3 / 4;
-		}
-
-		/* Card Content */
-		.card-title {
-			margin: 0 0 calc(var(--ui-spacing) / 2) 0;
-			--wght: 700;
-			font-size: 1.375rem;
-			line-height: 1.25;
-			letter-spacing: -0.025em;
-			color: var(--ui-text);
-		}
-
-		.card-subtitle {
-			margin: 0 0 var(--ui-spacing) 0;
-			font-size: 0.875rem;
-			color: var(--ui-muted-text);
-			line-height: 1.4;
-		}
-
-		/* Card Actions */
-		.card-actions {
-			display: flex;
-			gap: calc(var(--ui-spacing) / 2);
-			align-items: center;
-			justify-content: flex-start;
-			flex-wrap: wrap;
-		}
-
-		.card-actions.center {
-			justify-content: center;
-		}
-
-		.card-actions.end {
-			justify-content: flex-end;
-		}
-
-		.card-actions.between {
-			justify-content: space-between;
-		}
-
-		.card-actions.stretch {
-			justify-content: stretch;
-		}
-
-		.card-actions.stretch > * {
-			flex: 1;
-		}
-
-		/* Color Variants - Using CSS Custom Properties */
-		.card.primary {
-			--card-color: var(--ui-primary);
-			--card-color-text: var(--ui-primary-text);
-			border-color: var(--card-color);
-		}
-
-		.card.secondary {
-			--card-color: var(--ui-secondary);
-			--card-color-text: var(--ui-secondary-text);
-			border-color: var(--card-color);
-		}
-
-		.card.success {
-			--card-color: var(--ui-success);
-			--card-color-text: var(--ui-success-text);
-			border-color: var(--card-color);
-		}
-
-		.card.warning {
-			--card-color: var(--ui-warning);
-			--card-color-text: var(--ui-warning-text);
-			border-color: var(--card-color);
-		}
-
-		.card.destructive {
-			--card-color: var(--ui-destructive);
-			--card-color-text: var(--ui-destructive-text);
-			border-color: var(--card-color);
-		}
-
-		.card.info {
-			--card-color: var(--ui-info);
-			--card-color-text: var(--ui-info-text);
-			border-color: var(--card-color);
-		}
-
-		.card.contrast {
-			--card-color: var(--ui-contrast);
-			--card-color-text: var(--ui-contrast-text);
-			border-color: var(--card-color);
-		}
-
-		.card.muted {
-			--card-color: var(--ui-muted);
-			--card-color-text: var(--ui-muted-text);
-			border-color: var(--card-color);
-		}
-
-		/* Apply color to headers for colored cards */
-		.card.primary .card-header,
-		.card.secondary .card-header,
-		.card.success .card-header,
-		.card.warning .card-header,
-		.card.destructive .card-header,
-		.card.info .card-header,
-		.card.contrast .card-header,
-		.card.muted .card-header {
-			background-color: var(--card-color);
-			color: var(--card-color-text);
-			border-color: var(--card-color);
-		}
-
-		/* Apply color to footers for colored cards */
-		.card.primary .card-footer,
-		.card.secondary .card-footer,
-		.card.success .card-footer,
-		.card.warning .card-footer,
-		.card.destructive .card-footer,
-		.card.info .card-footer,
-		.card.contrast .card-footer,
-		.card.muted .card-footer {
-			background-color: var(--card-color);
-			color: var(--card-color-text);
-			border-color: var(--card-color);
-		}
-
-		/* Outline colored cards */
-		.card.outline.primary .card-header,
-		.card.outline.secondary .card-header,
-		.card.outline.success .card-header,
-		.card.outline.warning .card-header,
-		.card.outline.destructive .card-header,
-		.card.outline.info .card-header,
-		.card.outline.contrast .card-header,
-		.card.outline.muted .card-header {
-			background-color: transparent;
-			color: var(--card-color);
-			border-bottom-color: var(--card-color);
-		}
-
-		.card.outline.primary .card-footer,
-		.card.outline.secondary .card-footer,
-		.card.outline.success .card-footer,
-		.card.outline.warning .card-footer,
-		.card.outline.destructive .card-footer,
-		.card.outline.info .card-footer,
-		.card.outline.contrast .card-footer,
-		.card.outline.muted .card-footer {
-			background-color: transparent;
-			color: var(--card-color);
-			border-top-color: var(--card-color);
-		}
-
-		/* Loading States */
-		.card.loading {
-			position: relative;
-			overflow: hidden;
-			pointer-events: none;
-		}
-
-		.card.loading::after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: -100%;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(
-				90deg,
-				transparent,
-				hsla(var(--ui-hue), var(--ui-saturation), 50%, 0.1),
-				transparent
-			);
-			animation: shimmer 1.5s infinite;
-		}
-
-		@keyframes shimmer {
-			to {
-				left: 100%;
-			}
-		}
-
-		/* Performance */
-		.card {
-			contain: layout style paint;
-			will-change: auto;
-		}
-
-		.card.interactive {
-			will-change: transform;
-		}
-
-		/* Remove will-change after animation */
-		.card:not(:hover):not(:focus):not(:active) {
-			will-change: auto;
-		}
-
-		/* Enhanced Focus */
-		.card:focus-visible {
-			outline: 2px solid var(--ui-primary);
-			outline-offset: 4px;
-			border-color: var(--ui-primary);
-		}
-
-		.card.interactive:focus-visible::after {
-			content: "";
-			position: absolute;
-			inset: -2px;
-			border: 2px solid var(--ui-primary);
-			border-radius: calc(var(--ui-radius) + 2px);
-			pointer-events: none;
-			animation: focus-pulse 2s infinite;
-		}
-
-		@keyframes focus-pulse {
-			0%,
-			100% {
-				opacity: 1;
-			}
-			50% {
-				opacity: 0.5;
-			}
-		}
-	</style><style>
-		.container {
-			display: block;
-			width: 100%;
-			max-width: 65rem;
-			margin: 0 auto;
-			padding: var(--ui-spacing);
-			overflow: auto;
-		}
-
-		.container.fluid {
-			width: 100%;
-			max-width: 100%;
-		}
-	</style><style>
-		dialog {
-			/* utils: .ui-hide-scrollbar */
-			-ms-overflow-style: none;
-			scrollbar-width: none;
-
-			position: fixed;
-			background-color: var(--ui-bg);
-			color: var(--ui-text);
-			padding: var(--ui-spacing);
-			margin: auto auto;
-
-			border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
-			border-radius: var(--ui-radius);
-
-			/* Enhanced shadows */
-			box-shadow: var(--ui-shadow-2xl);
-
-			/* Smooth transitions */
-			transition: all 0.2s ease-in-out;
-		}
-
-		dialog::backdrop {
-			background-color: var(--ui-backdrop-color);
-			backdrop-filter: blur(8px);
-			-webkit-backdrop-filter: blur(8px);
-			transition: backdrop-filter 0.2s ease-in-out;
-		}
-
-		dialog.clean {
-			border: none;
-			background-color: transparent;
-			box-shadow: none;
-		}
-
-		dialog.fullscreen {
-			width: 100%;
-			height: 100%;
-			padding: env(safe-area-inset-top, var(--ui-spacing)) env(safe-area-inset-right, var(--ui-spacing)) env(safe-area-inset-bottom, var(--ui-spacing)) env(safe-area-inset-left, var(--ui-spacing));
-			box-shadow: none;
-		}
-
-		/* Elevation variants */
-		dialog.elevated {
-			box-shadow: var(--ui-shadow-2xl);
-			backdrop-filter: blur(12px);
-			-webkit-backdrop-filter: blur(12px);
-		}
-
-		dialog.floating {
-			box-shadow: var(--ui-shadow-2xl);
-			transform: scale(1.02);
-		}
-
-		dialog.subtle {
-			box-shadow: var(--ui-shadow-lg);
-		}
-
-		/* Glass morphism variant */
-		dialog.glass {
-			background: hsla(var(--ui-hue), var(--ui-saturation), 95%, 0.8);
-			backdrop-filter: blur(20px);
-			-webkit-backdrop-filter: blur(20px);
-			border: 1px solid hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.18);
-			box-shadow:
-				var(--ui-shadow-2xl),
-				inset 0 1px 1px hsla(var(--ui-hue), var(--ui-saturation), 100%, 0.9);
-		}
-
-		dialog.glass::backdrop {
-			backdrop-filter: blur(15px);
-			-webkit-backdrop-filter: blur(15px);
-		}
-
-		/* utils: .ui-hide-scrollbar */
-		dialog::-webkit-scrollbar {
-			display: none;
-		}
-
-		/* Color variants for dialog */
-		dialog.primary {
-			border-color: var(--ui-primary);
-			background-color: var(--ui-primary);
-			color: var(--ui-primary-text);
-		}
-
-		dialog.secondary {
-			border-color: var(--ui-secondary);
-			background-color: var(--ui-secondary);
-			color: var(--ui-secondary-text);
-		}
-
-		dialog.info {
-			border-color: var(--ui-info);
-			background-color: var(--ui-info);
-			color: var(--ui-info-text);
-		}
-
-		dialog.success {
-			border-color: var(--ui-success);
-			background-color: var(--ui-success);
-			color: var(--ui-success-text);
-		}
-
-		dialog.warning {
-			border-color: var(--ui-warning);
-			background-color: var(--ui-warning);
-			color: var(--ui-warning-text);
-		}
-
-		dialog.destructive {
-			border-color: var(--ui-destructive);
-			background-color: var(--ui-destructive);
-			color: var(--ui-destructive-text);
-		}
-
-		dialog.contrast {
-			border-color: var(--ui-contrast);
-			background-color: var(--ui-contrast);
-			color: var(--ui-contrast-text);
-		}
-
-		/* Enhanced backdrop for colored dialogs */
-		dialog.primary::backdrop,
-		dialog.secondary::backdrop,
-		dialog.info::backdrop,
-		dialog.success::backdrop,
-		dialog.warning::backdrop,
-		dialog.destructive::backdrop,
-		dialog.contrast::backdrop {
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-		}
-
-		/* Dialog with close button */
-		dialog .dialog-close {
-			position: absolute;
-			top: calc(var(--ui-spacing) / 2);
-			right: calc(var(--ui-spacing) / 2);
-			width: 2rem;
-			height: 2rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-radius: 50%;
-			background-color: var(--ui-color-100);
-			color: var(--ui-text);
-			border: none;
-			cursor: pointer;
-			z-index: 10;
-		}
-
-		dialog .dialog-close:hover {
-			background-color: var(--ui-color-200);
-		}
-
-		/* Dialog sizes */
-		dialog.small {
-			width: 30rem;
-			max-width: 90vw;
-		}
-
-		dialog.medium {
-			width: 40rem;
-			max-width: 90vw;
-		}
-
-		dialog.large {
-			width: 50rem;
-			max-width: 90vw;
-		}
-
-		/* High contrast adjustments */
-		@media (prefers-contrast: high) {
-			dialog {
-				box-shadow: 0 0 0 2px var(--ui-border-color);
-			}
-		}
-	</style><style>
-		.drawer {
-			/* utils: .ui-hide-scrollbar */
-			-ms-overflow-style: none;
-			scrollbar-width: none;
-
-			/* utils: .ui-backdrop */
-			background-color: var(--ui-backdrop-color);
-
-			position: fixed;
-			top: 0;
-			left: -100%;
-			overflow: auto;
-			transition:
-				left 0.25s ease-in-out,
-				width 0.25s ease-in-out;
-			width: var(--width, fit-content);
-			max-width: calc(100% - 2.5rem);
-			height: 100%;
-			border-right: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
-		}
-
-		/* utils: .ui-hide-scrollbar */
-		.drawer::-webkit-scrollbar {
-			display: none;
-		}
-
-		.drawer.open {
-			left: 0;
-		}
-
-		.drawer.open::before {
-			left: 0;
-		}
-
-		.drawer-backdrop {
-			/* utils: .ui-backdrop */
-			background-color: var(--ui-backdrop-color);
-
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-
-		.drawer-backdrop:has(~ .drawer:not(.open)) {
-			display: none;
-		}
-
-		/* Drawer with close button */
-		.drawer-close {
-			position: absolute;
-			top: calc(var(--ui-spacing) / 2);
-			right: calc(var(--ui-spacing) / 2);
-			width: 2rem;
-			height: 2rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			border-radius: 50%;
-			background-color: var(--ui-color-100);
-			color: var(--ui-text);
-			border: none;
-			cursor: pointer;
-			z-index: 10;
-		}
-
-		.drawer-close:hover {
-			background-color: var(--ui-color-200);
-		}
-
-		/* Drawer sizes */
-		.drawer.small {
-			width: 20rem;
-		}
-
-		.drawer.medium {
-			width: 30rem;
-		}
-
-		.drawer.large {
-			width: 40rem;
-		}
-	</style><style>
-		@keyframes spinner {
-			to {
-				transform: rotate(360deg);
-			}
-		}
-
-		.spinner {
-			/* utils: .ui-backdrop */
-			background-color: var(--ui-backdrop-color);
-
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-
-		.spinner::after {
-			z-index: 1;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin-top: -1.25rem;
-			margin-left: -1.25rem;
-			content: "";
-			width: 2.5rem;
-			height: 2.5rem;
-			border: 2px var(--ui-border-style) var(--ui-border-color);
-			border-top-color: var(--ui-primary);
-			border-radius: 50%;
-			animation: spinner 0.6s linear infinite;
-		}
-	</style><style>
-		.switch {
-			--switch-width: 3rem;
-			--switch-height: 1.5rem;
-			--switch-thumb-size: 1rem;
-			--switch-padding: 0.25rem;
-
-			display: inline-flex;
-			align-items: center;
-			gap: calc(var(--ui-spacing) / 2);
-			position: relative;
-		}
-
-		/* Hide the actual switch input */
-		.switch input[type="checkbox"] {
-			position: absolute;
-			opacity: 0;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 1;
-		}
-
-		/* Switch track */
-		.switch > span {
-			display: inline-block;
-			width: var(--switch-width);
-			height: var(--switch-height);
-			border-radius: 9999px;
-			background-color: var(--ui-border-color);
-			transition:
-				background-color 0.2s ease-in-out,
-				opacity 0.2s ease-in-out;
-			flex-shrink: 0;
-			position: relative;
-		}
-
-		/* Switch thumb */
-		.switch > span::after {
-			content: "";
-			position: absolute;
-			width: var(--switch-thumb-size);
-			height: var(--switch-thumb-size);
-			border-radius: 50%;
-			background-color: var(--ui-bg);
-			transition:
-				transform 0.2s ease-in-out,
-				background-color 0.2s ease-in-out;
-			top: var(--switch-padding);
-			left: var(--switch-padding);
-			box-shadow:
-				0 1px 2px hsla(0, 0%, 0%, 0.1),
-				0 1px 3px hsla(0, 0%, 0%, 0.1);
-		}
-
-		/* Switch checked state */
-		.switch input[type="checkbox"]:checked + span {
-			background-color: var(--ui-primary);
-		}
-
-		.switch input[type="checkbox"]:checked + span::after {
-			transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - (var(--switch-padding) * 2)));
-			background-color: var(--ui-primary-text);
-		}
-
-		/* Switch hover states */
-		.switch:hover > span {
-			background-color: hsla(var(--ui-hue), 10%, 95%, 0.3);
-		}
-
-		.switch input[type="checkbox"]:hover + span {
-			background-color: hsla(var(--ui-hue), 10%, 95%, 0.3);
-		}
-
-		/* Switch focus states */
-		.switch input[type="checkbox"]:focus-visible + span {
-			outline: 2px solid var(--ui-primary);
-			outline-offset: 2px;
-		}
-
-		/* Switch disabled states */
-		.switch.disabled,
-		.switch input[type="checkbox"]:disabled + span {
-			opacity: 0.5;
-			cursor: not-allowed;
-		}
-
-		/* Switch sizes */
-		.switch.small > span {
-			width: 2.5rem;
-			height: 1.25rem;
-		}
-
-		.switch.small > span::after {
-			width: 0.875rem;
-			height: 0.875rem;
-			top: calc(var(--switch-padding) * 0.75);
-			left: calc(var(--switch-padding) * 0.75);
-		}
-
-		.switch.large > span {
-			width: 3.5rem;
-			height: 1.75rem;
-		}
-
-		.switch.large > span::after {
-			width: 1.25rem;
-			height: 1.25rem;
-			top: calc(var(--switch-padding) * 1.25);
-			left: calc(var(--switch-padding) * 1.25);
-		}
-
-		/* Switch color variants */
-		.switch.primary input[type="checkbox"]:checked + span {
-			background-color: var(--ui-primary);
-		}
-
-		.switch.primary input[type="checkbox"]:checked + span::after {
-			background-color: var(--ui-primary-text);
-		}
-
-		.switch.secondary input[type="checkbox"]:checked + span {
-			background-color: var(--ui-secondary);
-		}
-
-		.switch.secondary input[type="checkbox"]:checked + span::after {
-			background-color: var(--ui-secondary-text);
-		}
-
-		.switch.success input[type="checkbox"]:checked + span {
-			background-color: var(--ui-success);
-		}
-
-		.switch.success input[type="checkbox"]:checked + span::after {
-			background-color: var(--ui-success-text);
-		}
-
-		.switch.warning input[type="checkbox"]:checked + span {
-			background-color: var(--ui-warning);
-		}
-
-		.switch.warning input[type="checkbox"]:checked + span::after {
-			background-color: var(--ui-warning-text);
-		}
-
-		.switch.destructive input[type="checkbox"]:checked + span {
-			background-color: var(--ui-destructive);
-		}
-
-		.switch.destructive input[type="checkbox"]:checked + span::after {
-			background-color: var(--ui-destructive-text);
-		}
-
-		.switch.info input[type="checkbox"]:checked + span {
-			background-color: var(--ui-info);
-		}
-
-		.switch.info input[type="checkbox"]:checked + span::after {
-			background-color: var(--ui-info-text);
-		}
-
-		/* Switch accessibility focus */
-		.switch input[type="checkbox"]:focus-visible + span {
-			outline: 2px solid var(--ui-primary);
-			outline-offset: 2px;
-		}
-
-		/* Reduced Motion Support */
-		@media (prefers-reduced-motion: reduce) {
-			.switch > span,
-			.switch > span::after {
-				transition: none;
-			}
-
-			.switch:hover > span {
-				transition: none;
-			}
-		}
-
-		/* Dark theme support */
-		@media (prefers-color-scheme: dark) {
-			.switch > span {
-				background-color: var(--ui-border-color);
-			}
-
-			.switch:hover > span {
-				background-color: hsla(var(--ui-hue), 10%, 95%, 0.1);
-			}
-
-			.switch input[type="checkbox"]:checked + span {
-				background-color: var(--ui-primary);
-			}
-		}
-	</style><style>
-		.tabs {
-			--border: var(--ui-border-width) var(--ui-border-style)
-				var(--ui-border-color);
-
-			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
-			justify-content: space-evenly;
-			align-items: center;
-			border-top: var(--border);
-			border-left: var(--border);
-			border-right: var(--border);
-			border-radius: var(--ui-radius);
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-
-		.tabs > .tab {
-			flex: 1 1 0%;
-			padding: var(--ui-spacing);
-			text-align: center;
-			border-right: var(--border);
-			border-bottom: var(--border);
-			transition: color 0.3s ease-in-out;
-			box-shadow: none;
-			cursor: pointer;
-		}
-
-		.tabs > .tab:last-child {
-			border-right: none;
-		}
-
-		.tabs > .tab.active {
-			border-bottom: none;
-			color: var(--ui-primary);
-		}
-
-		.tabs > .tab:hover {
-			background-color: var(--ui-color-100);
-		}
-	</style><style>
-		.toast {
-			position: fixed;
-			top: var(--ui-spacing);
-			right: var(--ui-spacing);
-			z-index: 1000;
-			width: 30rem;
-			max-width: 90vw;
-			padding: calc(var(--ui-spacing) * 1.5);
-			border-radius: var(--ui-radius);
-			box-shadow: var(--ui-shadow-xl);
-			transition:
-				transform 0.3s ease-in-out,
-				opacity 0.3s ease-in-out;
-			display: flex;
-			align-items: flex-start;
-			gap: var(--ui-spacing);
-		}
-
-		.toast.show {
-			opacity: 1;
-			transform: translateY(0);
-		}
-
-		.toast.hide {
-			opacity: 0;
-			transform: translateY(-2rem);
-		}
-
-		/* Toast content */
-		.toast-content {
-			flex: 1;
-		}
-
-		.toast-title {
-			font-weight: 600;
-			margin-bottom: calc(var(--ui-spacing) / 2);
-		}
-
-		.toast-description {
-			font-size: 0.875rem;
-			line-height: 1.4;
-		}
-
-		/* Toast actions */
-		.toast-actions {
-			display: flex;
-			gap: calc(var(--ui-spacing) / 2);
-			margin-top: calc(var(--ui-spacing) / 2);
-		}
-
-		/* Toast variants */
-		.toast.success {
-			background-color: var(--ui-success);
-			color: var(--ui-success-text);
-			border-left: 4px solid var(--ui-success);
-		}
-
-		.toast.warning {
-			background-color: var(--ui-warning);
-			color: var(--ui-warning-text);
-			border-left: 4px solid var(--ui-warning);
-		}
-
-		.toast.error {
-			background-color: var(--ui-destructive);
-			color: var(--ui-destructive-text);
-			border-left: 4px solid var(--ui-destructive);
-		}
-
-		.toast.info {
-			background-color: var(--ui-info);
-			color: var(--ui-info-text);
-			border-left: 4px solid var(--ui-info);
-		}
-
-		/* Toast close button */
-		.toast-close {
-			width: 1.5rem;
-			height: 1.5rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 0;
-			border-radius: 50%;
-			background-color: transparent !important;
-			color: currentColor !important;
-			border: none;
-			cursor: pointer;
-			flex-shrink: 0;
-		}
-
-		.toast-close:hover {
-			background-color: hsla(0, 0%, 100%, 0.2);
-		}
-
-		/* Toast with icon */
-		.toast.with-icon {
-			align-items: center;
-		}
-
-		.toast.with-icon .toast-content {
-			display: flex;
-			flex-direction: column;
-			gap: calc(var(--ui-spacing) / 2);
-		}
-
-		/* Toast positioning */
-		.toast.top-left {
-			top: var(--ui-spacing);
-			left: var(--ui-spacing);
-			right: auto;
-		}
-
-		.toast.top-center {
-			top: var(--ui-spacing);
-			left: 50%;
-			transform: translateX(-50%);
-			right: auto;
-		}
-
-		.toast.top-right {
-			top: var(--ui-spacing);
-			right: var(--ui-spacing);
-			left: auto;
-		}
-
-		.toast.bottom-right {
-			bottom: var(--ui-spacing);
-			right: var(--ui-spacing);
-			top: auto;
-			left: auto;
-		}
-
-		.toast.bottom-center {
-			bottom: var(--ui-spacing);
-			left: 50%;
-			transform: translateX(-50%);
-			top: auto;
-			right: auto;
-		}
-
-		.toast.bottom-left {
-			bottom: var(--ui-spacing);
-			left: var(--ui-spacing);
-			top: auto;
-			right: auto;
-		}
-
-		/* Toast stack */
-		.toast-stack {
-			position: fixed;
-			top: var(--ui-spacing);
-			right: var(--ui-spacing);
-			z-index: 1000;
-			width: 30rem;
-			max-width: 90vw;
-		}
-
-		.toast-stack .toast {
-			position: static;
-			margin-bottom: var(--ui-spacing);
-			transform: none;
-			opacity: 1;
-		}
 	</style><script>
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			document.documentElement.setAttribute('data-theme', 'dark');
@@ -6103,7 +5905,7 @@
 	} catch (error) {
 		console.error('Error toggling theme:', error);
 	}
-}</script><button onclick="__templ_toggleTheme_014b()" class="contrast ghost icon"><i class="bi bi-sun"></i></button></span></span><span class="drawer-backdrop" style="z-index: 50;"></span> <span class="drawer" id="app-drawer" style="z-index: 50"><ul style="padding-bottom: 2.5rem;" id="app-drawer-items" class="flex flex-col gap-sm"><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-text" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Text</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-text-headings" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Headings</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-text-paragraph" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Paragraph	</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-text-formatting" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Text Formatting	</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-buttons" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-default-buttons" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Default Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-outline-button-variant" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Outline Variants</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-ghost-button-variant" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Ghost Variants</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-full-width" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Full Width Variants</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-button-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-icon-buttons" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Icon Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-loading" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Loading State</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-link" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Link Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-combined-examples" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Combined Examples</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-forms" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Forms</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-text-inputs" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Text Inputs</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-password" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Password</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-email" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Email</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-search" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Search</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-number" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Number</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-datetime" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Date & Time</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-select" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Select</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-textarea" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Textarea</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-checkbox" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Checkbox</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-radio" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Radio</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-range" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Range</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-color" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Color</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-file" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>File</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-switch" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Switch</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-disabled" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Disabled Inputs</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-validation" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Validation</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-complete" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Complete Form</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-cards" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Cards</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-basic" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Basic Cards</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-colors" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Colors</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-structure" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Structure</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-images" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Images</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-actions" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Actions</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-badges" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Badges</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-default" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Default Badges</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Badge Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-shapes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Badge Shapes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-animations" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Badge Animations</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-counter" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Counter Badges</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-indicators" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Status Indicators</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-combined" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Combined Examples</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-colors" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Color Examples</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-dialogs" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Dialogs</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-dialogs-modal-fullscreen-clean" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>(Modal) Fullscreen Clean</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-tabs" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Tabs</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-switches" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Switches</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-default" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Default Switches</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-colors" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Colors</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-disabled" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Disabled Switches</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-combined" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Combined Examples</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-validation" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Validation</a></li></ul></span><div style="padding-top: var(--ui-app-bar-height);"><span class="overflow-scroll no-scrollbar container fluid" style="height: calc(100vh - var(--ui-app-bar-height))"><section id="section-text" class="p mt"><h2 class="underline text-center">Text</h2><div class="p-lg flex flex-col gap-xl"><fieldset id="section-text-headings"><legend>Headings</legend><h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6></fieldset> <fieldset id="section-text-paragraph"><legend>Paragraph</legend><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></fieldset> <fieldset id="section-text-formatting"><legend>Text Formatting</legend><div class="flex flex-col gap"><span><i>Italic text</i></span> <span><b>Bold text</b></span> <span><u>Underlined text</u></span> <span><s>Strikethrough text</s></span> <span><small>Small text</small></span> <span><mark>Highlighted text</mark></span> <span>This is <code>some inline code</code>.</span> <span><pre>Preformatted text</pre></span></div></fieldset></div></section> <section id="section-buttons" class="p mt"><h2 class="underline text-center">Buttons</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-default-buttons" class="mb">Default Buttons</h3><div class="flex flex-row flex-wrap gap"><button onclick="">Default</button><button onclick="" class="secondary">Secondary</button><button onclick="" class="success">Success</button><button onclick="" class="warning">Warning</button><button onclick="" class="destructive">Destructive</button><button onclick="" class="info">Info</button><button onclick="" class="contrast">Contrast</button><button onclick="" class="muted">Muted</button></div></div> <div class="mb"><h3 id="section-outline-button-variant" class="mb">Outline Variants</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="secondary outline">Secondary</button><button onclick="" class="success outline">Success</button><button onclick="" class="warning outline">Warning</button><button onclick="" class="destructive outline">Destructive</button><button onclick="" class="info outline">Info</button><button onclick="" class="contrast outline">Contrast</button><button onclick="" class="muted outline">Muted</button></div></div> <div class="mb"><h3 id="section-ghost-button-variant" class="mb">Ghost Variants</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="secondary ghost">Secondary</button><button onclick="" class="success ghost">Success</button><button onclick="" class="warning ghost">Warning</button><button onclick="" class="destructive ghost">Destructive</button><button onclick="" class="info ghost">Info</button><button onclick="" class="contrast ghost">Contrast</button><button onclick="" class="muted ghost">Muted</button></div></div> <div class="mb"><h3 id="section-buttons-full-width" class="mb">Full Width Variants</h3><div class="flex flex-col gap"><button onclick="" class="full">Full Width Default</button><button onclick="" class="secondary full">Full Width Secondary</button><button onclick="" class="success full">Full Width Success</button></div></div> <div class="mb"><h3 id="section-button-sizes" class="mb">Sizes</h3><div class="flex flex-row flex-wrap items-center gap"><button onclick="" class="small">Small</button><button onclick="">Default</button><button onclick="" class="large">Large</button></div></div> <div class="mb"><h3 id="section-icon-buttons" class="mb">Icon Buttons</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="icon">⚙️</button><button onclick="" class="secondary icon">📝</button><button onclick="" class="success icon">✓</button><button onclick="" class="warning icon">⚠️</button><button onclick="" class="destructive icon">🗑️</button><button onclick="" class="outline icon">🔍</button><button onclick="" class="ghost icon">❤️</button></div></div> <div class="mb"><h3 id="section-buttons-loading" class="mb">Loading State</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="loading">Loading...</button><button onclick="" class="secondary loading">Loading...</button><button onclick="" class="success loading">Loading...</button><button onclick="" class="outline loading">Loading...</button></div></div> <div class="mb"><h3 id="section-buttons-link" class="mb">Link Buttons</h3><div class="flex flex-row flex-wrap gap"><a role="button" onclick="" Href="#">Default Link</a><a role="button" onclick="" Href="#" class="secondary">Secondary Link</a><a role="button" onclick="" Href="#" class="outline">Outline Link</a><a role="button" onclick="" Href="#" class="ghost">Ghost Link</a></div></div> <div class="mb"><h3 id="section-buttons-combined-examples" class="mb">Combined Examples</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="info outline small">Small Outline Info</button><button onclick="" class="success large">Large Success</button><button onclick="" class="warning large">🚨 Large Icon</button><button onclick="" class="destructive full">Full Width Destructive</button></div></div></div></section> <section id="section-forms" class="p mt"><h2 class="underline text-center">Forms</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-forms-text-inputs" class="mb">Text Inputs</h3><div class="flex flex-col gap form-group"><label for="text-default">Default</label> <input type="text" id="text-default" name="text-default" placeholder="Enter text..."> <label for="text-value">With Value</label> <input type="text" id="text-value" name="text-value" value="Hello World"> <label for="text-readonly">Readonly</label> <input type="text" id="text-readonly" name="text-readonly" value="Readonly text" readonly></div></div> <div class="mb"><h3 id="section-forms-password" class="mb">Password</h3><div class="flex flex-col gap form-group"><label for="password-default">Password</label> <input type="password" id="password-default" name="password-default" placeholder="Enter password..."> <label for="password-disabled">Disabled</label> <input type="password" id="password-disabled" name="password-disabled" placeholder="Disabled password" disabled></div></div> <div class="mb"><h3 id="section-forms-email" class="mb">Email</h3><div class="flex flex-col gap form-group"><label for="email-default">Email</label> <input type="email" id="email-default" name="email-default" placeholder="Enter email..."> <label for="email-multiple">Multiple Emails</label> <input type="email" id="email-multiple" name="email-multiple" multiple placeholder="Enter emails..."></div></div> <div class="mb"><h3 id="section-forms-search" class="mb">Search</h3><div class="flex flex-col gap form-group"><label for="search-default">Search</label> <input type="search" id="search-default" name="search-default" placeholder="Search..."></div></div> <div class="mb"><h3 id="section-forms-number" class="mb">Number</h3><div class="flex flex-col gap form-group"><label for="number-default">Number</label> <input type="number" id="number-default" name="number-default" placeholder="Enter number..."> <label for="number-minmax">Min/Max (1-100)</label> <input type="number" id="number-minmax" name="number-minmax" min="1" max="100" value="50"> <label for="number-step">Step (0.1)</label> <input type="number" id="number-step" name="number-step" step="0.1" value="0.5"></div></div> <div class="mb"><h3 id="section-forms-datetime" class="mb">Date & Time</h3><div class="flex flex-row flex-wrap gap flex-0"><div class="form-group"><label for="date-default" class="flex flex-col">Date <input type="date" id="date-default" name="date-default" class="w-fit"></label></div><div class="form-group"><label for="time-default" class="flex flex-col">Time <input type="time" id="time-default" name="time-default" class="w-fit"></label></div><div class="form-group"><label for="datetime-default" class="flex flex-col">DateTime Local <input type="datetime-local" id="datetime-default" name="datetime-default" class="w-fit"></label></div><div class="form-group"><label for="month-default" class="flex flex-col">Month <input type="month" id="month-default" name="month-default" class="w-fit"></label></div><div class="form-group"><label for="week-default" class="flex flex-col">Week <input type="week" id="week-default" name="week-default" class="w-fit"></label></div></div></div> <div class="mb"><h3 id="section-forms-select" class="mb">Select</h3><div class="flex flex-row flex-wrap gap flex-auto"><div class="form-group"><label for="select-default">Default</label> <select id="select-default" name="select-default"><option value="">Select an option...</option> <option value="1">Option 1</option> <option value="2">Option 2</option> <option value="3">Option 3</option></select></div><div class="form-group"><label for="select-selected">Pre-selected</label> <select id="select-selected" name="select-selected"><option value="">Select an option...</option> <option value="1">Option 1</option> <option value="2" selected>Option 2</option> <option value="3">Option 3</option></select></div><div class="form-group"><label for="select-multiple">Multiple</label> <select id="select-multiple" name="select-multiple" multiple size="4"><option value="1">Option 1</option> <option value="2">Option 2</option> <option value="3">Option 3</option> <option value="4">Option 4</option></select></div><div class="form-group"><label for="select-optgroup">Optgroup</label> <select id="select-optgroup" name="select-optgroup"><option value="">Select...</option> <optgroup label="Group 1"><option value="1-1">Option 1.1</option> <option value="1-2">Option 1.2</option></optgroup> <optgroup label="Group 2"><option value="2-1">Option 2.1</option> <option value="2-2">Option 2.2</option></optgroup></select></div></div></div> <div class="mb"><h3 id="section-forms-textarea" class="mb">Textarea</h3><div class="flex flex-col gap form-group"><label for="textarea-default">Default</label> <textarea id="textarea-default" name="textarea-default" rows="3" placeholder="Enter text..."></textarea> <label for="textarea-value">With Value</label> <textarea id="textarea-value" name="textarea-value" rows="3">This is some pre-filled text that spans multiple lines.</textarea> <label for="textarea-resize">Resizable</label> <textarea id="textarea-resize" name="textarea-resize" rows="3" placeholder="Can resize..."></textarea></div></div> <div class="mb"><h3 id="section-forms-checkbox" class="mb">Checkbox</h3><div class="flex flex-col gap form-group"><div><input type="checkbox" id="checkbox-default" name="checkbox-default"> <label for="checkbox-default">Default Checkbox</label></div><div><input type="checkbox" id="checkbox-checked" name="checkbox-checked" checked> <label for="checkbox-checked">Checked Checkbox</label></div><div><label>Multiple Checkboxes</label></div><div class="flex flex-col ml"><div><input type="checkbox" id="checkbox-multi-1" name="checkbox-multi" value="1"> <label for="checkbox-multi-1">Option 1</label></div><div><input type="checkbox" id="checkbox-multi-2" name="checkbox-multi" value="2"> <label for="checkbox-multi-2">Option 2</label></div><div><input type="checkbox" id="checkbox-multi-3" name="checkbox-multi" value="3"> <label for="checkbox-multi-3">Option 3</label></div></div></div></div> <div class="mb"><h3 id="section-forms-radio" class="mb">Radio</h3><div class="flex flex-col gap form-group"><div><label>Radio Group</label></div><div class="flex flex-col ml"><div><input type="radio" id="radio-1" name="radio-group" value="1"> <label for="radio-1">Option 1</label></div><div><input type="radio" id="radio-2" name="radio-group" value="2" checked> <label for="radio-2">Option 2 (checked)</label></div><div><input type="radio" id="radio-3" name="radio-group" value="3"> <label for="radio-3">Option 3</label></div></div><div><label>Another Radio Group</label></div><div class="flex flex-col ml"><div><input type="radio" id="radio2-a" name="radio-group-2" value="a"> <label for="radio2-a">Choice A</label></div><div><input type="radio" id="radio2-b" name="radio-group-2" value="b"> <label for="radio2-b">Choice B</label></div></div></div></div> <div class="mb"><h3 id="section-forms-range" class="mb">Range</h3><div class="flex flex-col gap form-group"><div><label for="range-default">Default (0-100)</label> <input type="range" id="range-default" name="range-default" min="0" max="100" value="50"></div><div><label for="range-step">Step (0-100, step 10)</label> <input type="range" id="range-step" name="range-step" min="0" max="100" step="10" value="50"></div><div><label for="range-labels">With Labels</label> <input type="range" id="range-labels" name="range-labels" min="0" max="100" value="50" list="range-markers"> <datalist id="range-markers"><option value="0"></option> <option value="25"></option> <option value="50"></option> <option value="75"></option> <option value="100"></option></datalist></div></div></div> <div class="mb"><h3 id="section-forms-color" class="mb">Color</h3><div class="flex flex-col gap form-group"><div><label for="color-default">Color Picker</label> <input type="color" id="color-default" name="color-default" value="#3b82f6"></div><div><label for="color-default-no-value">Default</label> <input type="color" id="color-default-no-value" name="color-default-no-value"></div></div></div> <div class="mb"><h3 id="section-forms-file" class="mb">File</h3><div class="flex flex-col gap form-group"><div><label for="file-default">Default</label> <input type="file" id="file-default" name="file-default"></div><div><label for="file-multiple">Multiple Files</label> <input type="file" id="file-multiple" name="file-multiple" multiple></div><div><label for="file-accept">Accept Images</label> <input type="file" id="file-accept" name="file-accept" accept="image/*"></div><div><label for="file-accept-pdf">Accept PDF</label> <input type="file" id="file-accept-pdf" name="file-accept-pdf" accept=".pdf"></div></div></div> <div class="mb"><h3 id="section-forms-switch" class="mb">Switch</h3><div class="flex flex-col gap form-group"><div><input type="checkbox" id="switch-default" name="switch-default" role="switch"> <label for="switch-default">Default Switch</label></div><div><input type="checkbox" id="switch-checked" name="switch-checked" role="switch" checked> <label for="switch-checked">Checked Switch</label></div></div></div> <div class="mb"><h3 id="section-forms-disabled" class="mb">Disabled Inputs</h3><div class="flex flex-row flex-wrap gap"><div class="form-group"><label for="text-disabled">Text Disabled</label> <input type="text" id="text-disabled" name="text-disabled" value="Disabled" disabled></div><div class="form-group"><label for="select-disabled">Select Disabled</label> <select id="select-disabled" name="select-disabled" disabled><option value="1">Option 1</option> <option value="2">Option 2</option></select></div><div class="form-group"><label for="textarea-disabled">Textarea Disabled</label> <textarea id="textarea-disabled" name="textarea-disabled" rows="2" disabled>Disabled</textarea></div><div class="form-group"><label for="checkbox-disabled">Checkbox Disabled</label> <input type="checkbox" id="checkbox-disabled" name="checkbox-disabled" disabled></div><div class="form-group"><label for="radio-disabled">Radio Disabled</label> <input type="radio" id="radio-disabled" name="radio-disabled" disabled></div><div class="form-group"><label for="range-disabled">Range Disabled</label> <input type="range" id="range-disabled" name="range-disabled" disabled></div></div></div> <div class="mb"><h3 id="section-forms-validation" class="mb">Validation States</h3><div class="flex flex-col gap form-group"><div><label for="text-required">Required</label> <input type="text" id="text-required" name="text-required" required></div><div><label for="text-pattern">Pattern (3 chars)</label> <input type="text" id="text-pattern" name="text-pattern" pattern="..." title="Must be 3 characters"></div><div><label for="email-validate">Email (validate)</label> <input type="email" id="email-validate" name="email-validate"></div><div><label for="number-validate">Number (min 0, max 100)</label> <input type="number" id="number-validate" name="number-validate" min="0" max="100"></div><div><label for="text-minlength">Minlength (5)</label> <input type="text" id="text-minlength" name="text-minlength" minlength="5"></div><div><label for="text-maxlength">Maxlength (10)</label> <input type="text" id="text-maxlength" name="text-maxlength" maxlength="10"></div><div><label for="text-autocomplete">Autocomplete</label> <input type="text" id="text-autocomplete" name="text-autocomplete" autocomplete="name"></div></div></div> <div class="mb"><h3 id="section-forms-complete" class="mb">Complete Form Example</h3><form class="flex flex-col gap"><div class="form-group"><label for="form-name">Full Name *</label> <input type="text" id="form-name" name="name" required placeholder="John Doe"></div><div class="form-group"><label for="form-email">Email *</label> <input type="email" id="form-email" name="email" required placeholder="john@example.com"></div><div class="form-group"><label for="form-password">Password *</label> <input type="password" id="form-password" name="password" required placeholder="Min 8 characters" minlength="8"></div><div class="form-group"><label for="form-country">Country</label> <select id="form-country" name="country"><option value="">Select country...</option> <option value="us">United States</option> <option value="uk">United Kingdom</option> <option value="de">Germany</option> <option value="fr">France</option></select></div><div class="form-group"><label for="form-bio">Bio</label> <textarea id="form-bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea></div><div class="form-group"><label>Interests</label><div class="flex flex-col ml"><div><input type="checkbox" id="form-tech" name="interests" value="tech"> <label for="form-tech">Technology</label></div><div><input type="checkbox" id="form-sports" name="interests" value="sports"> <label for="form-sports">Sports</label></div><div><input type="checkbox" id="form-music" name="interests" value="music"> <label for="form-music">Music</label></div></div></div><div class="form-group"><label>Newsletter</label><div><input type="checkbox" id="form-newsletter" name="newsletter" role="switch" checked> <label for="form-newsletter">Subscribe to newsletter</label></div></div><div class="form-group"><label>Notifications</label><div class="flex flex-col ml"><div><input type="radio" id="form-notif-all" name="notifications" value="all" checked> <label for="form-notif-all">All notifications</label></div><div><input type="radio" id="form-notif-important" name="notifications" value="important"> <label for="form-notif-important">Important only</label></div><div><input type="radio" id="form-notif-none" name="notifications" value="none"> <label for="form-notif-none">None</label></div></div></div><div class="form-group"><label for="form-avatar">Avatar</label> <input type="file" id="form-avatar" name="avatar" accept="image/*"></div><div class="form-group"><label for="form-theme">Preferred Theme</label> <input type="color" id="form-theme" name="theme" value="#3b82f6"></div><div class="form-group"><label for="form-rating">Rating</label> <input type="range" id="form-rating" name="rating" min="1" max="5" value="3" list="rating-markers"> <datalist id="rating-markers"><option value="1"></option> <option value="2"></option> <option value="3"></option> <option value="4"></option> <option value="5"></option></datalist></div><div class="flex gap"><button type="submit">Submit</button> <button type="reset">Reset</button></div></form></div></div></section> <section id="section-cards" class="p mt"><h2 class="underline text-center">Cards</h2><div class="p-lg flex flex-col gap-xl"><fieldset id="section-cards-basic"><legend>Basic Cards</legend><div class="flex flex-row gap flex-wrap"><span class="h-fit card"><div class="card-body"><span class="card-title block">Basic Card</span> <p>A simple card with default styling.</p></div></span><span class="h-fit card outline secondary"><div class="card-body"><span class="card-title block">Outline Card</span> <p>A card with outline variant.</p></div></span><span class="h-fit card seamless"><div class="card-body"><header class="card-header"><span class="card-title block">Seamless Card</span></header> <div class="card-body"><p>A card with seamless variant. <br>Borders between Header/Body/Footer are removed.</p></div> <footer class="card-footer"><small>Footer content</small></footer></div></span></div></fieldset> <fieldset id="section-cards-sizes"><legend>Card Sizes</legend><div class="flex flex-row gap flex-wrap"><span class="h-fit card compact"><div class="card-body"><span class="card-title block">Compact</span> <p>A compact sized card.</p></div></span><span class="h-fit card comfortable"><div class="card-body"><span class="card-title block">Comfortable</span> <p>A comfortable sized card.</p></div></span><span class="h-fit card spacious"><div class="card-body"><span class="card-title block">Spacious</span> <p>A spacious sized card.</p></div></span></div></fieldset> <fieldset id="section-cards-colors"><legend>Card Colors</legend><div class="flex flex-row gap flex-wrap"><span class="card primary"><div class="card-body"><span class="card-title block">Primary</span> <p>A primary colored card.</p></div></span><span class="card secondary"><div class="card-body"><span class="card-title block">Secondary</span> <p>A secondary colored card.</p></div></span><span class="card success"><div class="card-body"><span class="card-title block">Success</span> <p>A success colored card.</p></div></span><span class="card warning"><div class="card-body"><span class="card-title block">Warning</span> <p>A warning colored card.</p></div></span><span class="card destructive"><div class="card-body"><span class="card-title block">Destructive</span> <p>A destructive colored card.</p></div></span><span class="card info"><div class="card-body"><span class="card-title block">Info</span> <p>An info colored card.</p></div></span></div></fieldset> <fieldset id="section-cards-structure"><legend>Card Structure</legend><div class="flex flex-row gap flex-wrap"><span class="card"><header class="card-header"><span class="card-title block">Card with Header</span> <span class="card-subtitle block">Card subtitle</span></header> <div class="card-body"><p>This card has a header, body, and footer.</p></div> <footer class="card-footer"><small>Footer content</small></footer></span></div></fieldset> <fieldset id="section-cards-images"><legend>Card Images</legend><div class="flex flex-row gap flex-wrap"><span class="card"><img src="https://via.placeholder.com/200" alt="Square placeholder" class="card-image aspect-square"> <div class="card-body"><span class="card-title block">Square Image</span> <p>Card with square image aspect.</p></div></span><span class="card"><img src="https://via.placeholder.com/320x180" alt="Video placeholder" class="card-image aspect-video"> <div class="card-body"><span class="card-title block">Video Aspect</span> <p>Card with video aspect ratio.</p></div></span><span class="card"><img src="https://via.placeholder.com/180x320" alt="Portrait placeholder" class="card-image aspect-portrait"> <div class="card-body"><span class="card-title block">Portrait Aspect</span> <p>Card with portrait aspect ratio.</p></div></span></div></fieldset> <fieldset id="section-cards-actions"><legend>Card Actions</legend><div class="flex flex-row gap flex-wrap"><span class="card"><div class="card-body"><span class="card-title block">Actions Center</span> <p>Card with center-aligned actions.</p></div> <footer class="card-footer"><div class="card-actions center"><button>Cancel</button> <button>Submit</button></div></footer></span><span class="card"><div class="card-body"><span class="card-title block">Actions End</span> <p>Card with end-aligned actions.</p></div> <footer class="card-footer"><div class="card-actions end"><button>Dismiss</button> <button>Confirm</button></div></footer></span><span class="card"><div class="card-body"><span class="card-title block">Actions Between</span> <p>Card with space-between actions.</p></div> <footer class="card-footer"><div class="card-actions between"><button>Previous</button> <button>Next</button></div></footer></span></div></fieldset></div></section> <section id="section-badges" class="p mt"><h2 class="underline text-center">Badges</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-badges-default" class="mb">Default Badges</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge">Default</span><span onclick="" class="badge badge-status badge-status-online">Online</span><span onclick="" class="badge badge-status badge-status-offline">Offline</span><span onclick="" class="badge badge-status badge-status-busy">Busy</span><span onclick="" class="badge badge-status badge-status-away">Away</span></div></div> <div class="mb"><h3 id="section-badges-sizes" class="mb">Badge Sizes</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-xs">XS</span><span onclick="" class="badge badge-md">MD</span><span onclick="" class="badge badge-lg">LG</span><span onclick="" class="badge badge-xl">XL</span></div></div> <div class="mb"><h3 id="section-badges-shapes" class="mb">Badge Shapes</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-square">Square</span><span onclick="" class="badge badge-rounded">Rounded</span><span onclick="" class="badge badge-pill">Pill</span></div></div> <div class="mb"><h3 id="section-badges-animations" class="mb">Badge Animations</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-status badge-status-online badge-pulse">Pulse</span><span onclick="" class="badge badge-status badge-status-busy badge-ping">Ping</span><span onclick="" class="badge badge-bounce">Bounce</span></div></div> <div class="mb"><h3 id="section-badges-counter" class="mb">Counter Badges</h3><div class="flex flex-row flex-wrap gap items-center"><div class="relative"><span>Notifications</span><span onclick="" class="badge badge-float badge-float-top badge-counter-sm">5</span></div><div class="relative"><span>Messages</span><span onclick="" class="badge badge-float badge-float-top badge-counter-lg">42</span></div><div class="relative"><span>Updates</span><span onclick="" class="badge badge-float badge-float-bottom badge-counter-lg">99+</span></div></div></div> <div class="mb"><h3 id="section-badges-indicators" class="mb">Status Indicators</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-status badge-status-online badge-clickable">Online</span><span onclick="" class="badge badge-status badge-status-offline badge-clickable">Online</span><span onclick="" class="badge badge-status badge-status-busy badge-clickable">Busy</span><span onclick="" class="badge badge-status badge-status-away badge-clickable">Away</span></div></div> <div class="mb"><h3 id="section-badges-combined" class="mb">Combined Examples</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-status badge-status-online badge-xs badge-pill badge-pulse">Live</span><span onclick="" class="badge badge-status badge-status-busy badge-xl badge-rounded badge-clickable">In Meeting</span><span onclick="" class="badge badge-status badge-status-offline badge-pill badge-bounce">Offline</span></div></div> <div class="mb"><h3 id="section-badges-colors" class="mb">Color Examples</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="primary badge">Primary</span><span onclick="" class="secondary badge">Secondary</span><span onclick="" class="info badge">Info</span><span onclick="" class="contrast badge">Contrast</span><span onclick="" class="destructive badge">Destructive</span><span onclick="" class="muted badge">Muted</span><span onclick="" class="success badge">Success</span><span onclick="" class="warning badge">Warning</span><span onclick="" class="error badge">Error</span></div></div></div></section> <section id="section-dialogs" class="p mt"><h2 class="underline text-center">Dialogs</h2><div class="p-lg flex flex-col gap-xl"><dialog class="flex justify-center items-center dialog fullscreen clean" id="example-fullscreen-clean-dialog"><button onclick="this.closest('dialog').close();" class="contrast ghost m dialog-close"><i class="bi bi-x-lg"></i></button> <p>This is a example modal dialog. (fullscreen, clean)</p></dialog><div id="section-dialogs-modal-fullscreen-clean" class="flex flex-col gap justify-center items-center"><p>Open a modal dialog with props (Fullscreen, Clean)</p><script>function __templ_openModalDialog_b879(dialogID){try {
+}</script><button onclick="__templ_toggleTheme_014b()" class="contrast ghost icon"><i class="bi bi-sun"></i></button></span></span><span class="drawer-backdrop" style="z-index: 50;"></span> <span class="drawer" id="app-drawer" style="z-index: 50"><ul style="padding-bottom: 2.5rem;" id="app-drawer-items" class="flex flex-col gap-sm"><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-text" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Text</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-text-headings" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Headings</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-text-paragraph" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Paragraph	</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-text-formatting" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Text Formatting	</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-buttons" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-default-buttons" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Default Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-outline-button-variant" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Outline Variants</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-ghost-button-variant" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Ghost Variants</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-full-width" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Full Width Variants</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-button-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-icon-buttons" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Icon Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-loading" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Loading State</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-link" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Link Buttons</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-buttons-combined-examples" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Combined Examples</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-forms" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Forms</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-text-inputs" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Text Inputs</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-password" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Password</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-email" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Email</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-search" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Search</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-number" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Number</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-datetime" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Date & Time</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-select" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Select</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-textarea" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Textarea</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-checkbox" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Checkbox</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-radio" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Radio</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-range" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Range</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-color" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Color</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-file" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>File</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-switch" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Switch</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-disabled" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Disabled Inputs</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-validation" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Validation</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-forms-complete" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Complete Form</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-cards" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Cards</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-basic" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Basic Cards</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-colors" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Colors</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-structure" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Structure</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-images" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Images</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-cards-actions" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Card Actions</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-badges" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Badges</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-default" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Default Badges</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Badge Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-shapes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Badge Shapes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-animations" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Badge Animations</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-counter" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Counter Badges</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-indicators" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Status Indicators</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-combined" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Combined Examples</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-badges-colors" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Color Examples</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-dialogs" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Dialogs</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-dialogs-modal-fullscreen-clean" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>(Modal) Fullscreen Clean</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-tabs" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Tabs</a></li><li style="padding: 0"><a class="p px-lg contrast no-underline" href="#section-switches" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)">Switches</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-default" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Default Switches</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-sizes" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Sizes</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-colors" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Colors</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-disabled" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Disabled Switches</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-combined" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Combined Examples</a></li><li style="padding: 0"><a style="margin-left: 1.5rem;" class="p px-lg contrast no-underline flex gap" href="#section-switches-validation" onclick="__templ_toggleDrawer_5a2f(&#34;.drawer&#34;,&#34;open&#34;)"><i class="bi bi-dot"></i>Validation</a></li></ul></span><div style="padding-top: var(--ui-app-bar-height);"><span class="overflow-scroll no-scrollbar container fluid" style="height: calc(100vh - var(--ui-app-bar-height))"><section id="section-text" class="p mt"><h2 class="underline text-center">Text</h2><div class="p-lg flex flex-col gap-xl"><fieldset id="section-text-headings"><legend>Headings</legend><h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6></fieldset> <fieldset id="section-text-paragraph"><legend>Paragraph</legend><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></fieldset> <fieldset id="section-text-formatting"><legend>Text Formatting</legend><div class="flex flex-col gap"><span><i>Italic text</i></span> <span><b>Bold text</b></span> <span><u>Underlined text</u></span> <span><s>Strikethrough text</s></span> <span><small>Small text</small></span> <span><mark>Highlighted text</mark></span> <span>This is <code>some inline code</code>.</span> <span><pre>Preformatted text</pre></span></div></fieldset></div></section> <section id="section-buttons" class="p mt"><h2 class="underline text-center">Buttons</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-default-buttons" class="mb">Default Buttons</h3><div class="flex flex-row flex-wrap gap"><button onclick="">Default</button><button onclick="" class="secondary">Secondary</button><button onclick="" class="success">Success</button><button onclick="" class="warning">Warning</button><button onclick="" class="destructive">Destructive</button><button onclick="" class="info">Info</button><button onclick="" class="contrast">Contrast</button><button onclick="" class="muted">Muted</button></div></div> <div class="mb"><h3 id="section-outline-button-variant" class="mb">Outline Variants</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="secondary outline">Secondary</button><button onclick="" class="success outline">Success</button><button onclick="" class="warning outline">Warning</button><button onclick="" class="destructive outline">Destructive</button><button onclick="" class="info outline">Info</button><button onclick="" class="contrast outline">Contrast</button><button onclick="" class="muted outline">Muted</button></div></div> <div class="mb"><h3 id="section-ghost-button-variant" class="mb">Ghost Variants</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="secondary ghost">Secondary</button><button onclick="" class="success ghost">Success</button><button onclick="" class="warning ghost">Warning</button><button onclick="" class="destructive ghost">Destructive</button><button onclick="" class="info ghost">Info</button><button onclick="" class="contrast ghost">Contrast</button><button onclick="" class="muted ghost">Muted</button></div></div> <div class="mb"><h3 id="section-buttons-full-width" class="mb">Full Width Variants</h3><div class="flex flex-col gap"><button onclick="" class="full">Full Width Default</button><button onclick="" class="secondary full">Full Width Secondary</button><button onclick="" class="success full">Full Width Success</button></div></div> <div class="mb"><h3 id="section-button-sizes" class="mb">Sizes</h3><div class="flex flex-row flex-wrap items-center gap"><button onclick="" class="small">Small</button><button onclick="">Default</button><button onclick="" class="large">Large</button></div></div> <div class="mb"><h3 id="section-icon-buttons" class="mb">Icon Buttons</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="icon">⚙️</button><button onclick="" class="secondary icon">📝</button><button onclick="" class="success icon">✓</button><button onclick="" class="warning icon">⚠️</button><button onclick="" class="destructive icon">🗑️</button><button onclick="" class="outline icon">🔍</button><button onclick="" class="ghost icon">❤️</button></div></div> <div class="mb"><h3 id="section-buttons-loading" class="mb">Loading State</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="loading">Loading...</button><button onclick="" class="secondary loading">Loading...</button><button onclick="" class="success loading">Loading...</button><button onclick="" class="outline loading">Loading...</button></div></div> <div class="mb"><h3 id="section-buttons-link" class="mb">Link Buttons</h3><div class="flex flex-row flex-wrap gap"><a role="button" onclick="" Href="#">Default Link</a><a role="button" onclick="" Href="#" class="secondary">Secondary Link</a><a role="button" onclick="" Href="#" class="outline">Outline Link</a><a role="button" onclick="" Href="#" class="ghost">Ghost Link</a></div></div> <div class="mb"><h3 id="section-buttons-combined-examples" class="mb">Combined Examples</h3><div class="flex flex-row flex-wrap gap"><button onclick="" class="info outline small">Small Outline Info</button><button onclick="" class="success large">Large Success</button><button onclick="" class="warning large">🚨 Large Icon</button><button onclick="" class="destructive full">Full Width Destructive</button></div></div></div></section> <section id="section-forms" class="p mt"><h2 class="underline text-center">Forms</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-forms-text-inputs" class="mb">Text Inputs</h3><div class="flex flex-col gap"><label for="text-default">Default</label> <input type="text" id="text-default" name="text-default" placeholder="Enter text..."> <label for="text-value">With Value</label> <input type="text" id="text-value" name="text-value" value="Hello World"> <label for="text-readonly">Readonly</label> <input type="text" id="text-readonly" name="text-readonly" value="Readonly text" readonly></div></div> <div class="mb"><h3 id="section-forms-password" class="mb">Password</h3><div class="flex flex-col gap"><label for="password-default">Password</label> <input type="password" id="password-default" name="password-default" placeholder="Enter password..."> <label for="password-disabled">Disabled</label> <input type="password" id="password-disabled" name="password-disabled" placeholder="Disabled password" disabled></div></div> <div class="mb"><h3 id="section-forms-email" class="mb">Email</h3><div class="flex flex-col gap"><label for="email-default">Email</label> <input type="email" id="email-default" name="email-default" placeholder="Enter email..."> <label for="email-multiple">Multiple Emails</label> <input type="email" id="email-multiple" name="email-multiple" multiple placeholder="Enter emails..."></div></div> <div class="mb"><h3 id="section-forms-search" class="mb">Search</h3><div class="flex flex-col gap"><label for="search-default">Search</label> <input type="search" id="search-default" name="search-default" placeholder="Search..."></div></div> <div class="mb"><h3 id="section-forms-number" class="mb">Number</h3><div class="flex flex-col gap"><label for="number-default">Number</label> <input type="number" id="number-default" name="number-default" placeholder="Enter number..."> <label for="number-minmax">Min/Max (1-100)</label> <input type="number" id="number-minmax" name="number-minmax" min="1" max="100" value="50"> <label for="number-step">Step (0.1)</label> <input type="number" id="number-step" name="number-step" step="0.1" value="0.5"></div></div> <div class="mb"><h3 id="section-forms-datetime" class="mb">Date & Time</h3><div class="flex flex-row flex-wrap gap flex-0"><div><label for="date-default" class="flex flex-col">Date <input type="date" id="date-default" name="date-default" class="w-fit"></label></div><div><label for="time-default" class="flex flex-col">Time <input type="time" id="time-default" name="time-default" class="w-fit"></label></div><div><label for="datetime-default" class="flex flex-col">DateTime Local <input type="datetime-local" id="datetime-default" name="datetime-default" class="w-fit"></label></div><div><label for="month-default" class="flex flex-col">Month <input type="month" id="month-default" name="month-default" class="w-fit"></label></div><div><label for="week-default" class="flex flex-col">Week <input type="week" id="week-default" name="week-default" class="w-fit"></label></div></div></div> <div class="mb"><h3 id="section-forms-select" class="mb">Select</h3><div class="flex flex-row flex-wrap gap flex-auto"><div><label for="select-default">Default</label> <select id="select-default" name="select-default"><option value="">Select an option...</option> <option value="1">Option 1</option> <option value="2">Option 2</option> <option value="3">Option 3</option></select></div><div><label for="select-selected">Pre-selected</label> <select id="select-selected" name="select-selected"><option value="">Select an option...</option> <option value="1">Option 1</option> <option value="2" selected>Option 2</option> <option value="3">Option 3</option></select></div><div><label for="select-multiple">Multiple</label> <select id="select-multiple" name="select-multiple" multiple size="4"><option value="1">Option 1</option> <option value="2">Option 2</option> <option value="3">Option 3</option> <option value="4">Option 4</option></select></div><div><label for="select-optgroup">Optgroup</label> <select id="select-optgroup" name="select-optgroup"><option value="">Select...</option> <optgroup label="Group 1"><option value="1-1">Option 1.1</option> <option value="1-2">Option 1.2</option></optgroup> <optgroup label="Group 2"><option value="2-1">Option 2.1</option> <option value="2-2">Option 2.2</option></optgroup></select></div></div></div> <div class="mb"><h3 id="section-forms-textarea" class="mb">Textarea</h3><div class="flex flex-col gap"><label for="textarea-default">Default</label> <textarea id="textarea-default" name="textarea-default" rows="3" placeholder="Enter text..."></textarea> <label for="textarea-value">With Value</label> <textarea id="textarea-value" name="textarea-value" rows="3">This is some pre-filled text that spans multiple lines.</textarea> <label for="textarea-resize">Resizable</label> <textarea id="textarea-resize" name="textarea-resize" rows="3" placeholder="Can resize..."></textarea></div></div> <div class="mb"><h3 id="section-forms-checkbox" class="mb">Checkbox</h3><div class="flex flex-col gap"><div><input type="checkbox" id="checkbox-default" name="checkbox-default"> <label for="checkbox-default">Default Checkbox</label></div><div><input type="checkbox" id="checkbox-checked" name="checkbox-checked" checked> <label for="checkbox-checked">Checked Checkbox</label></div><div><label>Multiple Checkboxes</label></div><div class="flex flex-col ml"><div><input type="checkbox" id="checkbox-multi-1" name="checkbox-multi" value="1"> <label for="checkbox-multi-1">Option 1</label></div><div><input type="checkbox" id="checkbox-multi-2" name="checkbox-multi" value="2"> <label for="checkbox-multi-2">Option 2</label></div><div><input type="checkbox" id="checkbox-multi-3" name="checkbox-multi" value="3"> <label for="checkbox-multi-3">Option 3</label></div></div></div></div> <div class="mb"><h3 id="section-forms-radio" class="mb">Radio</h3><div class="flex flex-col gap"><div><label>Radio Group</label></div><div class="flex flex-col ml"><div><input type="radio" id="radio-1" name="radio-group" value="1"> <label for="radio-1">Option 1</label></div><div><input type="radio" id="radio-2" name="radio-group" value="2" checked> <label for="radio-2">Option 2 (checked)</label></div><div><input type="radio" id="radio-3" name="radio-group" value="3"> <label for="radio-3">Option 3</label></div></div><div><label>Another Radio Group</label></div><div class="flex flex-col ml"><div><input type="radio" id="radio2-a" name="radio-group-2" value="a"> <label for="radio2-a">Choice A</label></div><div><input type="radio" id="radio2-b" name="radio-group-2" value="b"> <label for="radio2-b">Choice B</label></div></div></div></div> <div class="mb"><h3 id="section-forms-range" class="mb">Range</h3><div class="flex flex-col gap"><div><label for="range-default">Default (0-100)</label> <input type="range" id="range-default" name="range-default" min="0" max="100" value="50"></div><div><label for="range-step">Step (0-100, step 10)</label> <input type="range" id="range-step" name="range-step" min="0" max="100" step="10" value="50"></div><div><label for="range-labels">With Labels</label> <input type="range" id="range-labels" name="range-labels" min="0" max="100" value="50" list="range-markers"> <datalist id="range-markers"><option value="0"></option> <option value="25"></option> <option value="50"></option> <option value="75"></option> <option value="100"></option></datalist></div></div></div> <div class="mb"><h3 id="section-forms-color" class="mb">Color</h3><div class="flex flex-col gap"><div><label for="color-default">Color Picker</label> <input type="color" id="color-default" name="color-default" value="#3b82f6"></div><div><label for="color-default-no-value">Default</label> <input type="color" id="color-default-no-value" name="color-default-no-value"></div></div></div> <div class="mb"><h3 id="section-forms-file" class="mb">File</h3><div class="flex flex-col gap"><div><label for="file-default">Default</label> <input type="file" id="file-default" name="file-default"></div><div><label for="file-multiple">Multiple Files</label> <input type="file" id="file-multiple" name="file-multiple" multiple></div><div><label for="file-accept">Accept Images</label> <input type="file" id="file-accept" name="file-accept" accept="image/*"></div><div><label for="file-accept-pdf">Accept PDF</label> <input type="file" id="file-accept-pdf" name="file-accept-pdf" accept=".pdf"></div></div></div> <div class="mb"><h3 id="section-forms-switch" class="mb">Switch</h3><div class="flex flex-col gap"><div><input type="checkbox" id="switch-default" name="switch-default" role="switch"> <label for="switch-default">Default Switch</label></div><div><input type="checkbox" id="switch-checked" name="switch-checked" role="switch" checked> <label for="switch-checked">Checked Switch</label></div></div></div> <div class="mb"><h3 id="section-forms-disabled" class="mb">Disabled Inputs</h3><div class="flex flex-row flex-wrap gap"><div><label for="text-disabled">Text Disabled</label> <input type="text" id="text-disabled" name="text-disabled" value="Disabled" disabled></div><div><label for="select-disabled">Select Disabled</label> <select id="select-disabled" name="select-disabled" disabled><option value="1">Option 1</option> <option value="2">Option 2</option></select></div><div><label for="textarea-disabled">Textarea Disabled</label> <textarea id="textarea-disabled" name="textarea-disabled" rows="2" disabled>Disabled</textarea></div><div><label for="checkbox-disabled">Checkbox Disabled</label> <input type="checkbox" id="checkbox-disabled" name="checkbox-disabled" disabled></div><div><label for="radio-disabled">Radio Disabled</label> <input type="radio" id="radio-disabled" name="radio-disabled" disabled></div><div><label for="range-disabled">Range Disabled</label> <input type="range" id="range-disabled" name="range-disabled" disabled></div></div></div> <div class="mb"><h3 id="section-forms-validation" class="mb">Validation States</h3><div class="flex flex-col gap"><div><label for="text-required">Required</label> <input type="text" id="text-required" name="text-required" required></div><div><label for="text-pattern">Pattern (3 chars)</label> <input type="text" id="text-pattern" name="text-pattern" pattern="..." title="Must be 3 characters"></div><div><label for="email-validate">Email (validate)</label> <input type="email" id="email-validate" name="email-validate"></div><div><label for="number-validate">Number (min 0, max 100)</label> <input type="number" id="number-validate" name="number-validate" min="0" max="100"></div><div><label for="text-minlength">Minlength (5)</label> <input type="text" id="text-minlength" name="text-minlength" minlength="5"></div><div><label for="text-maxlength">Maxlength (10)</label> <input type="text" id="text-maxlength" name="text-maxlength" maxlength="10"></div><div><label for="text-autocomplete">Autocomplete</label> <input type="text" id="text-autocomplete" name="text-autocomplete" autocomplete="name"></div></div></div> <div class="mb"><h3 id="section-forms-complete" class="mb">Complete Form Example</h3><form class="flex flex-col gap"><div><label for="form-name">Full Name *</label> <input type="text" id="form-name" name="name" required placeholder="John Doe"></div><div><label for="form-email">Email *</label> <input type="email" id="form-email" name="email" required placeholder="john@example.com"></div><div><label for="form-password">Password *</label> <input type="password" id="form-password" name="password" required placeholder="Min 8 characters" minlength="8"></div><div><label for="form-country">Country</label> <select id="form-country" name="country"><option value="">Select country...</option> <option value="us">United States</option> <option value="uk">United Kingdom</option> <option value="de">Germany</option> <option value="fr">France</option></select></div><div><label for="form-bio">Bio</label> <textarea id="form-bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea></div><div><label>Interests</label><div class="flex flex-col ml"><div><input type="checkbox" id="form-tech" name="interests" value="tech"> <label for="form-tech">Technology</label></div><div><input type="checkbox" id="form-sports" name="interests" value="sports"> <label for="form-sports">Sports</label></div><div><input type="checkbox" id="form-music" name="interests" value="music"> <label for="form-music">Music</label></div></div></div><div><label>Newsletter</label><div><input type="checkbox" id="form-newsletter" name="newsletter" role="switch" checked> <label for="form-newsletter">Subscribe to newsletter</label></div></div><div><label>Notifications</label><div class="flex flex-col ml"><div><input type="radio" id="form-notif-all" name="notifications" value="all" checked> <label for="form-notif-all">All notifications</label></div><div><input type="radio" id="form-notif-important" name="notifications" value="important"> <label for="form-notif-important">Important only</label></div><div><input type="radio" id="form-notif-none" name="notifications" value="none"> <label for="form-notif-none">None</label></div></div></div><div><label for="form-avatar">Avatar</label> <input type="file" id="form-avatar" name="avatar" accept="image/*"></div><div><label for="form-theme">Preferred Theme</label> <input type="color" id="form-theme" name="theme" value="#3b82f6"></div><div><label for="form-rating">Rating</label> <input type="range" id="form-rating" name="rating" min="1" max="5" value="3" list="rating-markers"> <datalist id="rating-markers"><option value="1"></option> <option value="2"></option> <option value="3"></option> <option value="4"></option> <option value="5"></option></datalist></div><div class="flex gap"><button type="submit">Submit</button> <button type="reset">Reset</button></div></form></div></div></section> <section id="section-cards" class="p mt"><h2 class="underline text-center">Cards</h2><div class="p-lg flex flex-col gap-xl"><fieldset id="section-cards-basic"><legend>Basic Cards</legend><div class="flex flex-row gap flex-wrap"><span class="h-fit card"><div class="card-body"><span class="card-title block">Basic Card</span> <p>A simple card with default styling.</p></div></span><span class="h-fit card outline secondary"><div class="card-body"><span class="card-title block">Outline Card</span> <p>A card with outline variant.</p></div></span><span class="h-fit card seamless"><div class="card-body"><header class="card-header"><span class="card-title block">Seamless Card</span></header> <div class="card-body"><p>A card with seamless variant. <br>Borders between Header/Body/Footer are removed.</p></div> <footer class="card-footer"><small>Footer content</small></footer></div></span></div></fieldset> <fieldset id="section-cards-sizes"><legend>Card Sizes</legend><div class="flex flex-row gap flex-wrap"><span class="h-fit card compact"><div class="card-body"><span class="card-title block">Compact</span> <p>A compact sized card.</p></div></span><span class="h-fit card comfortable"><div class="card-body"><span class="card-title block">Comfortable</span> <p>A comfortable sized card.</p></div></span><span class="h-fit card spacious"><div class="card-body"><span class="card-title block">Spacious</span> <p>A spacious sized card.</p></div></span></div></fieldset> <fieldset id="section-cards-colors"><legend>Card Colors</legend><div class="flex flex-row gap flex-wrap"><span class="card primary"><div class="card-body"><span class="card-title block">Primary</span> <p>A primary colored card.</p></div></span><span class="card secondary"><div class="card-body"><span class="card-title block">Secondary</span> <p>A secondary colored card.</p></div></span><span class="card success"><div class="card-body"><span class="card-title block">Success</span> <p>A success colored card.</p></div></span><span class="card warning"><div class="card-body"><span class="card-title block">Warning</span> <p>A warning colored card.</p></div></span><span class="card destructive"><div class="card-body"><span class="card-title block">Destructive</span> <p>A destructive colored card.</p></div></span><span class="card info"><div class="card-body"><span class="card-title block">Info</span> <p>An info colored card.</p></div></span></div></fieldset> <fieldset id="section-cards-structure"><legend>Card Structure</legend><div class="flex flex-row gap flex-wrap"><span class="card"><header class="card-header"><span class="card-title block">Card with Header</span> <span class="card-subtitle block">Card subtitle</span></header> <div class="card-body"><p>This card has a header, body, and footer.</p></div> <footer class="card-footer"><small>Footer content</small></footer></span></div></fieldset> <fieldset id="section-cards-images"><legend>Card Images</legend><div class="flex flex-row gap flex-wrap"><span class="card"><img src="https://via.placeholder.com/200" alt="Square placeholder" class="card-image aspect-square"> <div class="card-body"><span class="card-title block">Square Image</span> <p>Card with square image aspect.</p></div></span><span class="card"><img src="https://via.placeholder.com/320x180" alt="Video placeholder" class="card-image aspect-video"> <div class="card-body"><span class="card-title block">Video Aspect</span> <p>Card with video aspect ratio.</p></div></span><span class="card"><img src="https://via.placeholder.com/180x320" alt="Portrait placeholder" class="card-image aspect-portrait"> <div class="card-body"><span class="card-title block">Portrait Aspect</span> <p>Card with portrait aspect ratio.</p></div></span></div></fieldset> <fieldset id="section-cards-actions"><legend>Card Actions</legend><div class="flex flex-row gap flex-wrap"><span class="card"><div class="card-body"><span class="card-title block">Actions Center</span> <p>Card with center-aligned actions.</p></div> <footer class="card-footer"><div class="card-actions center"><button>Cancel</button> <button>Submit</button></div></footer></span><span class="card"><div class="card-body"><span class="card-title block">Actions End</span> <p>Card with end-aligned actions.</p></div> <footer class="card-footer"><div class="card-actions end"><button>Dismiss</button> <button>Confirm</button></div></footer></span><span class="card"><div class="card-body"><span class="card-title block">Actions Between</span> <p>Card with space-between actions.</p></div> <footer class="card-footer"><div class="card-actions between"><button>Previous</button> <button>Next</button></div></footer></span></div></fieldset></div></section> <section id="section-badges" class="p mt"><h2 class="underline text-center">Badges</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-badges-default" class="mb">Default Badges</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge">Default</span><span onclick="" class="badge badge-status badge-status-online">Online</span><span onclick="" class="badge badge-status badge-status-offline">Offline</span><span onclick="" class="badge badge-status badge-status-busy">Busy</span><span onclick="" class="badge badge-status badge-status-away">Away</span></div></div> <div class="mb"><h3 id="section-badges-sizes" class="mb">Badge Sizes</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-xs">XS</span><span onclick="" class="badge badge-md">MD</span><span onclick="" class="badge badge-lg">LG</span><span onclick="" class="badge badge-xl">XL</span></div></div> <div class="mb"><h3 id="section-badges-shapes" class="mb">Badge Shapes</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-square">Square</span><span onclick="" class="badge badge-rounded">Rounded</span><span onclick="" class="badge badge-pill">Pill</span></div></div> <div class="mb"><h3 id="section-badges-animations" class="mb">Badge Animations</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-status badge-status-online badge-pulse">Pulse</span><span onclick="" class="badge badge-status badge-status-busy badge-ping">Ping</span><span onclick="" class="badge badge-bounce">Bounce</span></div></div> <div class="mb"><h3 id="section-badges-counter" class="mb">Counter Badges</h3><div class="flex flex-row flex-wrap gap items-center"><div class="relative"><span>Notifications</span><span onclick="" class="badge badge-float badge-float-top badge-counter-sm">5</span></div><div class="relative"><span>Messages</span><span onclick="" class="badge badge-float badge-float-top badge-counter-lg">42</span></div><div class="relative"><span>Updates</span><span onclick="" class="badge badge-float badge-float-bottom badge-counter-lg">99+</span></div></div></div> <div class="mb"><h3 id="section-badges-indicators" class="mb">Status Indicators</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-status badge-status-online badge-clickable">Online</span><span onclick="" class="badge badge-status badge-status-offline badge-clickable">Online</span><span onclick="" class="badge badge-status badge-status-busy badge-clickable">Busy</span><span onclick="" class="badge badge-status badge-status-away badge-clickable">Away</span></div></div> <div class="mb"><h3 id="section-badges-combined" class="mb">Combined Examples</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="badge badge-status badge-status-online badge-xs badge-pill badge-pulse">Live</span><span onclick="" class="badge badge-status badge-status-busy badge-xl badge-rounded badge-clickable">In Meeting</span><span onclick="" class="badge badge-status badge-status-offline badge-pill badge-bounce">Offline</span></div></div> <div class="mb"><h3 id="section-badges-colors" class="mb">Color Examples</h3><div class="flex flex-row flex-wrap gap items-center"><span onclick="" class="primary badge">Primary</span><span onclick="" class="secondary badge">Secondary</span><span onclick="" class="info badge">Info</span><span onclick="" class="contrast badge">Contrast</span><span onclick="" class="destructive badge">Destructive</span><span onclick="" class="muted badge">Muted</span><span onclick="" class="success badge">Success</span><span onclick="" class="warning badge">Warning</span><span onclick="" class="error badge">Error</span></div></div></div></section> <section id="section-dialogs" class="p mt"><h2 class="underline text-center">Dialogs</h2><div class="p-lg flex flex-col gap-xl"><dialog class="flex justify-center items-center dialog fullscreen clean" id="example-fullscreen-clean-dialog"><button onclick="this.closest('dialog').close();" class="contrast ghost m dialog-close"><i class="bi bi-x-lg"></i></button> <p>This is a example modal dialog. (fullscreen, clean)</p></dialog><div id="section-dialogs-modal-fullscreen-clean" class="flex flex-col gap justify-center items-center"><p>Open a modal dialog with props (Fullscreen, Clean)</p><script>function __templ_openModalDialog_b879(dialogID){try {
 		const dialog = document.getElementById(dialogID);
 		if (dialog) {
 			dialog.showModal();
@@ -6113,7 +5915,7 @@
 	} catch (error) {
 		console.error('Error opening dialog:', error);
 	}
-}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section> <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-ca3478b5-33ab-4a77-a92a-3373a2c4dce5"><script>function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive, ){// Get current tab
+}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section> <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-382868ff-73ba-41a4-9c17-3d5229de18a9"><script>function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive, ){// Get current tab
 	var clickedTab = event.target.closest(`.${cssTabsTab}`);
 	if (!clickedTab) {
 		return;
@@ -6161,4 +5963,4 @@
 			child.classList.remove(cssTabsTabActive);
 		}
 	}
-}</script><script>__templ_setActiveTab_65a7("tabs-ca3478b5-33ab-4a77-a92a-3373a2c4dce5",1,"active")</script></div></section> <div class="toast-stack"> <div class="toast success show"><div class="toast-content"><div class="toast-title">Success</div><div class="toast-description">This is a success toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast warning show"><div class="toast-content"><div class="toast-title">Warning</div><div class="toast-description">This is a warning toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast error show"><div class="toast-content"><div class="toast-title">Error</div><div class="toast-description">This is an error toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast info show"><div class="toast-content"><div class="toast-title">Info</div><div class="toast-description">This is an info toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div></div> <section id="section-switches" class="p mt"><h2 class="underline text-center">Switches</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-switches-default" class="mb">Default Switches</h3><div class="flex flex-col gap form-group"><div><span class="switch"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-default">Default Switch</label></div><div><span class="switch"><input type="checkbox" name="" value="" checked> <span></span></span><label for="switch-checked">Checked Switch</label></div><div><span class="switch switch-disabled"><input type="checkbox" name="" value="" disabled> <span></span></span><label for="switch-disabled">Disabled Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-sizes" class="mb">Sizes</h3><div class="flex flex-col gap"><div><span class="switch switch-small"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-small">Small Switch</label></div><div><span class="switch"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-default">Default Switch</label></div><div><span class="switch switch-large"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-large">Large Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-colors" class="mb">Colors</h3><div class="flex flex-col gap"><div><span class="switch switch-primary"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-primary">Primary Switch</label></div><div><span class="switch switch-secondary"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-secondary">Secondary Switch</label></div><div><span class="switch switch-success"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-success">Success Switch</label></div><div><span class="switch switch-warning"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-warning">Warning Switch</label></div><div><span class="switch switch-destructive"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-destructive">Destructive Switch</label></div><div><span class="switch switch-info"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-info">Info Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-disabled" class="mb">Disabled Switches</h3><div class="flex flex-col gap"><div><span class="switch switch-disabled"><input type="checkbox" name="" value="" disabled> <span></span></span><label for="switch-disabled">Disabled Switch</label></div><div><span class="switch switch-disabled"><input type="checkbox" name="" value="" checked disabled> <span></span></span><label for="switch-disabled-checked">Disabled & Checked Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-combined" class="mb">Combined Examples</h3><div class="flex flex-row flex-wrap gap"><div><span class="switch switch-small switch-primary"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-small-primary">Small Primary</label></div><div><span class="switch switch-large switch-success"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-large-success">Large Success</label></div><div><span class="switch switch-small switch-warning switch-disabled"><input type="checkbox" name="" value="" disabled> <span></span></span><label for="switch-small-warning-disabled">Small Warning Disabled</label></div></div></div> <div class="mb"><h3 id="section-switches-validation" class="mb">Validation</h3><div class="flex flex-col gap"><div><label>Required Switch</label><span class="switch"><input type="checkbox" name="" value=""> <span></span></span></div></div></div></div></section></span></div></body></html>
+}</script><script>__templ_setActiveTab_65a7("tabs-382868ff-73ba-41a4-9c17-3d5229de18a9",1,"active")</script></div></section> <div class="toast-stack"> <div class="toast success show"><div class="toast-content"><div class="toast-title">Success</div><div class="toast-description">This is a success toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast warning show"><div class="toast-content"><div class="toast-title">Warning</div><div class="toast-description">This is a warning toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast error show"><div class="toast-content"><div class="toast-title">Error</div><div class="toast-description">This is an error toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast info show"><div class="toast-content"><div class="toast-title">Info</div><div class="toast-description">This is an info toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div></div> <section id="section-switches" class="p mt"><h2 class="underline text-center">Switches</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-switches-default" class="mb">Default Switches</h3><div class="flex flex-col gap"><div><label for="switch-default" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value=""> <span></span></span>Default Switch</label></div><div><label for="switch-checked" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value="" checked> <span></span></span>Checked Switch</label></div><div><label for="switch-disabled" class="flex items-center gap"><span class="switch switch-disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-sizes" class="mb">Sizes</h3><div class="flex flex-col gap"><div><span class="switch switch-small"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-small">Small Switch</label></div><div><span class="switch"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-default">Default Switch</label></div><div><span class="switch switch-large"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-large">Large Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-colors" class="mb">Colors</h3><div class="flex flex-col gap"><div><span class="switch switch-primary"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-primary">Primary Switch</label></div><div><span class="switch switch-secondary"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-secondary">Secondary Switch</label></div><div><span class="switch switch-success"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-success">Success Switch</label></div><div><span class="switch switch-warning"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-warning">Warning Switch</label></div><div><span class="switch switch-destructive"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-destructive">Destructive Switch</label></div><div><span class="switch switch-info"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-info">Info Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-disabled" class="mb">Disabled Switches</h3><div class="flex flex-col gap"><div><span class="switch switch-disabled"><input type="checkbox" name="" value="" disabled> <span></span></span><label for="switch-disabled">Disabled Switch</label></div><div><span class="switch switch-disabled"><input type="checkbox" name="" value="" checked disabled> <span></span></span><label for="switch-disabled-checked">Disabled & Checked Switch</label></div></div></div> <div class="mb"><h3 id="section-switches-combined" class="mb">Combined Examples</h3><div class="flex flex-row flex-wrap gap"><div><span class="switch switch-small switch-primary"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-small-primary">Small Primary</label></div><div><span class="switch switch-large switch-success"><input type="checkbox" name="" value=""> <span></span></span><label for="switch-large-success">Large Success</label></div><div><span class="switch switch-small switch-warning switch-disabled"><input type="checkbox" name="" value="" disabled> <span></span></span><label for="switch-small-warning-disabled">Small Warning Disabled</label></div></div></div> <div class="mb"><h3 id="section-switches-validation" class="mb">Validation</h3><div class="flex flex-col gap"><div><label>Required Switch</label><span class="switch"><input type="checkbox" name="" value=""> <span></span></span></div></div></div></div></section></span></div></body></html>

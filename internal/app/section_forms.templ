@@ -53,7 +53,7 @@ templ Forms() {
 templ formsTextInputs() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsTextInputs } class={ css.MB }>Text Inputs</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<label for="text-default">Default</label>
 			<input type="text" id="text-default" name="text-default" placeholder="Enter text..."/>
 			<label for="text-value">With Value</label>
@@ -67,7 +67,7 @@ templ formsTextInputs() {
 templ formsPassword() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsPassword } class={ css.MB }>Password</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<label for="password-default">Password</label>
 			<input type="password" id="password-default" name="password-default" placeholder="Enter password..."/>
 			<label for="password-disabled">Disabled</label>
@@ -79,7 +79,7 @@ templ formsPassword() {
 templ formsEmail() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsEmail } class={ css.MB }>Email</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<label for="email-default">Email</label>
 			<input type="email" id="email-default" name="email-default" placeholder="Enter email..."/>
 			<label for="email-multiple">Multiple Emails</label>
@@ -91,7 +91,7 @@ templ formsEmail() {
 templ formsSearch() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsSearch } class={ css.MB }>Search</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<label for="search-default">Search</label>
 			<input type="search" id="search-default" name="search-default" placeholder="Search..."/>
 		</div>
@@ -101,7 +101,7 @@ templ formsSearch() {
 templ formsNumber() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsNumber } class={ css.MB }>Number</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<label for="number-default">Number</label>
 			<input type="number" id="number-default" name="number-default" placeholder="Enter number..."/>
 			<label for="number-minmax">Min/Max (1-100)</label>
@@ -116,31 +116,31 @@ templ formsDateTime() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsDateTime } class={ css.MB }>Date & Time</h3>
 		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.Flex0 }>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="date-default" class={ css.Flex, css.FlexCol }>
 					Date
 					<input type="date" id="date-default" name="date-default" class={ css.WFit }/>
 				</label>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="time-default" class={ css.Flex, css.FlexCol }>
 					Time
 					<input type="time" id="time-default" name="time-default" class={ css.WFit }/>
 				</label>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="datetime-default" class={ css.Flex, css.FlexCol }>
 					DateTime Local
 					<input type="datetime-local" id="datetime-default" name="datetime-default" class={ css.WFit }/>
 				</label>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="month-default" class={ css.Flex, css.FlexCol }>
 					Month
 					<input type="month" id="month-default" name="month-default" class={ css.WFit }/>
 				</label>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="week-default" class={ css.Flex, css.FlexCol }>
 					Week
 					<input type="week" id="week-default" name="week-default" class={ css.WFit }/>
@@ -154,7 +154,7 @@ templ formsSelect() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsSelect } class={ css.MB }>Select</h3>
 		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.FlexAuto }>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="select-default">Default</label>
 				<select id="select-default" name="select-default">
 					<option value="">Select an option...</option>
@@ -163,7 +163,7 @@ templ formsSelect() {
 					<option value="3">Option 3</option>
 				</select>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="select-selected">Pre-selected</label>
 				<select id="select-selected" name="select-selected">
 					<option value="">Select an option...</option>
@@ -172,7 +172,7 @@ templ formsSelect() {
 					<option value="3">Option 3</option>
 				</select>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="select-multiple">Multiple</label>
 				<select id="select-multiple" name="select-multiple" multiple size="4">
 					<option value="1">Option 1</option>
@@ -181,7 +181,7 @@ templ formsSelect() {
 					<option value="4">Option 4</option>
 				</select>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="select-optgroup">Optgroup</label>
 				<select id="select-optgroup" name="select-optgroup">
 					<option value="">Select...</option>
@@ -202,7 +202,7 @@ templ formsSelect() {
 templ formsTextarea() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsTextarea } class={ css.MB }>Textarea</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<label for="textarea-default">Default</label>
 			<textarea id="textarea-default" name="textarea-default" rows="3" placeholder="Enter text..."></textarea>
 			<label for="textarea-value">With Value</label>
@@ -219,7 +219,7 @@ templ formsTextarea() {
 templ formsCheckbox() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsCheckbox } class={ css.MB }>Checkbox</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
 				<input type="checkbox" id="checkbox-default" name="checkbox-default"/>
 				<label for="checkbox-default">Default Checkbox</label>
@@ -252,7 +252,7 @@ templ formsCheckbox() {
 templ formsRadio() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsRadio } class={ css.MB }>Radio</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
 				<label>Radio Group</label>
 			</div>
@@ -290,7 +290,7 @@ templ formsRadio() {
 templ formsRange() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsRange } class={ css.MB }>Range</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
 				<label for="range-default">Default (0-100)</label>
 				<input type="range" id="range-default" name="range-default" min="0" max="100" value="50"/>
@@ -317,7 +317,7 @@ templ formsRange() {
 templ formsColor() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsColor } class={ css.MB }>Color</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
 				<label for="color-default">Color Picker</label>
 				<input type="color" id="color-default" name="color-default" value="#3b82f6"/>
@@ -333,7 +333,7 @@ templ formsColor() {
 templ formsFile() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsFile } class={ css.MB }>File</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
 				<label for="file-default">Default</label>
 				<input type="file" id="file-default" name="file-default"/>
@@ -357,7 +357,7 @@ templ formsFile() {
 templ formsSwitch() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsSwitch } class={ css.MB }>Switch</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
 				<input type="checkbox" id="switch-default" name="switch-default" role="switch"/>
 				<label for="switch-default">Default Switch</label>
@@ -374,30 +374,30 @@ templ formsDisabled() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsDisabled } class={ css.MB }>Disabled Inputs</h3>
 		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="text-disabled">Text Disabled</label>
 				<input type="text" id="text-disabled" name="text-disabled" value="Disabled" disabled/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="select-disabled">Select Disabled</label>
 				<select id="select-disabled" name="select-disabled" disabled>
 					<option value="1">Option 1</option>
 					<option value="2">Option 2</option>
 				</select>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="textarea-disabled">Textarea Disabled</label>
 				<textarea id="textarea-disabled" name="textarea-disabled" rows="2" disabled>Disabled</textarea>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="checkbox-disabled">Checkbox Disabled</label>
 				<input type="checkbox" id="checkbox-disabled" name="checkbox-disabled" disabled/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="radio-disabled">Radio Disabled</label>
 				<input type="radio" id="radio-disabled" name="radio-disabled" disabled/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="range-disabled">Range Disabled</label>
 				<input type="range" id="range-disabled" name="range-disabled" disabled/>
 			</div>
@@ -408,7 +408,7 @@ templ formsDisabled() {
 templ formsValidation() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsValidation } class={ css.MB }>Validation States</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap, css.FormGroup }>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<div>
 				<label for="text-required">Required</label>
 				<input type="text" id="text-required" name="text-required" required/>
@@ -445,19 +445,19 @@ templ formsComplete() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsComplete } class={ css.MB }>Complete Form Example</h3>
 		<form class={ css.Flex, css.FlexCol, css.Gap }>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-name">Full Name *</label>
 				<input type="text" id="form-name" name="name" required placeholder="John Doe"/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-email">Email *</label>
 				<input type="email" id="form-email" name="email" required placeholder="john@example.com"/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-password">Password *</label>
 				<input type="password" id="form-password" name="password" required placeholder="Min 8 characters" minlength="8"/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-country">Country</label>
 				<select id="form-country" name="country">
 					<option value="">Select country...</option>
@@ -467,11 +467,11 @@ templ formsComplete() {
 					<option value="fr">France</option>
 				</select>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-bio">Bio</label>
 				<textarea id="form-bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label>Interests</label>
 				<div class={ css.Flex, css.FlexCol, css.ML }>
 					<div>
@@ -488,14 +488,14 @@ templ formsComplete() {
 					</div>
 				</div>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label>Newsletter</label>
 				<div>
 					<input type="checkbox" id="form-newsletter" name="newsletter" role="switch" checked/>
 					<label for="form-newsletter">Subscribe to newsletter</label>
 				</div>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label>Notifications</label>
 				<div class={ css.Flex, css.FlexCol, css.ML }>
 					<div>
@@ -512,15 +512,15 @@ templ formsComplete() {
 					</div>
 				</div>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-avatar">Avatar</label>
 				<input type="file" id="form-avatar" name="avatar" accept="image/*"/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-theme">Preferred Theme</label>
 				<input type="color" id="form-theme" name="theme" value="#3b82f6"/>
 			</div>
-			<div class={ css.FormGroup }>
+			<div>
 				<label for="form-rating">Rating</label>
 				<input type="range" id="form-rating" name="rating" min="1" max="5" value="3" list="rating-markers"/>
 				<datalist id="rating-markers">
