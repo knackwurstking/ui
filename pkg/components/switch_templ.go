@@ -17,16 +17,8 @@ type SwitchProps struct {
 	Value    string
 	Checked  bool
 	Disabled bool
-	Size     SwitchSize
 	Color    SwitchColor
 }
-
-type SwitchSize string
-
-const (
-	SwitchSizeSmall SwitchSize = css.SwitchSmall
-	SwitchSizeLarge SwitchSize = css.SwitchLarge
-)
 
 type SwitchColor string
 
@@ -65,9 +57,6 @@ func Switch(props *SwitchProps) templ.Component {
 		}
 
 		props.Class = append(props.Class, css.Switch)
-		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
-		}
 		if props.Color != "" {
 			props.Class = append(props.Class, string(props.Color))
 		}
@@ -89,7 +78,7 @@ func Switch(props *SwitchProps) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(props.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 54, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 43, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -102,7 +91,7 @@ func Switch(props *SwitchProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.Value)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 55, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 44, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

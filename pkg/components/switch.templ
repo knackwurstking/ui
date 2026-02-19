@@ -9,16 +9,8 @@ type SwitchProps struct {
 	Value    string
 	Checked  bool
 	Disabled bool
-	Size     SwitchSize
 	Color    SwitchColor
 }
-
-type SwitchSize string
-
-const (
-	SwitchSizeSmall SwitchSize = css.SwitchSmall
-	SwitchSizeLarge SwitchSize = css.SwitchLarge
-)
 
 type SwitchColor string
 
@@ -38,9 +30,6 @@ templ Switch(props *SwitchProps) {
 		}
 
 		props.Class = append(props.Class, css.Switch)
-		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
-		}
 		if props.Color != "" {
 			props.Class = append(props.Class, string(props.Color))
 		}

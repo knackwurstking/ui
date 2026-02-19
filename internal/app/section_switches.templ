@@ -22,11 +22,8 @@ templ Switches() {
 		}
 		@SectionContent() {
 			@switchesDefault()
-			@switchesSizes()
 			@switchesColors()
 			@switchesDisabled()
-			@switchesCombined()
-			@switchesValidation()
 		}
 	</section>
 }
@@ -46,26 +43,6 @@ templ switchesDefault() {
 			<label for="switch-disabled" class={ css.Flex, css.ItemsCenter, css.Gap }>
 				@components.Switch(&components.SwitchProps{Disabled: true})
 				Disabled Switch
-			</label>
-		</div>
-	</div>
-}
-
-templ switchesSizes() {
-	<div class={ css.MB }>
-		<h3 id={ IDSwitchesSizes } class={ css.MB }>Sizes</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap }>
-			<label for="switch-small" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Size: components.SwitchSizeSmall})
-				Small Switch
-			</label>
-			<label for="switch-default" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{})
-				Default Switch
-			</label>
-			<label for="switch-large" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Size: components.SwitchSizeLarge})
-				Large Switch
 			</label>
 		</div>
 	</div>
@@ -114,48 +91,6 @@ templ switchesDisabled() {
 			<label for="switch-disabled-checked" class={ css.Flex, css.ItemsCenter, css.Gap }>
 				@components.Switch(&components.SwitchProps{Disabled: true, Checked: true})
 				Disabled & Checked Switch
-			</label>
-		</div>
-	</div>
-}
-
-templ switchesCombined() {
-	<div class={ css.MB }>
-		<h3 id={ IDSwitchesCombined } class={ css.MB }>Combined Examples</h3>
-		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-			<label for="switch-small-primary" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{
-					Size:  components.SwitchSizeSmall,
-					Color: components.SwitchColorPrimary,
-				})
-				Small Primary
-			</label>
-			<label for="switch-large-success" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{
-					Size:  components.SwitchSizeLarge,
-					Color: components.SwitchColorSuccess,
-				})
-				Large Success
-			</label>
-			<label for="switch-small-warning-disabled" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{
-					Size:     components.SwitchSizeSmall,
-					Color:    components.SwitchColorWarning,
-					Disabled: true,
-				})
-				Small Warning Disabled
-			</label>
-		</div>
-	</div>
-}
-
-templ switchesValidation() {
-	<div class={ css.MB }>
-		<h3 id={ IDSwitchesValidation } class={ css.MB }>Validation</h3>
-		<div class={ css.Flex, css.FlexCol, css.Gap }>
-			<label class={ css.Flex, css.ItemsCenter, css.Gap }>
-				Required Switch
-				@components.Switch(nil)
 			</label>
 		</div>
 	</div>
