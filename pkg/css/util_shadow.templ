@@ -167,43 +167,5 @@ templ StylesUtilShadow() {
 			box-shadow: var(--ui-shadow-sm);
 			transition: none;
 		}
-
-		/* Accessibility - Reduced Motion */
-		@media (prefers-reduced-motion: reduce) {
-			/* Remove transitions from shadow transition utilities */
-			.shadow-transition,
-			.shadow-transition-fast,
-			.shadow-transition-slow {
-				transition: none;
-			}
-
-			/* Remove transforms and transitions from elevation utilities */
-			.elevation-1,
-			.elevation-2,
-			.elevation-3,
-			.elevation-4,
-			.elevation-5 {
-				transition: none;
-				transform: none;
-			}
-
-			.elevation-1:hover,
-			.elevation-2:hover,
-			.elevation-3:hover,
-			.elevation-4:hover,
-			.elevation-5:hover {
-				transform: none;
-				transition: none;
-			}
-
-			.elevation-1:active,
-			.elevation-2:active,
-			.elevation-3:active,
-			.elevation-4:active,
-			.elevation-5:active {
-				transform: none;
-				transition: none;
-			}
-		}
 	</style>
 }

@@ -102,22 +102,6 @@ templ StylesGlobal() {
 			opacity: 0.4;
 		}
 
-		/* Utility Classes */
-		.draggable {
-			user-select: none;
-			-webkit-user-drag: element;
-		}
-
-		/* Scrollbar Hiding */
-		.no-scrollbar {
-			-ms-overflow-style: none;
-			scrollbar-width: none;
-		}
-
-		.no-scrollbar::-webkit-scrollbar {
-			display: none;
-		}
-
 		/* Focus Management */
 		:focus {
 			outline: none;
@@ -126,26 +110,6 @@ templ StylesGlobal() {
 		:focus-visible {
 			outline: 2px solid var(--ui-primary);
 			outline-offset: 2px;
-		}
-
-		/* High Contrast Mode */
-		@media (prefers-contrast: high) {
-			:focus-visible {
-				outline-width: 3px;
-				outline-offset: 3px;
-			}
-		}
-
-		/* Reduced Motion */
-		@media (prefers-reduced-motion: reduce) {
-			*,
-			*::before,
-			*::after {
-				animation-duration: 0.01ms !important;
-				animation-iteration-count: 1 !important;
-				transition-duration: 0.01ms !important;
-				scroll-behavior: auto !important;
-			}
 		}
 	</style>
 	@globalButtonStyles()
@@ -368,25 +332,6 @@ templ globalButtonStyles() {
 			}
 		}
 
-		/* Accessibility - Reduced Motion */
-		@media (prefers-reduced-motion: reduce) {
-
-			button,
-			[role="button"],
-			input[type="button"],
-			input[type="submit"],
-			input[type="reset"] {
-				transition: none;
-			}
-
-			button.loading::after,
-			[role="button"].loading::after {
-				animation: none;
-				/* Show static loading indicator */
-				border-top-width: 3px;
-			}
-		}
-
 		/* Icon Support */
 		button>svg,
 		[role="button"]>svg {
@@ -482,20 +427,6 @@ templ globalButtonActiveStyles() {
 		[role="button"].outline:active {
 			background-color: transparent;
 			color: var(--btn-bg-active);
-		}
-
-		/* Accessibility - Reduced Motion */
-		@media (prefers-reduced-motion: reduce) {
-			button:active,
-			[role="button"]:active,
-			input[type="button"]:active,
-			input[type="submit"]:active,
-			input[type="reset"]:active,
-			button.active,
-			[role="button"].active {
-				transform: none;
-				transition: none;
-			}
 		}
 	</style>
 }
@@ -617,17 +548,6 @@ templ globalButtonHoverStyles() {
 		input[type="submit"]:not(.outline):not(.ghost):hover,
 		input[type="reset"]:not(.outline):not(.ghost):hover {
 			background-color: var(--btn-bg-hover);
-		}
-
-		/* Accessibility - Reduced Motion */
-		@media (prefers-reduced-motion: reduce) {
-			button:hover,
-			[role="button"]:hover,
-			input[type="button"]:hover,
-			input[type="submit"]:hover,
-			input[type="reset"]:hover {
-				transform: none;
-			}
 		}
 	</style>
 }
@@ -894,76 +814,6 @@ templ globalAnchorStyles() {
 			z-index: 1;
 			text-indent: -9999px;
 		}
-
-		/* Accessibility improvements */
-		@media (prefers-reduced-motion: reduce) {
-			a:not([role="button"]),
-			a:not([role="button"]):hover,
-			a:not([role="button"]):active,
-			a:not([role="button"]):focus,
-			a:not([role="button"]):focus-visible {
-				transition: none;
-			}
-
-			/* External link indicators */
-			a[href^="http"]:not([href*="localhost"]):not([role="button"]):after,
-			a[target="_blank"]:not([role="button"]):after {
-				transition: none;
-			}
-
-			/* Anchor/header links */
-			a.anchor-link,
-			a.header-link {
-				transition: none;
-			}
-
-			/* Navigation links */
-			nav a:not([role="button"]),
-			a.nav-link:not([role="button"]) {
-				transition: none;
-			}
-
-			/* Color variants */
-			a.secondary:not([role="button"]),
-			a.success:not([role="button"]),
-			a.warning:not([role="button"]),
-			a.destructive:not([role="button"]),
-			a.info:not([role="button"]),
-			a.muted:not([role="button"]),
-			a.contrast:not([role="button"]) {
-				transition: none;
-			}
-		}
-
-		/* High contrast mode */
-		@media (prefers-contrast: high) {
-			a:not([role="button"]) {
-				text-decoration-thickness: 2px;
-			}
-
-			a:not([role="button"]):hover {
-				text-decoration-thickness: 3px;
-			}
-
-			a:focus-visible:not([role="button"]) {
-				outline-width: 3px;
-				outline-offset: 3px;
-			}
-		}
-
-		/* Print styles */
-		@media print {
-			a[href]:not([role="button"]):after {
-				content: " (" attr(href) ")";
-				font-size: 0.875rem;
-				font-weight: normal;
-			}
-
-			a[href^="javascript:"]:not([role="button"]):after,
-			a[href^="#"]:not([role="button"]):after {
-				content: "";
-			}
-		}
 	</style>
 }
 
@@ -1130,34 +980,6 @@ templ globalBlockquoteStyles() {
 			float: right;
 			margin-left: calc(var(--ui-spacing) * 2);
 			text-align: right;
-		}
-
-		/* Accessibility improvements */
-		@media (prefers-reduced-motion: reduce) {
-			blockquote {
-				transition: none;
-			}
-		}
-
-		/* High contrast mode */
-		@media (prefers-contrast: high) {
-			blockquote {
-				border-left-width: 4px;
-			}
-
-			blockquote.centered {
-				border-top-width: 3px;
-				border-bottom-width: 3px;
-			}
-		}
-
-		/* Print styles */
-		@media print {
-			blockquote {
-				page-break-inside: avoid;
-				background-color: transparent;
-				border-left-width: 2pt;
-			}
 		}
 
 		/* Responsive adjustments */
