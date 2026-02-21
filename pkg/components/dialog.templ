@@ -26,7 +26,7 @@ type DialogSize string
 type DialogType string
 
 type DialogProps struct {
-	Props
+	*Props
 
 	Fullscreen bool
 	Clean      bool
@@ -38,7 +38,9 @@ type DialogProps struct {
 templ Dialog(props *DialogProps) {
 	{{
 		if props == nil {
-			props = &DialogProps{}
+			props = &DialogProps{
+				Props: NewProps(),
+			}
 		}
 		props.SetClass(css.Dialog)
 
@@ -59,7 +61,7 @@ templ Dialog(props *DialogProps) {
 			props.SetClass(string(props.Variant))
 		}
 	}}
-	<dialog { props.GetAttributes()... }>
+	<dialog { props.Attributes()... }>
 		{ children... }
 	</dialog>
 }
@@ -67,12 +69,12 @@ templ Dialog(props *DialogProps) {
 templ DialogCloseButton(props *Props) {
 	{{
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.DialogClose)
-		props.Attributes["onclick"] = `this.closest('dialog').close();`
+		props.Set(templ.KV[string, any]("onclick", `this.closest('dialog').close();`))
 	}}
-	<button { props.GetAttributes()... }>
+	<button { props.Attributes()... }>
 		<i class="bi bi-x-lg"></i>
 	</button>
 }

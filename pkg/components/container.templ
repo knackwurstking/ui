@@ -3,7 +3,7 @@ package components
 import "github.com/knackwurstking/ui/pkg/css"
 
 type ContainerProps struct {
-	Props
+	*Props
 
 	Fluid bool
 }
@@ -11,7 +11,9 @@ type ContainerProps struct {
 templ Container(props *ContainerProps) {
 	{{
 		if props == nil {
-			props = &ContainerProps{}
+			props = &ContainerProps{
+				Props: NewProps(),
+			}
 		}
 		props.SetClass(css.Container)
 
@@ -19,7 +21,7 @@ templ Container(props *ContainerProps) {
 			props.SetClass(css.ContainerFluid)
 		}
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ children... }
 	</span>
 }

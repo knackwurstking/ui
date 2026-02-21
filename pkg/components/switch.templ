@@ -3,7 +3,7 @@ package components
 import "github.com/knackwurstking/ui/pkg/css"
 
 type SwitchProps struct {
-	BaseProps
+	*Props
 
 	Name     string
 	Value    string
@@ -26,18 +26,20 @@ const (
 templ Switch(props *SwitchProps) {
 	{{
 		if props == nil {
-			props = &SwitchProps{}
+			props = &SwitchProps{
+				Props: NewProps(),
+			}
 		}
 
-		props.Class = append(props.Class, css.Switch)
+		props.SetClass(css.Switch)
 		if props.Color != "" {
-			props.Class = append(props.Class, string(props.Color))
+			props.SetClass(string(props.Color))
 		}
 		if props.Disabled {
-			props.Class = append(props.Class, css.SwitchDisabled)
+			props.SetClass(css.SwitchDisabled)
 		}
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		<input
 			type="checkbox"
 			name={ props.Name }

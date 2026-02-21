@@ -18,7 +18,7 @@ type AppBarPosition string
 type AppBarType string
 
 type AppBarProps struct {
-	Props
+	*Props
 
 	Position AppBarPosition
 	Type     AppBarType
@@ -28,7 +28,7 @@ type AppBarProps struct {
 templ AppBar(props *AppBarProps) {
 	{{
 		if props == nil {
-			props = &AppBarProps{}
+			props = &AppBarProps{Props: NewProps()}
 		}
 		props.SetClass(css.AppBar)
 
@@ -44,7 +44,7 @@ templ AppBar(props *AppBarProps) {
 			)
 		}
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ children... }
 	</span>
 }
@@ -56,7 +56,7 @@ templ AppBarLeft(props *Props) {
 		}
 		props.SetClass(css.AppBarLeft)
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ children... }
 	</span>
 }
@@ -68,7 +68,7 @@ templ AppBarCenter(props *Props) {
 		}
 		props.SetClass(css.AppBarCenter)
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ children... }
 	</span>
 }
@@ -80,7 +80,7 @@ templ AppBarRight(props *Props) {
 		}
 		props.SetClass(css.AppBarRight)
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ children... }
 	</span>
 }

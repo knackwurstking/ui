@@ -8,11 +8,50 @@ import (
 )
 
 type Props struct {
-	Attributes templ.Attributes
+	attributes templ.Attributes
+}
+
+func NewProps(kv ...templ.KeyValue[string, any]) *Props {
+	props := &Props{}
+	props.Set(kv...)
+	return props
+}
+
+func (p *Props) initialize() {
+	if p.attributes == nil {
+		p.attributes = templ.Attributes{}
+	}
+}
+
+func (p *Props) Attributes() templ.Attributes {
+	p.initialize()
+
+	attrs := templ.Attributes{}
+	for k, v := range p.attributes {
+		attrs[k] = v
+	}
+	return attrs
+}
+
+func (p *Props) Get(k string) (value any, ok bool) {
+	p.initialize()
+
+	value, ok = p.attributes[k]
+	return
+}
+
+func (p *Props) Set(kv ...templ.KeyValue[string, any]) {
+	p.initialize()
+
+	for _, a := range kv {
+		p.attributes[a.Key] = a.Value
+	}
 }
 
 func (p *Props) GetStyle() string {
-	s, ok := p.Attributes["style"]
+	p.initialize()
+
+	s, ok := p.attributes["style"]
 	if !ok {
 		return ""
 	}
@@ -20,15 +59,19 @@ func (p *Props) GetStyle() string {
 }
 
 func (p *Props) SetStyle(styles ...string) {
-	s, ok := p.Attributes["style"]
-	if !ok {
-		p.Attributes["style"] = ""
+	p.initialize()
+
+	if s, ok := p.attributes["style"]; !ok {
+		p.attributes["style"] = ""
+	} else {
+		p.attributes["style"] = fmt.Sprintf("%s; %s", s, strings.Join(styles, "; "))
 	}
-	p.Attributes["style"] = fmt.Sprintf("%s; %s", s, strings.Join(styles, "; "))
 }
 
 func (p *Props) GetClass() string {
-	c, ok := p.Attributes["class"]
+	p.initialize()
+
+	c, ok := p.attributes["class"]
 	if !ok {
 		return ""
 	}
@@ -36,19 +79,11 @@ func (p *Props) GetClass() string {
 }
 
 func (p *Props) SetClass(classes ...string) {
-	c, ok := p.Attributes["class"]
-	if !ok {
-		p.Attributes["class"] = ""
+	p.initialize()
+
+	if c, ok := p.attributes["class"]; !ok {
+		p.attributes["class"] = ""
+	} else {
+		p.attributes["class"] = fmt.Sprintf("%s %s", c, strings.Join(classes, " "))
 	}
-	p.Attributes["class"] = fmt.Sprintf("%s %s", c, strings.Join(classes, " "))
-}
-
-func (p *Props) GetAttributes() templ.Attributes {
-	attrs := templ.Attributes{}
-
-	for k, v := range p.Attributes {
-		attrs[k] = v
-	}
-
-	return attrs
 }

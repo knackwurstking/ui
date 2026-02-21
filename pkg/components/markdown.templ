@@ -1,8 +1,23 @@
 package components
 
-templ MarkdownContent(content string, useMarkdown bool) {
-	if useMarkdown {
-		<div class="markdown-content" data-markdown-content={ content }>
+type MarkdownContentProps struct {
+	*Props
+
+	UseMarkdown bool
+}
+
+templ MarkdownContent(content, props *MarkdownContentProps) {
+	{{
+		if props == nil {
+			props = &MarkdownContentProps{
+				Props: NewProps(),
+			}
+		}
+		props.SetClass("markdown-content")
+		props.Set(templ.KV[string, any]("data-markdown-content", content))
+	}}
+	if props.UseMarkdown {
+		<div { props.Attributes()... }>
 			@Spinner(nil)
 		</div>
 	} else {

@@ -27,7 +27,7 @@ const (
 )
 
 type ButtonProps struct {
-	Props
+	*Props
 
 	Color   ButtonColor
 	Variant ButtonVariant
@@ -43,7 +43,9 @@ type ButtonProps struct {
 templ Button(props *ButtonProps) {
 	{{
 		if props == nil {
-			props = &ButtonProps{}
+			props = &ButtonProps{
+				Props: NewProps(),
+			}
 		}
 
 		if props.Color != "" {
@@ -68,12 +70,12 @@ templ Button(props *ButtonProps) {
 			role="button"
 			onclick={ props.OnClick }
 			Href={ props.Link }
-			{ props.GetAttributes()... }
+			{ props.Attributes()... }
 		>
 			{ children... }
 		</a>
 	} else {
-		<button onclick={ props.OnClick } { props.GetAttributes()... }>
+		<button onclick={ props.OnClick } { props.Attributes()... }>
 			{ children... }
 		</button>
 	}
@@ -82,11 +84,11 @@ templ Button(props *ButtonProps) {
 templ ButtonGroup(props *Props) {
 	{{
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.ButtonGroup)
 	}}
-	<div { props.GetAttributes()... }>
+	<div { props.Attributes()... }>
 		{ children... }
 	</div>
 }

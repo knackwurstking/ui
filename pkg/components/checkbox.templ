@@ -1,7 +1,7 @@
 package components
 
 type CheckboxProps struct {
-	Props
+	*Props
 
 	Name     string
 	Value    string
@@ -15,7 +15,9 @@ type CheckboxProps struct {
 templ Checkbox(props *CheckboxProps) {
 	{{
 		if props == nil {
-			props = &CheckboxProps{}
+			props = &CheckboxProps{
+				Props: NewProps(),
+			}
 		}
 	}}
 	<input
@@ -26,6 +28,6 @@ templ Checkbox(props *CheckboxProps) {
 		required?={ props.Required }
 		disabled?={ props.Disabled }
 		aria-invalid={ props.Invalid }
-		{ props.GetAttributes()... }
+		{ props.Attributes()... }
 	/>
 }

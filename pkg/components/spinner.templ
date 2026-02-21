@@ -2,12 +2,12 @@ package components
 
 import "github.com/knackwurstking/ui/pkg/css"
 
-templ Spinner(props *BaseProps) {
+templ Spinner(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = NewProps()
 		}
-		props.Class = append(props.Class, css.Spinner)
+		props.SetClass(css.Spinner)
 	}}
-	<span { props.GetAttributes()... }></span>
+	<span { props.Attributes()... }></span>
 }

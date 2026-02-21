@@ -8,7 +8,14 @@ package components
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func MarkdownContent(content string, useMarkdown bool) templ.Component {
+type MarkdownContentProps struct {
+	Props
+
+	Content     string
+	UseMarkdown bool
+}
+
+func MarkdownContent(props *MarkdownContentProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -29,21 +36,21 @@ func MarkdownContent(content string, useMarkdown bool) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		if useMarkdown {
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"markdown-content\" data-markdown-content=\"")
+		if props == nil {
+			props = &MarkdownContentProps{}
+		}
+		props.SetClass("markdown-content")
+		props.Attributes["data-markdown-content"] = props.Content
+		if props.UseMarkdown {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var2 string
-			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(content)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/markdown.templ`, Line: 5, Col: 63}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+			templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, ">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -60,12 +67,12 @@ func MarkdownContent(content string, useMarkdown bool) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(content)
+			var templ_7745c5c3_Var2 string
+			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(props.Content)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/markdown.templ`, Line: 9, Col: 16}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/markdown.templ`, Line: 23, Col: 22}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -94,9 +101,9 @@ func MarkdownStyles() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var4 == nil {
-			templ_7745c5c3_Var4 = templ.NopComponent
+		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var3 == nil {
+			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<style>\n\t\t.markdown-content {\n\t\t\tline-height: 1.6;\n\t\t\tcolor: var(--ui-text);\n\t\t}\n\n\t\t.markdown-content h1,\n\t\t.markdown-content h2,\n\t\t.markdown-content h3,\n\t\t.markdown-content h4,\n\t\t.markdown-content h5,\n\t\t.markdown-content h6 {\n\t\t\tmargin: 0.8em 0 0.4em 0;\n\t\t\tfont-weight: bold;\n\t\t\tline-height: 1.3;\n\t\t}\n\n\t\t.markdown-content h1 { font-size: 1.4em; }\n\t\t.markdown-content h2 { font-size: 1.2em; }\n\t\t.markdown-content h3 { font-size: 1.1em; }\n\n\t\t.markdown-content p {\n\t\t\tmargin: 0.5em 0 1em 0;\n\t\t}\n\n\t\t.markdown-content ul,\n\t\t.markdown-content li {\n\t\t\tlist-style: unset !important;\n\t\t}\n\n\t\t.markdown-content ul,\n\t\t.markdown-content ol {\n\t\t\tmargin: 0.5em 0;\n\t\t\tpadding-left: 1.5em;\n\t\t\tlist-style: inherit;\n\t\t}\n\n\t\t.markdown-content ul {\n\t\t\tlist-style-type: disc;\n\t\t}\n\n\t\t.markdown-content ol {\n\t\t\tlist-style-type: decimal;\n\t\t}\n\n\t\t.markdown-content li {\n\t\t\tmargin: 0.25em 0;\n\t\t\tdisplay: list-item;\n\t\t}\n\n\t\t.markdown-content code {\n\t\t\tfont-size: 0.85em;\n\t\t\tpadding: 0.125em 0.25em;\n\t\t\tborder-radius: 2px;\n\t\t}\n\n\t\t.markdown-content pre {\n\t\t\tmargin: 1em 0;\n\t\t\tpadding: 1em;\n\t\t\tborder-radius: 4px;\n\t\t\toverflow-x: auto;\n\t\t}\n\n\t\t.markdown-content strong {\n\t\t\tfont-weight: 600;\n\t\t}\n\n\t\t.markdown-content em {\n\t\t\tfont-style: italic;\n\t\t}\n\n\t\t.markdown-content u {\n\t\t\ttext-decoration: underline;\n\t\t}\n\n\t\t.markdown-content blockquote {\n\t\t\tmargin: 1em 0;\n\t\t\tpadding: 0.5em 1em;\n\t\t\tborder-left: 3px solid var(--ui-border);\n\t\t\tbackground: var(--ui-bg-subtle);\n\t\t}\n\n\t\t.markdown-content pre code {\n\t\t\tdisplay: block;\n\t\t\tpadding: 1em;\n\t\t\tbackground: var(--ui-bg-subtle);\n\t\t\tborder-radius: 4px;\n\t\t\toverflow-x: auto;\n\t\t}\n\n\t\t.markdown-content del {\n\t\t\ttext-decoration: line-through;\n\t\t\tcolor: var(--ui-text-subtle);\n\t\t}\n\n\t\t.markdown-content table {\n\t\t\twidth: 100%;\n\t\t\tborder-collapse: collapse;\n\t\t\tmargin: 1em 0;\n\t\t}\n\n\t\t.markdown-content th,\n\t\t.markdown-content td {\n\t\t\tpadding: 0.5em;\n\t\t\tborder: 1px solid var(--ui-border);\n\t\t\ttext-align: left;\n\t\t}\n\n\t\t.markdown-content th {\n\t\t\tbackground: var(--ui-bg-subtle);\n\t\t\tfont-weight: 600;\n\t\t}\n\n\t\t.markdown-content ul.task-list {\n\t\t\tlist-style: none;\n\t\t\tpadding-left: 0;\n\t\t}\n\n\t\t.markdown-content ul.task-list li {\n\t\t\tdisplay: flex;\n\t\t\talign-items: flex-start;\n\t\t\tgap: 0.5em;\n\t\t}\n\n\t\t.markdown-content ul.task-list input[type=\"checkbox\"] {\n\t\t\tmargin-top: 0.25em;\n\t\t}\n\t</style>")
@@ -123,9 +130,9 @@ func MarkdownScript() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var5 == nil {
-			templ_7745c5c3_Var5 = templ.NopComponent
+		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var4 == nil {
+			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<script>\n\t\tfunction escapeHTML(text) {\n\t\t\treturn text\n\t\t\t\t.replaceAll('&', '&amp;')\n\t\t\t\t.replaceAll('<', '&lt;')\n\t\t\t\t.replaceAll('>', '&gt;')\n\t\t\t\t.replaceAll('\"', '&quot;')\n\t\t\t\t.replaceAll(\"'\", '&#39;')\n\t\t\t\t.replaceAll(\"/\", '&#x2F;');\n\t\t}\n\n\t\tfunction renderMarkdownToHTML(content) {\n\t\t\tif (!content || content.trim() === '') {\n\t\t\t\treturn '';\n\t\t\t}\n\n\t\t\tvar processed = content;\n\n\t\t\t// Process code blocks first (before other transformations)\n\t\t\tprocessed = processed.replace(/```(\\w*)\\n([\\s\\S]*?)```/g, function(match, lang, code) {\n\t\t\t\treturn '<pre><code class=\"language-' + lang + '\">' + escapeHTML(code.trim()) + '</code></pre>';\n\t\t\t});\n\n\t\t\t// Inline code\n\t\t\tprocessed = processed.replace(/`(.*?)`/g, '<code>$1</code>');\n\n\t\t\t// Strikethrough\n\t\t\tprocessed = processed.replace(/~~(.*?)~~/g, '<del>$1</del>');\n\n\t\t\t// Headers\n\t\t\tprocessed = processed.replace(/^### (.*$)/gm, '<h3>$1</h3>');\n\t\t\tprocessed = processed.replace(/^## (.*$)/gm, '<h2>$1</h2>');\n\t\t\tprocessed = processed.replace(/^# (.*$)/gm, '<h1>$1</h1>');\n\n\t\t\t// Emphasis\n\t\t\tprocessed = processed.replace(/__(.*?)__/g, '<u>$1</u>');\n\t\t\tprocessed = processed.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');\n\t\t\tprocessed = processed.replace(/\\*(.*?)\\*/g, '<em>$1</em>');\n\n\t\t\t// Task lists\n\t\t\tprocessed = processed.replace(/^- \\[ \\] (.*$)/gm, '<li class=\"task-item\"><input type=\"checkbox\" disabled> $1</li>');\n\t\t\tprocessed = processed.replace(/^- \\[x\\] (.*$)/gm, '<li class=\"task-item\"><input type=\"checkbox\" checked disabled> $1</li>');\n\n\t\t\t// Lists (unordered and ordered)\n\t\t\tprocessed = processed.replace(/^- (.*$)/gm, '<li class=\"ul-item\">$1</li>');\n\t\t\tprocessed = processed.replace(/^\\d+\\. (.*$)/gm, '<li class=\"ol-item\">$1</li>');\n\n\t\t\t// Blockquotes\n\t\t\tprocessed = processed.replace(/^> (.*$)/gm, '<bq-line>$1</bq-line>');\n\n\t\t\t// Tables\n\t\t\tprocessed = processed.replace(/^\\|(.+)\\|$/gm, function(match, cols) {\n\t\t\t\tvar cells = cols.split('|').map(function(c) { return c.trim(); });\n\t\t\t\tif (cells.some(function(c) { return /^[-:]+$/.test(c); })) {\n\t\t\t\t\treturn null; // Skip separator row\n\t\t\t\t}\n\t\t\t\tvar isHeader = !processed.match(/^\\|.+\\|\\s*$/m) || match.index < 100;\n\t\t\t\tvar tag = isHeader ? 'th' : 'td';\n\t\t\t\tvar row = cells.map(function(c) { return '<' + tag + '>' + c + '</' + tag + '>'; }).join('');\n\t\t\t\treturn '<tr>' + row + '</tr>';\n\t\t\t});\n\t\t\tprocessed = processed.replace(/(<tr>[\\s\\S]*?<\\/tr>(?:\\s*<tr>[\\s\\S]*?<\\/tr>)*)/g, '<table>$1</table>');\n\n\t\t\t// Group list items\n\t\t\tprocessed = processed\n\t\t\t\t.replace(/(<li class=\"ul-item\">[\\s\\S]*?<\\/li>(?:\\s*<li class=\"ul-item\">[\\s\\S]*?<\\/li>)*)/gm, '<ul>$1</ul>')\n\t\t\t\t.replace(/(<li class=\"ol-item\">[\\s\\S]*?<\\/li>(?:\\s*<li class=\"ol-item\">[\\s\\S]*?<\\/li>)*)/gm, '<ol>$1</ol>')\n\t\t\t\t.replace(/(<li class=\"task-item\">[\\s\\S]*?<\\/li>(?:\\s*<li class=\"task-item\">[\\s\\S]*?<\\/li>)*)/gm, '<ul class=\"task-list\">$1</ul>')\n\t\t\t\t.replace(/(<bq-line>[\\s\\S]*?<\\/bq-line>(?:\\s*<bq-line>[\\s\\S]*?<\\/bq-line>)*)/gm, '<blockquote>$1</blockquote>');\n\n\t\t\t// Clean up temporary classes and tags\n\t\t\tprocessed = processed\n\t\t\t\t.replace(/class=\"[uo]l-item\"/g, '')\n\t\t\t\t.replace(/class=\"task-item\"/g, '')\n\t\t\t\t.replace(/<bq-line>/g, '')\n\t\t\t\t.replace(/<\\/bq-line>/g, '\\n');\n\n\t\t\t// Process paragraphs\n\t\t\tvar paragraphs = processed.split(/\\n\\s*\\n/);\n\t\t\treturn paragraphs.map(function(paragraph) {\n\t\t\t\tparagraph = paragraph.trim();\n\t\t\t\tif (!paragraph) return '';\n\n\t\t\t\tif (paragraph.match(/^<(h[1-6]|ul|ol|li|table|blockquote|pre|div)/)) {\n\t\t\t\t\treturn paragraph;\n\t\t\t\t}\n\n\t\t\t\tvar withLineBreaks = paragraph.replace(/\\n/g, '<br/>');\n\t\t\t\treturn '<p>' + withLineBreaks + '</p>';\n\t\t\t}).join('\\n\\n');\n\t\t}\n\n\t\tfunction processMarkdownContent() {\n\t\t\tvar containers = document.querySelectorAll('.markdown-content[data-markdown-content]');\n\t\t\tcontainers.forEach(function(container) {\n\t\t\t\tvar content = container.getAttribute('data-markdown-content');\n\t\t\t\tif (content) {\n\t\t\t\t\tvar html = renderMarkdownToHTML(content);\n\t\t\t\t\tcontainer.innerHTML = html || '<pre>' + content.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</pre>';\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\n\t\t// Initialize on DOM ready\n\t\tfunction initializeMarkdown() {\n\t\t\tsetTimeout(processMarkdownContent, 10);\n\t\t}\n\n\t\tif (document.readyState === 'loading') {\n\t\t\tdocument.addEventListener('DOMContentLoaded', initializeMarkdown);\n\t\t} else {\n\t\t\tinitializeMarkdown();\n\t\t}\n\n\t\t// Re-process after HTMX swaps\n\t\tdocument.addEventListener('htmx:afterSwap', function() {\n\t\t\tsetTimeout(processMarkdownContent, 50);\n\t\t});\n\t</script>")

@@ -26,7 +26,7 @@ const (
 )
 
 type CardProps struct {
-	Props
+	*Props
 
 	Variant CardVariant
 	Size    CardSize
@@ -36,7 +36,9 @@ type CardProps struct {
 templ Card(props *CardProps) {
 	{{
 		if props == nil {
-			props = &CardProps{}
+			props = &CardProps{
+				Props: NewProps(),
+			}
 		}
 		props.SetClass(css.Card)
 
@@ -50,7 +52,7 @@ templ Card(props *CardProps) {
 			props.SetClass(string(props.Color))
 		}
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ children... }
 	</span>
 }
@@ -58,11 +60,11 @@ templ Card(props *CardProps) {
 templ CardHeader(props *Props) {
 	{{
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.CardHeader)
 	}}
-	<header { props.GetAttributes()... }>
+	<header { props.Attributes()... }>
 		{ children... }
 	</header>
 }
@@ -70,11 +72,11 @@ templ CardHeader(props *Props) {
 templ CardBody(props *Props) {
 	{{
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.CardBody)
 	}}
-	<div { props.GetAttributes()... }>
+	<div { props.Attributes()... }>
 		{ children... }
 	</div>
 }
@@ -82,11 +84,11 @@ templ CardBody(props *Props) {
 templ CardFooter(props *Props) {
 	{{
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.CardFooter)
 	}}
-	<footer { props.GetAttributes()... }>
+	<footer { props.Attributes()... }>
 		{ children... }
 	</footer>
 }
@@ -100,7 +102,7 @@ const (
 )
 
 type CardImageProps struct {
-	Props
+	*Props
 
 	Aspect CardImageAspect
 
@@ -111,7 +113,9 @@ type CardImageProps struct {
 templ CardImage(props *CardImageProps) {
 	{{
 		if props == nil {
-			props = &CardImageProps{}
+			props = &CardImageProps{
+				Props: NewProps(),
+			}
 		}
 		props.SetClass(css.CardImage)
 
@@ -119,17 +123,17 @@ templ CardImage(props *CardImageProps) {
 			props.SetClass(string(props.Aspect))
 		}
 	}}
-	<img src={ props.Src } alt={ props.Alt } { props.GetAttributes()... }/>
+	<img src={ props.Src } alt={ props.Alt } { props.Attributes()... }/>
 }
 
 templ CardTitle(text string, props *Props) {
 	{{
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.CardTitle, css.Block)
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ text }
 		{ children... }
 	</span>
@@ -138,11 +142,11 @@ templ CardTitle(text string, props *Props) {
 templ CardSubtitle(text string, props *Props) {
 	{{
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.CardSubtitle, css.Block)
 	}}
-	<span { props.GetAttributes()... }>
+	<span { props.Attributes()... }>
 		{ text }
 		{ children... }
 	</span>
@@ -158,7 +162,7 @@ const (
 )
 
 type CardActionsProps struct {
-	Props
+	*Props
 
 	Justify CardActionsJustify
 }
@@ -166,7 +170,9 @@ type CardActionsProps struct {
 templ CardActions(props *CardActionsProps) {
 	{{
 		if props == nil {
-			props = &CardActionsProps{}
+			props = &CardActionsProps{
+				Props: NewProps(),
+			}
 		}
 		props.SetClass(css.CardActions)
 
@@ -174,7 +180,7 @@ templ CardActions(props *CardActionsProps) {
 			props.SetClass(string(props.Justify))
 		}
 	}}
-	<div { props.GetAttributes()... }>
+	<div { props.Attributes()... }>
 		{ children... }
 	</div>
 }

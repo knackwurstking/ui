@@ -14,7 +14,7 @@ import (
 )
 
 type DrawerProps struct {
-	BaseProps
+	Props
 
 	Open   bool
 	ZIndex int
@@ -44,13 +44,13 @@ func Drawer(props *DrawerProps) templ.Component {
 		if props == nil {
 			props = &DrawerProps{}
 		}
-		props.Class = append(props.Class, css.Drawer)
+		props.SetClass(css.Drawer)
 
 		if props.Open {
-			props.Class = append(props.Class, css.DrawerOpen)
+			props.SetClass(css.DrawerOpen)
 		}
 		if props.ZIndex > 0 {
-			props.Style = append(props.Style, fmt.Sprintf("z-index: %d", props.ZIndex))
+			props.SetStyle(fmt.Sprintf("z-index: %d", props.ZIndex))
 		}
 		var templ_7745c5c3_Var2 = []any{css.DrawerBackdrop}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
