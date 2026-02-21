@@ -22,18 +22,21 @@ func (p *BaseProps) GetClasses() string {
 }
 
 func (p *BaseProps) GetAttributes() templ.Attributes {
-	if p.Attributes == nil {
-		p.Attributes = templ.Attributes{}
-	}
+	attrs := templ.Attributes{}
 
 	if p.ID != "" {
-		p.Attributes["id"] = p.ID
+		attrs["id"] = p.ID
 	}
 	if len(p.Class) > 0 {
-		p.Attributes["class"] = p.GetClasses()
+		attrs["class"] = p.GetClasses()
 	}
 	if len(p.Style) > 0 {
-		p.Attributes["style"] = p.GetStyles()
+		attrs["style"] = p.GetStyles()
 	}
-	return p.Attributes
+
+	for k, v := range p.Attributes {
+		attrs[k] = v
+	}
+
+	return attrs
 }
