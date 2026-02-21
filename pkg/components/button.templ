@@ -78,3 +78,15 @@ templ Button(props *ButtonProps) {
 		</button>
 	}
 }
+
+templ ButtonGroup(props *BaseProps) {
+	{{
+		if props == nil {
+			props = &BaseProps{}
+		}
+		props.Class = append(props.Class, css.ButtonGroup)
+	}}
+	<div { props.GetAttributes()... }>
+		{ children... }
+	</div>
+}
