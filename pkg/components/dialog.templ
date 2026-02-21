@@ -26,7 +26,7 @@ type DialogSize string
 type DialogType string
 
 type DialogProps struct {
-	BaseProps
+	Props
 
 	Fullscreen bool
 	Clean      bool
@@ -40,23 +40,23 @@ templ Dialog(props *DialogProps) {
 		if props == nil {
 			props = &DialogProps{}
 		}
-		props.Class = append(props.Class, css.Dialog)
+		props.SetClass(css.Dialog)
 
 		if props.Fullscreen {
-			props.Class = append(props.Class, css.DialogFullscreen)
+			props.SetClass(css.DialogFullscreen)
 		}
 		if props.Clean {
-			props.Class = append(props.Class, css.DialogClean)
+			props.SetClass(css.DialogClean)
 		}
 
 		if props.Type != "" {
-			props.Class = append(props.Class, string(props.Type))
+			props.SetClass(string(props.Type))
 		}
 		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
+			props.SetClass(string(props.Size))
 		}
 		if props.Variant != "" {
-			props.Class = append(props.Class, string(props.Variant))
+			props.SetClass(string(props.Variant))
 		}
 	}}
 	<dialog { props.GetAttributes()... }>
@@ -64,18 +64,15 @@ templ Dialog(props *DialogProps) {
 	</dialog>
 }
 
-templ DialogCloseButton(props *BaseProps) {
+templ DialogCloseButton(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.DialogClose)
-
-		onclick := templ.ComponentScript{
-			Call: `this.closest('dialog').close();`,
-		}
+		props.SetClass(css.DialogClose)
+		props.Attributes["onclick"] = `this.closest('dialog').close();`
 	}}
-	<button onclick={ onclick } { props.GetAttributes()... }>
+	<button { props.GetAttributes()... }>
 		<i class="bi bi-x-lg"></i>
 	</button>
 }

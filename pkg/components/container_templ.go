@@ -11,7 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import "github.com/knackwurstking/ui/pkg/css"
 
 type ContainerProps struct {
-	BaseProps
+	Props
 
 	Fluid bool
 }
@@ -40,10 +40,10 @@ func Container(props *ContainerProps) templ.Component {
 		if props == nil {
 			props = &ContainerProps{}
 		}
-		props.Class = append(props.Class, css.Container)
+		props.SetClass(css.Container)
 
 		if props.Fluid {
-			props.Class = append(props.Class, css.ContainerFluid)
+			props.SetClass(css.ContainerFluid)
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span")
 		if templ_7745c5c3_Err != nil {
