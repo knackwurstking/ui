@@ -61,11 +61,12 @@ func (p *Props) GetStyle() string {
 func (p *Props) SetStyle(styles ...string) {
 	p.initialize()
 
-	if s, ok := p.attributes["style"]; !ok {
+	s, ok := p.attributes["style"]
+	if !ok {
 		p.attributes["style"] = ""
-	} else {
-		p.attributes["style"] = fmt.Sprintf("%s; %s", s, strings.Join(styles, "; "))
 	}
+
+	p.attributes["style"] = fmt.Sprintf("%s; %s", s, strings.Join(styles, "; "))
 }
 
 func (p *Props) GetClass() string {
