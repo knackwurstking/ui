@@ -32,7 +32,7 @@ const (
 )
 
 type BadgeProps struct {
-	BaseProps
+	Props
 
 	Size      BadgeSize
 	Shape     BadgeShape
@@ -40,11 +40,10 @@ type BadgeProps struct {
 	Floating  BadgeFloating
 	Animation BadgeAnimation
 
-	Clickable bool
-	OnClick   templ.ComponentScript
-
 	Counter      bool
 	CounterSmall bool
+
+	Clickable bool
 }
 
 templ Badge(props *BadgeProps) {
@@ -52,38 +51,38 @@ templ Badge(props *BadgeProps) {
 		if props == nil {
 			props = &BadgeProps{}
 		}
-		props.Class = append(props.Class, css.Badge)
+		props.SetClass(css.Badge)
 
 		if props.Status != "" {
-			props.Class = append(props.Class, css.BadgeStatus+" "+string(props.Status))
+			props.SetClass(css.BadgeStatus, string(props.Status))
 		}
 
 		if props.Floating != "" {
-			props.Class = append(props.Class, css.BadgeFloat+" "+string(props.Floating))
+			props.SetClass(css.BadgeFloat, string(props.Floating))
 		}
 
 		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
+			props.SetClass(string(props.Size))
 		}
 		if props.Shape != "" {
-			props.Class = append(props.Class, string(props.Shape))
+			props.SetClass(string(props.Shape))
 		}
 		if props.Animation != "" {
-			props.Class = append(props.Class, string(props.Animation))
+			props.SetClass(string(props.Animation))
 		}
 
 		if props.Clickable {
-			props.Class = append(props.Class, css.BadgeClickable)
+			props.SetClass(css.BadgeClickable)
 		}
 		if props.Counter {
 			if props.CounterSmall {
-				props.Class = append(props.Class, css.BadgeCounterSM)
+				props.SetClass(css.BadgeCounterSM)
 			} else {
-				props.Class = append(props.Class, css.BadgeCounterLG)
+				props.SetClass(css.BadgeCounterLG)
 			}
 		}
 	}}
-	<span onclick={ props.OnClick } { props.GetAttributes()... }>
+	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }

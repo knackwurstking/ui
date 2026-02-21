@@ -35,7 +35,7 @@ const (
 )
 
 type ButtonProps struct {
-	BaseProps
+	Props
 
 	Color   ButtonColor
 	Variant ButtonVariant
@@ -74,20 +74,20 @@ func Button(props *ButtonProps) templ.Component {
 		}
 
 		if props.Color != "" {
-			props.Class = append(props.Class, string(props.Color))
+			props.SetClass(string(props.Color))
 		}
 		if props.Variant != "" {
-			props.Class = append(props.Class, string(props.Variant))
+			props.SetClass(string(props.Variant))
 		}
 		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
+			props.SetClass(string(props.Size))
 		}
 
 		if props.Icon {
-			props.Class = append(props.Class, css.ButtonIcon)
+			props.SetClass(css.ButtonIcon)
 		}
 		if props.Loading {
-			props.Class = append(props.Class, css.ButtonLoading)
+			props.SetClass(css.ButtonLoading)
 		}
 		if props.Link != "" {
 			templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, props.OnClick)
@@ -175,7 +175,7 @@ func Button(props *ButtonProps) templ.Component {
 	})
 }
 
-func ButtonGroup(props *BaseProps) templ.Component {
+func ButtonGroup(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -197,9 +197,9 @@ func ButtonGroup(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.ButtonGroup)
+		props.SetClass(css.ButtonGroup)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<div")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err

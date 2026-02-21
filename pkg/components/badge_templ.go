@@ -40,7 +40,7 @@ const (
 )
 
 type BadgeProps struct {
-	BaseProps
+	Props
 
 	Size      BadgeSize
 	Shape     BadgeShape
@@ -48,11 +48,10 @@ type BadgeProps struct {
 	Floating  BadgeFloating
 	Animation BadgeAnimation
 
-	Clickable bool
-	OnClick   templ.ComponentScript
-
 	Counter      bool
 	CounterSmall bool
+
+	Clickable bool
 }
 
 func Badge(props *BadgeProps) templ.Component {
@@ -79,50 +78,37 @@ func Badge(props *BadgeProps) templ.Component {
 		if props == nil {
 			props = &BadgeProps{}
 		}
-		props.Class = append(props.Class, css.Badge)
+		props.SetClass(css.Badge)
 
 		if props.Status != "" {
-			props.Class = append(props.Class, css.BadgeStatus+" "+string(props.Status))
+			props.SetClass(css.BadgeStatus, string(props.Status))
 		}
 
 		if props.Floating != "" {
-			props.Class = append(props.Class, css.BadgeFloat+" "+string(props.Floating))
+			props.SetClass(css.BadgeFloat, string(props.Floating))
 		}
 
 		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
+			props.SetClass(string(props.Size))
 		}
 		if props.Shape != "" {
-			props.Class = append(props.Class, string(props.Shape))
+			props.SetClass(string(props.Shape))
 		}
 		if props.Animation != "" {
-			props.Class = append(props.Class, string(props.Animation))
+			props.SetClass(string(props.Animation))
 		}
 
 		if props.Clickable {
-			props.Class = append(props.Class, css.BadgeClickable)
+			props.SetClass(css.BadgeClickable)
 		}
 		if props.Counter {
 			if props.CounterSmall {
-				props.Class = append(props.Class, css.BadgeCounterSM)
+				props.SetClass(css.BadgeCounterSM)
 			} else {
-				props.Class = append(props.Class, css.BadgeCounterLG)
+				props.SetClass(css.BadgeCounterLG)
 			}
 		}
-		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, props.OnClick)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span onclick=\"")
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		var templ_7745c5c3_Var2 templ.ComponentScript = props.OnClick
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var2.Call)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
-		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -130,7 +116,7 @@ func Badge(props *BadgeProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, ">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, ">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -138,7 +124,7 @@ func Badge(props *BadgeProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</span>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</span>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

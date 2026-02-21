@@ -1,38 +1,50 @@
 package components
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/a-h/templ"
 )
 
-type BaseProps struct {
-	ID         string
-	Style      []string // Style e.g. `[]string{"color: red", "font-size: 20px"}`
-	Class      []string
+type Props struct {
 	Attributes templ.Attributes
 }
 
-func (p *BaseProps) GetStyles() string {
-	return strings.Join(p.Style, "; ")
+func (p *Props) GetStyle() string {
+	s, ok := p.Attributes["style"]
+	if !ok {
+		return ""
+	}
+	return fmt.Sprintf("%s", s)
 }
 
-func (p *BaseProps) GetClasses() string {
-	return strings.Join(p.Class, " ")
+func (p *Props) SetStyle(styles ...string) {
+	s, ok := p.Attributes["style"]
+	if !ok {
+		p.Attributes["style"] = ""
+	}
+	p.Attributes["style"] = fmt.Sprintf("%s; %s", s, strings.Join(styles, "; "))
 }
 
-func (p *BaseProps) GetAttributes() templ.Attributes {
+func (p *Props) GetClass() string {
+	c, ok := p.Attributes["class"]
+	if !ok {
+		return ""
+	}
+	return fmt.Sprintf("%s", c)
+}
+
+func (p *Props) SetClass(classes ...string) {
+	c, ok := p.Attributes["class"]
+	if !ok {
+		p.Attributes["class"] = ""
+	}
+	p.Attributes["class"] = fmt.Sprintf("%s %s", c, strings.Join(classes, " "))
+}
+
+func (p *Props) GetAttributes() templ.Attributes {
 	attrs := templ.Attributes{}
-
-	if p.ID != "" {
-		attrs["id"] = p.ID
-	}
-	if len(p.Class) > 0 {
-		attrs["class"] = p.GetClasses()
-	}
-	if len(p.Style) > 0 {
-		attrs["style"] = p.GetStyles()
-	}
 
 	for k, v := range p.Attributes {
 		attrs[k] = v

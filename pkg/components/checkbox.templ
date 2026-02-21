@@ -1,9 +1,7 @@
 package components
 
-import "github.com/knackwurstking/ui/pkg/css"
-
 type CheckboxProps struct {
-	BaseProps
+	Props
 
 	Name     string
 	Value    string
@@ -18,10 +16,6 @@ templ Checkbox(props *CheckboxProps) {
 	{{
 		if props == nil {
 			props = &CheckboxProps{}
-		}
-
-		if props.Invalid {
-			props.Class = append(props.Class, css.CheckboxInvalid)
 		}
 	}}
 	<input

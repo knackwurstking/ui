@@ -26,7 +26,7 @@ const (
 )
 
 type CardProps struct {
-	BaseProps
+	Props
 
 	Variant CardVariant
 	Size    CardSize
@@ -38,16 +38,16 @@ templ Card(props *CardProps) {
 		if props == nil {
 			props = &CardProps{}
 		}
-		props.Class = append(props.Class, css.Card)
+		props.SetClass(css.Card)
 
 		if props.Variant != "" {
-			props.Class = append(props.Class, string(props.Variant))
+			props.SetClass(string(props.Variant))
 		}
 		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
+			props.SetClass(string(props.Size))
 		}
 		if props.Color != "" {
-			props.Class = append(props.Class, string(props.Color))
+			props.SetClass(string(props.Color))
 		}
 	}}
 	<span { props.GetAttributes()... }>
@@ -55,36 +55,36 @@ templ Card(props *CardProps) {
 	</span>
 }
 
-templ CardHeader(props *BaseProps) {
+templ CardHeader(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardHeader)
+		props.SetClass(css.CardHeader)
 	}}
 	<header { props.GetAttributes()... }>
 		{ children... }
 	</header>
 }
 
-templ CardBody(props *BaseProps) {
+templ CardBody(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardBody)
+		props.SetClass(css.CardBody)
 	}}
 	<div { props.GetAttributes()... }>
 		{ children... }
 	</div>
 }
 
-templ CardFooter(props *BaseProps) {
+templ CardFooter(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardFooter)
+		props.SetClass(css.CardFooter)
 	}}
 	<footer { props.GetAttributes()... }>
 		{ children... }
@@ -100,7 +100,7 @@ const (
 )
 
 type CardImageProps struct {
-	BaseProps
+	Props
 
 	Aspect CardImageAspect
 
@@ -113,21 +113,21 @@ templ CardImage(props *CardImageProps) {
 		if props == nil {
 			props = &CardImageProps{}
 		}
-		props.Class = append(props.Class, css.CardImage)
+		props.SetClass(css.CardImage)
 
 		if props.Aspect != "" {
-			props.Class = append(props.Class, string(props.Aspect))
+			props.SetClass(string(props.Aspect))
 		}
 	}}
 	<img src={ props.Src } alt={ props.Alt } { props.GetAttributes()... }/>
 }
 
-templ CardTitle(text string, props *BaseProps) {
+templ CardTitle(text string, props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardTitle, css.Block)
+		props.SetClass(css.CardTitle, css.Block)
 	}}
 	<span { props.GetAttributes()... }>
 		{ text }
@@ -135,12 +135,12 @@ templ CardTitle(text string, props *BaseProps) {
 	</span>
 }
 
-templ CardSubtitle(text string, props *BaseProps) {
+templ CardSubtitle(text string, props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardSubtitle, css.Block)
+		props.SetClass(css.CardSubtitle, css.Block)
 	}}
 	<span { props.GetAttributes()... }>
 		{ text }
@@ -158,7 +158,7 @@ const (
 )
 
 type CardActionsProps struct {
-	BaseProps
+	Props
 
 	Justify CardActionsJustify
 }
@@ -168,10 +168,10 @@ templ CardActions(props *CardActionsProps) {
 		if props == nil {
 			props = &CardActionsProps{}
 		}
-		props.Class = append(props.Class, css.CardActions)
+		props.SetClass(css.CardActions)
 
 		if props.Justify != "" {
-			props.Class = append(props.Class, string(props.Justify))
+			props.SetClass(string(props.Justify))
 		}
 	}}
 	<div { props.GetAttributes()... }>

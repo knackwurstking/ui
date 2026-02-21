@@ -26,7 +26,7 @@ type AppBarPosition string
 type AppBarType string
 
 type AppBarProps struct {
-	BaseProps
+	Props
 
 	Position AppBarPosition
 	Type     AppBarType
@@ -57,16 +57,18 @@ func AppBar(props *AppBarProps) templ.Component {
 		if props == nil {
 			props = &AppBarProps{}
 		}
-		props.Class = append(props.Class, css.AppBar)
+		props.SetClass(css.AppBar)
 
 		if props.Position != "" {
-			props.Class = append(props.Class, string(props.Position))
+			props.SetClass(string(props.Position))
 		}
 		if props.Type != "" {
-			props.Class = append(props.Class, string(props.Type))
+			props.SetClass(string(props.Type))
 		}
 		if props.ZIndex > 0 {
-			props.Style = append(props.Style, fmt.Sprintf("z-index: %d", props.ZIndex))
+			props.SetStyle(
+				fmt.Sprintf("z-index: %d", props.ZIndex),
+			)
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span")
 		if templ_7745c5c3_Err != nil {
@@ -92,7 +94,7 @@ func AppBar(props *AppBarProps) templ.Component {
 	})
 }
 
-func AppBarLeft(props *BaseProps) templ.Component {
+func AppBarLeft(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -114,9 +116,9 @@ func AppBarLeft(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.AppBarLeft)
+		props.SetClass(css.AppBarLeft)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<span")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -141,7 +143,7 @@ func AppBarLeft(props *BaseProps) templ.Component {
 	})
 }
 
-func AppBarCenter(props *BaseProps) templ.Component {
+func AppBarCenter(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -163,9 +165,9 @@ func AppBarCenter(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.AppBarCenter)
+		props.SetClass(css.AppBarCenter)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<span")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -190,7 +192,7 @@ func AppBarCenter(props *BaseProps) templ.Component {
 	})
 }
 
-func AppBarRight(props *BaseProps) templ.Component {
+func AppBarRight(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -212,9 +214,9 @@ func AppBarRight(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.AppBarRight)
+		props.SetClass(css.AppBarRight)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<span")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err

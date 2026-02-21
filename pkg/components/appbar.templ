@@ -18,7 +18,7 @@ type AppBarPosition string
 type AppBarType string
 
 type AppBarProps struct {
-	BaseProps
+	Props
 
 	Position AppBarPosition
 	Type     AppBarType
@@ -30,16 +30,18 @@ templ AppBar(props *AppBarProps) {
 		if props == nil {
 			props = &AppBarProps{}
 		}
-		props.Class = append(props.Class, css.AppBar)
+		props.SetClass(css.AppBar)
 
 		if props.Position != "" {
-			props.Class = append(props.Class, string(props.Position))
+			props.SetClass(string(props.Position))
 		}
 		if props.Type != "" {
-			props.Class = append(props.Class, string(props.Type))
+			props.SetClass(string(props.Type))
 		}
 		if props.ZIndex > 0 {
-			props.Style = append(props.Style, fmt.Sprintf("z-index: %d", props.ZIndex))
+			props.SetStyle(
+				fmt.Sprintf("z-index: %d", props.ZIndex),
+			)
 		}
 	}}
 	<span { props.GetAttributes()... }>
@@ -47,36 +49,36 @@ templ AppBar(props *AppBarProps) {
 	</span>
 }
 
-templ AppBarLeft(props *BaseProps) {
+templ AppBarLeft(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.AppBarLeft)
+		props.SetClass(css.AppBarLeft)
 	}}
 	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }
 
-templ AppBarCenter(props *BaseProps) {
+templ AppBarCenter(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.AppBarCenter)
+		props.SetClass(css.AppBarCenter)
 	}}
 	<span { props.GetAttributes()... }>
 		{ children... }
 	</span>
 }
 
-templ AppBarRight(props *BaseProps) {
+templ AppBarRight(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.AppBarRight)
+		props.SetClass(css.AppBarRight)
 	}}
 	<span { props.GetAttributes()... }>
 		{ children... }

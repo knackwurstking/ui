@@ -8,24 +8,6 @@ package css
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-// Form
-const (
-	// Input
-	InputInvalid = "invalid"
-
-	// Textarea
-	TextareaInvalid = "invalid"
-
-	// Checkbox
-	CheckboxInvalid = "invalid"
-
-	// Radio
-	RadioInvalid = "invalid"
-
-	// Select
-	SelectInvalid = "invalid"
-)
-
 // Button
 const (
 	ButtonGroup = "button-group"

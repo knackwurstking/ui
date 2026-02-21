@@ -34,7 +34,7 @@ const (
 )
 
 type CardProps struct {
-	BaseProps
+	Props
 
 	Variant CardVariant
 	Size    CardSize
@@ -65,16 +65,16 @@ func Card(props *CardProps) templ.Component {
 		if props == nil {
 			props = &CardProps{}
 		}
-		props.Class = append(props.Class, css.Card)
+		props.SetClass(css.Card)
 
 		if props.Variant != "" {
-			props.Class = append(props.Class, string(props.Variant))
+			props.SetClass(string(props.Variant))
 		}
 		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
+			props.SetClass(string(props.Size))
 		}
 		if props.Color != "" {
-			props.Class = append(props.Class, string(props.Color))
+			props.SetClass(string(props.Color))
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span")
 		if templ_7745c5c3_Err != nil {
@@ -100,7 +100,7 @@ func Card(props *CardProps) templ.Component {
 	})
 }
 
-func CardHeader(props *BaseProps) templ.Component {
+func CardHeader(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -122,9 +122,9 @@ func CardHeader(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardHeader)
+		props.SetClass(css.CardHeader)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<header")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -149,7 +149,7 @@ func CardHeader(props *BaseProps) templ.Component {
 	})
 }
 
-func CardBody(props *BaseProps) templ.Component {
+func CardBody(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -171,9 +171,9 @@ func CardBody(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardBody)
+		props.SetClass(css.CardBody)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<div")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -198,7 +198,7 @@ func CardBody(props *BaseProps) templ.Component {
 	})
 }
 
-func CardFooter(props *BaseProps) templ.Component {
+func CardFooter(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -220,9 +220,9 @@ func CardFooter(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardFooter)
+		props.SetClass(css.CardFooter)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<footer")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -256,7 +256,7 @@ const (
 )
 
 type CardImageProps struct {
-	BaseProps
+	Props
 
 	Aspect CardImageAspect
 
@@ -288,10 +288,10 @@ func CardImage(props *CardImageProps) templ.Component {
 		if props == nil {
 			props = &CardImageProps{}
 		}
-		props.Class = append(props.Class, css.CardImage)
+		props.SetClass(css.CardImage)
 
 		if props.Aspect != "" {
-			props.Class = append(props.Class, string(props.Aspect))
+			props.SetClass(string(props.Aspect))
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "<img src=\"")
 		if templ_7745c5c3_Err != nil {
@@ -335,7 +335,7 @@ func CardImage(props *CardImageProps) templ.Component {
 	})
 }
 
-func CardTitle(text string, props *BaseProps) templ.Component {
+func CardTitle(text string, props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -357,9 +357,9 @@ func CardTitle(text string, props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardTitle, css.Block)
+		props.SetClass(css.CardTitle, css.Block)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "<span")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -393,7 +393,7 @@ func CardTitle(text string, props *BaseProps) templ.Component {
 	})
 }
 
-func CardSubtitle(text string, props *BaseProps) templ.Component {
+func CardSubtitle(text string, props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -415,9 +415,9 @@ func CardSubtitle(text string, props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.CardSubtitle, css.Block)
+		props.SetClass(css.CardSubtitle, css.Block)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "<span")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -461,7 +461,7 @@ const (
 )
 
 type CardActionsProps struct {
-	BaseProps
+	Props
 
 	Justify CardActionsJustify
 }
@@ -490,10 +490,10 @@ func CardActions(props *CardActionsProps) templ.Component {
 		if props == nil {
 			props = &CardActionsProps{}
 		}
-		props.Class = append(props.Class, css.CardActions)
+		props.SetClass(css.CardActions)
 
 		if props.Justify != "" {
-			props.Class = append(props.Class, string(props.Justify))
+			props.SetClass(string(props.Justify))
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "<div")
 		if templ_7745c5c3_Err != nil {

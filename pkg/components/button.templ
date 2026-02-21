@@ -27,7 +27,7 @@ const (
 )
 
 type ButtonProps struct {
-	BaseProps
+	Props
 
 	Color   ButtonColor
 	Variant ButtonVariant
@@ -47,20 +47,20 @@ templ Button(props *ButtonProps) {
 		}
 
 		if props.Color != "" {
-			props.Class = append(props.Class, string(props.Color))
+			props.SetClass(string(props.Color))
 		}
 		if props.Variant != "" {
-			props.Class = append(props.Class, string(props.Variant))
+			props.SetClass(string(props.Variant))
 		}
 		if props.Size != "" {
-			props.Class = append(props.Class, string(props.Size))
+			props.SetClass(string(props.Size))
 		}
 
 		if props.Icon {
-			props.Class = append(props.Class, css.ButtonIcon)
+			props.SetClass(css.ButtonIcon)
 		}
 		if props.Loading {
-			props.Class = append(props.Class, css.ButtonLoading)
+			props.SetClass(css.ButtonLoading)
 		}
 	}}
 	if props.Link != "" {
@@ -79,12 +79,12 @@ templ Button(props *ButtonProps) {
 	}
 }
 
-templ ButtonGroup(props *BaseProps) {
+templ ButtonGroup(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = &Props{}
 		}
-		props.Class = append(props.Class, css.ButtonGroup)
+		props.SetClass(css.ButtonGroup)
 	}}
 	<div { props.GetAttributes()... }>
 		{ children... }
