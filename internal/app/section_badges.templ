@@ -246,65 +246,47 @@ templ badgesColors() {
 		<h3 id={ IDBadgesColors } class={ css.MB }>Color Examples</h3>
 		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap, css.ItemsCenter }>
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Primary},
-				},
+				Props: components.NewProps(templ.KV("class", css.Primary)),
 			}) {
 				Primary
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Secondary},
-				},
+				Props: components.NewProps(templ.KV("class", css.Secondary)),
 			}) {
 				Secondary
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Info},
-				},
+				Props: components.NewProps(templ.KV("class", css.Info)),
 			}) {
 				Info
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Contrast},
-				},
+				Props: components.NewProps(templ.KV("class", css.Contrast)),
 			}) {
 				Contrast
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Destructive},
-				},
+				Props: components.NewProps(templ.KV("class", css.Destructive)),
 			}) {
 				Destructive
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Muted},
-				},
+				Props: components.NewProps(templ.KV("class", css.Muted)),
 			}) {
 				Muted
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Success},
-				},
+				Props: components.NewProps(templ.KV("class", css.Success)),
 			}) {
 				Success
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Warning},
-				},
+				Props: components.NewProps(templ.KV("class", css.Warning)),
 			}) {
 				Warning
 			}
 			@components.Badge(&components.BadgeProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.Error},
-				},
+				Props: components.NewProps(templ.KV("class", css.Error)),
 			}) {
 				Error
 			}

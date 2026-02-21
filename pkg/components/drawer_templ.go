@@ -14,7 +14,7 @@ import (
 )
 
 type DrawerProps struct {
-	Props
+	*Props
 
 	Open   bool
 	ZIndex int
@@ -43,6 +43,9 @@ func Drawer(props *DrawerProps) templ.Component {
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
 			props = &DrawerProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.Drawer)
 
@@ -77,7 +80,7 @@ func Drawer(props *DrawerProps) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues(templ.KV(fmt.Sprintf("z-index: %d", props.ZIndex), props.ZIndex > 0))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/drawer.templ`, Line: 31, Col: 78}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/drawer.templ`, Line: 34, Col: 78}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -87,7 +90,7 @@ func Drawer(props *DrawerProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

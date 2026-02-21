@@ -20,7 +20,7 @@ const (
 )
 
 type ToastProps struct {
-	BaseProps
+	*Props
 
 	Variant  ToastVariant
 	Position ToastPosition
@@ -37,21 +37,24 @@ templ Toast(props *ToastProps) {
 		if props == nil {
 			props = &ToastProps{}
 		}
-		props.Class = append(props.Class, css.Toast)
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
+		props.SetClass(css.Toast)
 
 		if props.Variant != "" {
-			props.Class = append(props.Class, string(props.Variant))
+			props.SetClass(string(props.Variant))
 		}
 		if props.Position != "" {
-			props.Class = append(props.Class, string(props.Position))
+			props.SetClass(string(props.Position))
 		}
 		if props.Show {
-			props.Class = append(props.Class, css.ToastShow)
+			props.SetClass(css.ToastShow)
 		} else {
-			props.Class = append(props.Class, css.ToastHide)
+			props.SetClass(css.ToastHide)
 		}
 	}}
-	<div { props.GetAttributes()... }>
+	<div { props.Attributes()... }>
 		<div class={ css.ToastContent }>
 			if props.Title != "" {
 				<div class={ css.ToastTitle }>{ props.Title }</div>
@@ -85,14 +88,14 @@ templ Toast(props *ToastProps) {
 	</div>
 }
 
-templ ToastStack(props *BaseProps) {
+templ ToastStack(props *Props) {
 	{{
 		if props == nil {
-			props = &BaseProps{}
+			props = NewProps()
 		}
-		props.Class = append(props.Class, css.ToastStack)
+		props.SetClass(css.ToastStack)
 	}}
-	<div { props.GetAttributes()... }>
+	<div { props.Attributes()... }>
 		{ children... }
 	</div>
 }

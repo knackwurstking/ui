@@ -6,7 +6,7 @@ import (
 )
 
 type TabsProps struct {
-	BaseProps
+	*Props
 
 	ActiveTab int // Active tab index (1-based, 0 for none)
 }
@@ -16,28 +16,34 @@ templ Tabs(props *TabsProps) {
 		if props == nil {
 			props = &TabsProps{}
 		}
-		props.Class = append(props.Class, css.Tabs)
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
+		props.SetClass(css.Tabs)
 
 		// We need to make sure that the `props.ID` is set, if empty generate one
-		if props.ID == "" {
-			props.ID = "tabs-" + uuid.New().String()
+		if id, ok := props.Get("id"); !ok || id == "" {
+			props.Set(templ.KV("id", "tabs-"+uuid.New().String()))
+		} else {
+			props.Set(templ.KV("id", id))
 		}
 	}}
 	<span
 		if props.ActiveTab > 0 {
 			data-active-tab={ props.ActiveTab }
 		}
-		{ props.GetAttributes()... }
+		{ props.Attributes()... }
 	>
 		{ children... }
 	</span>
 	if props.ActiveTab > 0 {
-		@setActiveTab(props.ID, props.ActiveTab, css.TabsTabActive)
+		{{ id, _ := props.Get("id") }}
+		@setActiveTab(id, props.ActiveTab, css.TabsTabActive)
 	}
 }
 
 type TabProps struct {
-	BaseProps
+	*Props
 
 	Index   int // Index (1-based)
 	OnClick templ.ComponentScript
@@ -48,7 +54,10 @@ templ Tab(props *TabProps) {
 		if props == nil {
 			props = &TabProps{}
 		}
-		props.Class = append(props.Class, css.TabsTab)
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
+		props.SetClass(css.TabsTab)
 	}}
 	<span
 		data-tab={ props.Index }
@@ -56,7 +65,7 @@ templ Tab(props *TabProps) {
 			props.OnClick, templ.JSExpression("event"), 
 			css.Tabs, css.TabsTab, css.TabsTabActive,
 		) }
-		{ props.GetAttributes()... }
+		{ props.Attributes()... }
 	>
 		{ children... }
 	</span>

@@ -9,13 +9,12 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 type MarkdownContentProps struct {
-	Props
+	*Props
 
-	Content     string
 	UseMarkdown bool
 }
 
-func MarkdownContent(props *MarkdownContentProps) templ.Component {
+func MarkdownContent(content string, props *MarkdownContentProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -39,14 +38,17 @@ func MarkdownContent(props *MarkdownContentProps) templ.Component {
 		if props == nil {
 			props = &MarkdownContentProps{}
 		}
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
 		props.SetClass("markdown-content")
-		props.Attributes["data-markdown-content"] = props.Content
+		props.Set(templ.KV("data-markdown-content", content))
 		if props.UseMarkdown {
 			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+			templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -68,9 +70,9 @@ func MarkdownContent(props *MarkdownContentProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var2 string
-			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(props.Content)
+			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(content)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/markdown.templ`, Line: 23, Col: 22}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/markdown.templ`, Line: 25, Col: 16}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {

@@ -272,9 +272,7 @@ func cardsBasic() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			BaseProps: components.BaseProps{
-				Class: []string{css.HFit},
-			},
+			Props: components.NewProps(templ.KV("class", css.HFit)),
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var11), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -320,9 +318,7 @@ func cardsBasic() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			BaseProps: components.BaseProps{
-				Class: []string{css.HFit},
-			},
+			Props:   components.NewProps(templ.KV("class", css.HFit)),
 			Variant: components.CardVariantOutline,
 			Color:   components.CardColorSecondary,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
@@ -436,9 +432,7 @@ func cardsBasic() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			BaseProps: components.BaseProps{
-				Class: []string{css.HFit},
-			},
+			Props:   components.NewProps(templ.KV("class", css.HFit)),
 			Variant: components.CardVariantSeamless,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var15), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -480,7 +474,7 @@ func cardsSizes() templ.Component {
 		var templ_7745c5c3_Var21 string
 		templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsSizes)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 87, Col: 28}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 81, Col: 28}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 		if templ_7745c5c3_Err != nil {
@@ -553,10 +547,8 @@ func cardsSizes() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			BaseProps: components.BaseProps{
-				Class: []string{css.HFit},
-			},
-			Size: components.CardSizeCompact,
+			Props: components.NewProps(templ.KV("class", css.HFit)),
+			Size:  components.CardSizeCompact,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var24), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -602,10 +594,8 @@ func cardsSizes() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			BaseProps: components.BaseProps{
-				Class: []string{css.HFit},
-			},
-			Size: components.CardSizeComfortable,
+			Props: components.NewProps(templ.KV("class", css.HFit)),
+			Size:  components.CardSizeComfortable,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var26), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -651,10 +641,8 @@ func cardsSizes() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			BaseProps: components.BaseProps{
-				Class: []string{css.HFit},
-			},
-			Size: components.CardSizeSpacious,
+			Props: components.NewProps(templ.KV("class", css.HFit)),
+			Size:  components.CardSizeSpacious,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var28), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -695,7 +683,7 @@ func cardsColors() templ.Component {
 		var templ_7745c5c3_Var31 string
 		templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsColors)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 128, Col: 29}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 116, Col: 29}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 		if templ_7745c5c3_Err != nil {
@@ -1039,7 +1027,7 @@ func cardsStructure() templ.Component {
 		var templ_7745c5c3_Var47 string
 		templ_7745c5c3_Var47, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsStructure)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 184, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 172, Col: 32}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var47))
 		if templ_7745c5c3_Err != nil {
@@ -1207,7 +1195,7 @@ func cardsImages() templ.Component {
 		var templ_7745c5c3_Var55 string
 		templ_7745c5c3_Var55, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsImages)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 204, Col: 29}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 192, Col: 29}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var55))
 		if templ_7745c5c3_Err != nil {
@@ -1443,7 +1431,7 @@ func cardsActions() templ.Component {
 		var templ_7745c5c3_Var65 string
 		templ_7745c5c3_Var65, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsActions)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 245, Col: 30}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 233, Col: 30}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var65))
 		if templ_7745c5c3_Err != nil {

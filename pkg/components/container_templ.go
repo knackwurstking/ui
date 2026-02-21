@@ -11,7 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import "github.com/knackwurstking/ui/pkg/css"
 
 type ContainerProps struct {
-	Props
+	*Props
 
 	Fluid bool
 }
@@ -40,6 +40,9 @@ func Container(props *ContainerProps) templ.Component {
 		if props == nil {
 			props = &ContainerProps{}
 		}
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
 		props.SetClass(css.Container)
 
 		if props.Fluid {
@@ -49,7 +52,7 @@ func Container(props *ContainerProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

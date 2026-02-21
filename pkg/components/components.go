@@ -8,10 +8,10 @@ import (
 )
 
 type Props struct {
-	attributes templ.Attributes
+	attributes map[string]string
 }
 
-func NewProps(kv ...templ.KeyValue[string, any]) *Props {
+func NewProps(kv ...templ.KeyValue[string, string]) *Props {
 	props := &Props{}
 	props.Set(kv...)
 	return props
@@ -19,7 +19,7 @@ func NewProps(kv ...templ.KeyValue[string, any]) *Props {
 
 func (p *Props) initialize() {
 	if p.attributes == nil {
-		p.attributes = templ.Attributes{}
+		p.attributes = map[string]string{}
 	}
 }
 
@@ -33,14 +33,14 @@ func (p *Props) Attributes() templ.Attributes {
 	return attrs
 }
 
-func (p *Props) Get(k string) (value any, ok bool) {
+func (p *Props) Get(k string) (value string, ok bool) {
 	p.initialize()
 
 	value, ok = p.attributes[k]
-	return
+	return value, ok
 }
 
-func (p *Props) Set(kv ...templ.KeyValue[string, any]) {
+func (p *Props) Set(kv ...templ.KeyValue[string, string]) {
 	p.initialize()
 
 	for _, a := range kv {
@@ -81,9 +81,10 @@ func (p *Props) GetClass() string {
 func (p *Props) SetClass(classes ...string) {
 	p.initialize()
 
-	if c, ok := p.attributes["class"]; !ok {
+	c, ok := p.attributes["class"]
+	if !ok {
 		p.attributes["class"] = ""
-	} else {
-		p.attributes["class"] = fmt.Sprintf("%s %s", c, strings.Join(classes, " "))
 	}
+
+	p.attributes["class"] = fmt.Sprintf("%s %s", c, strings.Join(classes, " "))
 }

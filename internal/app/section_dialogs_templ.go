@@ -9,6 +9,7 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 import (
+	"fmt"
 	"github.com/knackwurstking/ui/pkg/components"
 	"github.com/knackwurstking/ui/pkg/css"
 )
@@ -51,7 +52,7 @@ func Dialogs() templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(IDDialogs)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 14, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 15, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -160,9 +161,9 @@ func dialogsModalFullscreenClean() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = components.DialogCloseButton(&components.BaseProps{
-				Class: []string{css.Contrast, css.Ghost, css.M},
-			}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.DialogCloseButton(components.NewProps(
+				templ.KV("class", fmt.Sprintf("%s %s %s", css.Contrast, css.Ghost, css.M)),
+			)).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -173,10 +174,10 @@ func dialogsModalFullscreenClean() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Dialog(&components.DialogProps{
-			BaseProps: components.BaseProps{
-				ID:    id,
-				Class: []string{css.Flex, css.JustifyCenter, css.ItemsCenter},
-			},
+			Props: components.NewProps(
+				templ.KV("id", id),
+				templ.KV("class", fmt.Sprintf("%s %s %s", css.Flex, css.JustifyCenter, css.ItemsCenter)),
+			),
 			Fullscreen: true,
 			Clean:      true,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var8), templ_7745c5c3_Buffer)
@@ -195,7 +196,7 @@ func dialogsModalFullscreenClean() templ.Component {
 		var templ_7745c5c3_Var10 string
 		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(IDDialogsModalFullscreenClean)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 39, Col: 40}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_dialogs.templ`, Line: 40, Col: 40}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {

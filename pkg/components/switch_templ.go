@@ -11,7 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import "github.com/knackwurstking/ui/pkg/css"
 
 type SwitchProps struct {
-	BaseProps
+	*Props
 
 	Name     string
 	Value    string
@@ -55,19 +55,22 @@ func Switch(props *SwitchProps) templ.Component {
 		if props == nil {
 			props = &SwitchProps{}
 		}
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
 
-		props.Class = append(props.Class, css.Switch)
+		props.SetClass(css.Switch)
 		if props.Color != "" {
-			props.Class = append(props.Class, string(props.Color))
+			props.SetClass(string(props.Color))
 		}
 		if props.Disabled {
-			props.Class = append(props.Class, css.SwitchDisabled)
+			props.SetClass(css.SwitchDisabled)
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -78,7 +81,7 @@ func Switch(props *SwitchProps) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(props.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 43, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 46, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -91,7 +94,7 @@ func Switch(props *SwitchProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.Value)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 44, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 47, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

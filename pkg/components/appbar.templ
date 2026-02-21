@@ -28,7 +28,10 @@ type AppBarProps struct {
 templ AppBar(props *AppBarProps) {
 	{{
 		if props == nil {
-			props = &AppBarProps{Props: NewProps()}
+			props = &AppBarProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.AppBar)
 

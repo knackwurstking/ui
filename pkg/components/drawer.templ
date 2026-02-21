@@ -15,9 +15,10 @@ type DrawerProps struct {
 templ Drawer(props *DrawerProps) {
 	{{
 		if props == nil {
-			props = &DrawerProps{
-				Props: NewProps(),
-			}
+			props = &DrawerProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.Drawer)
 

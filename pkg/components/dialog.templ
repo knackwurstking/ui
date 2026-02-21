@@ -38,9 +38,10 @@ type DialogProps struct {
 templ Dialog(props *DialogProps) {
 	{{
 		if props == nil {
-			props = &DialogProps{
-				Props: NewProps(),
-			}
+			props = &DialogProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.Dialog)
 
@@ -72,7 +73,7 @@ templ DialogCloseButton(props *Props) {
 			props = NewProps()
 		}
 		props.SetClass(css.DialogClose)
-		props.Set(templ.KV[string, any]("onclick", `this.closest('dialog').close();`))
+		props.Set(templ.KV("onclick", `this.closest('dialog').close();`))
 	}}
 	<button { props.Attributes()... }>
 		<i class="bi bi-x-lg"></i>

@@ -15,9 +15,10 @@ type CheckboxProps struct {
 templ Checkbox(props *CheckboxProps) {
 	{{
 		if props == nil {
-			props = &CheckboxProps{
-				Props: NewProps(),
-			}
+			props = &CheckboxProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 	}}
 	<input

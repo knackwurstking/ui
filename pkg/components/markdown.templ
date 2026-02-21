@@ -6,15 +6,16 @@ type MarkdownContentProps struct {
 	UseMarkdown bool
 }
 
-templ MarkdownContent(content, props *MarkdownContentProps) {
+templ MarkdownContent(content string, props *MarkdownContentProps) {
 	{{
 		if props == nil {
-			props = &MarkdownContentProps{
-				Props: NewProps(),
-			}
+			props = &MarkdownContentProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass("markdown-content")
-		props.Set(templ.KV[string, any]("data-markdown-content", content))
+		props.Set(templ.KV("data-markdown-content", content))
 	}}
 	if props.UseMarkdown {
 		<div { props.Attributes()... }>

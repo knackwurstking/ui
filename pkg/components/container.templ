@@ -11,9 +11,10 @@ type ContainerProps struct {
 templ Container(props *ContainerProps) {
 	{{
 		if props == nil {
-			props = &ContainerProps{
-				Props: NewProps(),
-			}
+			props = &ContainerProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.Container)
 

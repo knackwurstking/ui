@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"github.com/knackwurstking/ui/pkg/components"
 	"github.com/knackwurstking/ui/pkg/css"
 )
@@ -24,16 +25,16 @@ templ Dialogs() {
 templ dialogsModalFullscreenClean() {
 	{{ id := "example-fullscreen-clean-dialog" }}
 	@components.Dialog(&components.DialogProps{
-		BaseProps: components.BaseProps{
-			ID:    id,
-			Class: []string{css.Flex, css.JustifyCenter, css.ItemsCenter},
-		},
+		Props: components.NewProps(
+			templ.KV("id", id),
+			templ.KV("class", fmt.Sprintf("%s %s %s", css.Flex, css.JustifyCenter, css.ItemsCenter)),
+		),
 		Fullscreen: true,
 		Clean:      true,
 	}) {
-		@components.DialogCloseButton(&components.BaseProps{
-			Class: []string{css.Contrast, css.Ghost, css.M},
-		})
+		@components.DialogCloseButton(components.NewProps(
+			templ.KV("class", fmt.Sprintf("%s %s %s", css.Contrast, css.Ghost, css.M)),
+		))
 		<p>This is a example modal dialog. (fullscreen, clean)</p>
 	}
 	<div id={ IDDialogsModalFullscreenClean } class={ css.Flex, css.FlexCol, css.Gap, css.JustifyCenter, css.ItemsCenter }>

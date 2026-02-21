@@ -14,7 +14,7 @@ import (
 )
 
 type TabsProps struct {
-	BaseProps
+	*Props
 
 	ActiveTab int // Active tab index (1-based, 0 for none)
 }
@@ -43,11 +43,16 @@ func Tabs(props *TabsProps) templ.Component {
 		if props == nil {
 			props = &TabsProps{}
 		}
-		props.Class = append(props.Class, css.Tabs)
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
+		props.SetClass(css.Tabs)
 
 		// We need to make sure that the `props.ID` is set, if empty generate one
-		if props.ID == "" {
-			props.ID = "tabs-" + uuid.New().String()
+		if id, ok := props.Get("id"); !ok || id == "" {
+			props.Set(templ.KV("id", "tabs-"+uuid.New().String()))
+		} else {
+			props.Set(templ.KV("id", id))
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span")
 		if templ_7745c5c3_Err != nil {
@@ -61,7 +66,7 @@ func Tabs(props *TabsProps) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(props.ActiveTab)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 28, Col: 36}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 33, Col: 36}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -72,7 +77,7 @@ func Tabs(props *TabsProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -89,7 +94,8 @@ func Tabs(props *TabsProps) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		if props.ActiveTab > 0 {
-			templ_7745c5c3_Err = setActiveTab(props.ID, props.ActiveTab, css.TabsTabActive).Render(ctx, templ_7745c5c3_Buffer)
+			id, _ := props.Get("id")
+			templ_7745c5c3_Err = setActiveTab(id, props.ActiveTab, css.TabsTabActive).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -99,7 +105,7 @@ func Tabs(props *TabsProps) templ.Component {
 }
 
 type TabProps struct {
-	BaseProps
+	*Props
 
 	Index   int // Index (1-based)
 	OnClick templ.ComponentScript
@@ -129,7 +135,10 @@ func Tab(props *TabProps) templ.Component {
 		if props == nil {
 			props = &TabProps{}
 		}
-		props.Class = append(props.Class, css.TabsTab)
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
+		props.SetClass(css.TabsTab)
 		templ_7745c5c3_Err = templ.RenderScriptItems(ctx, templ_7745c5c3_Buffer, handleTabClick(
 			props.OnClick, templ.JSExpression("event"),
 			css.Tabs, css.TabsTab, css.TabsTabActive,
@@ -144,7 +153,7 @@ func Tab(props *TabProps) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(props.Index)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 54, Col: 24}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/tabs.templ`, Line: 63, Col: 24}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -166,7 +175,7 @@ func Tab(props *TabProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

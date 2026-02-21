@@ -43,9 +43,10 @@ type ButtonProps struct {
 templ Button(props *ButtonProps) {
 	{{
 		if props == nil {
-			props = &ButtonProps{
-				Props: NewProps(),
-			}
+			props = &ButtonProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 
 		if props.Color != "" {

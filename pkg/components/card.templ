@@ -36,9 +36,10 @@ type CardProps struct {
 templ Card(props *CardProps) {
 	{{
 		if props == nil {
-			props = &CardProps{
-				Props: NewProps(),
-			}
+			props = &CardProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.Card)
 
@@ -113,9 +114,10 @@ type CardImageProps struct {
 templ CardImage(props *CardImageProps) {
 	{{
 		if props == nil {
-			props = &CardImageProps{
-				Props: NewProps(),
-			}
+			props = &CardImageProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.CardImage)
 
@@ -170,9 +172,10 @@ type CardActionsProps struct {
 templ CardActions(props *CardActionsProps) {
 	{{
 		if props == nil {
-			props = &CardActionsProps{
-				Props: NewProps(),
-			}
+			props = &CardActionsProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.CardActions)
 

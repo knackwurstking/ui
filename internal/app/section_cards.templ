@@ -36,9 +36,7 @@ templ cardsBasic() {
 		<legend>Basic Cards</legend>
 		<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 			@components.Card(&components.CardProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.HFit},
-				},
+				Props: components.NewProps(templ.KV("class", css.HFit)),
 			}) {
 				@components.CardBody(nil) {
 					@components.CardTitle("Basic Card", nil)
@@ -46,9 +44,7 @@ templ cardsBasic() {
 				}
 			}
 			@components.Card(&components.CardProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.HFit},
-				},
+				Props:   components.NewProps(templ.KV("class", css.HFit)),
 				Variant: components.CardVariantOutline,
 				Color:   components.CardColorSecondary,
 			}) {
@@ -58,9 +54,7 @@ templ cardsBasic() {
 				}
 			}
 			@components.Card(&components.CardProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.HFit},
-				},
+				Props:   components.NewProps(templ.KV("class", css.HFit)),
 				Variant: components.CardVariantSeamless,
 			}) {
 				@components.CardBody(nil) {
@@ -88,10 +82,8 @@ templ cardsSizes() {
 		<legend>Card Sizes</legend>
 		<div class={ css.Flex, css.FlexRow, css.Gap, css.FlexWrap }>
 			@components.Card(&components.CardProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.HFit},
-				},
-				Size: components.CardSizeCompact,
+				Props: components.NewProps(templ.KV("class", css.HFit)),
+				Size:  components.CardSizeCompact,
 			}) {
 				@components.CardBody(nil) {
 					@components.CardTitle("Compact", nil)
@@ -99,10 +91,8 @@ templ cardsSizes() {
 				}
 			}
 			@components.Card(&components.CardProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.HFit},
-				},
-				Size: components.CardSizeComfortable,
+				Props: components.NewProps(templ.KV("class", css.HFit)),
+				Size:  components.CardSizeComfortable,
 			}) {
 				@components.CardBody(nil) {
 					@components.CardTitle("Comfortable", nil)
@@ -110,10 +100,8 @@ templ cardsSizes() {
 				}
 			}
 			@components.Card(&components.CardProps{
-				BaseProps: components.BaseProps{
-					Class: []string{css.HFit},
-				},
-				Size: components.CardSizeSpacious,
+				Props: components.NewProps(templ.KV("class", css.HFit)),
+				Size:  components.CardSizeSpacious,
 			}) {
 				@components.CardBody(nil) {
 					@components.CardTitle("Spacious", nil)

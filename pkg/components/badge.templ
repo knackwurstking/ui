@@ -49,9 +49,10 @@ type BadgeProps struct {
 templ Badge(props *BadgeProps) {
 	{{
 		if props == nil {
-			props = &BadgeProps{
-				Props: NewProps(),
-			}
+			props = &BadgeProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 		props.SetClass(css.Badge)
 

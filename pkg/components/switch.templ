@@ -26,9 +26,10 @@ const (
 templ Switch(props *SwitchProps) {
 	{{
 		if props == nil {
-			props = &SwitchProps{
-				Props: NewProps(),
-			}
+			props = &SwitchProps{}
+		}
+		if props.Props == nil {
+			props.Props = NewProps()
 		}
 
 		props.SetClass(css.Switch)

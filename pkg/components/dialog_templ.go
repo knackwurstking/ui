@@ -34,7 +34,7 @@ type DialogSize string
 type DialogType string
 
 type DialogProps struct {
-	Props
+	*Props
 
 	Fullscreen bool
 	Clean      bool
@@ -67,6 +67,9 @@ func Dialog(props *DialogProps) templ.Component {
 		if props == nil {
 			props = &DialogProps{}
 		}
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
 		props.SetClass(css.Dialog)
 
 		if props.Fullscreen {
@@ -89,7 +92,7 @@ func Dialog(props *DialogProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -131,15 +134,15 @@ func DialogCloseButton(props *Props) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &Props{}
+			props = NewProps()
 		}
 		props.SetClass(css.DialogClose)
-		props.Attributes["onclick"] = `this.closest('dialog').close();`
+		props.Set(templ.KV("onclick", `this.closest('dialog').close();`))
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<button")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

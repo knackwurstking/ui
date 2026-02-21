@@ -40,7 +40,7 @@ const (
 )
 
 type BadgeProps struct {
-	Props
+	*Props
 
 	Size      BadgeSize
 	Shape     BadgeShape
@@ -78,6 +78,9 @@ func Badge(props *BadgeProps) templ.Component {
 		if props == nil {
 			props = &BadgeProps{}
 		}
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
 		props.SetClass(css.Badge)
 
 		if props.Status != "" {
@@ -112,7 +115,7 @@ func Badge(props *BadgeProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

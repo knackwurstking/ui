@@ -28,7 +28,7 @@ const (
 )
 
 type ToastProps struct {
-	BaseProps
+	*Props
 
 	Variant  ToastVariant
 	Position ToastPosition
@@ -64,24 +64,27 @@ func Toast(props *ToastProps) templ.Component {
 		if props == nil {
 			props = &ToastProps{}
 		}
-		props.Class = append(props.Class, css.Toast)
+		if props.Props == nil {
+			props.Props = NewProps()
+		}
+		props.SetClass(css.Toast)
 
 		if props.Variant != "" {
-			props.Class = append(props.Class, string(props.Variant))
+			props.SetClass(string(props.Variant))
 		}
 		if props.Position != "" {
-			props.Class = append(props.Class, string(props.Position))
+			props.SetClass(string(props.Position))
 		}
 		if props.Show {
-			props.Class = append(props.Class, css.ToastShow)
+			props.SetClass(css.ToastShow)
 		} else {
-			props.Class = append(props.Class, css.ToastHide)
+			props.SetClass(css.ToastHide)
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -137,7 +140,7 @@ func Toast(props *ToastProps) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(props.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 57, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 60, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -174,7 +177,7 @@ func Toast(props *ToastProps) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(props.Description)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 60, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/toasts.templ`, Line: 63, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -225,7 +228,7 @@ func Toast(props *ToastProps) templ.Component {
 	})
 }
 
-func ToastStack(props *BaseProps) templ.Component {
+func ToastStack(props *Props) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -247,14 +250,14 @@ func ToastStack(props *BaseProps) templ.Component {
 		}
 		ctx = templ.ClearChildren(ctx)
 		if props == nil {
-			props = &BaseProps{}
+			props = NewProps()
 		}
-		props.Class = append(props.Class, css.ToastStack)
+		props.SetClass(css.ToastStack)
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "<div")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.GetAttributes())
+		templ_7745c5c3_Err = templ.RenderAttributes(ctx, templ_7745c5c3_Buffer, props.Attributes())
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

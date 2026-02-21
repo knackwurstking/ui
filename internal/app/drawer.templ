@@ -12,9 +12,7 @@ const (
 
 templ Drawer() {
 	@components.Drawer(&components.DrawerProps{
-		BaseProps: components.BaseProps{
-			ID: IDAppDrawer,
-		},
+		Props:  components.NewProps(templ.KV("id", IDAppDrawer)),
 		ZIndex: 50,
 	}) {
 		<ul style={ "padding-bottom: 2.5rem" } id={ IDAppDrawerItems } class={ css.Flex, css.FlexCol, css.GapSm }>
