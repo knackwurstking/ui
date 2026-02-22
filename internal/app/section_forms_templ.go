@@ -2087,7 +2087,7 @@ func formsDisabled() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var151 = []any{css.Flex, css.FlexRow, css.FlexWrap, css.Gap}
+		var templ_7745c5c3_Var151 = []any{css.Flex, css.FlexCol, css.Gap}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var151...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -2105,7 +2105,7 @@ func formsDisabled() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 152, "\"><div><label for=\"text-disabled\">Text Disabled</label> <input type=\"text\" id=\"text-disabled\" name=\"text-disabled\" value=\"Disabled\" disabled></div><div><label for=\"select-disabled\">Select Disabled</label> <select id=\"select-disabled\" name=\"select-disabled\" disabled><option value=\"1\">Option 1</option> <option value=\"2\">Option 2</option></select></div><div><label for=\"textarea-disabled\">Textarea Disabled</label> <textarea id=\"textarea-disabled\" name=\"textarea-disabled\" rows=\"2\" disabled>Disabled</textarea></div><div><label for=\"checkbox-disabled\">Checkbox Disabled</label> <input type=\"checkbox\" id=\"checkbox-disabled\" name=\"checkbox-disabled\" disabled></div><div><label for=\"radio-disabled\">Radio Disabled</label> <input type=\"radio\" id=\"radio-disabled\" name=\"radio-disabled\" disabled></div><div><label for=\"range-disabled\">Range Disabled</label> <input type=\"range\" id=\"range-disabled\" name=\"range-disabled\" disabled></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 152, "\"><label for=\"text-disabled\">Text Disabled</label> <input type=\"text\" id=\"text-disabled\" name=\"text-disabled\" value=\"Disabled\" disabled> <label for=\"select-disabled\">Select Disabled</label> <select id=\"select-disabled\" name=\"select-disabled\" disabled><option value=\"1\">Option 1</option> <option value=\"2\">Option 2</option></select> <label for=\"textarea-disabled\">Textarea Disabled</label> <textarea id=\"textarea-disabled\" name=\"textarea-disabled\" rows=\"2\" disabled>Disabled</textarea> <label for=\"checkbox-disabled\">Checkbox Disabled</label> <input type=\"checkbox\" id=\"checkbox-disabled\" name=\"checkbox-disabled\" disabled> <label for=\"radio-disabled\">Radio Disabled</label> <input type=\"radio\" id=\"radio-disabled\" name=\"radio-disabled\" disabled> <label for=\"range-disabled\">Range Disabled</label> <input type=\"range\" id=\"range-disabled\" name=\"range-disabled\" disabled></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -2168,7 +2168,7 @@ func formsValidation() templ.Component {
 		var templ_7745c5c3_Var157 string
 		templ_7745c5c3_Var157, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsValidation)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 410, Col: 28}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 398, Col: 28}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var157))
 		if templ_7745c5c3_Err != nil {
@@ -2272,7 +2272,7 @@ func formsComplete() templ.Component {
 		var templ_7745c5c3_Var165 string
 		templ_7745c5c3_Var165, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsComplete)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 432, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 420, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var165))
 		if templ_7745c5c3_Err != nil {

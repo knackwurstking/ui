@@ -373,34 +373,22 @@ templ formsSwitch() {
 templ formsDisabled() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsDisabled } class={ css.MB }>Disabled Inputs</h3>
-		<div class={ css.Flex, css.FlexRow, css.FlexWrap, css.Gap }>
-			<div>
-				<label for="text-disabled">Text Disabled</label>
-				<input type="text" id="text-disabled" name="text-disabled" value="Disabled" disabled/>
-			</div>
-			<div>
-				<label for="select-disabled">Select Disabled</label>
-				<select id="select-disabled" name="select-disabled" disabled>
-					<option value="1">Option 1</option>
-					<option value="2">Option 2</option>
-				</select>
-			</div>
-			<div>
-				<label for="textarea-disabled">Textarea Disabled</label>
-				<textarea id="textarea-disabled" name="textarea-disabled" rows="2" disabled>Disabled</textarea>
-			</div>
-			<div>
-				<label for="checkbox-disabled">Checkbox Disabled</label>
-				<input type="checkbox" id="checkbox-disabled" name="checkbox-disabled" disabled/>
-			</div>
-			<div>
-				<label for="radio-disabled">Radio Disabled</label>
-				<input type="radio" id="radio-disabled" name="radio-disabled" disabled/>
-			</div>
-			<div>
-				<label for="range-disabled">Range Disabled</label>
-				<input type="range" id="range-disabled" name="range-disabled" disabled/>
-			</div>
+		<div class={ css.Flex, css.FlexCol, css.Gap }>
+			<label for="text-disabled">Text Disabled</label>
+			<input type="text" id="text-disabled" name="text-disabled" value="Disabled" disabled/>
+			<label for="select-disabled">Select Disabled</label>
+			<select id="select-disabled" name="select-disabled" disabled>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+			</select>
+			<label for="textarea-disabled">Textarea Disabled</label>
+			<textarea id="textarea-disabled" name="textarea-disabled" rows="2" disabled>Disabled</textarea>
+			<label for="checkbox-disabled">Checkbox Disabled</label>
+			<input type="checkbox" id="checkbox-disabled" name="checkbox-disabled" disabled/>
+			<label for="radio-disabled">Radio Disabled</label>
+			<input type="radio" id="radio-disabled" name="radio-disabled" disabled/>
+			<label for="range-disabled">Range Disabled</label>
+			<input type="range" id="range-disabled" name="range-disabled" disabled/>
 		</div>
 	</div>
 }
