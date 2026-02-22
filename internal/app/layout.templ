@@ -35,11 +35,8 @@ templ layoutLinks() {
 }
 
 templ layoutStyles() {
-	@css.StylesThemeTemplUI()
-	@css.StylesReset()
-	@css.StylesGlobal()
-	@css.StylesComponents()
-	@css.StylesUtils()
+	@css.ThemeTemplUI()
+	@css.All()
 }
 
 templ layoutScripts() {

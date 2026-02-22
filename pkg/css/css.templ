@@ -1,0 +1,56 @@
+package css
+
+templ All() {
+	@Reset()
+	@Global()
+	@Components()
+	@Utils()
+}
+
+templ Reset() {
+	@resetStyles()
+}
+
+templ Global() {
+	@globalStyles()
+	@globalButtonStyles()
+	@globalAnchorStyles()
+	@globalBlockquoteStyles()
+	@globalCodeStyles()
+	@globalContainerStyles()
+	@globalDetailsStyles()
+	@globalFieldsetStyles()
+	@globalFormStyles()
+	@globalInputStyles()
+	@globalListStyles()
+	@globalSelectStyles()
+	@globalSeparatorStyles()
+	@globalRangeInputStyles()
+	@globalTableStyles()
+	@globalTextStyles()
+}
+
+templ Components() {
+	@appBarStyles()
+	@badgeStyles()
+	@cardStyles()
+	@containerStyles()
+	@dialogStyles()
+	@drawerStyles()
+	@spinnerStyles()
+	@switchStyles()
+	@tabsStyles()
+	@toastStyles()
+}
+
+templ Utils() {
+	@borderUtils()
+	@colorUtils()
+	@debugUtils()
+	@flexUtils()
+	@interactionUtils()
+	@shadowUtils()
+	@spacingUtils()
+	@textUtils()
+	@transformUtils()
+}

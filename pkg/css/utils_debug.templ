@@ -1,0 +1,21 @@
+package css
+
+const (
+	Debug    = "debug"
+	DebugAll = "debug-all"
+)
+
+templ debugUtils() {
+	<style>
+		.debug {
+			border: var(--ui-border-width) var(--ui-border-style) red;
+			border-radius: var(--ui-radius);
+		}
+
+		.debug-all,
+		.debug-all * {
+			border: var(--ui-border-width) var(--ui-border-style) red;
+			border-radius: var(--ui-radius);
+		}
+	</style>
+}

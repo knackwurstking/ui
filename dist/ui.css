@@ -712,6 +712,10 @@ button > svg:last-child:not(:first-child),
   }
 }
 
+/*****************
+		 * Active Styles *
+		 *****************/
+
 button:active,
 [role="button"]:active,
 input[type="button"]:active,
@@ -744,6 +748,10 @@ button.outline:active,
   background-color: transparent;
   color: var(--btn-bg-active);
 }
+
+/****************
+		 * Focus Styles *
+		 ****************/
 
 /* Focus States */
 button:focus-visible,
@@ -827,6 +835,10 @@ button.loading:focus-visible,
 [role="button"].loading:focus-visible {
   outline-color: var(--ui-muted-text);
 }
+
+/****************
+		 * Hover Styles *
+		 ****************/
 
 button:hover,
 [role="button"]:hover,

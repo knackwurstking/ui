@@ -30,11 +30,8 @@ func main() {
 		Name string
 		Comp templ.Component
 	}{
-		{"Theme", css.StylesThemeTemplUI()},
-		{"Reset", css.StylesReset()},
-		{"Global", css.StylesGlobal()},
-		{"Components", css.StylesComponents()},
-		{"Utils", css.StylesUtils()},
+		{"Theme", css.ThemeTemplUI()},
+		{"All", css.All()},
 	}
 
 	for _, c := range components {
