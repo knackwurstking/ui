@@ -446,11 +446,12 @@
 
 		/* Interactive States */
 		[disabled]:not([disabled="false"]),
-		:disabled {
-			opacity: 0.4;
-			cursor: not-allowed;
-			pointer-events: none;
-			user-select: none;
+		:disabled,
+		.disabled {
+			opacity: 0.4 !important;
+			cursor: not-allowed !important;
+			pointer-events: none !important;
+			user-select: none !important;
 		}
 
 		[inert] {
@@ -990,9 +991,6 @@
 		a[aria-disabled="true"]:not([role="button"]),
 		a.disabled:not([role="button"]) {
 			color: var(--ui-muted-text);
-			opacity: 0.5;
-			cursor: not-allowed;
-			pointer-events: none;
 			text-decoration-color: var(--ui-muted-text);
 		}
 
@@ -1803,10 +1801,7 @@
 		textarea:disabled,
 		select:disabled {
 			/* Stronger visual distinction than readonly */
-			opacity: 0.5;
 			background-color: var(--ui-muted, rgba(128, 128, 128, 0.1));
-			cursor: not-allowed;
-			user-select: none;
 
 			/* Remove all borders and effects */
 			border-style: dashed;
@@ -1839,35 +1834,16 @@
 			opacity: 0.7;
 		}
 
-		/* Disabled checkbox and radio */
-		input[type="checkbox"]:disabled,
-		input[type="radio"]:disabled {
-			cursor: not-allowed;
-			opacity: 0.5;
-		}
-
 		/* Readonly color picker */
 		input[type="color"][readonly] {
 			pointer-events: none;
 			opacity: 0.7;
 		}
 
-		/* Disabled color picker */
-		input[type="color"]:disabled {
-			cursor: not-allowed;
-			opacity: 0.5;
-		}
-
 		/* Readonly file input */
 		input[type="file"][readonly] {
 			pointer-events: none;
 			opacity: 0.7;
-		}
-
-		/* Disabled file input */
-		input[type="file"]:disabled {
-			cursor: not-allowed;
-			opacity: 0.5;
 		}
 
 		/* Validation States */
@@ -2166,12 +2142,6 @@
 		select[class*="contrast"]:focus-visible {
 			outline-color: var(--select-color);
 			border-color: var(--select-color);
-		}
-
-		/* Disabled State */
-		select:disabled {
-			opacity: 0.45;
-			cursor: not-allowed;
 		}
 
 		/* Size Variants */
@@ -5484,7 +5454,7 @@
 	} catch (error) {
 		console.error('Error opening dialog:', error);
 	}
-}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section> <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-fb9b8301-d7dc-4408-ba0d-2bd904fb5730"><script>function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive, ){// Get current tab
+}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section> <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-88d58ac6-54c4-4066-b725-9715c6cdcb56"><script>function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive, ){// Get current tab
 	var clickedTab = event.target.closest(`.${cssTabsTab}`);
 	if (!clickedTab) {
 		return;
@@ -5532,4 +5502,4 @@
 			child.classList.remove(cssTabsTabActive);
 		}
 	}
-}</script><script>__templ_setActiveTab_65a7("tabs-fb9b8301-d7dc-4408-ba0d-2bd904fb5730",1,"active")</script></div></section> <div class="toast-stack"> <div class="toast success show"><div class="toast-content"><div class="toast-title">Success</div><div class="toast-description">This is a success toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast warning show"><div class="toast-content"><div class="toast-title">Warning</div><div class="toast-description">This is a warning toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast error show"><div class="toast-content"><div class="toast-title">Error</div><div class="toast-description">This is an error toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast info show"><div class="toast-content"><div class="toast-title">Info</div><div class="toast-description">This is an info toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div></div> <section id="section-switches" class="p mt"><h2 class="underline text-center">Switches</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-switches-default" class="mb">Default Switches</h3><div class="flex flex-col gap"><label for="switch-default" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value=""> <span></span></span>Default Switch</label> <label for="switch-checked" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value="" checked> <span></span></span>Checked Switch</label> <label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label></div></div> <div class="mb"><h3 id="section-switches-colors" class="mb">Colors</h3><div class="flex flex-col gap"><label for="switch-primary" class="flex items-center gap"><span class="primary switch"><input type="checkbox" name="" value=""> <span></span></span>Primary Switch</label> <label for="switch-secondary" class="flex items-center gap"><span class="secondary switch"><input type="checkbox" name="" value=""> <span></span></span>Secondary Switch</label> <label for="switch-success" class="flex items-center gap"><span class="success switch"><input type="checkbox" name="" value=""> <span></span></span>Success Switch</label> <label for="switch-warning" class="flex items-center gap"><span class="warning switch"><input type="checkbox" name="" value=""> <span></span></span>Warning Switch</label> <label for="switch-destructive" class="flex items-center gap"><span class="destructive switch"><input type="checkbox" name="" value=""> <span></span></span>Destructive Switch</label> <label for="switch-info" class="flex items-center gap"><span class="info switch"><input type="checkbox" name="" value=""> <span></span></span>Info Switch</label></div></div> <div class="mb"><h3 id="section-switches-disabled" class="mb">Disabled Switches</h3><div class="flex flex-col gap"><label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label> <label for="switch-disabled-checked" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" checked disabled> <span></span></span>Disabled & Checked Switch</label></div></div></div></section></span></div></body></html>
+}</script><script>__templ_setActiveTab_65a7("tabs-88d58ac6-54c4-4066-b725-9715c6cdcb56",1,"active")</script></div></section> <div class="toast-stack"> <div class="toast success show"><div class="toast-content"><div class="toast-title">Success</div><div class="toast-description">This is a success toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast warning show"><div class="toast-content"><div class="toast-title">Warning</div><div class="toast-description">This is a warning toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast error show"><div class="toast-content"><div class="toast-title">Error</div><div class="toast-description">This is an error toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast info show"><div class="toast-content"><div class="toast-title">Info</div><div class="toast-description">This is an info toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div></div> <section id="section-switches" class="p mt"><h2 class="underline text-center">Switches</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-switches-default" class="mb">Default Switches</h3><div class="flex flex-col gap"><label for="switch-default" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value=""> <span></span></span>Default Switch</label> <label for="switch-checked" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value="" checked> <span></span></span>Checked Switch</label> <label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label></div></div> <div class="mb"><h3 id="section-switches-colors" class="mb">Colors</h3><div class="flex flex-col gap"><label for="switch-primary" class="flex items-center gap"><span class="primary switch"><input type="checkbox" name="" value=""> <span></span></span>Primary Switch</label> <label for="switch-secondary" class="flex items-center gap"><span class="secondary switch"><input type="checkbox" name="" value=""> <span></span></span>Secondary Switch</label> <label for="switch-success" class="flex items-center gap"><span class="success switch"><input type="checkbox" name="" value=""> <span></span></span>Success Switch</label> <label for="switch-warning" class="flex items-center gap"><span class="warning switch"><input type="checkbox" name="" value=""> <span></span></span>Warning Switch</label> <label for="switch-destructive" class="flex items-center gap"><span class="destructive switch"><input type="checkbox" name="" value=""> <span></span></span>Destructive Switch</label> <label for="switch-info" class="flex items-center gap"><span class="info switch"><input type="checkbox" name="" value=""> <span></span></span>Info Switch</label></div></div> <div class="mb"><h3 id="section-switches-disabled" class="mb">Disabled Switches</h3><div class="flex flex-col gap"><label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label> <label for="switch-disabled-checked" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" checked disabled> <span></span></span>Disabled & Checked Switch</label></div></div></div></section></span></div></body></html>
