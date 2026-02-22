@@ -409,34 +409,20 @@ templ formsValidation() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsValidation } class={ css.MB }>Validation States</h3>
 		<div class={ css.Flex, css.FlexCol, css.Gap }>
-			<div>
-				<label for="text-required">Required</label>
-				<input type="text" id="text-required" name="text-required" required/>
-			</div>
-			<div>
-				<label for="text-pattern">Pattern (3 chars)</label>
-				<input type="text" id="text-pattern" name="text-pattern" pattern="..." title="Must be 3 characters"/>
-			</div>
-			<div>
-				<label for="email-validate">Email (validate)</label>
-				<input type="email" id="email-validate" name="email-validate"/>
-			</div>
-			<div>
-				<label for="number-validate">Number (min 0, max 100)</label>
-				<input type="number" id="number-validate" name="number-validate" min="0" max="100"/>
-			</div>
-			<div>
-				<label for="text-minlength">Minlength (5)</label>
-				<input type="text" id="text-minlength" name="text-minlength" minlength="5"/>
-			</div>
-			<div>
-				<label for="text-maxlength">Maxlength (10)</label>
-				<input type="text" id="text-maxlength" name="text-maxlength" maxlength="10"/>
-			</div>
-			<div>
-				<label for="text-autocomplete">Autocomplete</label>
-				<input type="text" id="text-autocomplete" name="text-autocomplete" autocomplete="name"/>
-			</div>
+			<label for="text-required">Required</label>
+			<input type="text" id="text-required" name="text-required" required/>
+			<label for="text-pattern">Pattern (3 chars)</label>
+			<input type="text" id="text-pattern" name="text-pattern" pattern="..." title="Must be 3 characters"/>
+			<label for="email-validate">Email (validate)</label>
+			<input type="email" id="email-validate" name="email-validate"/>
+			<label for="number-validate">Number (min 0, max 100)</label>
+			<input type="number" id="number-validate" name="number-validate" min="0" max="100"/>
+			<label for="text-minlength">Minlength (5)</label>
+			<input type="text" id="text-minlength" name="text-minlength" minlength="5"/>
+			<label for="text-maxlength">Maxlength (10)</label>
+			<input type="text" id="text-maxlength" name="text-maxlength" maxlength="10"/>
+			<label for="text-autocomplete">Autocomplete</label>
+			<input type="text" id="text-autocomplete" name="text-autocomplete" autocomplete="name"/>
 		</div>
 	</div>
 }
@@ -445,95 +431,73 @@ templ formsComplete() {
 	<div class={ css.MB }>
 		<h3 id={ IDFormsComplete } class={ css.MB }>Complete Form Example</h3>
 		<form class={ css.Flex, css.FlexCol, css.Gap }>
-			<div>
-				<label for="form-name">Full Name *</label>
-				<input type="text" id="form-name" name="name" required placeholder="John Doe"/>
-			</div>
-			<div>
-				<label for="form-email">Email *</label>
-				<input type="email" id="form-email" name="email" required placeholder="john@example.com"/>
-			</div>
-			<div>
-				<label for="form-password">Password *</label>
-				<input type="password" id="form-password" name="password" required placeholder="Min 8 characters" minlength="8"/>
-			</div>
-			<div>
-				<label for="form-country">Country</label>
-				<select id="form-country" name="country">
-					<option value="">Select country...</option>
-					<option value="us">United States</option>
-					<option value="uk">United Kingdom</option>
-					<option value="de">Germany</option>
-					<option value="fr">France</option>
-				</select>
-			</div>
-			<div>
-				<label for="form-bio">Bio</label>
-				<textarea id="form-bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
-			</div>
-			<div>
-				<label>Interests</label>
-				<div class={ css.Flex, css.FlexCol, css.ML }>
-					<div>
-						<input type="checkbox" id="form-tech" name="interests" value="tech"/>
-						<label for="form-tech">Technology</label>
-					</div>
-					<div>
-						<input type="checkbox" id="form-sports" name="interests" value="sports"/>
-						<label for="form-sports">Sports</label>
-					</div>
-					<div>
-						<input type="checkbox" id="form-music" name="interests" value="music"/>
-						<label for="form-music">Music</label>
-					</div>
-				</div>
-			</div>
-			<div>
-				<label>Newsletter</label>
+			<label for="form-name">Full Name *</label>
+			<input type="text" id="form-name" name="name" required placeholder="John Doe"/>
+			<label for="form-email">Email *</label>
+			<input type="email" id="form-email" name="email" required placeholder="john@example.com"/>
+			<label for="form-password">Password *</label>
+			<input type="password" id="form-password" name="password" required placeholder="Min 8 characters" minlength="8"/>
+			<label for="form-country">Country</label>
+			<select id="form-country" name="country">
+				<option value="">Select country...</option>
+				<option value="us">United States</option>
+				<option value="uk">United Kingdom</option>
+				<option value="de">Germany</option>
+				<option value="fr">France</option>
+			</select>
+			<label for="form-bio">Bio</label>
+			<textarea id="form-bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+			<label>Interests</label>
+			<div class={ css.Flex, css.FlexCol, css.ML }>
 				<div>
-					<input type="checkbox" id="form-newsletter" name="newsletter" role="switch" checked/>
-					<label for="form-newsletter">Subscribe to newsletter</label>
+					<input type="checkbox" id="form-tech" name="interests" value="tech"/>
+					<label for="form-tech">Technology</label>
+				</div>
+				<div>
+					<input type="checkbox" id="form-sports" name="interests" value="sports"/>
+					<label for="form-sports">Sports</label>
+				</div>
+				<div>
+					<input type="checkbox" id="form-music" name="interests" value="music"/>
+					<label for="form-music">Music</label>
 				</div>
 			</div>
+			<label>Newsletter</label>
 			<div>
-				<label>Notifications</label>
-				<div class={ css.Flex, css.FlexCol, css.ML }>
-					<div>
-						<input type="radio" id="form-notif-all" name="notifications" value="all" checked/>
-						<label for="form-notif-all">All notifications</label>
-					</div>
-					<div>
-						<input type="radio" id="form-notif-important" name="notifications" value="important"/>
-						<label for="form-notif-important">Important only</label>
-					</div>
-					<div>
-						<input type="radio" id="form-notif-none" name="notifications" value="none"/>
-						<label for="form-notif-none">None</label>
-					</div>
+				<input type="checkbox" id="form-newsletter" name="newsletter" role="switch" checked/>
+				<label for="form-newsletter">Subscribe to newsletter</label>
+			</div>
+			<label>Notifications</label>
+			<div class={ css.Flex, css.FlexCol, css.ML }>
+				<div>
+					<input type="radio" id="form-notif-all" name="notifications" value="all" checked/>
+					<label for="form-notif-all">All notifications</label>
+				</div>
+				<div>
+					<input type="radio" id="form-notif-important" name="notifications" value="important"/>
+					<label for="form-notif-important">Important only</label>
+				</div>
+				<div>
+					<input type="radio" id="form-notif-none" name="notifications" value="none"/>
+					<label for="form-notif-none">None</label>
 				</div>
 			</div>
-			<div>
-				<label for="form-avatar">Avatar</label>
-				<input type="file" id="form-avatar" name="avatar" accept="image/*"/>
-			</div>
-			<div>
-				<label for="form-theme">Preferred Theme</label>
-				<input type="color" id="form-theme" name="theme" value="#3b82f6"/>
-			</div>
-			<div>
-				<label for="form-rating">Rating</label>
-				<input type="range" id="form-rating" name="rating" min="1" max="5" value="3" list="rating-markers"/>
-				<datalist id="rating-markers">
-					<option value="1"></option>
-					<option value="2"></option>
-					<option value="3"></option>
-					<option value="4"></option>
-					<option value="5"></option>
-				</datalist>
-			</div>
+			<label for="form-avatar">Avatar</label>
+			<input type="file" id="form-avatar" name="avatar" accept="image/*"/>
+			<label for="form-theme">Preferred Theme</label>
+			<input type="color" id="form-theme" name="theme" value="#3b82f6"/>
+			<label for="form-rating">Rating</label>
+			<input type="range" id="form-rating" name="rating" min="1" max="5" value="3" list="rating-markers"/>
+			<datalist id="rating-markers">
+				<option value="1"></option>
+				<option value="2"></option>
+				<option value="3"></option>
+				<option value="4"></option>
+				<option value="5"></option>
+			</datalist>
 			<div class={ css.Flex, css.Gap }>
-				<button type="submit">Submit</button>
-				<button type="reset">Reset</button>
+				<input type="submit" value="Submit"/>
+				<input type="reset" value="Reset"/>
 			</div>
 		</form>
 	</div>

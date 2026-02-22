@@ -2247,7 +2247,7 @@ input[type="range"]::-webkit-slider-thumb {
 
   height: 2em;
   width: 1em;
-  transform: translateY(-50%);
+  transform: translateY(-45%);
 
   border: var(--ui-border-width) var(--ui-border-style) var(--ui-border-color);
   border-radius: var(--ui-radius);
@@ -3240,6 +3240,10 @@ dialog.large {
   --switch-thumb-size: 1rem;
   --switch-padding: 0.25rem;
 
+  --ui-default-bg: var(--ui-primary);
+  --ui-default-text: var(--ui-primary-text);
+  --ui-default-border: var(--ui-default-border);
+
   display: inline-flex;
   align-items: center;
   gap: calc(var(--ui-spacing) / 2);
@@ -3280,7 +3284,7 @@ dialog.large {
   width: var(--switch-thumb-size);
   height: var(--switch-thumb-size);
   border-radius: 50%;
-  background-color: var(--ui-bg);
+  background-color: var(--color-text);
   transition:
     transform 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
@@ -3293,6 +3297,7 @@ dialog.large {
 
 /* Switch checked state */
 .switch input[type="checkbox"]:checked + span {
+  background-color: var(--ui-primary);
   background-color: var(--color-bg);
 }
 
@@ -3304,15 +3309,6 @@ dialog.large {
     )
   );
   background-color: var(--color-text);
-}
-
-/* Switch hover states */
-.switch:hover > span {
-  background-color: hsla(var(--ui-hue), 10%, 95%, 0.3);
-}
-
-.switch input[type="checkbox"]:hover + span {
-  background-color: hsla(var(--ui-hue), 10%, 95%, 0.3);
 }
 
 /* Switch focus states */
@@ -3328,25 +3324,20 @@ dialog.large {
   cursor: not-allowed;
 }
 
+.switch.disabled input[type="checkbox"]:checked + span,
+.switch input[type="checkbox"]:disabled:checked + span {
+  background-color: var(--color-bg);
+}
+
+.switch.disabled input[type="checkbox"]:checked + span::after,
+.switch input[type="checkbox"]:disabled:checked + span::after {
+  background-color: var(--color-text);
+}
+
 /* Switch accessibility focus */
 .switch input[type="checkbox"]:focus-visible + span {
   outline: 2px solid var(--color-bg);
   outline-offset: 2px;
-}
-
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-  .switch > span {
-    background-color: var(--ui-border-color);
-  }
-
-  .switch:hover > span {
-    background-color: hsla(var(--ui-hue), 10%, 95%, 0.1);
-  }
-
-  .switch input[type="checkbox"]:checked + span {
-    background-color: var(--color-bg);
-  }
 }
 
 .tabs {
@@ -3585,9 +3576,9 @@ dialog.large {
 }
 
 :root {
-  --color-bg: var(--ui-default-bg);
-  --color-text: var(--ui-default-text);
-  --color-border: var(--ui-default-border);
+  --color-bg: var(--ui-primary);
+  --color-text: var(--ui-primary-text);
+  --color-border: var(--color-bg);
 }
 
 .primary,

@@ -2209,7 +2209,7 @@ func formsValidation() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 159, "\"><div><label for=\"text-required\">Required</label> <input type=\"text\" id=\"text-required\" name=\"text-required\" required></div><div><label for=\"text-pattern\">Pattern (3 chars)</label> <input type=\"text\" id=\"text-pattern\" name=\"text-pattern\" pattern=\"...\" title=\"Must be 3 characters\"></div><div><label for=\"email-validate\">Email (validate)</label> <input type=\"email\" id=\"email-validate\" name=\"email-validate\"></div><div><label for=\"number-validate\">Number (min 0, max 100)</label> <input type=\"number\" id=\"number-validate\" name=\"number-validate\" min=\"0\" max=\"100\"></div><div><label for=\"text-minlength\">Minlength (5)</label> <input type=\"text\" id=\"text-minlength\" name=\"text-minlength\" minlength=\"5\"></div><div><label for=\"text-maxlength\">Maxlength (10)</label> <input type=\"text\" id=\"text-maxlength\" name=\"text-maxlength\" maxlength=\"10\"></div><div><label for=\"text-autocomplete\">Autocomplete</label> <input type=\"text\" id=\"text-autocomplete\" name=\"text-autocomplete\" autocomplete=\"name\"></div></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 159, "\"><label for=\"text-required\">Required</label> <input type=\"text\" id=\"text-required\" name=\"text-required\" required> <label for=\"text-pattern\">Pattern (3 chars)</label> <input type=\"text\" id=\"text-pattern\" name=\"text-pattern\" pattern=\"...\" title=\"Must be 3 characters\"> <label for=\"email-validate\">Email (validate)</label> <input type=\"email\" id=\"email-validate\" name=\"email-validate\"> <label for=\"number-validate\">Number (min 0, max 100)</label> <input type=\"number\" id=\"number-validate\" name=\"number-validate\" min=\"0\" max=\"100\"> <label for=\"text-minlength\">Minlength (5)</label> <input type=\"text\" id=\"text-minlength\" name=\"text-minlength\" minlength=\"5\"> <label for=\"text-maxlength\">Maxlength (10)</label> <input type=\"text\" id=\"text-maxlength\" name=\"text-maxlength\" maxlength=\"10\"> <label for=\"text-autocomplete\">Autocomplete</label> <input type=\"text\" id=\"text-autocomplete\" name=\"text-autocomplete\" autocomplete=\"name\"></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -2272,7 +2272,7 @@ func formsComplete() templ.Component {
 		var templ_7745c5c3_Var165 string
 		templ_7745c5c3_Var165, templ_7745c5c3_Err = templ.JoinStringErrs(IDFormsComplete)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 446, Col: 26}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_forms.templ`, Line: 432, Col: 26}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var165))
 		if templ_7745c5c3_Err != nil {
@@ -2313,7 +2313,7 @@ func formsComplete() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 166, "\"><div><label for=\"form-name\">Full Name *</label> <input type=\"text\" id=\"form-name\" name=\"name\" required placeholder=\"John Doe\"></div><div><label for=\"form-email\">Email *</label> <input type=\"email\" id=\"form-email\" name=\"email\" required placeholder=\"john@example.com\"></div><div><label for=\"form-password\">Password *</label> <input type=\"password\" id=\"form-password\" name=\"password\" required placeholder=\"Min 8 characters\" minlength=\"8\"></div><div><label for=\"form-country\">Country</label> <select id=\"form-country\" name=\"country\"><option value=\"\">Select country...</option> <option value=\"us\">United States</option> <option value=\"uk\">United Kingdom</option> <option value=\"de\">Germany</option> <option value=\"fr\">France</option></select></div><div><label for=\"form-bio\">Bio</label> <textarea id=\"form-bio\" name=\"bio\" rows=\"4\" placeholder=\"Tell us about yourself...\"></textarea></div><div><label>Interests</label>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 166, "\"><label for=\"form-name\">Full Name *</label> <input type=\"text\" id=\"form-name\" name=\"name\" required placeholder=\"John Doe\"> <label for=\"form-email\">Email *</label> <input type=\"email\" id=\"form-email\" name=\"email\" required placeholder=\"john@example.com\"> <label for=\"form-password\">Password *</label> <input type=\"password\" id=\"form-password\" name=\"password\" required placeholder=\"Min 8 characters\" minlength=\"8\"> <label for=\"form-country\">Country</label> <select id=\"form-country\" name=\"country\"><option value=\"\">Select country...</option> <option value=\"us\">United States</option> <option value=\"uk\">United Kingdom</option> <option value=\"de\">Germany</option> <option value=\"fr\">France</option></select> <label for=\"form-bio\">Bio</label> <textarea id=\"form-bio\" name=\"bio\" rows=\"4\" placeholder=\"Tell us about yourself...\"></textarea> <label>Interests</label>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -2335,7 +2335,7 @@ func formsComplete() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 168, "\"><div><input type=\"checkbox\" id=\"form-tech\" name=\"interests\" value=\"tech\"> <label for=\"form-tech\">Technology</label></div><div><input type=\"checkbox\" id=\"form-sports\" name=\"interests\" value=\"sports\"> <label for=\"form-sports\">Sports</label></div><div><input type=\"checkbox\" id=\"form-music\" name=\"interests\" value=\"music\"> <label for=\"form-music\">Music</label></div></div></div><div><label>Newsletter</label><div><input type=\"checkbox\" id=\"form-newsletter\" name=\"newsletter\" role=\"switch\" checked> <label for=\"form-newsletter\">Subscribe to newsletter</label></div></div><div><label>Notifications</label>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 168, "\"><div><input type=\"checkbox\" id=\"form-tech\" name=\"interests\" value=\"tech\"> <label for=\"form-tech\">Technology</label></div><div><input type=\"checkbox\" id=\"form-sports\" name=\"interests\" value=\"sports\"> <label for=\"form-sports\">Sports</label></div><div><input type=\"checkbox\" id=\"form-music\" name=\"interests\" value=\"music\"> <label for=\"form-music\">Music</label></div></div><label>Newsletter</label><div><input type=\"checkbox\" id=\"form-newsletter\" name=\"newsletter\" role=\"switch\" checked> <label for=\"form-newsletter\">Subscribe to newsletter</label></div><label>Notifications</label>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -2357,7 +2357,7 @@ func formsComplete() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 170, "\"><div><input type=\"radio\" id=\"form-notif-all\" name=\"notifications\" value=\"all\" checked> <label for=\"form-notif-all\">All notifications</label></div><div><input type=\"radio\" id=\"form-notif-important\" name=\"notifications\" value=\"important\"> <label for=\"form-notif-important\">Important only</label></div><div><input type=\"radio\" id=\"form-notif-none\" name=\"notifications\" value=\"none\"> <label for=\"form-notif-none\">None</label></div></div></div><div><label for=\"form-avatar\">Avatar</label> <input type=\"file\" id=\"form-avatar\" name=\"avatar\" accept=\"image/*\"></div><div><label for=\"form-theme\">Preferred Theme</label> <input type=\"color\" id=\"form-theme\" name=\"theme\" value=\"#3b82f6\"></div><div><label for=\"form-rating\">Rating</label> <input type=\"range\" id=\"form-rating\" name=\"rating\" min=\"1\" max=\"5\" value=\"3\" list=\"rating-markers\"> <datalist id=\"rating-markers\"><option value=\"1\"></option> <option value=\"2\"></option> <option value=\"3\"></option> <option value=\"4\"></option> <option value=\"5\"></option></datalist></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 170, "\"><div><input type=\"radio\" id=\"form-notif-all\" name=\"notifications\" value=\"all\" checked> <label for=\"form-notif-all\">All notifications</label></div><div><input type=\"radio\" id=\"form-notif-important\" name=\"notifications\" value=\"important\"> <label for=\"form-notif-important\">Important only</label></div><div><input type=\"radio\" id=\"form-notif-none\" name=\"notifications\" value=\"none\"> <label for=\"form-notif-none\">None</label></div></div><label for=\"form-avatar\">Avatar</label> <input type=\"file\" id=\"form-avatar\" name=\"avatar\" accept=\"image/*\"> <label for=\"form-theme\">Preferred Theme</label> <input type=\"color\" id=\"form-theme\" name=\"theme\" value=\"#3b82f6\"> <label for=\"form-rating\">Rating</label> <input type=\"range\" id=\"form-rating\" name=\"rating\" min=\"1\" max=\"5\" value=\"3\" list=\"rating-markers\"> <datalist id=\"rating-markers\"><option value=\"1\"></option> <option value=\"2\"></option> <option value=\"3\"></option> <option value=\"4\"></option> <option value=\"5\"></option></datalist>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -2379,7 +2379,7 @@ func formsComplete() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 172, "\"><button type=\"submit\">Submit</button> <button type=\"reset\">Reset</button></div></form></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 172, "\"><input type=\"submit\" value=\"Submit\"> <input type=\"reset\" value=\"Reset\"></div></form></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

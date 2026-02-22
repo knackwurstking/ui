@@ -218,9 +218,9 @@ templ drawerItemsSwitches() {
 }
 
 templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {
-	<li style="padding: 0">
+	<li class={ css.P0 }>
 		<a
-			class={ css.P, css.PXLg, css.Contrast, css.NoUnderline }
+			class={ css.P, css.PXLg, css.Contrast, css.Ghost, css.NoUnderline }
 			href={ href }
 			onclick={ onclick }
 		>
@@ -230,10 +230,10 @@ templ drawerItem(href templ.SafeURL, onclick templ.ComponentScript) {
 }
 
 templ drawerSubItem(href templ.SafeURL, onclick templ.ComponentScript) {
-	<li style="padding: 0">
+	<li class={ css.P0 }>
 		<a
 			style={ "margin-left: 1.5rem" }
-			class={ css.P, css.PXLg, css.Contrast, css.NoUnderline, css.Flex, css.Gap }
+			class={ css.P, css.PXLg, css.Contrast, css.Ghost, css.NoUnderline, css.Flex, css.Gap }
 			href={ href }
 			onclick={ onclick }
 		>
