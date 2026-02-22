@@ -67,6 +67,11 @@
 			--ui-color-900: oklch(35% 0 240); /* text */
 			--ui-color-950: oklch(25% 0 240); /* text */
 
+			/* Default colors for automatic component theming */
+			--ui-default-bg: var(--ui-bg);
+			--ui-default-text: var(--ui-text);
+			--ui-default-border: var(--ui-border-color);
+
 			/* Semantic colors */
 			--ui-bg: oklch(98% 0 240); /* background */
 			--ui-text: oklch(25% 0 240); /* text */
@@ -179,6 +184,11 @@
 			--ui-color-800: oklch(55% 0 240); /* selection */
 			--ui-color-900: oklch(65% 0 240); /* text */
 			--ui-color-950: oklch(75% 0 240); /* text */
+
+			/* Default colors for automatic component theming */
+			--ui-default-bg: var(--ui-bg);
+			--ui-default-text: var(--ui-text);
+			--ui-default-border: var(--ui-border-color);
 
 			/* Semantic overrides */
 			--ui-bg: oklch(12% 0 240); /* background - proper dark theme */
@@ -2913,109 +2923,7 @@
 			flex: 1;
 		}
 
-		/* Color Variants - Using CSS Custom Properties */
-		.card.primary {
-			--card-color: var(--ui-primary);
-			--card-color-text: var(--ui-primary-text);
-			border-color: var(--card-color);
-		}
-
-		.card.secondary {
-			--card-color: var(--ui-secondary);
-			--card-color-text: var(--ui-secondary-text);
-			border-color: var(--card-color);
-		}
-
-		.card.success {
-			--card-color: var(--ui-success);
-			--card-color-text: var(--ui-success-text);
-			border-color: var(--card-color);
-		}
-
-		.card.warning {
-			--card-color: var(--ui-warning);
-			--card-color-text: var(--ui-warning-text);
-			border-color: var(--card-color);
-		}
-
-		.card.destructive {
-			--card-color: var(--ui-destructive);
-			--card-color-text: var(--ui-destructive-text);
-			border-color: var(--card-color);
-		}
-
-		.card.info {
-			--card-color: var(--ui-info);
-			--card-color-text: var(--ui-info-text);
-			border-color: var(--card-color);
-		}
-
-		.card.contrast {
-			--card-color: var(--ui-contrast);
-			--card-color-text: var(--ui-contrast-text);
-			border-color: var(--card-color);
-		}
-
-		.card.muted {
-			--card-color: var(--ui-muted);
-			--card-color-text: var(--ui-muted-text);
-			border-color: var(--card-color);
-		}
-
-		/* Apply color to headers for colored cards */
-		.card.primary .card-header,
-		.card.secondary .card-header,
-		.card.success .card-header,
-		.card.warning .card-header,
-		.card.destructive .card-header,
-		.card.info .card-header,
-		.card.contrast .card-header,
-		.card.muted .card-header {
-			background-color: var(--card-color);
-			color: var(--card-color-text);
-			border-color: var(--card-color);
-		}
-
-		/* Apply color to footers for colored cards */
-		.card.primary .card-footer,
-		.card.secondary .card-footer,
-		.card.success .card-footer,
-		.card.warning .card-footer,
-		.card.destructive .card-footer,
-		.card.info .card-footer,
-		.card.contrast .card-footer,
-		.card.muted .card-footer {
-			background-color: var(--card-color);
-			color: var(--card-color-text);
-			border-color: var(--card-color);
-		}
-
-		/* Outline colored cards */
-		.card.outline.primary .card-header,
-		.card.outline.secondary .card-header,
-		.card.outline.success .card-header,
-		.card.outline.warning .card-header,
-		.card.outline.destructive .card-header,
-		.card.outline.info .card-header,
-		.card.outline.contrast .card-header,
-		.card.outline.muted .card-header {
-			background-color: transparent;
-			color: var(--card-color);
-			border-bottom-color: var(--card-color);
-		}
-
-		.card.outline.primary .card-footer,
-		.card.outline.secondary .card-footer,
-		.card.outline.success .card-footer,
-		.card.outline.warning .card-footer,
-		.card.outline.destructive .card-footer,
-		.card.outline.info .card-footer,
-		.card.outline.contrast .card-footer,
-		.card.outline.muted .card-footer {
-			background-color: transparent;
-			color: var(--card-color);
-			border-top-color: var(--card-color);
-		}
+		
 
 		/* Loading States */
 		.card.loading {
@@ -3180,60 +3088,7 @@
 			display: none;
 		}
 
-		/* Color variants for dialog */
-		dialog.primary {
-			border-color: var(--ui-primary);
-			background-color: var(--ui-primary);
-			color: var(--ui-primary-text);
-		}
-
-		dialog.secondary {
-			border-color: var(--ui-secondary);
-			background-color: var(--ui-secondary);
-			color: var(--ui-secondary-text);
-		}
-
-		dialog.info {
-			border-color: var(--ui-info);
-			background-color: var(--ui-info);
-			color: var(--ui-info-text);
-		}
-
-		dialog.success {
-			border-color: var(--ui-success);
-			background-color: var(--ui-success);
-			color: var(--ui-success-text);
-		}
-
-		dialog.warning {
-			border-color: var(--ui-warning);
-			background-color: var(--ui-warning);
-			color: var(--ui-warning-text);
-		}
-
-		dialog.destructive {
-			border-color: var(--ui-destructive);
-			background-color: var(--ui-destructive);
-			color: var(--ui-destructive-text);
-		}
-
-		dialog.contrast {
-			border-color: var(--ui-contrast);
-			background-color: var(--ui-contrast);
-			color: var(--ui-contrast-text);
-		}
-
-		/* Enhanced backdrop for colored dialogs */
-		dialog.primary::backdrop,
-		dialog.secondary::backdrop,
-		dialog.info::backdrop,
-		dialog.success::backdrop,
-		dialog.warning::backdrop,
-		dialog.destructive::backdrop,
-		dialog.contrast::backdrop {
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-		}
+		
 
 		/* Dialog with close button */
 		dialog .dialog-close {
@@ -3761,14 +3616,18 @@
 				var(--ui-border-color);
 		}
 	</style><style>
-		/* Backdrop effect */
 		.backdrop {
 			background-color: var(--ui-backdrop-color);
 			backdrop-filter: blur(5px);
 			-webkit-backdrop-filter: blur(5px);
 		}
 
-		/* Base color application */
+		:root {
+			--color-bg: var(--ui-default-bg);
+			--color-text: var(--ui-default-text);
+			--color-border: var(--ui-default-border);
+		}
+
 		.primary,
 		.secondary,
 		.success,
@@ -3778,65 +3637,110 @@
 		.contrast,
 		.muted,
 		.error {
+			--color-bg: var(--ui-default-bg);
+			--color-text: var(--ui-default-text);
+			--color-border: var(--ui-default-border);
+		}
+
+		.primary {
 			--color-bg: var(--ui-primary);
 			--color-text: var(--ui-primary-text);
+			--color-border: var(--ui-primary);
 		}
 
 		.secondary {
 			--color-bg: var(--ui-secondary);
 			--color-text: var(--ui-secondary-text);
+			--color-border: var(--ui-secondary);
 		}
 
 		.success {
 			--color-bg: var(--ui-success);
 			--color-text: var(--ui-success-text);
+			--color-border: var(--ui-success);
 		}
 
 		.warning {
 			--color-bg: var(--ui-warning);
 			--color-text: var(--ui-warning-text);
+			--color-border: var(--ui-warning);
 		}
 
 		.destructive {
 			--color-bg: var(--ui-destructive);
 			--color-text: var(--ui-destructive-text);
+			--color-border: var(--ui-destructive);
 		}
 
 		.info {
 			--color-bg: var(--ui-info);
 			--color-text: var(--ui-info-text);
+			--color-border: var(--ui-info);
 		}
 
 		.contrast {
 			--color-bg: var(--ui-contrast);
 			--color-text: var(--ui-contrast-text);
+			--color-border: var(--ui-contrast);
 		}
 
 		.muted {
 			--color-bg: var(--ui-muted);
 			--color-text: var(--ui-muted-text);
+			--color-border: var(--ui-muted);
 		}
 
 		.error {
 			--color-bg: var(--ui-error);
 			--color-text: var(--ui-error-text);
+			--color-border: var(--ui-error);
 		}
 
-		/* Apply colors based on variant */
-		.primary:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.secondary:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.success:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.warning:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.destructive:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.info:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.contrast:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.muted:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.error:not(.ghost):not(.outline):not(a):not(button):not([role="button"]) {
+		.default,
+		.card,
+		dialog,
+		.alert,
+		.badge,
+		.button,
+		.btn,
+		nav,
+		.header,
+		.footer,
+		.section,
+		aside,
+		details {
 			background-color: var(--color-bg);
 			color: var(--color-text);
 		}
 
-		/* Ghost variant - text color only */
+		.card,
+		dialog,
+		.alert,
+		.badge,
+		.button,
+		.btn,
+		nav,
+		.header,
+		.footer,
+		.section,
+		aside,
+		details {
+			border-color: var(--color-border);
+		}
+
+		.primary:not(.ghost):not(.outline),
+		.secondary:not(.ghost):not(.outline),
+		.success:not(.ghost):not(.outline),
+		.warning:not(.ghost):not(.outline),
+		.destructive:not(.ghost):not(.outline),
+		.info:not(.ghost):not(.outline),
+		.contrast:not(.ghost):not(.outline),
+		.muted:not(.ghost):not(.outline),
+		.error:not(.ghost):not(.outline) {
+			background-color: var(--color-bg);
+			color: var(--color-text);
+		}
+
 		.primary.ghost,
 		.secondary.ghost,
 		.success.ghost,
@@ -3850,7 +3754,6 @@
 			background-color: transparent;
 		}
 
-		/* Outline variant - border and text color */
 		.primary.outline,
 		.secondary.outline,
 		.success.outline,
@@ -3861,7 +3764,7 @@
 		.muted.outline,
 		.error.outline {
 			color: var(--color-bg);
-			border-color: var(--color-bg);
+			border-color: var(--color-border);
 			background-color: transparent;
 		}
 	</style><style>
@@ -5653,7 +5556,7 @@
 	} catch (error) {
 		console.error('Error opening dialog:', error);
 	}
-}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section> <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-63c87c53-04df-45c4-a2ca-fe91ef4f0ecb"><script>function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive, ){// Get current tab
+}</script><button onclick="__templ_openModalDialog_b879(&#34;example-fullscreen-clean-dialog&#34;)">Open</button></div></div></section> <section id="section-tabs" class="p mt"><h2 class="underline text-center">Tabs</h2><div class="p-lg flex flex-col gap-xl"><span data-active-tab="1" class="tabs" id="tabs-6ba747ef-1627-4473-8f32-4f8ff8f049fe"><script>function __templ_handleTabClick_3449(onclick, event, cssTabs, cssTabsTab, cssTabsTabActive, ){// Get current tab
 	var clickedTab = event.target.closest(`.${cssTabsTab}`);
 	if (!clickedTab) {
 		return;
@@ -5701,4 +5604,4 @@
 			child.classList.remove(cssTabsTabActive);
 		}
 	}
-}</script><script>__templ_setActiveTab_65a7("tabs-63c87c53-04df-45c4-a2ca-fe91ef4f0ecb",1,"active")</script></div></section> <div class="toast-stack"> <div class="toast success show"><div class="toast-content"><div class="toast-title">Success</div><div class="toast-description">This is a success toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast warning show"><div class="toast-content"><div class="toast-title">Warning</div><div class="toast-description">This is a warning toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast error show"><div class="toast-content"><div class="toast-title">Error</div><div class="toast-description">This is an error toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast info show"><div class="toast-content"><div class="toast-title">Info</div><div class="toast-description">This is an info toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div></div> <section id="section-switches" class="p mt"><h2 class="underline text-center">Switches</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-switches-default" class="mb">Default Switches</h3><div class="flex flex-col gap"><label for="switch-default" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value=""> <span></span></span>Default Switch</label> <label for="switch-checked" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value="" checked> <span></span></span>Checked Switch</label> <label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label></div></div> <div class="mb"><h3 id="section-switches-colors" class="mb">Colors</h3><div class="flex flex-col gap"><label for="switch-primary" class="flex items-center gap"><span class="switch primary"><input type="checkbox" name="" value=""> <span></span></span>Primary Switch</label> <label for="switch-secondary" class="flex items-center gap"><span class="switch secondary"><input type="checkbox" name="" value=""> <span></span></span>Secondary Switch</label> <label for="switch-success" class="flex items-center gap"><span class="switch success"><input type="checkbox" name="" value=""> <span></span></span>Success Switch</label> <label for="switch-warning" class="flex items-center gap"><span class="switch warning"><input type="checkbox" name="" value=""> <span></span></span>Warning Switch</label> <label for="switch-destructive" class="flex items-center gap"><span class="switch destructive"><input type="checkbox" name="" value=""> <span></span></span>Destructive Switch</label> <label for="switch-info" class="flex items-center gap"><span class="switch info"><input type="checkbox" name="" value=""> <span></span></span>Info Switch</label></div></div> <div class="mb"><h3 id="section-switches-disabled" class="mb">Disabled Switches</h3><div class="flex flex-col gap"><label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label> <label for="switch-disabled-checked" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" checked disabled> <span></span></span>Disabled & Checked Switch</label></div></div></div></section></span></div></body></html>
+}</script><script>__templ_setActiveTab_65a7("tabs-6ba747ef-1627-4473-8f32-4f8ff8f049fe",1,"active")</script></div></section> <div class="toast-stack"> <div class="toast success show"><div class="toast-content"><div class="toast-title">Success</div><div class="toast-description">This is a success toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast warning show"><div class="toast-content"><div class="toast-title">Warning</div><div class="toast-description">This is a warning toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast error show"><div class="toast-content"><div class="toast-title">Error</div><div class="toast-description">This is an error toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div> <div class="toast info show"><div class="toast-content"><div class="toast-title">Info</div><div class="toast-description">This is an info toast message.</div></div><button class="toast-close" type="button" aria-label="Close" onclick="this.closest('.toast').remove()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg></button></div></div> <section id="section-switches" class="p mt"><h2 class="underline text-center">Switches</h2><div class="p-lg flex flex-col gap-xl"><div class="mb"><h3 id="section-switches-default" class="mb">Default Switches</h3><div class="flex flex-col gap"><label for="switch-default" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value=""> <span></span></span>Default Switch</label> <label for="switch-checked" class="flex items-center gap"><span class="switch"><input type="checkbox" name="" value="" checked> <span></span></span>Checked Switch</label> <label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label></div></div> <div class="mb"><h3 id="section-switches-colors" class="mb">Colors</h3><div class="flex flex-col gap"><label for="switch-primary" class="flex items-center gap"><span class="switch primary"><input type="checkbox" name="" value=""> <span></span></span>Primary Switch</label> <label for="switch-secondary" class="flex items-center gap"><span class="switch secondary"><input type="checkbox" name="" value=""> <span></span></span>Secondary Switch</label> <label for="switch-success" class="flex items-center gap"><span class="switch success"><input type="checkbox" name="" value=""> <span></span></span>Success Switch</label> <label for="switch-warning" class="flex items-center gap"><span class="switch warning"><input type="checkbox" name="" value=""> <span></span></span>Warning Switch</label> <label for="switch-destructive" class="flex items-center gap"><span class="switch destructive"><input type="checkbox" name="" value=""> <span></span></span>Destructive Switch</label> <label for="switch-info" class="flex items-center gap"><span class="switch info"><input type="checkbox" name="" value=""> <span></span></span>Info Switch</label></div></div> <div class="mb"><h3 id="section-switches-disabled" class="mb">Disabled Switches</h3><div class="flex flex-col gap"><label for="switch-disabled" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" disabled> <span></span></span>Disabled Switch</label> <label for="switch-disabled-checked" class="flex items-center gap"><span class="switch disabled"><input type="checkbox" name="" value="" checked disabled> <span></span></span>Disabled & Checked Switch</label></div></div></div></section></span></div></body></html>

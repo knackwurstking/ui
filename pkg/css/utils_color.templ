@@ -19,14 +19,18 @@ const (
 
 templ colorUtils() {
 	<style>
-		/* Backdrop effect */
 		.backdrop {
 			background-color: var(--ui-backdrop-color);
 			backdrop-filter: blur(5px);
 			-webkit-backdrop-filter: blur(5px);
 		}
 
-		/* Base color application */
+		:root {
+			--color-bg: var(--ui-default-bg);
+			--color-text: var(--ui-default-text);
+			--color-border: var(--ui-default-border);
+		}
+
 		.primary,
 		.secondary,
 		.success,
@@ -36,65 +40,110 @@ templ colorUtils() {
 		.contrast,
 		.muted,
 		.error {
+			--color-bg: var(--ui-default-bg);
+			--color-text: var(--ui-default-text);
+			--color-border: var(--ui-default-border);
+		}
+
+		.primary {
 			--color-bg: var(--ui-primary);
 			--color-text: var(--ui-primary-text);
+			--color-border: var(--ui-primary);
 		}
 
 		.secondary {
 			--color-bg: var(--ui-secondary);
 			--color-text: var(--ui-secondary-text);
+			--color-border: var(--ui-secondary);
 		}
 
 		.success {
 			--color-bg: var(--ui-success);
 			--color-text: var(--ui-success-text);
+			--color-border: var(--ui-success);
 		}
 
 		.warning {
 			--color-bg: var(--ui-warning);
 			--color-text: var(--ui-warning-text);
+			--color-border: var(--ui-warning);
 		}
 
 		.destructive {
 			--color-bg: var(--ui-destructive);
 			--color-text: var(--ui-destructive-text);
+			--color-border: var(--ui-destructive);
 		}
 
 		.info {
 			--color-bg: var(--ui-info);
 			--color-text: var(--ui-info-text);
+			--color-border: var(--ui-info);
 		}
 
 		.contrast {
 			--color-bg: var(--ui-contrast);
 			--color-text: var(--ui-contrast-text);
+			--color-border: var(--ui-contrast);
 		}
 
 		.muted {
 			--color-bg: var(--ui-muted);
 			--color-text: var(--ui-muted-text);
+			--color-border: var(--ui-muted);
 		}
 
 		.error {
 			--color-bg: var(--ui-error);
 			--color-text: var(--ui-error-text);
+			--color-border: var(--ui-error);
 		}
 
-		/* Apply colors based on variant */
-		.primary:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.secondary:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.success:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.warning:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.destructive:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.info:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.contrast:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.muted:not(.ghost):not(.outline):not(a):not(button):not([role="button"]),
-		.error:not(.ghost):not(.outline):not(a):not(button):not([role="button"]) {
+		.default,
+		.card,
+		dialog,
+		.alert,
+		.badge,
+		.button,
+		.btn,
+		nav,
+		.header,
+		.footer,
+		.section,
+		aside,
+		details {
 			background-color: var(--color-bg);
 			color: var(--color-text);
 		}
 
-		/* Ghost variant - text color only */
+		.card,
+		dialog,
+		.alert,
+		.badge,
+		.button,
+		.btn,
+		nav,
+		.header,
+		.footer,
+		.section,
+		aside,
+		details {
+			border-color: var(--color-border);
+		}
+
+		.primary:not(.ghost):not(.outline),
+		.secondary:not(.ghost):not(.outline),
+		.success:not(.ghost):not(.outline),
+		.warning:not(.ghost):not(.outline),
+		.destructive:not(.ghost):not(.outline),
+		.info:not(.ghost):not(.outline),
+		.contrast:not(.ghost):not(.outline),
+		.muted:not(.ghost):not(.outline),
+		.error:not(.ghost):not(.outline) {
+			background-color: var(--color-bg);
+			color: var(--color-text);
+		}
+
 		.primary.ghost,
 		.secondary.ghost,
 		.success.ghost,
@@ -108,7 +157,6 @@ templ colorUtils() {
 			background-color: transparent;
 		}
 
-		/* Outline variant - border and text color */
 		.primary.outline,
 		.secondary.outline,
 		.success.outline,
@@ -119,7 +167,7 @@ templ colorUtils() {
 		.muted.outline,
 		.error.outline {
 			color: var(--color-bg);
-			border-color: var(--color-bg);
+			border-color: var(--color-border);
 			background-color: transparent;
 		}
 	</style>
