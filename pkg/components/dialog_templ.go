@@ -11,15 +11,6 @@ import templruntime "github.com/a-h/templ/runtime"
 import "github.com/knackwurstking/ui/pkg/css"
 
 const (
-	DialogVariantGlass       DialogVariant = css.DialogGlass
-	DialogVariantPrimary     DialogVariant = css.DialogPrimary
-	DialogVariantSecondary   DialogVariant = css.DialogSecondary
-	DialogVariantInfo        DialogVariant = css.DialogInfo
-	DialogVariantSuccess     DialogVariant = css.DialogSuccess
-	DialogVariantWarning     DialogVariant = css.DialogWarning
-	DialogVariantDestructive DialogVariant = css.DialogDestructive
-	DialogVariantContrast    DialogVariant = css.DialogContrast
-
 	DialogSizeSmall  DialogSize = css.DialogSmall
 	DialogSizeMedium DialogSize = css.DialogMedium
 	DialogSizeLarge  DialogSize = css.DialogLarge

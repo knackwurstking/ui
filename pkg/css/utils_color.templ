@@ -99,38 +99,6 @@ templ colorUtils() {
 			--color-border: var(--ui-error);
 		}
 
-		.default,
-		.card,
-		dialog,
-		.alert,
-		.badge,
-		.button,
-		.btn,
-		nav,
-		.header,
-		.footer,
-		.section,
-		aside,
-		details {
-			background-color: var(--color-bg);
-			color: var(--color-text);
-		}
-
-		.card,
-		dialog,
-		.alert,
-		.badge,
-		.button,
-		.btn,
-		nav,
-		.header,
-		.footer,
-		.section,
-		aside,
-		details {
-			border-color: var(--color-border);
-		}
-
 		.primary:not(.ghost):not(.outline),
 		.secondary:not(.ghost):not(.outline),
 		.success:not(.ghost):not(.outline),
@@ -140,8 +108,9 @@ templ colorUtils() {
 		.contrast:not(.ghost):not(.outline),
 		.muted:not(.ghost):not(.outline),
 		.error:not(.ghost):not(.outline) {
-			background-color: var(--color-bg);
 			color: var(--color-text);
+			background-color: var(--color-bg);
+			border-color: var(--color-border);
 		}
 
 		.primary.ghost,
@@ -155,6 +124,7 @@ templ colorUtils() {
 		.error.ghost {
 			color: var(--color-bg);
 			background-color: transparent;
+			border-color: transparent;
 		}
 
 		.primary.outline,
@@ -167,8 +137,8 @@ templ colorUtils() {
 		.muted.outline,
 		.error.outline {
 			color: var(--color-bg);
-			border-color: var(--color-border);
 			background-color: transparent;
+			border-color: var(--color-border);
 		}
 	</style>
 }

@@ -4,7 +4,6 @@ import "github.com/knackwurstking/ui/pkg/css"
 
 type CardVariant string
 type CardSize string
-type CardColor string
 
 const (
 	CardVariantFlat     CardVariant = css.CardFlat
@@ -14,15 +13,6 @@ const (
 	CardSizeCompact     CardSize = css.CardCompact
 	CardSizeComfortable CardSize = css.CardComfortable
 	CardSizeSpacious    CardSize = css.CardSpacious
-
-	CardColorPrimary     CardColor = css.CardPrimary
-	CardColorSecondary   CardColor = css.CardSecondary
-	CardColorSuccess     CardColor = css.CardSuccess
-	CardColorWarning     CardColor = css.CardWarning
-	CardColorDestructive CardColor = css.CardDestructive
-	CardColorInfo        CardColor = css.CardInfo
-	CardColorContrast    CardColor = css.CardContrast
-	CardColorMuted       CardColor = css.CardMuted
 )
 
 type CardProps struct {
@@ -30,7 +20,6 @@ type CardProps struct {
 
 	Variant CardVariant
 	Size    CardSize
-	Color   CardColor
 }
 
 templ Card(props *CardProps) {
@@ -48,9 +37,6 @@ templ Card(props *CardProps) {
 		}
 		if props.Size != "" {
 			props.SetClass(string(props.Size))
-		}
-		if props.Color != "" {
-			props.SetClass(string(props.Color))
 		}
 	}}
 	<span { props.Attributes()... }>

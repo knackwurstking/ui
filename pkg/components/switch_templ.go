@@ -17,19 +17,7 @@ type SwitchProps struct {
 	Value    string
 	Checked  bool
 	Disabled bool
-	Color    SwitchColor
 }
-
-type SwitchColor string
-
-const (
-	SwitchColorPrimary     SwitchColor = css.SwitchPrimary
-	SwitchColorSecondary   SwitchColor = css.SwitchSecondary
-	SwitchColorSuccess     SwitchColor = css.SwitchSuccess
-	SwitchColorWarning     SwitchColor = css.SwitchWarning
-	SwitchColorDestructive SwitchColor = css.SwitchDestructive
-	SwitchColorInfo        SwitchColor = css.SwitchInfo
-)
 
 func Switch(props *SwitchProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -60,9 +48,6 @@ func Switch(props *SwitchProps) templ.Component {
 		}
 
 		props.SetClass(css.Switch)
-		if props.Color != "" {
-			props.SetClass(string(props.Color))
-		}
 		if props.Disabled {
 			props.SetClass(css.SwitchDisabled)
 		}
@@ -81,7 +66,7 @@ func Switch(props *SwitchProps) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(props.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 46, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 31, Col: 20}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -94,7 +79,7 @@ func Switch(props *SwitchProps) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.Value)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 47, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/switch.templ`, Line: 32, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {

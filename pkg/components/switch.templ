@@ -9,19 +9,7 @@ type SwitchProps struct {
 	Value    string
 	Checked  bool
 	Disabled bool
-	Color    SwitchColor
 }
-
-type SwitchColor string
-
-const (
-	SwitchColorPrimary     SwitchColor = css.SwitchPrimary
-	SwitchColorSecondary   SwitchColor = css.SwitchSecondary
-	SwitchColorSuccess     SwitchColor = css.SwitchSuccess
-	SwitchColorWarning     SwitchColor = css.SwitchWarning
-	SwitchColorDestructive SwitchColor = css.SwitchDestructive
-	SwitchColorInfo        SwitchColor = css.SwitchInfo
-)
 
 templ Switch(props *SwitchProps) {
 	{{
@@ -33,9 +21,6 @@ templ Switch(props *SwitchProps) {
 		}
 
 		props.SetClass(css.Switch)
-		if props.Color != "" {
-			props.SetClass(string(props.Color))
-		}
 		if props.Disabled {
 			props.SetClass(css.SwitchDisabled)
 		}

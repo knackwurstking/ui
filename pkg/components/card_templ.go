@@ -12,7 +12,6 @@ import "github.com/knackwurstking/ui/pkg/css"
 
 type CardVariant string
 type CardSize string
-type CardColor string
 
 const (
 	CardVariantFlat     CardVariant = css.CardFlat
@@ -22,15 +21,6 @@ const (
 	CardSizeCompact     CardSize = css.CardCompact
 	CardSizeComfortable CardSize = css.CardComfortable
 	CardSizeSpacious    CardSize = css.CardSpacious
-
-	CardColorPrimary     CardColor = css.CardPrimary
-	CardColorSecondary   CardColor = css.CardSecondary
-	CardColorSuccess     CardColor = css.CardSuccess
-	CardColorWarning     CardColor = css.CardWarning
-	CardColorDestructive CardColor = css.CardDestructive
-	CardColorInfo        CardColor = css.CardInfo
-	CardColorContrast    CardColor = css.CardContrast
-	CardColorMuted       CardColor = css.CardMuted
 )
 
 type CardProps struct {
@@ -38,7 +28,6 @@ type CardProps struct {
 
 	Variant CardVariant
 	Size    CardSize
-	Color   CardColor
 }
 
 func Card(props *CardProps) templ.Component {
@@ -75,9 +64,6 @@ func Card(props *CardProps) templ.Component {
 		}
 		if props.Size != "" {
 			props.SetClass(string(props.Size))
-		}
-		if props.Color != "" {
-			props.SetClass(string(props.Color))
 		}
 		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<span")
 		if templ_7745c5c3_Err != nil {
@@ -306,7 +292,7 @@ func CardImage(props *CardImageProps) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(props.Src)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 128, Col: 21}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 114, Col: 21}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -319,7 +305,7 @@ func CardImage(props *CardImageProps) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.Alt)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 128, Col: 39}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 114, Col: 39}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -381,7 +367,7 @@ func CardTitle(text string, props *Props) templ.Component {
 		var templ_7745c5c3_Var9 string
 		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 139, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 125, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
@@ -439,7 +425,7 @@ func CardSubtitle(text string, props *Props) templ.Component {
 		var templ_7745c5c3_Var11 string
 		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 152, Col: 8}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/card.templ`, Line: 138, Col: 8}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 		if templ_7745c5c3_Err != nil {

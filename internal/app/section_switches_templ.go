@@ -463,7 +463,9 @@ func switchesColors() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{Color: components.SwitchColorPrimary}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{
+			Props: components.NewProps(templ.KV("class", css.Primary)),
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -493,7 +495,9 @@ func switchesColors() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{Color: components.SwitchColorSecondary}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{
+			Props: components.NewProps(templ.KV("class", css.Secondary)),
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -523,7 +527,9 @@ func switchesColors() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{Color: components.SwitchColorSuccess}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{
+			Props: components.NewProps(templ.KV("class", css.Success)),
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -553,7 +559,9 @@ func switchesColors() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{Color: components.SwitchColorWarning}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{
+			Props: components.NewProps(templ.KV("class", css.Warning)),
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -583,7 +591,9 @@ func switchesColors() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{Color: components.SwitchColorDestructive}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{
+			Props: components.NewProps(templ.KV("class", css.Destructive)),
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -613,7 +623,9 @@ func switchesColors() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{Color: components.SwitchColorInfo}).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Switch(&components.SwitchProps{
+			Props: components.NewProps(templ.KV("class", css.Info)),
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -680,7 +692,7 @@ func switchesDisabled() templ.Component {
 		var templ_7745c5c3_Var45 string
 		templ_7745c5c3_Var45, templ_7745c5c3_Err = templ.JoinStringErrs(IDSwitchesDisabled)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_switches.templ`, Line: 85, Col: 29}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_switches.templ`, Line: 97, Col: 29}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
 		if templ_7745c5c3_Err != nil {

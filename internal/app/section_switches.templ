@@ -53,27 +53,39 @@ templ switchesColors() {
 		<h3 id={ IDSwitchesColors } class={ css.MB }>Colors</h3>
 		<div class={ css.Flex, css.FlexCol, css.Gap }>
 			<label for="switch-primary" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Color: components.SwitchColorPrimary})
+				@components.Switch(&components.SwitchProps{
+					Props: components.NewProps(templ.KV("class", css.Primary)),
+				})
 				Primary Switch
 			</label>
 			<label for="switch-secondary" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Color: components.SwitchColorSecondary})
+				@components.Switch(&components.SwitchProps{
+					Props: components.NewProps(templ.KV("class", css.Secondary)),
+				})
 				Secondary Switch
 			</label>
 			<label for="switch-success" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Color: components.SwitchColorSuccess})
+				@components.Switch(&components.SwitchProps{
+					Props: components.NewProps(templ.KV("class", css.Success)),
+				})
 				Success Switch
 			</label>
 			<label for="switch-warning" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Color: components.SwitchColorWarning})
+				@components.Switch(&components.SwitchProps{
+					Props: components.NewProps(templ.KV("class", css.Warning)),
+				})
 				Warning Switch
 			</label>
 			<label for="switch-destructive" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Color: components.SwitchColorDestructive})
+				@components.Switch(&components.SwitchProps{
+					Props: components.NewProps(templ.KV("class", css.Destructive)),
+				})
 				Destructive Switch
 			</label>
 			<label for="switch-info" class={ css.Flex, css.ItemsCenter, css.Gap }>
-				@components.Switch(&components.SwitchProps{Color: components.SwitchColorInfo})
+				@components.Switch(&components.SwitchProps{
+					Props: components.NewProps(templ.KV("class", css.Info)),
+				})
 				Info Switch
 			</label>
 		</div>

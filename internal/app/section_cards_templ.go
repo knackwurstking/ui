@@ -11,6 +11,7 @@ import templruntime "github.com/a-h/templ/runtime"
 import (
 	"github.com/knackwurstking/ui/pkg/components"
 	"github.com/knackwurstking/ui/pkg/css"
+	"strings"
 )
 
 const (
@@ -56,7 +57,7 @@ func Cards() templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(IDCards)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 19, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 20, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -199,7 +200,7 @@ func cardsBasic() templ.Component {
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(IDCardsBasic)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 35, Col: 28}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/app/section_cards.templ`, Line: 36, Col: 28}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -318,9 +319,8 @@ func cardsBasic() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			Props:   components.NewProps(templ.KV("class", css.HFit)),
+			Props:   components.NewProps(templ.KV("class", strings.Join([]string{css.HFit, css.Secondary}, " "))),
 			Variant: components.CardVariantOutline,
-			Color:   components.CardColorSecondary,
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var13), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -756,7 +756,7 @@ func cardsColors() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			Color: components.CardColorPrimary,
+			Props: components.NewProps(templ.KV("class", css.Primary)),
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var34), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -802,7 +802,7 @@ func cardsColors() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			Color: components.CardColorSecondary,
+			Props: components.NewProps(templ.KV("class", css.Secondary)),
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var36), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -848,7 +848,7 @@ func cardsColors() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			Color: components.CardColorSuccess,
+			Props: components.NewProps(templ.KV("class", css.Success)),
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var38), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -894,7 +894,7 @@ func cardsColors() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			Color: components.CardColorWarning,
+			Props: components.NewProps(templ.KV("class", css.Warning)),
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var40), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -940,7 +940,7 @@ func cardsColors() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			Color: components.CardColorDestructive,
+			Props: components.NewProps(templ.KV("class", css.Destructive)),
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var42), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -986,7 +986,7 @@ func cardsColors() templ.Component {
 			return nil
 		})
 		templ_7745c5c3_Err = components.Card(&components.CardProps{
-			Color: components.CardColorInfo,
+			Props: components.NewProps(templ.KV("class", css.Info)),
 		}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var44), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err

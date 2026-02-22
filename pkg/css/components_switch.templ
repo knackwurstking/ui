@@ -1,16 +1,8 @@
 package css
 
 const (
-	SwitchPrimary     = "primary"
-	SwitchSecondary   = "secondary"
-	SwitchSuccess     = "success"
-	SwitchWarning     = "warning"
-	SwitchDestructive = "destructive"
-	SwitchInfo        = "info"
-
 	SwitchDisabled = "disabled"
-
-	Switch = "switch"
+	Switch         = "switch"
 )
 
 templ switchStyles() {
@@ -20,8 +12,6 @@ templ switchStyles() {
 			--switch-height: 1.5rem;
 			--switch-thumb-size: 1rem;
 			--switch-padding: 0.25rem;
-			--switch-color: var(--ui-primary);
-			--switch-color-text: var(--ui-primary-text);
 
 			display: inline-flex;
 			align-items: center;
@@ -76,12 +66,12 @@ templ switchStyles() {
 
 		/* Switch checked state */
 		.switch input[type="checkbox"]:checked + span {
-			background-color: var(--switch-color);
+			background-color: var(--color-bg);
 		}
 
 		.switch input[type="checkbox"]:checked + span::after {
 			transform: translateX(calc(var(--switch-width) - var(--switch-thumb-size) - (var(--switch-padding) * 2)));
-			background-color: var(--switch-color-text);
+			background-color: var(--color-text);
 		}
 
 		/* Switch hover states */
@@ -95,7 +85,7 @@ templ switchStyles() {
 
 		/* Switch focus states */
 		.switch input[type="checkbox"]:focus-visible + span {
-			outline: 2px solid var(--switch-color);
+			outline: 2px solid var(--color-bg);
 			outline-offset: 2px;
 		}
 
@@ -106,40 +96,9 @@ templ switchStyles() {
 			cursor: not-allowed;
 		}
 
-		/* Switch color variants */
-		.switch.primary {
-			--switch-color: var(--ui-primary);
-			--switch-color-text: var(--ui-primary-text);
-		}
-
-		.switch.secondary {
-			--switch-color: var(--ui-secondary);
-			--switch-color-text: var(--ui-secondary-text);
-		}
-
-		.switch.success {
-			--switch-color: var(--ui-success);
-			--switch-color-text: var(--ui-success-text);
-		}
-
-		.switch.warning {
-			--switch-color: var(--ui-warning);
-			--switch-color-text: var(--ui-warning-text);
-		}
-
-		.switch.destructive {
-			--switch-color: var(--ui-destructive);
-			--switch-color-text: var(--ui-destructive-text);
-		}
-
-		.switch.info {
-			--switch-color: var(--ui-info);
-			--switch-color-text: var(--ui-info-text);
-		}
-
 		/* Switch accessibility focus */
 		.switch input[type="checkbox"]:focus-visible + span {
-			outline: 2px solid var(--switch-color);
+			outline: 2px solid var(--color-bg);
 			outline-offset: 2px;
 		}
 
@@ -154,7 +113,7 @@ templ switchStyles() {
 			}
 
 			.switch input[type="checkbox"]:checked + span {
-				background-color: var(--switch-color);
+				background-color: var(--color-bg);
 			}
 		}
 	</style>
