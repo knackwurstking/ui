@@ -1,0 +1,39 @@
+package spinner
+
+import (
+	"fmt"
+	"github.com/knackwurstking/ui"
+	"path/filepath"
+)
+
+type Props struct {
+	ID         string
+	Class      string
+	Attributes templ.Attributes
+}
+
+templ Spinner(props ...Props) {
+	{{
+		if len(props) == 0 {
+			props = append(props, Props{})
+		}
+		prop := props[0]
+
+		if s, ok := prop.Attributes["style"]; ok {
+			prop.Attributes["style"] = fmt.Sprintf("height: 100%%; min-height: 5rem; %s", s)
+		} else {
+			prop.Attributes["style"] = "height: 100%; min-height: 5rem;"
+		}
+	}}
+	<div
+		id={ prop.ID }
+		class={ "spinner-container", prop.Class }
+		{ prop.Attributes... }
+	>
+		<div class="spinner"></div>
+	</div>
+}
+
+templ Styles(serverPathToCSS ...string) {
+	<link rel="stylesheet" href={ ui.AssetURL(filepath.Join(serverPathToCSS...), "spinner.css") }/>
+}
