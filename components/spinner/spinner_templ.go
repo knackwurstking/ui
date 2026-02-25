@@ -47,9 +47,9 @@ func Spinner(props ...Props) templ.Component {
 		prop := props[0]
 
 		if s, ok := prop.Attributes["style"]; ok {
-			prop.Attributes["style"] = fmt.Sprintf("height: 100%%; min-height: 5rem; %s", s)
+			prop.Attributes["style"] = fmt.Sprintf("position: relative; height: 100%%; min-height: 5rem; %s", s)
 		} else {
-			prop.Attributes["style"] = "height: 100%; min-height: 5rem;"
+			prop.Attributes["style"] = "position: relative; height: 100%; min-height: 5rem;"
 		}
 		var templ_7745c5c3_Var2 = []any{"spinner-container", prop.Class}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
