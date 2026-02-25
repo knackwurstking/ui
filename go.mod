@@ -3,9 +3,7 @@ module github.com/knackwurstking/ui
 go 1.25.3
 
 require (
-	github.com/SuperPaintman/nice v0.0.0-20211001214957-a29cd3367b17
 	github.com/a-h/templ v0.3.977
-	github.com/google/uuid v1.6.0
 	github.com/labstack/echo/v4 v4.13.4
 )
 
@@ -23,5 +21,4 @@ require (
 	golang.org/x/net v0.43.0 // indirect
 	golang.org/x/sys v0.35.0 // indirect
 	golang.org/x/text v0.28.0 // indirect
-	golang.org/x/time v0.11.0 // indirect
 )
