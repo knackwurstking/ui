@@ -37,7 +37,7 @@ func NewLoggerWithVerbose(group string) *Logger {
 }
 
 // printf logs a message with timestamp, level and group prefix (no color)
-func (l *Logger) printf(format string, args ...any) {
+func (l *Logger) infof(format string, args ...any) {
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 	message := fmt.Sprintf(format, args...)
 	l.logger.Printf("[%s] [INFO ] [%s] %s", timestamp, l.group, message)
@@ -74,7 +74,7 @@ func (l *Logger) Debug(format string, args ...any) {
 
 // Info logs an info message
 func (l *Logger) Info(format string, args ...any) {
-	l.printf(format, args...)
+	l.infof(format, args...)
 }
 
 // Warn logs a warning message
