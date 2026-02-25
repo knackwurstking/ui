@@ -40,7 +40,7 @@ func NewLoggerWithVerbose(group string) *Logger {
 func (l *Logger) infof(format string, args ...any) {
 	timestamp := time.Now().Format("2006-01-02 15:04:05")
 	message := fmt.Sprintf(format, args...)
-	l.logger.Printf("[%s] [INFO ] [%s] %s", timestamp, l.group, message)
+	l.logger.Printf("[%s] [INFO ] [%s] \033[34m%s\033[0m", timestamp, l.group, message)
 }
 
 // verbosef logs a verbose message with timestamp, level and group prefix (with dim and italic formatting)
