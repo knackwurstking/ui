@@ -1,0 +1,10 @@
+package components
+
+import (
+	"github.com/knackwurstking/ui"
+	"path/filepath"
+)
+
+templ Styles(serverPathToCSS ...string) {
+	<link rel="stylesheet" href={ ui.AssetURL(filepath.Join(serverPathToCSS...), "spinner.css") }/>
+}
