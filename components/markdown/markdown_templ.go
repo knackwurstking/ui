@@ -49,6 +49,10 @@ func Markdown(props ...Props) templ.Component {
 		}
 		prop := props[0]
 
+		if prop.Attributes == nil {
+			prop.Attributes = templ.Attributes{}
+		}
+
 		prop.Attributes["data-markdown-content"] = prop.Content
 
 		if c, ok := prop.Attributes["class"]; ok {
@@ -85,7 +89,7 @@ func Markdown(props ...Props) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(prop.Content)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/markdown/markdown.templ`, Line: 38, Col: 21}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/markdown/markdown.templ`, Line: 42, Col: 21}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -132,7 +136,7 @@ func Styles(serverPathToCSS ...string) templ.Component {
 		var templ_7745c5c3_Var4 templ.SafeURL
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinURLErrs(ui.AssetURL(filepath.Join(serverPathToCSS...), "markdown.css"))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/markdown/markdown.templ`, Line: 44, Col: 93}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/markdown/markdown.templ`, Line: 48, Col: 93}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -174,7 +178,7 @@ func Scripts(serverPathToJS ...string) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(ui.AssetURL(filepath.Join(serverPathToJS...), "markdown.js"))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/markdown/markdown.templ`, Line: 48, Col: 81}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/markdown/markdown.templ`, Line: 52, Col: 81}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
