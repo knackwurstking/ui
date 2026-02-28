@@ -1,0 +1,49 @@
+package markdown
+
+import (
+	"fmt"
+	"github.com/knackwurstking/ui"
+	"github.com/knackwurstking/ui/components/spinner"
+	"path/filepath"
+)
+
+type Props struct {
+	ID          string
+	Class       string
+	Attributes  templ.Attributes
+	UseMarkdown bool
+	Content     string
+}
+
+templ Markdown(props ...Props) {
+	{{
+		if len(props) == 0 {
+			props = append(props, Props{})
+		}
+		prop := props[0]
+
+		prop.Attributes["data-markdown-content"] = prop.Content
+
+		if c, ok := prop.Attributes["class"]; ok {
+			prop.Attributes["class"] = fmt.Sprintf("markdown-content %v", c)
+		} else {
+			prop.Attributes["class"] = "markdown-content"
+		}
+	}}
+	if prop.UseMarkdown {
+		<div { prop.Attributes... }>
+			@spinner.Spinner()
+		</div>
+	} else {
+		<pre>{ prop.Content }</pre>
+	}
+}
+
+templ Styles(serverPathToCSS ...string) {
+	@spinner.Styles(serverPathToCSS...)
+	<link rel="stylesheet" href={ ui.AssetURL(filepath.Join(serverPathToCSS...), "markdown.css") }/>
+}
+
+templ Scripts(serverPathToJS ...string) {
+	<script defer nonce={ templ.GetNonce(ctx) } src={ ui.AssetURL(filepath.Join(serverPathToJS...), "markdown.js") }></script>
+}
