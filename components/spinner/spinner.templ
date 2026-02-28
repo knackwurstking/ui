@@ -19,6 +19,10 @@ templ Spinner(props ...Props) {
 		}
 		prop := props[0]
 
+		if prop.Attributes == nil {
+			prop.Attributes = templ.Attributes{}
+		}
+
 		if s, ok := prop.Attributes["style"]; ok {
 			prop.Attributes["style"] = fmt.Sprintf("position: relative; height: 100%%; min-height: 5rem; %s", s)
 		} else {

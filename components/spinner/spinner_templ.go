@@ -46,6 +46,10 @@ func Spinner(props ...Props) templ.Component {
 		}
 		prop := props[0]
 
+		if prop.Attributes == nil {
+			prop.Attributes = templ.Attributes{}
+		}
+
 		if s, ok := prop.Attributes["style"]; ok {
 			prop.Attributes["style"] = fmt.Sprintf("position: relative; height: 100%%; min-height: 5rem; %s", s)
 		} else {
@@ -63,7 +67,7 @@ func Spinner(props ...Props) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(prop.ID)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/spinner/spinner.templ`, Line: 29, Col: 14}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/spinner/spinner.templ`, Line: 33, Col: 14}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -126,7 +130,7 @@ func Styles(serverPathToCSS ...string) templ.Component {
 		var templ_7745c5c3_Var6 templ.SafeURL
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinURLErrs(ui.AssetURL(filepath.Join(serverPathToCSS...), "spinner.css"))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/spinner/spinner.templ`, Line: 38, Col: 92}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/spinner/spinner.templ`, Line: 42, Col: 92}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
