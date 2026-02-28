@@ -45,5 +45,5 @@ templ Styles(serverPathToCSS ...string) {
 }
 
 templ Scripts(serverPathToJS ...string) {
-	<script defer nonce={ templ.GetNonce(ctx) } src={ ui.AssetURL(filepath.Join(serverPathToJS...), "markdown.js") }></script>
+	<script defer src={ ui.AssetURL(filepath.Join(serverPathToJS...), "markdown.js") }></script>
 }
