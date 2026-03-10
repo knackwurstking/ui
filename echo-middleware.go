@@ -13,7 +13,7 @@ import (
 //
 // This middleware configures cache headers to tell the browser to check the network first
 // before using cached versions, ensuring users always get the latest content.
-func EchoMiddlewareCache(additionalPaths []string) echo.MiddlewareFunc {
+func EchoMiddlewareCache(additionalPaths ...string) echo.MiddlewareFunc {
 	// Set cache headers for assets with version query parameters
 	setAssetCacheHeaders := func(ctx echo.Context) {
 		// For assets with version query params, allow long-term caching
